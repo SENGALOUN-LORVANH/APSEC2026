@@ -1,0 +1,133 @@
+# Machine-readable protocol. Status: DRAFT (not frozen).
+# Freezing = set frozen: true, fill every TO_FREEZE value, record hashes, commit, tag "protocol-v2-frozen".
+# After freezing, every change goes to protocol/DEVIATIONS.md.
+frozen: false
+frozen_at: null
+frozen_commit: null
+
+authoritative_machine:
+  host: lab PC (native Ubuntu preferred; WSL2 Ubuntu acceptable)
+  environment_record: results/environment.json
+  mac_usage: coding, git, inspection, small engineering tests only
+
+dataset:
+  source: Zenodo 3730599 Patches.zip
+  archive_md5: 11203b88e6ae8a657757c6b5842d5a46
+  manifest_sha256: TO_FREEZE
+  label_policy_primary: configs/label_policy_primary.yaml
+  label_policy_sensitivity: configs/label_policy_sensitivity.yaml
+  label_policy_file_sha256: TO_FREEZE
+  duplicates:
+    primary: retain all candidate records
+    sensitivity: collapse byte-identical normalized diffs within the same bug (keep first patch_id in sorted order)
+  normalization: trailing-whitespace hunk rebuild, applied only if it reduces changed lines; verified per patch
+
+defects4j:
+  version: TO_FREEZE            # v2.0.1 (JDK 8) or v3.0.1 (JDK 11); chosen by checkout/compile/trigger verification only
+  commit: TO_FREEZE
+  jdk_for_projects: TO_FREEZE
+  jdk_for_analysis_tools: 21
+  patch_application: "patch -p? --dry-run first; no fuzz; record patch_applies"
+  test_timeout_seconds: 60
+  repetitions_per_execution: 3
+
+llm:
+  candidates:
+    - {model: claude-haiku-4-5, settings: {temperature: 0.0}}
+    - {model: claude-sonnet-5, settings: {effort: medium}}
+  selected_model: TO_FREEZE
+  selection_rule: >
+    Decided on the 50-patch pre-flight pilot WITHOUT using label agreement.
+    Qualify if: structured-output parse rate >= 0.95, token-limit failures <= 0.02, no leakage aborts caused by the
+    model pipeline. Among qualifying models choose the higher run-to-run judgement stability (fraction of patches
+    with identical judgement across 3 runs); if stability differs by < 0.02 choose the lower projected full-run cost.
+  max_tokens: 16000
+  semantic_runs_per_patch: 3
+  counterexample_calls_per_patch: 1       # one call returning K tests
+  cache_key: [model, settings, max_tokens, prompt_sha256, context_sha256, patch_id, run]
+
+prompts:
+  semantic: prompts/semantic_v2.txt
+  counterexample: prompts/counterexample_v2.txt
+  memorization_probe: prompts/probe_v2.txt
+  sha256: TO_FREEZE
+
+context:
+  primary_condition: C
+  conditions:
+    A: candidate diff only
+    B: candidate diff + trigger test names + buggy failure messages
+    C: B + changed buggy methods, signatures, containing class declaration, referenced fields, imports, direct helpers
+  failure_message_caps: {per_message_chars: 2000, total_chars: 8000}
+  context_cap_chars: TO_FREEZE
+
+scores:
+  S_sem:
+    per_run: "confidence if judgement == CORRECT else 1 - confidence (confidence clipped to [0,1], clipping logged)"
+    aggregate: mean over runs
+    decision: "CORRECT if S_sem_final >= 0.5 else OVERFITTING"
+    overfitting_score: 1 - S_sem_final
+  S_cex:
+    K: 3
+    valid_tests: status == VALID_BUG_REVEALING (compile OK, fixed PASS in all repetitions, buggy FAIL in all repetitions)
+    formula: passed_on_candidate / n_valid
+    candidate_timeout: counts as not passed
+    zero_valid: NA (never imputed)
+  S_edit:
+    primary: min(1, gumtree_edit_actions / ast_nodes_of_changed_buggy_methods)
+    fallback: min(1, changed_executable_loc / executable_loc_of_changed_buggy_methods)
+  S_vuln:
+    formula: min(1, sum(weight[severity] for new warnings))
+    new_warnings: candidate_multiset - buggy_multiset, key = (bug_type, class, method_signature, field_or_variable)
+    severity_from_spotbugs_rank: {HIGH: [1, 4], MEDIUM: [5, 9], LOW: [10, 20]}
+    weights: {HIGH: 1.0, MEDIUM: 0.5, LOW: 0.25}      # TO_FREEZE (proposal)
+    custom_ast_checks_severity: MEDIUM
+  PVS:
+    formula: "alpha*S_sem + beta*S_cex - gamma*S_edit - delta*S_vuln"
+    weight_constraints: "alpha, beta, gamma, delta >= 0; sum = 1"
+    missing_S_cex_strategy: TO_FREEZE
+    missing_S_cex_options:
+      directive_renormalized: "(alpha*S_sem - gamma*S_edit - delta*S_vuln) / (alpha + gamma + delta)"
+      shifted_renormalized_recommended: >
+        [alpha*S_sem + beta*S_cex + gamma*(1-S_edit) + delta*(1-S_vuln)] / sum(weights of available components);
+        equals PVS + gamma + delta when all components exist (identical ranking), stays in [0,1] when S_cex is NA
+    sensitivity: missingness-indicator logistic model
+  weights_until_human_preferences: "exploratory supervised calibration (labels), LOPO training folds only"
+
+static_analysis:
+  source_parsing: JavaParser
+  cfg_ir: SootUp
+  pdg: intraprocedural reaching definitions + post-dominance-frontier control dependence on SootUp Jimple
+  fallback_ir: WALA
+  ast_diff: GumTree
+  warnings: [SpotBugs, FindSecBugs]
+  versions: configs/tools.lock   # TO_FREEZE
+
+preferences:
+  comparisons: 240
+  raters: 3
+  calibration: Bradley-Terry on PVS component differences, constrained weights, training-fold projects only
+  status: PENDING until real human data exist
+
+evaluation:
+  positive_class: overfitting
+  primary_split: leave-one-project-out (Chart, Closure, Lang, Math, Time)
+  secondary_split: GroupKFold by bug_id, 5 folds, seed 2026
+  classifier_for_combinations: logistic regression, default hyperparameters (C=1.0), standardized inside training fold, threshold 0.5, no tuning
+  methods: [M0 majority, M1 random stratified, M2 diff-feature baseline, M3 semantic, M4 counterexample, M5 static,
+            M6 sem+cex, M7 sem+static, M8 cex+static, M9 sem+cex+static, M10 full PVS with human preferences]
+  metrics: [precision, recall, f1, macro_f1, specificity, correct_patch_retention, balanced_accuracy, mcc, auroc,
+            average_precision, confusion_matrix]
+  ranking: {primary: conditional_precision_at_1, secondary: end_to_end_precision_at_1,
+            also: [theoretical_max_p1, random_expected_p1, mrr, top3]}
+  bootstrap: {type: cluster by bug_id, resamples: 10000, seed: 2026, paired_for_differences: true}
+  improvement_claim_rule: "95% CI of the paired difference excludes zero"
+  exploratory_only: [patch-level McNemar]
+  seeds: [2026, 2027, 2028, 2029, 2030]
+
+staging:
+  - stage0: local unit tests
+  - stage1: 10-patch end-to-end smoke test (engineering only)
+  - stage2: ~50-patch stratified pre-flight pilot (project x label x size tercile)
+  - stage3: author review of PRE_FLIGHT_REPORT_V2.md
+  - stage4: full experiment only after approval

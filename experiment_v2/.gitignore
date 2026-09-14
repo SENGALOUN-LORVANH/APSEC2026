@@ -5,5 +5,6 @@ __pycache__/
 data/raw/
 workspaces/
 logs/cache/
+logs/dev_environment_*.json
 tools/java/target/
 tools/bin/
