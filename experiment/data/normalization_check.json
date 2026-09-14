@@ -1,0 +1,9 @@
+{
+  "normalized_patches_checked": 66,
+  "unnormalized_patches": 821,
+  "mismatches": [],
+  "normalized_by_label": {
+    "correct": 2,
+    "overfitting": 64
+  }
+}
