@@ -46,6 +46,17 @@ python src/dataset.py --download && python src/dataset.py && pytest -q tests/   
 | 18 Protocol frozen | PENDING (draft in `protocol/`) |
 | 19 50-patch pilot | PENDING — PC |
 
+## 3b. Already implemented on the Mac (pure Python, unit-tested)
+| Module | Covers | Tests |
+|---|---|---|
+| `src/dataset.py` | archive download + MD5, parsing, both label policies, normalization + verification, duplicates, manifest, provenance | `tests/test_dataset.py` |
+| `src/leakage_guard.py` | pre-request label/metadata/fixed-oracle/fingerprint checks, abort + log | `tests/test_leakage_guard.py` |
+| `src/scores.py` | S_sem (run, final, stability), counterexample status classification, S_cex, S_edit, S_vuln, warning multiset diff | `tests/test_scores_pvs.py` |
+| `src/pvs.py` | PVS paper formula, both missing-S_cex strategies, weight validation, exported components | `tests/test_scores_pvs.py` |
+| `src/metrics.py` | precision/recall/F1/macro-F1/specificity/retention/balanced accuracy/MCC/AUROC/AP, LOPO + GroupKFold with leakage assertions, cluster + paired bootstrap, conditional/end-to-end P@1, MRR, Top-3 with ties | `tests/test_metrics.py` |
+| `src/record_environment.py` | environment capture (refuses authoritative mode off Linux) | manual |
+| `prompts/semantic_v2_DRAFT.txt` | semantic prompt with context conditions A/B/C and output schema | awaiting author approval |
+
 ## 4. Remaining implementation order (from the directive, steps 7–37)
 7. `src/d4j.py`: checkout buggy → `workspaces/buggy/<P>_<N>`, fixed → `workspaces/fixed_oracle/<P>_<N>` (then read-only),
    export `dir.src.classes`, `dir.bin.classes`, `cp.compile`, `cp.test`, `tests.trigger`; compile; run trigger tests;

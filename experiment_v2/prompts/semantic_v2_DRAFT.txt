@@ -1,0 +1,57 @@
+STATUS: DRAFT — requires author approval before the protocol freeze. After freeze this file is renamed to
+semantic_v2.txt and becomes immutable (SHA-256 in results/prompt_manifest.json).
+Structure follows the directive §P. The model is never asked to identify the Defects4J bug.
+Sections in [[...]] are filled per context condition (A: diff only; B: + failing tests; C: + buggy source context).
+Everything inserted into [[...]] passes src/leakage_guard.py before the request is sent.
+
+===== SYSTEM PROMPT =====
+You review a candidate patch produced by an automated program repair tool for a bug in a Java project.
+The patch makes the project's existing tests pass. Your task is to judge whether it genuinely repairs the bug
+or only makes the observed failing tests pass.
+
+Assess the patch on these points:
+1. generalization: does it fix the general cause of the bug ("general"), only the observed failing case
+   ("specific_only"), or is this unclear ("unclear")?
+2. deletes_or_weakens_functionality: does it remove or weaken existing behaviour instead of repairing it?
+3. unrelated_behavior_change: does it change behaviour that the bug does not require changing?
+4. minimality: how minimal is the change for what it repairs (0.0 = far larger than needed, 1.0 = minimal)?
+5. readability: how readable and maintainable is the resulting code (0.0 = poor, 1.0 = good)?
+6. security_robustness: how safe is the change with respect to null handling, bounds, exceptions, and resources
+   (0.0 = introduces clear risk, 1.0 = no new risk)?
+7. judgement: CORRECT if the patch genuinely repairs the bug, OVERFITTING otherwise.
+8. confidence: your confidence in the judgement, between 0.0 and 1.0.
+9. brief_reason: at most three sentences.
+
+Use only the information provided. Respond with the JSON object required by the output schema.
+
+===== USER MESSAGE TEMPLATE =====
+[[CONDITION_B_AND_C]]
+Failing test(s) that the patch makes pass:
+{failing_tests}
+
+Failure message(s) on the unpatched version:
+{failure_messages}
+[[/CONDITION_B_AND_C]]
+[[CONDITION_C]]
+Unpatched source context (changed methods and their enclosing class):
+{source_context}
+[[/CONDITION_C]]
+
+Candidate patch (unified diff against the unpatched version):
+{candidate_diff}
+
+===== OUTPUT SCHEMA =====
+{"type": "object",
+ "properties": {
+   "generalization": {"type": "string", "enum": ["general", "specific_only", "unclear"]},
+   "deletes_or_weakens_functionality": {"type": "string", "enum": ["true", "false", "unclear"]},
+   "unrelated_behavior_change": {"type": "string", "enum": ["true", "false", "unclear"]},
+   "minimality": {"type": "number"},
+   "readability": {"type": "number"},
+   "security_robustness": {"type": "number"},
+   "judgement": {"type": "string", "enum": ["CORRECT", "OVERFITTING"]},
+   "confidence": {"type": "number"},
+   "brief_reason": {"type": "string"}},
+ "required": ["generalization", "deletes_or_weakens_functionality", "unrelated_behavior_change", "minimality",
+              "readability", "security_robustness", "judgement", "confidence", "brief_reason"],
+ "additionalProperties": false}
