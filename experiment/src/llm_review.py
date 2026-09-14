@@ -117,11 +117,20 @@ def pilot_sample(records, n, seed):
     return picked
 
 
-def call(client, model, system, user, max_retries=6, schema=SCHEMA):
-    settings = MODEL_SETTINGS[model]
+def config_key(settings, max_tokens):
+    """Everything besides model/prompt that changes the request; part of the cache key."""
+    return json.dumps([settings, max_tokens], sort_keys=True)
+
+
+def call(client, model, system, user, max_retries=6, schema=SCHEMA, effort=None):
+    request_kwargs = MODEL_SETTINGS[model]
+    output_config = {"format": {"type": "json_schema", "schema": schema}}
+    if effort:
+        output_config["effort"] = effort
+    settings = {**request_kwargs, **({"effort": effort} if effort else {})}  # what gets logged
     params = dict(model=model, max_tokens=MAX_TOKENS, system=system,
                   messages=[{"role": "user", "content": user}],
-                  output_config={"format": {"type": "json_schema", "schema": schema}}, **settings)
+                  output_config=output_config, **request_kwargs)
     attempts, last_err = 0, None
     while attempts < max_retries:
         attempts += 1
@@ -152,6 +161,9 @@ def main():
     ap.add_argument("--msg-cap-total", type=int, default=8000, help="max chars for all failure messages")
     ap.add_argument("--log", default="results/raw_llm_responses.jsonl")
     ap.add_argument("--dry-run", action="store_true", help="build prompts and print sizes; no API calls")
+    ap.add_argument("--effort", choices=["low", "medium", "high"], default=None,
+                    help="output_config.effort (bounds thinking on claude-sonnet-5); omitted = model default")
+    ap.add_argument("--only", nargs="*", default=None, help="restrict to these patch_ids (debugging)")
     args = ap.parse_args()
 
     prompt_path = ROOT / args.prompt
@@ -173,15 +185,19 @@ def main():
         log_path = ROOT / args.log.replace(".jsonl", "_pilot.jsonl")
     else:
         log_path = ROOT / args.log
+    if args.only:
+        records = [r for r in records if r["patch_id"] in set(args.only)]
 
     done = set()
     if log_path.exists():
         for line in open(log_path):
             e = json.loads(line)
             if e["status"] == "ok" and e.get("parsed") is not None:  # parse failures are retried
-                done.add((e["model"], e["prompt_sha"], e["patch_id"], e["run"]))
+                done.add((e["model"], e["prompt_sha"], config_key(e["request_settings"], e.get("max_tokens", 4096)),
+                          e["patch_id"], e["run"]))
+    current = config_key({**MODEL_SETTINGS[args.model], **({"effort": args.effort} if args.effort else {})}, MAX_TOKENS)
     jobs = [(r, run) for r in records for run in range(args.runs)
-            if (args.model, prompt_sha, r["patch_id"], run) not in done]
+            if (args.model, prompt_sha, current, r["patch_id"], run) not in done]
     print(f"{len(records)} patches x {args.runs} runs; {len(jobs)} calls to make; log -> {log_path}")
 
     if args.dry_run:
@@ -209,7 +225,7 @@ def main():
 
     def work(rec, run):
         user, truncated = build_user_message(template, rec, trig, args.msg_cap_each, args.msg_cap_total)
-        resp, latency, attempts, settings, err = call(client, args.model, system, user)
+        resp, latency, attempts, settings, err = call(client, args.model, system, user, effort=args.effort)
         entry = {"timestamp": datetime.now(timezone.utc).isoformat(), "model": args.model,
                  "prompt_file": args.prompt, "prompt_sha": prompt_sha, "patch_id": rec["patch_id"],
                  "bug_id": rec["bug_id"], "run": run, "request_settings": settings, "max_tokens": MAX_TOKENS,
