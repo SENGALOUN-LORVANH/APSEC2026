@@ -1,0 +1,15 @@
+Majority class
+                 pred OVERFIT  pred CORRECT
+  true OVERFIT            642             0
+  true CORRECT            245             0
+
+Random (stratified)
+                 pred OVERFIT  pred CORRECT
+  true OVERFIT            444           198
+  true CORRECT            171            74
+
+Diff features only
+                 pred OVERFIT  pred CORRECT
+  true OVERFIT            632            10
+  true CORRECT            237             8
+

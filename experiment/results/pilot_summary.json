@@ -1,0 +1,63 @@
+[
+  {
+    "log": "results/raw_llm_responses_haiku_pilot.jsonl",
+    "model": "claude-haiku-4-5",
+    "response_models": [
+      "claude-haiku-4-5-20251001"
+    ],
+    "request_settings": {
+      "extra_body": {
+        "temperature": 0.0
+      }
+    },
+    "calls": 20,
+    "ok": 20,
+    "errors": 0,
+    "parse_failures": 0,
+    "stop_reasons": {
+      "end_turn": 20
+    },
+    "latency_s": {
+      "mean": 2.69,
+      "median": 2.1,
+      "max": 6.22
+    },
+    "input_tokens_mean": 1004,
+    "output_tokens_mean": 64,
+    "cost_usd_total_pilot": 0.0265,
+    "cost_usd_per_call_mean": 0.00132,
+    "projected_cost_usd_full_1_run": 1.17,
+    "projected_cost_usd_full_3_runs": 3.52,
+    "sanity_agreement_with_labels": "13/20",
+    "price_source": "Claude API skill model table cached 2026-06-24; verify before publishing"
+  },
+  {
+    "log": "results/raw_llm_responses_sonnet_pilot.jsonl",
+    "model": "claude-sonnet-5",
+    "response_models": [
+      "claude-sonnet-5"
+    ],
+    "request_settings": {},
+    "calls": 20,
+    "ok": 20,
+    "errors": 0,
+    "parse_failures": 2,
+    "stop_reasons": {
+      "max_tokens": 2,
+      "end_turn": 18
+    },
+    "latency_s": {
+      "mean": 14.82,
+      "median": 9.91,
+      "max": 46.06
+    },
+    "input_tokens_mean": 1260,
+    "output_tokens_mean": 1234,
+    "cost_usd_total_pilot": 0.2971,
+    "cost_usd_per_call_mean": 0.01486,
+    "projected_cost_usd_full_1_run": 13.18,
+    "projected_cost_usd_full_3_runs": 39.53,
+    "sanity_agreement_with_labels": "15/18",
+    "price_source": "Claude API skill model table cached 2026-06-24; verify before publishing"
+  }
+]

@@ -1,0 +1,409 @@
+method,bug_id,n_patches,n_correct,n_tied_top,top1_correct_expected,random_expected
+Majority class,Chart-1,24,11,24,0.4583333333333333,0.4583333333333333
+Majority class,Chart-11,9,9,9,1.0,1.0
+Majority class,Chart-12,6,1,6,0.16666666666666666,0.16666666666666666
+Majority class,Chart-13,12,0,12,0.0,0.0
+Majority class,Chart-14,6,1,6,0.16666666666666666,0.16666666666666666
+Majority class,Chart-15,7,0,7,0.0,0.0
+Majority class,Chart-17,3,0,3,0.0,0.0
+Majority class,Chart-18,2,0,2,0.0,0.0
+Majority class,Chart-19,6,5,6,0.8333333333333334,0.8333333333333334
+Majority class,Chart-20,3,3,3,1.0,1.0
+Majority class,Chart-24,9,8,9,0.8888888888888888,0.8888888888888888
+Majority class,Chart-25,14,0,14,0.0,0.0
+Majority class,Chart-26,12,4,12,0.3333333333333333,0.3333333333333333
+Majority class,Chart-3,7,0,7,0.0,0.0
+Majority class,Chart-4,5,5,5,1.0,1.0
+Majority class,Chart-5,10,0,10,0.0,0.0
+Majority class,Chart-7,8,1,8,0.125,0.125
+Majority class,Chart-8,2,2,2,1.0,1.0
+Majority class,Chart-9,9,5,9,0.5555555555555556,0.5555555555555556
+Majority class,Closure-1,2,0,2,0.0,0.0
+Majority class,Closure-10,4,0,4,0.0,0.0
+Majority class,Closure-107,2,0,2,0.0,0.0
+Majority class,Closure-108,2,0,2,0.0,0.0
+Majority class,Closure-109,3,0,3,0.0,0.0
+Majority class,Closure-112,4,0,4,0.0,0.0
+Majority class,Closure-114,4,0,4,0.0,0.0
+Majority class,Closure-115,8,6,8,0.75,0.75
+Majority class,Closure-117,2,0,2,0.0,0.0
+Majority class,Closure-119,2,0,2,0.0,0.0
+Majority class,Closure-12,3,0,3,0.0,0.0
+Majority class,Closure-120,3,0,3,0.0,0.0
+Majority class,Closure-121,3,0,3,0.0,0.0
+Majority class,Closure-124,4,0,4,0.0,0.0
+Majority class,Closure-125,2,0,2,0.0,0.0
+Majority class,Closure-126,12,7,12,0.5833333333333334,0.5833333333333334
+Majority class,Closure-127,2,0,2,0.0,0.0
+Majority class,Closure-129,6,0,6,0.0,0.0
+Majority class,Closure-130,4,0,4,0.0,0.0
+Majority class,Closure-133,2,0,2,0.0,0.0
+Majority class,Closure-14,2,1,2,0.5,0.5
+Majority class,Closure-18,6,2,6,0.3333333333333333,0.3333333333333333
+Majority class,Closure-21,10,0,10,0.0,0.0
+Majority class,Closure-22,10,0,10,0.0,0.0
+Majority class,Closure-26,2,0,2,0.0,0.0
+Majority class,Closure-31,3,1,3,0.3333333333333333,0.3333333333333333
+Majority class,Closure-33,6,1,6,0.16666666666666666,0.16666666666666666
+Majority class,Closure-38,5,1,5,0.2,0.2
+Majority class,Closure-40,2,2,2,1.0,1.0
+Majority class,Closure-45,5,0,5,0.0,0.0
+Majority class,Closure-46,6,1,6,0.16666666666666666,0.16666666666666666
+Majority class,Closure-55,4,0,4,0.0,0.0
+Majority class,Closure-59,4,0,4,0.0,0.0
+Majority class,Closure-61,2,0,2,0.0,0.0
+Majority class,Closure-62,9,5,9,0.5555555555555556,0.5555555555555556
+Majority class,Closure-63,9,5,9,0.5555555555555556,0.5555555555555556
+Majority class,Closure-66,2,0,2,0.0,0.0
+Majority class,Closure-67,4,0,4,0.0,0.0
+Majority class,Closure-68,3,1,3,0.3333333333333333,0.3333333333333333
+Majority class,Closure-7,2,0,2,0.0,0.0
+Majority class,Closure-73,8,7,8,0.875,0.875
+Majority class,Closure-75,4,0,4,0.0,0.0
+Majority class,Closure-78,4,0,4,0.0,0.0
+Majority class,Closure-8,2,0,2,0.0,0.0
+Majority class,Closure-86,5,1,5,0.2,0.2
+Majority class,Closure-92,10,0,10,0.0,0.0
+Majority class,Closure-93,9,0,9,0.0,0.0
+Majority class,Lang-10,5,3,5,0.6,0.6
+Majority class,Lang-13,3,0,3,0.0,0.0
+Majority class,Lang-16,4,0,4,0.0,0.0
+Majority class,Lang-18,2,0,2,0.0,0.0
+Majority class,Lang-20,4,0,4,0.0,0.0
+Majority class,Lang-22,4,0,4,0.0,0.0
+Majority class,Lang-24,3,1,3,0.3333333333333333,0.3333333333333333
+Majority class,Lang-27,7,0,7,0.0,0.0
+Majority class,Lang-33,4,4,4,1.0,1.0
+Majority class,Lang-38,4,4,4,1.0,1.0
+Majority class,Lang-39,4,1,4,0.25,0.25
+Majority class,Lang-41,3,0,3,0.0,0.0
+Majority class,Lang-43,5,2,5,0.4,0.4
+Majority class,Lang-44,3,0,3,0.0,0.0
+Majority class,Lang-45,6,1,6,0.16666666666666666,0.16666666666666666
+Majority class,Lang-51,14,6,14,0.42857142857142855,0.42857142857142855
+Majority class,Lang-53,2,0,2,0.0,0.0
+Majority class,Lang-55,5,1,5,0.2,0.2
+Majority class,Lang-57,7,5,7,0.7142857142857143,0.7142857142857143
+Majority class,Lang-58,5,1,5,0.2,0.2
+Majority class,Lang-59,20,5,20,0.25,0.25
+Majority class,Lang-6,6,5,6,0.8333333333333334,0.8333333333333334
+Majority class,Lang-61,3,0,3,0.0,0.0
+Majority class,Lang-63,6,0,6,0.0,0.0
+Majority class,Lang-7,4,1,4,0.25,0.25
+Majority class,Math-104,2,0,2,0.0,0.0
+Majority class,Math-105,2,0,2,0.0,0.0
+Majority class,Math-15,2,0,2,0.0,0.0
+Majority class,Math-2,12,0,12,0.0,0.0
+Majority class,Math-20,3,0,3,0.0,0.0
+Majority class,Math-28,7,0,7,0.0,0.0
+Majority class,Math-30,3,3,3,1.0,1.0
+Majority class,Math-31,2,0,2,0.0,0.0
+Majority class,Math-32,5,1,5,0.2,0.2
+Majority class,Math-33,6,3,6,0.5,0.5
+Majority class,Math-34,2,2,2,1.0,1.0
+Majority class,Math-4,3,1,3,0.3333333333333333,0.3333333333333333
+Majority class,Math-40,4,0,4,0.0,0.0
+Majority class,Math-41,3,1,3,0.3333333333333333,0.3333333333333333
+Majority class,Math-42,2,0,2,0.0,0.0
+Majority class,Math-43,2,0,2,0.0,0.0
+Majority class,Math-49,6,0,6,0.0,0.0
+Majority class,Math-5,15,11,15,0.7333333333333333,0.7333333333333333
+Majority class,Math-50,15,6,15,0.4,0.4
+Majority class,Math-53,7,4,7,0.5714285714285714,0.5714285714285714
+Majority class,Math-57,8,6,8,0.75,0.75
+Majority class,Math-58,8,5,8,0.625,0.625
+Majority class,Math-59,6,5,6,0.8333333333333334,0.8333333333333334
+Majority class,Math-6,3,0,3,0.0,0.0
+Majority class,Math-62,3,0,3,0.0,0.0
+Majority class,Math-63,15,1,15,0.06666666666666667,0.06666666666666667
+Majority class,Math-65,2,2,2,1.0,1.0
+Majority class,Math-69,2,0,2,0.0,0.0
+Majority class,Math-7,2,0,2,0.0,0.0
+Majority class,Math-70,11,9,11,0.8181818181818182,0.8181818181818182
+Majority class,Math-71,3,1,3,0.3333333333333333,0.3333333333333333
+Majority class,Math-73,5,0,5,0.0,0.0
+Majority class,Math-75,7,7,7,1.0,1.0
+Majority class,Math-78,2,0,2,0.0,0.0
+Majority class,Math-79,3,3,3,1.0,1.0
+Majority class,Math-8,6,0,6,0.0,0.0
+Majority class,Math-80,31,4,31,0.12903225806451613,0.12903225806451613
+Majority class,Math-81,14,0,14,0.0,0.0
+Majority class,Math-82,23,7,23,0.30434782608695654,0.30434782608695654
+Majority class,Math-84,10,0,10,0.0,0.0
+Majority class,Math-85,38,6,38,0.15789473684210525,0.15789473684210525
+Majority class,Math-88,5,0,5,0.0,0.0
+Majority class,Math-89,4,4,4,1.0,1.0
+Majority class,Math-95,8,0,8,0.0,0.0
+Majority class,Time-11,2,0,2,0.0,0.0
+Random (stratified),Chart-1,24,11,1,1.0,0.4583333333333333
+Random (stratified),Chart-11,9,9,1,1.0,1.0
+Random (stratified),Chart-12,6,1,1,0.0,0.16666666666666666
+Random (stratified),Chart-13,12,0,1,0.0,0.0
+Random (stratified),Chart-14,6,1,1,0.0,0.16666666666666666
+Random (stratified),Chart-15,7,0,1,0.0,0.0
+Random (stratified),Chart-17,3,0,1,0.0,0.0
+Random (stratified),Chart-18,2,0,1,0.0,0.0
+Random (stratified),Chart-19,6,5,1,1.0,0.8333333333333334
+Random (stratified),Chart-20,3,3,1,1.0,1.0
+Random (stratified),Chart-24,9,8,1,1.0,0.8888888888888888
+Random (stratified),Chart-25,14,0,1,0.0,0.0
+Random (stratified),Chart-26,12,4,1,0.0,0.3333333333333333
+Random (stratified),Chart-3,7,0,1,0.0,0.0
+Random (stratified),Chart-4,5,5,1,1.0,1.0
+Random (stratified),Chart-5,10,0,1,0.0,0.0
+Random (stratified),Chart-7,8,1,1,0.0,0.125
+Random (stratified),Chart-8,2,2,1,1.0,1.0
+Random (stratified),Chart-9,9,5,1,0.0,0.5555555555555556
+Random (stratified),Closure-1,2,0,1,0.0,0.0
+Random (stratified),Closure-10,4,0,1,0.0,0.0
+Random (stratified),Closure-107,2,0,1,0.0,0.0
+Random (stratified),Closure-108,2,0,1,0.0,0.0
+Random (stratified),Closure-109,3,0,1,0.0,0.0
+Random (stratified),Closure-112,4,0,1,0.0,0.0
+Random (stratified),Closure-114,4,0,1,0.0,0.0
+Random (stratified),Closure-115,8,6,1,1.0,0.75
+Random (stratified),Closure-117,2,0,1,0.0,0.0
+Random (stratified),Closure-119,2,0,1,0.0,0.0
+Random (stratified),Closure-12,3,0,1,0.0,0.0
+Random (stratified),Closure-120,3,0,1,0.0,0.0
+Random (stratified),Closure-121,3,0,1,0.0,0.0
+Random (stratified),Closure-124,4,0,1,0.0,0.0
+Random (stratified),Closure-125,2,0,1,0.0,0.0
+Random (stratified),Closure-126,12,7,1,1.0,0.5833333333333334
+Random (stratified),Closure-127,2,0,1,0.0,0.0
+Random (stratified),Closure-129,6,0,1,0.0,0.0
+Random (stratified),Closure-130,4,0,1,0.0,0.0
+Random (stratified),Closure-133,2,0,1,0.0,0.0
+Random (stratified),Closure-14,2,1,1,0.0,0.5
+Random (stratified),Closure-18,6,2,1,0.0,0.3333333333333333
+Random (stratified),Closure-21,10,0,1,0.0,0.0
+Random (stratified),Closure-22,10,0,1,0.0,0.0
+Random (stratified),Closure-26,2,0,1,0.0,0.0
+Random (stratified),Closure-31,3,1,1,0.0,0.3333333333333333
+Random (stratified),Closure-33,6,1,1,1.0,0.16666666666666666
+Random (stratified),Closure-38,5,1,1,0.0,0.2
+Random (stratified),Closure-40,2,2,1,1.0,1.0
+Random (stratified),Closure-45,5,0,1,0.0,0.0
+Random (stratified),Closure-46,6,1,1,0.0,0.16666666666666666
+Random (stratified),Closure-55,4,0,1,0.0,0.0
+Random (stratified),Closure-59,4,0,1,0.0,0.0
+Random (stratified),Closure-61,2,0,1,0.0,0.0
+Random (stratified),Closure-62,9,5,1,1.0,0.5555555555555556
+Random (stratified),Closure-63,9,5,1,0.0,0.5555555555555556
+Random (stratified),Closure-66,2,0,1,0.0,0.0
+Random (stratified),Closure-67,4,0,1,0.0,0.0
+Random (stratified),Closure-68,3,1,1,1.0,0.3333333333333333
+Random (stratified),Closure-7,2,0,1,0.0,0.0
+Random (stratified),Closure-73,8,7,1,1.0,0.875
+Random (stratified),Closure-75,4,0,1,0.0,0.0
+Random (stratified),Closure-78,4,0,1,0.0,0.0
+Random (stratified),Closure-8,2,0,1,0.0,0.0
+Random (stratified),Closure-86,5,1,1,0.0,0.2
+Random (stratified),Closure-92,10,0,1,0.0,0.0
+Random (stratified),Closure-93,9,0,1,0.0,0.0
+Random (stratified),Lang-10,5,3,1,0.0,0.6
+Random (stratified),Lang-13,3,0,1,0.0,0.0
+Random (stratified),Lang-16,4,0,1,0.0,0.0
+Random (stratified),Lang-18,2,0,1,0.0,0.0
+Random (stratified),Lang-20,4,0,1,0.0,0.0
+Random (stratified),Lang-22,4,0,1,0.0,0.0
+Random (stratified),Lang-24,3,1,1,1.0,0.3333333333333333
+Random (stratified),Lang-27,7,0,1,0.0,0.0
+Random (stratified),Lang-33,4,4,1,1.0,1.0
+Random (stratified),Lang-38,4,4,1,1.0,1.0
+Random (stratified),Lang-39,4,1,1,1.0,0.25
+Random (stratified),Lang-41,3,0,1,0.0,0.0
+Random (stratified),Lang-43,5,2,1,1.0,0.4
+Random (stratified),Lang-44,3,0,1,0.0,0.0
+Random (stratified),Lang-45,6,1,1,0.0,0.16666666666666666
+Random (stratified),Lang-51,14,6,1,0.0,0.42857142857142855
+Random (stratified),Lang-53,2,0,1,0.0,0.0
+Random (stratified),Lang-55,5,1,1,0.0,0.2
+Random (stratified),Lang-57,7,5,1,0.0,0.7142857142857143
+Random (stratified),Lang-58,5,1,1,0.0,0.2
+Random (stratified),Lang-59,20,5,1,0.0,0.25
+Random (stratified),Lang-6,6,5,1,1.0,0.8333333333333334
+Random (stratified),Lang-61,3,0,1,0.0,0.0
+Random (stratified),Lang-63,6,0,1,0.0,0.0
+Random (stratified),Lang-7,4,1,1,0.0,0.25
+Random (stratified),Math-104,2,0,1,0.0,0.0
+Random (stratified),Math-105,2,0,1,0.0,0.0
+Random (stratified),Math-15,2,0,1,0.0,0.0
+Random (stratified),Math-2,12,0,1,0.0,0.0
+Random (stratified),Math-20,3,0,1,0.0,0.0
+Random (stratified),Math-28,7,0,1,0.0,0.0
+Random (stratified),Math-30,3,3,1,1.0,1.0
+Random (stratified),Math-31,2,0,1,0.0,0.0
+Random (stratified),Math-32,5,1,1,0.0,0.2
+Random (stratified),Math-33,6,3,1,0.0,0.5
+Random (stratified),Math-34,2,2,1,1.0,1.0
+Random (stratified),Math-4,3,1,1,0.0,0.3333333333333333
+Random (stratified),Math-40,4,0,1,0.0,0.0
+Random (stratified),Math-41,3,1,1,0.0,0.3333333333333333
+Random (stratified),Math-42,2,0,1,0.0,0.0
+Random (stratified),Math-43,2,0,1,0.0,0.0
+Random (stratified),Math-49,6,0,1,0.0,0.0
+Random (stratified),Math-5,15,11,1,1.0,0.7333333333333333
+Random (stratified),Math-50,15,6,1,1.0,0.4
+Random (stratified),Math-53,7,4,1,0.0,0.5714285714285714
+Random (stratified),Math-57,8,6,1,1.0,0.75
+Random (stratified),Math-58,8,5,1,1.0,0.625
+Random (stratified),Math-59,6,5,1,1.0,0.8333333333333334
+Random (stratified),Math-6,3,0,1,0.0,0.0
+Random (stratified),Math-62,3,0,1,0.0,0.0
+Random (stratified),Math-63,15,1,1,0.0,0.06666666666666667
+Random (stratified),Math-65,2,2,1,1.0,1.0
+Random (stratified),Math-69,2,0,1,0.0,0.0
+Random (stratified),Math-7,2,0,1,0.0,0.0
+Random (stratified),Math-70,11,9,1,1.0,0.8181818181818182
+Random (stratified),Math-71,3,1,1,1.0,0.3333333333333333
+Random (stratified),Math-73,5,0,1,0.0,0.0
+Random (stratified),Math-75,7,7,1,1.0,1.0
+Random (stratified),Math-78,2,0,1,0.0,0.0
+Random (stratified),Math-79,3,3,1,1.0,1.0
+Random (stratified),Math-8,6,0,1,0.0,0.0
+Random (stratified),Math-80,31,4,1,0.0,0.12903225806451613
+Random (stratified),Math-81,14,0,1,0.0,0.0
+Random (stratified),Math-82,23,7,1,0.0,0.30434782608695654
+Random (stratified),Math-84,10,0,1,0.0,0.0
+Random (stratified),Math-85,38,6,1,0.0,0.15789473684210525
+Random (stratified),Math-88,5,0,1,0.0,0.0
+Random (stratified),Math-89,4,4,1,1.0,1.0
+Random (stratified),Math-95,8,0,1,0.0,0.0
+Random (stratified),Time-11,2,0,1,0.0,0.0
+Diff features only,Chart-1,24,11,3,0.0,0.4583333333333333
+Diff features only,Chart-11,9,9,9,1.0,1.0
+Diff features only,Chart-12,6,1,1,1.0,0.16666666666666666
+Diff features only,Chart-13,12,0,1,0.0,0.0
+Diff features only,Chart-14,6,1,2,0.0,0.16666666666666666
+Diff features only,Chart-15,7,0,1,0.0,0.0
+Diff features only,Chart-17,3,0,2,0.0,0.0
+Diff features only,Chart-18,2,0,1,0.0,0.0
+Diff features only,Chart-19,6,5,4,1.0,0.8333333333333334
+Diff features only,Chart-20,3,3,1,1.0,1.0
+Diff features only,Chart-24,9,8,1,1.0,0.8888888888888888
+Diff features only,Chart-25,14,0,2,0.0,0.0
+Diff features only,Chart-26,12,4,1,0.0,0.3333333333333333
+Diff features only,Chart-3,7,0,2,0.0,0.0
+Diff features only,Chart-4,5,5,4,1.0,1.0
+Diff features only,Chart-5,10,0,2,0.0,0.0
+Diff features only,Chart-7,8,1,1,0.0,0.125
+Diff features only,Chart-8,2,2,2,1.0,1.0
+Diff features only,Chart-9,9,5,1,0.0,0.5555555555555556
+Diff features only,Closure-1,2,0,1,0.0,0.0
+Diff features only,Closure-10,4,0,1,0.0,0.0
+Diff features only,Closure-107,2,0,1,0.0,0.0
+Diff features only,Closure-108,2,0,1,0.0,0.0
+Diff features only,Closure-109,3,0,2,0.0,0.0
+Diff features only,Closure-112,4,0,1,0.0,0.0
+Diff features only,Closure-114,4,0,1,0.0,0.0
+Diff features only,Closure-115,8,6,1,1.0,0.75
+Diff features only,Closure-117,2,0,1,0.0,0.0
+Diff features only,Closure-119,2,0,1,0.0,0.0
+Diff features only,Closure-12,3,0,3,0.0,0.0
+Diff features only,Closure-120,3,0,1,0.0,0.0
+Diff features only,Closure-121,3,0,1,0.0,0.0
+Diff features only,Closure-124,4,0,1,0.0,0.0
+Diff features only,Closure-125,2,0,1,0.0,0.0
+Diff features only,Closure-126,12,7,4,0.0,0.5833333333333334
+Diff features only,Closure-127,2,0,1,0.0,0.0
+Diff features only,Closure-129,6,0,1,0.0,0.0
+Diff features only,Closure-130,4,0,1,0.0,0.0
+Diff features only,Closure-133,2,0,1,0.0,0.0
+Diff features only,Closure-14,2,1,2,0.5,0.5
+Diff features only,Closure-18,6,2,6,0.3333333333333333,0.3333333333333333
+Diff features only,Closure-21,10,0,2,0.0,0.0
+Diff features only,Closure-22,10,0,1,0.0,0.0
+Diff features only,Closure-26,2,0,1,0.0,0.0
+Diff features only,Closure-31,3,1,1,0.0,0.3333333333333333
+Diff features only,Closure-33,6,1,3,0.3333333333333333,0.16666666666666666
+Diff features only,Closure-38,5,1,5,0.2,0.2
+Diff features only,Closure-40,2,2,2,1.0,1.0
+Diff features only,Closure-45,5,0,1,0.0,0.0
+Diff features only,Closure-46,6,1,1,0.0,0.16666666666666666
+Diff features only,Closure-55,4,0,1,0.0,0.0
+Diff features only,Closure-59,4,0,2,0.0,0.0
+Diff features only,Closure-61,2,0,1,0.0,0.0
+Diff features only,Closure-62,9,5,6,0.8333333333333334,0.5555555555555556
+Diff features only,Closure-63,9,5,6,0.8333333333333334,0.5555555555555556
+Diff features only,Closure-66,2,0,2,0.0,0.0
+Diff features only,Closure-67,4,0,1,0.0,0.0
+Diff features only,Closure-68,3,1,1,1.0,0.3333333333333333
+Diff features only,Closure-7,2,0,1,0.0,0.0
+Diff features only,Closure-73,8,7,8,0.875,0.875
+Diff features only,Closure-75,4,0,1,0.0,0.0
+Diff features only,Closure-78,4,0,1,0.0,0.0
+Diff features only,Closure-8,2,0,1,0.0,0.0
+Diff features only,Closure-86,5,1,5,0.2,0.2
+Diff features only,Closure-92,10,0,10,0.0,0.0
+Diff features only,Closure-93,9,0,9,0.0,0.0
+Diff features only,Lang-10,5,3,1,0.0,0.6
+Diff features only,Lang-13,3,0,1,0.0,0.0
+Diff features only,Lang-16,4,0,1,0.0,0.0
+Diff features only,Lang-18,2,0,2,0.0,0.0
+Diff features only,Lang-20,4,0,3,0.0,0.0
+Diff features only,Lang-22,4,0,4,0.0,0.0
+Diff features only,Lang-24,3,1,1,1.0,0.3333333333333333
+Diff features only,Lang-27,7,0,1,0.0,0.0
+Diff features only,Lang-33,4,4,1,1.0,1.0
+Diff features only,Lang-38,4,4,2,1.0,1.0
+Diff features only,Lang-39,4,1,1,1.0,0.25
+Diff features only,Lang-41,3,0,3,0.0,0.0
+Diff features only,Lang-43,5,2,3,0.6666666666666666,0.4
+Diff features only,Lang-44,3,0,1,0.0,0.0
+Diff features only,Lang-45,6,1,1,1.0,0.16666666666666666
+Diff features only,Lang-51,14,6,1,1.0,0.42857142857142855
+Diff features only,Lang-53,2,0,1,0.0,0.0
+Diff features only,Lang-55,5,1,1,0.0,0.2
+Diff features only,Lang-57,7,5,5,1.0,0.7142857142857143
+Diff features only,Lang-58,5,1,1,1.0,0.2
+Diff features only,Lang-59,20,5,11,0.45454545454545453,0.25
+Diff features only,Lang-6,6,5,6,0.8333333333333334,0.8333333333333334
+Diff features only,Lang-61,3,0,1,0.0,0.0
+Diff features only,Lang-63,6,0,4,0.0,0.0
+Diff features only,Lang-7,4,1,1,0.0,0.25
+Diff features only,Math-104,2,0,2,0.0,0.0
+Diff features only,Math-105,2,0,2,0.0,0.0
+Diff features only,Math-15,2,0,2,0.0,0.0
+Diff features only,Math-2,12,0,2,0.0,0.0
+Diff features only,Math-20,3,0,1,0.0,0.0
+Diff features only,Math-28,7,0,4,0.0,0.0
+Diff features only,Math-30,3,3,3,1.0,1.0
+Diff features only,Math-31,2,0,1,0.0,0.0
+Diff features only,Math-32,5,1,5,0.2,0.2
+Diff features only,Math-33,6,3,1,0.0,0.5
+Diff features only,Math-34,2,2,2,1.0,1.0
+Diff features only,Math-4,3,1,1,0.0,0.3333333333333333
+Diff features only,Math-40,4,0,2,0.0,0.0
+Diff features only,Math-41,3,1,1,1.0,0.3333333333333333
+Diff features only,Math-42,2,0,1,0.0,0.0
+Diff features only,Math-43,2,0,1,0.0,0.0
+Diff features only,Math-49,6,0,2,0.0,0.0
+Diff features only,Math-5,15,11,1,1.0,0.7333333333333333
+Diff features only,Math-50,15,6,1,0.0,0.4
+Diff features only,Math-53,7,4,1,1.0,0.5714285714285714
+Diff features only,Math-57,8,6,7,0.8571428571428571,0.75
+Diff features only,Math-58,8,5,4,1.0,0.625
+Diff features only,Math-59,6,5,6,0.8333333333333334,0.8333333333333334
+Diff features only,Math-6,3,0,3,0.0,0.0
+Diff features only,Math-62,3,0,3,0.0,0.0
+Diff features only,Math-63,15,1,1,0.0,0.06666666666666667
+Diff features only,Math-65,2,2,2,1.0,1.0
+Diff features only,Math-69,2,0,1,0.0,0.0
+Diff features only,Math-7,2,0,1,0.0,0.0
+Diff features only,Math-70,11,9,2,0.0,0.8181818181818182
+Diff features only,Math-71,3,1,1,1.0,0.3333333333333333
+Diff features only,Math-73,5,0,1,0.0,0.0
+Diff features only,Math-75,7,7,7,1.0,1.0
+Diff features only,Math-78,2,0,1,0.0,0.0
+Diff features only,Math-79,3,3,3,1.0,1.0
+Diff features only,Math-8,6,0,3,0.0,0.0
+Diff features only,Math-80,31,4,1,0.0,0.12903225806451613
+Diff features only,Math-81,14,0,1,0.0,0.0
+Diff features only,Math-82,23,7,1,0.0,0.30434782608695654
+Diff features only,Math-84,10,0,1,0.0,0.0
+Diff features only,Math-85,38,6,1,0.0,0.15789473684210525
+Diff features only,Math-88,5,0,5,0.0,0.0
+Diff features only,Math-89,4,4,3,1.0,1.0
+Diff features only,Math-95,8,0,1,0.0,0.0
+Diff features only,Time-11,2,0,1,0.0,0.0

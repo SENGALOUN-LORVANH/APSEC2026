@@ -1,0 +1,293 @@
+{
+  "generated_by": "src/evaluate.py",
+  "git_commit": "1a57473",
+  "positive_class": "overfitting",
+  "n_patches": 887,
+  "n_bugs": 200,
+  "base_rate_overfitting": 0.7238,
+  "validation": "leave-one-project-out; metrics pooled over all out-of-fold predictions",
+  "bootstrap": {
+    "resamples": 10000,
+    "unit": "bug",
+    "seed": 2026
+  },
+  "features": [
+    "lines_added",
+    "lines_removed",
+    "total_changed",
+    "code_lines_added",
+    "code_lines_removed",
+    "n_hunks",
+    "n_files",
+    "only_deletes",
+    "adds_conditional_guard",
+    "literal_in_failing_test_message"
+  ],
+  "log1p_features": [
+    "lines_added",
+    "lines_removed",
+    "total_changed",
+    "code_lines_added",
+    "code_lines_removed"
+  ],
+  "llm_logs": {},
+  "methods": {
+    "Majority class": {
+      "precision": 0.7238,
+      "recall": 1.0,
+      "f1": 0.8398,
+      "accuracy": 0.7238,
+      "specificity_correct_kept": 0.0,
+      "precision_ci95": [
+        0.6663,
+        0.7801
+      ],
+      "recall_ci95": [
+        1.0,
+        1.0
+      ],
+      "f1_ci95": [
+        0.7997,
+        0.8764
+      ],
+      "accuracy_ci95": [
+        0.6663,
+        0.7801
+      ],
+      "specificity_correct_kept_ci95": [
+        0.0,
+        0.0
+      ],
+      "auc": 0.4273,
+      "confusion": {
+        "tp": 642,
+        "fp": 245,
+        "tn": 0,
+        "fn": 0
+      }
+    },
+    "Random (stratified)": {
+      "precision": 0.722,
+      "recall": 0.6916,
+      "f1": 0.7064,
+      "accuracy": 0.584,
+      "specificity_correct_kept": 0.302,
+      "precision_ci95": [
+        0.6565,
+        0.7839
+      ],
+      "recall_ci95": [
+        0.6563,
+        0.7236
+      ],
+      "f1_ci95": [
+        0.6655,
+        0.7435
+      ],
+      "accuracy_ci95": [
+        0.5432,
+        0.6227
+      ],
+      "specificity_correct_kept_ci95": [
+        0.246,
+        0.3611
+      ],
+      "auc": 0.4899,
+      "confusion": {
+        "tp": 444,
+        "fp": 171,
+        "tn": 74,
+        "fn": 198
+      }
+    },
+    "Diff features only": {
+      "precision": 0.7273,
+      "recall": 0.9844,
+      "f1": 0.8365,
+      "accuracy": 0.7215,
+      "specificity_correct_kept": 0.0327,
+      "precision_ci95": [
+        0.6695,
+        0.783
+      ],
+      "recall_ci95": [
+        0.9746,
+        0.9928
+      ],
+      "f1_ci95": [
+        0.7968,
+        0.8726
+      ],
+      "accuracy_ci95": [
+        0.6654,
+        0.7757
+      ],
+      "specificity_correct_kept_ci95": [
+        0.0123,
+        0.0578
+      ],
+      "auc": 0.6109,
+      "confusion": {
+        "tp": 632,
+        "fp": 237,
+        "tn": 8,
+        "fn": 10
+      }
+    }
+  },
+  "comparisons": {
+    "Diff features only vs Majority class": {
+      "a_right_b_wrong": 8,
+      "a_wrong_b_right": 10,
+      "p_value_exact": 0.8145294189453125,
+      "delta_f1": -0.0033,
+      "delta_f1_ci95": [
+        -0.009,
+        0.0022
+      ]
+    },
+    "Diff features only vs Random (stratified)": {
+      "a_right_b_wrong": 201,
+      "a_wrong_b_right": 79,
+      "p_value_exact": 1.9858372017911766e-13,
+      "delta_f1": 0.1301,
+      "delta_f1_ci95": [
+        0.1056,
+        0.1569
+      ]
+    }
+  },
+  "precision_at_1": {
+    "Majority class": {
+      "bugs_with_>=2_patches": 136,
+      "precision_at_1": 0.2485,
+      "precision_at_1_ci95": [
+        0.1931,
+        0.3073
+      ],
+      "precision_at_1_among_bugs_with_a_correct_patch": 0.5451,
+      "ceiling_fraction_bugs_with_a_correct_patch": 0.4559,
+      "random_ranking_expected": 0.2485
+    },
+    "Random (stratified)": {
+      "bugs_with_>=2_patches": 136,
+      "precision_at_1": 0.2426,
+      "precision_at_1_ci95": [
+        0.1765,
+        0.3162
+      ],
+      "precision_at_1_among_bugs_with_a_correct_patch": 0.5323,
+      "ceiling_fraction_bugs_with_a_correct_patch": 0.4559,
+      "random_ranking_expected": 0.2485
+    },
+    "Diff features only": {
+      "bugs_with_>=2_patches": 136,
+      "precision_at_1": 0.2717,
+      "precision_at_1_ci95": [
+        0.2029,
+        0.346
+      ],
+      "precision_at_1_among_bugs_with_a_correct_patch": 0.596,
+      "ceiling_fraction_bugs_with_a_correct_patch": 0.4559,
+      "random_ranking_expected": 0.2485
+    }
+  },
+  "per_project": {
+    "Majority class": {
+      "Chart": {
+        "n": 157,
+        "base_rate": 0.6497,
+        "f1": 0.7876
+      },
+      "Closure": {
+        "n": 238,
+        "base_rate": 0.8151,
+        "f1": 0.8981
+      },
+      "Lang": {
+        "n": 142,
+        "base_rate": 0.6972,
+        "f1": 0.8216
+      },
+      "Math": {
+        "n": 344,
+        "base_rate": 0.7064,
+        "f1": 0.8279
+      },
+      "Time": {
+        "n": 6,
+        "base_rate": 0.6667,
+        "f1": 0.8
+      }
+    },
+    "Random (stratified)": {
+      "Chart": {
+        "n": 157,
+        "base_rate": 0.6497,
+        "f1": 0.7163
+      },
+      "Closure": {
+        "n": 238,
+        "base_rate": 0.8151,
+        "f1": 0.6766
+      },
+      "Lang": {
+        "n": 142,
+        "base_rate": 0.6972,
+        "f1": 0.69
+      },
+      "Math": {
+        "n": 344,
+        "base_rate": 0.7064,
+        "f1": 0.7298
+      },
+      "Time": {
+        "n": 6,
+        "base_rate": 0.6667,
+        "f1": 0.6667
+      }
+    },
+    "Diff features only": {
+      "Chart": {
+        "n": 157,
+        "base_rate": 0.6497,
+        "f1": 0.7907
+      },
+      "Closure": {
+        "n": 238,
+        "base_rate": 0.8151,
+        "f1": 0.8967
+      },
+      "Lang": {
+        "n": 142,
+        "base_rate": 0.6972,
+        "f1": 0.8216
+      },
+      "Math": {
+        "n": 344,
+        "base_rate": 0.7064,
+        "f1": 0.8194
+      },
+      "Time": {
+        "n": 6,
+        "base_rate": 0.6667,
+        "f1": 0.8
+      }
+    }
+  },
+  "lr_coefficients_full_fit": {
+    "Diff features only": {
+      "lines_added": 0.2178,
+      "lines_removed": 0.972,
+      "total_changed": -0.9096,
+      "code_lines_added": 0.3768,
+      "code_lines_removed": 0.2284,
+      "n_hunks": -0.2406,
+      "n_files": 0.392,
+      "only_deletes": 0.383,
+      "adds_conditional_guard": 0.2799,
+      "literal_in_failing_test_message": 0.1461
+    }
+  },
+  "cost_and_latency": null
+}
