@@ -35,6 +35,9 @@ MODEL_SETTINGS = {
     "claude-sonnet-5": {},  # no temperature (rejected); thinking left at the model default (adaptive)
 }
 
+# 4096 truncated 2/20 claude-sonnet-5 pilot responses (adaptive thinking counts toward max_tokens).
+MAX_TOKENS = 16000
+
 SCHEMA = {
     "type": "object",
     "properties": {
@@ -116,7 +119,7 @@ def pilot_sample(records, n, seed):
 
 def call(client, model, system, user, max_retries=6, schema=SCHEMA):
     settings = MODEL_SETTINGS[model]
-    params = dict(model=model, max_tokens=4096, system=system,
+    params = dict(model=model, max_tokens=MAX_TOKENS, system=system,
                   messages=[{"role": "user", "content": user}],
                   output_config={"format": {"type": "json_schema", "schema": schema}}, **settings)
     attempts, last_err = 0, None
@@ -175,7 +178,7 @@ def main():
     if log_path.exists():
         for line in open(log_path):
             e = json.loads(line)
-            if e["status"] == "ok":
+            if e["status"] == "ok" and e.get("parsed") is not None:  # parse failures are retried
                 done.add((e["model"], e["prompt_sha"], e["patch_id"], e["run"]))
     jobs = [(r, run) for r in records for run in range(args.runs)
             if (args.model, prompt_sha, r["patch_id"], run) not in done]
@@ -209,7 +212,7 @@ def main():
         resp, latency, attempts, settings, err = call(client, args.model, system, user)
         entry = {"timestamp": datetime.now(timezone.utc).isoformat(), "model": args.model,
                  "prompt_file": args.prompt, "prompt_sha": prompt_sha, "patch_id": rec["patch_id"],
-                 "bug_id": rec["bug_id"], "run": run, "request_settings": settings,
+                 "bug_id": rec["bug_id"], "run": run, "request_settings": settings, "max_tokens": MAX_TOKENS,
                  "msg_cap_each": args.msg_cap_each, "msg_cap_total": args.msg_cap_total,
                  "failure_messages_truncated": truncated, "defects4j_commit": trig_file["defects4j_commit"],
                  "latency_s": latency, "attempts": attempts}
