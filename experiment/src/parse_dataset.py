@@ -12,6 +12,7 @@ Outputs:
   data/dataset_stats.json  counts overall / per project / per tool
 """
 import csv
+import difflib
 import hashlib
 import json
 import re
@@ -65,6 +66,49 @@ def zenodo_exclusion(rec, match_counter):
     return None
 
 
+HUNK_RE = re.compile(r"^@@ -(\d+)(?:,\d+)? \+(\d+)(?:,\d+)? @@")
+
+
+def normalize_trailing_whitespace(text):
+    """Rebuild each hunk ignoring trailing whitespace (no semantic effect in Java).
+
+    Returns the rebuilt diff, or None when normalization does not reduce the changed-line count, so
+    unaffected patches keep their original diff byte-for-byte.
+    """
+    out, hunk, starts = [], None, None
+
+    def flush():
+        if hunk is None:
+            return
+        old = [l[1:].rstrip() for l in hunk if l[:1] in (" ", "-", "")]
+        new = [l[1:].rstrip() for l in hunk if l[:1] in (" ", "+", "")]
+        for line in difflib.unified_diff(old, new, lineterm="", n=3):
+            if line.startswith(("--- ", "+++ ")):
+                continue
+            m = re.match(r"^@@ -(\d+)(,\d+)? \+(\d+)(,\d+)? @@$", line)
+            if m:
+                line = (f"@@ -{int(m.group(1)) + starts[0] - 1}{m.group(2) or ''} "
+                        f"+{int(m.group(3)) + starts[1] - 1}{m.group(4) or ''} @@")
+            out.append(line)
+
+    for line in text.splitlines():
+        m = HUNK_RE.match(line)
+        if line.startswith(("--- ", "+++ ")):
+            flush()
+            hunk = None
+            out.append(line)
+        elif m:
+            flush()
+            hunk, starts = [], (int(m.group(1)), int(m.group(2)))
+        elif hunk is not None and not line.startswith("\\"):
+            hunk.append(line)
+    flush()
+    rebuilt = "\n".join(out) + "\n"
+    changed = lambda t: sum(1 for l in t.splitlines()
+                            if l[:1] in ("+", "-") and not l.startswith(("+++ ", "--- ")))
+    return rebuilt if changed(rebuilt) < changed(text) else None
+
+
 def diff_stats(text):
     files, hunks, added, removed = set(), 0, 0, 0
     for line in text.splitlines():
@@ -111,9 +155,12 @@ def main():
         if not text.strip():
             excluded.append({**base, "reason": "empty diff"})
             continue
+        normalized = normalize_trailing_whitespace(text)
+        diff_for_model = normalized if normalized is not None else text
         records.append({**base, "label": LABEL_OF[folder],
                         "sha1": hashlib.sha1(text.encode()).hexdigest(),
-                        **diff_stats(text), "diff": text})
+                        "whitespace_normalized": normalized is not None,
+                        **diff_stats(diff_for_model), "diff": text, "diff_for_model": diff_for_model})
 
     # Duplicate groups: identical diff for the same bug (and across bugs, reported separately).
     by_hash = defaultdict(list)
@@ -172,6 +219,7 @@ def main():
                        for s in sorted({r["source"] for r in records})},
         "per_folder": dict(Counter(r["folder"] for r in records)),
         "per_tool": dict(sorted(Counter(r["tool"] for r in records).items())),
+        "whitespace_normalized_patches": [r["patch_id"] for r in records if r["whitespace_normalized"]],
         "excluded": {"total": len(excluded), "by_reason": dict(Counter(e["reason"] for e in excluded))},
         "duplicates": {"groups": len({d["sha1"] for d in dup_rows}),
                        "patches_in_groups": len(dup_rows),

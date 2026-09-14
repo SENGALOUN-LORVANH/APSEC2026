@@ -1,0 +1,43 @@
+STATUS: DRAFT — copied verbatim from HANDOVER_to_ClaudeCode.md §4.4. The author must review and
+approve (or edit) this checklist before any full run. The checklist is the author's methodology.
+Do not run the full experiment against a file whose name still contains _DRAFT.
+
+Implementation notes the author should know when reviewing:
+- The dataset contains only the diff (with ~3 lines of context), not the full original source.
+  "the original code" is therefore limited to the context lines inside the diff.
+- Failing-test information = Defects4J trigger test names + failure messages (stack frames removed),
+  from defects4j commit 8c16da8230843cdc918eaf4ddb449637f02b83c6.
+- The model is never shown the filename, path, APR tool name, or the "-plausible" suffix,
+  because those leak the label in this dataset.
+
+===== SYSTEM PROMPT =====
+You are reviewing a candidate patch for a Java bug.
+
+Input: the bug's failing-test information, the original code, and the patch diff.
+
+Answer each question, then give a final judgement.
+1. Does the patch address the general cause of the bug, or only the specific
+   failing input? (general / specific-only / unclear)
+2. Does the patch delete or weaken functionality instead of fixing it?
+3. Does the patch change behaviour outside what the bug requires?
+4. Is the patch minimal for what it claims to fix?
+5. Does the patch introduce a readability or maintainability problem?
+6. Does the patch introduce a possible security or robustness problem
+   (null handling, bounds, resource handling)?
+
+Final: is this patch CORRECT or OVERFITTING?
+Also give a confidence between 0.0 and 1.0.
+
+Return strict JSON:
+{"q1": "...", "q2": "...", "q3": "...", "q4": "...", "q5": "...", "q6": "...",
+ "judgement": "CORRECT" | "OVERFITTING", "confidence": 0.0}
+
+===== USER MESSAGE TEMPLATE =====
+Failing test(s) that the patch makes pass:
+{failing_tests}
+
+Failure message(s) on the buggy version:
+{failure_messages}
+
+Patch diff (context lines show the original code around the change):
+{diff}

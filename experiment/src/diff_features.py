@@ -40,8 +40,9 @@ def main():
     rows = []
     for line in open(ROOT / "data" / "patches.jsonl"):
         r = json.loads(line)
-        added = [l for l in changed_lines(r["diff"], "+") if is_code(l)]
-        removed = [l for l in changed_lines(r["diff"], "-") if is_code(l)]
+        # Trailing-whitespace-normalized diff (identical to the original for unaffected patches).
+        added = [l for l in changed_lines(r["diff_for_model"], "+") if is_code(l)]
+        removed = [l for l in changed_lines(r["diff_for_model"], "-") if is_code(l)]
         msg_text = "\n".join(trig.get(r["bug_id"], {}).get("messages", []))
         added_lits = literals(added)
         rows.append({
@@ -56,6 +57,7 @@ def main():
             # Proxy: Defects4J trigger_tests contain failure messages, not test source code.
             "literal_in_failing_test_message": int(any(lit in msg_text for lit in added_lits)),
             "has_trigger_test_info": int(r["bug_id"] in trig),
+            "whitespace_normalized": int(r["whitespace_normalized"]),
         })
     out = ROOT / "results" / "patch_features.csv"
     out.parent.mkdir(parents=True, exist_ok=True)
