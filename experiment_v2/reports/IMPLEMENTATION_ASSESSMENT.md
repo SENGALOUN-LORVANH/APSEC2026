@@ -74,7 +74,11 @@ Working tree clean after committing the last v1 outputs. 12 commits.
 | AST edit distance | **GumTree** (`gumtree-spoon-ast-diff`) | Edit actions between buggy and candidate method ASTs |
 | Warnings | **SpotBugs 4.8.x + FindSecBugs 1.13** | Buggy vs candidate class files, same auxclasspath |
 
-All versions are pinned in `tools/tools.lock` and recorded in `environment.json`.
+Pinned versions (`configs/tools.lock`): SootUp 2.0.0, JavaParser 3.27.0, GumTree 4.0.0-beta3, SpotBugs 4.9.3,
+FindSecBugs 1.14.0, WALA 1.6.10. SootUp 2.0.0 also ships `sootup.codepropertygraph` (AST/CFG/CDG/DDG); it is evaluated
+on the PC first — if its control- and data-dependence graphs work on Defects4J bytecode they are used for the PDG,
+otherwise the own reaching-definitions / post-dominance implementation is used. Versions are also recorded in
+`environment.json`.
 
 ## 7. CFG extraction
 1. `defects4j compile` in the buggy and candidate workspaces (candidate = buggy + candidate patch).
@@ -163,7 +167,7 @@ PAPER_CHANGES_PENDING.md (repo root)
 ## 19. Main technical risks
 1. **Timeline:** the stated deadline is 2026-09-16. The full reconstruction (Defects4J infrastructure, counterexample oracle, CFG/PDG, SpotBugs, PVS, preference tool, tests, smoke test, pilot) is several working days of engineering plus compute on the PC. The pre-flight report cannot honestly be produced by the deadline.
 2. **Authoritative PC access:** this session runs on macOS with no route to the PC. All gates from 3 onward require running on the PC (Claude Code on the PC, or SSH access).
-3. **Defects4J version:** v3.0.1 requires Java 11 and deprecates some bugs; v2.0.1 uses Java 8, closer to the dataset's era. Choice must be verified empirically (checkout + compile + trigger tests) and frozen.
+3. **Defects4J version:** v3.0.1 requires Java 11; v2.0.1 uses Java 8, closer to the dataset's era. Measured against the dataset: Closure-63 and Closure-93 are deprecated in both (18 patches); Lang-18 is additionally deprecated in v3.0.1 (2 more patches). These patches get `buggy_checkout_available = false` and are reported, not silently dropped. Final choice by empirical checkout + compile + trigger-test verification on the PC, then frozen.
 4. **Patch application:** dataset diffs use paths like `/source/...`, `/src/main/java/...` relative to the source root; hunks may not apply cleanly to Defects4J revisions → `patch_applies` recorded, fuzz disallowed by default.
 5. **Counterexample validity:** generated tests may rarely compile (old APIs, JUnit 3, package-private members) or rarely pass the fixed version → S_cex could be NA for most patches. This is a reportable result, not something to tune away.
 6. **Old bytecode / build systems:** Closure (Ant, large), Time/Chart old layouts; SootUp on Java 1.4–6 class files untested for these projects.

@@ -1,0 +1,26 @@
+# Pinned tool versions (latest on Maven Central / GitHub as of 2026-09-15). Frozen with the protocol.
+# Any change after freeze -> protocol/DEVIATIONS.md.
+
+defects4j.v2.tag=v2.0.1
+defects4j.v2.commit=a83e47921152721569cb95d6d7b91c4be277d940
+defects4j.v2.jdk=8
+defects4j.v3.tag=v3.0.1
+defects4j.v3.commit=6d54320e0db5a357f9ab38a8e4d2e5aead7e1c09
+defects4j.v3.jdk=11
+defects4j.selected=TO_FREEZE
+
+analysis.jdk=21
+org.soot-oss:sootup.core=2.0.0
+org.soot-oss:sootup.java.core=2.0.0
+org.soot-oss:sootup.java.bytecode.frontend=2.0.0
+org.soot-oss:sootup.analysis.intraprocedural=2.0.0
+org.soot-oss:sootup.codepropertygraph=2.0.0
+com.github.javaparser:javaparser-symbol-solver-core=3.27.0
+com.github.gumtreediff:gen.javaparser=4.0.0-beta3
+com.ibm.wala:com.ibm.wala.core=1.6.10          # fallback only
+spotbugs=4.9.3
+com.h3xstream.findsecbugs:findsecbugs-plugin=1.14.0
+
+# Defects4J bugs in the dataset that are deprecated (cannot be checked out):
+#   v2.0.1: Closure-63, Closure-93 (18 patches)
+#   v3.0.1: Closure-63, Closure-93, Lang-18 (20 patches)
