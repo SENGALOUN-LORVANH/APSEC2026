@@ -28,8 +28,10 @@ ROOT = Path(__file__).resolve().parents[1]
 
 # Per-model request settings. Sampling parameters are rejected (400) on claude-sonnet-5, so temperature 0
 # is only possible on models that still accept it. Whatever is sent is logged with every call.
+# anthropic SDK 1.x removed `temperature` from messages.create(); models that still honour it (Haiku 4.5) take
+# it via extra_body, which is merged into the request JSON as-is.
 MODEL_SETTINGS = {
-    "claude-haiku-4-5": {"temperature": 0.0},
+    "claude-haiku-4-5": {"extra_body": {"temperature": 0.0}},
     "claude-sonnet-5": {},  # no temperature (rejected); thinking left at the model default (adaptive)
 }
 
@@ -49,12 +51,17 @@ def load_dotenv(path):
     """Minimal .env reader (KEY=VALUE lines) so the key never has to be typed into a command. .env is gitignored."""
     import os
     if not path.exists():
-        return
-    for line in path.read_text().splitlines():
+        return []
+    names = []
+    for line in path.read_text(encoding="utf-8-sig").splitlines():  # utf-8-sig drops a leading BOM
         line = line.strip()
         if line and not line.startswith("#") and "=" in line:
             key, value = line.split("=", 1)
-            os.environ.setdefault(key.strip().removeprefix("export ").strip(), value.strip().strip("'\""))
+            key, value = key.strip().removeprefix("export ").strip(), value.strip().strip("'\"")
+            names.append((key, bool(value)))
+            if value and not os.environ.get(key):  # also replaces an empty variable inherited from the shell
+                os.environ[key] = value
+    return names
 
 
 def load_prompt(path):
@@ -107,11 +114,11 @@ def pilot_sample(records, n, seed):
     return picked
 
 
-def call(client, model, system, user, max_retries=6):
+def call(client, model, system, user, max_retries=6, schema=SCHEMA):
     settings = MODEL_SETTINGS[model]
     params = dict(model=model, max_tokens=4096, system=system,
                   messages=[{"role": "user", "content": user}],
-                  output_config={"format": {"type": "json_schema", "schema": SCHEMA}}, **settings)
+                  output_config={"format": {"type": "json_schema", "schema": schema}}, **settings)
     attempts, last_err = 0, None
     while attempts < max_retries:
         attempts += 1
@@ -187,7 +194,12 @@ def main():
             template, records[0], trig, args.msg_cap_each, args.msg_cap_total)[0])
         return
 
-    load_dotenv(ROOT / ".env")
+    found = {str(p): load_dotenv(p) for p in (ROOT / ".env", ROOT.parent / ".env")}
+    import os
+    if not (os.environ.get("ANTHROPIC_API_KEY") or os.environ.get("ANTHROPIC_AUTH_TOKEN")):
+        # Variable names and whether each has a value only; never the values.
+        sys.exit("No API key: expected a line 'ANTHROPIC_API_KEY=...'. Variables found (name, has value): "
+                 + json.dumps({k: v for k, v in found.items() if v is not None}))
     client = anthropic.Anthropic(max_retries=2)
     lock = threading.Lock()
     log_path.parent.mkdir(parents=True, exist_ok=True)
