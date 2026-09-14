@@ -1,0 +1,129 @@
+{
+  "overall": {
+    "patches": 887,
+    "correct": 245,
+    "overfitting": 642,
+    "overfitting_rate": 0.7238,
+    "bugs": 200
+  },
+  "per_project": {
+    "Chart": {
+      "patches": 157,
+      "correct": 55,
+      "overfitting": 102,
+      "overfitting_rate": 0.6497,
+      "bugs": 22
+    },
+    "Closure": {
+      "patches": 238,
+      "correct": 44,
+      "overfitting": 194,
+      "overfitting_rate": 0.8151,
+      "bugs": 73
+    },
+    "Lang": {
+      "patches": 142,
+      "correct": 43,
+      "overfitting": 99,
+      "overfitting_rate": 0.6972,
+      "bugs": 34
+    },
+    "Math": {
+      "patches": 344,
+      "correct": 101,
+      "overfitting": 243,
+      "overfitting_rate": 0.7064,
+      "bugs": 66
+    },
+    "Time": {
+      "patches": 6,
+      "correct": 2,
+      "overfitting": 4,
+      "overfitting_rate": 0.6667,
+      "bugs": 5
+    }
+  },
+  "per_source": {
+    "Patches_ICSE": {
+      "patches": 626,
+      "correct": 126,
+      "overfitting": 500,
+      "overfitting_rate": 0.7987,
+      "bugs": 190
+    },
+    "Patches_others": {
+      "patches": 261,
+      "correct": 119,
+      "overfitting": 142,
+      "overfitting_rate": 0.5441,
+      "bugs": 53
+    }
+  },
+  "per_folder": {
+    "Ddifferent": 49,
+    "Doverfitting": 642,
+    "Dsame": 77,
+    "Dcorrect": 119
+  },
+  "per_tool": {
+    "ACS": 20,
+    "AVATAR": 57,
+    "Arja": 55,
+    "CapGen": 63,
+    "Cardumen": 12,
+    "DynaMoth": 22,
+    "FixMiner": 32,
+    "GenProg": 30,
+    "Jaid": 79,
+    "Kali": 63,
+    "Nopol": 31,
+    "RSRepair": 41,
+    "SOFix": 23,
+    "SequenceR": 73,
+    "SimFix": 65,
+    "SketchFix": 23,
+    "TBar": 71,
+    "jGenProg": 20,
+    "jKali": 24,
+    "jMutRepair": 22,
+    "kPAR": 61
+  },
+  "excluded": {
+    "total": 21,
+    "by_reason": {
+      "Zenodo note: mistakenly labeled (ACS-Lang-35)": 1,
+      "Zenodo note: borderline patch (ACS-Lang-7)": 1,
+      "Zenodo note: mistakenly labeled (Arja-Math-35)": 1,
+      "Zenodo note: mistakenly labeled (Arja-Math-50)": 1,
+      "Zenodo note: mistakenly labeled (SimFix-Closure-19)": 1,
+      "Zenodo note: mistakenly labeled (SimFix-Lang-60)": 1,
+      "Zenodo note: mistakenly labeled (SimFix-Math-72)": 1,
+      "Zenodo note: borderline patch (TBar-Lang-7)": 1,
+      "Zenodo note: mistakenly labeled (jKali-Lang-7)": 1,
+      "Zenodo note: borderline patch (kPAR-Lang-7)": 1,
+      "Zenodo note: does not pass plausibility check (FixMiner-Chart-12)": 1,
+      "Zenodo note: does not pass plausibility check (kPAR-Chart-12)": 1,
+      "in source-dataset folder 'Error' (no label)": 1,
+      "Zenodo note: mistakenly labeled (patch1-Lang-43-CapGen)": 1,
+      "Zenodo note: mistakenly labeled (patch2-Lang-43-CapGen)": 1,
+      "Zenodo note: mistakenly labeled (patch2-Math-53-CapGen)": 1,
+      "Zenodo note: mistakenly labeled (patch2-Lang-51-Jaid)": 1,
+      "Zenodo note: mistakenly labeled (patch2-Math-53-Jaid)": 1,
+      "Zenodo note: does not pass plausibility check (patch1-Math-2-SOFix)": 1,
+      "Zenodo note: does not pass plausibility check (patch1-Lang-6-SketchFix-plausible)": 1,
+      "Zenodo note: does not pass plausibility check (patch2-Lang-6-SketchFix-plausible)": 1
+    }
+  },
+  "duplicates": {
+    "groups": 96,
+    "patches_in_groups": 230,
+    "groups_with_label_conflict": 0,
+    "groups_spanning_multiple_bugs": 20
+  },
+  "ranking_setting": {
+    "bugs_with_>=2_patches": 136,
+    "patches_in_those_bugs": 823,
+    "bugs_with_>=2_patches_and_>=1_correct": 62,
+    "bugs_with_>=2_patches_and_both_labels": 49
+  }
+}

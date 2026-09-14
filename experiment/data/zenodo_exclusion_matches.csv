@@ -1,0 +1,24 @@
+reason,identifier,files_matched
+Zenodo note: Mockito project patch,Kali-A-Mockito-10,0
+Zenodo note: Mockito project patch,Arja-Mockito-10,0
+Zenodo note: does not pass plausibility check,Kali-Closure-133,0
+Zenodo note: does not pass plausibility check,kPAR-Chart-12,1
+Zenodo note: does not pass plausibility check,FixMiner-Chart-12,1
+Zenodo note: does not pass plausibility check,patch1-Lang-6-SketchFix-plausible,1
+Zenodo note: does not pass plausibility check,patch2-Lang-6-SketchFix-plausible,1
+Zenodo note: does not pass plausibility check,patch1-Math-2-SOFix,1
+Zenodo note: mistakenly labeled,patch2-Lang-51-Jaid,1
+Zenodo note: mistakenly labeled,patch1-Lang-43-CapGen,1
+Zenodo note: mistakenly labeled,patch2-Lang-43-CapGen,1
+Zenodo note: mistakenly labeled,patch2-Math-53-CapGen,1
+Zenodo note: mistakenly labeled,patch2-Math-53-Jaid,1
+Zenodo note: mistakenly labeled,jKali-Lang-7,1
+Zenodo note: mistakenly labeled,ACS-Lang-35,1
+Zenodo note: mistakenly labeled,Arja-Math-35,1
+Zenodo note: mistakenly labeled,SimFix-Math-72,1
+Zenodo note: mistakenly labeled,SimFix-Closure-19,1
+Zenodo note: mistakenly labeled,Arja-Math-50,1
+Zenodo note: mistakenly labeled,SimFix-Lang-60,1
+Zenodo note: borderline patch,ACS-Lang-7,1
+Zenodo note: borderline patch,kPAR-Lang-7,1
+Zenodo note: borderline patch,TBar-Lang-7,1
