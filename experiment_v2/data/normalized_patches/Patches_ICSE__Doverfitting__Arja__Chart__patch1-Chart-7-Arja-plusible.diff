@@ -1,0 +1,10 @@
+--- /source/org/jfree/data/time/TimePeriodValues.java
++++ /source/org/jfree/data/time/TimePeriodValues.java
+@@ -314,6 +314,7 @@
+             long minEnd = getDataItem(this.minEndIndex).getPeriod().getEnd()
+                 .getTime();
+             if (end < minEnd) {
++                this.data.remove(index);
+                 this.minEndIndex = index;
+             }
+         }

@@ -1,0 +1,104 @@
+{
+  "archive_files_parsed": 908,
+  "primary": {
+    "overall": {
+      "patches": 899,
+      "correct": 245,
+      "overfitting": 654,
+      "overfitting_rate": 0.7275,
+      "bugs": 202
+    },
+    "per_project": {
+      "Chart": {
+        "patches": 157,
+        "correct": 55,
+        "overfitting": 102,
+        "overfitting_rate": 0.6497,
+        "bugs": 22
+      },
+      "Closure": {
+        "patches": 239,
+        "correct": 44,
+        "overfitting": 195,
+        "overfitting_rate": 0.8159,
+        "bugs": 73
+      },
+      "Lang": {
+        "patches": 148,
+        "correct": 43,
+        "overfitting": 105,
+        "overfitting_rate": 0.7095,
+        "bugs": 35
+      },
+      "Math": {
+        "patches": 349,
+        "correct": 101,
+        "overfitting": 248,
+        "overfitting_rate": 0.7106,
+        "bugs": 67
+      },
+      "Time": {
+        "patches": 6,
+        "correct": 2,
+        "overfitting": 4,
+        "overfitting_rate": 0.6667,
+        "bugs": 5
+      }
+    },
+    "excluded": 9,
+    "bugs_with_>=2": 139,
+    "after_duplicate_collapse": 791
+  },
+  "sensitivity": {
+    "overall": {
+      "patches": 887,
+      "correct": 245,
+      "overfitting": 642,
+      "overfitting_rate": 0.7238,
+      "bugs": 200
+    },
+    "per_project": {
+      "Chart": {
+        "patches": 157,
+        "correct": 55,
+        "overfitting": 102,
+        "overfitting_rate": 0.6497,
+        "bugs": 22
+      },
+      "Closure": {
+        "patches": 238,
+        "correct": 44,
+        "overfitting": 194,
+        "overfitting_rate": 0.8151,
+        "bugs": 73
+      },
+      "Lang": {
+        "patches": 142,
+        "correct": 43,
+        "overfitting": 99,
+        "overfitting_rate": 0.6972,
+        "bugs": 34
+      },
+      "Math": {
+        "patches": 344,
+        "correct": 101,
+        "overfitting": 243,
+        "overfitting_rate": 0.7064,
+        "bugs": 66
+      },
+      "Time": {
+        "patches": 6,
+        "correct": 2,
+        "overfitting": 4,
+        "overfitting_rate": 0.6667,
+        "bugs": 5
+      }
+    },
+    "excluded": 21,
+    "bugs_with_>=2": 136,
+    "after_duplicate_collapse": 779
+  },
+  "duplicate_groups": 82,
+  "normalized_patches": 67,
+  "corrected_labels_primary": 12
+}

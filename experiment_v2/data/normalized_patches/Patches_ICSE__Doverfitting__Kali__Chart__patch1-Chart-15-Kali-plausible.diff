@@ -1,0 +1,11 @@
+--- /source/org/jfree/chart/plot/PiePlot3D.java
++++ /source/org/jfree/chart/plot/PiePlot3D.java
+@@ -277,6 +277,8 @@
+             linkH = 2 * min;
+         }
+ 
++        if (true)
++            return;
+         PiePlotState state = initialise(g2, plotArea, this, null, info);
+ 
+         // the link area defines the dog leg points for the linking lines to

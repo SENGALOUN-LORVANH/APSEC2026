@@ -1,0 +1,13 @@
+patch_id,bug_id,archive_folder,original_label,corrected_label,source
+Patches_ICSE__Ddifferent__ACS__Lang__patch1-Lang-35-ACS,Lang-35,Ddifferent,correct,overfitting,Zenodo 3730599 author notes: mistakenly labeled
+Patches_ICSE__Ddifferent__Arja__Math__patch1-Math-35-Arja,Math-35,Ddifferent,correct,overfitting,Zenodo 3730599 author notes: mistakenly labeled
+Patches_ICSE__Ddifferent__Arja__Math__patch1-Math-50-Arja,Math-50,Ddifferent,correct,overfitting,Zenodo 3730599 author notes: mistakenly labeled
+Patches_ICSE__Ddifferent__SimFix__Closure__patch1-Closure-19-SimFix,Closure-19,Ddifferent,correct,overfitting,Zenodo 3730599 author notes: mistakenly labeled
+Patches_ICSE__Ddifferent__SimFix__Lang__patch1-Lang-60-SimFix,Lang-60,Ddifferent,correct,overfitting,Zenodo 3730599 author notes: mistakenly labeled
+Patches_ICSE__Ddifferent__SimFix__Math__patch1-Math-72-SimFix,Math-72,Ddifferent,correct,overfitting,Zenodo 3730599 author notes: mistakenly labeled
+Patches_ICSE__Ddifferent__jKali__Lang__patch1-Lang-7-jKali,Lang-7,Ddifferent,correct,overfitting,Zenodo 3730599 author notes: mistakenly labeled
+Patches_others__Dcorrect__CapGen__Lang__patch1-Lang-43-CapGen,Lang-43,Dcorrect,correct,overfitting,Zenodo 3730599 author notes: mistakenly labeled
+Patches_others__Dcorrect__CapGen__Lang__patch2-Lang-43-CapGen,Lang-43,Dcorrect,correct,overfitting,Zenodo 3730599 author notes: mistakenly labeled
+Patches_others__Dcorrect__CapGen__Math__patch2-Math-53-CapGen,Math-53,Dcorrect,correct,overfitting,Zenodo 3730599 author notes: mistakenly labeled
+Patches_others__Dcorrect__Jaid__Lang__patch2-Lang-51-Jaid,Lang-51,Dcorrect,correct,overfitting,Zenodo 3730599 author notes: mistakenly labeled
+Patches_others__Dcorrect__Jaid__Math__patch2-Math-53-Jaid,Math-53,Dcorrect,correct,overfitting,Zenodo 3730599 author notes: mistakenly labeled

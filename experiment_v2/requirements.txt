@@ -1,0 +1,7 @@
+anthropic>=1.5,<2
+pandas>=3.0
+numpy>=2.5
+scikit-learn>=1.9
+scipy>=1.18
+pyyaml>=6.0
+pytest>=8.0

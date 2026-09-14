@@ -1,0 +1,11 @@
+--- /src/com/google/javascript/jscomp/type/ChainableReverseAbstractInterpreter.java
++++ /src/com/google/javascript/jscomp/type/ChainableReverseAbstractInterpreter.java
+@@ -392,6 +392,8 @@
+           if (restricted == null) {
+             restricted = restrictedAlternate;
+           } else {
++            if (true)
++                return null;
+             restricted = restrictedAlternate.getLeastSupertype(restricted);
+           }
+         }

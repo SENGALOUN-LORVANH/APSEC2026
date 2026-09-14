@@ -1,0 +1,36 @@
+# SENSITIVITY label policy: exclude every patch whose label was questioned by the dataset authors.
+# Same identifier sources and matching rule as label_policy_primary.yaml.
+policy: sensitivity
+
+corrections: null   # no relabeling
+
+exclude:
+  mislabeled:
+    - patch2-Lang-51-Jaid
+    - patch1-Lang-43-CapGen
+    - patch2-Lang-43-CapGen
+    - patch2-Math-53-CapGen
+    - patch2-Math-53-Jaid
+    - jKali-Lang-7
+    - ACS-Lang-35
+    - Arja-Math-35
+    - SimFix-Math-72
+    - SimFix-Closure-19
+    - Arja-Math-50
+    - SimFix-Lang-60
+  borderline:
+    - ACS-Lang-7
+    - kPAR-Lang-7
+    - TBar-Lang-7
+  failed_plausibility:
+    - Kali-Closure-133
+    - kPAR-Chart-12
+    - FixMiner-Chart-12
+    - patch1-Lang-6-SketchFix-plausible
+    - patch2-Lang-6-SketchFix-plausible
+    - patch1-Math-2-SOFix
+  other_project:
+    - Kali-A-Mockito-10
+    - Arja-Mockito-10
+  unlabeled_folders:
+    - Error

@@ -1,0 +1,43 @@
+# PRIMARY label policy (frozen with the protocol; must not be chosen by performance).
+# Source of all identifiers: Zenodo record 3730599 description (dataset authors' notes), fetched 2026-09-14.
+policy: primary
+
+# Explicitly mislabeled patches: apply the dataset authors' correction.
+# All reasons given by the authors describe patches that are actually overfitting. The manifest builder
+# asserts that each matched file sits in a "correct" folder before relabeling it; otherwise it stops.
+corrections:
+  corrected_label: overfitting
+  ids:
+    - patch2-Lang-51-Jaid
+    - patch1-Lang-43-CapGen
+    - patch2-Lang-43-CapGen
+    - patch2-Math-53-CapGen
+    - patch2-Math-53-Jaid
+    - jKali-Lang-7
+    - ACS-Lang-35
+    - Arja-Math-35
+    - SimFix-Math-72
+    - SimFix-Closure-19
+    - Arja-Math-50
+    - SimFix-Lang-60
+
+exclude:
+  borderline:            # unresolved borderline cases
+    - ACS-Lang-7
+    - kPAR-Lang-7
+    - TBar-Lang-7
+  failed_plausibility:
+    - Kali-Closure-133
+    - kPAR-Chart-12
+    - FixMiner-Chart-12
+    - patch1-Lang-6-SketchFix-plausible
+    - patch2-Lang-6-SketchFix-plausible
+    - patch1-Math-2-SOFix
+  other_project:
+    - Kali-A-Mockito-10
+    - Arja-Mockito-10
+  unlabeled_folders:     # archive folders without a correctness label
+    - Error
+
+# Identifier matching rule (unchanged from v1): "patchN-Project-Bug-Tool[-plausible]" matches index and suffix
+# exactly; "Tool-Project-Bug" matches every index of that tool/bug.

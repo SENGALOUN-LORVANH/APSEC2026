@@ -1,0 +1,11 @@
+--- /source/org/jfree/data/general/AbstractDataset.java
++++ /source/org/jfree/data/general/AbstractDataset.java
+@@ -157,6 +157,8 @@
+      * @see #removeChangeListener(DatasetChangeListener)
+      */
+     public boolean hasListener(EventListener listener) {
++        if (true)
++            return true;
+         List list = Arrays.asList(this.listenerList.getListenerList());
+         return list.contains(listener);
+     }
