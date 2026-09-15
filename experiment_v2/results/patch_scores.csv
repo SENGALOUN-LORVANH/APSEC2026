@@ -10,3 +10,4 @@ Patches_ICSE__Doverfitting__FixMiner__Time__patch1-Time-11-FixMiner-plausible,0.
 Patches_ICSE__Ddifferent__Arja__Closure__patch1-Closure-115-Arja,0.050000000000000044,,0.021739130434782608,0,0.25,0.25,0.25,0.25,0.6760869565217392,shifted_renormalized,,S_cex,correct,loc,,0
 Patches_ICSE__Doverfitting__Arja__Closure__patch1-Closure-117-Arja-plausible,0.050000000000000044,,0.027777777777777776,0,0.25,0.25,0.25,0.25,0.674074074074074,shifted_renormalized,,S_cex,overfitting,loc,,0
 Patches_others__Dcorrect__CapGen__Math__patch1-Math-53-CapGen,0.85,,0.25,0,0.25,0.25,0.25,0.25,0.8666666666666667,shifted_renormalized,,S_cex,correct,loc,,0
+Patches_ICSE__Doverfitting__SimFix__Closure__patch1-Closure-14-SimFix-plausible,0.18333333333333335,,0.031746031746031744,0,0.25,0.25,0.25,0.25,0.7171957671957672,shifted_renormalized,,S_cex,overfitting,loc,,0

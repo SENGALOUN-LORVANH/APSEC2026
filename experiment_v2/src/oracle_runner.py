@@ -209,7 +209,7 @@ def run_counterexamples(patch_id, model="claude-haiku-4-5", k=K):
     if resp is None:
         return result
 
-    generated = json.loads(resp.content[0].text)["tests"]
+    generated = json.loads(llm_client.response_text(resp))["tests"]
     candidate_dir = workspaces.candidate_dir(patch_id)
     if not candidate_dir.exists():
         result["error"] = "candidate workspace missing; run d4j.py --patch first"

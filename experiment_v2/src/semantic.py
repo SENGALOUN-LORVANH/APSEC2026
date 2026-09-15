@@ -99,8 +99,7 @@ def build_request(patch_id, condition="C"):
 
 def parse_response(resp):
     """Anthropic structured-output (json_schema) response -> dict matching prompts/semantic_v2.txt schema."""
-    text = resp.content[0].text
-    return json.loads(text)
+    return json.loads(llm_client.response_text(resp))
 
 
 def run_semantic(patch_id, condition="C", model="claude-haiku-4-5", n_runs=SEMANTIC_RUNS_PER_PATCH):
@@ -113,6 +112,10 @@ def run_semantic(patch_id, condition="C", model="claude-haiku-4-5", n_runs=SEMAN
         resp, latency, attempts, settings, err = llm_client.send(client, req, model)
         row = {"run": i, "latency_s": latency, "attempts": attempts, "error": err}
         if resp is not None:
+            usage = getattr(resp, "usage", None)
+            if usage is not None:
+                row["input_tokens"] = getattr(usage, "input_tokens", None)
+                row["output_tokens"] = getattr(usage, "output_tokens", None)
             try:
                 parsed = parse_response(resp)
                 s_sem, clipped = scores.s_sem_run(parsed["judgement"], parsed["confidence"])

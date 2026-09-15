@@ -39,7 +39,7 @@ def run_probe(patch_id, model="claude-haiku-4-5"):
               "model": model, "error": err}
     if resp is not None:
         try:
-            parsed = json.loads(resp.content[0].text)
+            parsed = json.loads(llm_client.response_text(resp))
             result.update(parsed)
             result["recognized"] = (str(parsed.get("bug_number")) == row["bug_number"]
                                     and parsed.get("project") == row["project"])

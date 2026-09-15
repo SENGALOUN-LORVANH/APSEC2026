@@ -55,6 +55,17 @@ def send(client, req: LLMRequest, model: str, max_retries=6):
     return None, None, attempts, MODEL_SETTINGS[model], f"gave up after {attempts} attempts: {err}"
 
 
+def response_text(resp):
+    """The text content block, wherever it is. content[0] is not always it: models run with extended
+    thinking (e.g. claude-sonnet-5 with effort set) prepend a ThinkingBlock with no .text attribute --
+    confirmed directly during the pilot's model-comparison run."""
+    for block in resp.content:
+        text = getattr(block, "text", None)
+        if text is not None:
+            return text
+    raise ValueError(f"no text block in response content: {[type(b).__name__ for b in resp.content]}")
+
+
 def request_log_fields(req: LLMRequest):
     d = asdict(req)
     d.pop("dynamic_text")

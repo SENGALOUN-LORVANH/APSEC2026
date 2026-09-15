@@ -10,3 +10,4 @@ Patches_ICSE__Doverfitting__FixMiner__Time__patch1-Time-11-FixMiner-plausible,C,
 Patches_ICSE__Ddifferent__Arja__Closure__patch1-Closure-115-Arja,C,claude-haiku-4-5,3,3,0.050000000000000044,OVERFITTING
 Patches_ICSE__Doverfitting__Arja__Closure__patch1-Closure-117-Arja-plausible,C,claude-haiku-4-5,3,3,0.050000000000000044,OVERFITTING
 Patches_others__Dcorrect__CapGen__Math__patch1-Math-53-CapGen,C,claude-haiku-4-5,3,3,0.85,CORRECT
+Patches_ICSE__Doverfitting__SimFix__Closure__patch1-Closure-14-SimFix-plausible,C,claude-haiku-4-5,3,3,0.18333333333333335,OVERFITTING

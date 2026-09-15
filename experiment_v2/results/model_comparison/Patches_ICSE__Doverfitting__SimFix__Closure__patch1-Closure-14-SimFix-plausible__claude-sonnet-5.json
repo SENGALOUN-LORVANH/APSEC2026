@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__SimFix__Closure__patch1-Closure-14-SimFix-plausible",
+  "condition": "C",
+  "model": "claude-sonnet-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.6833333333333332,
+  "decision": "CORRECT",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 9.8441303039981,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 6478,
+      "output_tokens": 681,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.9,
+        "readability": 0.8,
+        "security_robustness": 0.8,
+        "judgement": "CORRECT",
+        "confidence": 0.6,
+        "brief_reason": "The patch changes the edge type from UNCOND to ON_EX when connecting an inner finally block to an outer enclosing finally, which correctly models the implicit exception-like control flow rather than treating it as unconditional, fixing the missing cross-edge and missing-return detection issues in a general way rather than a test-specific hack."
+      },
+      "s_sem": 0.6,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 7.674531245000253,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 6478,
+      "output_tokens": 597,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.95,
+        "readability": 0.9,
+        "security_robustness": 0.9,
+        "judgement": "CORRECT",
+        "confidence": 0.75,
+        "brief_reason": "The patch changes the edge type for finally-to-outer-finally transitions from Branch.UNCOND to Branch.ON_EX, which correctly reflects that these edges represent exceptional control flow, fixing the general control-flow-graph construction issue rather than a special-cased hack, and the fix is minimal and consistent across the three failing tests covering different scenarios."
+      },
+      "s_sem": 0.75,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 6.555638789999648,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 6478,
+      "output_tokens": 481,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.9,
+        "readability": 0.85,
+        "security_robustness": 0.85,
+        "judgement": "CORRECT",
+        "confidence": 0.7,
+        "brief_reason": "The patch changes the edge type for control leaving a finally block from an unconditional edge to an exception edge, which matches expected cross-edge behavior in nested try/finally scenarios and fixes the missing-return/control-flow analysis for deeply nested finally blocks. It's a minimal, targeted change that doesn't remove functionality, though its generality across all finally-nesting cases is not fully verified beyond the given tests."
+      },
+      "s_sem": 0.7,
+      "confidence_clipped": false
+    }
+  ]
+}
