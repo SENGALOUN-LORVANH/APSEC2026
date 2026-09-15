@@ -1,0 +1,2 @@
+patch_id,bug_id,model,s_cex,n_valid,n_passed,n_generated,error
+Patches_ICSE__Ddifferent__ACS__Chart__patch1-Chart-19-ACS,Chart-19,claude-haiku-4-5,1.0,2,2,3,
