@@ -1,0 +1,2 @@
+patch_id,S_sem,S_cex,S_edit,S_vuln,alpha,beta,gamma,delta,PVS,PVS_strategy,PVS_paper_formula_complete_only,missing_component_flags,ground_truth_label,S_edit_method,context_errors,S_vuln_new_warning_count
+Patches_ICSE__Ddifferent__ACS__Chart__patch1-Chart-19-ACS,0.050000000000000044,1.0,0.2857142857142857,0,0.25,0.25,0.25,0.25,0.6910714285714286,shifted_renormalized,0.1910714285714286,,correct,loc,,0
