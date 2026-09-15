@@ -2,30 +2,33 @@ system: Linux
 release: 6.18.33.2-microsoft-standard-WSL2
 machine: x86_64
 kernel: Linux 6.18.33.2-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Thu Jun 18 21:54:43 UTC 2026 x86_64
-distribution: Ubuntu 26.04 LTS
+distribution: Ubuntu 22.04.5 LTS
 wsl: True
 logical_cores: 20
 cpu_model: Intel(R) Core(TM) i9-10850K CPU @ 3.60GHz
 physical_cores: 10
 ram_gb: 15.58
-gpus: [{'name': 'NVIDIA GeForce RTX 3080', 'vram': '10240 MiB', 'driver': '591.86'}]
-cuda_driver_version: 13.1
-nvcc: None
-python: 3.14.4 (main, Jun 18 2026, 14:25:02) [GCC 15.2.0]
-java: openjdk version "11.0.32" 2026-07-21
-OpenJDK Runtime Environment (build 11.0.32+9-post-1ubuntu1-26.04-Ubuntu)
-OpenJDK 64-Bit Server VM (build 11.0.32+9-post-1ubuntu1-26.04-Ubuntu, mixed mode, sharing)
-javac: javac 11.0.32
+gpu: None
+note: nvidia-smi not found
+python: 3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]
+java: openjdk version "21.0.12" 2026-07-21
+OpenJDK Runtime Environment (build 21.0.12+8-1-22.04-Ubuntu)
+OpenJDK 64-Bit Server VM (build 21.0.12+8-1-22.04-Ubuntu, mixed mode, sharing)
+javac: javac 21.0.12
 java_home: None
-maven: None
+maven: [1mApache Maven 3.6.3[m
+Maven home: /usr/share/maven
+Java version: 21.0.12, vendor: Ubuntu, runtime: /usr/lib/jvm/java-21-openjdk-amd64
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "6.18.33.2-microsoft-standard-wsl2", arch: "amd64", family: "unix"
 gradle: None
 ant: None
-perl: v5.40.1
+perl: v5.34.0
 defects4j_home: None
 defects4j_commit: None
 defects4j_describe: None
 docker: None
-in_docker: False
+in_docker: True
 tools_lock: # Pinned tool versions (latest on Maven Central / GitHub as of 2026-09-15). Frozen with the protocol.
 # Any change after freeze -> protocol/DEVIATIONS.md.
 
@@ -53,6 +56,6 @@ com.h3xstream.findsecbugs:findsecbugs-plugin=1.14.0
 #   v2.0.1: Closure-63, Closure-93 (18 patches)
 #   v3.0.1: Closure-63, Closure-93, Lang-18 (20 patches)
 
-spotbugs: None
-git_commit: ff189bf9d9aa8dae4b8810944310c53d38e289e8
-git_dirty: False
+spotbugs: 4.9.3
+git_commit: 6e244147eb99ea185e3b03192d282db889156d84
+git_dirty: True

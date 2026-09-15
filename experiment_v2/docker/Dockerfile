@@ -41,7 +41,11 @@ RUN curl -fsSL -o /tmp/spotbugs.tgz \
 
 # Python environment
 COPY requirements.txt /opt/qc/requirements.txt
-RUN python3 -m venv /opt/qc/venv && /opt/qc/venv/bin/pip install --no-cache-dir -r /opt/qc/requirements.txt
+RUN python3 -m venv /opt/qc/venv \
+    && /opt/qc/venv/bin/pip install --no-cache-dir --upgrade pip setuptools wheel \
+    && /opt/qc/venv/bin/pip install --no-cache-dir -r /opt/qc/requirements.txt
+
+RUN git config --global --add safe.directory /work
 
 ENV PATH=/opt/qc/venv/bin:/opt/spotbugs/bin:$PATH
 WORKDIR /work
