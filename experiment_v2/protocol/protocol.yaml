@@ -5,7 +5,7 @@
 # PENDING_PILOT_SELECTION and gets filled in from real pilot evidence, recorded in DEVIATIONS.md when set.
 frozen: true
 frozen_at: "2026-09-15T06:12:34Z"
-frozen_commit: TO_FILL_AFTER_COMMIT  # git rev-parse HEAD at the commit that made this file frozen: true
+frozen_commit: c3335ecc19b486e89c011db76d0537040cce34d5
 
 authoritative_machine:
   host: lab PC (native Ubuntu preferred; WSL2 Ubuntu acceptable)
