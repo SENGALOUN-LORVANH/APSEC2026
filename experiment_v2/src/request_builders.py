@@ -16,7 +16,8 @@ from context_budget import ContextItem, fit_to_budget
 ROOT = Path(__file__).resolve().parents[1]
 PROMPTS = ROOT / "prompts"
 SEMANTIC_PROMPT = PROMPTS / "semantic_v2.txt"
-COUNTEREXAMPLE_PROMPT = PROMPTS / "counterexample_v2_DRAFT.txt"
+COUNTEREXAMPLE_PROMPT = PROMPTS / "counterexample_v2.txt"
+PROBE_PROMPT = PROMPTS / "probe_v2.txt"
 CONDITIONS = ("A", "B", "C")
 
 
@@ -116,4 +117,18 @@ def build_counterexample_request(patch_meta, candidate_diff, failing_tests, fail
                       leakage_guard.sha256(dynamic), dynamic, receipt, {"k": k, **budget.log()})
 
 
-BUILDERS = {"semantic": build_semantic_request, "counterexample": build_counterexample_request}
+def build_probe_request(patch_meta, candidate_diff, known_tools=(), fingerprint_hashes=frozenset(),
+                        allowed_source_text="", prompt_path=PROBE_PROMPT):
+    """Memorization probe (reports/PRE_FLIGHT diagnostic): the model sees only the diff, nothing else -- no
+    context, no failing tests, no metadata -- and is asked to recall the bug from memory."""
+    prompt = load_prompt(prompt_path)
+    user = prompt.template.format(candidate_diff=candidate_diff)
+    dynamic = candidate_diff
+    receipt = leakage_guard.check_request(dynamic, patch_meta, known_tools, fingerprint_hashes,
+                                          purpose="probe", allowed_source_text=allowed_source_text)
+    return LLMRequest("probe", patch_meta["patch_id"], prompt.system, user, prompt.schema, prompt.sha256,
+                      leakage_guard.sha256(dynamic), dynamic, receipt, {})
+
+
+BUILDERS = {"semantic": build_semantic_request, "counterexample": build_counterexample_request,
+            "probe": build_probe_request}

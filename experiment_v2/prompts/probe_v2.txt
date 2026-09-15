@@ -1,0 +1,27 @@
+STATUS: FINALIZED. The SHA-256 covers only the three sections below. The model sees only the candidate diff --
+no filename, no test names, no tool name, no label, no bug ID. Ported from experiment/src/memorization_probe.py
+(v1) to the v2 prompt-file/request_builder architecture so it passes the same leakage guard as every other
+request. A correct bug-id/project answer is evidence of memorization, not of reasoning about this diff.
+
+===== SYSTEM PROMPT =====
+You will see a code diff from a Java open-source project. Answer from memory only; do not guess.
+
+1. Which Defects4J project is this from (Chart, Closure, Lang, Math, Time), or "unknown" if you don't recognize it?
+2. Which Defects4J bug number is it? Use null if you do not know; do not guess.
+3. Have you seen this exact patch before in a published automated-program-repair patch dataset? If so, was it
+   labeled CORRECT or OVERFITTING there? Use UNKNOWN if you do not recall.
+
+Respond with the JSON object required by the output schema.
+
+===== USER MESSAGE TEMPLATE =====
+Candidate patch (unified diff):
+{candidate_diff}
+
+===== OUTPUT SCHEMA =====
+{"type": "object",
+ "properties": {
+   "project": {"type": "string"},
+   "bug_number": {"anyOf": [{"type": "integer"}, {"type": "null"}]},
+   "recalled_label": {"type": "string", "enum": ["CORRECT", "OVERFITTING", "UNKNOWN"]}},
+ "required": ["project", "bug_number", "recalled_label"],
+ "additionalProperties": false}

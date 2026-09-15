@@ -1,9 +1,11 @@
-# Machine-readable protocol. Status: DRAFT (not frozen).
-# Freezing = set frozen: true, fill every TO_FREEZE value, record hashes, commit, tag "protocol-v2-frozen".
-# After freezing, every change goes to protocol/DEVIATIONS.md.
-frozen: false
-frozen_at: null
-frozen_commit: null
+# Machine-readable protocol. Status: FROZEN (see protocol/DEVIATIONS.md for anything changed after this point).
+# selected_model is the one deliberate exception: its own selection_rule (below) requires comparative pilot
+# data (parse rate, stability, latency, cost across BOTH candidate models) that does not exist until the
+# 50-patch pilot runs. Freezing it now to a guess would violate the rule it's governed by. It stays
+# PENDING_PILOT_SELECTION and gets filled in from real pilot evidence, recorded in DEVIATIONS.md when set.
+frozen: true
+frozen_at: "2026-09-15T06:12:34Z"
+frozen_commit: TO_FILL_AFTER_COMMIT  # git rev-parse HEAD at the commit that made this file frozen: true
 
 authoritative_machine:
   host: lab PC (native Ubuntu preferred; WSL2 Ubuntu acceptable)
@@ -13,10 +15,11 @@ authoritative_machine:
 dataset:
   source: Zenodo 3730599 Patches.zip
   archive_md5: 11203b88e6ae8a657757c6b5842d5a46
-  manifest_sha256: TO_FREEZE
+  manifest_sha256: 2ae3a159b2b31526557745146b6960645ecfe44212ecf4cd0a14aabf816dd21c
   label_policy_primary: configs/label_policy_primary.yaml
   label_policy_sensitivity: configs/label_policy_sensitivity.yaml
-  label_policy_file_sha256: TO_FREEZE
+  # sha256(primary_bytes + sensitivity_bytes), in that order
+  label_policy_file_sha256: d67c89d69144f53f466090003be3361679574d9ce1c40851d79f979103e5b86d
   duplicates:
     primary: retain all candidate records
     sensitivity: collapse byte-identical normalized diffs within the same bug (keep first patch_id in sorted order)
@@ -39,7 +42,7 @@ llm:
   candidates:
     - {model: claude-haiku-4-5, settings: {temperature: 0.0}}
     - {model: claude-sonnet-5, settings: {effort: medium}}
-  selected_model: TO_FREEZE
+  selected_model: PENDING_PILOT_SELECTION  # see note above frozen: true -- decided during the 50-patch pilot
   selection_rule: >
     Approved 2026-09-15. Decided on the 50-patch pre-flight pilot WITHOUT using ground-truth agreement.
     Hierarchy: (1) structured parse success >= 0.95; (2) token-limit failures <= 0.02; (3) higher run-to-run
@@ -54,7 +57,9 @@ prompts:
   semantic: prompts/semantic_v2.txt
   counterexample: prompts/counterexample_v2.txt
   memorization_probe: prompts/probe_v2.txt
-  sha256: TO_FREEZE
+  # sha256(semantic_prompt_sha256 + counterexample_prompt_sha256 + probe_prompt_sha256), each computed by
+  # request_builders.load_prompt over just the SYSTEM/TEMPLATE/SCHEMA sections (not the STATUS header)
+  sha256: 8c8e8ab6a2285a7814402476e4ee3b46732a1051bff6fc012de8611098ffb2d0
 
 context:
   primary_condition: C
@@ -130,7 +135,7 @@ static_analysis:
   fallback_ir: WALA
   ast_diff: GumTree
   warnings: [SpotBugs, FindSecBugs]
-  versions: configs/tools.lock   # TO_FREEZE
+  versions: configs/tools.lock
 
 preferences:
   comparisons: 240

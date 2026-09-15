@@ -1,5 +1,5 @@
 """Counterexample generation + empirical oracle execution (Step 13). One LLM call returns K candidate tests
-(prompts/counterexample_v2_DRAFT.txt); each is judged only by running it, per protocol.yaml's validation_sequence:
+(prompts/counterexample_v2.txt); each is judged only by running it, per protocol.yaml's validation_sequence:
   compile -> fail: INVALID_COMPILE, stop.
   run once on fixed_oracle -> fail/timeout: INVALID_ORACLE / TIMEOUT, stop.
   run once on buggy -> pass: VALID_NON_DISCRIMINATING, stop.

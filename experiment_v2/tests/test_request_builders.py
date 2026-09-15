@@ -41,7 +41,21 @@ def cex_kwargs(**over):
     return kw
 
 
-KWARGS = {"semantic": semantic_kwargs, "counterexample": cex_kwargs}
+def probe_kwargs(**over):
+    # probe has no failure_messages/context_items fields (it sees only the diff, nothing else); fold any
+    # leak-detection payload the shared parametrized tests inject for other builders into candidate_diff so
+    # the same guard-invocation behavior is still exercised through probe's one dynamic-text channel.
+    diff = DIFF
+    if "failure_messages" in over:
+        diff += "\n" + over.pop("failure_messages")
+    if "context_items" in over:
+        diff += "\n" + "\n".join(it.text for it in over.pop("context_items"))
+    kw = dict(patch_meta=META, candidate_diff=diff, known_tools=TOOLS)
+    kw.update(over)
+    return kw
+
+
+KWARGS = {"semantic": semantic_kwargs, "counterexample": cex_kwargs, "probe": probe_kwargs}
 
 
 @pytest.fixture(autouse=True)
@@ -87,8 +101,11 @@ def test_leaky_content_aborts(name, leak):
         rb.BUILDERS[name](**kw)
 
 
-@pytest.mark.parametrize("name", list(rb.BUILDERS))
+@pytest.mark.parametrize("name", [n for n in rb.BUILDERS if n != "probe"])
 def test_fixed_oracle_source_path_is_rejected(name):
+    # probe has no context_items/source_path field by design (it sees only the diff) -- there is no channel
+    # for a fixed-oracle *path* to reach it, only fixed-oracle *text content*, which the canary/leak tests
+    # below already cover via the dynamic-text scan.
     fo = workspaces.fixed_oracle_root() / "Math_80" / "src" / "Foo.java"
     fo.parent.mkdir(parents=True)
     fo.write_text(METHOD)

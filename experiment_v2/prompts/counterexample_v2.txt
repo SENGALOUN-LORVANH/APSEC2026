@@ -1,4 +1,4 @@
-STATUS: DRAFT — finalize after the 10-patch smoke test; immutable after protocol freeze.
+STATUS: FINALIZED after the 10-patch smoke test (reports/SMOKE_TEST_V2.md); immutable after protocol freeze.
 The SHA-256 covers only the three sections below. The model never sees the developer-fixed source, the developer
 patch, the ground-truth label, or APR tool metadata. All inserted content passes src/leakage_guard.py.
 Generated tests are judged empirically (compile -> developer-fixed version -> buggy version -> candidate); the
