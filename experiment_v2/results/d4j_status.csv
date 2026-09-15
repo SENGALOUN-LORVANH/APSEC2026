@@ -1,3 +1,12 @@
 bug_id,buggy_checkout_available,fixed_checkout_available,buggy_compiles,fixed_compiles,trigger_tests_available,trigger_tests,buggy_trigger_failures,fixed_trigger_failures,dir_src_classes,error
 Chart-12,True,True,True,True,True,org.jfree.chart.plot.junit.MultiplePiePlotTests::testConstructor,1,0,source,
+Chart-15,True,True,True,True,True,org.jfree.chart.plot.junit.PiePlot3DTests::testDrawWithNullDataset,1,0,source,
 Chart-19,True,True,True,True,True,org.jfree.chart.plot.junit.CategoryPlotTests::testGetRangeAxisIndex;org.jfree.chart.plot.junit.CategoryPlotTests::testGetDomainAxisIndex,2,0,source,
+Closure-115,True,True,True,True,True,com.google.javascript.jscomp.InlineFunctionsTest::testBug4944818;com.google.javascript.jscomp.InlineFunctionsTest::testDoubleInlining1;com.google.javascript.jscomp.InlineFunctionsTest::testNoInlineIfParametersModified8;com.google.javascript.jscomp.InlineFunctionsTest::testNoInlineIfParametersModified9;com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions6,5,0,src,
+Closure-117,True,True,True,True,True,com.google.javascript.jscomp.TypeCheckTest::testIssue1047,1,0,src,
+Lang-43,True,True,True,True,True,org.apache.commons.lang.text.ExtendedMessageFormatTest::testEscapedQuote_LANG_477,2,1,src/java,
+Lang-58,True,True,True,True,True,org.apache.commons.lang.math.NumberUtilsTest::testLang300,2,1,src/java,
+Math-28,True,True,True,True,True,org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMath828Cycle,1,0,src/main/java,
+Math-53,True,True,True,True,True,org.apache.commons.math.complex.ComplexTest::testAddNaN,1,0,src/main/java,
+Time-11,True,True,True,True,True,org.joda.time.tz.TestCompiler::testDateTimeZoneBuilder,1,0,src/main/java,
+Time-15,True,True,True,True,True,org.joda.time.field.TestFieldUtils::testSafeMultiplyLongInt,1,0,src/main/java,

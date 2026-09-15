@@ -1,0 +1,70 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__FixMiner__Time__patch1-Time-11-FixMiner-plausible",
+  "condition": "C",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.050000000000000044,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 3.405823512999632,
+      "attempts": 1,
+      "error": null,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.3,
+        "readability": 0.2,
+        "security_robustness": 0.1,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch contains a logical error: it uses OR (||) instead of AND (&&), making the condition always true when cVerbose is null, which defeats the null check. The correct fix should be 'return cVerbose != null && cVerbose.get()' to safely handle null values. This appears to be an overfitting fix that passes the test by accident rather than correctly addressing the underlying null pointer issue."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 2.7868613499995263,
+      "attempts": 1,
+      "error": null,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.3,
+        "readability": 0.2,
+        "security_robustness": 0.1,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch contains a critical logic error: it uses OR (||) instead of AND (&&), causing the method to always return true when cVerbose is null, which defeats the null check. This is semantically incorrect and only passes the test by accident, not by fixing the underlying bug properly."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 3.240014525999868,
+      "attempts": 1,
+      "error": null,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.3,
+        "readability": 0.2,
+        "security_robustness": 0.1,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch contains a logical error: it uses OR (||) instead of AND (&&), causing the method to always return true when cVerbose is null, which inverts the intended null-check logic. This masks the underlying issue rather than fixing it properly, and the condition is semantically incorrect for null safety."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    }
+  ]
+}

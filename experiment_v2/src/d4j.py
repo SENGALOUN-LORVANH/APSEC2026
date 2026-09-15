@@ -34,8 +34,11 @@ MANIFEST = ROOT / "data" / "dataset_manifest.csv"
 D4J_STATUS_CSV = ROOT / "results" / "d4j_status.csv"
 PATCH_STATUS_CSV = ROOT / "results" / "patch_d4j_status.csv"
 
-# Known source-root prefixes used by the Wang et al. archive's diff headers (PC_HANDOFF.md step 8).
-SRC_PREFIXES = ["/source/", "/src/main/java/", "/src/java/"]
+# Known source-root prefixes used by the Wang et al. archive's diff headers (PC_HANDOFF.md step 8 lists three;
+# Closure's diffs use a fourth, bare "/src/" -- confirmed directly, Closure's dir.src.classes is "src" and its
+# diffs read "/src/com/google/javascript/...". Ordered most-specific first: "/src/" would also match
+# "/src/java/..." and "/src/main/java/..." headers and strip the wrong amount if checked first.
+SRC_PREFIXES = ["/source/", "/src/main/java/", "/src/java/", "/src/"]
 FILE_HEADER_RE = re.compile(r"^(---|\+\+\+) (\S+)(.*)$")
 
 
@@ -218,6 +221,11 @@ def apply_candidate(patch_id, bug_id, diff_path: Path, trigger_tests):
     # even though the content matches. Line endings are not semantic content: this is not context-fuzz.
     with open(diff_path, encoding="utf-8", errors="replace", newline="") as f:
         diff_text = f.read().replace("\r\n", "\n")
+    # A missing trailing newline on the archive's diff file makes GNU patch reject the whole hunk with
+    # "patch unexpectedly ends in middle of line" even though the content is otherwise fine (confirmed on
+    # Math-53's diff, which ends with "}" and no newline). Appending one is not a content change.
+    if diff_text and not diff_text.endswith("\n"):
+        diff_text += "\n"
     for rel in _touched_relpaths(diff_text):
         target_file = candidate_dir / src_classes_rel / rel
         if target_file.exists():

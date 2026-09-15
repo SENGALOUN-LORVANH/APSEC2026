@@ -1,0 +1,70 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Chart__patch1-Chart-15-AVATAR-plausible",
+  "condition": "C",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.050000000000000044,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 3.431376744001682,
+      "attempts": 1,
+      "error": null,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.0,
+        "readability": 0.0,
+        "security_robustness": 0.0,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch completely deletes the entire draw() method implementation (379 lines), which is the core rendering logic for 3D pie charts. While this may make the test pass by delegating to the parent class, it removes all 3D-specific functionality and is a massive over-correction that breaks the intended behavior of PiePlot3D."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 3.421043644000747,
+      "attempts": 1,
+      "error": null,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.0,
+        "readability": 0.0,
+        "security_robustness": 0.0,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch completely deletes the entire draw() method implementation (379 lines), which is the core rendering functionality of PiePlot3D. This removes all pie chart drawing logic rather than fixing the null dataset handling bug. The test passes only because the parent class PiePlot's draw() method is now called via inheritance, but this destroys the 3D-specific rendering that PiePlot3D provides."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 3.378182045998983,
+      "attempts": 1,
+      "error": null,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.0,
+        "readability": 0.0,
+        "security_robustness": 0.5,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch completely removes the entire draw() method implementation, which is a massive deletion that destroys core functionality. While this may pass the specific test (testDrawWithNullDataset) by delegating to the parent class, it eliminates all 3D pie chart rendering logic specific to PiePlot3D, making the class functionally equivalent to its parent PiePlot and breaking the entire purpose of the 3D variant."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    }
+  ]
+}

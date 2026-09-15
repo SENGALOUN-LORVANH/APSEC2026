@@ -2,7 +2,7 @@
   "patch_id": "Patches_ICSE__Ddifferent__Arja__Chart__patch1-Chart-12-Arja",
   "bug_id": "Chart-12",
   "model": "claude-haiku-4-5",
-  "latency_s": 6.551668805999725,
+  "latency_s": 8.003934639998988,
   "error": null,
   "context_errors": [],
   "tests": [
@@ -10,28 +10,28 @@
       "name": "testConstructorWithNullDataset",
       "target_class": "org.jfree.chart.plot.MultiplePiePlot",
       "target_method": "MultiplePiePlot(CategoryDataset)",
-      "class_name": "TestMultiplePiePlotConstructorNull",
+      "class_name": "MultiplePiePlotConstructorNullTest",
       "status": "VALID_NON_DISCRIMINATING",
       "candidate_pass": null,
-      "log": ".\nTime: 0.063\n\nOK (1 test)\n\n"
+      "log": ".\nTime: 0.062\n\nOK (1 test)\n\n"
     },
     {
-      "name": "testConstructorDatasetAssignment",
+      "name": "testConstructorWithValidDataset",
       "target_class": "org.jfree.chart.plot.MultiplePiePlot",
       "target_method": "MultiplePiePlot(CategoryDataset)",
-      "class_name": "TestMultiplePiePlotConstructorDatasetAssignment",
+      "class_name": "MultiplePiePlotConstructorValidDatasetTest",
       "status": "VALID_NON_DISCRIMINATING",
       "candidate_pass": null,
-      "log": ".\nTime: 0.063\n\nOK (1 test)\n\n"
+      "log": ".\nTime: 0.066\n\nOK (1 test)\n\n"
     },
     {
-      "name": "testConstructorMultipleInstances",
+      "name": "testConstructorInitializesAllFields",
       "target_class": "org.jfree.chart.plot.MultiplePiePlot",
       "target_method": "MultiplePiePlot(CategoryDataset)",
-      "class_name": "TestMultiplePiePlotConstructorMultipleInstances",
-      "status": "VALID_NON_DISCRIMINATING",
+      "class_name": "MultiplePiePlotConstructorInitializationTest",
+      "status": "INVALID_COMPILE",
       "candidate_pass": null,
-      "log": ".\nTime: 0.063\n\nOK (1 test)\n\n"
+      "log": "tion method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/awt/Paint.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/awt/Paint.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Ddifferent__Arja__Chart__patch1-Chart-12-Arja/MultiplePiePlotConstructorInitializationTest/fixed/tests/org/jfree/chart/plot/junit/MultiplePiePlotConstructorInitializationTest.java:21: error: cannot find symbol\n    [javac]         assertNotNull(\"SectionPaints map should be initialized\", plot.getSectionPaints());\n    [javac]                                                                      ^\n    [javac]   symbol:   method getSectionPaints()\n    [javac]   location: variable plot of type MultiplePiePlot\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Ddifferent__Arja__Chart__patch1-Chart-12-Arja/MultiplePiePlotConstructorInitializationTest/fixed/tests/org/jfree/chart/plot/junit/MultiplePiePlotConstructorInitializationTest.java:22: error: cannot find symbol\n    [javac]         assertTrue(\"SectionPaints should be a HashMap\", plot.getSectionPaints() instanceof HashMap);\n    [javac]                                                             ^\n    [javac]   symbol:   method getSectionPaints()\n    [javac]   location: variable plot of type MultiplePiePlot\n    [javac] 2 errors\n    [javac] 33 warnings\n\nBUILD FAILED\n/opt/defects4j-2.0.1/framework/projects/Chart/Chart.build.xml:123: Compile failed; see the compiler error output for details.\n\nTotal time: 0 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
     }
   ],
   "s_cex": null,

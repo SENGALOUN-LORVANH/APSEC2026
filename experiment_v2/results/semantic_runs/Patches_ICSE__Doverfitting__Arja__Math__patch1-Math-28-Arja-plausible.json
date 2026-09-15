@@ -1,0 +1,70 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__Arja__Math__patch1-Math-28-Arja-plausible",
+  "condition": "C",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.050000000000000044,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 8.714997690000018,
+      "attempts": 1,
+      "error": null,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.95,
+        "readability": 0.3,
+        "security_robustness": 0.9,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch removes the `minIndex = i;` assignment, which breaks Bland's rule implementation by preventing proper tracking of the minimum index. While this may prevent cycling in the specific test case, it fundamentally weakens the degeneracy-breaking logic and will cause incorrect pivot selection in general cases where Bland's rule should apply."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 2.910147529999449,
+      "attempts": 1,
+      "error": null,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.95,
+        "readability": 0.3,
+        "security_robustness": 0.9,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch removes the `minIndex = i;` assignment, which breaks Bland's rule implementation by preventing proper tracking of the minimum index. While this may prevent cycling in the specific test case, it fundamentally weakens the degeneracy-breaking logic and will cause incorrect pivot selection in general cases where Bland's rule should apply."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 3.0428025319997687,
+      "attempts": 1,
+      "error": null,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.95,
+        "readability": 0.3,
+        "security_robustness": 0.9,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch removes the `minIndex = i;` assignment, which breaks Bland's rule implementation by preventing proper tracking of the minimum index. While this may pass the specific test by avoiding cycling differently, it weakens the degeneracy-handling logic and makes the code semantically incorrect\u2014the condition `if (i < minIndex)` becomes meaningless without updating minIndex."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    }
+  ]
+}

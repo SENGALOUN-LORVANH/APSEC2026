@@ -1,0 +1,40 @@
+{
+  "patch_id": "Patches_others__Dcorrect__CapGen__Math__patch1-Math-53-CapGen",
+  "bug_id": "Math-53",
+  "model": "claude-haiku-4-5",
+  "latency_s": 8.019186326999261,
+  "error": null,
+  "context_errors": [],
+  "tests": [
+    {
+      "name": "testAddNaNWithNaNReal",
+      "target_class": "org.apache.commons.math.complex.Complex",
+      "target_method": "add",
+      "class_name": "TestAddNaNBoundary",
+      "status": "VALID_NON_DISCRIMINATING",
+      "candidate_pass": null,
+      "log": "JUnit version 4.11\n...\nTime: 0.006\n\nOK (3 tests)\n\n"
+    },
+    {
+      "name": "testAddNormalValuesNoNaN",
+      "target_class": "org.apache.commons.math.complex.Complex",
+      "target_method": "add",
+      "class_name": "TestAddNormalValues",
+      "status": "VALID_NON_DISCRIMINATING",
+      "candidate_pass": null,
+      "log": "JUnit version 4.11\n.\nTime: 0.006\n\nOK (1 test)\n\n"
+    },
+    {
+      "name": "testAddWithInfinityNoNaN",
+      "target_class": "org.apache.commons.math.complex.Complex",
+      "target_method": "add",
+      "class_name": "TestAddInfinity",
+      "status": "VALID_NON_DISCRIMINATING",
+      "candidate_pass": null,
+      "log": "JUnit version 4.11\n.\nTime: 0.006\n\nOK (1 test)\n\n"
+    }
+  ],
+  "s_cex": null,
+  "n_valid": 0,
+  "n_passed": 0
+}

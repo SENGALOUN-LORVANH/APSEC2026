@@ -1,0 +1,70 @@
+{
+  "patch_id": "Patches_ICSE__Ddifferent__Arja__Closure__patch1-Closure-115-Arja",
+  "condition": "C",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.050000000000000044,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 4.279195044000517,
+      "attempts": 1,
+      "error": null,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.1,
+        "readability": 0.2,
+        "security_robustness": 0.0,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch removes a critical safety check that prevents inlining when function side effects interact with mutable arguments, causing it to fail multiple test cases that expect proper inlining behavior. The removal weakens the function's ability to correctly determine when inlining is safe, and the test failures show the patch produces incorrect output rather than fixing the underlying bug."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 3.0960672669989435,
+      "attempts": 1,
+      "error": null,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.95,
+        "readability": 0.3,
+        "security_robustness": 0.2,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch removes a critical safety check that prevents inlining when function side effects interact with mutable arguments, causing it to pass tests by producing incorrect output (extra variable declarations and different inlining behavior). This is a regression that weakens the function's correctness guarantees rather than fixing the underlying bug."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 3.1340678590004245,
+      "attempts": 1,
+      "error": null,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.1,
+        "readability": 0.2,
+        "security_robustness": 0.0,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch removes a critical safety check that prevents inlining when function side effects interact with mutable arguments, causing it to fail multiple test cases that expect proper inlining behavior. The removal weakens the function's ability to correctly determine when inlining is safe, and the test failures show the patch produces incorrect output rather than fixing the underlying bug."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__FixMiner__Time__patch1-Time-11-FixMiner-plausible",
+  "bug_id": "Time-11",
+  "error": "",
+  "hashes": [
+    "403a2fb2e88825351bab6a4fc6bf86af5a940675e707f73fa2f5b49025f0175e",
+    "5ed48cc9127252a73d0ab2de2235f5224cb0a943efa10428068c3a1536e6f8a4",
+    "dcd2651dcd46ccfb779776afbdc91e2668bfe64af7fddd6df6789b1c6b14b1c9"
+  ]
+}

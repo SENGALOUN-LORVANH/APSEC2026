@@ -1,0 +1,40 @@
+{
+  "patch_id": "Patches_ICSE__Dsame__SimFix__Lang__patch1-Lang-43-SimFix",
+  "bug_id": "Lang-43",
+  "model": "claude-haiku-4-5",
+  "latency_s": 5.943521437999152,
+  "error": null,
+  "context_errors": [],
+  "tests": [
+    {
+      "name": "testEscapedQuoteAtStart",
+      "target_class": "org.apache.commons.lang.text.ExtendedMessageFormat",
+      "target_method": "appendQuotedString",
+      "class_name": "TestEscapedQuoteAtStart",
+      "status": "VALID_NON_DISCRIMINATING",
+      "candidate_pass": null,
+      "log": ".\nTime: 0.002\n\nOK (1 test)\n\n"
+    },
+    {
+      "name": "testEscapedQuoteMultipleOccurrences",
+      "target_class": "org.apache.commons.lang.text.ExtendedMessageFormat",
+      "target_method": "appendQuotedString",
+      "class_name": "TestEscapedQuoteMultiple",
+      "status": "VALID_NON_DISCRIMINATING",
+      "candidate_pass": null,
+      "log": ".\nTime: 0.002\n\nOK (1 test)\n\n"
+    },
+    {
+      "name": "testEscapedQuoteWithPlaceholder",
+      "target_class": "org.apache.commons.lang.text.ExtendedMessageFormat",
+      "target_method": "appendQuotedString",
+      "class_name": "TestEscapedQuoteWithPlaceholder",
+      "status": "VALID_NON_DISCRIMINATING",
+      "candidate_pass": null,
+      "log": ".\nTime: 0.002\n\nOK (1 test)\n\n"
+    }
+  ],
+  "s_cex": null,
+  "n_valid": 0,
+  "n_passed": 0
+}

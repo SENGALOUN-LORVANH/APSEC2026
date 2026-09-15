@@ -12,6 +12,17 @@ def test_strip_src_prefix_known_roots():
         "org/apache/commons/lang3/StringUtils.java"
     assert d4j._strip_src_prefix("/src/java/org/apache/commons/lang/StringUtils.java") == \
         "org/apache/commons/lang/StringUtils.java"
+    assert d4j._strip_src_prefix("/src/com/google/javascript/jscomp/FunctionInjector.java") == \
+        "com/google/javascript/jscomp/FunctionInjector.java"
+
+
+def test_strip_src_prefix_bare_src_does_not_shadow_more_specific_prefixes():
+    # "/src/" must not fire before the more specific "/src/java/" and "/src/main/java/" checks, or those
+    # would be stripped of only "/src/" and leave "java/..."/"main/java/..." still attached.
+    assert d4j._strip_src_prefix("/src/java/org/apache/commons/lang/StringUtils.java") == \
+        "org/apache/commons/lang/StringUtils.java"
+    assert d4j._strip_src_prefix("/src/main/java/org/apache/commons/lang3/StringUtils.java") == \
+        "org/apache/commons/lang3/StringUtils.java"
 
 
 def test_strip_src_prefix_unknown_root_returns_none():

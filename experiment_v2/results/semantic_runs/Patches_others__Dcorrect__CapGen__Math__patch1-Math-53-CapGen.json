@@ -1,0 +1,70 @@
+{
+  "patch_id": "Patches_others__Dcorrect__CapGen__Math__patch1-Math-53-CapGen",
+  "condition": "C",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.85,
+  "decision": "CORRECT",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 2.870921533998626,
+      "attempts": 1,
+      "error": null,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.85,
+        "readability": 0.6,
+        "security_robustness": 0.9,
+        "judgement": "CORRECT",
+        "confidence": 0.85,
+        "brief_reason": "The patch correctly implements the documented behavior that NaN should be returned when either operand contains NaN, which aligns with the javadoc specification. The fix is minimal and addresses the general cause of the bug. However, the code style is poor with unnecessary parentheses and inconsistent formatting that detracts from readability."
+      },
+      "s_sem": 0.85,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 2.678312433999963,
+      "attempts": 1,
+      "error": null,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.85,
+        "readability": 0.6,
+        "security_robustness": 0.9,
+        "judgement": "CORRECT",
+        "confidence": 0.85,
+        "brief_reason": "The patch correctly implements the documented behavior that NaN should be returned when either operand contains NaN, which aligns with the javadoc specification. The fix is minimal and addresses the general cause of the bug. However, the code style is poor with unnecessary parentheses and inconsistent formatting that detracts from readability."
+      },
+      "s_sem": 0.85,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 2.589180036999096,
+      "attempts": 1,
+      "error": null,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.85,
+        "readability": 0.6,
+        "security_robustness": 0.9,
+        "judgement": "CORRECT",
+        "confidence": 0.85,
+        "brief_reason": "The patch correctly implements the documented behavior that NaN should be returned when either operand contains NaN, which aligns with the javadoc specification. The fix is minimal and addresses the general cause of the bug. However, the code style is poor with unnecessary parentheses and inconsistent formatting that detracts from readability."
+      },
+      "s_sem": 0.85,
+      "confidence_clipped": false
+    }
+  ]
+}

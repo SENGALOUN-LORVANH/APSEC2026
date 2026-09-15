@@ -1,0 +1,70 @@
+{
+  "patch_id": "Patches_ICSE__Dsame__ACS__Time__patch1-Time-15-ACS",
+  "condition": "C",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.15000000000000002,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 4.341035978000946,
+      "attempts": 1,
+      "error": null,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.6,
+        "readability": 0.3,
+        "security_robustness": 0.9,
+        "judgement": "OVERFITTING",
+        "confidence": 0.85,
+        "brief_reason": "The patch only handles the specific case where val2 == -1 and val1 == Long.MIN_VALUE, which causes overflow when negating. However, it doesn't address the general overflow detection problem in the multiplication logic itself (the total / val2 != val1 check fails for certain cases). The patch is overfitting to make the test pass without fixing the underlying algorithmic issue."
+      },
+      "s_sem": 0.15000000000000002,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 3.0610063840013026,
+      "attempts": 1,
+      "error": null,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.6,
+        "readability": 0.3,
+        "security_robustness": 0.9,
+        "judgement": "OVERFITTING",
+        "confidence": 0.85,
+        "brief_reason": "The patch only handles the specific case where val2 == -1 and val1 == Long.MIN_VALUE, which causes overflow when negating. However, it doesn't address the general overflow detection problem in the multiplication logic itself (the total / val2 != val1 check can also fail for other edge cases). The patch is overfitting to the specific test case rather than fixing the underlying arithmetic overflow detection mechanism."
+      },
+      "s_sem": 0.15000000000000002,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 3.1086347839991504,
+      "attempts": 1,
+      "error": null,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.6,
+        "readability": 0.3,
+        "security_robustness": 0.9,
+        "judgement": "OVERFITTING",
+        "confidence": 0.85,
+        "brief_reason": "The patch only handles the specific case where val2 == -1 and val1 == Long.MIN_VALUE, which causes overflow when negating. However, it doesn't address the general overflow detection problem in the multiplication logic itself (the total / val2 != val1 check fails for certain cases). The patch is overfitting to make the test pass without fixing the underlying bug comprehensively."
+      },
+      "s_sem": 0.15000000000000002,
+      "confidence_clipped": false
+    }
+  ]
+}

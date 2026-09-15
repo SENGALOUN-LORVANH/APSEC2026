@@ -1,0 +1,70 @@
+{
+  "patch_id": "Patches_ICSE__Dsame__SimFix__Lang__patch1-Lang-43-SimFix",
+  "condition": "C",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.25,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 3.516943632999755,
+      "attempts": 1,
+      "error": null,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.95,
+        "readability": 0.9,
+        "security_robustness": 0.85,
+        "judgement": "OVERFITTING",
+        "confidence": 0.75,
+        "brief_reason": "The patch adds a single `next(pos)` call to advance the parse position when an escaped quote is encountered at the start. While this fixes the infinite loop causing OutOfMemoryError in the specific test case, it only addresses the symptom for one particular input pattern and doesn't fix the underlying logic issue in the loop structure that could cause similar problems with other inputs."
+      },
+      "s_sem": 0.25,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 3.0518890419989475,
+      "attempts": 1,
+      "error": null,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.9,
+        "readability": 0.95,
+        "security_robustness": 0.85,
+        "judgement": "OVERFITTING",
+        "confidence": 0.75,
+        "brief_reason": "The patch adds a single `next(pos)` call to advance the parse position when an escaped quote is encountered at the start. While this fixes the infinite loop causing OutOfMemoryError in the test case, it only addresses the specific scenario where escapingOn is true and the pattern starts with a quote, rather than fixing the underlying logic issue in the loop that processes escaped quotes throughout the pattern."
+      },
+      "s_sem": 0.25,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 2.9799404669993237,
+      "attempts": 1,
+      "error": null,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.95,
+        "readability": 0.95,
+        "security_robustness": 0.9,
+        "judgement": "OVERFITTING",
+        "confidence": 0.75,
+        "brief_reason": "The patch adds a single `next(pos)` call to advance the parse position when an escaped quote is encountered at the start. While this fixes the infinite loop causing OutOfMemoryError in the specific test case, it only addresses the symptom for this particular input pattern and doesn't fix the underlying logic issue in the loop that processes escaped quotes throughout the string."
+      },
+      "s_sem": 0.25,
+      "confidence_clipped": false
+    }
+  ]
+}

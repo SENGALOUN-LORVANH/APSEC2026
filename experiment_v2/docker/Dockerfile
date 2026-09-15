@@ -45,7 +45,12 @@ RUN python3 -m venv /opt/qc/venv \
     && /opt/qc/venv/bin/pip install --no-cache-dir --upgrade pip setuptools wheel \
     && /opt/qc/venv/bin/pip install --no-cache-dir -r /opt/qc/requirements.txt
 
-RUN git config --global --add safe.directory /work
+# --system (not --global): writes /etc/gitconfig, which every UID reads regardless of $HOME. Needed both for
+# /work (mounted at a host UID, container may run as root or --user <host-uid>) and for Defects4J's own git
+# project-repo mirrors under /opt/defects4j-*/project_repos/*.git, owned by root at build time but read by
+# whatever UID the container runs as -- confirmed directly: git-based projects (Closure/Lang/Math/Time) failed
+# checkout under --user with "detected dubious ownership" while SVN-based Chart did not (SVN has no such check).
+RUN git config --system --add safe.directory '*'
 
 ENV PATH=/opt/qc/venv/bin:/opt/spotbugs/bin:$PATH
 WORKDIR /work

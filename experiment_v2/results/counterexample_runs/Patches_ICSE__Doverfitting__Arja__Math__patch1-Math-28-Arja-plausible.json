@@ -1,0 +1,40 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__Arja__Math__patch1-Math-28-Arja-plausible",
+  "bug_id": "Math-28",
+  "model": "claude-haiku-4-5",
+  "latency_s": 41.74673082400113,
+  "error": null,
+  "context_errors": [],
+  "tests": [
+    {
+      "name": "testPivotRowSelectionWithMultipleTies",
+      "target_class": "org.apache.commons.math3.optimization.linear.SimplexSolver",
+      "target_method": "optimize",
+      "class_name": "SimplexSolverTest",
+      "status": "INVALID_COMPILE",
+      "candidate_pass": null,
+      "log": "5: error: cannot find symbol\n    [javac]         PointValuePair solution = solver.optimize(f, new LinearConstraintSet(constraints), GoalType.MAXIMIZE, new MaxIter(500));\n    [javac]                                                                                                                   ^\n    [javac]   symbol:   class MaxIter\n    [javac]   location: class SimplexSolverTest\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__Arja__Math__patch1-Math-28-Arja-plausible/SimplexSolverTest/fixed/src/test/java/org/apache/commons/math3/optimization/linear/SimplexSolverTest.java:67: error: cannot find symbol\n    [javac]         PointValuePair solution = solver.optimize(f, new LinearConstraintSet(constraints), GoalType.MAXIMIZE, new MaxIter(1000));\n    [javac]                                                          ^\n    [javac]   symbol:   class LinearConstraintSet\n    [javac]   location: class SimplexSolverTest\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__Arja__Math__patch1-Math-28-Arja-plausible/SimplexSolverTest/fixed/src/test/java/org/apache/commons/math3/optimization/linear/SimplexSolverTest.java:67: error: cannot find symbol\n    [javac]         PointValuePair solution = solver.optimize(f, new LinearConstraintSet(constraints), GoalType.MAXIMIZE, new MaxIter(1000));\n    [javac]                                                                                                                   ^\n    [javac]   symbol:   class MaxIter\n    [javac]   location: class SimplexSolverTest\n    [javac] 6 errors\n    [javac] 42 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__Arja__Math__patch1-Math-28-Arja-plausible/SimplexSolverTest/fixed/build.xml:180: Compile failed; see the compiler error output for details.\n\nTotal time: 0 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+    },
+    {
+      "name": "testDegeneracyHandlingWithCorrectIndexSelection",
+      "target_class": "org.apache.commons.math3.optimization.linear.SimplexSolver",
+      "target_method": "optimize",
+      "class_name": "SimplexSolverDegeneracyTest",
+      "status": "INVALID_COMPILE",
+      "candidate_pass": null,
+      "log": "d that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Short.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Integer.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Integer.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Long.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Long.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Float.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Float.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 2 errors\n    [javac] 42 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__Arja__Math__patch1-Math-28-Arja-plausible/SimplexSolverDegeneracyTest/fixed/build.xml:180: Compile failed; see the compiler error output for details.\n\nTotal time: 0 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+    },
+    {
+      "name": "testCyclingPreventionWithBlandsRule",
+      "target_class": "org.apache.commons.math3.optimization.linear.SimplexSolver",
+      "target_method": "optimize",
+      "class_name": "SimplexSolverCyclingTest",
+      "status": "INVALID_COMPILE",
+      "candidate_pass": null,
+      "log": "sible/SimplexSolverCyclingTest/fixed/src/test/java/org/apache/commons/math3/optimization/linear/SimplexSolverCyclingTest.java:24: error: cannot find symbol\n    [javac]         PointValuePair solution = solver.optimize(f, new LinearConstraintSet(constraints), GoalType.MAXIMIZE, new MaxIter(500));\n    [javac]                                                          ^\n    [javac]   symbol:   class LinearConstraintSet\n    [javac]   location: class SimplexSolverCyclingTest\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__Arja__Math__patch1-Math-28-Arja-plausible/SimplexSolverCyclingTest/fixed/src/test/java/org/apache/commons/math3/optimization/linear/SimplexSolverCyclingTest.java:24: error: cannot find symbol\n    [javac]         PointValuePair solution = solver.optimize(f, new LinearConstraintSet(constraints), GoalType.MAXIMIZE, new MaxIter(500));\n    [javac]                                                                                                                   ^\n    [javac]   symbol:   class MaxIter\n    [javac]   location: class SimplexSolverCyclingTest\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 2 errors\n    [javac] 26 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__Arja__Math__patch1-Math-28-Arja-plausible/SimplexSolverCyclingTest/fixed/build.xml:180: Compile failed; see the compiler error output for details.\n\nTotal time: 0 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+    }
+  ],
+  "s_cex": null,
+  "n_valid": 0,
+  "n_passed": 0
+}

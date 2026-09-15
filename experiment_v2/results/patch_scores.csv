@@ -1,3 +1,12 @@
 patch_id,S_sem,S_cex,S_edit,S_vuln,alpha,beta,gamma,delta,PVS,PVS_strategy,PVS_paper_formula_complete_only,missing_component_flags,ground_truth_label,S_edit_method,context_errors,S_vuln_new_warning_count
 Patches_ICSE__Ddifferent__ACS__Chart__patch1-Chart-19-ACS,0.050000000000000044,1.0,0.2857142857142857,0,0.25,0.25,0.25,0.25,0.6910714285714286,shifted_renormalized,0.1910714285714286,,correct,loc,,0
-Patches_ICSE__Ddifferent__Arja__Chart__patch1-Chart-12-Arja,0.7966666666666665,,0.06666666666666667,0,0.25,0.25,0.25,0.25,0.91,shifted_renormalized,,S_cex,correct,loc,,0
+Patches_ICSE__Ddifferent__Arja__Chart__patch1-Chart-12-Arja,0.7833333333333333,,0.06666666666666667,0,0.25,0.25,0.25,0.25,0.9055555555555556,shifted_renormalized,,S_cex,correct,loc,,0
+Patches_ICSE__Doverfitting__AVATAR__Chart__patch1-Chart-15-AVATAR-plausible,0.050000000000000044,1.0,1.0,0,0.25,0.25,0.25,0.25,0.5125,shifted_renormalized,0.012500000000000011,,overfitting,loc,,0
+Patches_ICSE__Dsame__SimFix__Lang__patch1-Lang-43-SimFix,0.25,,0.041666666666666664,0,0.25,0.25,0.25,0.25,0.7361111111111112,shifted_renormalized,,S_cex,correct,loc,,0
+Patches_ICSE__Doverfitting__AVATAR__Lang__patch1-Lang-58-AVATAR-plausible,0.15000000000000002,1.0,0.008547008547008548,0,0.25,0.25,0.25,0.25,0.7853632478632478,shifted_renormalized,0.28536324786324785,,overfitting,loc,,0
+Patches_ICSE__Doverfitting__Arja__Math__patch1-Math-28-Arja-plausible,0.050000000000000044,,0.02127659574468085,0,0.25,0.25,0.25,0.25,0.676241134751773,shifted_renormalized,,S_cex,overfitting,loc,,0
+Patches_ICSE__Dsame__ACS__Time__patch1-Time-15-ACS,0.15000000000000002,1.0,0.13333333333333333,0,0.25,0.25,0.25,0.25,0.7541666666666667,shifted_renormalized,0.25416666666666665,,correct,loc,,0
+Patches_ICSE__Doverfitting__FixMiner__Time__patch1-Time-11-FixMiner-plausible,0.050000000000000044,,0.6666666666666666,0,0.25,0.25,0.25,0.25,0.4611111111111111,shifted_renormalized,,S_cex,overfitting,loc,,0
+Patches_ICSE__Ddifferent__Arja__Closure__patch1-Closure-115-Arja,0.050000000000000044,,0.021739130434782608,0,0.25,0.25,0.25,0.25,0.6760869565217392,shifted_renormalized,,S_cex,correct,loc,,0
+Patches_ICSE__Doverfitting__Arja__Closure__patch1-Closure-117-Arja-plausible,0.050000000000000044,,0.027777777777777776,0,0.25,0.25,0.25,0.25,0.674074074074074,shifted_renormalized,,S_cex,overfitting,loc,,0
+Patches_others__Dcorrect__CapGen__Math__patch1-Math-53-CapGen,0.85,,0.25,0,0.25,0.25,0.25,0.25,0.8666666666666667,shifted_renormalized,,S_cex,correct,loc,,0
