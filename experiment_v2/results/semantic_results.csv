@@ -1,0 +1,2 @@
+patch_id,condition,model,n_runs,n_parsed,s_sem_final,decision
+Patches_ICSE__Ddifferent__ACS__Chart__patch1-Chart-19-ACS,C,claude-haiku-4-5,3,3,0.050000000000000044,OVERFITTING
