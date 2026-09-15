@@ -1,0 +1,58 @@
+system: Linux
+release: 6.18.33.2-microsoft-standard-WSL2
+machine: x86_64
+kernel: Linux 6.18.33.2-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Thu Jun 18 21:54:43 UTC 2026 x86_64
+distribution: Ubuntu 26.04 LTS
+wsl: True
+logical_cores: 20
+cpu_model: Intel(R) Core(TM) i9-10850K CPU @ 3.60GHz
+physical_cores: 10
+ram_gb: 15.58
+gpus: [{'name': 'NVIDIA GeForce RTX 3080', 'vram': '10240 MiB', 'driver': '591.86'}]
+cuda_driver_version: 13.1
+nvcc: None
+python: 3.14.4 (main, Jun 18 2026, 14:25:02) [GCC 15.2.0]
+java: openjdk version "11.0.32" 2026-07-21
+OpenJDK Runtime Environment (build 11.0.32+9-post-1ubuntu1-26.04-Ubuntu)
+OpenJDK 64-Bit Server VM (build 11.0.32+9-post-1ubuntu1-26.04-Ubuntu, mixed mode, sharing)
+javac: javac 11.0.32
+java_home: None
+maven: None
+gradle: None
+ant: None
+perl: v5.40.1
+defects4j_home: None
+defects4j_commit: None
+defects4j_describe: None
+docker: None
+in_docker: False
+tools_lock: # Pinned tool versions (latest on Maven Central / GitHub as of 2026-09-15). Frozen with the protocol.
+# Any change after freeze -> protocol/DEVIATIONS.md.
+
+defects4j.v2.tag=v2.0.1
+defects4j.v2.commit=a83e47921152721569cb95d6d7b91c4be277d940
+defects4j.v2.jdk=8
+defects4j.v3.tag=v3.0.1
+defects4j.v3.commit=6d54320e0db5a357f9ab38a8e4d2e5aead7e1c09
+defects4j.v3.jdk=11
+defects4j.selected=TO_FREEZE
+
+analysis.jdk=21
+org.soot-oss:sootup.core=2.0.0
+org.soot-oss:sootup.java.core=2.0.0
+org.soot-oss:sootup.java.bytecode.frontend=2.0.0
+org.soot-oss:sootup.analysis.intraprocedural=2.0.0
+org.soot-oss:sootup.codepropertygraph=2.0.0
+com.github.javaparser:javaparser-symbol-solver-core=3.27.0
+com.github.gumtreediff:gen.javaparser=4.0.0-beta3
+com.ibm.wala:com.ibm.wala.core=1.6.10          # fallback only
+spotbugs=4.9.3
+com.h3xstream.findsecbugs:findsecbugs-plugin=1.14.0
+
+# Defects4J bugs in the dataset that are deprecated (cannot be checked out):
+#   v2.0.1: Closure-63, Closure-93 (18 patches)
+#   v3.0.1: Closure-63, Closure-93, Lang-18 (20 patches)
+
+spotbugs: None
+git_commit: ff189bf9d9aa8dae4b8810944310c53d38e289e8
+git_dirty: False
