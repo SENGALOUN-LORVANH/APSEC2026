@@ -1,13 +1,11 @@
-STATUS: DRAFT — requires author approval before the protocol freeze. After freeze this file is renamed to
-semantic_v2.txt and becomes immutable (SHA-256 in results/prompt_manifest.json).
-Structure follows the directive §P. The model is never asked to identify the Defects4J bug.
-Sections in [[...]] are filled per context condition (A: diff only; B: + failing tests; C: + buggy source context).
-Everything inserted into [[...]] passes src/leakage_guard.py before the request is sent.
+STATUS: APPROVED by authors 2026-09-15 (wording change applied). Immutable after protocol freeze.
+The SHA-256 covers only the three sections below (system prompt, user template, output schema), not this header.
+The model is never asked to identify the Defects4J bug. Sections in [[...]] are selected per context condition
+(A: diff only; B: + failing tests; C: + buggy source context). All inserted content passes src/leakage_guard.py.
 
 ===== SYSTEM PROMPT =====
 You review a candidate patch produced by an automated program repair tool for a bug in a Java project.
-The patch makes the project's existing tests pass. Your task is to judge whether it genuinely repairs the bug
-or only makes the observed failing tests pass.
+The candidate patch has been classified as plausible because it passes the available test suite. Passing the available tests does not necessarily establish semantic correctness.
 
 Assess the patch on these points:
 1. generalization: does it fix the general cause of the bug ("general"), only the observed failing case

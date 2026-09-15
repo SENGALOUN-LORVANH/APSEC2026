@@ -55,7 +55,20 @@ python src/dataset.py --download && python src/dataset.py && pytest -q tests/   
 | `src/pvs.py` | PVS paper formula, both missing-S_cex strategies, weight validation, exported components | `tests/test_scores_pvs.py` |
 | `src/metrics.py` | precision/recall/F1/macro-F1/specificity/retention/balanced accuracy/MCC/AUROC/AP, LOPO + GroupKFold with leakage assertions, cluster + paired bootstrap, conditional/end-to-end P@1, MRR, Top-3 with ties | `tests/test_metrics.py` |
 | `src/record_environment.py` | environment capture (refuses authoritative mode off Linux) | manual |
-| `prompts/semantic_v2_DRAFT.txt` | semantic prompt with context conditions A/B/C and output schema | awaiting author approval |
+| `prompts/semantic_v2.txt` | semantic prompt, approved wording (2026-09-15); SHA frozen at protocol freeze | `tests/test_request_builders.py` |
+| `prompts/counterexample_v2_DRAFT.txt` | counterexample prompt (K tests, JUnit style/package placeholders, schema) | finalize after smoke test |
+| `src/leakage_guard.py` (revised) | metadata-only rules (ordinary words like "correct" allowed), tool-name source allowlist, guard receipts | `tests/test_leakage_guard.py` |
+| `src/workspaces.py` | buggy/candidate/fixed_oracle layout; fixed-oracle path rejection (symlinks resolved); oracle-module allowlist | `tests/test_request_builders.py` |
+| `src/request_builders.py` | the only LLM request builders (semantic A/B/C, counterexample); every one calls the guard | `tests/test_request_builders.py` |
+| `src/llm_client.py` | the only API caller; refuses requests without a matching guard receipt | `tests/test_request_builders.py` |
+| `src/context_budget.py` | 12k-token priority-ordered context assembly with logging, no blind truncation | `tests/test_context_budget.py` |
+| `src/bradley_terry.py` | BT calibration of PVS* weights (simplex + scale), LOPO training-project-only fits | `tests/test_bradley_terry.py` (synthetic data only) |
+| `preference_tool/` | sampling plan (240 ratings, 3 raters, 20 shared pairs; draft design) and terminal collection tool | manual |
+
+**Gate 5 (leakage guard wired): PASS on Mac** — 90 tests; re-run on the PC.
+**Defects4J policy (authors, 2026-09-15):** primary = v2.0.1 (`a83e479`, JDK 8); v3.0.1 only as separate
+compatibility analysis. Deprecated primary bugs → `ENVIRONMENT_UNAVAILABLE_PRIMARY`.
+**PVS\* approved** as the implementation score (shifted renormalization).
 
 ## 4. Remaining implementation order (from the directive, steps 7–37)
 7. `src/d4j.py`: checkout buggy → `workspaces/buggy/<P>_<N>`, fixed → `workspaces/fixed_oracle/<P>_<N>` (then read-only),
