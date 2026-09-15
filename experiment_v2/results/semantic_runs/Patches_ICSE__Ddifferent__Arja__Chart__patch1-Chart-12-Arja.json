@@ -1,0 +1,70 @@
+{
+  "patch_id": "Patches_ICSE__Ddifferent__Arja__Chart__patch1-Chart-12-Arja",
+  "condition": "C",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.7966666666666665,
+  "decision": "CORRECT",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 3.1906389789983223,
+      "attempts": 1,
+      "error": null,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.95,
+        "readability": 0.9,
+        "security_robustness": 0.85,
+        "judgement": "CORRECT",
+        "confidence": 0.82,
+        "brief_reason": "The patch adds a call to setDataset(dataset) in the constructor, which properly initializes the dataset through the parent class's setter method rather than just assigning it directly. This ensures any necessary initialization logic in the parent Plot class is executed, fixing the failing test while maintaining minimal, focused changes to the code."
+      },
+      "s_sem": 0.82,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 2.7880041530006565,
+      "attempts": 1,
+      "error": null,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.95,
+        "readability": 0.9,
+        "security_robustness": 0.85,
+        "judgement": "CORRECT",
+        "confidence": 0.75,
+        "brief_reason": "The patch adds a call to setDataset(dataset) in the constructor, which properly initializes the dataset through the parent class's setter method rather than just assigning it directly. This ensures any necessary initialization logic in the parent Plot class is executed, fixing the failing test while maintaining minimal, focused changes to the code."
+      },
+      "s_sem": 0.75,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 2.640652644999136,
+      "attempts": 1,
+      "error": null,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.95,
+        "readability": 0.9,
+        "security_robustness": 0.85,
+        "judgement": "CORRECT",
+        "confidence": 0.82,
+        "brief_reason": "The patch adds a call to setDataset(dataset) in the constructor, which properly initializes the dataset through the parent class's setter method rather than just assigning it directly. This ensures any necessary initialization logic in the parent Plot class is executed, fixing the failing test while maintaining minimal, focused changes to the code."
+      },
+      "s_sem": 0.82,
+      "confidence_clipped": false
+    }
+  ]
+}

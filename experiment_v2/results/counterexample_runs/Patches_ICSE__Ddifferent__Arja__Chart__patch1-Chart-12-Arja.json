@@ -1,0 +1,40 @@
+{
+  "patch_id": "Patches_ICSE__Ddifferent__Arja__Chart__patch1-Chart-12-Arja",
+  "bug_id": "Chart-12",
+  "model": "claude-haiku-4-5",
+  "latency_s": 6.551668805999725,
+  "error": null,
+  "context_errors": [],
+  "tests": [
+    {
+      "name": "testConstructorWithNullDataset",
+      "target_class": "org.jfree.chart.plot.MultiplePiePlot",
+      "target_method": "MultiplePiePlot(CategoryDataset)",
+      "class_name": "TestMultiplePiePlotConstructorNull",
+      "status": "VALID_NON_DISCRIMINATING",
+      "candidate_pass": null,
+      "log": ".\nTime: 0.063\n\nOK (1 test)\n\n"
+    },
+    {
+      "name": "testConstructorDatasetAssignment",
+      "target_class": "org.jfree.chart.plot.MultiplePiePlot",
+      "target_method": "MultiplePiePlot(CategoryDataset)",
+      "class_name": "TestMultiplePiePlotConstructorDatasetAssignment",
+      "status": "VALID_NON_DISCRIMINATING",
+      "candidate_pass": null,
+      "log": ".\nTime: 0.063\n\nOK (1 test)\n\n"
+    },
+    {
+      "name": "testConstructorMultipleInstances",
+      "target_class": "org.jfree.chart.plot.MultiplePiePlot",
+      "target_method": "MultiplePiePlot(CategoryDataset)",
+      "class_name": "TestMultiplePiePlotConstructorMultipleInstances",
+      "status": "VALID_NON_DISCRIMINATING",
+      "candidate_pass": null,
+      "log": ".\nTime: 0.063\n\nOK (1 test)\n\n"
+    }
+  ],
+  "s_cex": null,
+  "n_valid": 0,
+  "n_passed": 0
+}

@@ -5,6 +5,7 @@ import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.ImportDeclaration;
 import com.github.javaparser.ast.Node;
 import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
+import com.github.javaparser.ast.body.ConstructorDeclaration;
 import com.github.javaparser.ast.body.MethodDeclaration;
 
 import java.io.IOException;
@@ -17,7 +18,7 @@ import java.util.Optional;
 
 /**
  * Thin context extractor for RQ condition C (Step 9). Given a buggy-checkout Java source file and the
- * changed line ranges from the candidate diff, finds the enclosing method(s), the containing class
+ * changed line ranges from the candidate diff, finds the enclosing method(s) or constructor(s), the containing class
  * declaration line, and the file's imports. Does not yet resolve referenced fields or direct helper
  * methods (protocol context_priority items 5-6) -- deferred; see reports/CONTEXT_EXTRACTOR_NOTES.md.
  *
@@ -44,9 +45,16 @@ public class ContextExtractor {
             Optional<ClassOrInterfaceDeclaration> primaryClass = cu.findFirst(ClassOrInterfaceDeclaration.class);
             String classDeclaration = primaryClass.map(ContextExtractor::declarationLine).orElse("");
 
-            List<MethodDeclaration> methods = cu.findAll(MethodDeclaration.class);
-            List<MethodDeclaration> matched = new ArrayList<>();
-            for (MethodDeclaration m : methods) {
+            // A bug (and its enclosing "method") can live in a MethodDeclaration or a ConstructorDeclaration
+            // (observed directly: MultiplePiePlot's bug is in its constructor, which a MethodDeclaration-only
+            // search misses entirely). Both share no common generic supertype whose class literal Java can
+            // express cleanly (CallableDeclaration<?> can't be used as a Class<> literal), so query each
+            // separately and merge as plain Node -- getBegin/getEnd/toString/removeComment are all on Node.
+            List<Node> methods = new ArrayList<>();
+            methods.addAll(cu.findAll(MethodDeclaration.class));
+            methods.addAll(cu.findAll(ConstructorDeclaration.class));
+            List<Node> matched = new ArrayList<>();
+            for (Node m : methods) {
                 if (!m.getBegin().isPresent() || !m.getEnd().isPresent()) continue;
                 int begin = m.getBegin().get().line;
                 int end = m.getEnd().get().line;
@@ -65,7 +73,7 @@ public class ContextExtractor {
             out.append("\"methods\":[");
             for (int i = 0; i < matched.size(); i++) {
                 if (i > 0) out.append(",");
-                MethodDeclaration m = matched.get(i);
+                Node m = matched.get(i);
                 String containingClass = m.findAncestor(ClassOrInterfaceDeclaration.class)
                         .map(c -> c.getNameAsString()).orElse("");
                 String fullSource = m.toString();   // capture with javadoc before stripping the comment below
@@ -95,7 +103,7 @@ public class ContextExtractor {
         return headerBefore(c.toString());
     }
 
-    private static String signature(MethodDeclaration m) {
+    private static String signature(Node m) {
         m.removeComment();
         return headerBefore(m.toString());
     }

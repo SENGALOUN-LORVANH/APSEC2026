@@ -1,2 +1,3 @@
 bug_id,buggy_checkout_available,fixed_checkout_available,buggy_compiles,fixed_compiles,trigger_tests_available,trigger_tests,buggy_trigger_failures,fixed_trigger_failures,dir_src_classes,error
+Chart-12,True,True,True,True,True,org.jfree.chart.plot.junit.MultiplePiePlotTests::testConstructor,1,0,source,
 Chart-19,True,True,True,True,True,org.jfree.chart.plot.junit.CategoryPlotTests::testGetRangeAxisIndex;org.jfree.chart.plot.junit.CategoryPlotTests::testGetDomainAxisIndex,2,0,source,
