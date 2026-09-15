@@ -40,6 +40,9 @@ def load_scored_frame():
         out.append({"patch_id": r["patch_id"], "bug_id": m["bug_id"], "project": m["project"],
                     "ground_truth_label": r["ground_truth_label"],
                     "y": 1 if r["ground_truth_label"] == "overfitting" else 0,
+                    "label_sensitivity": m.get("label_sensitivity", ""),
+                    "included_sensitivity": m.get("included_sensitivity", ""),
+                    "duplicate_group_id": m.get("duplicate_group_id", ""),
                     "PVS": float(pvs), "S_sem": _f(r["S_sem"]), "S_cex": _f(r["S_cex"]),
                     "S_edit": _f(r["S_edit"]), "S_vuln": _f(r["S_vuln"])})
     return pd.DataFrame(out)
@@ -136,6 +139,42 @@ def complementarity_section(df):
             "neither_flags": neither}
 
 
+def sensitivity_section(df):
+    """Label-policy and duplicate-collapse sensitivity: pure re-grouping of already-computed PVS* scores, no
+    new LLM/Defects4J work (both label variants and duplicate_group_id are already in the manifest)."""
+    out = {}
+
+    label_df = df[df["included_sensitivity"] == "True"].copy()
+    if len(label_df):
+        label_df["y_sensitivity"] = (label_df["label_sensitivity"] == "overfitting").astype(int)
+        pred = (label_df["PVS"] < 0.5).astype(int)
+        changed = int((label_df["y_sensitivity"] != label_df["y"]).sum())
+        out["label_policy"] = {
+            "n": len(label_df), "n_labels_changed_vs_primary": changed,
+            "detection_primary_labels": metrics.detection_metrics(label_df["y"].values, pred.values),
+            "detection_sensitivity_labels": metrics.detection_metrics(label_df["y_sensitivity"].values, pred.values)}
+    else:
+        out["label_policy"] = {"n": 0}
+
+    dup = df[df["duplicate_group_id"] != ""]
+    if len(dup):
+        collapsed = df.copy()
+        collapsed["_sort_key"] = collapsed["patch_id"]
+        collapsed = collapsed.sort_values("_sort_key")
+        collapsed["_keep_key"] = collapsed["duplicate_group_id"].where(collapsed["duplicate_group_id"] != "",
+                                                                        collapsed["patch_id"])
+        collapsed = collapsed.drop_duplicates(subset="_keep_key", keep="first")
+        pred = (collapsed["PVS"] < 0.5).astype(int)
+        out["duplicates"] = {"n_primary": len(df), "n_collapsed": len(collapsed),
+                             "n_duplicate_patches_in_sample": len(dup),
+                             "detection_collapsed": metrics.detection_metrics(collapsed["y"].values, pred.values)}
+    else:
+        out["duplicates"] = {"n_primary": len(df), "n_duplicate_patches_in_sample": 0,
+                             "note": "no duplicate-group members in this pilot sample"}
+
+    return out
+
+
 def memorization_section():
     if not MEMORIZATION_CSV.exists():
         return {"n": 0}
@@ -177,6 +216,7 @@ def main():
         "ranking": ranking_section(df) if len(df) else {"note": "no scored patches yet"},
         "model_comparison": model_comparison_section(),
         "complementarity": complementarity_section(df) if len(df) else {"note": "no scored patches yet"},
+        "sensitivity": sensitivity_section(df) if len(df) else {"note": "no scored patches yet"},
         "memorization": memorization_section(),
         "runtime": runtime_section(),
         "failures": failures_section(),
