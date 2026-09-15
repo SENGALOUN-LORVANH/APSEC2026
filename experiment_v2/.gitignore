@@ -7,4 +7,5 @@ workspaces/
 logs/cache/
 logs/dev_environment_*.json
 tools/java/target/
+tools/java/dependency-reduced-pom.xml
 tools/bin/

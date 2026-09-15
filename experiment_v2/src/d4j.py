@@ -13,6 +13,7 @@ patch_compiles, original_tests_pass). Only this module and oracle_runner may res
 """
 import argparse
 import csv
+import json
 import os
 import re
 import shutil
@@ -21,9 +22,11 @@ import sys
 import tempfile
 from pathlib import Path
 
+import leakage_guard
 import workspaces
 
 ROOT = Path(__file__).resolve().parents[1]
+FINGERPRINTS_DIR = ROOT / "results" / "fingerprints"
 D4J_HOME = os.environ.get("D4J_V2_HOME", "/opt/defects4j-2.0.1")
 D4J_BIN = f"{D4J_HOME}/framework/bin"
 JDK8 = os.environ.get("JDK8", "/usr/lib/jvm/java-8-openjdk-amd64")
@@ -262,6 +265,45 @@ def apply_candidate(patch_id, bug_id, diff_path: Path, trigger_tests):
     return result
 
 
+# ------------------------------------------------------------------ leakage-guard fingerprint (oracle-side only)
+def compute_fingerprint(patch_id, bug_id, diff_path: Path):
+    """Hashes of developer-fix-only lines (leakage_guard.developer_fix_fingerprint), written to
+    results/fingerprints/<patch_id>.json. Only this module (an ORACLE_MODULE) may read fixed_oracle/ content;
+    semantic.py/counterexamples.py load the precomputed hash file and never touch the fixed source themselves."""
+    buggy_dir = workspaces.buggy_dir(bug_id)
+    fixed_dir = workspaces.fixed_oracle_dir(bug_id)
+    src_classes_rel = export(buggy_dir, "dir.src.classes")
+    if not src_classes_rel:
+        return {"patch_id": patch_id, "error": "export dir.src.classes failed", "hashes": []}
+
+    with open(diff_path, encoding="utf-8", errors="replace", newline="") as f:
+        diff_text = f.read().replace("\r\n", "\n")
+
+    hashes = set()
+    errors = []
+    for rel in _touched_relpaths(diff_text):
+        buggy_file = buggy_dir / src_classes_rel / rel
+        fixed_file = fixed_dir / src_classes_rel / rel
+        if not buggy_file.exists() or not fixed_file.exists():
+            errors.append(f"missing source for {rel}")
+            continue
+        buggy_source = buggy_file.read_text(encoding="utf-8", errors="replace")
+        fixed_source = fixed_file.read_text(encoding="utf-8", errors="replace")
+        hashes |= leakage_guard.developer_fix_fingerprint(buggy_source, fixed_source, diff_text)
+
+    FINGERPRINTS_DIR.mkdir(parents=True, exist_ok=True)
+    out = {"patch_id": patch_id, "bug_id": bug_id, "error": "; ".join(errors), "hashes": sorted(hashes)}
+    (FINGERPRINTS_DIR / f"{patch_id}.json").write_text(json.dumps(out, indent=2))
+    return out
+
+
+def load_fingerprint(patch_id):
+    f = FINGERPRINTS_DIR / f"{patch_id}.json"
+    if not f.exists():
+        return frozenset()
+    return frozenset(json.loads(f.read_text()).get("hashes", []))
+
+
 # ------------------------------------------------------------------ CSV I/O + CLI
 def _write_status_csv(path, rows, fieldnames):
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -303,6 +345,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--bug")
     ap.add_argument("--patch")
+    ap.add_argument("--fingerprint")
     ap.add_argument("--sample", type=int)
     args = ap.parse_args()
 
@@ -318,6 +361,12 @@ def main():
         result = apply_candidate(args.patch, row["bug_id"], diff_path, trigger)
         _write_status_csv(PATCH_STATUS_CSV, [result], PATCH_FIELDS)
         print(result)
+    elif args.fingerprint:
+        rows = load_manifest_rows()
+        row = next(r for r in rows if r["patch_id"] == args.fingerprint)
+        diff_path = ROOT / row["normalized_patch_location"]
+        result = compute_fingerprint(args.fingerprint, row["bug_id"], diff_path)
+        print({"patch_id": result["patch_id"], "n_hashes": len(result["hashes"]), "error": result["error"]})
     elif args.sample:
         rows = load_manifest_rows()
         seen = []

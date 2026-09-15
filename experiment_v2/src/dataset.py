@@ -192,6 +192,14 @@ def apply_policy(rec, policy, match_log):
 
 
 # ------------------------------------------------------------------ build
+def known_apr_tools():
+    """Every distinct APR_tool value in the canonical manifest -- the authoritative tool-identifier list the
+    leakage guard checks dynamic prompt content against (src/leakage_guard.py)."""
+    manifest = ROOT / "data" / "dataset_manifest.csv"
+    with open(manifest, newline="", encoding="utf-8") as f:
+        return sorted({row["APR_tool"] for row in csv.DictReader(f) if row["APR_tool"]})
+
+
 def build():
     src = RAW / "Patches"
     if not src.exists():
