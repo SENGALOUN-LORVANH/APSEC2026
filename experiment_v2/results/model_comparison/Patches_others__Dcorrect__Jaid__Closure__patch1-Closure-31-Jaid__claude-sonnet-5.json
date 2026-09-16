@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_others__Dcorrect__Jaid__Closure__patch1-Closure-31-Jaid",
+  "condition": "C",
+  "model": "claude-sonnet-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.04666666666666667,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 4.717732871002227,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 4871,
+      "output_tokens": 317,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.2,
+        "readability": 0.3,
+        "security_robustness": 0.5,
+        "judgement": "OVERFITTING",
+        "confidence": 0.92,
+        "brief_reason": "The patch replaces the meaningful condition !options.skipAllPasses with the constant !false, effectively removing the skipAllPasses check entirely rather than fixing the underlying dependency-sorting/whitespace-mode logic. This disables intended functionality (skipAllPasses no longer prevents dependency management) and is a hack tailored to pass the failing test, not a genuine fix."
+      },
+      "s_sem": 0.07999999999999996,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 4.5325820760008355,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 4871,
+      "output_tokens": 335,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.1,
+        "readability": 0.1,
+        "security_robustness": 0.3,
+        "judgement": "OVERFITTING",
+        "confidence": 0.97,
+        "brief_reason": "The patch replaces the meaningful condition '!options.skipAllPasses' with the constant '!false', effectively always evaluating to true and removing the skipAllPasses check entirely. This breaks the intended behavior for cases where skipAllPasses is true, and is clearly a hack to pass the specific failing test rather than a genuine fix for the dependency sorting bug."
+      },
+      "s_sem": 0.030000000000000027,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 4.273054164001223,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 4871,
+      "output_tokens": 358,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.1,
+        "readability": 0.3,
+        "security_robustness": 0.5,
+        "judgement": "OVERFITTING",
+        "confidence": 0.97,
+        "brief_reason": "The patch replaces the meaningful condition `!options.skipAllPasses` with a hardcoded `!false`, which always evaluates to true and effectively removes the skipAllPasses check entirely, breaking that feature in whitespace-only mode and other scenarios where skipAllPasses should prevent dependency management. It's a hack to make the specific test pass rather than a proper fix for dependency sorting logic."
+      },
+      "s_sem": 0.030000000000000027,
+      "confidence_clipped": false
+    }
+  ]
+}

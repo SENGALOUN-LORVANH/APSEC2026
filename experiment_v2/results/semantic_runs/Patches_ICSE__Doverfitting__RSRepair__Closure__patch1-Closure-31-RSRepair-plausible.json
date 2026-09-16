@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__RSRepair__Closure__patch1-Closure-31-RSRepair-plausible",
+  "condition": "C",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.050000000000000044,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 3.511986118002824,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 2200,
+      "output_tokens": 169,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.95,
+        "readability": 0.9,
+        "security_robustness": 0.8,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch changes `return res;` to `return null;` when a mismatch is found, which masks the actual tree inequality rather than fixing the root cause. This weakens the functionality of the tree comparison method by preventing proper error detection, making it pass the test only by suppressing the error reporting rather than correcting the underlying bug in dependency sorting."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 369.9984060989991,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 2200,
+      "output_tokens": 174,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.95,
+        "readability": 0.3,
+        "security_robustness": 0.5,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch changes `return res;` to `return null;` when a mismatch is found, which makes the test pass by suppressing error reporting rather than fixing the underlying bug. This weakens the tree comparison functionality by hiding mismatches instead of properly detecting them, and the fix is specific to making this one test pass rather than addressing the root cause of incorrect dependency sorting."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 3.9999253310015774,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 2200,
+      "output_tokens": 171,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.95,
+        "readability": 0.9,
+        "security_robustness": 0.8,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch changes `return res;` to `return null;` when a mismatch is found, which masks the actual tree inequality rather than fixing the root cause. This weakens the tree comparison functionality by suppressing legitimate mismatch detection, making it pass the test only by hiding the real problem instead of addressing the underlying bug in dependency sorting or whitespace handling."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    }
+  ]
+}

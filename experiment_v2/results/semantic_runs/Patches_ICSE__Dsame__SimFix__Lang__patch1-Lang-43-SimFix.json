@@ -11,9 +11,11 @@
   "runs": [
     {
       "run": 0,
-      "latency_s": 3.516943632999755,
+      "latency_s": 3.368210102999001,
       "attempts": 1,
       "error": null,
+      "input_tokens": 3082,
+      "output_tokens": 170,
       "parsed": {
         "generalization": "specific_only",
         "deletes_or_weakens_functionality": "false",
@@ -23,45 +25,49 @@
         "security_robustness": 0.85,
         "judgement": "OVERFITTING",
         "confidence": 0.75,
-        "brief_reason": "The patch adds a single `next(pos)` call to advance the parse position when an escaped quote is encountered at the start. While this fixes the infinite loop causing OutOfMemoryError in the specific test case, it only addresses the symptom for one particular input pattern and doesn't fix the underlying logic issue in the loop structure that could cause similar problems with other inputs."
+        "brief_reason": "The patch adds a single `next(pos)` call to advance the parse position when an escaped quote is encountered at the start. While this fixes the infinite loop causing OutOfMemoryError in the specific test case, it only addresses the symptom for this particular input pattern and doesn't fix the underlying logic issue in the loop that processes escaped quotes throughout the string."
       },
       "s_sem": 0.25,
       "confidence_clipped": false
     },
     {
       "run": 1,
-      "latency_s": 3.0518890419989475,
+      "latency_s": 3.0018219819976366,
       "attempts": 1,
       "error": null,
+      "input_tokens": 3082,
+      "output_tokens": 170,
       "parsed": {
         "generalization": "specific_only",
         "deletes_or_weakens_functionality": "false",
         "unrelated_behavior_change": "false",
-        "minimality": 0.9,
-        "readability": 0.95,
+        "minimality": 0.95,
+        "readability": 0.9,
         "security_robustness": 0.85,
         "judgement": "OVERFITTING",
         "confidence": 0.75,
-        "brief_reason": "The patch adds a single `next(pos)` call to advance the parse position when an escaped quote is encountered at the start. While this fixes the infinite loop causing OutOfMemoryError in the test case, it only addresses the specific scenario where escapingOn is true and the pattern starts with a quote, rather than fixing the underlying logic issue in the loop that processes escaped quotes throughout the pattern."
+        "brief_reason": "The patch adds a single `next(pos)` call to advance the parse position when an escaped quote is encountered at the start. While this fixes the infinite loop causing OutOfMemoryError in the specific test case, it only addresses the symptom for this particular input pattern and doesn't fix the underlying logic issue in the loop that processes escaped quotes throughout the string."
       },
       "s_sem": 0.25,
       "confidence_clipped": false
     },
     {
       "run": 2,
-      "latency_s": 2.9799404669993237,
+      "latency_s": 2.942214309998235,
       "attempts": 1,
       "error": null,
+      "input_tokens": 3082,
+      "output_tokens": 172,
       "parsed": {
         "generalization": "specific_only",
         "deletes_or_weakens_functionality": "false",
         "unrelated_behavior_change": "false",
         "minimality": 0.95,
-        "readability": 0.95,
-        "security_robustness": 0.9,
+        "readability": 0.9,
+        "security_robustness": 0.85,
         "judgement": "OVERFITTING",
         "confidence": 0.75,
-        "brief_reason": "The patch adds a single `next(pos)` call to advance the parse position when an escaped quote is encountered at the start. While this fixes the infinite loop causing OutOfMemoryError in the specific test case, it only addresses the symptom for this particular input pattern and doesn't fix the underlying logic issue in the loop that processes escaped quotes throughout the string."
+        "brief_reason": "The patch adds a single `next(pos)` call to advance the parse position when an escaped quote is encountered at the start. While this fixes the infinite loop causing OutOfMemoryError in the specific test case, it only addresses the symptom for this particular input pattern and doesn't fix the underlying logic issue in the loop structure that could cause similar problems with other inputs."
       },
       "s_sem": 0.25,
       "confidence_clipped": false

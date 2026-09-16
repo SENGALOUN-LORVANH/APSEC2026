@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__Arja__Closure__patch1-Closure-117-Arja-plausible",
+  "condition": "C",
+  "model": "claude-sonnet-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.10000000000000002,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 7.182954845000495,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 3950,
+      "output_tokens": 564,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.1,
+        "readability": 0.3,
+        "security_robustness": 0.6,
+        "judgement": "OVERFITTING",
+        "confidence": 0.9,
+        "brief_reason": "The patch simply deletes the return statement inside the if-block, turning it into dead code that does nothing, causing the method to always fall through to the generic qualifiedName/type.toString() logic. This removes the intended readable-name formatting for property lookups on interfaces/classes rather than fixing the underlying naming logic, likely breaking other test cases relying on that behavior even though it happens to match the specific expected string in this test."
+      },
+      "s_sem": 0.09999999999999998,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 6.944871742998657,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 3950,
+      "output_tokens": 509,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.1,
+        "readability": 0.1,
+        "security_robustness": 0.3,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch simply deletes the return statement, leaving an empty if-block and removing the intended behavior of returning a readable prototype+property name entirely, rather than fixing the underlying logic that caused the wrong type name to be chosen. This likely breaks other cases that rely on this readable name formatting, and merely happens to make the specific failing test pass by falling through to generic type.toString() logic."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 379.68622703800065,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 3950,
+      "output_tokens": 963,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.2,
+        "readability": 0.3,
+        "security_robustness": 0.6,
+        "judgement": "OVERFITTING",
+        "confidence": 0.85,
+        "brief_reason": "The patch simply deletes the return statement that produced the human-readable 'Type.prop' name, leaving an empty if-block and falling through to a different, less precise naming path. This removes the special-case behavior meant to produce readable property owner names rather than fixing the underlying logic (e.g., correctly walking the prototype chain or dereferencing types), so it likely only happens to satisfy this specific test's expected string while degrading diagnostic quality generally."
+      },
+      "s_sem": 0.15000000000000002,
+      "confidence_clipped": false
+    }
+  ]
+}

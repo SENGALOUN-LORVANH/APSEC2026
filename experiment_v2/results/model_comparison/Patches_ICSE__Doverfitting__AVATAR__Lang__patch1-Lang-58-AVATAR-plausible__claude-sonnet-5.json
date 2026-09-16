@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Lang__patch1-Lang-58-AVATAR-plausible",
+  "condition": "C",
+  "model": "claude-sonnet-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.6833333333333332,
+  "decision": "CORRECT",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 20.58572322300097,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 7152,
+      "output_tokens": 1957,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.6,
+        "readability": 0.7,
+        "security_robustness": 0.6,
+        "judgement": "CORRECT",
+        "confidence": 0.6,
+        "brief_reason": "Removing the isDigits(numeric.substring(1)) check fixes the Lang300 case (e.g. \"1l\") where the substring is empty and isDigits incorrectly returns false, but it also removes validation for other malformed inputs, relying on downstream Long/BigInteger parsing to catch errors instead of an explicit check, which weakens the original intent of the code."
+      },
+      "s_sem": 0.6,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 25.524902846002078,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 7152,
+      "output_tokens": 2225,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.9,
+        "readability": 0.9,
+        "security_robustness": 0.8,
+        "judgement": "CORRECT",
+        "confidence": 0.7,
+        "brief_reason": "Removing the redundant/broken isDigits(numeric.substring(1)) check fixes the failure for single-digit values like '1l' while still relying on createLong/createBigInteger's own parsing to reject genuinely invalid strings, so functional correctness is preserved without overfitting to the specific test case."
+      },
+      "s_sem": 0.7,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 11.33991523900113,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 7152,
+      "output_tokens": 916,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.9,
+        "readability": 0.9,
+        "security_robustness": 0.8,
+        "judgement": "CORRECT",
+        "confidence": 0.75,
+        "brief_reason": "The removed isDigits check was the root cause of failing single-digit long literals like '1l' since substring(1) was empty; removing it lets createLong/createBigInteger perform equivalent validation, generalizing the fix without weakening safety."
+      },
+      "s_sem": 0.75,
+      "confidence_clipped": false
+    }
+  ]
+}

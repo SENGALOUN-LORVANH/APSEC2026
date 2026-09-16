@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__Kali__Closure__patch1-Closure-31-Kali-plausible",
+  "condition": "C",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.050000000000000044,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 5.434757606999483,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 2201,
+      "output_tokens": 144,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.1,
+        "readability": 0.0,
+        "security_robustness": 0.5,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch adds dead code that returns null instead of the actual mismatch result, which breaks the core functionality of tree comparison. It only makes the specific test pass by suppressing error detection rather than fixing the underlying bug in dependency sorting logic."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 4.583955886002514,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 2201,
+      "output_tokens": 144,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.1,
+        "readability": 0.0,
+        "security_robustness": 0.5,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch adds dead code that returns null instead of the actual mismatch result, which breaks the core functionality of tree comparison. It only makes the specific test pass by suppressing error detection rather than fixing the underlying bug in dependency sorting logic."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 4.533510572000523,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 2201,
+      "output_tokens": 144,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.1,
+        "readability": 0.0,
+        "security_robustness": 0.5,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch adds dead code that returns null instead of the actual mismatch result, which breaks the core functionality of tree comparison. It only makes the specific test pass by suppressing error detection rather than fixing the underlying bug in dependency sorting logic."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    }
+  ]
+}

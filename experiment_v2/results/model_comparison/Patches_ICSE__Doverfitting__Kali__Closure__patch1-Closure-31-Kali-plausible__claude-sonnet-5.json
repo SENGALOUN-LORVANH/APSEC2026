@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__Kali__Closure__patch1-Closure-31-Kali-plausible",
+  "condition": "C",
+  "model": "claude-sonnet-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.020000000000000018,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 4.415847047002899,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 2746,
+      "output_tokens": 311,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.0,
+        "readability": 0.1,
+        "security_robustness": 0.0,
+        "judgement": "OVERFITTING",
+        "confidence": 0.98,
+        "brief_reason": "The patch makes checkTreeEqualsImpl silently return null (equal) whenever a child mismatch is found, effectively disabling the tree equality check rather than fixing the actual dependency sorting bug. This masks failures instead of addressing the root cause and severely weakens test infrastructure correctness."
+      },
+      "s_sem": 0.020000000000000018,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 4.306009134001215,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 2746,
+      "output_tokens": 292,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.0,
+        "readability": 0.1,
+        "security_robustness": 0.1,
+        "judgement": "OVERFITTING",
+        "confidence": 0.98,
+        "brief_reason": "The patch forces checkTreeEqualsImpl to always return null when a child mismatch is found, effectively disabling tree equality mismatch detection entirely rather than fixing the actual dependency sorting bug. This breaks the intended functionality of the method and is unrelated to the real cause of the failing test."
+      },
+      "s_sem": 0.020000000000000018,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 3.6952137499974924,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 2746,
+      "output_tokens": 269,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.1,
+        "readability": 0.1,
+        "security_robustness": 0.2,
+        "judgement": "OVERFITTING",
+        "confidence": 0.98,
+        "brief_reason": "The patch forces checkTreeEqualsImpl to return null whenever a mismatch is found, effectively disabling the tree comparison logic entirely rather than fixing the actual dependency sorting bug, which breaks correctness of this core equality-checking utility."
+      },
+      "s_sem": 0.020000000000000018,
+      "confidence_clipped": false
+    }
+  ]
+}

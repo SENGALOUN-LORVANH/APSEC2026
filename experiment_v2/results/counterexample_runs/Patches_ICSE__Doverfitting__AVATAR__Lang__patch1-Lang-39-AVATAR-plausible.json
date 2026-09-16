@@ -1,0 +1,9 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Lang__patch1-Lang-39-AVATAR-plausible",
+  "bug_id": "Lang-39",
+  "model": "claude-haiku-4-5",
+  "latency_s": null,
+  "error": "gave up after 6 attempts: InternalServerError: Error code: 500 - {'type': 'error', 'error': {'type': 'api_error', 'message': 'Internal server error'}, 'request_id': 'req_011Cf5HbqSFX28fKwShDdKrN'}",
+  "context_errors": [],
+  "tests": []
+}

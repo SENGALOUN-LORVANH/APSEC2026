@@ -2,7 +2,7 @@
   "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Chart__patch1-Chart-15-AVATAR-plausible",
   "bug_id": "Chart-15",
   "model": "claude-haiku-4-5",
-  "latency_s": 9.969603636000102,
+  "latency_s": 32.30451154899856,
   "error": null,
   "context_errors": [],
   "tests": [
@@ -10,28 +10,28 @@
       "name": "testDrawWithNullDatasetHandlesNullGracefully",
       "target_class": "org.jfree.chart.plot.PiePlot3D",
       "target_method": "draw",
-      "class_name": "PiePlot3DDrawNullDatasetTest",
+      "class_name": "TestDrawWithNullDatasetHandlesNullGracefully",
       "status": "VALID_BUG_REVEALING",
       "candidate_pass": true,
+      "log": ".\nTime: 0.063\n\nOK (1 test)\n\n"
+    },
+    {
+      "name": "testDrawWithEmptyDatasetDoesNotThrow",
+      "target_class": "org.jfree.chart.plot.PiePlot3D",
+      "target_method": "draw",
+      "class_name": "TestDrawWithEmptyDatasetDoesNotThrow",
+      "status": "VALID_NON_DISCRIMINATING",
+      "candidate_pass": null,
       "log": ".\nTime: 0.069\n\nOK (1 test)\n\n"
     },
     {
-      "name": "testDrawWithEmptyDatasetHandlesEmptyGracefully",
+      "name": "testDrawWithValidDatasetCompletes",
       "target_class": "org.jfree.chart.plot.PiePlot3D",
       "target_method": "draw",
-      "class_name": "PiePlot3DDrawEmptyDatasetTest",
-      "status": "VALID_NON_DISCRIMINATING",
-      "candidate_pass": null,
-      "log": ".\nTime: 0.067\n\nOK (1 test)\n\n"
-    },
-    {
-      "name": "testDrawWithValidDatasetProducesOutput",
-      "target_class": "org.jfree.chart.plot.PiePlot3D",
-      "target_method": "draw",
-      "class_name": "PiePlot3DDrawValidDatasetTest",
+      "class_name": "TestDrawWithValidDatasetCompletes",
       "status": "INVALID_ORACLE",
       "candidate_pass": null,
-      "log": ".F\nTime: 0.071\nThere was 1 failure:\n1) testDrawWithValidDatasetProducesOutput(org.jfree.chart.plot.junit.PiePlot3DDrawValidDatasetTest)junit.framework.AssertionFailedError: draw() should not throw exception with valid dataset: null\n\tat org.jfree.chart.plot.junit.PiePlot3DDrawValidDatasetTest.testDrawWithValidDatasetProducesOutput(PiePlot3DDrawValidDatasetTest.java:32)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\nFAILURES!!!\nTests run: 1,  Failures: 1,  Errors: 0\n\n"
+      "log": ".E\nTime: 0.073\nThere was 1 error:\n1) testDrawWithValidDatasetCompletes(org.jfree.chart.plot.junit.TestDrawWithValidDatasetCompletes)java.lang.NullPointerException\n\tat org.jfree.chart.plot.PiePlot3D.draw(PiePlot3D.java:552)\n\tat org.jfree.chart.plot.junit.TestDrawWithValidDatasetCompletes.testDrawWithValidDatasetCompletes(TestDrawWithValidDatasetCompletes.java:29)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\nFAILURES!!!\nTests run: 1,  Failures: 0,  Errors: 1\n\n"
     }
   ],
   "s_cex": 1.0,

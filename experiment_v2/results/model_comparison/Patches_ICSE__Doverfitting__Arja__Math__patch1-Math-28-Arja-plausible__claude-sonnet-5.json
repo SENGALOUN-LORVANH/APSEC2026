@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__Arja__Math__patch1-Math-28-Arja-plausible",
+  "condition": "C",
+  "model": "claude-sonnet-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.15000000000000002,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 6.891614113999822,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 3723,
+      "output_tokens": 545,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.3,
+        "readability": 0.6,
+        "security_robustness": 0.4,
+        "judgement": "OVERFITTING",
+        "confidence": 0.85,
+        "brief_reason": "Removing the minIndex update breaks the correctness of Bland's rule tie-breaking (minIndex never advances), so the algorithm no longer reliably selects the smallest-index row, undermining the anti-cycling guarantee it is meant to provide. It may happen to pass the specific cycling test but weakens the general correctness of the pivot selection."
+      },
+      "s_sem": 0.15000000000000002,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 5.769955251002102,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 3723,
+      "output_tokens": 435,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.3,
+        "readability": 0.6,
+        "security_robustness": 0.5,
+        "judgement": "OVERFITTING",
+        "confidence": 0.85,
+        "brief_reason": "Removing the minIndex update breaks Bland's rule tie-breaking logic entirely, since minIndex never shrinks and thus minRow gets overwritten by every candidate row visited, rather than properly selecting the smallest index. It may happen to fix the specific cycling test but weakens the general anti-cycling algorithm, likely causing incorrect behavior or new cycling in other degenerate cases."
+      },
+      "s_sem": 0.15000000000000002,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 377.75411128499763,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 3723,
+      "output_tokens": 653,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.3,
+        "readability": 0.6,
+        "security_robustness": 0.5,
+        "judgement": "OVERFITTING",
+        "confidence": 0.85,
+        "brief_reason": "Removing the minIndex update breaks Bland's rule logic: minRow will end up being overwritten by the last matching row in the tie list rather than the row with the smallest basic-variable index, which is the whole point of Bland's rule to prevent cycling. This likely passes the specific test but doesn't correctly implement the intended anti-cycling algorithm in general."
+      },
+      "s_sem": 0.15000000000000002,
+      "confidence_clipped": false
+    }
+  ]
+}

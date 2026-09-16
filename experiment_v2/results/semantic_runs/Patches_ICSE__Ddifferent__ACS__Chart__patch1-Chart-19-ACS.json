@@ -11,9 +11,11 @@
   "runs": [
     {
       "run": 0,
-      "latency_s": 5.149172077999538,
+      "latency_s": 3.7481577300022764,
       "attempts": 1,
       "error": null,
+      "input_tokens": 3867,
+      "output_tokens": 179,
       "parsed": {
         "generalization": "specific_only",
         "deletes_or_weakens_functionality": "false",
@@ -23,35 +25,18 @@
         "security_robustness": 0.7,
         "judgement": "OVERFITTING",
         "confidence": 0.95,
-        "brief_reason": "The patch adds null-checking that throws IllegalArgumentException, which is unrelated to the actual bug causing test failures. The tests fail due to missing logic (likely not checking parent plots for domain axes), not null handling. The patch's null checks don't address the core issue and introduce unrelated behavior changes with poor code formatting."
+        "brief_reason": "The patch adds null-checking that throws IllegalArgumentException, which is unrelated to the actual bug being fixed (the methods should delegate to parent plots). The null checks are added at the wrong locations (after logic completion) and don't address the core issue that getDomainAxisIndex lacks the parent delegation logic that getRangeAxisIndex has. This is overfitting to pass tests rather than fixing the underlying bug."
       },
       "s_sem": 0.050000000000000044,
       "confidence_clipped": false
     },
     {
       "run": 1,
-      "latency_s": 3.4131597340001463,
+      "latency_s": 3.1496188189994427,
       "attempts": 1,
       "error": null,
-      "parsed": {
-        "generalization": "specific_only",
-        "deletes_or_weakens_functionality": "false",
-        "unrelated_behavior_change": "true",
-        "minimality": 0.3,
-        "readability": 0.2,
-        "security_robustness": 0.6,
-        "judgement": "OVERFITTING",
-        "confidence": 0.95,
-        "brief_reason": "The patch adds null-checking that throws IllegalArgumentException, but this is unrelated to the actual bug causing test failures. The tests fail due to missing logic to search parent plots for domain axes (similar to the existing range axis logic), not null validation. The patch introduces new behavior (throwing exceptions) that wasn't required by the bug and doesn't address the root cause."
-      },
-      "s_sem": 0.050000000000000044,
-      "confidence_clipped": false
-    },
-    {
-      "run": 2,
-      "latency_s": 2.887484140000197,
-      "attempts": 1,
-      "error": null,
+      "input_tokens": 3867,
+      "output_tokens": 168,
       "parsed": {
         "generalization": "specific_only",
         "deletes_or_weakens_functionality": "false",
@@ -61,7 +46,28 @@
         "security_robustness": 0.7,
         "judgement": "OVERFITTING",
         "confidence": 0.95,
-        "brief_reason": "The patch adds null-checking that throws IllegalArgumentException, which is unrelated to the actual bug causing test failures. The tests fail due to missing logic (likely not checking parent plots for domain axes), not null handling. The patch is poorly formatted, minimally addresses the real issue, and introduces unrelated behavior changes."
+        "brief_reason": "The patch adds null-checking that throws IllegalArgumentException, which is unrelated to the actual bug causing test failures. The tests fail due to missing logic (likely not checking parent plots for domain axes), not null handling. The patch introduces new behavior (throwing exceptions) that wasn't required by the failing tests and degrades code readability with poor formatting."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 3.0313571779988706,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 3867,
+      "output_tokens": 157,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.3,
+        "readability": 0.2,
+        "security_robustness": 0.7,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch adds null-checking that throws IllegalArgumentException, which is unrelated to the actual bug causing test failures. The tests fail due to missing logic (likely not checking parent plots for domain axes), not null handling. The patch introduces unrelated behavior changes and poor code formatting without addressing the root cause."
       },
       "s_sem": 0.050000000000000044,
       "confidence_clipped": false

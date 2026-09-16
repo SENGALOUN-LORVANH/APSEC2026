@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__kPAR__Lang__patch1-Lang-24-kPAR-plausible",
+  "condition": "C",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.050000000000000044,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 6.486580774995673,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 3802,
+      "output_tokens": 192,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.2,
+        "readability": 0.3,
+        "security_robustness": 0.8,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch moves the 'l'/'L' type qualifier check into the decimal point condition block, which breaks the logic for handling trailing 'l'/'L' after decimal points and exponents. This causes the function to incorrectly accept invalid numbers like '1.5L' and '1E5L', weakening the validation logic rather than fixing the underlying bug. The change is overfitted to pass a specific test case without addressing the general issue."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 6.2491613020029035,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 3802,
+      "output_tokens": 192,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.2,
+        "readability": 0.3,
+        "security_robustness": 0.8,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch moves the 'l'/'L' type qualifier check into the decimal point condition block, which breaks the logic for handling trailing 'l'/'L' after decimal points and exponents. This causes the function to incorrectly accept invalid numbers like '1.5L' and '1E5L', weakening the validation logic rather than fixing the underlying bug. The change is overfitted to pass a specific test case without addressing the general issue."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 6.238346696001827,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 3802,
+      "output_tokens": 192,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.2,
+        "readability": 0.3,
+        "security_robustness": 0.8,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch moves the 'l'/'L' type qualifier check into the decimal point condition block, which breaks the logic for handling trailing 'l'/'L' after decimal points and exponents. This causes the function to incorrectly accept invalid numbers like '1.5L' and '1E5L', weakening the validation logic rather than fixing the underlying bug. The change is overfitted to pass a specific test case without addressing the general issue."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    }
+  ]
+}

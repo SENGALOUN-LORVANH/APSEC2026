@@ -2,7 +2,7 @@
   "patch_id": "Patches_ICSE__Ddifferent__ACS__Chart__patch1-Chart-19-ACS",
   "bug_id": "Chart-19",
   "model": "claude-haiku-4-5",
-  "latency_s": 7.403164070001367,
+  "latency_s": 7.853916261003178,
   "error": null,
   "context_errors": [],
   "tests": [
@@ -13,7 +13,7 @@
       "class_name": "testGetDomainAxisIndexWithNullThrowsException",
       "status": "VALID_BUG_REVEALING",
       "candidate_pass": true,
-      "log": ".\nTime: 0.05\n\nOK (1 test)\n\n"
+      "log": ".\nTime: 0.052\n\nOK (1 test)\n\n"
     },
     {
       "name": "testGetRangeAxisIndexWithNullThrowsException",
@@ -22,7 +22,7 @@
       "class_name": "testGetRangeAxisIndexWithNullThrowsException",
       "status": "VALID_BUG_REVEALING",
       "candidate_pass": true,
-      "log": ".\nTime: 0.051\n\nOK (1 test)\n\n"
+      "log": ".\nTime: 0.047\n\nOK (1 test)\n\n"
     },
     {
       "name": "testGetDomainAxisIndexWithValidAxis",
@@ -31,7 +31,7 @@
       "class_name": "testGetDomainAxisIndexWithValidAxis",
       "status": "VALID_NON_DISCRIMINATING",
       "candidate_pass": null,
-      "log": ".\nTime: 0.052\n\nOK (1 test)\n\n"
+      "log": ".\nTime: 0.058\n\nOK (1 test)\n\n"
     }
   ],
   "s_cex": 1.0,

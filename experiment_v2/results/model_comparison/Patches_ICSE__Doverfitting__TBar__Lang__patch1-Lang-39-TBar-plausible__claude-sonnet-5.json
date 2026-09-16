@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__TBar__Lang__patch1-Lang-39-TBar-plausible",
+  "condition": "C",
+  "model": "claude-sonnet-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.0666666666666667,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 11.712047088003601,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 6065,
+      "output_tokens": 899,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.1,
+        "readability": 0.05,
+        "security_robustness": 0.3,
+        "judgement": "OVERFITTING",
+        "confidence": 0.9,
+        "brief_reason": "The patch replaces the loop condition `i < searchList.length` with `i==searchList.length`, which makes the loop never execute, thereby sidestepping the NPE by simply disabling the increase-computation logic rather than adding a null check for replacementList[i]. This is not a genuine fix for the null handling bug; it silently discards the buffer-size optimization and is unreadable, nonsensical code that merely happens to avoid the crash for this test case."
+      },
+      "s_sem": 0.09999999999999998,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 6.592968675002339,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 6065,
+      "output_tokens": 429,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.1,
+        "readability": 0.1,
+        "security_robustness": 0.3,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch changes the loop condition to 'i==searchList.length', which makes the loop never execute (since i starts at 0), effectively removing the buffer-size estimation logic instead of fixing the null-check bug that causes the NPE. This avoids the crash but destroys legitimate functionality and doesn't address the root cause (missing null check on searchList[i]/replacementList[i]).This is a nonsensical, non-general fix that happens to avoid the failing NPE by disabling code."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 8.345063944005233,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 6065,
+      "output_tokens": 638,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.1,
+        "readability": 0.1,
+        "security_robustness": 0.3,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch changes the loop condition to 'i==searchList.length', which makes the loop body never execute (unless length is 0), effectively removing the buffer-size increase estimation for all calls rather than fixing the underlying null-check bug that caused the NPE. This is a nonsensical, non-general fix that silently disables an optimization and doesn't handle null replacementList entries properly, merely avoiding the crash by skipping the code path entirely for this test."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    }
+  ]
+}

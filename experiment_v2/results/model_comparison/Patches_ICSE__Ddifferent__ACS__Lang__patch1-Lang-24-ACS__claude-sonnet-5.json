@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Ddifferent__ACS__Lang__patch1-Lang-24-ACS",
+  "condition": "C",
+  "model": "claude-sonnet-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.8000000000000002,
+  "decision": "CORRECT",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 6.124628486999427,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 4980,
+      "output_tokens": 436,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.7,
+        "readability": 0.3,
+        "security_robustness": 0.9,
+        "judgement": "CORRECT",
+        "confidence": 0.8,
+        "brief_reason": "The patch correctly rejects numbers with both a decimal point and an 'L' suffix, fixing the general LANG-664 case, though the code style (inline, no spacing) is poor."
+      },
+      "s_sem": 0.8,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 6.669735819999914,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 4980,
+      "output_tokens": 482,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.7,
+        "readability": 0.4,
+        "security_robustness": 0.9,
+        "judgement": "CORRECT",
+        "confidence": 0.8,
+        "brief_reason": "The patch correctly rejects numbers like '1.1L' by disallowing 'L' suffix when a decimal point is present, addressing the general LANG-664 issue, though the code style (inline if with '==true') is unnecessarily verbose and could be merged into the existing return statement."
+      },
+      "s_sem": 0.8,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 6.8348515209982,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 4980,
+      "output_tokens": 447,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.7,
+        "readability": 0.3,
+        "security_robustness": 0.9,
+        "judgement": "CORRECT",
+        "confidence": 0.8,
+        "brief_reason": "The added check correctly excludes decimal points before allowing 'L' suffix, fixing the LANG-664 case for all inputs, though the code style (inline, no spacing, '==true') is poor and could be merged into the existing boolean expression for clarity."
+      },
+      "s_sem": 0.8,
+      "confidence_clipped": false
+    }
+  ]
+}

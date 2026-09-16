@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Dsame__SimFix__Lang__patch1-Lang-43-SimFix",
+  "condition": "C",
+  "model": "claude-sonnet-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.7999999999999999,
+  "decision": "CORRECT",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 9.265123346998735,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 4273,
+      "output_tokens": 668,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.9,
+        "readability": 0.9,
+        "security_robustness": 0.85,
+        "judgement": "CORRECT",
+        "confidence": 0.75,
+        "brief_reason": "The infinite loop was caused by pos not advancing when an escaped quote is detected at the start; adding next(pos) properly consumes the character and prevents the OOM/infinite loop, matching the reported LANG-477 bug fix without altering other behavior."
+      },
+      "s_sem": 0.75,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 4.209281433999422,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 4273,
+      "output_tokens": 311,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 1.0,
+        "readability": 0.9,
+        "security_robustness": 0.9,
+        "judgement": "CORRECT",
+        "confidence": 0.8,
+        "brief_reason": "The infinite loop/OOM was caused by not advancing the parse position when consuming a leading escaped quote; adding next(pos) correctly advances the position, fixing the root cause without altering other logic."
+      },
+      "s_sem": 0.8,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 5.783752266997908,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 4273,
+      "output_tokens": 439,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 1.0,
+        "readability": 0.95,
+        "security_robustness": 0.9,
+        "judgement": "CORRECT",
+        "confidence": 0.85,
+        "brief_reason": "The bug was that when a quote is immediately encountered with escaping on, the position was never advanced, causing an infinite loop and OOM; adding next(pos) fixes this root cause and matches the actual pattern-parsing logic used elsewhere in the method."
+      },
+      "s_sem": 0.85,
+      "confidence_clipped": false
+    }
+  ]
+}

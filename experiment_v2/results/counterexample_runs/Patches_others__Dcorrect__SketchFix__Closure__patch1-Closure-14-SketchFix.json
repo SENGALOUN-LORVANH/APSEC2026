@@ -1,0 +1,40 @@
+{
+  "patch_id": "Patches_others__Dcorrect__SketchFix__Closure__patch1-Closure-14-SketchFix",
+  "bug_id": "Closure-14",
+  "model": "claude-haiku-4-5",
+  "latency_s": 42.909903145999124,
+  "error": null,
+  "context_errors": [],
+  "tests": [
+    {
+      "name": "testFinallyEdgeWithMultipleExitPaths",
+      "target_class": "com.google.javascript.jscomp.ControlFlowAnalysis",
+      "target_method": "computeFollowNode",
+      "class_name": "ControlFlowAnalysisTest",
+      "status": "INVALID_COMPILE",
+      "candidate_pass": null,
+      "log": "+Annotation'\n    [javac] /data/qc_workspaces/gen_tests/Patches_others__Dcorrect__SketchFix__Closure__patch1-Closure-14-SketchFix/ControlFlowAnalysisTest/fixed/test/com/google/javascript/jscomp/ControlFlowAnalysisTest.java:37: error: cannot find symbol\n    [javac]     assertTrue(\"CFG should have nodes\", cfg.getNodeCount() > 0);\n    [javac]                                            ^\n    [javac]   symbol:   method getNodeCount()\n    [javac]   location: variable cfg of type ControlFlowGraph\n    [javac] /data/qc_workspaces/gen_tests/Patches_others__Dcorrect__SketchFix__Closure__patch1-Closure-14-SketchFix/ControlFlowAnalysisTest/fixed/test/com/google/javascript/jscomp/ControlFlowAnalysisTest.java:59: error: cannot find symbol\n    [javac]     assertTrue(\"CFG should have nodes for nested finally\", cfg.getNodeCount() > 0);\n    [javac]                                                               ^\n    [javac]   symbol:   method getNodeCount()\n    [javac]   location: variable cfg of type ControlFlowGraph\n    [javac] /data/qc_workspaces/gen_tests/Patches_others__Dcorrect__SketchFix__Closure__patch1-Closure-14-SketchFix/ControlFlowAnalysisTest/fixed/test/com/google/javascript/jscomp/ControlFlowAnalysisTest.java:79: error: cannot find symbol\n    [javac]     assertTrue(\"CFG should properly handle break in finally\", cfg.getNodeCount() > 0);\n    [javac]                                                                  ^\n    [javac]   symbol:   method getNodeCount()\n    [javac]   location: variable cfg of type ControlFlowGraph\n    [javac] 3 errors\n    [javac] 17 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_others__Dcorrect__SketchFix__Closure__patch1-Closure-14-SketchFix/ControlFlowAnalysisTest/fixed/build.xml:331: Compile failed; see the compiler error output for details.\n\nTotal time: 1 second\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+    },
+    {
+      "name": "testFinallyBlockExceptionHandling",
+      "target_class": "com.google.javascript.jscomp.ControlFlowAnalysis",
+      "target_method": "computeFollowNode",
+      "class_name": "ControlFlowAnalysisExceptionTest",
+      "status": "INVALID_COMPILE",
+      "candidate_pass": null,
+      "log": "Dcorrect__SketchFix__Closure__patch1-Closure-14-SketchFix/ControlFlowAnalysisExceptionTest/fixed/test/com/google/javascript/jscomp/ControlFlowAnalysisExceptionTest.java:34: error: cannot find symbol\n    [javac]     assertTrue(\"CFG should have nodes\", cfg.getNodeCount() > 0);\n    [javac]                                            ^\n    [javac]   symbol:   method getNodeCount()\n    [javac]   location: variable cfg of type ControlFlowGraph\n    [javac] /data/qc_workspaces/gen_tests/Patches_others__Dcorrect__SketchFix__Closure__patch1-Closure-14-SketchFix/ControlFlowAnalysisExceptionTest/fixed/test/com/google/javascript/jscomp/ControlFlowAnalysisExceptionTest.java:55: error: cannot find symbol\n    [javac]     assertTrue(\"CFG should properly connect catch to finally\", cfg.getNodeCount() > 0);\n    [javac]                                                                   ^\n    [javac]   symbol:   method getNodeCount()\n    [javac]   location: variable cfg of type ControlFlowGraph\n    [javac] /data/qc_workspaces/gen_tests/Patches_others__Dcorrect__SketchFix__Closure__patch1-Closure-14-SketchFix/ControlFlowAnalysisExceptionTest/fixed/test/com/google/javascript/jscomp/ControlFlowAnalysisExceptionTest.java:73: error: cannot find symbol\n    [javac]     assertTrue(\"CFG should handle try-finally without catch\", cfg.getNodeCount() > 0);\n    [javac]                                                                  ^\n    [javac]   symbol:   method getNodeCount()\n    [javac]   location: variable cfg of type ControlFlowGraph\n    [javac] 3 errors\n    [javac] 17 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_others__Dcorrect__SketchFix__Closure__patch1-Closure-14-SketchFix/ControlFlowAnalysisExceptionTest/fixed/build.xml:331: Compile failed; see the compiler error output for details.\n\nTotal time: 1 second\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+    },
+    {
+      "name": "testFinallyEdgeBranchType",
+      "target_class": "com.google.javascript.jscomp.ControlFlowAnalysis",
+      "target_method": "computeFollowNode",
+      "class_name": "ControlFlowAnalysisFinallyBranchTest",
+      "status": "INVALID_COMPILE",
+      "candidate_pass": null,
+      "log": "s/Patches_others__Dcorrect__SketchFix__Closure__patch1-Closure-14-SketchFix/ControlFlowAnalysisFinallyBranchTest/fixed/test/com/google/javascript/jscomp/ControlFlowAnalysisFinallyBranchTest.java:33: error: cannot find symbol\n    [javac]     assertTrue(\"CFG should have multiple nodes\", cfg.getNodeCount() > 1);\n    [javac]                                                     ^\n    [javac]   symbol:   method getNodeCount()\n    [javac]   location: variable cfg of type ControlFlowGraph\n    [javac] /data/qc_workspaces/gen_tests/Patches_others__Dcorrect__SketchFix__Closure__patch1-Closure-14-SketchFix/ControlFlowAnalysisFinallyBranchTest/fixed/test/com/google/javascript/jscomp/ControlFlowAnalysisFinallyBranchTest.java:57: error: cannot find symbol\n    [javac]     assertTrue(\"CFG should have nodes\", cfg.getNodeCount() > 0);\n    [javac]                                            ^\n    [javac]   symbol:   method getNodeCount()\n    [javac]   location: variable cfg of type ControlFlowGraph\n    [javac] /data/qc_workspaces/gen_tests/Patches_others__Dcorrect__SketchFix__Closure__patch1-Closure-14-SketchFix/ControlFlowAnalysisFinallyBranchTest/fixed/test/com/google/javascript/jscomp/ControlFlowAnalysisFinallyBranchTest.java:78: error: cannot find symbol\n    [javac]     assertTrue(\"CFG should be properly constructed\", cfg.getNodeCount() > 0);\n    [javac]                                                         ^\n    [javac]   symbol:   method getNodeCount()\n    [javac]   location: variable cfg of type ControlFlowGraph\n    [javac] 3 errors\n    [javac] 17 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_others__Dcorrect__SketchFix__Closure__patch1-Closure-14-SketchFix/ControlFlowAnalysisFinallyBranchTest/fixed/build.xml:331: Compile failed; see the compiler error output for details.\n\nTotal time: 1 second\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+    }
+  ],
+  "s_cex": null,
+  "n_valid": 0,
+  "n_passed": 0
+}

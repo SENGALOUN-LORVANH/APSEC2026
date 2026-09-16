@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_others__Dcorrect__SketchFix__Closure__patch1-Closure-14-SketchFix",
+  "condition": "C",
+  "model": "claude-sonnet-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.7333333333333334,
+  "decision": "CORRECT",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 5.186749360000249,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 6478,
+      "output_tokens": 300,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.9,
+        "readability": 0.9,
+        "security_robustness": 0.8,
+        "judgement": "CORRECT",
+        "confidence": 0.7,
+        "brief_reason": "The patch changes the edge branch type for finally-block cross edges from UNCOND to ON_EX, which matches the semantics expected by the CFG tests (cross edges for exceptional control flow) and fixes the missing-return false positive by correctly modeling exception paths through nested finally blocks."
+      },
+      "s_sem": 0.7,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 4.958063165999192,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 6478,
+      "output_tokens": 359,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 1.0,
+        "readability": 0.9,
+        "security_robustness": 0.8,
+        "judgement": "CORRECT",
+        "confidence": 0.7,
+        "brief_reason": "The patch changes the edge type for control transfer into outer finally blocks from UNCOND to ON_EX, which correctly models that these transfers are exceptional paths, fixing cross-edge detection and missing-return analysis in a general way rather than special-casing the failing test inputs."
+      },
+      "s_sem": 0.7,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 4.910624456002552,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 6478,
+      "output_tokens": 368,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 1.0,
+        "readability": 0.9,
+        "security_robustness": 0.85,
+        "judgement": "CORRECT",
+        "confidence": 0.8,
+        "brief_reason": "Changing the edge type from UNCOND to ON_EX correctly reflects that control only flows to the outer finally block via exception propagation, matching the expected CFG semantics and fixing the missing-return and cross-edge test failures without altering unrelated behavior."
+      },
+      "s_sem": 0.8,
+      "confidence_clipped": false
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Lang__patch1-Lang-39-AVATAR-plausible",
+  "condition": "C",
+  "model": "claude-sonnet-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.08333333333333333,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 375.0989004629955,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 6060,
+      "output_tokens": 470,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.2,
+        "readability": 0.3,
+        "security_robustness": 0.5,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch merely avoids calling replacementList[i].length() by replacing it with a self-subtraction (searchList[i].length()-searchList[i].length()), always yielding 0. This sidesteps the NPE but destroys the buffer-size estimation logic entirely, rather than properly guarding against null replacementList entries, weakening functionality without addressing the root cause."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 6.543665019999025,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 6060,
+      "output_tokens": 485,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.3,
+        "readability": 0.4,
+        "security_robustness": 0.6,
+        "judgement": "OVERFITTING",
+        "confidence": 0.9,
+        "brief_reason": "The patch avoids the NPE by replacing the replacementList[i].length() term with searchList[i].length()-searchList[i].length(), which always yields 0. This removes the intended buffer-size optimization instead of properly handling null replacement entries, so it only masks the symptom rather than fixing the root cause of the null replacement causing NPE."
+      },
+      "s_sem": 0.09999999999999998,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 5.321509376000904,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 6060,
+      "output_tokens": 403,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.3,
+        "readability": 0.2,
+        "security_robustness": 0.5,
+        "judgement": "OVERFITTING",
+        "confidence": 0.9,
+        "brief_reason": "The patch merely avoids the NPE by replacing replacementList[i].length() with searchList[i].length()-searchList[i].length(), which always evaluates to zero, nullifying the buffer-size optimization instead of properly handling null replacement entries. This does not address the root cause (null replacementList[i] should be skipped like null searchList[i]) and degrades the intended performance heuristic."
+      },
+      "s_sem": 0.09999999999999998,
+      "confidence_clipped": false
+    }
+  ]
+}

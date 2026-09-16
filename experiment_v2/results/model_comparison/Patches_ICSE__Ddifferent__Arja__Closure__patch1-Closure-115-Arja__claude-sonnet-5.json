@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Ddifferent__Arja__Closure__patch1-Closure-115-Arja",
+  "condition": "C",
+  "model": "claude-sonnet-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.0666666666666667,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 4.821941121997952,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 6495,
+      "output_tokens": 360,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.2,
+        "readability": 0.3,
+        "security_robustness": 0.2,
+        "judgement": "OVERFITTING",
+        "confidence": 0.9,
+        "brief_reason": "The patch simply deletes the safety check that prevents inlining when a side-effect-causing statement could be affected by a mutable argument, leaving an empty if-block. This removes correct protective logic rather than fixing the underlying bug, likely causing incorrect inlining in other cases even though it passes the given tests."
+      },
+      "s_sem": 0.09999999999999998,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 5.040337526999792,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 6495,
+      "output_tokens": 385,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.3,
+        "readability": 0.2,
+        "security_robustness": 0.1,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch simply deletes the return statement that prevented inlining when side effects could occur, leaving an empty if block that disables the safety check entirely rather than fixing the underlying inlining logic. This risks incorrect inlining causing semantic bugs elsewhere, not a genuine fix of the root cause."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 5.477512377001403,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 6495,
+      "output_tokens": 400,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.1,
+        "readability": 0.2,
+        "security_robustness": 0.1,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch simply deletes the 'return CanInlineResult.NO' inside the side-effect check, leaving an empty if-block, which disables the safety check that prevents inlining when arguments could be side-effected. This removes real functionality rather than fixing the root cause, and could allow incorrect inlining in other side-effect scenarios."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    }
+  ]
+}

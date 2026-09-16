@@ -2,33 +2,33 @@
   "patch_id": "Patches_ICSE__Dsame__ACS__Time__patch1-Time-15-ACS",
   "bug_id": "Time-15",
   "model": "claude-haiku-4-5",
-  "latency_s": 6.924573952999708,
+  "latency_s": 375.7999363980016,
   "error": null,
   "context_errors": [],
   "tests": [
     {
-      "name": "testSafeMultiplyLongIntNegationOverflow",
+      "name": "testSafeMultiplyLongMinValueNegativeOne",
       "target_class": "org.joda.time.field.FieldUtils",
       "target_method": "safeMultiply",
-      "class_name": "TestSafeMultiplyLongIntNegationOverflow",
+      "class_name": "TestSafeMultiplyLongMinValueNegativeOne",
       "status": "VALID_BUG_REVEALING",
       "candidate_pass": true,
       "log": ".\nTime: 0.002\n\nOK (1 test)\n\n"
     },
     {
-      "name": "testSafeMultiplyLongIntNegationNearBoundary",
+      "name": "testSafeMultiplyLongMinValuePlusOne",
       "target_class": "org.joda.time.field.FieldUtils",
       "target_method": "safeMultiply",
-      "class_name": "TestSafeMultiplyLongIntNegationNearBoundary",
+      "class_name": "TestSafeMultiplyLongMinValuePlusOne",
       "status": "VALID_NON_DISCRIMINATING",
       "candidate_pass": null,
       "log": ".\nTime: 0.002\n\nOK (1 test)\n\n"
     },
     {
-      "name": "testSafeMultiplyLongIntNegativeValuesOtherCases",
+      "name": "testSafeMultiplyLongMinValueZero",
       "target_class": "org.joda.time.field.FieldUtils",
       "target_method": "safeMultiply",
-      "class_name": "TestSafeMultiplyLongIntNegativeValuesOtherCases",
+      "class_name": "TestSafeMultiplyLongMinValueZero",
       "status": "VALID_NON_DISCRIMINATING",
       "candidate_pass": null,
       "log": ".\nTime: 0.002\n\nOK (1 test)\n\n"

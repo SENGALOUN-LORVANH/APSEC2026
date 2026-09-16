@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_others__Dcorrect__CapGen__Math__patch1-Math-53-CapGen",
+  "condition": "C",
+  "model": "claude-sonnet-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.8666666666666667,
+  "decision": "CORRECT",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 2.8141474759977427,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 3020,
+      "output_tokens": 148,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 1.0,
+        "readability": 0.6,
+        "security_robustness": 0.9,
+        "judgement": "CORRECT",
+        "confidence": 0.85,
+        "brief_reason": "The patch correctly returns NaN when either operand is NaN, matching the documented contract and fixing the general cause, though formatting/style is a bit awkward."
+      },
+      "s_sem": 0.85,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 3.035604382999736,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 3020,
+      "output_tokens": 158,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 1.0,
+        "readability": 0.7,
+        "security_robustness": 0.9,
+        "judgement": "CORRECT",
+        "confidence": 0.85,
+        "brief_reason": "The patch adds the documented NaN-check behavior for add(), returning Complex.NaN when either operand is NaN, matching the javadoc and fixing the failing test without altering other logic."
+      },
+      "s_sem": 0.85,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 3.2230742880019534,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 3020,
+      "output_tokens": 173,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.9,
+        "readability": 0.7,
+        "security_robustness": 0.9,
+        "judgement": "CORRECT",
+        "confidence": 0.9,
+        "brief_reason": "The patch adds the documented NaN check before adding, matching the javadoc contract and fixing the general cause, not just the specific test case."
+      },
+      "s_sem": 0.9,
+      "confidence_clipped": false
+    }
+  ]
+}

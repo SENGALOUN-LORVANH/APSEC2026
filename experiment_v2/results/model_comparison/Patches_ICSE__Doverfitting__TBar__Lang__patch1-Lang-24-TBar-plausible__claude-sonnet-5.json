@@ -1,0 +1,61 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__TBar__Lang__patch1-Lang-24-TBar-plausible",
+  "condition": "C",
+  "model": "claude-sonnet-5",
+  "n_runs": 3,
+  "n_parsed": 2,
+  "s_sem_final": 0.7250000000000001,
+  "decision": "CORRECT",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 382.68021122199934,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 4988,
+      "output_tokens": 1230,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.85,
+        "readability": 0.75,
+        "security_robustness": 0.9,
+        "judgement": "CORRECT",
+        "confidence": 0.8,
+        "brief_reason": "The patch correctly folds the 'L'/'l' trailing-character check into the same branch that rejects numbers with a decimal point or exponent, matching the real LANG-664 fix that disallows forms like '1.1L'. It preserves existing valid-number detection and doesn't affect unrelated code paths."
+      },
+      "s_sem": 0.8,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 752.6139482299986,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 4988,
+      "output_tokens": 1353,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.7,
+        "readability": 0.55,
+        "security_robustness": 0.9,
+        "judgement": "CORRECT",
+        "confidence": 0.65,
+        "brief_reason": "The patch merges the '.' and 'l'/'L' branches so that trailing L after a decimal point or exponent is now rejected, matching the documented behavior and fixing the LANG-664 case generally rather than special-casing one string, though the combined condition reduces readability slightly."
+      },
+      "s_sem": 0.65,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": null,
+      "attempts": 6,
+      "error": "gave up after 6 attempts: APIConnectionError: Connection error."
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__kPAR__Lang__patch1-Lang-24-kPAR-plausible",
+  "condition": "C",
+  "model": "claude-sonnet-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.7166666666666667,
+  "decision": "CORRECT",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 15.089239941000415,
+      "attempts": 3,
+      "error": null,
+      "input_tokens": 4988,
+      "output_tokens": 1286,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.7,
+        "readability": 0.6,
+        "security_robustness": 0.9,
+        "judgement": "CORRECT",
+        "confidence": 0.7,
+        "brief_reason": "The patch correctly extends the invalid-suffix check to include 'l'/'L' when a decimal point or exponent is present, fixing the general LANG-664 defect where '1.L' or similar strings were incorrectly accepted. It leaves the original (now unreachable) L-handling code below, which is a minor readability issue but doesn't affect correctness."
+      },
+      "s_sem": 0.7,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 19.493939829997544,
+      "attempts": 3,
+      "error": null,
+      "input_tokens": 4988,
+      "output_tokens": 1716,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.7,
+        "readability": 0.55,
+        "security_robustness": 0.9,
+        "judgement": "CORRECT",
+        "confidence": 0.75,
+        "brief_reason": "The patch consolidates the '.' and 'l'/'L' last-character checks so that a value with a decimal point or exponent followed by an 'L' suffix (e.g. '1.1L') is correctly rejected, which is the root cause of LANG-664. It preserves the previous exponent+L rejection logic and does not alter unrelated code paths, though merging two logically distinct branches reduces readability."
+      },
+      "s_sem": 0.75,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 21.1677437479957,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 4988,
+      "output_tokens": 2039,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.4,
+        "readability": 0.5,
+        "security_robustness": 0.9,
+        "judgement": "CORRECT",
+        "confidence": 0.7,
+        "brief_reason": "The patch correctly makes the trailing 'L'/'l' check share the '.' checks logic, ensuring numbers like '1.1L' are rejected due to hasDecPoint, fixing the LANG-664 case. However, it leaves the original separate 'l'/'L' branch below now unreachable/dead code, hurting readability and minimality slightly, though it does not break existing functionality or introduce unrelated behavior changes."
+      },
+      "s_sem": 0.7,
+      "confidence_clipped": false
+    }
+  ]
+}

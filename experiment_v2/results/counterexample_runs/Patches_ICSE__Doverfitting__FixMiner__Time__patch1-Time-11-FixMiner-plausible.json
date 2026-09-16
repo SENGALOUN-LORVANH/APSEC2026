@@ -2,8 +2,39 @@
   "patch_id": "Patches_ICSE__Doverfitting__FixMiner__Time__patch1-Time-11-FixMiner-plausible",
   "bug_id": "Time-11",
   "model": "claude-haiku-4-5",
-  "latency_s": null,
-  "error": "gave up after 6 attempts: InternalServerError: Error code: 500 - {'type': 'error', 'error': {'type': 'api_error', 'message': 'Internal server error'}, 'request_id': 'req_011Cf4gE4j265P6FWUJ1Xxa9'}",
+  "latency_s": 12.191437786001188,
+  "error": null,
   "context_errors": [],
-  "tests": []
+  "tests": [
+    {
+      "name": "testVerboseWithNullThreadLocal",
+      "target_class": "org.joda.time.tz.ZoneInfoCompiler",
+      "target_method": "verbose",
+      "class_name": "TestVerboseMethod",
+      "status": "VALID_NON_DISCRIMINATING",
+      "candidate_pass": null,
+      "log": "...\nTime: 0.004\n\nOK (3 tests)\n\n"
+    },
+    {
+      "name": "testVerboseLogicError",
+      "target_class": "org.joda.time.tz.ZoneInfoCompiler",
+      "target_method": "verbose",
+      "class_name": "TestVerboseLogicCorrectness",
+      "status": "VALID_NON_DISCRIMINATING",
+      "candidate_pass": null,
+      "log": "...\nTime: 0.005\n\nOK (3 tests)\n\n"
+    },
+    {
+      "name": "testVerboseNullCheckLogic",
+      "target_class": "org.joda.time.tz.ZoneInfoCompiler",
+      "target_method": "verbose",
+      "class_name": "TestVerboseNullHandling",
+      "status": "VALID_NON_DISCRIMINATING",
+      "candidate_pass": null,
+      "log": "...\nTime: 0.004\n\nOK (3 tests)\n\n"
+    }
+  ],
+  "s_cex": null,
+  "n_valid": 0,
+  "n_passed": 0
 }

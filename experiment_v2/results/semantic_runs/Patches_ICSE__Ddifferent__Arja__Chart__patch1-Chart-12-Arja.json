@@ -4,16 +4,18 @@
   "model": "claude-haiku-4-5",
   "n_runs": 3,
   "n_parsed": 3,
-  "s_sem_final": 0.7833333333333333,
+  "s_sem_final": 0.75,
   "decision": "CORRECT",
   "ground_truth_label": null,
   "context_errors": [],
   "runs": [
     {
       "run": 0,
-      "latency_s": 5.017523714999697,
+      "latency_s": 2.9155408250007895,
       "attempts": 1,
       "error": null,
+      "input_tokens": 2542,
+      "output_tokens": 162,
       "parsed": {
         "generalization": "general",
         "deletes_or_weakens_functionality": "false",
@@ -23,16 +25,39 @@
         "security_robustness": 0.85,
         "judgement": "CORRECT",
         "confidence": 0.75,
-        "brief_reason": "The patch adds a call to setDataset(dataset) in the constructor, which properly initializes the dataset through the parent class's setter method rather than just assigning it directly. This ensures any necessary initialization logic in the parent Plot class is executed, fixing the failing test while maintaining minimal, focused changes to the code."
+        "brief_reason": "The patch adds a call to setDataset(dataset) in the constructor, which properly initializes the dataset through the parent class's setter method rather than just assigning it directly. This ensures any necessary initialization logic in the parent Plot class is executed. The change is minimal, focused, and fixes the general initialization issue without removing or weakening functionality."
       },
       "s_sem": 0.75,
       "confidence_clipped": false
     },
     {
       "run": 1,
-      "latency_s": 4.916037367000172,
+      "latency_s": 2.546426908000285,
       "attempts": 1,
       "error": null,
+      "input_tokens": 2542,
+      "output_tokens": 150,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.95,
+        "readability": 0.9,
+        "security_robustness": 0.85,
+        "judgement": "CORRECT",
+        "confidence": 0.75,
+        "brief_reason": "The patch adds a call to setDataset(dataset) in the constructor, which properly initializes the dataset through the parent class's setter method rather than just assigning it directly. This ensures any necessary initialization logic in the parent Plot class is executed, fixing the failing test while maintaining minimal, focused changes."
+      },
+      "s_sem": 0.75,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 2.662740234998637,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 2542,
+      "output_tokens": 156,
       "parsed": {
         "generalization": "general",
         "deletes_or_weakens_functionality": "false",
@@ -45,25 +70,6 @@
         "brief_reason": "The patch adds a call to setDataset(dataset) in the constructor, which properly initializes the dataset through the parent class's setter method rather than just assigning it directly. This ensures any necessary initialization logic in the parent Plot class is executed, fixing the failing test while maintaining minimal, focused changes to the code."
       },
       "s_sem": 0.75,
-      "confidence_clipped": false
-    },
-    {
-      "run": 2,
-      "latency_s": 4.907259533998513,
-      "attempts": 1,
-      "error": null,
-      "parsed": {
-        "generalization": "general",
-        "deletes_or_weakens_functionality": "false",
-        "unrelated_behavior_change": "false",
-        "minimality": 0.95,
-        "readability": 0.9,
-        "security_robustness": 0.9,
-        "judgement": "CORRECT",
-        "confidence": 0.85,
-        "brief_reason": "The patch adds a call to setDataset(dataset) in the constructor, which properly initializes the dataset through the parent class's setter method rather than just assigning it directly. This ensures any necessary side effects or validations in setDataset() are executed during construction, fixing the failing test while maintaining the general correctness of the initialization logic."
-      },
-      "s_sem": 0.85,
       "confidence_clipped": false
     }
   ]

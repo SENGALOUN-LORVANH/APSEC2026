@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Dsame__ACS__Time__patch1-Time-15-ACS",
+  "condition": "C",
+  "model": "claude-sonnet-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.8166666666666668,
+  "decision": "CORRECT",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 3.7517791259997466,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 2747,
+      "output_tokens": 239,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.6,
+        "readability": 0.2,
+        "security_robustness": 0.8,
+        "judgement": "CORRECT",
+        "confidence": 0.8,
+        "brief_reason": "Adds proper overflow check for Long.MIN_VALUE*-1 case, which is the root cause of the bug; functionally correct though poorly formatted and missing a descriptive exception message."
+      },
+      "s_sem": 0.8,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 3.4880577380026807,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 2747,
+      "output_tokens": 187,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 1.0,
+        "readability": 0.3,
+        "security_robustness": 0.8,
+        "judgement": "CORRECT",
+        "confidence": 0.85,
+        "brief_reason": "The patch correctly guards against overflow when val1 is Long.MIN_VALUE and val2 is -1, matching the general overflow-check pattern used elsewhere in the method, though the code formatting is poor (missing newline/spacing) and the exception message is not descriptive."
+      },
+      "s_sem": 0.85,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 4.511427928999183,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 2747,
+      "output_tokens": 290,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.7,
+        "readability": 0.3,
+        "security_robustness": 0.8,
+        "judgement": "CORRECT",
+        "confidence": 0.8,
+        "brief_reason": "The patch correctly identifies that -Long.MIN_VALUE overflows and throws an ArithmeticException, fixing the general overflow bug for val2=-1, though the code is poorly formatted and lacks a descriptive error message."
+      },
+      "s_sem": 0.8,
+      "confidence_clipped": false
+    }
+  ]
+}

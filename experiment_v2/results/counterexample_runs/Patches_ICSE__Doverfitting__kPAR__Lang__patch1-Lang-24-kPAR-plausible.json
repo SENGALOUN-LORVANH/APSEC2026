@@ -1,0 +1,40 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__kPAR__Lang__patch1-Lang-24-kPAR-plausible",
+  "bug_id": "Lang-24",
+  "model": "claude-haiku-4-5",
+  "latency_s": 8.312837253004545,
+  "error": null,
+  "context_errors": [],
+  "tests": [
+    {
+      "name": "testIsNumberWithDecimalAndLTypeSuffix",
+      "target_class": "org.apache.commons.lang3.math.NumberUtils",
+      "target_method": "isNumber",
+      "class_name": "TestIsNumberDecimalWithLSuffix",
+      "status": "VALID_BUG_REVEALING",
+      "candidate_pass": true,
+      "log": ".\nTime: 0.005\n\nOK (1 test)\n\n"
+    },
+    {
+      "name": "testIsNumberWithExponentAndLTypeSuffix",
+      "target_class": "org.apache.commons.lang3.math.NumberUtils",
+      "target_method": "isNumber",
+      "class_name": "TestIsNumberExponentWithLSuffix",
+      "status": "VALID_NON_DISCRIMINATING",
+      "candidate_pass": null,
+      "log": ".\nTime: 0.005\n\nOK (1 test)\n\n"
+    },
+    {
+      "name": "testIsNumberValidLTypeSuffixWithoutDecimalOrExponent",
+      "target_class": "org.apache.commons.lang3.math.NumberUtils",
+      "target_method": "isNumber",
+      "class_name": "TestIsNumberValidLTypeSuffix",
+      "status": "INVALID_ORACLE",
+      "candidate_pass": null,
+      "log": ".F\nTime: 0.006\nThere was 1 failure:\n1) testIsNumberValidLTypeSuffixWithoutDecimalOrExponent(org.apache.commons.lang3.math.TestIsNumberValidLTypeSuffix)junit.framework.AssertionFailedError: +100L should be a valid number\n\tat org.apache.commons.lang3.math.TestIsNumberValidLTypeSuffix.testIsNumberValidLTypeSuffixWithoutDecimalOrExponent(TestIsNumberValidLTypeSuffix.java:15)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\nFAILURES!!!\nTests run: 1,  Failures: 1,  Errors: 0\n\n"
+    }
+  ],
+  "s_cex": 1.0,
+  "n_valid": 1,
+  "n_passed": 1
+}

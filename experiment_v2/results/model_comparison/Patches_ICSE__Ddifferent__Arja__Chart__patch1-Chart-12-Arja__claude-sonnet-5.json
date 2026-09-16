@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Ddifferent__Arja__Chart__patch1-Chart-12-Arja",
+  "condition": "C",
+  "model": "claude-sonnet-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.6333333333333333,
+  "decision": "CORRECT",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 6.569195132000459,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 3407,
+      "output_tokens": 458,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.7,
+        "readability": 0.8,
+        "security_robustness": 0.9,
+        "judgement": "CORRECT",
+        "confidence": 0.7,
+        "brief_reason": "Adding setDataset(dataset) properly registers the dataset (and likely triggers listener registration/change notification) which was missing before, fixing the general defect; the redundant direct field assignment before it is harmless but slightly non-minimal."
+      },
+      "s_sem": 0.7,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 11.594957268000144,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 3407,
+      "output_tokens": 900,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.7,
+        "readability": 0.8,
+        "security_robustness": 0.8,
+        "judgement": "CORRECT",
+        "confidence": 0.6,
+        "brief_reason": "Adding setDataset(dataset) ensures the plot's dataset-change listener registration and any associated initialization happens, which the direct field assignment omitted\u2014this is the root cause of the test failure. The change is small and doesn't alter unrelated behavior, though leaving the redundant direct assignment is slightly less clean."
+      },
+      "s_sem": 0.6,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 8.732286513000872,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 3407,
+      "output_tokens": 598,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.7,
+        "readability": 0.8,
+        "security_robustness": 0.8,
+        "judgement": "CORRECT",
+        "confidence": 0.6,
+        "brief_reason": "The patch replaces a direct field assignment with the setDataset() call, which presumably registers the dataset change listener and triggers necessary notification, matching the constructor's intended behavior of properly wiring up the dataset. This addresses the root cause (missing listener registration) rather than just the specific test case, though the exact behavior of setDataset is not shown."
+      },
+      "s_sem": 0.6,
+      "confidence_clipped": false
+    }
+  ]
+}

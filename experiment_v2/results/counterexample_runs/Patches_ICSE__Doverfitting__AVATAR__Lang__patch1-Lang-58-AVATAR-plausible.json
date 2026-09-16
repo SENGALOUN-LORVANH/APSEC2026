@@ -2,7 +2,7 @@
   "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Lang__patch1-Lang-58-AVATAR-plausible",
   "bug_id": "Lang-58",
   "model": "claude-haiku-4-5",
-  "latency_s": 6.538971762998699,
+  "latency_s": 27.562521358002414,
   "error": null,
   "context_errors": [],
   "tests": [
@@ -16,19 +16,28 @@
       "log": ".\nTime: 0.003\n\nOK (1 test)\n\n"
     },
     {
+      "name": "testCreateNumberWithUppercaseLSuffix",
+      "target_class": "org.apache.commons.lang.math.NumberUtils",
+      "target_method": "createNumber",
+      "class_name": "TestCreateNumberWithUppercaseLSuffix",
+      "status": "VALID_NON_DISCRIMINATING",
+      "candidate_pass": null,
+      "log": ".\nTime: 0.003\n\nOK (1 test)\n\n"
+    },
+    {
       "name": "testCreateNumberWithNegativeLSuffix",
       "target_class": "org.apache.commons.lang.math.NumberUtils",
       "target_method": "createNumber",
       "class_name": "TestCreateNumberWithNegativeLSuffix",
       "status": "VALID_NON_DISCRIMINATING",
       "candidate_pass": null,
-      "log": ".\nTime: 0.003\n\nOK (1 test)\n\n"
+      "log": ".\nTime: 0.004\n\nOK (1 test)\n\n"
     },
     {
-      "name": "testCreateNumberWithInvalidLSuffixStillFails",
+      "name": "testCreateNumberWithLargeLongSuffix",
       "target_class": "org.apache.commons.lang.math.NumberUtils",
       "target_method": "createNumber",
-      "class_name": "TestCreateNumberWithInvalidLSuffixStillFails",
+      "class_name": "TestCreateNumberWithLargeLongSuffix",
       "status": "VALID_NON_DISCRIMINATING",
       "candidate_pass": null,
       "log": ".\nTime: 0.003\n\nOK (1 test)\n\n"

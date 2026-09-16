@@ -4,56 +4,14 @@
   "model": "claude-haiku-4-5",
   "n_runs": 3,
   "n_parsed": 3,
-  "s_sem_final": 0.18333333333333335,
+  "s_sem_final": 0.15000000000000002,
   "decision": "OVERFITTING",
   "ground_truth_label": null,
   "context_errors": [],
   "runs": [
     {
       "run": 0,
-      "latency_s": 3.58068475500113,
-      "attempts": 1,
-      "error": null,
-      "input_tokens": 4822,
-      "output_tokens": 177,
-      "parsed": {
-        "generalization": "specific_only",
-        "deletes_or_weakens_functionality": "false",
-        "unrelated_behavior_change": "true",
-        "minimality": 0.9,
-        "readability": 0.95,
-        "security_robustness": 1.0,
-        "judgement": "OVERFITTING",
-        "confidence": 0.85,
-        "brief_reason": "The patch changes the branch type from UNCOND to ON_EX when creating edges from a finally block, which is semantically incorrect. While it passes the specific failing tests, it changes unrelated behavior by altering the control flow semantics of finally blocks in a way that doesn't address the root cause of the bug (which appears to be related to how finally blocks are handled in nested contexts)."
-      },
-      "s_sem": 0.15000000000000002,
-      "confidence_clipped": false
-    },
-    {
-      "run": 1,
-      "latency_s": 2.9626465330002247,
-      "attempts": 1,
-      "error": null,
-      "input_tokens": 4822,
-      "output_tokens": 162,
-      "parsed": {
-        "generalization": "specific_only",
-        "deletes_or_weakens_functionality": "false",
-        "unrelated_behavior_change": "true",
-        "minimality": 0.9,
-        "readability": 0.8,
-        "security_robustness": 0.9,
-        "judgement": "OVERFITTING",
-        "confidence": 0.75,
-        "brief_reason": "The patch changes the branch type from UNCOND to ON_EX when creating edges from a finally block, which is semantically incorrect. While it passes the specific failing tests, it changes unrelated behavior by altering the control flow semantics of finally blocks in a way that doesn't address the root cause of the bug."
-      },
-      "s_sem": 0.25,
-      "confidence_clipped": false
-    },
-    {
-      "run": 2,
-      "latency_s": 3.103925038998568,
+      "latency_s": 3.3562334689995623,
       "attempts": 1,
       "error": null,
       "input_tokens": 4822,
@@ -68,6 +26,48 @@
         "judgement": "OVERFITTING",
         "confidence": 0.85,
         "brief_reason": "The patch changes the branch type from UNCOND to ON_EX when creating edges from a finally block, which is semantically incorrect. While it passes the specific failing tests, it changes unrelated behavior by altering the control flow semantics of finally blocks in a way that doesn't address the root cause of the bug (which appears to be related to how finally blocks are handled in nested contexts)."
+      },
+      "s_sem": 0.15000000000000002,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 3.0815076520011644,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 4822,
+      "output_tokens": 165,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.95,
+        "readability": 0.9,
+        "security_robustness": 0.95,
+        "judgement": "OVERFITTING",
+        "confidence": 0.85,
+        "brief_reason": "The patch changes the branch type from UNCOND to ON_EX when creating edges from a finally block, which is semantically incorrect. Finally blocks should execute unconditionally after try/catch, not only on exceptions. This appears to be a workaround that makes specific tests pass but changes the control flow semantics incorrectly."
+      },
+      "s_sem": 0.15000000000000002,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 370.8992806669994,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 4822,
+      "output_tokens": 161,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.95,
+        "readability": 0.9,
+        "security_robustness": 0.95,
+        "judgement": "OVERFITTING",
+        "confidence": 0.85,
+        "brief_reason": "The patch changes the branch type from UNCOND to ON_EX when creating edges from a finally block, which is semantically incorrect. While it passes the specific failing tests, it changes unrelated behavior by altering the control flow semantics for exception handling in finally blocks, which should not be exception-specific edges."
       },
       "s_sem": 0.15000000000000002,
       "confidence_clipped": false

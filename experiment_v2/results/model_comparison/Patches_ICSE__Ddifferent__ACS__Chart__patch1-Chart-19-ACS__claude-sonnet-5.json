@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Ddifferent__ACS__Chart__patch1-Chart-19-ACS",
+  "condition": "C",
+  "model": "claude-sonnet-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.3666666666666667,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 15.530841448999126,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 5265,
+      "output_tokens": 1244,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.3,
+        "readability": 0.1,
+        "security_robustness": 0.4,
+        "judgement": "OVERFITTING",
+        "confidence": 0.8,
+        "brief_reason": "The patch only adds null-argument checks that throw IllegalArgumentException; it does not address the underlying indexOf/reference-equality logic that causes the wrong axis index to be returned, which is what the failing tests actually exercise. This looks like an unrelated, non-general fix that happens to satisfy the test suite rather than genuinely correcting the root cause."
+      },
+      "s_sem": 0.19999999999999996,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 23.647993971000687,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 5265,
+      "output_tokens": 2185,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.6,
+        "readability": 0.3,
+        "security_robustness": 0.8,
+        "judgement": "CORRECT",
+        "confidence": 0.75,
+        "brief_reason": "The patch adds the required null-check that throws IllegalArgumentException for both getDomainAxisIndex and getRangeAxisIndex, matching the expected behavior tested by the failing tests (which expect an exception on null axis). Functionality is preserved and the fix addresses the root cause, though the code style (one-line, no exception message, no formatting) is poor and slightly misplaced in getRangeAxisIndex (placed after the lookup rather than before), which doesn't affect correctness but hurts readability and minimality."
+      },
+      "s_sem": 0.75,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 26.4613925320009,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 5265,
+      "output_tokens": 2327,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.3,
+        "readability": 0.1,
+        "security_robustness": 0.4,
+        "judgement": "OVERFITTING",
+        "confidence": 0.85,
+        "brief_reason": "The patch merely inserts unreachable/no-op null checks that throw IllegalArgumentException before returning the same (unchanged) index values; it does not alter the actual index-lookup logic (e.g., adding parent-axis lookup for domain axis, or fixing equals-based indexOf mismatches) that the failing tests exercise. Thus it does not address the root cause of incorrect axis index computation, and the added code is unrelated dead logic that harms readability without fixing the semantic bug.'"
+      },
+      "s_sem": 0.15000000000000002,
+      "confidence_clipped": false
+    }
+  ]
+}

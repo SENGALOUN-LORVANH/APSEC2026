@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__FixMiner__Time__patch1-Time-11-FixMiner-plausible",
+  "condition": "C",
+  "model": "claude-sonnet-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.09999999999999998,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 7.0946302880001895,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 2874,
+      "output_tokens": 553,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.1,
+        "readability": 0.2,
+        "security_robustness": 0.3,
+        "judgement": "OVERFITTING",
+        "confidence": 0.9,
+        "brief_reason": "The patch short-circuits verbose() to always return true whenever cVerbose is non-null, ignoring the actual ThreadLocal value; it doesn't fix the root cause of the NPE (likely improper initialization) and changes behavior unrelated to the failing test."
+      },
+      "s_sem": 0.09999999999999998,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 7.189949404000799,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 2874,
+      "output_tokens": 597,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.2,
+        "readability": 0.3,
+        "security_robustness": 0.2,
+        "judgement": "OVERFITTING",
+        "confidence": 0.9,
+        "brief_reason": "The patch makes verbose() always return true whenever cVerbose is non-null (short-circuit before .get()), ignoring the actual thread-local flag value, and still NPEs if cVerbose is null. It doesn't address the real root cause (missing initial value for the ThreadLocal) and changes behavior unrelated to the bug."
+      },
+      "s_sem": 0.09999999999999998,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 13.251902719999634,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 2874,
+      "output_tokens": 1105,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.2,
+        "readability": 0.1,
+        "security_robustness": 0.3,
+        "judgement": "OVERFITTING",
+        "confidence": 0.9,
+        "brief_reason": "The patch checks nullity of the ThreadLocal reference itself (cVerbose != null) rather than its stored value, which is essentially always true, so verbose() now always returns true regardless of the actual flag state. This masks rather than fixes the underlying null-value/initialization issue and changes unrelated behavior (verbose flag always true), an obvious overfit hack."
+      },
+      "s_sem": 0.09999999999999998,
+      "confidence_clipped": false
+    }
+  ]
+}

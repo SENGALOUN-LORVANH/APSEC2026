@@ -2,7 +2,7 @@
   "patch_id": "Patches_ICSE__Doverfitting__Arja__Math__patch1-Math-28-Arja-plausible",
   "bug_id": "Math-28",
   "model": "claude-haiku-4-5",
-  "latency_s": 41.74673082400113,
+  "latency_s": 41.71801122400211,
   "error": null,
   "context_errors": [],
   "tests": [

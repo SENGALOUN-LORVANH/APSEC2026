@@ -1,0 +1,1479 @@
+[
+  {
+    "bug_id": "Chart-19",
+    "patch_id": "Patches_ICSE__Ddifferent__ACS__Chart__patch1-Chart-19-ACS",
+    "stages": {
+      "checkout_bug": {
+        "ok": true,
+        "seconds": 0,
+        "reused": true
+      },
+      "apply_patch": {
+        "ok": true,
+        "seconds": 10.152482336001412
+      },
+      "fingerprint": {
+        "ok": true,
+        "seconds": 0.4677609280006436
+      },
+      "semantic_primary": {
+        "ok": true,
+        "seconds": 11.164926493998792
+      },
+      "write_semantic_primary": {
+        "ok": true,
+        "seconds": 0.0014768000000913162
+      },
+      "semantic_comparison": {
+        "ok": true,
+        "seconds": 66.34625538600085
+      },
+      "counterexample": {
+        "ok": true,
+        "seconds": 38.95587843500107
+      },
+      "write_counterexample": {
+        "ok": true,
+        "seconds": 0.00044349999734549783
+      },
+      "memorization_probe": {
+        "ok": true,
+        "seconds": 1.7167577010004607
+      },
+      "write_probe": {
+        "ok": true,
+        "seconds": 0.00025080100022023544
+      },
+      "assemble_pvs": {
+        "ok": true,
+        "seconds": 56.92040684099993
+      },
+      "write_pvs": {
+        "ok": true,
+        "seconds": 0.0003309999992779922
+      }
+    },
+    "pvs_row": {
+      "patch_id": "Patches_ICSE__Ddifferent__ACS__Chart__patch1-Chart-19-ACS",
+      "S_sem": 0.050000000000000044,
+      "S_cex": 1.0,
+      "S_edit": 0.2857142857142857,
+      "S_vuln": 0,
+      "alpha": 0.25,
+      "beta": 0.25,
+      "gamma": 0.25,
+      "delta": 0.25,
+      "PVS": 0.6910714285714286,
+      "PVS_strategy": "shifted_renormalized",
+      "PVS_paper_formula_complete_only": 0.1910714285714286,
+      "missing_component_flags": "",
+      "ground_truth_label": "correct",
+      "S_edit_method": "loc",
+      "S_vuln_new_warning_count": 0
+    },
+    "stopped_after": null
+  },
+  {
+    "bug_id": "Chart-12",
+    "patch_id": "Patches_ICSE__Ddifferent__Arja__Chart__patch1-Chart-12-Arja",
+    "stages": {
+      "checkout_bug": {
+        "ok": true,
+        "seconds": 0,
+        "reused": true
+      },
+      "apply_patch": {
+        "ok": true,
+        "seconds": 10.153532477001136
+      },
+      "fingerprint": {
+        "ok": true,
+        "seconds": 0.4497415189980529
+      },
+      "semantic_primary": {
+        "ok": true,
+        "seconds": 8.490972583000257
+      },
+      "write_semantic_primary": {
+        "ok": true,
+        "seconds": 0.002616700003272854
+      },
+      "semantic_comparison": {
+        "ok": true,
+        "seconds": 27.33532683500016
+      },
+      "counterexample": {
+        "ok": true,
+        "seconds": 28.210861883999314
+      },
+      "write_counterexample": {
+        "ok": true,
+        "seconds": 0.0005128000011609402
+      },
+      "memorization_probe": {
+        "ok": true,
+        "seconds": 1.6655212580008083
+      },
+      "write_probe": {
+        "ok": true,
+        "seconds": 0.00023259999943547882
+      },
+      "assemble_pvs": {
+        "ok": true,
+        "seconds": 57.34574945900022
+      },
+      "write_pvs": {
+        "ok": true,
+        "seconds": 0.00032300000020768493
+      }
+    },
+    "pvs_row": {
+      "patch_id": "Patches_ICSE__Ddifferent__Arja__Chart__patch1-Chart-12-Arja",
+      "S_sem": 0.75,
+      "S_cex": 1.0,
+      "S_edit": 0.06666666666666667,
+      "S_vuln": 0,
+      "alpha": 0.25,
+      "beta": 0.25,
+      "gamma": 0.25,
+      "delta": 0.25,
+      "PVS": 0.9208333333333334,
+      "PVS_strategy": "shifted_renormalized",
+      "PVS_paper_formula_complete_only": 0.42083333333333334,
+      "missing_component_flags": "",
+      "ground_truth_label": "correct",
+      "S_edit_method": "loc",
+      "S_vuln_new_warning_count": 0
+    },
+    "stopped_after": null
+  },
+  {
+    "bug_id": "Closure-115",
+    "patch_id": "Patches_ICSE__Ddifferent__Arja__Closure__patch1-Closure-115-Arja",
+    "stages": {
+      "checkout_bug": {
+        "ok": true,
+        "seconds": 0,
+        "reused": true
+      },
+      "apply_patch": {
+        "ok": true,
+        "seconds": 65.53592906799895
+      },
+      "fingerprint": {
+        "ok": true,
+        "seconds": 0.47435552200113307
+      },
+      "semantic_primary": {
+        "ok": true,
+        "seconds": 10.376244197999767
+      },
+      "write_semantic_primary": {
+        "ok": true,
+        "seconds": 0.0018569000021670945
+      },
+      "semantic_comparison": {
+        "ok": true,
+        "seconds": 15.815385038000386
+      },
+      "counterexample": {
+        "ok": true,
+        "seconds": 22.747716964000574
+      },
+      "write_counterexample": {
+        "ok": true,
+        "seconds": 0.0006097000004956499
+      },
+      "memorization_probe": {
+        "ok": true,
+        "seconds": 1.1417322359993705
+      },
+      "write_probe": {
+        "ok": true,
+        "seconds": 0.0006496999994851649
+      },
+      "assemble_pvs": {
+        "ok": true,
+        "seconds": 69.42307772099957
+      },
+      "write_pvs": {
+        "ok": true,
+        "seconds": 0.000402000001486158
+      }
+    },
+    "pvs_row": {
+      "patch_id": "Patches_ICSE__Ddifferent__Arja__Closure__patch1-Closure-115-Arja",
+      "S_sem": 0.050000000000000044,
+      "S_cex": null,
+      "S_edit": 0.021739130434782608,
+      "S_vuln": 0,
+      "alpha": 0.25,
+      "beta": 0.25,
+      "gamma": 0.25,
+      "delta": 0.25,
+      "PVS": 0.6760869565217392,
+      "PVS_strategy": "shifted_renormalized",
+      "PVS_paper_formula_complete_only": null,
+      "missing_component_flags": "S_cex",
+      "ground_truth_label": "correct",
+      "S_edit_method": "loc",
+      "S_vuln_new_warning_count": 0
+    },
+    "stopped_after": null
+  },
+  {
+    "bug_id": "Chart-15",
+    "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Chart__patch1-Chart-15-AVATAR-plausible",
+    "stages": {
+      "checkout_bug": {
+        "ok": true,
+        "seconds": 0,
+        "reused": true
+      },
+      "apply_patch": {
+        "ok": true,
+        "seconds": 10.202539825000713
+      },
+      "fingerprint": {
+        "ok": true,
+        "seconds": 0.44627261299683596
+      },
+      "semantic_primary": {
+        "ok": true,
+        "seconds": 16.966003188001196
+      },
+      "write_semantic_primary": {
+        "ok": true,
+        "seconds": 0.0011706000004778616
+      },
+      "semantic_comparison": {
+        "ok": true,
+        "seconds": 15.317691109998123
+      },
+      "counterexample": {
+        "ok": true,
+        "seconds": 50.934228198999335
+      },
+      "write_counterexample": {
+        "ok": true,
+        "seconds": 0.0005725009978050366
+      },
+      "memorization_probe": {
+        "ok": true,
+        "seconds": 2.1984616269983235
+      },
+      "write_probe": {
+        "ok": true,
+        "seconds": 0.0012018030029139481
+      },
+      "assemble_pvs": {
+        "ok": true,
+        "seconds": 54.61934019600085
+      },
+      "write_pvs": {
+        "ok": true,
+        "seconds": 0.00035940000088885427
+      }
+    },
+    "pvs_row": {
+      "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Chart__patch1-Chart-15-AVATAR-plausible",
+      "S_sem": 0.050000000000000044,
+      "S_cex": 1.0,
+      "S_edit": 1.0,
+      "S_vuln": 0,
+      "alpha": 0.25,
+      "beta": 0.25,
+      "gamma": 0.25,
+      "delta": 0.25,
+      "PVS": 0.5125,
+      "PVS_strategy": "shifted_renormalized",
+      "PVS_paper_formula_complete_only": 0.012500000000000011,
+      "missing_component_flags": "",
+      "ground_truth_label": "overfitting",
+      "S_edit_method": "loc",
+      "S_vuln_new_warning_count": 0
+    },
+    "stopped_after": null
+  },
+  {
+    "bug_id": "Lang-58",
+    "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Lang__patch1-Lang-58-AVATAR-plausible",
+    "stages": {
+      "checkout_bug": {
+        "ok": true,
+        "seconds": 0,
+        "reused": true
+      },
+      "apply_patch": {
+        "ok": true,
+        "seconds": 10.660281209999084
+      },
+      "fingerprint": {
+        "ok": true,
+        "seconds": 0.4463898499998322
+      },
+      "semantic_primary": {
+        "ok": true,
+        "seconds": 17.93604042300285
+      },
+      "write_semantic_primary": {
+        "ok": true,
+        "seconds": 0.002637598998262547
+      },
+      "semantic_comparison": {
+        "ok": true,
+        "seconds": 57.92469874199742
+      },
+      "counterexample": {
+        "ok": true,
+        "seconds": 51.90838153100049
+      },
+      "write_counterexample": {
+        "ok": true,
+        "seconds": 0.0004851000012422446
+      },
+      "memorization_probe": {
+        "ok": true,
+        "seconds": 1.8363450300021213
+      },
+      "write_probe": {
+        "ok": true,
+        "seconds": 0.0013294999989739154
+      },
+      "assemble_pvs": {
+        "ok": true,
+        "seconds": 27.02334534500187
+      },
+      "write_pvs": {
+        "ok": true,
+        "seconds": 0.0003708000003825873
+      }
+    },
+    "pvs_row": {
+      "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Lang__patch1-Lang-58-AVATAR-plausible",
+      "S_sem": 0.15000000000000002,
+      "S_cex": 1.0,
+      "S_edit": 0.008547008547008548,
+      "S_vuln": 0,
+      "alpha": 0.25,
+      "beta": 0.25,
+      "gamma": 0.25,
+      "delta": 0.25,
+      "PVS": 0.7853632478632478,
+      "PVS_strategy": "shifted_renormalized",
+      "PVS_paper_formula_complete_only": 0.28536324786324785,
+      "missing_component_flags": "",
+      "ground_truth_label": "overfitting",
+      "S_edit_method": "loc",
+      "S_vuln_new_warning_count": 0
+    },
+    "stopped_after": null
+  },
+  {
+    "bug_id": "Closure-117",
+    "patch_id": "Patches_ICSE__Doverfitting__Arja__Closure__patch1-Closure-117-Arja-plausible",
+    "stages": {
+      "checkout_bug": {
+        "ok": true,
+        "seconds": 0,
+        "reused": true
+      },
+      "apply_patch": {
+        "ok": true,
+        "seconds": 64.6664123590017
+      },
+      "fingerprint": {
+        "ok": true,
+        "seconds": 0.4565736229997128
+      },
+      "semantic_primary": {
+        "ok": true,
+        "seconds": 17.04271316300219
+      },
+      "write_semantic_primary": {
+        "ok": true,
+        "seconds": 0.0010574000007181894
+      },
+      "semantic_comparison": {
+        "ok": true,
+        "seconds": 394.2665775280002
+      },
+      "counterexample": {
+        "ok": true,
+        "seconds": 399.40235903199937
+      },
+      "write_counterexample": {
+        "ok": true,
+        "seconds": 0.003851199999189703
+      },
+      "memorization_probe": {
+        "ok": true,
+        "seconds": 1.8800878960028058
+      },
+      "write_probe": {
+        "ok": true,
+        "seconds": 0.004582000001391862
+      },
+      "assemble_pvs": {
+        "ok": true,
+        "seconds": 71.12276505300179
+      },
+      "write_pvs": {
+        "ok": true,
+        "seconds": 0.0035953999977209605
+      }
+    },
+    "pvs_row": {
+      "patch_id": "Patches_ICSE__Doverfitting__Arja__Closure__patch1-Closure-117-Arja-plausible",
+      "S_sem": 0.050000000000000044,
+      "S_cex": null,
+      "S_edit": 0.027777777777777776,
+      "S_vuln": 0,
+      "alpha": 0.25,
+      "beta": 0.25,
+      "gamma": 0.25,
+      "delta": 0.25,
+      "PVS": 0.674074074074074,
+      "PVS_strategy": "shifted_renormalized",
+      "PVS_paper_formula_complete_only": null,
+      "missing_component_flags": "S_cex",
+      "ground_truth_label": "overfitting",
+      "S_edit_method": "loc",
+      "S_vuln_new_warning_count": 0
+    },
+    "stopped_after": null
+  },
+  {
+    "bug_id": "Math-28",
+    "patch_id": "Patches_ICSE__Doverfitting__Arja__Math__patch1-Math-28-Arja-plausible",
+    "stages": {
+      "checkout_bug": {
+        "ok": true,
+        "seconds": 0,
+        "reused": true
+      },
+      "apply_patch": {
+        "ok": true,
+        "seconds": 35.248267716000555
+      },
+      "fingerprint": {
+        "ok": true,
+        "seconds": 0.7016284129967971
+      },
+      "semantic_primary": {
+        "ok": true,
+        "seconds": 382.8220294870007
+      },
+      "write_semantic_primary": {
+        "ok": true,
+        "seconds": 0.000789400000940077
+      },
+      "semantic_comparison": {
+        "ok": true,
+        "seconds": 390.77619345100175
+      },
+      "counterexample": {
+        "ok": true,
+        "seconds": 51.20895482000196
+      },
+      "write_counterexample": {
+        "ok": true,
+        "seconds": 0.0031147029985731933
+      },
+      "memorization_probe": {
+        "ok": true,
+        "seconds": 1.396291716999258
+      },
+      "write_probe": {
+        "ok": true,
+        "seconds": 0.0055179049995786045
+      },
+      "assemble_pvs": {
+        "ok": true,
+        "seconds": 49.489598490999924
+      },
+      "write_pvs": {
+        "ok": true,
+        "seconds": 0.0034048999987135176
+      }
+    },
+    "pvs_row": {
+      "patch_id": "Patches_ICSE__Doverfitting__Arja__Math__patch1-Math-28-Arja-plausible",
+      "S_sem": 0.050000000000000044,
+      "S_cex": null,
+      "S_edit": 0.02127659574468085,
+      "S_vuln": 0,
+      "alpha": 0.25,
+      "beta": 0.25,
+      "gamma": 0.25,
+      "delta": 0.25,
+      "PVS": 0.676241134751773,
+      "PVS_strategy": "shifted_renormalized",
+      "PVS_paper_formula_complete_only": null,
+      "missing_component_flags": "S_cex",
+      "ground_truth_label": "overfitting",
+      "S_edit_method": "loc",
+      "S_vuln_new_warning_count": 0
+    },
+    "stopped_after": null
+  },
+  {
+    "bug_id": "Time-11",
+    "patch_id": "Patches_ICSE__Doverfitting__FixMiner__Time__patch1-Time-11-FixMiner-plausible",
+    "stages": {
+      "checkout_bug": {
+        "ok": true,
+        "seconds": 0,
+        "reused": true
+      },
+      "apply_patch": {
+        "ok": true,
+        "seconds": 10.867447021999396
+      },
+      "fingerprint": {
+        "ok": true,
+        "seconds": 0.4754123390011955
+      },
+      "semantic_primary": {
+        "ok": true,
+        "seconds": 10.42255068599843
+      },
+      "write_semantic_primary": {
+        "ok": true,
+        "seconds": 0.0006197999973664992
+      },
+      "semantic_comparison": {
+        "ok": true,
+        "seconds": 27.9319517369986
+      },
+      "counterexample": {
+        "ok": true,
+        "seconds": 39.00470366100126
+      },
+      "write_counterexample": {
+        "ok": true,
+        "seconds": 0.0004332999997131992
+      },
+      "memorization_probe": {
+        "ok": true,
+        "seconds": 0.987308916002803
+      },
+      "write_probe": {
+        "ok": true,
+        "seconds": 0.002759000999503769
+      },
+      "assemble_pvs": {
+        "ok": true,
+        "seconds": 33.55103069199686
+      },
+      "write_pvs": {
+        "ok": true,
+        "seconds": 0.0003291000030003488
+      }
+    },
+    "pvs_row": {
+      "patch_id": "Patches_ICSE__Doverfitting__FixMiner__Time__patch1-Time-11-FixMiner-plausible",
+      "S_sem": 0.050000000000000044,
+      "S_cex": null,
+      "S_edit": 0.6666666666666666,
+      "S_vuln": 0,
+      "alpha": 0.25,
+      "beta": 0.25,
+      "gamma": 0.25,
+      "delta": 0.25,
+      "PVS": 0.4611111111111111,
+      "PVS_strategy": "shifted_renormalized",
+      "PVS_paper_formula_complete_only": null,
+      "missing_component_flags": "S_cex",
+      "ground_truth_label": "overfitting",
+      "S_edit_method": "loc",
+      "S_vuln_new_warning_count": 0
+    },
+    "stopped_after": null
+  },
+  {
+    "bug_id": "Time-15",
+    "patch_id": "Patches_ICSE__Dsame__ACS__Time__patch1-Time-15-ACS",
+    "stages": {
+      "checkout_bug": {
+        "ok": true,
+        "seconds": 0,
+        "reused": true
+      },
+      "apply_patch": {
+        "ok": true,
+        "seconds": 9.791965746997448
+      },
+      "fingerprint": {
+        "ok": true,
+        "seconds": 0.44283347400050843
+      },
+      "semantic_primary": {
+        "ok": true,
+        "seconds": 10.068949186999816
+      },
+      "write_semantic_primary": {
+        "ok": true,
+        "seconds": 0.00286729999788804
+      },
+      "semantic_comparison": {
+        "ok": true,
+        "seconds": 12.182209585000237
+      },
+      "counterexample": {
+        "ok": true,
+        "seconds": 402.5536292129982
+      },
+      "write_counterexample": {
+        "ok": true,
+        "seconds": 0.0004956010016030632
+      },
+      "memorization_probe": {
+        "ok": true,
+        "seconds": 1.2994824850029545
+      },
+      "write_probe": {
+        "ok": true,
+        "seconds": 0.0002634999982547015
+      },
+      "assemble_pvs": {
+        "ok": true,
+        "seconds": 32.41240873100105
+      },
+      "write_pvs": {
+        "ok": true,
+        "seconds": 0.0003402999973332044
+      }
+    },
+    "pvs_row": {
+      "patch_id": "Patches_ICSE__Dsame__ACS__Time__patch1-Time-15-ACS",
+      "S_sem": 0.15000000000000002,
+      "S_cex": 1.0,
+      "S_edit": 0.13333333333333333,
+      "S_vuln": 0,
+      "alpha": 0.25,
+      "beta": 0.25,
+      "gamma": 0.25,
+      "delta": 0.25,
+      "PVS": 0.7541666666666667,
+      "PVS_strategy": "shifted_renormalized",
+      "PVS_paper_formula_complete_only": 0.25416666666666665,
+      "missing_component_flags": "",
+      "ground_truth_label": "correct",
+      "S_edit_method": "loc",
+      "S_vuln_new_warning_count": 0
+    },
+    "stopped_after": null
+  },
+  {
+    "bug_id": "Lang-43",
+    "patch_id": "Patches_ICSE__Dsame__SimFix__Lang__patch1-Lang-43-SimFix",
+    "stages": {
+      "checkout_bug": {
+        "ok": true,
+        "seconds": 0,
+        "reused": true
+      },
+      "apply_patch": {
+        "ok": true,
+        "seconds": 11.844333470999118
+      },
+      "fingerprint": {
+        "ok": true,
+        "seconds": 0.45785892699859687
+      },
+      "semantic_primary": {
+        "ok": true,
+        "seconds": 9.661697815998195
+      },
+      "write_semantic_primary": {
+        "ok": true,
+        "seconds": 0.0009260000006179325
+      },
+      "semantic_comparison": {
+        "ok": true,
+        "seconds": 19.665920941999502
+      },
+      "counterexample": {
+        "ok": true,
+        "seconds": 22.805654531999608
+      },
+      "write_counterexample": {
+        "ok": true,
+        "seconds": 0.0029784999969706405
+      },
+      "memorization_probe": {
+        "ok": true,
+        "seconds": 2.0785149470029864
+      },
+      "write_probe": {
+        "ok": true,
+        "seconds": 0.00041820000114967115
+      },
+      "assemble_pvs": {
+        "ok": true,
+        "seconds": 29.320649455999956
+      },
+      "write_pvs": {
+        "ok": true,
+        "seconds": 0.0003256999989389442
+      }
+    },
+    "pvs_row": {
+      "patch_id": "Patches_ICSE__Dsame__SimFix__Lang__patch1-Lang-43-SimFix",
+      "S_sem": 0.25,
+      "S_cex": null,
+      "S_edit": 0.041666666666666664,
+      "S_vuln": 0,
+      "alpha": 0.25,
+      "beta": 0.25,
+      "gamma": 0.25,
+      "delta": 0.25,
+      "PVS": 0.7361111111111112,
+      "PVS_strategy": "shifted_renormalized",
+      "PVS_paper_formula_complete_only": null,
+      "missing_component_flags": "S_cex",
+      "ground_truth_label": "correct",
+      "S_edit_method": "loc",
+      "S_vuln_new_warning_count": 0
+    },
+    "stopped_after": null
+  },
+  {
+    "bug_id": "Math-53",
+    "patch_id": "Patches_others__Dcorrect__CapGen__Math__patch1-Math-53-CapGen",
+    "stages": {
+      "checkout_bug": {
+        "ok": true,
+        "seconds": 0,
+        "reused": true
+      },
+      "apply_patch": {
+        "ok": true,
+        "seconds": 47.45201644500048
+      },
+      "fingerprint": {
+        "ok": true,
+        "seconds": 0.7134921249999024
+      },
+      "semantic_primary": {
+        "ok": true,
+        "seconds": 15.217439299001853
+      },
+      "write_semantic_primary": {
+        "ok": true,
+        "seconds": 0.0005261999976937659
+      },
+      "semantic_comparison": {
+        "ok": true,
+        "seconds": 9.427618855999754
+      },
+      "counterexample": {
+        "ok": true,
+        "seconds": 31.4103721950014
+      },
+      "write_counterexample": {
+        "ok": true,
+        "seconds": 0.003253200000472134
+      },
+      "memorization_probe": {
+        "ok": true,
+        "seconds": 1.4687073579989374
+      },
+      "write_probe": {
+        "ok": true,
+        "seconds": 0.0004078999991179444
+      },
+      "assemble_pvs": {
+        "ok": true,
+        "seconds": 44.51882414799911
+      },
+      "write_pvs": {
+        "ok": true,
+        "seconds": 0.0003945009993913118
+      }
+    },
+    "pvs_row": {
+      "patch_id": "Patches_others__Dcorrect__CapGen__Math__patch1-Math-53-CapGen",
+      "S_sem": 0.92,
+      "S_cex": null,
+      "S_edit": 0.25,
+      "S_vuln": 0,
+      "alpha": 0.25,
+      "beta": 0.25,
+      "gamma": 0.25,
+      "delta": 0.25,
+      "PVS": 0.89,
+      "PVS_strategy": "shifted_renormalized",
+      "PVS_paper_formula_complete_only": null,
+      "missing_component_flags": "S_cex",
+      "ground_truth_label": "correct",
+      "S_edit_method": "loc",
+      "S_vuln_new_warning_count": 0
+    },
+    "stopped_after": null
+  },
+  {
+    "bug_id": "Closure-14",
+    "patch_id": "Patches_ICSE__Doverfitting__SimFix__Closure__patch1-Closure-14-SimFix-plausible",
+    "stages": {
+      "checkout_bug": {
+        "ok": true,
+        "seconds": 0,
+        "reused": true
+      },
+      "apply_patch": {
+        "ok": true,
+        "seconds": 51.61699588400006
+      },
+      "fingerprint": {
+        "ok": true,
+        "seconds": 0.5502469880011631
+      },
+      "semantic_primary": {
+        "ok": true,
+        "seconds": 377.76913505399716
+      },
+      "write_semantic_primary": {
+        "ok": true,
+        "seconds": 0.001162501001090277
+      },
+      "semantic_comparison": {
+        "ok": true,
+        "seconds": 23.465323951000755
+      },
+      "counterexample": {
+        "ok": true,
+        "seconds": 768.593940707
+      },
+      "write_counterexample": {
+        "ok": true,
+        "seconds": 0.0015478999994229525
+      },
+      "memorization_probe": {
+        "ok": true,
+        "seconds": 1.7184146939980565
+      },
+      "write_probe": {
+        "ok": true,
+        "seconds": 0.004533300998446066
+      },
+      "assemble_pvs": {
+        "ok": true,
+        "seconds": 68.05246125999838
+      },
+      "write_pvs": {
+        "ok": true,
+        "seconds": 0.003876399998262059
+      }
+    },
+    "pvs_row": {
+      "patch_id": "Patches_ICSE__Doverfitting__SimFix__Closure__patch1-Closure-14-SimFix-plausible",
+      "S_sem": 0.15000000000000002,
+      "S_cex": null,
+      "S_edit": 0.031746031746031744,
+      "S_vuln": 0,
+      "alpha": 0.25,
+      "beta": 0.25,
+      "gamma": 0.25,
+      "delta": 0.25,
+      "PVS": 0.7060846560846561,
+      "PVS_strategy": "shifted_renormalized",
+      "PVS_paper_formula_complete_only": null,
+      "missing_component_flags": "S_cex",
+      "ground_truth_label": "overfitting",
+      "S_edit_method": "loc",
+      "S_vuln_new_warning_count": 0
+    },
+    "stopped_after": null
+  },
+  {
+    "bug_id": "Closure-14",
+    "patch_id": "Patches_others__Dcorrect__SketchFix__Closure__patch1-Closure-14-SketchFix",
+    "stages": {
+      "checkout_bug": {
+        "ok": true,
+        "seconds": 0,
+        "reused": true
+      },
+      "apply_patch": {
+        "ok": true,
+        "seconds": 52.03179938699759
+      },
+      "fingerprint": {
+        "ok": true,
+        "seconds": 0.49638031300128205
+      },
+      "semantic_primary": {
+        "ok": true,
+        "seconds": 17.343037638998794
+      },
+      "write_semantic_primary": {
+        "ok": true,
+        "seconds": 0.0042620999993232545
+      },
+      "semantic_comparison": {
+        "ok": true,
+        "seconds": 15.541437077998125
+      },
+      "counterexample": {
+        "ok": true,
+        "seconds": 1165.3696489449976
+      },
+      "write_counterexample": {
+        "ok": true,
+        "seconds": 0.003570900000340771
+      },
+      "memorization_probe": {
+        "ok": true,
+        "seconds": 1.2771063770014734
+      },
+      "write_probe": {
+        "ok": true,
+        "seconds": 0.004093399998964742
+      },
+      "assemble_pvs": {
+        "ok": true,
+        "seconds": 68.0148950119983
+      },
+      "write_pvs": {
+        "ok": true,
+        "seconds": 0.0010698009973566514
+      }
+    },
+    "pvs_row": {
+      "patch_id": "Patches_others__Dcorrect__SketchFix__Closure__patch1-Closure-14-SketchFix",
+      "S_sem": 0.15000000000000002,
+      "S_cex": null,
+      "S_edit": 0.031746031746031744,
+      "S_vuln": 0,
+      "alpha": 0.25,
+      "beta": 0.25,
+      "gamma": 0.25,
+      "delta": 0.25,
+      "PVS": 0.7060846560846561,
+      "PVS_strategy": "shifted_renormalized",
+      "PVS_paper_formula_complete_only": null,
+      "missing_component_flags": "S_cex",
+      "ground_truth_label": "correct",
+      "S_edit_method": "loc",
+      "S_vuln_new_warning_count": 0
+    },
+    "stopped_after": null
+  },
+  {
+    "bug_id": "Closure-31",
+    "patch_id": "Patches_ICSE__Doverfitting__Kali__Closure__patch1-Closure-31-Kali-plausible",
+    "stages": {
+      "checkout_bug": {
+        "ok": true,
+        "seconds": 114.95379985700129
+      },
+      "apply_patch": {
+        "ok": true,
+        "seconds": 49.97507589300221
+      },
+      "fingerprint": {
+        "ok": true,
+        "seconds": 0.48056340900075156
+      },
+      "semantic_primary": {
+        "ok": true,
+        "seconds": 15.11046967600123
+      },
+      "write_semantic_primary": {
+        "ok": true,
+        "seconds": 0.005756999998993706
+      },
+      "semantic_comparison": {
+        "ok": true,
+        "seconds": 13.022908441002073
+      },
+      "counterexample": {
+        "ok": true,
+        "seconds": 751.3514003290002
+      },
+      "write_counterexample": {
+        "ok": true,
+        "seconds": 0.0017721989970596042
+      },
+      "memorization_probe": {
+        "ok": true,
+        "seconds": 1.3384419060021173
+      },
+      "write_probe": {
+        "ok": true,
+        "seconds": 0.004538596997008426
+      },
+      "assemble_pvs": {
+        "ok": true,
+        "seconds": 66.78789337200215
+      },
+      "write_pvs": {
+        "ok": true,
+        "seconds": 0.003428100000746781
+      }
+    },
+    "pvs_row": {
+      "patch_id": "Patches_ICSE__Doverfitting__Kali__Closure__patch1-Closure-31-Kali-plausible",
+      "S_sem": 0.050000000000000044,
+      "S_cex": null,
+      "S_edit": 0.11764705882352941,
+      "S_vuln": 0,
+      "alpha": 0.25,
+      "beta": 0.25,
+      "gamma": 0.25,
+      "delta": 0.25,
+      "PVS": 0.6441176470588236,
+      "PVS_strategy": "shifted_renormalized",
+      "PVS_paper_formula_complete_only": null,
+      "missing_component_flags": "S_cex",
+      "ground_truth_label": "overfitting",
+      "S_edit_method": "loc",
+      "S_vuln_new_warning_count": 0
+    },
+    "stopped_after": null
+  },
+  {
+    "bug_id": "Closure-31",
+    "patch_id": "Patches_ICSE__Doverfitting__RSRepair__Closure__patch1-Closure-31-RSRepair-plausible",
+    "stages": {
+      "checkout_bug": {
+        "ok": true,
+        "seconds": 0,
+        "reused": true
+      },
+      "apply_patch": {
+        "ok": true,
+        "seconds": 51.31691001800209
+      },
+      "fingerprint": {
+        "ok": true,
+        "seconds": 0.5359176179990754
+      },
+      "semantic_primary": {
+        "ok": true,
+        "seconds": 378.1016197680001
+      },
+      "write_semantic_primary": {
+        "ok": true,
+        "seconds": 0.004667099998187041
+      },
+      "semantic_comparison": {
+        "ok": true,
+        "seconds": 386.29870529099935
+      },
+      "counterexample": {
+        "ok": true,
+        "seconds": 411.41976149199763
+      },
+      "write_counterexample": {
+        "ok": true,
+        "seconds": 0.0035999009996885434
+      },
+      "memorization_probe": {
+        "ok": true,
+        "seconds": 1.2903366570026265
+      },
+      "write_probe": {
+        "ok": true,
+        "seconds": 0.008303200000227662
+      },
+      "assemble_pvs": {
+        "ok": true,
+        "seconds": 67.41760774000068
+      },
+      "write_pvs": {
+        "ok": true,
+        "seconds": 0.003676101001474308
+      }
+    },
+    "pvs_row": {
+      "patch_id": "Patches_ICSE__Doverfitting__RSRepair__Closure__patch1-Closure-31-RSRepair-plausible",
+      "S_sem": 0.050000000000000044,
+      "S_cex": null,
+      "S_edit": 0.11764705882352941,
+      "S_vuln": 0,
+      "alpha": 0.25,
+      "beta": 0.25,
+      "gamma": 0.25,
+      "delta": 0.25,
+      "PVS": 0.6441176470588236,
+      "PVS_strategy": "shifted_renormalized",
+      "PVS_paper_formula_complete_only": null,
+      "missing_component_flags": "S_cex",
+      "ground_truth_label": "overfitting",
+      "S_edit_method": "loc",
+      "S_vuln_new_warning_count": 0
+    },
+    "stopped_after": null
+  },
+  {
+    "bug_id": "Closure-31",
+    "patch_id": "Patches_others__Dcorrect__Jaid__Closure__patch1-Closure-31-Jaid",
+    "stages": {
+      "checkout_bug": {
+        "ok": true,
+        "seconds": 0,
+        "reused": true
+      },
+      "apply_patch": {
+        "ok": true,
+        "seconds": 52.118326289000834
+      },
+      "fingerprint": {
+        "ok": true,
+        "seconds": 0.49176173800151446
+      },
+      "semantic_primary": {
+        "ok": true,
+        "seconds": 18.439360685999418
+      },
+      "write_semantic_primary": {
+        "ok": true,
+        "seconds": 0.005105399999592919
+      },
+      "semantic_comparison": {
+        "ok": true,
+        "seconds": 14.159341047998169
+      },
+      "counterexample": {
+        "ok": true,
+        "seconds": 45.73847166899941
+      },
+      "write_counterexample": {
+        "ok": true,
+        "seconds": 0.0004917999976896681
+      },
+      "memorization_probe": {
+        "ok": true,
+        "seconds": 1.72873177299698
+      },
+      "write_probe": {
+        "ok": true,
+        "seconds": 0.001937799999723211
+      },
+      "assemble_pvs": {
+        "ok": true,
+        "seconds": 68.38049394399786
+      },
+      "write_pvs": {
+        "ok": true,
+        "seconds": 0.0005620999982056674
+      }
+    },
+    "pvs_row": {
+      "patch_id": "Patches_others__Dcorrect__Jaid__Closure__patch1-Closure-31-Jaid",
+      "S_sem": 0.050000000000000044,
+      "S_cex": null,
+      "S_edit": 0.02,
+      "S_vuln": 0,
+      "alpha": 0.25,
+      "beta": 0.25,
+      "gamma": 0.25,
+      "delta": 0.25,
+      "PVS": 0.6766666666666667,
+      "PVS_strategy": "shifted_renormalized",
+      "PVS_paper_formula_complete_only": null,
+      "missing_component_flags": "S_cex",
+      "ground_truth_label": "correct",
+      "S_edit_method": "loc",
+      "S_vuln_new_warning_count": 0
+    },
+    "stopped_after": null
+  },
+  {
+    "bug_id": "Lang-24",
+    "patch_id": "Patches_ICSE__Ddifferent__ACS__Lang__patch1-Lang-24-ACS",
+    "stages": {
+      "checkout_bug": {
+        "ok": true,
+        "seconds": 31.13972918500076
+      },
+      "apply_patch": {
+        "ok": true,
+        "seconds": 10.161506526997982
+      },
+      "fingerprint": {
+        "ok": true,
+        "seconds": 0.43270802999904845
+      },
+      "semantic_primary": {
+        "ok": true,
+        "seconds": 11.346513088999927
+      },
+      "write_semantic_primary": {
+        "ok": true,
+        "seconds": 0.0006635999998252373
+      },
+      "semantic_comparison": {
+        "ok": true,
+        "seconds": 20.04492356099945
+      },
+      "counterexample": {
+        "ok": true,
+        "seconds": 50.46506234299886
+      },
+      "write_counterexample": {
+        "ok": true,
+        "seconds": 0.0005513010000868235
+      },
+      "memorization_probe": {
+        "ok": true,
+        "seconds": 1.3936953820011695
+      },
+      "write_probe": {
+        "ok": true,
+        "seconds": 0.0007398009984171949
+      },
+      "assemble_pvs": {
+        "ok": true,
+        "seconds": 27.898911391999718
+      },
+      "write_pvs": {
+        "ok": true,
+        "seconds": 0.0003631999970821198
+      }
+    },
+    "pvs_row": {
+      "patch_id": "Patches_ICSE__Ddifferent__ACS__Lang__patch1-Lang-24-ACS",
+      "S_sem": 0.050000000000000044,
+      "S_cex": 1.0,
+      "S_edit": 0.012658227848101266,
+      "S_vuln": 0,
+      "alpha": 0.25,
+      "beta": 0.25,
+      "gamma": 0.25,
+      "delta": 0.25,
+      "PVS": 0.7593354430379747,
+      "PVS_strategy": "shifted_renormalized",
+      "PVS_paper_formula_complete_only": 0.2593354430379747,
+      "missing_component_flags": "",
+      "ground_truth_label": "correct",
+      "S_edit_method": "loc",
+      "S_vuln_new_warning_count": 0
+    },
+    "stopped_after": null
+  },
+  {
+    "bug_id": "Lang-24",
+    "patch_id": "Patches_ICSE__Doverfitting__TBar__Lang__patch1-Lang-24-TBar-plausible",
+    "stages": {
+      "checkout_bug": {
+        "ok": true,
+        "seconds": 0,
+        "reused": true
+      },
+      "apply_patch": {
+        "ok": true,
+        "seconds": 10.183188800001517
+      },
+      "fingerprint": {
+        "ok": true,
+        "seconds": 0.4478598220011918
+      },
+      "semantic_primary": {
+        "ok": true,
+        "seconds": 387.993797354
+      },
+      "write_semantic_primary": {
+        "ok": true,
+        "seconds": 0.002949799996713409
+      },
+      "semantic_comparison": {
+        "ok": true,
+        "seconds": 7829.208449196005
+      },
+      "counterexample": {
+        "ok": true,
+        "seconds": 398.3406520140052
+      },
+      "write_counterexample": {
+        "ok": true,
+        "seconds": 0.0010049010015791282
+      },
+      "memorization_probe": {
+        "ok": true,
+        "seconds": 1.6958418619979057
+      },
+      "write_probe": {
+        "ok": true,
+        "seconds": 0.007597499999974389
+      },
+      "assemble_pvs": {
+        "ok": true,
+        "seconds": 28.516293130996928
+      },
+      "write_pvs": {
+        "ok": true,
+        "seconds": 0.0012698989958153106
+      }
+    },
+    "pvs_row": {
+      "patch_id": "Patches_ICSE__Doverfitting__TBar__Lang__patch1-Lang-24-TBar-plausible",
+      "S_sem": 0.050000000000000044,
+      "S_cex": 1.0,
+      "S_edit": 0.0379746835443038,
+      "S_vuln": 0,
+      "alpha": 0.25,
+      "beta": 0.25,
+      "gamma": 0.25,
+      "delta": 0.25,
+      "PVS": 0.7530063291139241,
+      "PVS_strategy": "shifted_renormalized",
+      "PVS_paper_formula_complete_only": 0.25300632911392407,
+      "missing_component_flags": "",
+      "ground_truth_label": "overfitting",
+      "S_edit_method": "loc",
+      "S_vuln_new_warning_count": 0
+    },
+    "stopped_after": null
+  },
+  {
+    "bug_id": "Lang-24",
+    "patch_id": "Patches_ICSE__Doverfitting__kPAR__Lang__patch1-Lang-24-kPAR-plausible",
+    "stages": {
+      "checkout_bug": {
+        "ok": true,
+        "seconds": 0,
+        "reused": true
+      },
+      "apply_patch": {
+        "ok": true,
+        "seconds": 10.256485575002444
+      },
+      "fingerprint": {
+        "ok": true,
+        "seconds": 0.47740897000039695
+      },
+      "semantic_primary": {
+        "ok": true,
+        "seconds": 19.402321847002895
+      },
+      "write_semantic_primary": {
+        "ok": true,
+        "seconds": 0.0008199000003514811
+      },
+      "semantic_comparison": {
+        "ok": true,
+        "seconds": 4490.259386418002
+      },
+      "counterexample": {
+        "ok": true,
+        "seconds": 26.56532917599543
+      },
+      "write_counterexample": {
+        "ok": true,
+        "seconds": 0.0033549020008649677
+      },
+      "memorization_probe": {
+        "ok": true,
+        "seconds": 1.62462608700298
+      },
+      "write_probe": {
+        "ok": true,
+        "seconds": 0.0065068039984907955
+      },
+      "assemble_pvs": {
+        "ok": true,
+        "seconds": 28.21920434600179
+      },
+      "write_pvs": {
+        "ok": true,
+        "seconds": 0.004086403001565486
+      }
+    },
+    "pvs_row": {
+      "patch_id": "Patches_ICSE__Doverfitting__kPAR__Lang__patch1-Lang-24-kPAR-plausible",
+      "S_sem": 0.050000000000000044,
+      "S_cex": 1.0,
+      "S_edit": 0.0379746835443038,
+      "S_vuln": 0,
+      "alpha": 0.25,
+      "beta": 0.25,
+      "gamma": 0.25,
+      "delta": 0.25,
+      "PVS": 0.7530063291139241,
+      "PVS_strategy": "shifted_renormalized",
+      "PVS_paper_formula_complete_only": 0.25300632911392407,
+      "missing_component_flags": "",
+      "ground_truth_label": "overfitting",
+      "S_edit_method": "loc",
+      "S_vuln_new_warning_count": 0
+    },
+    "stopped_after": null
+  },
+  {
+    "bug_id": "Lang-39",
+    "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Lang__patch1-Lang-39-AVATAR-plausible",
+    "stages": {
+      "checkout_bug": {
+        "ok": true,
+        "seconds": 28.198310760999448
+      },
+      "apply_patch": {
+        "ok": true,
+        "seconds": 8.785664586001076
+      },
+      "fingerprint": {
+        "ok": true,
+        "seconds": 0.4666824289961369
+      },
+      "semantic_primary": {
+        "ok": true,
+        "seconds": 385.8886073899994
+      },
+      "write_semantic_primary": {
+        "ok": true,
+        "seconds": 0.005394298997998703
+      },
+      "semantic_comparison": {
+        "ok": true,
+        "seconds": 387.7368582029958
+      },
+      "counterexample": {
+        "ok": true,
+        "seconds": 1247.1225663210062
+      },
+      "write_counterexample": {
+        "ok": true,
+        "seconds": 0.0099973999967915
+      },
+      "memorization_probe": {
+        "ok": true,
+        "seconds": 1.6504338740051026
+      },
+      "write_probe": {
+        "ok": true,
+        "seconds": 0.0018025000026682392
+      },
+      "assemble_pvs": {
+        "ok": true,
+        "seconds": 27.33181878599862
+      },
+      "write_pvs": {
+        "ok": true,
+        "seconds": 0.003703300993947778
+      }
+    },
+    "pvs_row": {
+      "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Lang__patch1-Lang-39-AVATAR-plausible",
+      "S_sem": 0.050000000000000044,
+      "S_cex": null,
+      "S_edit": 0.025974025974025976,
+      "S_vuln": 0,
+      "alpha": 0.25,
+      "beta": 0.25,
+      "gamma": 0.25,
+      "delta": 0.25,
+      "PVS": 0.6746753246753247,
+      "PVS_strategy": "shifted_renormalized",
+      "PVS_paper_formula_complete_only": null,
+      "missing_component_flags": "S_cex",
+      "ground_truth_label": "overfitting",
+      "S_edit_method": "loc",
+      "S_vuln_new_warning_count": 0
+    },
+    "stopped_after": null
+  }
+]

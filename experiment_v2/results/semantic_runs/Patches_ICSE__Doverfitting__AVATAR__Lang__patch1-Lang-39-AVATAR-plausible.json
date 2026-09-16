@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Lang__patch1-Lang-39-AVATAR-plausible",
+  "condition": "C",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.050000000000000044,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 374.87196137300634,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 4630,
+      "output_tokens": 168,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.1,
+        "readability": 0.3,
+        "security_robustness": 0.5,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch changes `replacementList[i].length()` to `searchList[i].length()`, which makes the calculation always zero and breaks the buffer size optimization logic. This only passes the test by accident (the buffer still works, just inefficiently) but fundamentally breaks the intended functionality of pre-allocating adequate buffer space for replacements."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 5.370169289999467,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 4630,
+      "output_tokens": 168,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.1,
+        "readability": 0.3,
+        "security_robustness": 0.5,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch changes `replacementList[i].length()` to `searchList[i].length()`, which makes the calculation always zero and breaks the buffer size optimization logic. This only passes the test by accident (the buffer still works, just inefficiently) but fundamentally breaks the intended functionality of pre-allocating adequate buffer space for replacements."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 4.9603406859969255,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 4630,
+      "output_tokens": 168,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.1,
+        "readability": 0.3,
+        "security_robustness": 0.5,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch changes `replacementList[i].length()` to `searchList[i].length()`, which makes the calculation always zero and breaks the buffer size optimization logic. This only passes the test by accident (the buffer still works, just inefficiently) but fundamentally breaks the intended functionality of pre-allocating adequate buffer space for replacements."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    }
+  ]
+}

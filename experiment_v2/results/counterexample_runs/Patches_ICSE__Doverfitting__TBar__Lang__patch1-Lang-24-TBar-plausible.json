@@ -1,0 +1,40 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__TBar__Lang__patch1-Lang-24-TBar-plausible",
+  "bug_id": "Lang-24",
+  "model": "claude-haiku-4-5",
+  "latency_s": 377.8223067209983,
+  "error": null,
+  "context_errors": [],
+  "tests": [
+    {
+      "name": "testIsNumberWithTrailingLAfterDecimal",
+      "target_class": "org.apache.commons.lang3.math.NumberUtils",
+      "target_method": "isNumber",
+      "class_name": "TestIsNumberTrailingLAfterDecimal",
+      "status": "VALID_BUG_REVEALING",
+      "candidate_pass": true,
+      "log": ".\nTime: 0.004\n\nOK (1 test)\n\n"
+    },
+    {
+      "name": "testIsNumberWithTrailingLAfterExponent",
+      "target_class": "org.apache.commons.lang3.math.NumberUtils",
+      "target_method": "isNumber",
+      "class_name": "TestIsNumberTrailingLAfterExponent",
+      "status": "VALID_NON_DISCRIMINATING",
+      "candidate_pass": null,
+      "log": ".\nTime: 0.005\n\nOK (1 test)\n\n"
+    },
+    {
+      "name": "testIsNumberValidLongSuffix",
+      "target_class": "org.apache.commons.lang3.math.NumberUtils",
+      "target_method": "isNumber",
+      "class_name": "TestIsNumberValidLongSuffix",
+      "status": "VALID_NON_DISCRIMINATING",
+      "candidate_pass": null,
+      "log": ".\nTime: 0.005\n\nOK (1 test)\n\n"
+    }
+  ],
+  "s_cex": 1.0,
+  "n_valid": 1,
+  "n_passed": 1
+}

@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Ddifferent__ACS__Lang__patch1-Lang-24-ACS",
+  "condition": "C",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.050000000000000044,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 3.8476044179988094,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 3790,
+      "output_tokens": 181,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.3,
+        "readability": 0.2,
+        "security_robustness": 0.9,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch adds a specific check for decimal points when encountering 'L' suffix, but this is overfitting to a particular test case rather than fixing the general bug. The change introduces unrelated behavior (rejecting valid numbers like '1.0L') and is poorly formatted with inline code that violates readability standards. The fix appears to address only the specific failing test case rather than the underlying logic issue."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 3.186563021001348,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 3790,
+      "output_tokens": 158,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.3,
+        "readability": 0.2,
+        "security_robustness": 0.9,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch adds a specific check for decimal points before 'L' type qualifiers, fixing the exact failing test case but introducing unrelated behavior change and poor code quality. The fix is overly specific to the test case rather than addressing the general validation logic, and the inline code placement severely damages readability."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 3.8918436229978397,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 3790,
+      "output_tokens": 158,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.3,
+        "readability": 0.2,
+        "security_robustness": 0.9,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch adds a specific check for decimal points before 'L' type qualifiers, fixing the exact failing test case but introducing unrelated behavior change and poor code quality. The fix is overly specific to the test case rather than addressing the general validation logic, and the inline code placement severely damages readability."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    }
+  ]
+}

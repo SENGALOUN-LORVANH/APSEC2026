@@ -1,0 +1,22 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__Kali__Closure__patch1-Closure-31-Kali-plausible",
+  "bug_id": "Closure-31",
+  "model": "claude-haiku-4-5",
+  "latency_s": 745.1524883619968,
+  "error": null,
+  "context_errors": [],
+  "tests": [
+    {
+      "name": "testCheckTreeEqualsImplReturnsNullOnMismatch",
+      "target_class": "com.google.javascript.rhino.Node",
+      "target_method": "checkTreeEqualsImpl",
+      "class_name": "CheckTreeEqualsImplTest",
+      "status": "INVALID_COMPILE",
+      "candidate_pass": null,
+      "log": "ed/test/com/google/javascript/jscomp/CheckTreeEqualsImplTest.java:38: error: NodeMismatch is not public in Node; cannot be accessed from outside package\n    [javac]     Node.NodeMismatch mismatch = tree1.checkTreeEqualsImpl(tree2);\n    [javac]         ^\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__Kali__Closure__patch1-Closure-31-Kali-plausible/CheckTreeEqualsImplTest/fixed/test/com/google/javascript/jscomp/CheckTreeEqualsImplTest.java:38: error: checkTreeEqualsImpl(Node) is not public in Node; cannot be accessed from outside package\n    [javac]     Node.NodeMismatch mismatch = tree1.checkTreeEqualsImpl(tree2);\n    [javac]                                       ^\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__Kali__Closure__patch1-Closure-31-Kali-plausible/CheckTreeEqualsImplTest/fixed/test/com/google/javascript/jscomp/CheckTreeEqualsImplTest.java:59: error: NodeMismatch is not public in Node; cannot be accessed from outside package\n    [javac]     Node.NodeMismatch mismatch = tree1.checkTreeEqualsImpl(tree2);\n    [javac]         ^\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__Kali__Closure__patch1-Closure-31-Kali-plausible/CheckTreeEqualsImplTest/fixed/test/com/google/javascript/jscomp/CheckTreeEqualsImplTest.java:59: error: checkTreeEqualsImpl(Node) is not public in Node; cannot be accessed from outside package\n    [javac]     Node.NodeMismatch mismatch = tree1.checkTreeEqualsImpl(tree2);\n    [javac]                                       ^\n    [javac] 6 errors\n    [javac] 7 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__Kali__Closure__patch1-Closure-31-Kali-plausible/CheckTreeEqualsImplTest/fixed/build.xml:331: Compile failed; see the compiler error output for details.\n\nTotal time: 1 second\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+    }
+  ],
+  "s_cex": null,
+  "n_valid": 0,
+  "n_passed": 0
+}
