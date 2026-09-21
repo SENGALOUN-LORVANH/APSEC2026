@@ -60,7 +60,14 @@ def score_row(patch_id, components, weights, strategy):
     validate_weights(weights)
     fn = pvs_directive_renormalized if strategy == "directive_renormalized" else pvs_shifted_renormalized
     flags = [k for k in COMPONENTS if _missing(components.get(k))]
+    pvs_val = fn(components, weights)
+    # PVS* is the Stage-1-anchored patch-validity/ranking score; it is undefined without the semantic
+    # component. Never emit a PVS* for a patch whose S_sem is missing -- mark it missing instead. This is a
+    # post-freeze correction (see protocol/DEVIATIONS.md); the un-guarded shifted_renormalized would otherwise
+    # return a high PVS* from S_cex/S_edit/S_vuln alone, contradicting a missing semantic judgement.
+    if _missing(components.get("S_sem")):
+        pvs_val = None
     return {"patch_id": patch_id, **{k: components.get(k) for k in COMPONENTS}, **weights,
-            "PVS": fn(components, weights), "PVS_strategy": strategy,
+            "PVS": pvs_val, "PVS_strategy": strategy,
             "PVS_paper_formula_complete_only": pvs_paper(components, weights),
             "missing_component_flags": ";".join(flags)}

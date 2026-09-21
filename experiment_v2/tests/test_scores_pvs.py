@@ -120,3 +120,13 @@ def test_score_row_exports_all_components_and_flags():
     assert row["PVS_paper_formula_complete_only"] is None
     with pytest.raises(ValueError):
         pvs.score_row("p1", {"S_sem": 0.8, "S_cex": 1, "S_edit": 0.2, "S_vuln": 0.0}, W, "best_one")
+
+
+def test_score_row_marks_pvs_missing_when_s_sem_missing():
+    """PVS* is undefined without the semantic component (DEVIATIONS #4). Even though shifted_renormalized
+    could compute a value from S_cex/S_edit/S_vuln, score_row must mark PVS missing."""
+    row = pvs.score_row("p1", {"S_sem": None, "S_cex": 1.0, "S_edit": 0.2, "S_vuln": 0.0}, W, "shifted_renormalized")
+    assert row["PVS"] is None
+    assert "S_sem" in row["missing_component_flags"]
+    # the raw strategy still computes from available components; only score_row applies the S_sem policy
+    assert pvs.pvs_shifted_renormalized({"S_sem": None, "S_cex": 1.0, "S_edit": 0.2, "S_vuln": 0.0}, W) is not None

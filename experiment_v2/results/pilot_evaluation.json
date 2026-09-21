@@ -1,137 +1,942 @@
 {
+  "PRELIMINARY_NOTICE": "PRELIMINARY ENGINEERING PILOT -- NOT FINAL PAPER RESULTS.",
   "n_patches_scored": 48,
   "detection": {
-    "overall": {
-      "precision": 0.75,
-      "recall": 0.125,
-      "f1": 0.21428571428571427,
-      "macro_f1": 0.44537815126050423,
-      "specificity": 0.9583333333333334,
-      "correct_patch_retention": 0.9583333333333334,
-      "balanced_accuracy": 0.5416666666666667,
-      "accuracy": 0.5416666666666666,
-      "mcc": 0.15075567228888181,
-      "auroc": 0.6449652777777777,
-      "average_precision": 0.6880475396776004,
-      "confusion": {
-        "tp": 3,
-        "fp": 1,
-        "tn": 23,
-        "fn": 21
-      },
-      "n": 48,
-      "base_rate_overfitting": 0.5
-    },
-    "lopo_per_project": {
-      "Chart": {
-        "precision": 1.0,
+    "positive_class": "overfitting",
+    "n": 48,
+    "base_rate_overfitting": 0.5,
+    "note": "PRELIMINARY ENGINEERING PILOT -- n is small and LOPO folds are tiny; not a paper result. Detection is per-method per protocol.yaml, replacing the earlier placeholder PVS*<0.5.",
+    "methods": {
+      "M0_majority": {
+        "precision": 0.42105263157894735,
         "recall": 0.3333333333333333,
-        "f1": 0.5,
-        "macro_f1": 0.65,
-        "specificity": 1.0,
-        "correct_patch_retention": 1.0,
-        "balanced_accuracy": 0.6666666666666666,
-        "accuracy": 0.7142857142857143,
-        "mcc": 0.47140452079103173,
-        "auroc": 0.8333333333333333,
-        "average_precision": 0.8666666666666667,
+        "f1": 0.37209302325581395,
+        "macro_f1": 0.4313295304958315,
+        "specificity": 0.5416666666666666,
+        "correct_patch_retention": 0.5416666666666666,
+        "balanced_accuracy": 0.4375,
+        "accuracy": 0.4375,
+        "mcc": -0.1278042968526915,
+        "auroc": null,
+        "average_precision": null,
         "confusion": {
-          "tp": 1,
-          "fp": 0,
-          "tn": 4,
-          "fn": 2
+          "tp": 8,
+          "fp": 11,
+          "tn": 13,
+          "fn": 16
         },
-        "n": 7,
-        "base_rate_overfitting": 0.42857142857142855
+        "n": 48,
+        "base_rate_overfitting": 0.5,
+        "mcc_ci95_cluster_bootstrap": [
+          -0.38697312147938395,
+          0.136504726557987
+        ],
+        "f1_ci95_cluster_bootstrap": [
+          0.15789473684210525,
+          0.5555555555555556
+        ],
+        "lopo_per_project": {
+          "Chart": {
+            "precision": 0.42857142857142855,
+            "recall": 1.0,
+            "f1": 0.6,
+            "macro_f1": 0.3,
+            "specificity": 0.0,
+            "correct_patch_retention": 0.0,
+            "balanced_accuracy": 0.5,
+            "accuracy": 0.42857142857142855,
+            "mcc": 0.0,
+            "auroc": null,
+            "average_precision": null,
+            "confusion": {
+              "tp": 3,
+              "fp": 4,
+              "tn": 0,
+              "fn": 0
+            },
+            "n": 7,
+            "base_rate_overfitting": 0.42857142857142855
+          },
+          "Closure": {
+            "precision": NaN,
+            "recall": 0.0,
+            "f1": 0.0,
+            "macro_f1": 0.3333333333333333,
+            "specificity": 1.0,
+            "correct_patch_retention": 1.0,
+            "balanced_accuracy": 0.5,
+            "accuracy": 0.5,
+            "mcc": 0.0,
+            "auroc": null,
+            "average_precision": null,
+            "confusion": {
+              "tp": 0,
+              "fp": 0,
+              "tn": 6,
+              "fn": 6
+            },
+            "n": 12,
+            "base_rate_overfitting": 0.5
+          },
+          "Lang": {
+            "precision": NaN,
+            "recall": 0.0,
+            "f1": 0.0,
+            "macro_f1": 0.2777777777777778,
+            "specificity": 1.0,
+            "correct_patch_retention": 1.0,
+            "balanced_accuracy": 0.5,
+            "accuracy": 0.38461538461538464,
+            "mcc": 0.0,
+            "auroc": null,
+            "average_precision": null,
+            "confusion": {
+              "tp": 0,
+              "fp": 0,
+              "tn": 5,
+              "fn": 8
+            },
+            "n": 13,
+            "base_rate_overfitting": 0.6153846153846154
+          },
+          "Math": {
+            "precision": 0.4166666666666667,
+            "recall": 1.0,
+            "f1": 0.5882352941176471,
+            "macro_f1": 0.29411764705882354,
+            "specificity": 0.0,
+            "correct_patch_retention": 0.0,
+            "balanced_accuracy": 0.5,
+            "accuracy": 0.4166666666666667,
+            "mcc": 0.0,
+            "auroc": null,
+            "average_precision": null,
+            "confusion": {
+              "tp": 5,
+              "fp": 7,
+              "tn": 0,
+              "fn": 0
+            },
+            "n": 12,
+            "base_rate_overfitting": 0.4166666666666667
+          },
+          "Time": {
+            "precision": NaN,
+            "recall": 0.0,
+            "f1": 0.0,
+            "macro_f1": 0.3333333333333333,
+            "specificity": 1.0,
+            "correct_patch_retention": 1.0,
+            "balanced_accuracy": 0.5,
+            "accuracy": 0.5,
+            "mcc": 0.0,
+            "auroc": null,
+            "average_precision": null,
+            "confusion": {
+              "tp": 0,
+              "fp": 0,
+              "tn": 2,
+              "fn": 2
+            },
+            "n": 4,
+            "base_rate_overfitting": 0.5
+          }
+        }
       },
-      "Closure": {
-        "precision": NaN,
-        "recall": 0.0,
-        "f1": 0.0,
-        "macro_f1": 0.3333333333333333,
-        "specificity": 1.0,
-        "correct_patch_retention": 1.0,
+      "M1_random_stratified": {
+        "precision": 0.5,
+        "recall": 0.5416666666666666,
+        "f1": 0.52,
+        "macro_f1": 0.4991304347826087,
+        "specificity": 0.4583333333333333,
+        "correct_patch_retention": 0.4583333333333333,
         "balanced_accuracy": 0.5,
         "accuracy": 0.5,
         "mcc": 0.0,
-        "auroc": 0.9305555555555556,
-        "average_precision": 0.9444444444444444,
+        "auroc": null,
+        "average_precision": null,
         "confusion": {
-          "tp": 0,
-          "fp": 0,
-          "tn": 6,
+          "tp": 13,
+          "fp": 13,
+          "tn": 11,
+          "fn": 11
+        },
+        "n": 48,
+        "base_rate_overfitting": 0.5,
+        "mcc_ci95_cluster_bootstrap": [
+          -0.3251201406522983,
+          0.32602701184569466
+        ],
+        "f1_ci95_cluster_bootstrap": [
+          0.30431488801054024,
+          0.6938775510204082
+        ],
+        "lopo_per_project": {
+          "Chart": {
+            "precision": 0.5,
+            "recall": 0.6666666666666666,
+            "f1": 0.5714285714285714,
+            "macro_f1": 0.5714285714285714,
+            "specificity": 0.5,
+            "correct_patch_retention": 0.5,
+            "balanced_accuracy": 0.5833333333333333,
+            "accuracy": 0.5714285714285714,
+            "mcc": 0.16666666666666666,
+            "auroc": null,
+            "average_precision": null,
+            "confusion": {
+              "tp": 2,
+              "fp": 2,
+              "tn": 2,
+              "fn": 1
+            },
+            "n": 7,
+            "base_rate_overfitting": 0.42857142857142855
+          },
+          "Closure": {
+            "precision": 0.6,
+            "recall": 0.5,
+            "f1": 0.5454545454545454,
+            "macro_f1": 0.5804195804195804,
+            "specificity": 0.6666666666666666,
+            "correct_patch_retention": 0.6666666666666666,
+            "balanced_accuracy": 0.5833333333333333,
+            "accuracy": 0.5833333333333334,
+            "mcc": 0.1690308509457033,
+            "auroc": null,
+            "average_precision": null,
+            "confusion": {
+              "tp": 3,
+              "fp": 2,
+              "tn": 4,
+              "fn": 3
+            },
+            "n": 12,
+            "base_rate_overfitting": 0.5
+          },
+          "Lang": {
+            "precision": 0.6666666666666666,
+            "recall": 0.75,
+            "f1": 0.7058823529411765,
+            "macro_f1": 0.5751633986928104,
+            "specificity": 0.4,
+            "correct_patch_retention": 0.4,
+            "balanced_accuracy": 0.575,
+            "accuracy": 0.6153846153846154,
+            "mcc": 0.15811388300841897,
+            "auroc": null,
+            "average_precision": null,
+            "confusion": {
+              "tp": 6,
+              "fp": 3,
+              "tn": 2,
+              "fn": 2
+            },
+            "n": 13,
+            "base_rate_overfitting": 0.6153846153846154
+          },
+          "Math": {
+            "precision": 0.2,
+            "recall": 0.2,
+            "f1": 0.2,
+            "macro_f1": 0.3142857142857143,
+            "specificity": 0.42857142857142855,
+            "correct_patch_retention": 0.42857142857142855,
+            "balanced_accuracy": 0.3142857142857143,
+            "accuracy": 0.3333333333333333,
+            "mcc": -0.37142857142857144,
+            "auroc": null,
+            "average_precision": null,
+            "confusion": {
+              "tp": 1,
+              "fp": 4,
+              "tn": 3,
+              "fn": 4
+            },
+            "n": 12,
+            "base_rate_overfitting": 0.4166666666666667
+          },
+          "Time": {
+            "precision": 0.3333333333333333,
+            "recall": 0.5,
+            "f1": 0.4,
+            "macro_f1": 0.2,
+            "specificity": 0.0,
+            "correct_patch_retention": 0.0,
+            "balanced_accuracy": 0.25,
+            "accuracy": 0.25,
+            "mcc": -0.5773502691896258,
+            "auroc": null,
+            "average_precision": null,
+            "confusion": {
+              "tp": 1,
+              "fp": 2,
+              "tn": 0,
+              "fn": 1
+            },
+            "n": 4,
+            "base_rate_overfitting": 0.5
+          }
+        }
+      },
+      "M2_diff_feature": {
+        "precision": 0.43333333333333335,
+        "recall": 0.5416666666666666,
+        "f1": 0.48148148148148145,
+        "macro_f1": 0.4074074074074074,
+        "specificity": 0.2916666666666667,
+        "correct_patch_retention": 0.2916666666666667,
+        "balanced_accuracy": 0.41666666666666663,
+        "accuracy": 0.4166666666666667,
+        "mcc": -0.1721325931647741,
+        "auroc": 0.3133680555555556,
+        "average_precision": 0.40707963016466275,
+        "confusion": {
+          "tp": 13,
+          "fp": 17,
+          "tn": 7,
+          "fn": 11
+        },
+        "n": 48,
+        "base_rate_overfitting": 0.5,
+        "mcc_ci95_cluster_bootstrap": [
+          -0.4200849344418257,
+          0.09249993973041282
+        ],
+        "f1_ci95_cluster_bootstrap": [
+          0.2916477272727273,
+          0.6333333333333333
+        ],
+        "lopo_per_project": {
+          "Chart": {
+            "precision": 0.3333333333333333,
+            "recall": 0.3333333333333333,
+            "f1": 0.3333333333333333,
+            "macro_f1": 0.41666666666666663,
+            "specificity": 0.5,
+            "correct_patch_retention": 0.5,
+            "balanced_accuracy": 0.41666666666666663,
+            "accuracy": 0.42857142857142855,
+            "mcc": -0.16666666666666666,
+            "auroc": 0.25,
+            "average_precision": 0.3873015873015873,
+            "confusion": {
+              "tp": 1,
+              "fp": 2,
+              "tn": 2,
+              "fn": 2
+            },
+            "n": 7,
+            "base_rate_overfitting": 0.42857142857142855
+          },
+          "Closure": {
+            "precision": 0.5,
+            "recall": 1.0,
+            "f1": 0.6666666666666666,
+            "macro_f1": 0.3333333333333333,
+            "specificity": 0.0,
+            "correct_patch_retention": 0.0,
+            "balanced_accuracy": 0.5,
+            "accuracy": 0.5,
+            "mcc": 0.0,
+            "auroc": 0.26388888888888884,
+            "average_precision": 0.4172979797979798,
+            "confusion": {
+              "tp": 6,
+              "fp": 6,
+              "tn": 0,
+              "fn": 0
+            },
+            "n": 12,
+            "base_rate_overfitting": 0.5
+          },
+          "Lang": {
+            "precision": NaN,
+            "recall": 0.0,
+            "f1": 0.0,
+            "macro_f1": 0.2777777777777778,
+            "specificity": 1.0,
+            "correct_patch_retention": 1.0,
+            "balanced_accuracy": 0.5,
+            "accuracy": 0.38461538461538464,
+            "mcc": 0.0,
+            "auroc": 0.2875,
+            "average_precision": 0.5498397435897436,
+            "confusion": {
+              "tp": 0,
+              "fp": 0,
+              "tn": 5,
+              "fn": 8
+            },
+            "n": 13,
+            "base_rate_overfitting": 0.6153846153846154
+          },
+          "Math": {
+            "precision": 0.4166666666666667,
+            "recall": 1.0,
+            "f1": 0.5882352941176471,
+            "macro_f1": 0.29411764705882354,
+            "specificity": 0.0,
+            "correct_patch_retention": 0.0,
+            "balanced_accuracy": 0.5,
+            "accuracy": 0.4166666666666667,
+            "mcc": 0.0,
+            "auroc": 0.3142857142857143,
+            "average_precision": 0.3954761904761904,
+            "confusion": {
+              "tp": 5,
+              "fp": 7,
+              "tn": 0,
+              "fn": 0
+            },
+            "n": 12,
+            "base_rate_overfitting": 0.4166666666666667
+          },
+          "Time": {
+            "precision": 0.3333333333333333,
+            "recall": 0.5,
+            "f1": 0.4,
+            "macro_f1": 0.2,
+            "specificity": 0.0,
+            "correct_patch_retention": 0.0,
+            "balanced_accuracy": 0.25,
+            "accuracy": 0.25,
+            "mcc": -0.5773502691896258,
+            "auroc": 0.125,
+            "average_precision": 0.41666666666666663,
+            "confusion": {
+              "tp": 1,
+              "fp": 2,
+              "tn": 0,
+              "fn": 1
+            },
+            "n": 4,
+            "base_rate_overfitting": 0.5
+          }
+        }
+      },
+      "M3_semantic": {
+        "precision": 0.5641025641025641,
+        "recall": 0.9166666666666666,
+        "f1": 0.6984126984126984,
+        "macro_f1": 0.5613275613275613,
+        "specificity": 0.2916666666666667,
+        "correct_patch_retention": 0.2916666666666667,
+        "balanced_accuracy": 0.6041666666666666,
+        "accuracy": 0.6041666666666666,
+        "mcc": 0.2668802563418119,
+        "auroc": 0.7664930555555556,
+        "average_precision": 0.7123329156223893,
+        "confusion": {
+          "tp": 22,
+          "fp": 17,
+          "tn": 7,
+          "fn": 2
+        },
+        "n": 48,
+        "base_rate_overfitting": 0.5,
+        "mcc_ci95_cluster_bootstrap": [
+          0.021193623029568856,
+          0.48096627271934167
+        ],
+        "f1_ci95_cluster_bootstrap": [
+          0.5516810344827586,
+          0.8059821858449685
+        ],
+        "lopo_per_project": {
+          "Chart": {
+            "precision": 0.75,
+            "recall": 1.0,
+            "f1": 0.8571428571428571,
+            "macro_f1": 0.8571428571428571,
+            "specificity": 0.75,
+            "correct_patch_retention": 0.75,
+            "balanced_accuracy": 0.875,
+            "accuracy": 0.8571428571428571,
+            "mcc": 0.75,
+            "auroc": 0.9166666666666666,
+            "average_precision": 0.8333333333333333,
+            "confusion": {
+              "tp": 3,
+              "fp": 1,
+              "tn": 3,
+              "fn": 0
+            },
+            "n": 7,
+            "base_rate_overfitting": 0.42857142857142855
+          },
+          "Closure": {
+            "precision": 0.5,
+            "recall": 1.0,
+            "f1": 0.6666666666666666,
+            "macro_f1": 0.3333333333333333,
+            "specificity": 0.0,
+            "correct_patch_retention": 0.0,
+            "balanced_accuracy": 0.5,
+            "accuracy": 0.5,
+            "mcc": 0.0,
+            "auroc": 0.6666666666666667,
+            "average_precision": 0.6041666666666667,
+            "confusion": {
+              "tp": 6,
+              "fp": 6,
+              "tn": 0,
+              "fn": 0
+            },
+            "n": 12,
+            "base_rate_overfitting": 0.5
+          },
+          "Lang": {
+            "precision": 0.6363636363636364,
+            "recall": 0.875,
+            "f1": 0.7368421052631579,
+            "macro_f1": 0.5112781954887218,
+            "specificity": 0.2,
+            "correct_patch_retention": 0.2,
+            "balanced_accuracy": 0.5375,
+            "accuracy": 0.6153846153846154,
+            "mcc": 0.10112997936948631,
+            "auroc": 0.7125,
+            "average_precision": 0.7645833333333334,
+            "confusion": {
+              "tp": 7,
+              "fp": 4,
+              "tn": 1,
+              "fn": 1
+            },
+            "n": 13,
+            "base_rate_overfitting": 0.6153846153846154
+          },
+          "Math": {
+            "precision": 0.4444444444444444,
+            "recall": 0.8,
+            "f1": 0.5714285714285714,
+            "macro_f1": 0.4857142857142857,
+            "specificity": 0.2857142857142857,
+            "correct_patch_retention": 0.2857142857142857,
+            "balanced_accuracy": 0.5428571428571429,
+            "accuracy": 0.5,
+            "mcc": 0.09759000729485331,
+            "auroc": 0.7285714285714286,
+            "average_precision": 0.6242424242424243,
+            "confusion": {
+              "tp": 4,
+              "fp": 5,
+              "tn": 2,
+              "fn": 1
+            },
+            "n": 12,
+            "base_rate_overfitting": 0.4166666666666667
+          },
+          "Time": {
+            "precision": 0.6666666666666666,
+            "recall": 1.0,
+            "f1": 0.8,
+            "macro_f1": 0.7333333333333334,
+            "specificity": 0.5,
+            "correct_patch_retention": 0.5,
+            "balanced_accuracy": 0.75,
+            "accuracy": 0.75,
+            "mcc": 0.5773502691896258,
+            "auroc": 1.0,
+            "average_precision": 1.0,
+            "confusion": {
+              "tp": 2,
+              "fp": 1,
+              "tn": 1,
+              "fn": 0
+            },
+            "n": 4,
+            "base_rate_overfitting": 0.5
+          }
+        },
+        "rule": "OVERFITTING iff S_sem_final < 0.5 (frozen)",
+        "n_missing_S_sem": 0
+      },
+      "M4_counterexample": {
+        "n_total": 48,
+        "n_S_cex_available": 17,
+        "n_S_cex_missing": 31,
+        "binary_rule": "OVERFITTING iff S_cex < 1.0 (candidate fails at least one VALID_BUG_REVEALING test), computed only on patches where S_cex is available; S_cex==NA -> abstain (not predicted).",
+        "auroc_on_available": 0.5285714285714285,
+        "average_precision_on_available": 0.4957983193277311,
+        "binary_on_available": {
+          "precision": 0.5,
+          "recall": 0.14285714285714285,
+          "f1": 0.2222222222222222,
+          "macro_f1": 0.4711111111111111,
+          "specificity": 0.9,
+          "correct_patch_retention": 0.9,
+          "balanced_accuracy": 0.5214285714285715,
+          "accuracy": 0.5882352941176471,
+          "mcc": 0.06546536707079773,
+          "auroc": 0.5285714285714285,
+          "average_precision": 0.4957983193277311,
+          "confusion": {
+            "tp": 1,
+            "fp": 1,
+            "tn": 9,
+            "fn": 6
+          },
+          "n": 17,
+          "base_rate_overfitting": 0.4117647058823529
+        }
+      },
+      "M6_sem_cex": {
+        "precision": 0.5454545454545454,
+        "recall": 0.75,
+        "f1": 0.631578947368421,
+        "macro_f1": 0.5465587044534412,
+        "specificity": 0.375,
+        "correct_patch_retention": 0.375,
+        "balanced_accuracy": 0.5625,
+        "accuracy": 0.5625,
+        "mcc": 0.13483997249264842,
+        "auroc": 0.6362847222222223,
+        "average_precision": 0.6472879051842466,
+        "confusion": {
+          "tp": 18,
+          "fp": 15,
+          "tn": 9,
           "fn": 6
         },
-        "n": 12,
-        "base_rate_overfitting": 0.5
+        "n": 48,
+        "base_rate_overfitting": 0.5,
+        "mcc_ci95_cluster_bootstrap": [
+          -0.10898273712958914,
+          0.3787315545785885
+        ],
+        "f1_ci95_cluster_bootstrap": [
+          0.4727272727272727,
+          0.7540983606557377
+        ],
+        "lopo_per_project": {
+          "Chart": {
+            "precision": 0.75,
+            "recall": 1.0,
+            "f1": 0.8571428571428571,
+            "macro_f1": 0.8571428571428571,
+            "specificity": 0.75,
+            "correct_patch_retention": 0.75,
+            "balanced_accuracy": 0.875,
+            "accuracy": 0.8571428571428571,
+            "mcc": 0.75,
+            "auroc": 0.9166666666666666,
+            "average_precision": 0.8333333333333333,
+            "confusion": {
+              "tp": 3,
+              "fp": 1,
+              "tn": 3,
+              "fn": 0
+            },
+            "n": 7,
+            "base_rate_overfitting": 0.42857142857142855
+          },
+          "Closure": {
+            "precision": 0.5,
+            "recall": 1.0,
+            "f1": 0.6666666666666666,
+            "macro_f1": 0.3333333333333333,
+            "specificity": 0.0,
+            "correct_patch_retention": 0.0,
+            "balanced_accuracy": 0.5,
+            "accuracy": 0.5,
+            "mcc": 0.0,
+            "auroc": 0.763888888888889,
+            "average_precision": 0.6861471861471862,
+            "confusion": {
+              "tp": 6,
+              "fp": 6,
+              "tn": 0,
+              "fn": 0
+            },
+            "n": 12,
+            "base_rate_overfitting": 0.5
+          },
+          "Lang": {
+            "precision": 0.5,
+            "recall": 0.375,
+            "f1": 0.42857142857142855,
+            "macro_f1": 0.38095238095238093,
+            "specificity": 0.4,
+            "correct_patch_retention": 0.4,
+            "balanced_accuracy": 0.3875,
+            "accuracy": 0.38461538461538464,
+            "mcc": -0.21957751641341997,
+            "auroc": 0.4625,
+            "average_precision": 0.652518315018315,
+            "confusion": {
+              "tp": 3,
+              "fp": 3,
+              "tn": 2,
+              "fn": 5
+            },
+            "n": 13,
+            "base_rate_overfitting": 0.6153846153846154
+          },
+          "Math": {
+            "precision": 0.4444444444444444,
+            "recall": 0.8,
+            "f1": 0.5714285714285714,
+            "macro_f1": 0.4857142857142857,
+            "specificity": 0.2857142857142857,
+            "correct_patch_retention": 0.2857142857142857,
+            "balanced_accuracy": 0.5428571428571429,
+            "accuracy": 0.5,
+            "mcc": 0.09759000729485331,
+            "auroc": 0.7857142857142858,
+            "average_precision": 0.730909090909091,
+            "confusion": {
+              "tp": 4,
+              "fp": 5,
+              "tn": 2,
+              "fn": 1
+            },
+            "n": 12,
+            "base_rate_overfitting": 0.4166666666666667
+          },
+          "Time": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "macro_f1": 1.0,
+            "specificity": 1.0,
+            "correct_patch_retention": 1.0,
+            "balanced_accuracy": 1.0,
+            "accuracy": 1.0,
+            "mcc": 1.0,
+            "auroc": 1.0,
+            "average_precision": 1.0,
+            "confusion": {
+              "tp": 2,
+              "fp": 0,
+              "tn": 2,
+              "fn": 0
+            },
+            "n": 4,
+            "base_rate_overfitting": 0.5
+          }
+        }
       },
-      "Lang": {
-        "precision": NaN,
-        "recall": 0.0,
-        "f1": 0.0,
-        "macro_f1": 0.2777777777777778,
-        "specificity": 1.0,
-        "correct_patch_retention": 1.0,
-        "balanced_accuracy": 0.5,
-        "accuracy": 0.38461538461538464,
-        "mcc": 0.0,
-        "auroc": 0.55,
-        "average_precision": 0.7096611721611722,
-        "confusion": {
-          "tp": 0,
-          "fp": 0,
-          "tn": 5,
-          "fn": 8
-        },
-        "n": 13,
-        "base_rate_overfitting": 0.6153846153846154
+      "M5_static": {
+        "status": "PENDING",
+        "reason": "Stage 2B (CFG/PDG + S_vuln) -- Step 6"
       },
-      "Math": {
-        "precision": 0.5,
-        "recall": 0.2,
-        "f1": 0.2857142857142857,
-        "macro_f1": 0.4957983193277311,
-        "specificity": 0.8571428571428571,
-        "correct_patch_retention": 0.8571428571428571,
-        "balanced_accuracy": 0.5285714285714286,
-        "accuracy": 0.5833333333333334,
-        "mcc": 0.07559289460184544,
-        "auroc": 0.4285714285714286,
-        "average_precision": 0.5375757575757576,
-        "confusion": {
-          "tp": 1,
-          "fp": 1,
-          "tn": 6,
-          "fn": 4
-        },
-        "n": 12,
-        "base_rate_overfitting": 0.4166666666666667
+      "M7_sem_static": {
+        "status": "PENDING",
+        "reason": "Stage 2B -- Step 6"
       },
-      "Time": {
-        "precision": 1.0,
-        "recall": 0.5,
-        "f1": 0.6666666666666666,
-        "macro_f1": 0.7333333333333334,
-        "specificity": 1.0,
-        "correct_patch_retention": 1.0,
-        "balanced_accuracy": 0.75,
-        "accuracy": 0.75,
-        "mcc": 0.5773502691896258,
-        "auroc": 0.75,
-        "average_precision": 0.8333333333333333,
-        "confusion": {
-          "tp": 1,
-          "fp": 0,
-          "tn": 2,
-          "fn": 1
-        },
-        "n": 4,
-        "base_rate_overfitting": 0.5
+      "M8_cex_static": {
+        "status": "PENDING",
+        "reason": "Stage 2B -- Step 6"
+      },
+      "M9_sem_cex_static": {
+        "status": "PENDING",
+        "reason": "Stage 2B -- Step 6"
+      },
+      "M10_full_pvs_human_prefs": {
+        "status": "PENDING",
+        "reason": "real human preferences (Bradley-Terry) -- PENDING"
       }
     },
-    "note": "PRELIMINARY -- n=50 is far too small for reliable LOPO folds; reported per protocol.yaml staging regardless, not as a claim about method accuracy."
+    "paired_differences_mcc": {
+      "M3_semantic_vs_M0_majority": {
+        "metric": "mcc",
+        "a": 0.2668802563418119,
+        "b": -0.1278042968526915,
+        "difference": 0.3946845531945034,
+        "ci95": [
+          0.007650400229560724,
+          0.7647000560937972
+        ],
+        "ci_excludes_zero": true
+      },
+      "M3_semantic_vs_M2_diff_feature": {
+        "metric": "mcc",
+        "a": 0.2668802563418119,
+        "b": -0.1721325931647741,
+        "difference": 0.43901284950658603,
+        "ci95": [
+          0.06692905267246389,
+          0.7823118750800457
+        ],
+        "ci_excludes_zero": true
+      },
+      "M6_sem_cex_vs_M3_semantic": {
+        "metric": "mcc",
+        "a": 0.13483997249264842,
+        "b": 0.2668802563418119,
+        "difference": -0.13204028384916347,
+        "ci95": [
+          -0.3076571541392782,
+          0.053911422679992105
+        ],
+        "ci_excludes_zero": false
+      }
+    }
+  },
+  "counterexample_funnel": {
+    "overall": {
+      "generated": 106,
+      "compiled": 71,
+      "fixed_pass": 64,
+      "buggy_fail": 24,
+      "stable_bug_revealing": 24,
+      "candidate_discriminating": 2
+    },
+    "n_patches_with_cex_run": 48,
+    "n_patches_with_generation_error": 13,
+    "stage_definitions": "generated->compiled->fixed_pass->buggy_fail->stable_bug_revealing->candidate_discriminating (per-test, summed; see scores.counterexample_status)",
+    "by_project": {
+      "Chart": {
+        "n_patches": 7,
+        "generated": 19,
+        "compiled": 19,
+        "fixed_pass": 18,
+        "buggy_fail": 11,
+        "stable_bug_revealing": 11,
+        "candidate_discriminating": 2
+      },
+      "Closure": {
+        "n_patches": 12,
+        "generated": 28,
+        "compiled": 3,
+        "fixed_pass": 2,
+        "buggy_fail": 2,
+        "stable_bug_revealing": 2,
+        "candidate_discriminating": 0
+      },
+      "Lang": {
+        "n_patches": 13,
+        "generated": 27,
+        "compiled": 27,
+        "fixed_pass": 26,
+        "buggy_fail": 7,
+        "stable_bug_revealing": 7,
+        "candidate_discriminating": 0
+      },
+      "Math": {
+        "n_patches": 12,
+        "generated": 23,
+        "compiled": 13,
+        "fixed_pass": 9,
+        "buggy_fail": 2,
+        "stable_bug_revealing": 2,
+        "candidate_discriminating": 0
+      },
+      "Time": {
+        "n_patches": 4,
+        "generated": 9,
+        "compiled": 9,
+        "fixed_pass": 9,
+        "buggy_fail": 2,
+        "stable_bug_revealing": 2,
+        "candidate_discriminating": 0
+      }
+    },
+    "by_ground_truth_label": {
+      "correct": {
+        "n_patches": 24,
+        "generated": 47,
+        "compiled": 35,
+        "fixed_pass": 34,
+        "buggy_fail": 15,
+        "stable_bug_revealing": 15,
+        "candidate_discriminating": 1
+      },
+      "overfitting": {
+        "n_patches": 24,
+        "generated": 59,
+        "compiled": 36,
+        "fixed_pass": 30,
+        "buggy_fail": 9,
+        "stable_bug_revealing": 9,
+        "candidate_discriminating": 1
+      }
+    },
+    "by_tercile": {
+      "large": {
+        "n_patches": 19,
+        "generated": 37,
+        "compiled": 28,
+        "fixed_pass": 23,
+        "buggy_fail": 11,
+        "stable_bug_revealing": 11,
+        "candidate_discriminating": 1
+      },
+      "small": {
+        "n_patches": 29,
+        "generated": 69,
+        "compiled": 43,
+        "fixed_pass": 41,
+        "buggy_fail": 13,
+        "stable_bug_revealing": 13,
+        "candidate_discriminating": 1
+      }
+    }
+  },
+  "s_cex_missingness": {
+    "overall": {
+      "n": 48,
+      "n_missing": 31,
+      "missing_rate": 0.6458333333333334
+    },
+    "by_project": {
+      "Chart": {
+        "n": 7,
+        "n_missing": 1,
+        "missing_rate": 0.14285714285714285
+      },
+      "Closure": {
+        "n": 12,
+        "n_missing": 11,
+        "missing_rate": 0.9166666666666666
+      },
+      "Lang": {
+        "n": 13,
+        "n_missing": 7,
+        "missing_rate": 0.5384615384615384
+      },
+      "Math": {
+        "n": 12,
+        "n_missing": 10,
+        "missing_rate": 0.8333333333333334
+      },
+      "Time": {
+        "n": 4,
+        "n_missing": 2,
+        "missing_rate": 0.5
+      }
+    },
+    "by_ground_truth_label": {
+      "correct": {
+        "n": 24,
+        "n_missing": 14,
+        "missing_rate": 0.5833333333333334
+      },
+      "overfitting": {
+        "n": 24,
+        "n_missing": 17,
+        "missing_rate": 0.7083333333333334
+      }
+    },
+    "by_tercile": {
+      "large": {
+        "n": 19,
+        "n_missing": 12,
+        "missing_rate": 0.631578947368421
+      },
+      "small": {
+        "n": 29,
+        "n_missing": 19,
+        "missing_rate": 0.6551724137931034
+      }
+    }
   },
   "ranking": {
+    "score": "PVS* (ranking only; placeholder equal weights -- NOT calibrated)",
+    "n_patches_ranked": 48,
+    "n_excluded_PVS_missing": 0,
     "summary": {
       "conditional": {
         "bugs": 5,
@@ -164,103 +969,162 @@
       "model": "claude-haiku-4-5",
       "n_patches": 48,
       "n_runs": 144,
-      "parse_success_rate": 0.7708333333333334,
-      "token_limit_failure_rate": 0.0,
-      "mean_latency_s": 21.196610048534655,
-      "mean_input_tokens": 3731.5945945945946,
-      "mean_output_tokens": 170.24324324324326,
-      "mean_run_to_run_stability_stdev": 0.0,
-      "monetary_cost": "not computed -- no pricing table available for these models in this session"
+      "n_billing_errors_excluded": 0,
+      "n_effective_runs": 144,
+      "parse_success_rate_excl_billing": 1.0,
+      "token_limit_failure_rate_excl_billing": 0.0,
+      "mean_judgement_stability": 1.0,
+      "median_latency_s": 3.4214787014999963,
+      "mean_latency_s": 24.459235140187438,
+      "mean_input_tokens": 3663.9166666666665,
+      "mean_output_tokens": 171.52083333333334,
+      "error_class_counts": {
+        "ok": 144
+      }
     },
     "comparison": {
       "model": "claude-sonnet-5",
       "n_patches": 48,
       "n_runs": 144,
-      "parse_success_rate": 0.7638888888888888,
-      "token_limit_failure_rate": 0.0,
-      "mean_latency_s": 52.39512896802809,
-      "mean_input_tokens": 4936.318181818182,
-      "mean_output_tokens": 592.3272727272728,
-      "mean_run_to_run_stability_stdev": 0.045663741856289124,
-      "monetary_cost": "not computed -- no pricing table available for these models in this session"
+      "n_billing_errors_excluded": 0,
+      "n_effective_runs": 144,
+      "parse_success_rate_excl_billing": 1.0,
+      "token_limit_failure_rate_excl_billing": 0.0,
+      "mean_judgement_stability": 0.9791666666666666,
+      "median_latency_s": 6.787241049499073,
+      "mean_latency_s": 51.42622445460423,
+      "mean_input_tokens": 4854.708333333333,
+      "mean_output_tokens": 613.8333333333334,
+      "error_class_counts": {
+        "ok": 144
+      }
     },
-    "selection_rule": "protocol.yaml llm.selection_rule -- hierarchy: parse success >= 0.95, token-limit failures <= 0.02, stability, latency, cost. Ground-truth agreement never decides. This section is the evidence; the actual selected_model decision is an author call recorded in protocol.yaml + DEVIATIONS.md, not computed here."
+    "selection_rule": "protocol.yaml llm.selection_rule; ground-truth agreement never decides. Selected model recorded in protocol.yaml + DEVIATIONS.md (Step 7)."
+  },
+  "cost": {
+    "pricing_source": "Anthropic public API list pricing, USD per 1M tokens: Haiku 4.5 $1 in / $5 out, Sonnet 5 $2 in / $10 out. Recorded 2026-09-21.",
+    "pricing_per_mtok_usd": {
+      "claude-haiku-4-5": {
+        "in": 1.0,
+        "out": 5.0
+      },
+      "claude-sonnet-5": {
+        "in": 2.0,
+        "out": 10.0
+      }
+    },
+    "breakdown": {
+      "semantic_haiku": {
+        "model": "claude-haiku-4-5",
+        "calls": 144,
+        "input_tokens": 527604,
+        "output_tokens": 24699,
+        "usd": 0.6511
+      },
+      "semantic_sonnet_comparison": {
+        "model": "claude-sonnet-5",
+        "calls": 144,
+        "input_tokens": 699078,
+        "output_tokens": 88392,
+        "usd": 2.2821
+      },
+      "counterexample_haiku": {
+        "model": "claude-haiku-4-5",
+        "calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "usd": 0.0
+      }
+    },
+    "total_usd": 2.9332,
+    "total_billable_calls": 288,
+    "usd_per_patch_semantic_haiku": 0.013565
   },
   "complementarity": {
     "n_both_available": 17,
-    "sem_only_flags_overfitting": 11,
-    "cex_only_flags_overfitting": 1,
-    "both_flag_overfitting": 1,
-    "neither_flags": 4
+    "among_overfitting": {
+      "sem_only": 5,
+      "cex_only": 0,
+      "both": 1,
+      "neither": 1
+    },
+    "among_correct_wrongly_flagged": {
+      "sem_only": 6,
+      "cex_only": 1,
+      "both": 0
+    },
+    "static_arm": "PENDING Stage 2B (Step 6)"
   },
   "sensitivity": {
     "label_policy": {
+      "method": "M3 semantic rule S_sem<0.5",
       "n": 44,
       "n_labels_changed_vs_primary": 0,
       "detection_primary_labels": {
-        "precision": 0.75,
-        "recall": 0.15,
-        "f1": 0.25,
-        "macro_f1": 0.484375,
-        "specificity": 0.9583333333333334,
-        "correct_patch_retention": 0.9583333333333334,
-        "balanced_accuracy": 0.5541666666666667,
+        "precision": 0.5277777777777778,
+        "recall": 0.95,
+        "f1": 0.6785714285714286,
+        "macro_f1": 0.5580357142857143,
+        "specificity": 0.2916666666666667,
+        "correct_patch_retention": 0.2916666666666667,
+        "balanced_accuracy": 0.6208333333333333,
         "accuracy": 0.5909090909090909,
-        "mcc": 0.18763883748662835,
+        "mcc": 0.31199032511115304,
         "auroc": null,
         "average_precision": null,
         "confusion": {
-          "tp": 3,
-          "fp": 1,
-          "tn": 23,
-          "fn": 17
+          "tp": 19,
+          "fp": 17,
+          "tn": 7,
+          "fn": 1
         },
         "n": 44,
         "base_rate_overfitting": 0.45454545454545453
       },
       "detection_sensitivity_labels": {
-        "precision": 0.75,
-        "recall": 0.15,
-        "f1": 0.25,
-        "macro_f1": 0.484375,
-        "specificity": 0.9583333333333334,
-        "correct_patch_retention": 0.9583333333333334,
-        "balanced_accuracy": 0.5541666666666667,
+        "precision": 0.5277777777777778,
+        "recall": 0.95,
+        "f1": 0.6785714285714286,
+        "macro_f1": 0.5580357142857143,
+        "specificity": 0.2916666666666667,
+        "correct_patch_retention": 0.2916666666666667,
+        "balanced_accuracy": 0.6208333333333333,
         "accuracy": 0.5909090909090909,
-        "mcc": 0.18763883748662835,
+        "mcc": 0.31199032511115304,
         "auroc": null,
         "average_precision": null,
         "confusion": {
-          "tp": 3,
-          "fp": 1,
-          "tn": 23,
-          "fn": 17
+          "tp": 19,
+          "fp": 17,
+          "tn": 7,
+          "fn": 1
         },
         "n": 44,
         "base_rate_overfitting": 0.45454545454545453
       }
     },
     "duplicates": {
+      "method": "M3 semantic rule S_sem<0.5",
       "n_primary": 48,
       "n_collapsed": 47,
       "n_duplicate_patches_in_sample": 6,
       "detection_collapsed": {
-        "precision": 0.75,
-        "recall": 0.13043478260869565,
-        "f1": 0.2222222222222222,
-        "macro_f1": 0.45439469320066334,
-        "specificity": 0.9583333333333334,
-        "correct_patch_retention": 0.9583333333333334,
-        "balanced_accuracy": 0.5443840579710145,
-        "accuracy": 0.5531914893617021,
-        "mcc": 0.15902386981057753,
+        "precision": 0.5526315789473685,
+        "recall": 0.9130434782608695,
+        "f1": 0.6885245901639344,
+        "macro_f1": 0.5563835072031793,
+        "specificity": 0.2916666666666667,
+        "correct_patch_retention": 0.2916666666666667,
+        "balanced_accuracy": 0.6023550724637681,
+        "accuracy": 0.5957446808510638,
+        "mcc": 0.26007334984695896,
         "auroc": null,
         "average_precision": null,
         "confusion": {
-          "tp": 3,
-          "fp": 1,
-          "tn": 23,
-          "fn": 20
+          "tp": 21,
+          "fp": 17,
+          "tn": 7,
+          "fn": 2
         },
         "n": 47,
         "base_rate_overfitting": 0.48936170212765956
@@ -275,9 +1139,9 @@
   "runtime": {
     "smoke_test_seconds": 2382.154643525002,
     "smoke_test_n_patches": 10,
-    "pilot_seconds": 42465.821679245986,
+    "pilot_seconds": 42465.821679246015,
     "pilot_n_patches": 50,
-    "pilot_mean_seconds_per_patch": 849.3164335849198
+    "pilot_mean_seconds_per_patch": 849.3164335849203
   },
   "failures": {
     "n_total": 50,

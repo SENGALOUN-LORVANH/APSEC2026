@@ -1,7 +1,19 @@
 # Protocol Deviations
 
-Record every methodological change made after the protocol freeze (tag `protocol-v2-frozen`).
+Every methodological change made after the protocol freeze (tag `protocol-v2-frozen`, commit
+`c3335ec`, 2026-09-15). Commit tags below map to `git log` messages of the form `v2 stepN: ...`.
 
-| Date | Change | Reason | Were affected results already observed? | Commit |
-|---|---|---|---|---|
-| — | (protocol not yet frozen) | — | — | — |
+"Affected results already observed?" is answered honestly: where a pre-change number was produced and
+recorded, it is disclosed so it can be superseded, never silently overwritten.
+
+| # | Date | Change | Reason | Affected results already observed? | Commit |
+|---|---|---|---|---|---|
+| 1 | 2026-09-19 | `llm_client.response_text()` returns the first content block that has `.text`, skipping a leading `ThinkingBlock`. | `claude-sonnet-5` run with `effort` set prepends a thinking block; `content[0].text` raised `AttributeError` and lost the response. | Yes — the sonnet model-comparison runs crashed before the fix; no valid scores were kept from the crashed calls, they were re-issued after the fix. | step5 (fix predates; documented now) |
+| 2 | 2026-09-19 | Per-run `input_tokens` / `output_tokens` logged in every semantic/counterexample run record. | Enable real USD cost accounting from measured usage instead of estimates. | No — additive logging only; no score changed. | step5 |
+| 3 | 2026-09-21 | Pilot detection is now reported **per method** (M0/M1/M2 baselines, M3 semantic rule, M4 counterexample, M6 sem+cex LR; M5/M7-M10 pending) per `protocol.yaml evaluation.methods`. The earlier placeholder rule `PVS* < 0.5 with equal weights` was removed as a detection classifier. | `PVS* < 0.5` was never pre-registered as the detection rule; PVS* is a **ranking** score with un-calibrated placeholder weights. Thresholding it conflated ranking with detection and (via the missing-S_cex renormalization) inverted the semantic signal. | **Yes** — the earlier `pilot_evaluation.json` reported overall detection F1 0.214 / recall 0.125 from `PVS*<0.5`. That number is **superseded** by the per-method results and must not be cited. | step3 |
+| 4 | 2026-09-21 | `pvs.score_row` now emits `PVS = None` (marked missing) whenever `S_sem` is missing, for any strategy. | PVS* is anchored on the semantic component; `shifted_renormalized` otherwise returned a high PVS* from S_cex/S_edit/S_vuln alone, contradicting an absent semantic judgement. | Yes — earlier `patch_scores.csv` rows with missing S_sem carried a non-null PVS*; those are recomputed as missing. | step3 |
+| 5 | 2026-09-21 | **Pre-declaration of the M4 counterexample binary rule** (declared here BEFORE it is computed): `OVERFITTING iff S_cex < 1.0` (candidate fails at least one VALID_BUG_REVEALING test), computed only on patches where S_cex is available; `S_cex == NA` abstains (not predicted). M4's primary report is threshold-free AUROC/AP on `(1 - S_cex)` over available patches plus a full missingness breakdown. | The protocol defines S_cex threshold-free; a binary detection rule needs explicit pre-registration to avoid post-hoc threshold selection. | No — declared before any M4 binary number was computed. | step3 |
+| 6 | 2026-09-21 | Credit-failed runs re-issued per-run, reusing already-successful runs on disk as the cache. A persistent `cache_key` layer (protocol.yaml `llm.cache_key`) was never implemented before the freeze; the per-patch run JSON files serve as the durable cache. | 33/144 runs per model had failed with "credit balance is too low" (a billing error, not a parse failure); only those + 1 APIConnectionError were re-issued after the top-up. | Yes — the billing failures were observed and are classified separately from parse failures in all statistics. | step2 |
+| 7 | 2026-09-21 | Parse-success and token-limit rates for model selection are computed with billing/credit failures **excluded from the denominator**. | Billing failures are environmental, not model quality; the frozen selection_rule ("parse >= 0.95") is about the model's structured-output reliability. | No — first computation of these rates. | step3/step7 |
+
+<!-- Appended by later steps (Step 6 Stage 2B, Step 7 model selection) below this line. -->
