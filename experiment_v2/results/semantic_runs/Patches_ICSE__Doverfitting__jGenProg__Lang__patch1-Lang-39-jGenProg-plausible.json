@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__jGenProg__Lang__patch1-Lang-39-jGenProg-plausible",
+  "condition": "C",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.050000000000000044,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 6.071199194000002,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 4672,
+      "output_tokens": 173,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.1,
+        "readability": 0.2,
+        "security_robustness": 0.5,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch removes the loop that calculates buffer size optimization, which is unrelated to the NullPointerException bug and weakens functionality by removing performance optimization logic. The actual bug is likely a null dereference in the loop accessing replacementList[i].length() without null checks, which this patch avoids by deleting the entire loop rather than fixing the root cause."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 6.015585856000001,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 4672,
+      "output_tokens": 173,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.1,
+        "readability": 0.2,
+        "security_robustness": 0.5,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch removes the loop that calculates buffer size optimization, which is unrelated to the NullPointerException bug and weakens functionality by removing performance optimization logic. The actual bug is likely a null dereference in the loop accessing replacementList[i].length() without null checks, which this patch avoids by deleting the entire loop rather than fixing the root cause."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 5.795483979000011,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 4672,
+      "output_tokens": 173,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.1,
+        "readability": 0.2,
+        "security_robustness": 0.5,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch removes the loop that calculates buffer size optimization, which is unrelated to the NullPointerException bug and weakens functionality by removing performance optimization logic. The actual bug is likely a null dereference in the loop accessing replacementList[i].length() without null checks, which this patch avoids by deleting the entire loop rather than fixing the root cause."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Dsame__AVATAR__Math__patch1-Math-4-AVATAR",
+  "condition": "C",
+  "model": "claude-sonnet-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.9066666666666667,
+  "decision": "CORRECT",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 4.358231189000435,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 5595,
+      "output_tokens": 192,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 1.0,
+        "readability": 1.0,
+        "security_robustness": 0.95,
+        "judgement": "CORRECT",
+        "confidence": 0.92,
+        "brief_reason": "The patch correctly guards against null return from Line.intersection (which happens for parallel/non-intersecting lines) before dereferencing it, addressing the root cause of the NPE in both 2D and 3D SubLine classes.  It's minimal, readable, and doesn't affect other functionality."
+      },
+      "s_sem": 0.92,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 3.1622554829991714,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 5595,
+      "output_tokens": 182,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 1.0,
+        "readability": 0.95,
+        "security_robustness": 0.95,
+        "judgement": "CORRECT",
+        "confidence": 0.9,
+        "brief_reason": "Adds a null check for the case where the underlying lines do not intersect (parallel/non-intersecting), correctly returning null instead of causing NPE in toSubSpace. This addresses the root cause generally, not just the specific test cases, and is minimal and safe."
+      },
+      "s_sem": 0.9,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 2.6766208159997404,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 5595,
+      "output_tokens": 170,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 1.0,
+        "readability": 0.95,
+        "security_robustness": 0.95,
+        "judgement": "CORRECT",
+        "confidence": 0.9,
+        "brief_reason": "The patch correctly guards against null intersection results from Line.intersection (which occurs for parallel or non-intersecting lines), preventing NPE, and returns null as documented for no-intersection case, matching the general contract of the method."
+      },
+      "s_sem": 0.9,
+      "confidence_clipped": false
+    }
+  ]
+}

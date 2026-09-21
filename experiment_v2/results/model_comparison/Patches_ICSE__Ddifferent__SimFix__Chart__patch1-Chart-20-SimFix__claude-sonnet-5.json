@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Ddifferent__SimFix__Chart__patch1-Chart-20-SimFix",
+  "condition": "C",
+  "model": "claude-sonnet-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.21666666666666667,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 6.460679099000117,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 2896,
+      "output_tokens": 522,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.6,
+        "readability": 0.5,
+        "security_robustness": 0.7,
+        "judgement": "OVERFITTING",
+        "confidence": 0.75,
+        "brief_reason": "The patch fixes outlinePaint but incorrectly passes 'stroke' instead of 'outlineStroke' to the superclass constructor, so outlineStroke is still not properly assigned, only masking the specific test failure while leaving related functionality broken."
+      },
+      "s_sem": 0.25,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 6.556973870001457,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 2896,
+      "output_tokens": 489,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.6,
+        "readability": 0.5,
+        "security_robustness": 0.7,
+        "judgement": "OVERFITTING",
+        "confidence": 0.75,
+        "brief_reason": "The patch fixes the outlinePaint parameter but still passes 'stroke' instead of 'outlineStroke' to the superclass constructor, leaving a related bug unaddressed; it only satisfies the specific failing test rather than fully correcting the constructor's intended behavior."
+      },
+      "s_sem": 0.25,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 4.413132392999614,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 2896,
+      "output_tokens": 359,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.6,
+        "readability": 0.5,
+        "security_robustness": 0.8,
+        "judgement": "OVERFITTING",
+        "confidence": 0.85,
+        "brief_reason": "The patch fixes outlinePaint but still passes 'stroke' instead of 'outlineStroke' to the superclass constructor, so the outlineStroke parameter remains ignored - only the specific test (checking outlinePaint) passes while the underlying bug (ignoring outlineStroke) persists."
+      },
+      "s_sem": 0.15000000000000002,
+      "confidence_clipped": false
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Closure__patch1-Closure-45-AVATAR-plausible",
+  "condition": "C",
+  "model": "claude-sonnet-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.18333333333333335,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 15.29429635300039,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 3378,
+      "output_tokens": 1342,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.3,
+        "readability": 0.3,
+        "security_robustness": 0.7,
+        "judgement": "OVERFITTING",
+        "confidence": 0.75,
+        "brief_reason": "The patch removes the literal-value check entirely, always treating any non-property assign as 'unknown value', rather than fixing the actual root cause (that inner-expression assignments like a.push(b=[]) should count as references). This overly broad change weakens the original literal-value optimization for many other cases, not just the reported bug, making it a blunt fix rather than a targeted one."
+      },
+      "s_sem": 0.25,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 372.59036109000044,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 3378,
+      "output_tokens": 386,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.3,
+        "readability": 0.5,
+        "security_robustness": 0.6,
+        "judgement": "OVERFITTING",
+        "confidence": 0.85,
+        "brief_reason": "The patch removes the literal-value check entirely, treating every non-property assignment as an 'unknown value' assignment regardless of whether it's a literal. This changes behavior broadly beyond the reported bug and could cause other variables to be unnecessarily marked as referenced, weakening the pass's precision rather than fixing the root cause."
+      },
+      "s_sem": 0.15000000000000002,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 5.158510629999,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 3378,
+      "output_tokens": 385,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.3,
+        "readability": 0.4,
+        "security_robustness": 0.6,
+        "judgement": "OVERFITTING",
+        "confidence": 0.85,
+        "brief_reason": "The patch removes the literal-value check entirely, making any non-property assign mark the variable as assigned-to-unknown-value regardless of whether the assigned value is actually a literal. This over-broadens the condition beyond what's needed to fix the specific test case, likely weakening the pass's ability to remove unused vars in other scenarios and changing unrelated behavior."
+      },
+      "s_sem": 0.15000000000000002,
+      "confidence_clipped": false
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Ddifferent__GenProg__Closure__patch1-Closure-126-GenProg",
+  "condition": "C",
+  "model": "claude-sonnet-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.75,
+  "decision": "CORRECT",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 746.1725833419987,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 4920,
+      "output_tokens": 592,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.6,
+        "readability": 0.5,
+        "security_robustness": 0.9,
+        "judgement": "CORRECT",
+        "confidence": 0.75,
+        "brief_reason": "The patch stops recursing into finally blocks, matching the documented rationale that minimizing exits there can change completion semantics; this fixes both failing tests. However it leaves a dead/unused variable declaration, slightly hurting readability though not correctness."
+      },
+      "s_sem": 0.75,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 8.409035772998322,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 4920,
+      "output_tokens": 627,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.9,
+        "readability": 0.7,
+        "security_robustness": 0.9,
+        "judgement": "CORRECT",
+        "confidence": 0.8,
+        "brief_reason": "The patch simply removes the recursive minimization call on finally blocks, which matches the existing comment stating finally block exits should not be minimized; this correctly preserves return/break statements in finally blocks as required by the tests, though it leaves an unused local variable."
+      },
+      "s_sem": 0.8,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 12.61272287400061,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 4920,
+      "output_tokens": 794,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.7,
+        "readability": 0.4,
+        "security_robustness": 0.9,
+        "judgement": "CORRECT",
+        "confidence": 0.7,
+        "brief_reason": "The patch removes the erroneous recursive call that modified finally-block exits, aligning code with the documented invariant that finally blocks shouldn't be minimized; this fixes the general bug but leaves a now-empty if-block, hurting readability slightly."
+      },
+      "s_sem": 0.7,
+      "confidence_clipped": false
+    }
+  ]
+}

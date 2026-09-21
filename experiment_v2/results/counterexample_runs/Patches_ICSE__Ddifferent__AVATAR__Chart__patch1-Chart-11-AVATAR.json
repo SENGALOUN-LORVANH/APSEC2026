@@ -1,0 +1,40 @@
+{
+  "patch_id": "Patches_ICSE__Ddifferent__AVATAR__Chart__patch1-Chart-11-AVATAR",
+  "bug_id": "Chart-11",
+  "model": "claude-haiku-4-5",
+  "latency_s": 6.592070163000244,
+  "error": null,
+  "context_errors": [],
+  "tests": [
+    {
+      "name": "testEqualGeneralPathsDifferentSegments",
+      "target_class": "org.jfree.chart.util.ShapeUtilities",
+      "target_method": "equal",
+      "class_name": "testEqualGeneralPathsDifferentSegments",
+      "status": "VALID_BUG_REVEALING",
+      "candidate_pass": true,
+      "log": ".\nTime: 0.002\n\nOK (1 test)\n\n"
+    },
+    {
+      "name": "testEqualGeneralPathsIdenticalPaths",
+      "target_class": "org.jfree.chart.util.ShapeUtilities",
+      "target_method": "equal",
+      "class_name": "testEqualGeneralPathsIdenticalPaths",
+      "status": "VALID_NON_DISCRIMINATING",
+      "candidate_pass": null,
+      "log": ".\nTime: 0.002\n\nOK (1 test)\n\n"
+    },
+    {
+      "name": "testEqualGeneralPathsDifferentLengths",
+      "target_class": "org.jfree.chart.util.ShapeUtilities",
+      "target_method": "equal",
+      "class_name": "testEqualGeneralPathsDifferentLengths",
+      "status": "VALID_BUG_REVEALING",
+      "candidate_pass": true,
+      "log": ".\nTime: 0.002\n\nOK (1 test)\n\n"
+    }
+  ],
+  "s_cex": 1.0,
+  "n_valid": 2,
+  "n_passed": 2
+}

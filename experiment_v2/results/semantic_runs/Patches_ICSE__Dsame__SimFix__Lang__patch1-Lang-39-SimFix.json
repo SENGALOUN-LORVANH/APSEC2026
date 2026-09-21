@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Dsame__SimFix__Lang__patch1-Lang-39-SimFix",
+  "condition": "C",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.92,
+  "decision": "CORRECT",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 2.9956098210000164,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 4637,
+      "output_tokens": 156,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.95,
+        "readability": 0.9,
+        "security_robustness": 0.95,
+        "judgement": "CORRECT",
+        "confidence": 0.92,
+        "brief_reason": "The patch adds a null check before accessing array elements in a loop that calculates buffer size, preventing NullPointerException when searchList or replacementList contain null values. This is a minimal, targeted fix that addresses the root cause of the bug while maintaining consistency with existing null-handling logic elsewhere in the method."
+      },
+      "s_sem": 0.92,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 2.4855759170000056,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 4637,
+      "output_tokens": 158,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.95,
+        "readability": 0.95,
+        "security_robustness": 1.0,
+        "judgement": "CORRECT",
+        "confidence": 0.92,
+        "brief_reason": "The patch adds a null check before accessing array elements in a loop that calculates buffer size, preventing NullPointerException when searchList or replacementList contain null values. This is consistent with the method's documented behavior that null search/replacement strings should be ignored, and the fix is minimal and focused on the root cause."
+      },
+      "s_sem": 0.92,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 2.6035318180000218,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 4637,
+      "output_tokens": 155,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.95,
+        "readability": 0.95,
+        "security_robustness": 1.0,
+        "judgement": "CORRECT",
+        "confidence": 0.92,
+        "brief_reason": "The patch adds a null check before accessing array elements in a loop that calculates buffer size, preventing NullPointerException when searchList or replacementList contain null values. This is consistent with the method's documented behavior that null search/replacement strings should be ignored, and the fix is minimal and properly placed."
+      },
+      "s_sem": 0.92,
+      "confidence_clipped": false
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "patch_id": "Patches_others__Dcorrect__SOFix__Time__patch1-Time-19-SOFix",
+  "bug_id": "Time-19",
+  "model": "claude-haiku-4-5",
+  "latency_s": 397.494229128999,
+  "error": null,
+  "context_errors": [],
+  "tests": [
+    {
+      "name": "testGetOffsetFromLocalWithZeroOffset",
+      "target_class": "org.joda.time.DateTimeZone",
+      "target_method": "getOffsetFromLocal",
+      "class_name": "TestGetOffsetFromLocalZeroOffset",
+      "status": "VALID_NON_DISCRIMINATING",
+      "candidate_pass": null,
+      "log": ".\nTime: 0.013\n\nOK (1 test)\n\n"
+    },
+    {
+      "name": "testGetOffsetFromLocalLondonDSTTransition",
+      "target_class": "org.joda.time.DateTimeZone",
+      "target_method": "getOffsetFromLocal",
+      "class_name": "TestGetOffsetFromLocalLondonDST",
+      "status": "VALID_BUG_REVEALING",
+      "candidate_pass": true,
+      "log": ".\nTime: 0.028\n\nOK (1 test)\n\n"
+    },
+    {
+      "name": "testGetOffsetFromLocalNegativeOffsetZeroBoundary",
+      "target_class": "org.joda.time.DateTimeZone",
+      "target_method": "getOffsetFromLocal",
+      "class_name": "TestGetOffsetFromLocalNegativeOffset",
+      "status": "VALID_NON_DISCRIMINATING",
+      "candidate_pass": null,
+      "log": ".\nTime: 0.028\n\nOK (1 test)\n\n"
+    }
+  ],
+  "s_cex": 1.0,
+  "n_valid": 1,
+  "n_passed": 1
+}

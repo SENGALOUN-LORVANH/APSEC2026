@@ -1,0 +1,31 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__Nopol__Time__patch1-Time-14-Nopol-plausible",
+  "condition": "C",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 0,
+  "s_sem_final": null,
+  "decision": null,
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 0.4063771060009458,
+      "attempts": 1,
+      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cf6UcRF2XgtFNikBWdbC2'}"
+    },
+    {
+      "run": 1,
+      "latency_s": 0.35426810500030115,
+      "attempts": 1,
+      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cf6UcShaudBKW1rQZ316G'}"
+    },
+    {
+      "run": 2,
+      "latency_s": 0.3412221039998258,
+      "attempts": 1,
+      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cf6UcUCP2PsmYsafEVB7t'}"
+    }
+  ]
+}

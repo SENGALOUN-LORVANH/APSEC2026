@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__jGenProg__Lang__patch1-Lang-39-jGenProg-plausible",
+  "condition": "C",
+  "model": "claude-sonnet-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.39999999999999997,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 5.732264769000011,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 6107,
+      "output_tokens": 419,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.3,
+        "readability": 0.5,
+        "security_robustness": 0.6,
+        "judgement": "OVERFITTING",
+        "confidence": 0.8,
+        "brief_reason": "The patch removes the buffer pre-sizing optimization loop entirely instead of adding null checks for searchList[i]/replacementList[i], eliminating the NPE but also deleting the size-estimation feature. This is a workaround by deletion rather than a proper general fix and weakens intended functionality."
+      },
+      "s_sem": 0.19999999999999996,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 7.17041165400002,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 6107,
+      "output_tokens": 575,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.5,
+        "readability": 0.6,
+        "security_robustness": 0.9,
+        "judgement": "CORRECT",
+        "confidence": 0.75,
+        "brief_reason": "The patch removes the buffer-size pre-calculation loop that caused NPE when searchList/replacementList entries were null, fixing the root cause generally rather than just the failing test. However, it eliminates a performance optimization (buffer pre-sizing) rather than fixing it properly with null checks, slightly weakening functionality but not correctness."
+      },
+      "s_sem": 0.75,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 8.315357170000027,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 6107,
+      "output_tokens": 611,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.3,
+        "readability": 0.4,
+        "security_robustness": 0.6,
+        "judgement": "OVERFITTING",
+        "confidence": 0.75,
+        "brief_reason": "The patch removes the entire buffer-size estimation loop instead of adding a null-check guard, eliminating a useful optimization for all inputs (not just those with null entries) rather than fixing the root cause of the NPE."
+      },
+      "s_sem": 0.25,
+      "confidence_clipped": false
+    }
+  ]
+}

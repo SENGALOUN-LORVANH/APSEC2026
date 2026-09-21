@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Chart__patch1-Chart-14-AVATAR-plausible",
+  "condition": "C",
+  "model": "claude-sonnet-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.0666666666666667,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 378.33701430900146,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 7112,
+      "output_tokens": 737,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.1,
+        "readability": 0.2,
+        "security_robustness": 0.3,
+        "judgement": "OVERFITTING",
+        "confidence": 0.9,
+        "brief_reason": "The patch replaces the intended removal of the marker from the domain markers list with a call to remove it from the unrelated 'annotations' list, avoiding the NPE but never actually removing the domain marker as required. This breaks the removeDomainMarker functionality entirely and introduces an unrelated side effect on annotations."
+      },
+      "s_sem": 0.09999999999999998,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 372.4481482500014,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 7112,
+      "output_tokens": 359,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.1,
+        "readability": 0.2,
+        "security_robustness": 0.2,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch replaces the domain marker removal logic with an unrelated call to this.annotations.remove(marker), which does not fix the null-pointer cause (markers list being null) and breaks actual marker removal functionality, only coincidentally passing the test suite."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 744.1684196570004,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 7112,
+      "output_tokens": 541,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.1,
+        "readability": 0.2,
+        "security_robustness": 0.1,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch does not add the missing null check for markers; instead it replaces markers.remove(marker) with this.annotations.remove(marker), which is unrelated to markers, breaks removeDomainMarker's real functionality, and does not address the NPE root cause (null markers list) seen in all four failing tests."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    }
+  ]
+}

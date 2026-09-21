@@ -1,92 +1,50 @@
 {
-  "n_patches_scored": 20,
+  "n_patches_scored": 48,
   "detection": {
     "overall": {
-      "precision": 1.0,
-      "recall": 0.09090909090909091,
-      "f1": 0.16666666666666666,
-      "macro_f1": 0.40476190476190477,
-      "specificity": 1.0,
-      "correct_patch_retention": 1.0,
-      "balanced_accuracy": 0.5454545454545454,
-      "accuracy": 0.5,
-      "mcc": 0.2075143391598224,
-      "auroc": 0.7828282828282828,
-      "average_precision": 0.8623737373737373,
+      "precision": 0.75,
+      "recall": 0.125,
+      "f1": 0.21428571428571427,
+      "macro_f1": 0.44537815126050423,
+      "specificity": 0.9583333333333334,
+      "correct_patch_retention": 0.9583333333333334,
+      "balanced_accuracy": 0.5416666666666667,
+      "accuracy": 0.5416666666666666,
+      "mcc": 0.15075567228888181,
+      "auroc": 0.6449652777777777,
+      "average_precision": 0.6880475396776004,
       "confusion": {
-        "tp": 1,
-        "fp": 0,
-        "tn": 9,
-        "fn": 10
+        "tp": 3,
+        "fp": 1,
+        "tn": 23,
+        "fn": 21
       },
-      "n": 20,
-      "base_rate_overfitting": 0.55
+      "n": 48,
+      "base_rate_overfitting": 0.5
     },
     "lopo_per_project": {
       "Chart": {
-        "precision": NaN,
-        "recall": 0.0,
-        "f1": 0.0,
-        "macro_f1": 0.4,
+        "precision": 1.0,
+        "recall": 0.3333333333333333,
+        "f1": 0.5,
+        "macro_f1": 0.65,
         "specificity": 1.0,
         "correct_patch_retention": 1.0,
-        "balanced_accuracy": 0.5,
-        "accuracy": 0.6666666666666666,
-        "mcc": 0.0,
-        "auroc": 1.0,
-        "average_precision": 1.0,
+        "balanced_accuracy": 0.6666666666666666,
+        "accuracy": 0.7142857142857143,
+        "mcc": 0.47140452079103173,
+        "auroc": 0.8333333333333333,
+        "average_precision": 0.8666666666666667,
         "confusion": {
-          "tp": 0,
+          "tp": 1,
           "fp": 0,
-          "tn": 2,
-          "fn": 1
-        },
-        "n": 3,
-        "base_rate_overfitting": 0.3333333333333333
-      },
-      "Closure": {
-        "precision": NaN,
-        "recall": 0.0,
-        "f1": 0.0,
-        "macro_f1": 0.3,
-        "specificity": 1.0,
-        "correct_patch_retention": 1.0,
-        "balanced_accuracy": 0.5,
-        "accuracy": 0.42857142857142855,
-        "mcc": 0.0,
-        "auroc": 0.7916666666666667,
-        "average_precision": 0.8928571428571428,
-        "confusion": {
-          "tp": 0,
-          "fp": 0,
-          "tn": 3,
-          "fn": 4
+          "tn": 4,
+          "fn": 2
         },
         "n": 7,
-        "base_rate_overfitting": 0.5714285714285714
+        "base_rate_overfitting": 0.42857142857142855
       },
-      "Lang": {
-        "precision": NaN,
-        "recall": 0.0,
-        "f1": 0.0,
-        "macro_f1": 0.25,
-        "specificity": 1.0,
-        "correct_patch_retention": 1.0,
-        "balanced_accuracy": 0.5,
-        "accuracy": 0.3333333333333333,
-        "mcc": 0.0,
-        "auroc": 0.5,
-        "average_precision": 0.7916666666666666,
-        "confusion": {
-          "tp": 0,
-          "fp": 0,
-          "tn": 2,
-          "fn": 4
-        },
-        "n": 6,
-        "base_rate_overfitting": 0.6666666666666666
-      },
-      "Math": {
+      "Closure": {
         "precision": NaN,
         "recall": 0.0,
         "f1": 0.0,
@@ -96,36 +54,78 @@
         "balanced_accuracy": 0.5,
         "accuracy": 0.5,
         "mcc": 0.0,
-        "auroc": 1.0,
-        "average_precision": 1.0,
+        "auroc": 0.9305555555555556,
+        "average_precision": 0.9444444444444444,
         "confusion": {
           "tp": 0,
           "fp": 0,
-          "tn": 1,
-          "fn": 1
+          "tn": 6,
+          "fn": 6
         },
-        "n": 2,
+        "n": 12,
         "base_rate_overfitting": 0.5
+      },
+      "Lang": {
+        "precision": NaN,
+        "recall": 0.0,
+        "f1": 0.0,
+        "macro_f1": 0.2777777777777778,
+        "specificity": 1.0,
+        "correct_patch_retention": 1.0,
+        "balanced_accuracy": 0.5,
+        "accuracy": 0.38461538461538464,
+        "mcc": 0.0,
+        "auroc": 0.55,
+        "average_precision": 0.7096611721611722,
+        "confusion": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 5,
+          "fn": 8
+        },
+        "n": 13,
+        "base_rate_overfitting": 0.6153846153846154
+      },
+      "Math": {
+        "precision": 0.5,
+        "recall": 0.2,
+        "f1": 0.2857142857142857,
+        "macro_f1": 0.4957983193277311,
+        "specificity": 0.8571428571428571,
+        "correct_patch_retention": 0.8571428571428571,
+        "balanced_accuracy": 0.5285714285714286,
+        "accuracy": 0.5833333333333334,
+        "mcc": 0.07559289460184544,
+        "auroc": 0.4285714285714286,
+        "average_precision": 0.5375757575757576,
+        "confusion": {
+          "tp": 1,
+          "fp": 1,
+          "tn": 6,
+          "fn": 4
+        },
+        "n": 12,
+        "base_rate_overfitting": 0.4166666666666667
       },
       "Time": {
         "precision": 1.0,
-        "recall": 1.0,
-        "f1": 1.0,
-        "macro_f1": 1.0,
+        "recall": 0.5,
+        "f1": 0.6666666666666666,
+        "macro_f1": 0.7333333333333334,
         "specificity": 1.0,
         "correct_patch_retention": 1.0,
-        "balanced_accuracy": 1.0,
-        "accuracy": 1.0,
-        "mcc": 1.0,
-        "auroc": 1.0,
-        "average_precision": 1.0,
+        "balanced_accuracy": 0.75,
+        "accuracy": 0.75,
+        "mcc": 0.5773502691896258,
+        "auroc": 0.75,
+        "average_precision": 0.8333333333333333,
         "confusion": {
           "tp": 1,
           "fp": 0,
-          "tn": 1,
-          "fn": 0
+          "tn": 2,
+          "fn": 1
         },
-        "n": 2,
+        "n": 4,
         "base_rate_overfitting": 0.5
       }
     },
@@ -134,155 +134,166 @@
   "ranking": {
     "summary": {
       "conditional": {
-        "bugs": 3,
-        "precision_at_1": 0.8333333333333334,
+        "bugs": 5,
+        "precision_at_1": 0.7,
         "precision_at_1_ci95": [
-          0.5,
+          0.3,
           1.0
         ],
-        "mrr": 0.9166666666666666,
+        "mrr": 0.85,
         "top3": 1.0,
-        "random_expected_p_at_1": 0.38888888888888884
+        "random_expected_p_at_1": 0.35
       },
       "end_to_end": {
-        "bugs": 3,
-        "precision_at_1": 0.8333333333333334,
+        "bugs": 5,
+        "precision_at_1": 0.7,
         "precision_at_1_ci95": [
-          0.5,
+          0.3,
           1.0
         ],
-        "mrr": 0.9166666666666666,
+        "mrr": 0.85,
         "top3": 1.0,
-        "random_expected_p_at_1": 0.38888888888888884,
+        "random_expected_p_at_1": 0.35,
         "theoretical_max_p_at_1": 1.0
       }
     },
-    "n_bugs_with_multiple_candidates": 3
+    "n_bugs_with_multiple_candidates": 5
   },
   "model_comparison": {
     "primary": {
       "model": "claude-haiku-4-5",
-      "n_patches": 21,
-      "n_runs": 63,
-      "parse_success_rate": 1.0,
+      "n_patches": 48,
+      "n_runs": 144,
+      "parse_success_rate": 0.7708333333333334,
       "token_limit_failure_rate": 0.0,
-      "mean_latency_s": 33.67789272271416,
-      "mean_input_tokens": 3918.3809523809523,
-      "mean_output_tokens": 169.4126984126984,
+      "mean_latency_s": 21.196610048534655,
+      "mean_input_tokens": 3731.5945945945946,
+      "mean_output_tokens": 170.24324324324326,
       "mean_run_to_run_stability_stdev": 0.0,
       "monetary_cost": "not computed -- no pricing table available for these models in this session"
     },
     "comparison": {
       "model": "claude-sonnet-5",
-      "n_patches": 21,
-      "n_runs": 63,
-      "parse_success_rate": 0.9841269841269841,
+      "n_patches": 48,
+      "n_runs": 144,
+      "parse_success_rate": 0.7638888888888888,
       "token_limit_failure_rate": 0.0,
-      "mean_latency_s": 50.09696680658084,
-      "mean_input_tokens": 5170.129032258064,
-      "mean_output_tokens": 669.4354838709677,
-      "mean_run_to_run_stability_stdev": 0.03936244286741447,
+      "mean_latency_s": 52.39512896802809,
+      "mean_input_tokens": 4936.318181818182,
+      "mean_output_tokens": 592.3272727272728,
+      "mean_run_to_run_stability_stdev": 0.045663741856289124,
       "monetary_cost": "not computed -- no pricing table available for these models in this session"
     },
     "selection_rule": "protocol.yaml llm.selection_rule -- hierarchy: parse success >= 0.95, token-limit failures <= 0.02, stability, latency, cost. Ground-truth agreement never decides. This section is the evidence; the actual selected_model decision is an author call recorded in protocol.yaml + DEVIATIONS.md, not computed here."
   },
   "complementarity": {
-    "n_both_available": 8,
-    "sem_only_flags_overfitting": 7,
-    "cex_only_flags_overfitting": 0,
-    "both_flag_overfitting": 0,
-    "neither_flags": 1
+    "n_both_available": 17,
+    "sem_only_flags_overfitting": 11,
+    "cex_only_flags_overfitting": 1,
+    "both_flag_overfitting": 1,
+    "neither_flags": 4
   },
   "sensitivity": {
     "label_policy": {
-      "n": 20,
+      "n": 44,
       "n_labels_changed_vs_primary": 0,
       "detection_primary_labels": {
-        "precision": 1.0,
-        "recall": 0.09090909090909091,
-        "f1": 0.16666666666666666,
-        "macro_f1": 0.40476190476190477,
-        "specificity": 1.0,
-        "correct_patch_retention": 1.0,
-        "balanced_accuracy": 0.5454545454545454,
-        "accuracy": 0.5,
-        "mcc": 0.2075143391598224,
+        "precision": 0.75,
+        "recall": 0.15,
+        "f1": 0.25,
+        "macro_f1": 0.484375,
+        "specificity": 0.9583333333333334,
+        "correct_patch_retention": 0.9583333333333334,
+        "balanced_accuracy": 0.5541666666666667,
+        "accuracy": 0.5909090909090909,
+        "mcc": 0.18763883748662835,
         "auroc": null,
         "average_precision": null,
         "confusion": {
-          "tp": 1,
-          "fp": 0,
-          "tn": 9,
-          "fn": 10
+          "tp": 3,
+          "fp": 1,
+          "tn": 23,
+          "fn": 17
         },
-        "n": 20,
-        "base_rate_overfitting": 0.55
+        "n": 44,
+        "base_rate_overfitting": 0.45454545454545453
       },
       "detection_sensitivity_labels": {
-        "precision": 1.0,
-        "recall": 0.09090909090909091,
-        "f1": 0.16666666666666666,
-        "macro_f1": 0.40476190476190477,
-        "specificity": 1.0,
-        "correct_patch_retention": 1.0,
-        "balanced_accuracy": 0.5454545454545454,
-        "accuracy": 0.5,
-        "mcc": 0.2075143391598224,
+        "precision": 0.75,
+        "recall": 0.15,
+        "f1": 0.25,
+        "macro_f1": 0.484375,
+        "specificity": 0.9583333333333334,
+        "correct_patch_retention": 0.9583333333333334,
+        "balanced_accuracy": 0.5541666666666667,
+        "accuracy": 0.5909090909090909,
+        "mcc": 0.18763883748662835,
         "auroc": null,
         "average_precision": null,
         "confusion": {
-          "tp": 1,
-          "fp": 0,
-          "tn": 9,
-          "fn": 10
+          "tp": 3,
+          "fp": 1,
+          "tn": 23,
+          "fn": 17
         },
-        "n": 20,
-        "base_rate_overfitting": 0.55
+        "n": 44,
+        "base_rate_overfitting": 0.45454545454545453
       }
     },
     "duplicates": {
-      "n_primary": 20,
-      "n_collapsed": 19,
-      "n_duplicate_patches_in_sample": 4,
+      "n_primary": 48,
+      "n_collapsed": 47,
+      "n_duplicate_patches_in_sample": 6,
       "detection_collapsed": {
-        "precision": 1.0,
-        "recall": 0.1,
-        "f1": 0.18181818181818182,
-        "macro_f1": 0.4242424242424242,
-        "specificity": 1.0,
-        "correct_patch_retention": 1.0,
-        "balanced_accuracy": 0.55,
-        "accuracy": 0.5263157894736842,
-        "mcc": 0.22360679774997896,
+        "precision": 0.75,
+        "recall": 0.13043478260869565,
+        "f1": 0.2222222222222222,
+        "macro_f1": 0.45439469320066334,
+        "specificity": 0.9583333333333334,
+        "correct_patch_retention": 0.9583333333333334,
+        "balanced_accuracy": 0.5443840579710145,
+        "accuracy": 0.5531914893617021,
+        "mcc": 0.15902386981057753,
         "auroc": null,
         "average_precision": null,
         "confusion": {
-          "tp": 1,
-          "fp": 0,
-          "tn": 9,
-          "fn": 9
+          "tp": 3,
+          "fp": 1,
+          "tn": 23,
+          "fn": 20
         },
-        "n": 19,
-        "base_rate_overfitting": 0.5263157894736842
+        "n": 47,
+        "base_rate_overfitting": 0.48936170212765956
       }
     }
   },
   "memorization": {
-    "n": 20,
+    "n": 48,
     "n_recognized": 0,
     "recognition_rate": 0.0
   },
   "runtime": {
     "smoke_test_seconds": 2382.154643525002,
     "smoke_test_n_patches": 10,
-    "pilot_seconds": 24117.559473799975,
-    "pilot_n_patches": 20,
-    "pilot_mean_seconds_per_patch": 1205.8779736899987
+    "pilot_seconds": 42465.821679245986,
+    "pilot_n_patches": 50,
+    "pilot_mean_seconds_per_patch": 849.3164335849198
   },
   "failures": {
-    "n_total": 20,
-    "n_completed": 20,
-    "n_stopped_early": 0,
-    "stopped_early_detail": []
+    "n_total": 50,
+    "n_completed": 48,
+    "n_stopped_early": 2,
+    "stopped_early_detail": [
+      {
+        "bug_id": "Math-35",
+        "patch_id": "Patches_ICSE__Ddifferent__Arja__Math__patch1-Math-35-Arja",
+        "stopped_after": "apply_patch"
+      },
+      {
+        "bug_id": "Lang-35",
+        "patch_id": "Patches_ICSE__Ddifferent__ACS__Lang__patch1-Lang-35-ACS",
+        "stopped_after": "apply_patch"
+      }
+    ]
   }
 }

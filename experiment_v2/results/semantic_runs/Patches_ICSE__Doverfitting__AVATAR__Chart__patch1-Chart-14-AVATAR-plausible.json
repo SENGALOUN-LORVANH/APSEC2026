@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Chart__patch1-Chart-14-AVATAR-plausible",
+  "condition": "C",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.050000000000000044,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 3.3346282109996537,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 5276,
+      "output_tokens": 161,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.1,
+        "readability": 0.2,
+        "security_robustness": 0.3,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch removes the marker from `this.annotations` instead of from the correct `markers` list, which is a semantic error that happens to pass tests by accident. This breaks the actual marker removal functionality and introduces unrelated behavior changes by modifying annotations instead of domain markers. The fix is fundamentally incorrect despite passing the test suite."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 2.9574473000011494,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 5276,
+      "output_tokens": 161,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.1,
+        "readability": 0.2,
+        "security_robustness": 0.3,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch removes the marker from `this.annotations` instead of from the correct `markers` list, which is a semantic error that happens to pass tests by accident. This breaks the actual marker removal functionality and introduces unrelated behavior changes by modifying annotations instead of domain markers. The fix is fundamentally incorrect despite passing the test suite."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 2.8819027510016895,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 5276,
+      "output_tokens": 156,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.1,
+        "readability": 0.2,
+        "security_robustness": 0.3,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch removes the marker from `this.annotations` instead of from the correct `markers` list, which is a semantic error that happens to pass tests by accident. This deletes the intended functionality of removing domain markers and introduces unrelated behavior changes. The fix is fundamentally incorrect despite passing the test suite."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    }
+  ]
+}

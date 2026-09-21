@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-3-ACS",
+  "condition": "C",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.050000000000000044,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 3.7587533410005562,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 3134,
+      "output_tokens": 193,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.3,
+        "readability": 0.2,
+        "security_robustness": 0.9,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch only handles the specific case of single-element arrays by adding an early return, but does not address the underlying algorithmic issue that causes the ArrayIndexOutOfBoundsException when accessing prodHigh[1]. The code is poorly formatted with the check inline on the same line, and the comparison uses 1.0 (float) instead of 1 (int). A proper fix would restructure the algorithm to handle arrays of any length, not just single elements."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 2.743909253000311,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 3134,
+      "output_tokens": 184,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.3,
+        "readability": 0.2,
+        "security_robustness": 0.9,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch only handles the specific case of single-element arrays by adding an early return, but does not address the underlying algorithmic issue that causes the ArrayIndexOutOfBoundsException when accessing prodHigh[1]. The code quality is poor with improper formatting and a floating-point comparison (len==1.0) instead of integer comparison. A proper fix would restructure the algorithm to handle arrays of any length correctly."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 2.9685159489999933,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 3134,
+      "output_tokens": 193,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.3,
+        "readability": 0.2,
+        "security_robustness": 0.9,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch only handles the specific case of single-element arrays by adding an early return, but does not address the underlying algorithmic issue that causes the ArrayIndexOutOfBoundsException when accessing prodHigh[1]. The code is poorly formatted with the check inline on the same line, and the comparison uses 1.0 (float) instead of 1 (int). A proper fix would restructure the algorithm to handle arrays of any length, not just single elements."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    }
+  ]
+}

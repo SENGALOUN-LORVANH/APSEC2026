@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-35-ACS",
+  "condition": "C",
+  "model": "claude-sonnet-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.6833333333333332,
+  "decision": "CORRECT",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 8.946022570999958,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 6616,
+      "output_tokens": 724,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.4,
+        "readability": 0.3,
+        "security_robustness": 0.4,
+        "judgement": "CORRECT",
+        "confidence": 0.6,
+        "brief_reason": "The patch adds range validation for elitismRate in both constructors, correctly throwing OutOfRangeException for values outside [0,1], which addresses the general bug. However, it uses null arguments for the exception constructor, which is fragile and could cause NPEs when the exception message is later formatted, and the code is duplicated and not very clean."
+      },
+      "s_sem": 0.6,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 9.26523205400008,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 6616,
+      "output_tokens": 720,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.55,
+        "readability": 0.5,
+        "security_robustness": 0.4,
+        "judgement": "CORRECT",
+        "confidence": 0.7,
+        "brief_reason": "The patch adds range validation for elitismRate in both constructors, matching the expected OutOfRangeException behavior for values outside [0,1], and passes the failing tests. However, it duplicates validation logic and constructs OutOfRangeException with null value/lo/hi arguments, which could cause NPEs if the exception message is ever formatted, reducing robustness and readability."
+      },
+      "s_sem": 0.7,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 9.583197729999938,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 6616,
+      "output_tokens": 720,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.6,
+        "readability": 0.5,
+        "security_robustness": 0.6,
+        "judgement": "CORRECT",
+        "confidence": 0.75,
+        "brief_reason": "The patch adds proper range validation (0<=elitismRate<=1) to both constructors, matching the expected OutOfRangeException behavior for all four failing tests. However, it passes null instead of actual elitismRate/bounds values to the exception constructor, producing an uninformative exception message, and duplicates validation logic instead of factoring it into a shared helper, hurting readability and robustness slightly."
+      },
+      "s_sem": 0.75,
+      "confidence_clipped": false
+    }
+  ]
+}

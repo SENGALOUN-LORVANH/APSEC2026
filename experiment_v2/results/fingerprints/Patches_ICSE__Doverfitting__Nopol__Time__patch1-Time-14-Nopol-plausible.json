@@ -1,0 +1,11 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__Nopol__Time__patch1-Time-14-Nopol-plausible",
+  "bug_id": "Time-14",
+  "error": "",
+  "hashes": [
+    "000ae19ae8ac5ed4e85bc89eb1260cf6c334e0762bdd7f29c15170dfe6b4806c",
+    "38c9f77a9e9b81ed65fbd9e47ee7c8831754ab77fb6d0118107bc7f330e09786",
+    "747d92654f1b458c694898f2839faadd07eed1614e646ad7b2efdafa192accb3",
+    "f7beb220b598804c6085053074f899add5e46b0db770854dff1298f9a75f038f"
+  ]
+}

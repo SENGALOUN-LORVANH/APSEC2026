@@ -1,0 +1,40 @@
+{
+  "patch_id": "Patches_ICSE__Ddifferent__SimFix__Lang__patch1-Lang-60-SimFix",
+  "bug_id": "Lang-60",
+  "model": "claude-haiku-4-5",
+  "latency_s": 375.9783921189992,
+  "error": null,
+  "context_errors": [],
+  "tests": [
+    {
+      "name": "testContainsCharBeyondSize",
+      "target_class": "org.apache.commons.lang.text.StrBuilder",
+      "target_method": "contains",
+      "class_name": "TestContainsCharBeyondSize",
+      "status": "VALID_BUG_REVEALING",
+      "candidate_pass": true,
+      "log": ".\nTime: 0.003\n\nOK (1 test)\n\n"
+    },
+    {
+      "name": "testContainsCharAtBoundary",
+      "target_class": "org.apache.commons.lang.text.StrBuilder",
+      "target_method": "contains",
+      "class_name": "TestContainsCharAtBoundary",
+      "status": "VALID_NON_DISCRIMINATING",
+      "candidate_pass": null,
+      "log": ".\nTime: 0.004\n\nOK (1 test)\n\n"
+    },
+    {
+      "name": "testContainsCharEmptyBuilder",
+      "target_class": "org.apache.commons.lang.text.StrBuilder",
+      "target_method": "contains",
+      "class_name": "TestContainsCharEmptyBuilder",
+      "status": "VALID_BUG_REVEALING",
+      "candidate_pass": true,
+      "log": ".\nTime: 0.003\n\nOK (1 test)\n\n"
+    }
+  ],
+  "s_cex": 1.0,
+  "n_valid": 2,
+  "n_passed": 2
+}

@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Ddifferent__GenProg__Closure__patch1-Closure-126-GenProg",
+  "condition": "C",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.050000000000000044,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 5.532316017999619,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 3815,
+      "output_tokens": 158,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.95,
+        "readability": 0.9,
+        "security_robustness": 0.85,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch removes the recursive call to tryMinimizeExits for finally blocks, which causes it to fail the very tests it claims to fix. The test failures show that break statements and return statements in finally blocks are being incorrectly removed, indicating the patch deletes necessary functionality rather than fixing the bug."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 5.1521000289994845,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 3815,
+      "output_tokens": 158,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.95,
+        "readability": 0.9,
+        "security_robustness": 0.85,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch removes the recursive call to tryMinimizeExits for finally blocks, which causes it to fail the very tests it claims to fix. The test failures show that break statements and return statements in finally blocks are being incorrectly removed, indicating the patch deletes necessary functionality rather than fixing the bug."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 5.160709226000108,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 3815,
+      "output_tokens": 158,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.95,
+        "readability": 0.9,
+        "security_robustness": 0.85,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch removes the recursive call to tryMinimizeExits for finally blocks, which causes it to fail the very tests it claims to fix. The test failures show that break statements and return statements in finally blocks are being incorrectly removed, indicating the patch deletes necessary functionality rather than fixing the bug."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    }
+  ]
+}

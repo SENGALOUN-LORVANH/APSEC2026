@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__Nopol__Math__patch1-Math-4-Nopol-plausible",
+  "condition": "C",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.050000000000000044,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 3.7434552559998338,
+      "attempts": 2,
+      "error": null,
+      "input_tokens": 3138,
+      "output_tokens": 178,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.1,
+        "readability": 0.2,
+        "security_robustness": 0.3,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch adds a nonsensical condition that doesn't address the root cause (NullPointerException in toSubSpace). The condition checks unrelated properties (sin < 1, originOffset != d) that have no logical connection to the bug. It weakens the null-return behavior by making it conditional on meaningless criteria, introducing fragile logic that only passes the specific test cases by accident."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 3.2518090399998982,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 3138,
+      "output_tokens": 167,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.1,
+        "readability": 0.2,
+        "security_robustness": 0.3,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch adds a nonsensical condition that doesn't address the root cause (NullPointerException from null intersection result). The condition checks unrelated properties (sin < 1, originOffset != d) that have no logical connection to the bug. It weakens functionality by preventing legitimate null returns and introduces confusing, unmaintainable code."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 3.136574152999856,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 3138,
+      "output_tokens": 177,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.1,
+        "readability": 0.2,
+        "security_robustness": 0.3,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch adds a nonsensical condition that doesn't address the root cause (NullPointerException in toSubSpace). The condition checks unrelated values (sin < 1, originOffset != d) that have no logical connection to the bug. It weakens the null-return behavior by adding arbitrary constraints, making the fix overfitted to specific test cases rather than fixing the underlying issue."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    }
+  ]
+}

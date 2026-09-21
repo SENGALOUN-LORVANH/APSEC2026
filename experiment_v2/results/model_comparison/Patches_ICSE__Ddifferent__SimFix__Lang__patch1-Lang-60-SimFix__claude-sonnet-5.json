@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Ddifferent__SimFix__Lang__patch1-Lang-60-SimFix",
+  "condition": "C",
+  "model": "claude-sonnet-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.9,
+  "decision": "CORRECT",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 3.313891441001033,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 3839,
+      "output_tokens": 174,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 1.0,
+        "readability": 0.6,
+        "security_robustness": 0.9,
+        "judgement": "CORRECT",
+        "confidence": 0.9,
+        "brief_reason": "Fixes the actual bug by iterating only up to 'size' instead of the full buffer length, addressing the general cause of scanning beyond the logical string end. Leftover commented-out code hurts readability slightly but does not affect correctness."
+      },
+      "s_sem": 0.9,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 3.158891147002578,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 3839,
+      "output_tokens": 164,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 1.0,
+        "readability": 0.6,
+        "security_robustness": 0.9,
+        "judgement": "CORRECT",
+        "confidence": 0.9,
+        "brief_reason": "The fix correctly limits the search to the logical size of the buffer instead of the allocated capacity, matching the bug's root cause; leftover commented-out original code hurts readability slightly but is functionally correct."
+      },
+      "s_sem": 0.9,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 2.9588230430017575,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 3839,
+      "output_tokens": 162,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 1.0,
+        "readability": 0.6,
+        "security_robustness": 0.9,
+        "judgement": "CORRECT",
+        "confidence": 0.9,
+        "brief_reason": "Correctly changes loop bound from buffer.length to size, fixing the root cause of scanning beyond the logical string length; commented-out original code hurts readability slightly but doesn't affect correctness."
+      },
+      "s_sem": 0.9,
+      "confidence_clipped": false
+    }
+  ]
+}

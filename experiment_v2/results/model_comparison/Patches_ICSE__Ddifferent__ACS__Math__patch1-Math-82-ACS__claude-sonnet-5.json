@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-82-ACS",
+  "condition": "C",
+  "model": "claude-sonnet-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.3833333333333333,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 7.9657893709991185,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 3111,
+      "output_tokens": 583,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.3,
+        "readability": 0.1,
+        "security_robustness": 0.5,
+        "judgement": "OVERFITTING",
+        "confidence": 0.8,
+        "brief_reason": "The patch merely excludes rows where entry==0, avoiding one specific division scenario, but does not implement the real fix (Bland's rule tie-breaking) needed for MATH-288, and it also alters formatting badly, reducing readability and generality."
+      },
+      "s_sem": 0.19999999999999996,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 9.314924850998068,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 3111,
+      "output_tokens": 759,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.3,
+        "readability": 0.1,
+        "security_robustness": 0.4,
+        "judgement": "OVERFITTING",
+        "confidence": 0.75,
+        "brief_reason": "The patch merely excludes rows where entry==0 to avoid division by zero, rather than implementing the actual fix for MATH-288 (tie-breaking via Bland's rule to prevent degenerate cycling). It also has poor formatting and may change pivot selection in unintended ways, making it a narrow, non-general fix."
+      },
+      "s_sem": 0.25,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 7.628182573000231,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 3111,
+      "output_tokens": 594,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.7,
+        "readability": 0.3,
+        "security_robustness": 0.8,
+        "judgement": "CORRECT",
+        "confidence": 0.7,
+        "brief_reason": "The patch excludes near-zero pivot column entries from the ratio test, which is the actual root cause fix for MATH-288 (avoiding division by an entry that should be treated as zero). The change is functionally correct but is written in an unreadable, poorly formatted single line with confusing double-vs-int comparison style."
+      },
+      "s_sem": 0.7,
+      "confidence_clipped": false
+    }
+  ]
+}

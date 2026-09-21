@@ -1,0 +1,31 @@
+{
+  "patch_id": "Patches_ICSE__Ddifferent__AVATAR__Closure__patch1-Closure-2-AVATAR",
+  "condition": "C",
+  "model": "claude-sonnet-5",
+  "n_runs": 3,
+  "n_parsed": 0,
+  "s_sem_final": null,
+  "decision": null,
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 0.31767070699970645,
+      "attempts": 1,
+      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cf6To9wi8WbGHgJ9WyXh1'}"
+    },
+    {
+      "run": 1,
+      "latency_s": 0.3165137069991033,
+      "attempts": 1,
+      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cf6ToBFbRnDpqiDcQ8GHz'}"
+    },
+    {
+      "run": 2,
+      "latency_s": 0.6934465159993124,
+      "attempts": 1,
+      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cf6ToCbhzQEPGJHLB78He'}"
+    }
+  ]
+}

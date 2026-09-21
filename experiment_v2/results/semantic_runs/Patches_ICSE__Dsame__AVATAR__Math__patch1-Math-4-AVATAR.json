@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Dsame__AVATAR__Math__patch1-Math-4-AVATAR",
+  "condition": "C",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.9499999999999998,
+  "decision": "CORRECT",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 3.3572876199996244,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 4138,
+      "output_tokens": 182,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 1.0,
+        "readability": 1.0,
+        "security_robustness": 1.0,
+        "judgement": "CORRECT",
+        "confidence": 0.95,
+        "brief_reason": "The patch adds null checks after line intersection computations to prevent NullPointerExceptions when lines are parallel or don't intersect. This is a minimal, correct fix that addresses the root cause: when two lines don't intersect (parallel or skew), the intersection method returns null, which was not being checked before being passed to toSubSpace(). The fix is general and applies to both 2D and 3D cases."
+      },
+      "s_sem": 0.95,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 2.707388101000106,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 4138,
+      "output_tokens": 183,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 1.0,
+        "readability": 1.0,
+        "security_robustness": 1.0,
+        "judgement": "CORRECT",
+        "confidence": 0.95,
+        "brief_reason": "The patch adds null checks after line intersection computations to prevent NullPointerExceptions when lines are parallel or don't intersect. This is a minimal, correct fix that addresses the root cause: when two lines don't intersect (parallel or skew), the intersection method returns null, which was not being checked before attempting to call toSubSpace on it. The fix is general and applies to both 2D and 3D cases."
+      },
+      "s_sem": 0.95,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 2.7393922259998362,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 4138,
+      "output_tokens": 180,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 1.0,
+        "readability": 1.0,
+        "security_robustness": 1.0,
+        "judgement": "CORRECT",
+        "confidence": 0.95,
+        "brief_reason": "The patch adds null checks after line intersection computations to prevent NullPointerExceptions when lines are parallel or don't intersect. This is a minimal, correct fix that addresses the root cause: when two lines don't intersect (parallel or skew), the intersection method returns null, which was not being checked before being passed to toSubSpace(). The fix is general and applies to both 2D and 3D cases."
+      },
+      "s_sem": 0.95,
+      "confidence_clipped": false
+    }
+  ]
+}

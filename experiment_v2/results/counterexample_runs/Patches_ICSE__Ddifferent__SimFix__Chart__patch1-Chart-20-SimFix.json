@@ -1,0 +1,40 @@
+{
+  "patch_id": "Patches_ICSE__Ddifferent__SimFix__Chart__patch1-Chart-20-SimFix",
+  "bug_id": "Chart-20",
+  "model": "claude-haiku-4-5",
+  "latency_s": 9.425051694001013,
+  "error": null,
+  "context_errors": [],
+  "tests": [
+    {
+      "name": "testValueMarkerOutlinePaintUsed",
+      "target_class": "org.jfree.chart.plot.ValueMarker",
+      "target_method": "ValueMarker(double, Paint, Stroke, Paint, Stroke, float)",
+      "class_name": "TestValueMarkerOutlinePaint",
+      "status": "VALID_BUG_REVEALING",
+      "candidate_pass": true,
+      "log": ".\nTime: 0.037\n\nOK (1 test)\n\n"
+    },
+    {
+      "name": "testValueMarkerOutlineStrokeUsed",
+      "target_class": "org.jfree.chart.plot.ValueMarker",
+      "target_method": "ValueMarker(double, Paint, Stroke, Paint, Stroke, float)",
+      "class_name": "TestValueMarkerOutlineStroke",
+      "status": "VALID_BUG_REVEALING",
+      "candidate_pass": false,
+      "log": ".F\nTime: 0.037\nThere was 1 failure:\n1) testValueMarkerOutlineStrokeUsed(org.jfree.chart.plot.junit.TestValueMarkerOutlineStroke)junit.framework.AssertionFailedError: expected:<java.awt.BasicStroke@18e0003e> but was:<java.awt.BasicStroke@d1a0003e>\n\tat org.jfree.chart.plot.junit.TestValueMarkerOutlineStroke.testValueMarkerOutlineStrokeUsed(TestValueMarkerOutlineStroke.java:21)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\nFAILURES!!!\nTests run: 1,  Failures: 1,  Errors: 0\n\n"
+    },
+    {
+      "name": "testValueMarkerPaintAndOutlinePaintDifferent",
+      "target_class": "org.jfree.chart.plot.ValueMarker",
+      "target_method": "ValueMarker(double, Paint, Stroke, Paint, Stroke, float)",
+      "class_name": "TestValueMarkerPaintOutlinePaintIndependent",
+      "status": "VALID_BUG_REVEALING",
+      "candidate_pass": true,
+      "log": ".\nTime: 0.037\n\nOK (1 test)\n\n"
+    }
+  ],
+  "s_cex": 0.6666666666666666,
+  "n_valid": 3,
+  "n_passed": 2
+}

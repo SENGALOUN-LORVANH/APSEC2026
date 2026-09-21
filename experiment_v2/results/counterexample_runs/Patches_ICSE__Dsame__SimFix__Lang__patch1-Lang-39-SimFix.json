@@ -1,0 +1,9 @@
+{
+  "patch_id": "Patches_ICSE__Dsame__SimFix__Lang__patch1-Lang-39-SimFix",
+  "bug_id": "Lang-39",
+  "model": "claude-haiku-4-5",
+  "latency_s": null,
+  "error": "gave up after 6 attempts: InternalServerError: Error code: 500 - {'type': 'error', 'error': {'type': 'api_error', 'message': 'Internal server error'}, 'request_id': 'req_011Cf6Fh1fpQCsmKddMo2HME'}",
+  "context_errors": [],
+  "tests": []
+}

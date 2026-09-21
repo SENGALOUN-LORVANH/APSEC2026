@@ -1,0 +1,40 @@
+{
+  "patch_id": "Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-3-ACS",
+  "bug_id": "Math-3",
+  "model": "claude-haiku-4-5",
+  "latency_s": 376.27704133399675,
+  "error": null,
+  "context_errors": [],
+  "tests": [
+    {
+      "name": "testLinearCombinationTwoElements",
+      "target_class": "org.apache.commons.math3.util.MathArrays",
+      "target_method": "linearCombination",
+      "class_name": "TestLinearCombinationBoundary",
+      "status": "VALID_NON_DISCRIMINATING",
+      "candidate_pass": null,
+      "log": "JUnit version 4.11\n.\nTime: 0.006\n\nOK (1 test)\n\n"
+    },
+    {
+      "name": "testLinearCombinationThreeElements",
+      "target_class": "org.apache.commons.math3.util.MathArrays",
+      "target_method": "linearCombination",
+      "class_name": "TestLinearCombinationThreeElements",
+      "status": "VALID_NON_DISCRIMINATING",
+      "candidate_pass": null,
+      "log": "JUnit version 4.11\n.\nTime: 0.005\n\nOK (1 test)\n\n"
+    },
+    {
+      "name": "testLinearCombinationSingleElementWithNegatives",
+      "target_class": "org.apache.commons.math3.util.MathArrays",
+      "target_method": "linearCombination",
+      "class_name": "TestLinearCombinationSingleNegative",
+      "status": "VALID_BUG_REVEALING",
+      "candidate_pass": true,
+      "log": "JUnit version 4.11\n.\nTime: 0.006\n\nOK (1 test)\n\n"
+    }
+  ],
+  "s_cex": 1.0,
+  "n_valid": 1,
+  "n_passed": 1
+}

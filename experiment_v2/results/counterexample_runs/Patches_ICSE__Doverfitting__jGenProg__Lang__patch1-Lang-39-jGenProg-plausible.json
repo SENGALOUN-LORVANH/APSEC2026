@@ -1,0 +1,40 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__jGenProg__Lang__patch1-Lang-39-jGenProg-plausible",
+  "bug_id": "Lang-39",
+  "model": "claude-haiku-4-5",
+  "latency_s": 6.946107341000015,
+  "error": null,
+  "context_errors": [],
+  "tests": [
+    {
+      "name": "testReplaceEachWithNullReplacementElement",
+      "target_class": "org.apache.commons.lang3.StringUtils",
+      "target_method": "replaceEach",
+      "class_name": "StringUtilsTest",
+      "status": "VALID_NON_DISCRIMINATING",
+      "candidate_pass": null,
+      "log": ".\nTime: 0.002\n\nOK (1 test)\n\n"
+    },
+    {
+      "name": "testReplaceEachWithLargeReplacements",
+      "target_class": "org.apache.commons.lang3.StringUtils",
+      "target_method": "replaceEach",
+      "class_name": "StringUtilsTest",
+      "status": "VALID_NON_DISCRIMINATING",
+      "candidate_pass": null,
+      "log": ".\nTime: 0.002\n\nOK (1 test)\n\n"
+    },
+    {
+      "name": "testReplaceEachMultipleReplacementsWithVariedLengths",
+      "target_class": "org.apache.commons.lang3.StringUtils",
+      "target_method": "replaceEach",
+      "class_name": "StringUtilsTest",
+      "status": "VALID_NON_DISCRIMINATING",
+      "candidate_pass": null,
+      "log": ".\nTime: 0.005\n\nOK (1 test)\n\n"
+    }
+  ],
+  "s_cex": null,
+  "n_valid": 0,
+  "n_passed": 0
+}

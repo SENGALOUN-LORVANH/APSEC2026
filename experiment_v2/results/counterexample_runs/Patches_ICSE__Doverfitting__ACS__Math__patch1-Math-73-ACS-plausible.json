@@ -1,0 +1,40 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__ACS__Math__patch1-Math-73-ACS-plausible",
+  "bug_id": "Math-73",
+  "model": "claude-haiku-4-5",
+  "latency_s": 378.9043144489988,
+  "error": null,
+  "context_errors": [],
+  "tests": [
+    {
+      "name": "testBadEndpointsNegativeInitial",
+      "target_class": "org.apache.commons.math.analysis.solvers.BrentSolver",
+      "target_method": "solve",
+      "class_name": "testBadEndpointsNegativeInitial",
+      "status": "INVALID_ORACLE",
+      "candidate_pass": null,
+      "log": ".F\nTime: 0.002\nThere was 1 failure:\n1) testNegativeInitialWithBracketing(org.apache.commons.math.analysis.solvers.testBadEndpointsNegativeInitial)junit.framework.AssertionFailedError: Result should be close to 2\n\tat org.apache.commons.math.analysis.solvers.testBadEndpointsNegativeInitial.testNegativeInitialWithBracketing(testBadEndpointsNegativeInitial.java:19)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\nFAILURES!!!\nTests run: 1,  Failures: 1,  Errors: 0\n\n"
+    },
+    {
+      "name": "testBadEndpointsZeroInitial",
+      "target_class": "org.apache.commons.math.analysis.solvers.BrentSolver",
+      "target_method": "solve",
+      "class_name": "testBadEndpointsZeroInitial",
+      "status": "VALID_NON_DISCRIMINATING",
+      "candidate_pass": null,
+      "log": ".\nTime: 0.002\n\nOK (1 test)\n\n"
+    },
+    {
+      "name": "testBadEndpointsNonBracketing",
+      "target_class": "org.apache.commons.math.analysis.solvers.BrentSolver",
+      "target_method": "solve",
+      "class_name": "testBadEndpointsNonBracketing",
+      "status": "INVALID_COMPILE",
+      "candidate_pass": null,
+      "log": ".\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/IllegalArgumentException.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/RuntimeException.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/RuntimeException.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Error.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Error.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__ACS__Math__patch1-Math-73-ACS-plausible/testBadEndpointsNonBracketing/fixed/src/test/java/org/apache/commons/math/analysis/solvers/testBadEndpointsNonBracketing.java:19: error: unreported exception MaxIterationsExceededException; must be caught or declared to be thrown\n    [javac]             solver.solve(f, 0.0, 2.0, 1.0);\n    [javac]                         ^\n    [javac] 1 error\n    [javac] 16 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__ACS__Math__patch1-Math-73-ACS-plausible/testBadEndpointsNonBracketing/fixed/build.xml:168: Compile failed; see the compiler error output for details.\n\nTotal time: 0 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+    }
+  ],
+  "s_cex": null,
+  "n_valid": 0,
+  "n_passed": 0
+}

@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__ACS__Math__patch1-Math-4-ACS-plausible",
+  "condition": "C",
+  "model": "claude-sonnet-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.8666666666666667,
+  "decision": "CORRECT",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 3.398559545000012,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 5643,
+      "output_tokens": 209,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.9,
+        "readability": 0.6,
+        "security_robustness": 0.9,
+        "judgement": "CORRECT",
+        "confidence": 0.85,
+        "brief_reason": "The patch correctly handles the null intersection case (parallel/non-intersecting lines) by returning null early, which is the root cause of the NPE for both 2D and 3D SubLine classes. It's minimal and generalizes to any non-intersecting/parallel line scenario, though formatting (missing newline/indentation) slightly hurts readability."
+      },
+      "s_sem": 0.85,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 3.372092461999955,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 5643,
+      "output_tokens": 186,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.9,
+        "readability": 0.6,
+        "security_robustness": 0.95,
+        "judgement": "CORRECT",
+        "confidence": 0.9,
+        "brief_reason": "The patch adds a null check for the case when lines don't intersect (parallel/non-intersecting), correctly avoiding the NPE and returning null as expected, matching the documented contract. It's minimal and correct, though formatting is slightly poor (missing newline/indentation)."
+      },
+      "s_sem": 0.9,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 3.052519157000006,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 5643,
+      "output_tokens": 198,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.9,
+        "readability": 0.6,
+        "security_robustness": 0.85,
+        "judgement": "CORRECT",
+        "confidence": 0.85,
+        "brief_reason": "The patch adds a null check for the case when the underlying lines don't intersect (parallel or non-intersecting), which correctly prevents the NPE and returns null as expected by the API contract. It's minimal and addresses the root cause, though formatting/readability of the inserted line is poor (no newline before the if statement)."
+      },
+      "s_sem": 0.85,
+      "confidence_clipped": false
+    }
+  ]
+}

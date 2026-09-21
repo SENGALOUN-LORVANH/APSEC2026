@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Ddifferent__SimFix__Closure__patch1-Closure-19-SimFix",
+  "condition": "C",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.050000000000000044,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 3.4862735839997185,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 2485,
+      "output_tokens": 189,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.2,
+        "readability": 0.3,
+        "security_robustness": 0.4,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch removes the check for `callee.isGetProp()` entirely, replacing it with a check on `param` instead. This fundamentally changes the logic to accept any name or property access as a parameter, rather than validating that the callee is a property access (like `goog.isNull`). This weakens the validation and allows incorrect refinements, making it overfitting to the specific test case rather than fixing the root cause."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 3.067883883999457,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 2485,
+      "output_tokens": 188,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.2,
+        "readability": 0.3,
+        "security_robustness": 0.4,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch removes the check for `callee.isGetProp()` entirely, replacing it with a check on `param` instead. This fundamentally changes the logic to accept any name or property access as a parameter, rather than validating that the callee is a property access (like `goog.isString`). This weakens the validation and only fixes the specific test case by accident rather than addressing the root cause of the bug."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 2.820761782999398,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 2485,
+      "output_tokens": 169,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.2,
+        "readability": 0.3,
+        "security_robustness": 0.4,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch removes the check for `callee.isGetProp()` entirely, replacing it with a check on `param` instead. This fundamentally changes the logic flow and removes validation that the callee is a property access (required for the goog.* pattern matching below), making the code incorrect and overfitted to pass the specific test case."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    }
+  ]
+}

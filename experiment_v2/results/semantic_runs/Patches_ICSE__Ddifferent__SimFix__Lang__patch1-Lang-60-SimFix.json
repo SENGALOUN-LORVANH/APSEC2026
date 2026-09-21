@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Ddifferent__SimFix__Lang__patch1-Lang-60-SimFix",
+  "condition": "C",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.85,
+  "decision": "CORRECT",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 6.136371127999155,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 2833,
+      "output_tokens": 176,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.3,
+        "readability": 0.4,
+        "security_robustness": 0.9,
+        "judgement": "CORRECT",
+        "confidence": 0.85,
+        "brief_reason": "The patch fixes the bug by changing the loop condition from `i < thisBuf.length` to `i < size`, which correctly bounds the search to the actual content rather than the entire buffer capacity. This is the correct general fix for the off-by-one/bounds issue. However, the patch is poorly formatted with commented-out code and inconsistent indentation, reducing readability and maintainability."
+      },
+      "s_sem": 0.85,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 5.84730525499981,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 2833,
+      "output_tokens": 176,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.3,
+        "readability": 0.4,
+        "security_robustness": 0.9,
+        "judgement": "CORRECT",
+        "confidence": 0.85,
+        "brief_reason": "The patch fixes the bug by changing the loop condition from `i < thisBuf.length` to `i < size`, which correctly bounds the search to the actual content rather than the entire buffer capacity. This is the correct general fix for the off-by-one/bounds issue. However, the patch is poorly formatted with commented-out code and inconsistent indentation, reducing readability and maintainability."
+      },
+      "s_sem": 0.85,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 5.817896066997491,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 2833,
+      "output_tokens": 176,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.3,
+        "readability": 0.4,
+        "security_robustness": 0.9,
+        "judgement": "CORRECT",
+        "confidence": 0.85,
+        "brief_reason": "The patch fixes the bug by changing the loop condition from `i < thisBuf.length` to `i < size`, which correctly bounds the search to the actual content rather than the entire buffer capacity. This is the correct general fix for the off-by-one/bounds issue. However, the patch is poorly formatted with commented-out code and inconsistent indentation, reducing readability and maintainability."
+      },
+      "s_sem": 0.85,
+      "confidence_clipped": false
+    }
+  ]
+}

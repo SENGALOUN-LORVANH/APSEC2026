@@ -1,0 +1,40 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Closure__patch1-Closure-45-AVATAR-plausible",
+  "bug_id": "Closure-45",
+  "model": "claude-haiku-4-5",
+  "latency_s": 14.650494367999272,
+  "error": null,
+  "context_errors": [],
+  "tests": [
+    {
+      "name": "testIssue618_1_VariableWithLiteralAssignmentAndPropertyAssign",
+      "target_class": "com.google.javascript.jscomp.RemoveUnusedVars",
+      "target_method": "interpretAssigns",
+      "class_name": "RemoveUnusedVarsTest",
+      "status": "INVALID_COMPILE",
+      "candidate_pass": null,
+      "log": "  [javac]     RemoveUnusedVars pass = new RemoveUnusedVars(compiler, false);\n    [javac]                             ^\n    [javac]   required: AbstractCompiler,boolean,boolean,boolean\n    [javac]   found: Compiler,boolean\n    [javac]   reason: actual and formal argument lists differ in length\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__AVATAR__Closure__patch1-Closure-45-AVATAR-plausible/RemoveUnusedVarsTest/fixed/test/com/google/javascript/jscomp/RemoveUnusedVarsTest.java:43: error: no suitable method found for parse(String)\n    [javac]     compiler.parse(code);\n    [javac]             ^\n    [javac]     method Compiler.parse(JSSourceFile) is not applicable\n    [javac]       (actual argument String cannot be converted to JSSourceFile by method invocation conversion)\n    [javac]     method Compiler.parse() is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__AVATAR__Closure__patch1-Closure-45-AVATAR-plausible/RemoveUnusedVarsTest/fixed/test/com/google/javascript/jscomp/RemoveUnusedVarsTest.java:44: error: constructor RemoveUnusedVars in class RemoveUnusedVars cannot be applied to given types;\n    [javac]     RemoveUnusedVars pass = new RemoveUnusedVars(compiler, false);\n    [javac]                             ^\n    [javac]   required: AbstractCompiler,boolean,boolean,boolean\n    [javac]   found: Compiler,boolean\n    [javac]   reason: actual and formal argument lists differ in length\n    [javac] 6 errors\n    [javac] 23 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__AVATAR__Closure__patch1-Closure-45-AVATAR-plausible/RemoveUnusedVarsTest/fixed/build.xml:317: Compile failed; see the compiler error output for details.\n\nTotal time: 1 second\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+    },
+    {
+      "name": "testLiteralValueNotMarkedAsReferenced",
+      "target_class": "com.google.javascript.jscomp.RemoveUnusedVars",
+      "target_method": "interpretAssigns",
+      "class_name": "RemoveUnusedVarsLiteralTest",
+      "status": "INVALID_COMPILE",
+      "candidate_pass": null,
+      "log": " = new RemoveUnusedVars(compiler, false);\n    [javac]                             ^\n    [javac]   required: AbstractCompiler,boolean,boolean,boolean\n    [javac]   found: Compiler,boolean\n    [javac]   reason: actual and formal argument lists differ in length\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__AVATAR__Closure__patch1-Closure-45-AVATAR-plausible/RemoveUnusedVarsLiteralTest/fixed/test/com/google/javascript/jscomp/RemoveUnusedVarsLiteralTest.java:42: error: no suitable method found for parse(String)\n    [javac]     compiler.parse(code);\n    [javac]             ^\n    [javac]     method Compiler.parse(JSSourceFile) is not applicable\n    [javac]       (actual argument String cannot be converted to JSSourceFile by method invocation conversion)\n    [javac]     method Compiler.parse() is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__AVATAR__Closure__patch1-Closure-45-AVATAR-plausible/RemoveUnusedVarsLiteralTest/fixed/test/com/google/javascript/jscomp/RemoveUnusedVarsLiteralTest.java:43: error: constructor RemoveUnusedVars in class RemoveUnusedVars cannot be applied to given types;\n    [javac]     RemoveUnusedVars pass = new RemoveUnusedVars(compiler, false);\n    [javac]                             ^\n    [javac]   required: AbstractCompiler,boolean,boolean,boolean\n    [javac]   found: Compiler,boolean\n    [javac]   reason: actual and formal argument lists differ in length\n    [javac] 6 errors\n    [javac] 23 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__AVATAR__Closure__patch1-Closure-45-AVATAR-plausible/RemoveUnusedVarsLiteralTest/fixed/build.xml:317: Compile failed; see the compiler error output for details.\n\nTotal time: 1 second\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+    },
+    {
+      "name": "testBoundaryConditionEmptyAssignList",
+      "target_class": "com.google.javascript.jscomp.RemoveUnusedVars",
+      "target_method": "interpretAssigns",
+      "class_name": "RemoveUnusedVarsBoundaryTest",
+      "status": "INVALID_COMPILE",
+      "candidate_pass": null,
+      "log": "w RemoveUnusedVars(compiler, false);\n    [javac]                             ^\n    [javac]   required: AbstractCompiler,boolean,boolean,boolean\n    [javac]   found: Compiler,boolean\n    [javac]   reason: actual and formal argument lists differ in length\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__AVATAR__Closure__patch1-Closure-45-AVATAR-plausible/RemoveUnusedVarsBoundaryTest/fixed/test/com/google/javascript/jscomp/RemoveUnusedVarsBoundaryTest.java:41: error: no suitable method found for parse(String)\n    [javac]     compiler.parse(code);\n    [javac]             ^\n    [javac]     method Compiler.parse(JSSourceFile) is not applicable\n    [javac]       (actual argument String cannot be converted to JSSourceFile by method invocation conversion)\n    [javac]     method Compiler.parse() is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__AVATAR__Closure__patch1-Closure-45-AVATAR-plausible/RemoveUnusedVarsBoundaryTest/fixed/test/com/google/javascript/jscomp/RemoveUnusedVarsBoundaryTest.java:42: error: constructor RemoveUnusedVars in class RemoveUnusedVars cannot be applied to given types;\n    [javac]     RemoveUnusedVars pass = new RemoveUnusedVars(compiler, false);\n    [javac]                             ^\n    [javac]   required: AbstractCompiler,boolean,boolean,boolean\n    [javac]   found: Compiler,boolean\n    [javac]   reason: actual and formal argument lists differ in length\n    [javac] 6 errors\n    [javac] 23 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__AVATAR__Closure__patch1-Closure-45-AVATAR-plausible/RemoveUnusedVarsBoundaryTest/fixed/build.xml:317: Compile failed; see the compiler error output for details.\n\nTotal time: 1 second\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+    }
+  ],
+  "s_cex": null,
+  "n_valid": 0,
+  "n_passed": 0
+}

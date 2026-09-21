@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_others__Dcorrect__SOFix__Time__patch1-Time-19-SOFix",
+  "condition": "C",
+  "model": "claude-sonnet-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.7333333333333334,
+  "decision": "CORRECT",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 6.467743719000282,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 4036,
+      "output_tokens": 507,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.9,
+        "readability": 0.9,
+        "security_robustness": 0.8,
+        "judgement": "CORRECT",
+        "confidence": 0.6,
+        "brief_reason": "The fix extends the previous-transition adjustment logic to also apply when offsetLocal is exactly zero, which matches the failing case where the local time falls in an overlap right after a transition to UTC offset; this is a minimal, targeted change consistent with the surrounding logic's intent rather than a hack for the specific test."
+      },
+      "s_sem": 0.6,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 5.9288057280009525,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 4036,
+      "output_tokens": 413,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 1.0,
+        "readability": 1.0,
+        "security_robustness": 0.9,
+        "judgement": "CORRECT",
+        "confidence": 0.75,
+        "brief_reason": "The fix extends the condition to include zero offset, correctly handling transitions into zero-offset zones (like London's GMT), which is the root cause of the failing test rather than a hack specific to it."
+      },
+      "s_sem": 0.75,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 4.583321653999519,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 4036,
+      "output_tokens": 287,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 1.0,
+        "readability": 1.0,
+        "security_robustness": 1.0,
+        "judgement": "CORRECT",
+        "confidence": 0.85,
+        "brief_reason": "The condition offsetLocal > 0 excluded zero offsets, missing cases like UTC/GMT transitions where offset is zero but a fold still exists; changing to >= 0 covers this general case and matches the known real fix for this DateTimeZone cutover bug.\u300b"
+      },
+      "s_sem": 0.85,
+      "confidence_clipped": false
+    }
+  ]
+}

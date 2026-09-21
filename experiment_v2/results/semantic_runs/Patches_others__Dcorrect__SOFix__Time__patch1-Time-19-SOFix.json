@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_others__Dcorrect__SOFix__Time__patch1-Time-19-SOFix",
+  "condition": "C",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.85,
+  "decision": "CORRECT",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 3.020966698999473,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 3037,
+      "output_tokens": 171,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 1.0,
+        "readability": 1.0,
+        "security_robustness": 1.0,
+        "judgement": "CORRECT",
+        "confidence": 0.85,
+        "brief_reason": "The patch changes a boundary condition from `offsetLocal > 0` to `offsetLocal >= 0`, which correctly handles the edge case where the offset is exactly zero (UTC). This is a minimal, one-character fix that addresses the root cause of the test failure where London's timezone offset was incorrectly reported as Z instead of +01:00 during DST transitions."
+      },
+      "s_sem": 0.85,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 2.779969016000905,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 3037,
+      "output_tokens": 188,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 1.0,
+        "readability": 1.0,
+        "security_robustness": 1.0,
+        "judgement": "CORRECT",
+        "confidence": 0.85,
+        "brief_reason": "The patch changes a boundary condition from `offsetLocal > 0` to `offsetLocal >= 0`, which correctly handles the edge case where the offset is exactly zero (UTC). This is a minimal, one-character fix that addresses the root cause of the test failure where London's timezone offset was incorrectly reported as [Z] instead of [+01:00] during DST transitions. The change generalizes the fix to handle zero offsets properly without affecting other functionality."
+      },
+      "s_sem": 0.85,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 2.553385533999972,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 3037,
+      "output_tokens": 171,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 1.0,
+        "readability": 1.0,
+        "security_robustness": 1.0,
+        "judgement": "CORRECT",
+        "confidence": 0.85,
+        "brief_reason": "The patch changes a boundary condition from `offsetLocal > 0` to `offsetLocal >= 0`, which correctly handles the edge case where the offset is exactly zero (UTC). This is a minimal, one-character fix that addresses the root cause of the test failure where London's timezone offset was incorrectly reported as Z instead of +01:00 during DST transitions."
+      },
+      "s_sem": 0.85,
+      "confidence_clipped": false
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Ddifferent__SimFix__Closure__patch1-Closure-19-SimFix",
+  "condition": "C",
+  "model": "claude-sonnet-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.21666666666666665,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 12.615291270998569,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 3319,
+      "output_tokens": 1009,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.3,
+        "readability": 0.3,
+        "security_robustness": 0.2,
+        "judgement": "OVERFITTING",
+        "confidence": 0.8,
+        "brief_reason": "The patch removes the callee.isGetProp() check entirely, which was needed to safely access left/right children of callee; this can cause NullPointerException for non-getprop calls (e.g., callee.getFirstChild() being null). It merely bypasses the crash for a specific 'this' pattern rather than properly excluding THIS nodes from qualifiedName-based refinement, weakening the original guard and risking new failures."
+      },
+      "s_sem": 0.19999999999999996,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 12.644554529999368,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 3319,
+      "output_tokens": 1098,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.2,
+        "readability": 0.4,
+        "security_robustness": 0.2,
+        "judgement": "OVERFITTING",
+        "confidence": 0.75,
+        "brief_reason": "The patch removes the callee.isGetProp() check entirely, which can cause NullPointerExceptions when callee has no children (e.g., a bare NAME call), and only accidentally excludes THIS nodes by restricting param to NAME/GETPROP rather than properly guarding against THIS. This changes unrelated behavior and reduces robustness rather than fixing the root cause cleanly.'"
+      },
+      "s_sem": 0.25,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 17.2210156860001,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 3319,
+      "output_tokens": 1444,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.2,
+        "readability": 0.3,
+        "security_robustness": 0.2,
+        "judgement": "OVERFITTING",
+        "confidence": 0.8,
+        "brief_reason": "The patch removes the callee.isGetProp() check entirely, which was needed to safely access left/right nodes; this can cause NPEs for calls whose callee isn't a GetProp, and it doesn't directly address the root cause (THIS nodes cannot be refined) via a targeted exclusion. It also changes semantics for qualified name handling in an unrelated way, rather than a minimal fix like excluding this-nodes from restriction."
+      },
+      "s_sem": 0.19999999999999996,
+      "confidence_clipped": false
+    }
+  ]
+}

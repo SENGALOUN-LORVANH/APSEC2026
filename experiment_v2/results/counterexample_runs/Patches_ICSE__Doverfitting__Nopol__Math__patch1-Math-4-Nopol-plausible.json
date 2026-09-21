@@ -1,0 +1,40 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__Nopol__Math__patch1-Math-4-Nopol-plausible",
+  "bug_id": "Math-4",
+  "model": "claude-haiku-4-5",
+  "latency_s": 747.5822780070002,
+  "error": null,
+  "context_errors": [],
+  "tests": [
+    {
+      "name": "testIntersectionParallelLinesReturnNull",
+      "target_class": "org.apache.commons.math3.geometry.euclidean.twod.Line",
+      "target_method": "intersection",
+      "class_name": "TestIntersectionParallelLinesReturnNull",
+      "status": "INVALID_ORACLE",
+      "candidate_pass": null,
+      "log": "JUnit version 4.11\nCould not find class: org.apache.commons.math3.geometry.euclidean.threed.TestIntersectionParallelLinesReturnNull\n\nTime: 0.001\n\nOK (0 tests)\n\n"
+    },
+    {
+      "name": "testIntersectionNonParallelLinesIntersect",
+      "target_class": "org.apache.commons.math3.geometry.euclidean.twod.Line",
+      "target_method": "intersection",
+      "class_name": "TestIntersectionNonParallelLinesIntersect",
+      "status": "INVALID_ORACLE",
+      "candidate_pass": null,
+      "log": "JUnit version 4.11\nCould not find class: org.apache.commons.math3.geometry.euclidean.threed.TestIntersectionNonParallelLinesIntersect\n\nTime: 0.001\n\nOK (0 tests)\n\n"
+    },
+    {
+      "name": "testIntersectionParallelWithHighSinValue",
+      "target_class": "org.apache.commons.math3.geometry.euclidean.twod.Line",
+      "target_method": "intersection",
+      "class_name": "TestIntersectionParallelWithHighSinValue",
+      "status": "INVALID_ORACLE",
+      "candidate_pass": null,
+      "log": "JUnit version 4.11\nCould not find class: org.apache.commons.math3.geometry.euclidean.threed.TestIntersectionParallelWithHighSinValue\n\nTime: 0.001\n\nOK (0 tests)\n\n"
+    }
+  ],
+  "s_cex": null,
+  "n_valid": 0,
+  "n_passed": 0
+}

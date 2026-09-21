@@ -1,0 +1,49 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Chart__patch1-Chart-14-AVATAR-plausible",
+  "bug_id": "Chart-14",
+  "model": "claude-haiku-4-5",
+  "latency_s": 12.500279468998997,
+  "error": null,
+  "context_errors": [],
+  "tests": [
+    {
+      "name": "testRemoveDomainMarkerWithNullMarkersList",
+      "target_class": "org.jfree.chart.plot.XYPlot",
+      "target_method": "removeDomainMarker",
+      "class_name": "TestRemoveDomainMarkerNullList",
+      "status": "VALID_BUG_REVEALING",
+      "candidate_pass": true,
+      "log": ".\nTime: 0.065\n\nOK (1 test)\n\n"
+    },
+    {
+      "name": "testRemoveRangeMarkerWithNullMarkersList",
+      "target_class": "org.jfree.chart.plot.XYPlot",
+      "target_method": "removeRangeMarker",
+      "class_name": "TestRemoveRangeMarkerNullList",
+      "status": "VALID_BUG_REVEALING",
+      "candidate_pass": false,
+      "log": ".E\nTime: 0.07\nThere was 1 error:\n1) testRemoveRangeMarkerWithNullMarkersList(org.jfree.chart.plot.junit.TestRemoveRangeMarkerNullList)java.lang.NullPointerException\n\tat org.jfree.chart.plot.XYPlot.removeRangeMarker(XYPlot.java:2529)\n\tat org.jfree.chart.plot.junit.TestRemoveRangeMarkerNullList.testRemoveRangeMarkerWithNullMarkersList(TestRemoveRangeMarkerNullList.java:21)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\nFAILURES!!!\nTests run: 1,  Failures: 0,  Errors: 1\n\n"
+    },
+    {
+      "name": "testRemoveDomainMarkerActuallyRemovesFromCorrectList",
+      "target_class": "org.jfree.chart.plot.XYPlot",
+      "target_method": "removeDomainMarker",
+      "class_name": "TestRemoveDomainMarkerCorrectList",
+      "status": "VALID_NON_DISCRIMINATING",
+      "candidate_pass": null,
+      "log": ".\nTime: 0.064\n\nOK (1 test)\n\n"
+    },
+    {
+      "name": "testRemoveRangeMarkerActuallyRemovesFromCorrectList",
+      "target_class": "org.jfree.chart.plot.XYPlot",
+      "target_method": "removeRangeMarker",
+      "class_name": "TestRemoveRangeMarkerCorrectList",
+      "status": "VALID_NON_DISCRIMINATING",
+      "candidate_pass": null,
+      "log": ".\nTime: 0.067\n\nOK (1 test)\n\n"
+    }
+  ],
+  "s_cex": 0.5,
+  "n_valid": 2,
+  "n_passed": 1
+}

@@ -1,0 +1,9 @@
+{
+  "patch_id": "Patches_ICSE__Dsame__AVATAR__Math__patch1-Math-4-AVATAR",
+  "bug_id": "Math-4",
+  "model": "claude-haiku-4-5",
+  "latency_s": 738.426709635999,
+  "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cf6S5EaUwX9FaDCRozbyg'}",
+  "context_errors": [],
+  "tests": []
+}

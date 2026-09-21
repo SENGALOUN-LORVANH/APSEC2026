@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Ddifferent__AVATAR__Chart__patch1-Chart-11-AVATAR",
+  "condition": "C",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.9499999999999998,
+  "decision": "CORRECT",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 5.449617293001211,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 2456,
+      "output_tokens": 159,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 1.0,
+        "readability": 1.0,
+        "security_robustness": 1.0,
+        "judgement": "CORRECT",
+        "confidence": 0.95,
+        "brief_reason": "The patch fixes a clear copy-paste bug where iterator1 was incorrectly initialized from p1 instead of p2, causing the method to compare p1 with itself rather than p1 with p2. This is a minimal, one-line fix that corrects the general logic error without affecting any other behavior."
+      },
+      "s_sem": 0.95,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 5.102278369999112,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 2456,
+      "output_tokens": 159,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 1.0,
+        "readability": 1.0,
+        "security_robustness": 1.0,
+        "judgement": "CORRECT",
+        "confidence": 0.95,
+        "brief_reason": "The patch fixes a clear copy-paste bug where iterator1 was incorrectly initialized from p1 instead of p2, causing the method to compare p1 with itself rather than p1 with p2. This is a minimal, one-line fix that corrects the general logic error without affecting any other behavior."
+      },
+      "s_sem": 0.95,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 5.150443263000852,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 2456,
+      "output_tokens": 159,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 1.0,
+        "readability": 1.0,
+        "security_robustness": 1.0,
+        "judgement": "CORRECT",
+        "confidence": 0.95,
+        "brief_reason": "The patch fixes a clear copy-paste bug where iterator1 was incorrectly initialized from p1 instead of p2, causing the method to compare p1 with itself rather than p1 with p2. This is a minimal, one-line fix that corrects the general logic error without affecting any other behavior."
+      },
+      "s_sem": 0.95,
+      "confidence_clipped": false
+    }
+  ]
+}

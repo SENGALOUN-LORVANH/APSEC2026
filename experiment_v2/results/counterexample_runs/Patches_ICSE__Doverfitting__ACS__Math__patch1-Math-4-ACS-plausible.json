@@ -1,0 +1,40 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__ACS__Math__patch1-Math-4-ACS-plausible",
+  "bug_id": "Math-4",
+  "model": "claude-haiku-4-5",
+  "latency_s": 747.1789846919999,
+  "error": null,
+  "context_errors": [],
+  "tests": [
+    {
+      "name": "testIntersectionParallelLines3D",
+      "target_class": "org.apache.commons.math3.geometry.euclidean.threed.SubLine",
+      "target_method": "intersection",
+      "class_name": "SubLineTest",
+      "status": "INVALID_COMPILE",
+      "candidate_pass": null,
+      "log": "in length)\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__ACS__Math__patch1-Math-4-ACS-plausible/SubLineTest/fixed/src/test/java/org/apache/commons/math3/geometry/euclidean/threed/SubLineTest.java:24: error: no suitable constructor found for IntervalsSet(Interval,double)\n    [javac]         IntervalsSet region2 = new IntervalsSet(new Interval(-1, 1), 1e-10);\n    [javac]                                ^\n    [javac]     constructor IntervalsSet.IntervalsSet(Collection<SubHyperplane<Euclidean1D>>) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]     constructor IntervalsSet.IntervalsSet(BSPTree<Euclidean1D>) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]     constructor IntervalsSet.IntervalsSet(double,double) is not applicable\n    [javac]       (actual argument Interval cannot be converted to double by method invocation conversion)\n    [javac]     constructor IntervalsSet.IntervalsSet() is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 4 errors\n    [javac] 38 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__ACS__Math__patch1-Math-4-ACS-plausible/SubLineTest/fixed/build.xml:185: Compile failed; see the compiler error output for details.\n\nTotal time: 0 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+    },
+    {
+      "name": "testIntersectionSkewLines3D",
+      "target_class": "org.apache.commons.math3.geometry.euclidean.threed.SubLine",
+      "target_method": "intersection",
+      "class_name": "SubLineSkewTest",
+      "status": "INVALID_COMPILE",
+      "candidate_pass": null,
+      "log": " [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__ACS__Math__patch1-Math-4-ACS-plausible/SubLineSkewTest/fixed/src/test/java/org/apache/commons/math3/geometry/euclidean/threed/SubLineSkewTest.java:24: error: no suitable constructor found for IntervalsSet(Interval,double)\n    [javac]         IntervalsSet region2 = new IntervalsSet(new Interval(-10, 10), 1e-10);\n    [javac]                                ^\n    [javac]     constructor IntervalsSet.IntervalsSet(Collection<SubHyperplane<Euclidean1D>>) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]     constructor IntervalsSet.IntervalsSet(BSPTree<Euclidean1D>) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]     constructor IntervalsSet.IntervalsSet(double,double) is not applicable\n    [javac]       (actual argument Interval cannot be converted to double by method invocation conversion)\n    [javac]     constructor IntervalsSet.IntervalsSet() is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 4 errors\n    [javac] 38 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__ACS__Math__patch1-Math-4-ACS-plausible/SubLineSkewTest/fixed/build.xml:185: Compile failed; see the compiler error output for details.\n\nTotal time: 0 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+    },
+    {
+      "name": "testIntersectionParallelLines2D",
+      "target_class": "org.apache.commons.math3.geometry.euclidean.twod.SubLine",
+      "target_method": "intersection",
+      "class_name": "SubLine2DParallelTest",
+      "status": "INVALID_COMPILE",
+      "candidate_pass": null,
+      "log": "c_workspaces/gen_tests/Patches_ICSE__Doverfitting__ACS__Math__patch1-Math-4-ACS-plausible/SubLine2DParallelTest/fixed/src/test/java/org/apache/commons/math3/geometry/euclidean/threed/SubLine2DParallelTest.java:24: error: no suitable constructor found for IntervalsSet(Interval,double)\n    [javac]         IntervalsSet region2 = new IntervalsSet(new Interval(-5, 5), 1e-10);\n    [javac]                                ^\n    [javac]     constructor IntervalsSet.IntervalsSet(Collection<SubHyperplane<Euclidean1D>>) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]     constructor IntervalsSet.IntervalsSet(BSPTree<Euclidean1D>) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]     constructor IntervalsSet.IntervalsSet(double,double) is not applicable\n    [javac]       (actual argument Interval cannot be converted to double by method invocation conversion)\n    [javac]     constructor IntervalsSet.IntervalsSet() is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 4 errors\n    [javac] 36 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__ACS__Math__patch1-Math-4-ACS-plausible/SubLine2DParallelTest/fixed/build.xml:185: Compile failed; see the compiler error output for details.\n\nTotal time: 0 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+    }
+  ],
+  "s_cex": null,
+  "n_valid": 0,
+  "n_passed": 0
+}

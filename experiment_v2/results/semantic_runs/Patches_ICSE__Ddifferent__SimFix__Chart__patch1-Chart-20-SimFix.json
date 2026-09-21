@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Ddifferent__SimFix__Chart__patch1-Chart-20-SimFix",
+  "condition": "C",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.9499999999999998,
+  "decision": "CORRECT",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 741.4204755819992,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 2145,
+      "output_tokens": 164,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.9,
+        "readability": 0.3,
+        "security_robustness": 1.0,
+        "judgement": "CORRECT",
+        "confidence": 0.95,
+        "brief_reason": "The patch fixes a clear bug where the constructor was passing `paint` twice to the parent constructor instead of passing `outlinePaint` as the third argument. The test expects blue (outline paint) but was getting red (paint) due to this parameter swap. The fix is minimal and correct, though the formatting with commented-out code is poor style."
+      },
+      "s_sem": 0.95,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 3.2271641370007274,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 2145,
+      "output_tokens": 164,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.9,
+        "readability": 0.3,
+        "security_robustness": 1.0,
+        "judgement": "CORRECT",
+        "confidence": 0.95,
+        "brief_reason": "The patch fixes a clear bug where the constructor was passing `paint` twice to the parent constructor instead of passing `outlinePaint` as the third argument. The test expects blue (outline paint) but was getting red (paint) due to this parameter swap. The fix is minimal and correct, though the formatting with commented-out code is poor style."
+      },
+      "s_sem": 0.95,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 2.8676176490007492,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 2145,
+      "output_tokens": 164,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.9,
+        "readability": 0.3,
+        "security_robustness": 1.0,
+        "judgement": "CORRECT",
+        "confidence": 0.95,
+        "brief_reason": "The patch fixes a clear bug where the constructor was passing `paint` twice to the parent constructor instead of passing `outlinePaint` as the third argument. The test expects blue (outline paint) but was getting red (paint) due to this parameter swap. The fix is minimal and correct, though the formatting with commented-out code is poor style."
+      },
+      "s_sem": 0.95,
+      "confidence_clipped": false
+    }
+  ]
+}

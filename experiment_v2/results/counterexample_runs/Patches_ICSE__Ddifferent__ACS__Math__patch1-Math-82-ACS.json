@@ -1,0 +1,40 @@
+{
+  "patch_id": "Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-82-ACS",
+  "bug_id": "Math-82",
+  "model": "claude-haiku-4-5",
+  "latency_s": 10.936914197001897,
+  "error": null,
+  "context_errors": [],
+  "tests": [
+    {
+      "name": "testPivotRowWithZeroEntry",
+      "target_class": "org.apache.commons.math.optimization.linear.SimplexSolver",
+      "target_method": "getPivotRow",
+      "class_name": "TestPivotRowZeroEntry",
+      "status": "INVALID_COMPILE",
+      "candidate_pass": null,
+      "log": ".sym(META-INF/sym/rt.jar/java/util/AbstractCollection.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Iterable.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Iterable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-82-ACS/TestPivotRowZeroEntry/fixed/src/test/java/org/apache/commons/math/optimization/linear/TestPivotRowZeroEntry.java:20: error: cannot find symbol\n    [javac]         RealPointValuePair solution = solver.optimize(f, constraints, GoalType.MAXIMIZE, false);\n    [javac]                                                                       ^\n    [javac]   symbol:   variable GoalType\n    [javac]   location: class TestPivotRowZeroEntry\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 1 error\n    [javac] 30 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-82-ACS/TestPivotRowZeroEntry/fixed/build.xml:168: Compile failed; see the compiler error output for details.\n\nTotal time: 0 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+    },
+    {
+      "name": "testPivotRowNegativeEntry",
+      "target_class": "org.apache.commons.math.optimization.linear.SimplexSolver",
+      "target_method": "getPivotRow",
+      "class_name": "TestPivotRowNegativeEntry",
+      "status": "INVALID_COMPILE",
+      "candidate_pass": null,
+      "log": "m/rt.jar/java/util/AbstractCollection.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Iterable.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Iterable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-82-ACS/TestPivotRowNegativeEntry/fixed/src/test/java/org/apache/commons/math/optimization/linear/TestPivotRowNegativeEntry.java:19: error: cannot find symbol\n    [javac]         RealPointValuePair solution = solver.optimize(f, constraints, GoalType.MAXIMIZE, false);\n    [javac]                                                                       ^\n    [javac]   symbol:   variable GoalType\n    [javac]   location: class TestPivotRowNegativeEntry\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 1 error\n    [javac] 30 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-82-ACS/TestPivotRowNegativeEntry/fixed/build.xml:168: Compile failed; see the compiler error output for details.\n\nTotal time: 0 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+    },
+    {
+      "name": "testPivotRowMinimumRatioSelection",
+      "target_class": "org.apache.commons.math.optimization.linear.SimplexSolver",
+      "target_method": "getPivotRow",
+      "class_name": "TestPivotRowMinimumRatio",
+      "status": "INVALID_COMPILE",
+      "candidate_pass": null,
+      "log": "F/sym/rt.jar/java/util/AbstractCollection.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Iterable.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Iterable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-82-ACS/TestPivotRowMinimumRatio/fixed/src/test/java/org/apache/commons/math/optimization/linear/TestPivotRowMinimumRatio.java:20: error: cannot find symbol\n    [javac]         RealPointValuePair solution = solver.optimize(f, constraints, GoalType.MAXIMIZE, false);\n    [javac]                                                                       ^\n    [javac]   symbol:   variable GoalType\n    [javac]   location: class TestPivotRowMinimumRatio\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 1 error\n    [javac] 30 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-82-ACS/TestPivotRowMinimumRatio/fixed/build.xml:168: Compile failed; see the compiler error output for details.\n\nTotal time: 0 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+    }
+  ],
+  "s_cex": null,
+  "n_valid": 0,
+  "n_passed": 0
+}

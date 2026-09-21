@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__Nopol__Math__patch1-Math-4-Nopol-plausible",
+  "condition": "C",
+  "model": "claude-sonnet-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.08333333333333333,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 381.6204393439998,
+      "attempts": 2,
+      "error": null,
+      "input_tokens": 4216,
+      "output_tokens": 913,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.2,
+        "readability": 0.1,
+        "security_robustness": 0.2,
+        "judgement": "OVERFITTING",
+        "confidence": 0.9,
+        "brief_reason": "The patch adds a nonsensical, redundant condition to Line.intersection() in the 2D package only, while the failing test set includes a 3D SubLine test that this diff does not touch at all. The added condition (comparing originOffset to d) has no clear geometric justification and does not address the root NPE cause in SubLine.intersection where null return values from Line.intersection are not properly checked before use.', so it is overfit to pass tests rather than a genuine fix."
+      },
+      "s_sem": 0.09999999999999998,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 372.998528565,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 4216,
+      "output_tokens": 417,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.1,
+        "readability": 0.1,
+        "security_robustness": 0.2,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch adds a nonsensical, self-referential condition (comparing originOffset to d, a determinant) that has no clear mathematical justification and does not address the root cause\u2014NPE from unchecked null return of Line.intersection in SubLine.intersection. It also doesn't touch the threed SubLine/Line code needed for the other failing test."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 8.455399782000313,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 4216,
+      "output_tokens": 720,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.1,
+        "readability": 0.1,
+        "security_robustness": 0.2,
+        "judgement": "OVERFITTING",
+        "confidence": 0.9,
+        "brief_reason": "The patch adds a nonsensical, duplicated condition (other.sin<1 && other.sin<1) that essentially bypasses the parallel-line null check, risking division by near-zero and returning garbage points instead of null. It also only touches the 2D Line class, not the 3D Line/SubLine code that also throws NPE, so it cannot genuinely fix the reported 3D test failure. This is a hacky, unreadable patch that overfits rather than addressing the root cause."
+      },
+      "s_sem": 0.09999999999999998,
+      "confidence_clipped": false
+    }
+  ]
+}

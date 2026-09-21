@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-82-ACS",
+  "condition": "C",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.15000000000000002,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 3.771707617001084,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 2297,
+      "output_tokens": 206,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.3,
+        "readability": 0.2,
+        "security_robustness": 0.7,
+        "judgement": "OVERFITTING",
+        "confidence": 0.85,
+        "brief_reason": "The patch adds a redundant condition `&&!(MathUtils.compareTo(entry, 0, epsilon)==0.0)` that excludes the case where entry equals zero, which is already excluded by the original `>= 0` check. This is overfitting to the specific test case rather than fixing the underlying algorithmic issue in the simplex solver's pivot selection logic. The patch also introduces poor formatting and readability without addressing the root cause of the incorrect optimization result (11.5 vs expected 10.0)."
+      },
+      "s_sem": 0.15000000000000002,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 3.134688514001027,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 2297,
+      "output_tokens": 210,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.3,
+        "readability": 0.2,
+        "security_robustness": 0.7,
+        "judgement": "OVERFITTING",
+        "confidence": 0.85,
+        "brief_reason": "The patch adds a redundant condition `&&!(MathUtils.compareTo(entry, 0, epsilon)==0.0)` that excludes the case where entry equals zero, which is already excluded by the original `>= 0` check. This appears to be a workaround for the specific test case rather than fixing the underlying algorithmic issue in the simplex solver. The change is poorly formatted, introduces unrelated behavior changes, and does not address the root cause of why the solver produces 11.5 instead of 10.0."
+      },
+      "s_sem": 0.15000000000000002,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 3.3289433629979612,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 2297,
+      "output_tokens": 206,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.3,
+        "readability": 0.2,
+        "security_robustness": 0.8,
+        "judgement": "OVERFITTING",
+        "confidence": 0.85,
+        "brief_reason": "The patch adds a redundant condition `&&!(MathUtils.compareTo(entry, 0, epsilon)==0.0)` that excludes the case where entry equals zero, which is already excluded by the original `>= 0` check. This is overfitting to the specific test case rather than fixing the underlying algorithmic issue in the simplex solver's pivot selection logic. The patch also introduces poor formatting and readability without addressing the root cause of the incorrect optimization result (11.5 vs expected 10.0)."
+      },
+      "s_sem": 0.15000000000000002,
+      "confidence_clipped": false
+    }
+  ]
+}

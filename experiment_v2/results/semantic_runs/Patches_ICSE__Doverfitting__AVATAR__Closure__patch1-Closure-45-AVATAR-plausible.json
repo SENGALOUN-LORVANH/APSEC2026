@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Closure__patch1-Closure-45-AVATAR-plausible",
+  "condition": "C",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.050000000000000044,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 3.2717501440001797,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 2640,
+      "output_tokens": 165,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.9,
+        "readability": 0.6,
+        "security_robustness": 0.8,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch removes the literal value check for non-property assignments, causing all non-property assignments to mark variables as assigned to unknown values. This is overfitting to the specific test case and weakens the original logic that distinguished between literal and non-literal assignments, potentially removing variables that should be kept alive only when assigned non-literal values."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 3.4801470339989464,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 2640,
+      "output_tokens": 172,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.9,
+        "readability": 0.6,
+        "security_robustness": 0.8,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch removes the literal value check for non-property assignments, causing all assignments to mark variables as assigned to unknown values. This is overfitting to the specific test case rather than fixing the underlying logic\u2014it weakens the analysis by treating literal assignments (like `b=[]`) the same as unknown value assignments, which changes the intended behavior of the unused variable removal pass."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 2.9780675069996505,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 2640,
+      "output_tokens": 172,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.9,
+        "readability": 0.6,
+        "security_robustness": 0.8,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch removes the literal value check for non-property assignments, causing all assignments to mark variables as assigned to unknown values. This is overfitting to the specific test case rather than fixing the underlying logic\u2014it weakens the analysis by treating literal assignments (like `b=[]`) the same as unknown value assignments, which changes the intended behavior of the unused variable removal pass."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    }
+  ]
+}
