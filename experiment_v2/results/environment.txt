@@ -24,9 +24,9 @@ OS name: "linux", version: "6.18.33.2-microsoft-standard-wsl2", arch: "amd64", f
 gradle: None
 ant: None
 perl: v5.34.0
-defects4j_home: None
-defects4j_commit: None
-defects4j_describe: None
+defects4j_home: /opt/defects4j-2.0.1
+defects4j_commit: a83e47921152721569cb95d6d7b91c4be277d940
+defects4j_describe: v2.0.1
 docker: None
 in_docker: True
 tools_lock: # Pinned tool versions (latest on Maven Central / GitHub as of 2026-09-15). Frozen with the protocol.
@@ -38,7 +38,7 @@ defects4j.v2.jdk=8
 defects4j.v3.tag=v3.0.1
 defects4j.v3.commit=6d54320e0db5a357f9ab38a8e4d2e5aead7e1c09
 defects4j.v3.jdk=11
-defects4j.selected=TO_FREEZE
+defects4j.selected=v2.0.1
 
 analysis.jdk=21
 org.soot-oss:sootup.core=2.0.0
@@ -57,5 +57,5 @@ com.h3xstream.findsecbugs:findsecbugs-plugin=1.14.0
 #   v3.0.1: Closure-63, Closure-93, Lang-18 (20 patches)
 
 spotbugs: 4.9.3
-git_commit: 6e244147eb99ea185e3b03192d282db889156d84
+git_commit: 983117fccffdd4607870d8d059454161282a3133
 git_dirty: True
