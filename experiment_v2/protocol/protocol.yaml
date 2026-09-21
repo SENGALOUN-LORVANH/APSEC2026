@@ -42,7 +42,7 @@ llm:
   candidates:
     - {model: claude-haiku-4-5, settings: {temperature: 0.0}}
     - {model: claude-sonnet-5, settings: {effort: medium}}
-  selected_model: PENDING_PILOT_SELECTION  # see note above frozen: true -- decided during the 50-patch pilot
+  selected_model: claude-haiku-4-5  # selected 2026-09-21 from the 50-patch pilot per selection_rule (no labels used); evidence + rationale in DEVIATIONS.md (#8). Both models met parse>=0.95 and token-limit<=0.02; decided at criterion 3 (stability: haiku 1.0 > sonnet 0.979) and corroborated by lower latency and cost.
   selection_rule: >
     Approved 2026-09-15. Decided on the 50-patch pre-flight pilot WITHOUT using ground-truth agreement.
     Hierarchy: (1) structured parse success >= 0.95; (2) token-limit failures <= 0.02; (3) higher run-to-run
