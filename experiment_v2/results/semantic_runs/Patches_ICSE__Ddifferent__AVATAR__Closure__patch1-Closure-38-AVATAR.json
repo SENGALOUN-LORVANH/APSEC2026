@@ -3,29 +3,74 @@
   "condition": "C",
   "model": "claude-haiku-4-5",
   "n_runs": 3,
-  "n_parsed": 0,
-  "s_sem_final": null,
-  "decision": null,
+  "n_parsed": 3,
+  "s_sem_final": 0.15000000000000002,
+  "decision": "OVERFITTING",
   "ground_truth_label": null,
   "context_errors": [],
   "runs": [
     {
       "run": 0,
-      "latency_s": 0.5036115179991612,
+      "latency_s": 2.830626384999995,
       "attempts": 1,
-      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cf6SMZQ1wWvGSQ86QujFm'}"
+      "error": null,
+      "input_tokens": 2111,
+      "output_tokens": 167,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 1.0,
+        "readability": 1.0,
+        "security_robustness": 1.0,
+        "judgement": "OVERFITTING",
+        "confidence": 0.85,
+        "brief_reason": "The patch changes `x < 0` to `x <= 0` to handle the negative zero case, but this is overfitting to the specific test case. The real issue is that negative zero should be handled separately; the condition should check for negative zero explicitly rather than treating all zero values the same way, which could mask other parsing issues."
+      },
+      "s_sem": 0.15000000000000002,
+      "confidence_clipped": false
     },
     {
       "run": 1,
-      "latency_s": 0.3729736139994202,
+      "latency_s": 2.9193853820000015,
       "attempts": 1,
-      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cf6SMbCQoNS7D7wSYHN7f'}"
+      "error": null,
+      "input_tokens": 2111,
+      "output_tokens": 178,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 1.0,
+        "readability": 1.0,
+        "security_robustness": 1.0,
+        "judgement": "OVERFITTING",
+        "confidence": 0.85,
+        "brief_reason": "The patch changes `x < 0` to `x <= 0` to handle the negative zero case, but this is overfitting to the specific test case. The real issue is that negative zero should be handled separately; the condition should check for negative zero explicitly rather than relying on `x <= 0`, which conflates two distinct cases and may cause unintended spacing for positive zero."
+      },
+      "s_sem": 0.15000000000000002,
+      "confidence_clipped": false
     },
     {
       "run": 2,
-      "latency_s": 0.34641621300033876,
+      "latency_s": 2.9878422770000057,
       "attempts": 1,
-      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cf6SMct7Y39v4AcoWJ8qW'}"
+      "error": null,
+      "input_tokens": 2111,
+      "output_tokens": 175,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 1.0,
+        "readability": 1.0,
+        "security_robustness": 1.0,
+        "judgement": "OVERFITTING",
+        "confidence": 0.85,
+        "brief_reason": "The patch changes `x < 0` to `x <= 0` to handle the negative zero case, but this is overfitting to the specific test case. The real issue is that negative zero should be handled separately; the condition should check for negative zero explicitly rather than treating all zero values the same way, which could mask the actual bug and cause unintended side effects for positive zero."
+      },
+      "s_sem": 0.15000000000000002,
+      "confidence_clipped": false
     }
   ]
 }

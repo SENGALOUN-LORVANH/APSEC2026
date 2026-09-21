@@ -3,29 +3,74 @@
   "condition": "C",
   "model": "claude-sonnet-5",
   "n_runs": 3,
-  "n_parsed": 0,
-  "s_sem_final": null,
-  "decision": null,
+  "n_parsed": 3,
+  "s_sem_final": 0.020000000000000018,
+  "decision": "OVERFITTING",
   "ground_truth_label": null,
   "context_errors": [],
   "runs": [
     {
       "run": 0,
-      "latency_s": 0.6227302420011256,
+      "latency_s": 3.698588005999909,
       "attempts": 1,
-      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cf6V6cxGAFkRsrruM1jCu'}"
+      "error": null,
+      "input_tokens": 3465,
+      "output_tokens": 205,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.0,
+        "readability": 0.0,
+        "security_robustness": 0.2,
+        "judgement": "OVERFITTING",
+        "confidence": 0.98,
+        "brief_reason": "The patch adds an arbitrary check that throws IllegalArgumentException whenever initial>0, which is unrelated to actual bracketing logic and breaks correct usage for positive initial guesses; it merely hacks the test case rather than fixing the root cause (missing bracket-check when no bracketing occurs)."
+      },
+      "s_sem": 0.020000000000000018,
+      "confidence_clipped": false
     },
     {
       "run": 1,
-      "latency_s": 0.35496522300127253,
+      "latency_s": 4.043146041,
       "attempts": 1,
-      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cf6V6eL77k5Qo4mhZ4YZJ'}"
+      "error": null,
+      "input_tokens": 3465,
+      "output_tokens": 218,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.0,
+        "readability": 0.0,
+        "security_robustness": 0.1,
+        "judgement": "OVERFITTING",
+        "confidence": 0.98,
+        "brief_reason": "The patch adds an arbitrary condition (initial>0) that has nothing to do with bracketing logic, merely hacking the specific test case rather than fixing the general non-bracketing detection bug.  This breaks legitimate use cases where initial>0 is valid and doesn't address the root cause of missing bracket verification before calling the full Brent algorithm."
+      },
+      "s_sem": 0.020000000000000018,
+      "confidence_clipped": false
     },
     {
       "run": 2,
-      "latency_s": 368.5996448120004,
+      "latency_s": 3.785265286999902,
       "attempts": 1,
-      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cf6VZoz3H7QdAKUna1BCP'}"
+      "error": null,
+      "input_tokens": 3465,
+      "output_tokens": 195,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.0,
+        "readability": 0.0,
+        "security_robustness": 0.1,
+        "judgement": "OVERFITTING",
+        "confidence": 0.98,
+        "brief_reason": "The patch adds an arbitrary check 'initial > 0' unrelated to the actual bracketing logic, which is a hack tailored to pass the specific test rather than fixing the general non-bracketing detection logic; it also breaks legitimate use cases where initial is positive but valid."
+      },
+      "s_sem": 0.020000000000000018,
+      "confidence_clipped": false
     }
   ]
 }

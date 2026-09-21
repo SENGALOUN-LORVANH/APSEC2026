@@ -3,29 +3,74 @@
   "condition": "C",
   "model": "claude-sonnet-5",
   "n_runs": 3,
-  "n_parsed": 0,
-  "s_sem_final": null,
-  "decision": null,
+  "n_parsed": 3,
+  "s_sem_final": 0.13333333333333333,
+  "decision": "OVERFITTING",
   "ground_truth_label": null,
   "context_errors": [],
   "runs": [
     {
       "run": 0,
-      "latency_s": 0.38531340699955763,
+      "latency_s": 380.609860884,
       "attempts": 1,
-      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cf6T5UgRJB5x8WZaWGgtS'}"
+      "error": null,
+      "input_tokens": 3180,
+      "output_tokens": 836,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.1,
+        "readability": 0.05,
+        "security_robustness": 0.3,
+        "judgement": "OVERFITTING",
+        "confidence": 0.85,
+        "brief_reason": "The patch adds a duplicate, redundant p<=0 check that throws a new NotStrictlyPositiveException with a null argument, while leaving the original throw statement dead code afterward. This is a hacky, unreadable change that doesn't address the root cause (proper exception type/consistency) and risks passing null to the exception constructor."
+      },
+      "s_sem": 0.15000000000000002,
+      "confidence_clipped": false
     },
     {
       "run": 1,
-      "latency_s": 0.3661408059997484,
+      "latency_s": 12.571862679000105,
       "attempts": 1,
-      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cf6T5WJQR3z666MvBy3Xi'}"
+      "error": null,
+      "input_tokens": 3180,
+      "output_tokens": 1030,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.1,
+        "readability": 0.05,
+        "security_robustness": 0.2,
+        "judgement": "OVERFITTING",
+        "confidence": 0.85,
+        "brief_reason": "The patch introduces a duplicated, redundant check and throws NotStrictlyPositiveException(null) instead of properly fixing the mean validation logic; it also mangles the package import statement and leaves the original exception unreachable, indicating a hacky, non-general fix likely tailored only to pass the specific test's exception type expectation."
+      },
+      "s_sem": 0.15000000000000002,
+      "confidence_clipped": false
     },
     {
       "run": 2,
-      "latency_s": 0.3611325060010131,
+      "latency_s": 14.887676559000056,
       "attempts": 1,
-      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cf6T5Xoh34daKWYBfT9so'}"
+      "error": null,
+      "input_tokens": 3180,
+      "output_tokens": 1158,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.05,
+        "readability": 0.05,
+        "security_robustness": 0.3,
+        "judgement": "OVERFITTING",
+        "confidence": 0.9,
+        "brief_reason": "The patch merely swaps the exception type (NotStrictlyPositiveException) while still throwing an exception for p<=0, leaving dead/duplicate code and mangled import statement; it does not address the actual root cause of the failing test which apparently requires successful construction/handling of non-positive means, and the code is unreadable and clearly a hack aimed at passing a specific test."
+      },
+      "s_sem": 0.09999999999999998,
+      "confidence_clipped": false
     }
   ]
 }

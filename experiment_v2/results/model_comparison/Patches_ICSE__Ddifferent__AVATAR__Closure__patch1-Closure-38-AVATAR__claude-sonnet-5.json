@@ -3,29 +3,74 @@
   "condition": "C",
   "model": "claude-sonnet-5",
   "n_runs": 3,
-  "n_parsed": 0,
-  "s_sem_final": null,
-  "decision": null,
+  "n_parsed": 3,
+  "s_sem_final": 0.8666666666666667,
+  "decision": "CORRECT",
   "ground_truth_label": null,
   "context_errors": [],
   "runs": [
     {
       "run": 0,
-      "latency_s": 0.38825971400001436,
+      "latency_s": 3.378533035000032,
       "attempts": 1,
-      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cf6SMff3gGTtrFUr4BNBh'}"
+      "error": null,
+      "input_tokens": 2782,
+      "output_tokens": 175,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 1.0,
+        "readability": 1.0,
+        "security_robustness": 1.0,
+        "judgement": "CORRECT",
+        "confidence": 0.9,
+        "brief_reason": "The fix correctly extends the space-insertion condition to include negative zero (x<=0), addressing the root cause that -0.0 was not treated as negative for spacing purposes, matching the required 'x -0.0' output without affecting other cases."
+      },
+      "s_sem": 0.9,
+      "confidence_clipped": false
     },
     {
       "run": 1,
-      "latency_s": 0.30157391099965025,
+      "latency_s": 3.8189782250000235,
       "attempts": 1,
-      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cf6SMh9Lr7QmBmyJ9mSVi'}"
+      "error": null,
+      "input_tokens": 2782,
+      "output_tokens": 198,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 1.0,
+        "readability": 1.0,
+        "security_robustness": 1.0,
+        "judgement": "CORRECT",
+        "confidence": 0.85,
+        "brief_reason": "The bug was that negative zero (x==0 but negative-zero flag) wasn't caught by x<0 check, so no space was added before '-0.0' causing '--' ambiguity; changing to x<=0 covers negative zero while still applying to negative numbers, matching the fix's intent without weakening other cases."
+      },
+      "s_sem": 0.85,
+      "confidence_clipped": false
     },
     {
       "run": 2,
-      "latency_s": 0.2813398110010894,
+      "latency_s": 4.552685021000002,
       "attempts": 1,
-      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cf6SMiSV2ZVc8ke6gNvU3'}"
+      "error": null,
+      "input_tokens": 2782,
+      "output_tokens": 303,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 1.0,
+        "readability": 0.9,
+        "security_robustness": 0.9,
+        "judgement": "CORRECT",
+        "confidence": 0.85,
+        "brief_reason": "The fix changes the comparison to include zero, correctly handling negative zero which is not <0 but still needs the space to avoid '--' token merging; this matches the intended purpose of the negativeZero variable and is minimal and general."
+      },
+      "s_sem": 0.85,
+      "confidence_clipped": false
     }
   ]
 }

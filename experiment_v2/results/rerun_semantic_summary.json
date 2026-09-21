@@ -1,0 +1,471 @@
+[
+  {
+    "patch_id": "Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-25-ACS",
+    "model": "claude-haiku-4-5",
+    "run": 0,
+    "was": "billing",
+    "now": "ok"
+  },
+  {
+    "patch_id": "Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-25-ACS",
+    "model": "claude-haiku-4-5",
+    "run": 1,
+    "was": "billing",
+    "now": "ok"
+  },
+  {
+    "patch_id": "Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-25-ACS",
+    "model": "claude-haiku-4-5",
+    "run": 2,
+    "was": "billing",
+    "now": "ok"
+  },
+  {
+    "patch_id": "Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-61-ACS",
+    "model": "claude-haiku-4-5",
+    "run": 0,
+    "was": "billing",
+    "now": "ok"
+  },
+  {
+    "patch_id": "Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-61-ACS",
+    "model": "claude-haiku-4-5",
+    "run": 1,
+    "was": "billing",
+    "now": "ok"
+  },
+  {
+    "patch_id": "Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-61-ACS",
+    "model": "claude-haiku-4-5",
+    "run": 2,
+    "was": "billing",
+    "now": "ok"
+  },
+  {
+    "patch_id": "Patches_ICSE__Ddifferent__AVATAR__Closure__patch1-Closure-2-AVATAR",
+    "model": "claude-haiku-4-5",
+    "run": 0,
+    "was": "billing",
+    "now": "ok"
+  },
+  {
+    "patch_id": "Patches_ICSE__Ddifferent__AVATAR__Closure__patch1-Closure-2-AVATAR",
+    "model": "claude-haiku-4-5",
+    "run": 1,
+    "was": "billing",
+    "now": "ok"
+  },
+  {
+    "patch_id": "Patches_ICSE__Ddifferent__AVATAR__Closure__patch1-Closure-2-AVATAR",
+    "model": "claude-haiku-4-5",
+    "run": 2,
+    "was": "billing",
+    "now": "ok"
+  },
+  {
+    "patch_id": "Patches_ICSE__Ddifferent__AVATAR__Closure__patch1-Closure-38-AVATAR",
+    "model": "claude-haiku-4-5",
+    "run": 0,
+    "was": "billing",
+    "now": "ok"
+  },
+  {
+    "patch_id": "Patches_ICSE__Ddifferent__AVATAR__Closure__patch1-Closure-38-AVATAR",
+    "model": "claude-haiku-4-5",
+    "run": 1,
+    "was": "billing",
+    "now": "ok"
+  },
+  {
+    "patch_id": "Patches_ICSE__Ddifferent__AVATAR__Closure__patch1-Closure-38-AVATAR",
+    "model": "claude-haiku-4-5",
+    "run": 2,
+    "was": "billing",
+    "now": "ok"
+  },
+  {
+    "patch_id": "Patches_ICSE__Ddifferent__AVATAR__Lang__patch1-Lang-10-AVATAR",
+    "model": "claude-haiku-4-5",
+    "run": 0,
+    "was": "billing",
+    "now": "ok"
+  },
+  {
+    "patch_id": "Patches_ICSE__Ddifferent__AVATAR__Lang__patch1-Lang-10-AVATAR",
+    "model": "claude-haiku-4-5",
+    "run": 1,
+    "was": "billing",
+    "now": "ok"
+  },
+  {
+    "patch_id": "Patches_ICSE__Ddifferent__AVATAR__Lang__patch1-Lang-10-AVATAR",
+    "model": "claude-haiku-4-5",
+    "run": 2,
+    "was": "billing",
+    "now": "ok"
+  },
+  {
+    "patch_id": "Patches_ICSE__Ddifferent__AVATAR__Lang__patch1-Lang-57-AVATAR",
+    "model": "claude-haiku-4-5",
+    "run": 0,
+    "was": "billing",
+    "now": "ok"
+  },
+  {
+    "patch_id": "Patches_ICSE__Ddifferent__AVATAR__Lang__patch1-Lang-57-AVATAR",
+    "model": "claude-haiku-4-5",
+    "run": 1,
+    "was": "billing",
+    "now": "ok"
+  },
+  {
+    "patch_id": "Patches_ICSE__Ddifferent__AVATAR__Lang__patch1-Lang-57-AVATAR",
+    "model": "claude-haiku-4-5",
+    "run": 2,
+    "was": "billing",
+    "now": "ok"
+  },
+  {
+    "patch_id": "Patches_ICSE__Ddifferent__Arja__Math__patch1-Math-50-Arja",
+    "model": "claude-haiku-4-5",
+    "run": 0,
+    "was": "billing",
+    "now": "ok"
+  },
+  {
+    "patch_id": "Patches_ICSE__Ddifferent__Arja__Math__patch1-Math-50-Arja",
+    "model": "claude-haiku-4-5",
+    "run": 1,
+    "was": "billing",
+    "now": "ok"
+  },
+  {
+    "patch_id": "Patches_ICSE__Ddifferent__Arja__Math__patch1-Math-50-Arja",
+    "model": "claude-haiku-4-5",
+    "run": 2,
+    "was": "billing",
+    "now": "ok"
+  },
+  {
+    "patch_id": "Patches_ICSE__Ddifferent__jKali__Lang__patch1-Lang-7-jKali",
+    "model": "claude-haiku-4-5",
+    "run": 0,
+    "was": "billing",
+    "now": "ok"
+  },
+  {
+    "patch_id": "Patches_ICSE__Ddifferent__jKali__Lang__patch1-Lang-7-jKali",
+    "model": "claude-haiku-4-5",
+    "run": 1,
+    "was": "billing",
+    "now": "ok"
+  },
+  {
+    "patch_id": "Patches_ICSE__Ddifferent__jKali__Lang__patch1-Lang-7-jKali",
+    "model": "claude-haiku-4-5",
+    "run": 2,
+    "was": "billing",
+    "now": "ok"
+  },
+  {
+    "patch_id": "Patches_ICSE__Doverfitting__ACS__Math__patch1-Math-73-ACS-plausible",
+    "model": "claude-haiku-4-5",
+    "run": 0,
+    "was": "billing",
+    "now": "ok"
+  },
+  {
+    "patch_id": "Patches_ICSE__Doverfitting__ACS__Math__patch1-Math-73-ACS-plausible",
+    "model": "claude-haiku-4-5",
+    "run": 1,
+    "was": "billing",
+    "now": "ok"
+  },
+  {
+    "patch_id": "Patches_ICSE__Doverfitting__ACS__Math__patch1-Math-73-ACS-plausible",
+    "model": "claude-haiku-4-5",
+    "run": 2,
+    "was": "billing",
+    "now": "ok"
+  },
+  {
+    "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Chart__patch1-Chart-13-AVATAR-plausible",
+    "model": "claude-haiku-4-5",
+    "run": 0,
+    "was": "billing",
+    "now": "ok"
+  },
+  {
+    "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Chart__patch1-Chart-13-AVATAR-plausible",
+    "model": "claude-haiku-4-5",
+    "run": 1,
+    "was": "billing",
+    "now": "ok"
+  },
+  {
+    "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Chart__patch1-Chart-13-AVATAR-plausible",
+    "model": "claude-haiku-4-5",
+    "run": 2,
+    "was": "billing",
+    "now": "ok"
+  },
+  {
+    "patch_id": "Patches_ICSE__Doverfitting__Nopol__Time__patch1-Time-14-Nopol-plausible",
+    "model": "claude-haiku-4-5",
+    "run": 0,
+    "was": "billing",
+    "now": "ok"
+  },
+  {
+    "patch_id": "Patches_ICSE__Doverfitting__Nopol__Time__patch1-Time-14-Nopol-plausible",
+    "model": "claude-haiku-4-5",
+    "run": 1,
+    "was": "billing",
+    "now": "ok"
+  },
+  {
+    "patch_id": "Patches_ICSE__Doverfitting__Nopol__Time__patch1-Time-14-Nopol-plausible",
+    "model": "claude-haiku-4-5",
+    "run": 2,
+    "was": "billing",
+    "now": "ok"
+  },
+  {
+    "patch_id": "Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-25-ACS",
+    "model": "claude-sonnet-5",
+    "run": 0,
+    "was": "billing",
+    "now": "ok"
+  },
+  {
+    "patch_id": "Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-25-ACS",
+    "model": "claude-sonnet-5",
+    "run": 1,
+    "was": "billing",
+    "now": "ok"
+  },
+  {
+    "patch_id": "Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-25-ACS",
+    "model": "claude-sonnet-5",
+    "run": 2,
+    "was": "billing",
+    "now": "ok"
+  },
+  {
+    "patch_id": "Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-61-ACS",
+    "model": "claude-sonnet-5",
+    "run": 0,
+    "was": "billing",
+    "now": "ok"
+  },
+  {
+    "patch_id": "Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-61-ACS",
+    "model": "claude-sonnet-5",
+    "run": 1,
+    "was": "billing",
+    "now": "ok"
+  },
+  {
+    "patch_id": "Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-61-ACS",
+    "model": "claude-sonnet-5",
+    "run": 2,
+    "was": "billing",
+    "now": "ok"
+  },
+  {
+    "patch_id": "Patches_ICSE__Ddifferent__AVATAR__Closure__patch1-Closure-2-AVATAR",
+    "model": "claude-sonnet-5",
+    "run": 0,
+    "was": "billing",
+    "now": "ok"
+  },
+  {
+    "patch_id": "Patches_ICSE__Ddifferent__AVATAR__Closure__patch1-Closure-2-AVATAR",
+    "model": "claude-sonnet-5",
+    "run": 1,
+    "was": "billing",
+    "now": "ok"
+  },
+  {
+    "patch_id": "Patches_ICSE__Ddifferent__AVATAR__Closure__patch1-Closure-2-AVATAR",
+    "model": "claude-sonnet-5",
+    "run": 2,
+    "was": "billing",
+    "now": "ok"
+  },
+  {
+    "patch_id": "Patches_ICSE__Ddifferent__AVATAR__Closure__patch1-Closure-38-AVATAR",
+    "model": "claude-sonnet-5",
+    "run": 0,
+    "was": "billing",
+    "now": "ok"
+  },
+  {
+    "patch_id": "Patches_ICSE__Ddifferent__AVATAR__Closure__patch1-Closure-38-AVATAR",
+    "model": "claude-sonnet-5",
+    "run": 1,
+    "was": "billing",
+    "now": "ok"
+  },
+  {
+    "patch_id": "Patches_ICSE__Ddifferent__AVATAR__Closure__patch1-Closure-38-AVATAR",
+    "model": "claude-sonnet-5",
+    "run": 2,
+    "was": "billing",
+    "now": "ok"
+  },
+  {
+    "patch_id": "Patches_ICSE__Ddifferent__AVATAR__Lang__patch1-Lang-10-AVATAR",
+    "model": "claude-sonnet-5",
+    "run": 0,
+    "was": "billing",
+    "now": "ok"
+  },
+  {
+    "patch_id": "Patches_ICSE__Ddifferent__AVATAR__Lang__patch1-Lang-10-AVATAR",
+    "model": "claude-sonnet-5",
+    "run": 1,
+    "was": "billing",
+    "now": "ok"
+  },
+  {
+    "patch_id": "Patches_ICSE__Ddifferent__AVATAR__Lang__patch1-Lang-10-AVATAR",
+    "model": "claude-sonnet-5",
+    "run": 2,
+    "was": "billing",
+    "now": "ok"
+  },
+  {
+    "patch_id": "Patches_ICSE__Ddifferent__AVATAR__Lang__patch1-Lang-57-AVATAR",
+    "model": "claude-sonnet-5",
+    "run": 0,
+    "was": "billing",
+    "now": "ok"
+  },
+  {
+    "patch_id": "Patches_ICSE__Ddifferent__AVATAR__Lang__patch1-Lang-57-AVATAR",
+    "model": "claude-sonnet-5",
+    "run": 1,
+    "was": "billing",
+    "now": "ok"
+  },
+  {
+    "patch_id": "Patches_ICSE__Ddifferent__AVATAR__Lang__patch1-Lang-57-AVATAR",
+    "model": "claude-sonnet-5",
+    "run": 2,
+    "was": "billing",
+    "now": "ok"
+  },
+  {
+    "patch_id": "Patches_ICSE__Ddifferent__Arja__Math__patch1-Math-50-Arja",
+    "model": "claude-sonnet-5",
+    "run": 0,
+    "was": "billing",
+    "now": "ok"
+  },
+  {
+    "patch_id": "Patches_ICSE__Ddifferent__Arja__Math__patch1-Math-50-Arja",
+    "model": "claude-sonnet-5",
+    "run": 1,
+    "was": "billing",
+    "now": "ok"
+  },
+  {
+    "patch_id": "Patches_ICSE__Ddifferent__Arja__Math__patch1-Math-50-Arja",
+    "model": "claude-sonnet-5",
+    "run": 2,
+    "was": "billing",
+    "now": "ok"
+  },
+  {
+    "patch_id": "Patches_ICSE__Ddifferent__jKali__Lang__patch1-Lang-7-jKali",
+    "model": "claude-sonnet-5",
+    "run": 0,
+    "was": "billing",
+    "now": "ok"
+  },
+  {
+    "patch_id": "Patches_ICSE__Ddifferent__jKali__Lang__patch1-Lang-7-jKali",
+    "model": "claude-sonnet-5",
+    "run": 1,
+    "was": "billing",
+    "now": "ok"
+  },
+  {
+    "patch_id": "Patches_ICSE__Ddifferent__jKali__Lang__patch1-Lang-7-jKali",
+    "model": "claude-sonnet-5",
+    "run": 2,
+    "was": "billing",
+    "now": "ok"
+  },
+  {
+    "patch_id": "Patches_ICSE__Doverfitting__ACS__Math__patch1-Math-73-ACS-plausible",
+    "model": "claude-sonnet-5",
+    "run": 0,
+    "was": "billing",
+    "now": "ok"
+  },
+  {
+    "patch_id": "Patches_ICSE__Doverfitting__ACS__Math__patch1-Math-73-ACS-plausible",
+    "model": "claude-sonnet-5",
+    "run": 1,
+    "was": "billing",
+    "now": "ok"
+  },
+  {
+    "patch_id": "Patches_ICSE__Doverfitting__ACS__Math__patch1-Math-73-ACS-plausible",
+    "model": "claude-sonnet-5",
+    "run": 2,
+    "was": "billing",
+    "now": "ok"
+  },
+  {
+    "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Chart__patch1-Chart-13-AVATAR-plausible",
+    "model": "claude-sonnet-5",
+    "run": 0,
+    "was": "billing",
+    "now": "ok"
+  },
+  {
+    "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Chart__patch1-Chart-13-AVATAR-plausible",
+    "model": "claude-sonnet-5",
+    "run": 1,
+    "was": "billing",
+    "now": "ok"
+  },
+  {
+    "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Chart__patch1-Chart-13-AVATAR-plausible",
+    "model": "claude-sonnet-5",
+    "run": 2,
+    "was": "billing",
+    "now": "ok"
+  },
+  {
+    "patch_id": "Patches_ICSE__Doverfitting__Nopol__Time__patch1-Time-14-Nopol-plausible",
+    "model": "claude-sonnet-5",
+    "run": 0,
+    "was": "billing",
+    "now": "ok"
+  },
+  {
+    "patch_id": "Patches_ICSE__Doverfitting__Nopol__Time__patch1-Time-14-Nopol-plausible",
+    "model": "claude-sonnet-5",
+    "run": 1,
+    "was": "billing",
+    "now": "ok"
+  },
+  {
+    "patch_id": "Patches_ICSE__Doverfitting__Nopol__Time__patch1-Time-14-Nopol-plausible",
+    "model": "claude-sonnet-5",
+    "run": 2,
+    "was": "billing",
+    "now": "ok"
+  },
+  {
+    "patch_id": "Patches_ICSE__Doverfitting__TBar__Lang__patch1-Lang-24-TBar-plausible",
+    "model": "claude-sonnet-5",
+    "run": 2,
+    "was": "connection",
+    "now": "ok"
+  }
+]

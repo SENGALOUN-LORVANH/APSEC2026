@@ -3,29 +3,74 @@
   "condition": "C",
   "model": "claude-haiku-4-5",
   "n_runs": 3,
-  "n_parsed": 0,
-  "s_sem_final": null,
-  "decision": null,
+  "n_parsed": 3,
+  "s_sem_final": 0.15000000000000002,
+  "decision": "OVERFITTING",
   "ground_truth_label": null,
   "context_errors": [],
   "runs": [
     {
       "run": 0,
-      "latency_s": 0.49279736800053797,
+      "latency_s": 3.5813131150000004,
       "attempts": 1,
-      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cf6UXBMTyHfzLTxP7xQUN'}"
+      "error": null,
+      "input_tokens": 4471,
+      "output_tokens": 214,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.9,
+        "readability": 0.7,
+        "security_robustness": 0.8,
+        "judgement": "OVERFITTING",
+        "confidence": 0.85,
+        "brief_reason": "The patch changes the implementation from using cAvailableLocaleSet to cAvailableLocaleList, which fixes the NullPointerException but appears to be a workaround rather than addressing the root cause. The change introduces an unrelated behavior modification (using a List instead of a Set) and may have performance implications since List.contains() is O(n) versus Set.contains() which is O(1). This suggests the real bug is likely that cAvailableLocaleSet is not being properly initialized, not that the wrong collection should be used."
+      },
+      "s_sem": 0.15000000000000002,
+      "confidence_clipped": false
     },
     {
       "run": 1,
-      "latency_s": 0.37002590100019006,
+      "latency_s": 3.026014189999998,
       "attempts": 1,
-      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cf6UXDCqSmdHpwg3GAg5C'}"
+      "error": null,
+      "input_tokens": 4471,
+      "output_tokens": 184,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.9,
+        "readability": 0.7,
+        "security_robustness": 0.8,
+        "judgement": "OVERFITTING",
+        "confidence": 0.85,
+        "brief_reason": "The patch changes the implementation from using cAvailableLocaleSet to cAvailableLocaleList, which fixes the NullPointerException but appears to be a workaround rather than addressing the root cause. The change introduces an unrelated behavior modification (using a List instead of a Set) and suggests the real bug is that cAvailableLocaleSet is null, not that the wrong collection should be used."
+      },
+      "s_sem": 0.15000000000000002,
+      "confidence_clipped": false
     },
     {
       "run": 2,
-      "latency_s": 0.35146912100026384,
+      "latency_s": 3.035585189999992,
       "attempts": 1,
-      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cf6UXEnqWKkN9Hy9xfJxT'}"
+      "error": null,
+      "input_tokens": 4471,
+      "output_tokens": 185,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.9,
+        "readability": 0.7,
+        "security_robustness": 0.8,
+        "judgement": "OVERFITTING",
+        "confidence": 0.85,
+        "brief_reason": "The patch changes the implementation from using cAvailableLocaleSet to cAvailableLocaleList, which fixes the NullPointerException but appears to be a workaround rather than addressing the root cause. The change introduces an unrelated behavior modification (using a List instead of a Set) and suggests the real bug is that cAvailableLocaleSet is null, not that the wrong data structure should be used."
+      },
+      "s_sem": 0.15000000000000002,
+      "confidence_clipped": false
     }
   ]
 }

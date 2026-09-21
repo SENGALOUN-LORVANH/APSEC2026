@@ -3,29 +3,74 @@
   "condition": "C",
   "model": "claude-sonnet-5",
   "n_runs": 3,
-  "n_parsed": 0,
-  "s_sem_final": null,
-  "decision": null,
+  "n_parsed": 3,
+  "s_sem_final": 0.050000000000000044,
+  "decision": "OVERFITTING",
   "ground_truth_label": null,
   "context_errors": [],
   "runs": [
     {
       "run": 0,
-      "latency_s": 1.4205581030000758,
+      "latency_s": 4.665998103999982,
       "attempts": 1,
-      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cf6TTLFXD642zNWswQtTm'}"
+      "error": null,
+      "input_tokens": 2611,
+      "output_tokens": 263,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.1,
+        "readability": 0.3,
+        "security_robustness": 0.2,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch removes the validation check in Range's constructor instead of fixing the root cause (negative width calculation in BorderArrangement), silently allowing invalid lower>upper ranges and weakening the class's invariant guarantees elsewhere in the codebase."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
     },
     {
       "run": 1,
-      "latency_s": 1.9852262839995092,
+      "latency_s": 3.9335641459999806,
       "attempts": 1,
-      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cf6TTNDLwydq32AZriYx4'}"
+      "error": null,
+      "input_tokens": 2611,
+      "output_tokens": 254,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.2,
+        "readability": 0.5,
+        "security_robustness": 0.1,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch just removes the validation check in Range's constructor instead of fixing the root cause in BorderArrangement that produces an invalid (negative) width, allowing invalid Range objects to be created silently and weakening the class's invariant."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
     },
     {
       "run": 2,
-      "latency_s": 0.3789852539994172,
+      "latency_s": 4.0652923509999255,
       "attempts": 1,
-      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cf6TTWXA7rYQJ3ywz8CnN'}"
+      "error": null,
+      "input_tokens": 2611,
+      "output_tokens": 254,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.1,
+        "readability": 0.3,
+        "security_robustness": 0.1,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch removes the validation check in Range's constructor instead of fixing the actual bug in BorderArrangement that produces an invalid negative range, silently allowing invalid Range objects (lower > upper) to be created and masking the root cause."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
     }
   ]
 }

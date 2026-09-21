@@ -3,29 +3,74 @@
   "condition": "C",
   "model": "claude-sonnet-5",
   "n_runs": 3,
-  "n_parsed": 0,
-  "s_sem_final": null,
-  "decision": null,
+  "n_parsed": 3,
+  "s_sem_final": 0.07333333333333332,
+  "decision": "OVERFITTING",
   "ground_truth_label": null,
   "context_errors": [],
   "runs": [
     {
       "run": 0,
-      "latency_s": 0.36195320500155503,
+      "latency_s": 7.786492212999974,
       "attempts": 1,
-      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cf6UcXU5gCoPyqjEY4Mx7'}"
+      "error": null,
+      "input_tokens": 6387,
+      "output_tokens": 611,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.1,
+        "readability": 0.1,
+        "security_robustness": 0.3,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch replaces the semantically meaningful isContiguous(partial) check with an unrelated, nonsensical condition based on MIN and fieldIndex/valueToAdd comparisons, which does not correctly express contiguity and likely breaks behavior for non-contiguous partials while incidentally passing the given tests."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
     },
     {
       "run": 1,
-      "latency_s": 0.36650050500065845,
+      "latency_s": 7.06427080200001,
       "attempts": 1,
-      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cf6UcYys94GBePSqY6wA3'}"
+      "error": null,
+      "input_tokens": 6387,
+      "output_tokens": 565,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.1,
+        "readability": 0.05,
+        "security_robustness": 0.2,
+        "judgement": "OVERFITTING",
+        "confidence": 0.93,
+        "brief_reason": "The patch replaces the semantically meaningful isContiguous(partial) check with an arbitrary condition based on fieldIndex and valueToAdd that has no logical connection to whether a partial is contiguous, likely fixing the specific failing tests by accident while breaking the correct behavior for other partial types or add values."
+      },
+      "s_sem": 0.06999999999999995,
+      "confidence_clipped": false
     },
     {
       "run": 2,
-      "latency_s": 0.27965990400116425,
+      "latency_s": 8.247442544000023,
       "attempts": 1,
-      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cf6UcaSBByc9urSm7T2R9'}"
+      "error": null,
+      "input_tokens": 6387,
+      "output_tokens": 664,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.1,
+        "readability": 0.05,
+        "security_robustness": 0.3,
+        "judgement": "OVERFITTING",
+        "confidence": 0.9,
+        "brief_reason": "The patch replaces a meaningful contiguity check with an unrelated, seemingly nonsensical condition involving a constant MIN and valueToAdd, which likely always evaluates true and coincidentally routes execution through the same branch, rather than addressing the real leap-year date arithmetic bug. This is unreadable, not tied to the underlying cause, and appears to be a fragile hack tuned to pass the specific failing tests."
+      },
+      "s_sem": 0.09999999999999998,
+      "confidence_clipped": false
     }
   ]
 }

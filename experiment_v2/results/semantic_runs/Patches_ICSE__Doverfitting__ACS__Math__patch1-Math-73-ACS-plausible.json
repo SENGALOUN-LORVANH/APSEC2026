@@ -3,29 +3,74 @@
   "condition": "C",
   "model": "claude-haiku-4-5",
   "n_runs": 3,
-  "n_parsed": 0,
-  "s_sem_final": null,
-  "decision": null,
+  "n_parsed": 3,
+  "s_sem_final": 0.050000000000000044,
+  "decision": "OVERFITTING",
   "ground_truth_label": null,
   "context_errors": [],
   "runs": [
     {
       "run": 0,
-      "latency_s": 0.3373774219999177,
+      "latency_s": 3.0190134620000038,
       "attempts": 1,
-      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cf6V6VBgyDCq6nUpqGgR9'}"
+      "error": null,
+      "input_tokens": 2630,
+      "output_tokens": 176,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.1,
+        "readability": 0.0,
+        "security_robustness": 0.3,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch adds an arbitrary check `if (initial>(double)0.0)` that throws IllegalArgumentException, which is unrelated to the actual bug (non-bracketing validation). This is a hardcoded condition that only passes the specific test case rather than fixing the underlying validation logic. The patch degrades code quality and introduces incorrect behavior for legitimate use cases where initial > 0."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
     },
     {
       "run": 1,
-      "latency_s": 0.358460424000441,
+      "latency_s": 2.968615215,
       "attempts": 1,
-      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cf6V6WZ3Fu7dyoAVo1yuL'}"
+      "error": null,
+      "input_tokens": 2630,
+      "output_tokens": 174,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.1,
+        "readability": 0.0,
+        "security_robustness": 0.3,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch adds an arbitrary check `if (initial>(double)0.0)` that throws IllegalArgumentException, which is unrelated to the actual bug (non-bracketing validation). This is a hardcoded condition that only passes the specific test case rather than fixing the underlying validation logic. The patch weakens functionality by rejecting valid positive initial values and introduces poor code quality."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
     },
     {
       "run": 2,
-      "latency_s": 0.36390662400117435,
+      "latency_s": 3.522182409999999,
       "attempts": 1,
-      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cf6V6YCWZFqxpncQxtwtL'}"
+      "error": null,
+      "input_tokens": 2630,
+      "output_tokens": 184,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.1,
+        "readability": 0.0,
+        "security_robustness": 0.3,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch adds an arbitrary check `if (initial>(double)0.0)` that throws IllegalArgumentException, which is unrelated to the actual bug (non-bracketing validation). This is a hardcoded condition that only passes the specific test case rather than fixing the underlying validation logic. The patch degrades code quality and introduces incorrect behavior for legitimate use cases where initial is positive but the function values don't bracket a root."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
     }
   ]
 }

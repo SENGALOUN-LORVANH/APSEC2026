@@ -3,29 +3,74 @@
   "condition": "C",
   "model": "claude-sonnet-5",
   "n_runs": 3,
-  "n_parsed": 0,
-  "s_sem_final": null,
-  "decision": null,
+  "n_parsed": 3,
+  "s_sem_final": 0.18333333333333335,
+  "decision": "OVERFITTING",
   "ground_truth_label": null,
   "context_errors": [],
   "runs": [
     {
       "run": 0,
-      "latency_s": 0.8070809210003063,
+      "latency_s": 14.139415309000015,
       "attempts": 1,
-      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cf6Uz8bXJAbLiiXk93uAj'}"
+      "error": null,
+      "input_tokens": 4817,
+      "output_tokens": 1100,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.4,
+        "readability": 0.7,
+        "security_robustness": 0.3,
+        "judgement": "OVERFITTING",
+        "confidence": 0.7,
+        "brief_reason": "While reverting the REGULA_FALSI stagnation-break logic may restore the expected TooManyEvaluationsException behavior for this test, the patch also removes the null-check in verifyBracketing, which is unrelated to the bug and weakens input validation, risking NPEs instead of the intended NullArgumentException elsewhere in the codebase."
+      },
+      "s_sem": 0.30000000000000004,
+      "confidence_clipped": false
     },
     {
       "run": 1,
-      "latency_s": 0.3532640089997585,
+      "latency_s": 13.05953154000008,
       "attempts": 1,
-      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cf6Uz9y84aVFgmtVejeD4'}"
+      "error": null,
+      "input_tokens": 4817,
+      "output_tokens": 1111,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.2,
+        "readability": 0.6,
+        "security_robustness": 0.2,
+        "judgement": "OVERFITTING",
+        "confidence": 0.85,
+        "brief_reason": "The patch merely deletes the REGULA_FALSI stagnation-avoidance logic so the solver loops until it hits the evaluation limit, making the test pass by triggering TooManyEvaluationsException rather than fixing the underlying convergence issue. It also removes the unrelated null-check for the function argument in verifyBracketing, weakening robustness without any connection to the bug."
+      },
+      "s_sem": 0.15000000000000002,
+      "confidence_clipped": false
     },
     {
       "run": 2,
-      "latency_s": 0.36771909600065555,
+      "latency_s": 7.618240862999983,
       "attempts": 1,
-      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cf6UzBVeqFW434kdavoZg'}"
+      "error": null,
+      "input_tokens": 4817,
+      "output_tokens": 639,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.2,
+        "readability": 0.5,
+        "security_robustness": 0.2,
+        "judgement": "OVERFITTING",
+        "confidence": 0.9,
+        "brief_reason": "The patch simply deletes the REGULA_FALSI stagnation-avoidance logic and the null-check in verifyBracketing, causing the solver to fail to converge (thus triggering the expected TooManyEvaluationsException) rather than fixing the underlying convergence issue; it also removes unrelated null-safety functionality, weakening robustness."
+      },
+      "s_sem": 0.09999999999999998,
+      "confidence_clipped": false
     }
   ]
 }

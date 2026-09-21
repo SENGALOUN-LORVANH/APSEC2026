@@ -3,29 +3,74 @@
   "condition": "C",
   "model": "claude-haiku-4-5",
   "n_runs": 3,
-  "n_parsed": 0,
-  "s_sem_final": null,
-  "decision": null,
+  "n_parsed": 3,
+  "s_sem_final": 0.050000000000000044,
+  "decision": "OVERFITTING",
   "ground_truth_label": null,
   "context_errors": [],
   "runs": [
     {
       "run": 0,
-      "latency_s": 0.5524328139999852,
+      "latency_s": 3.4736347730000006,
       "attempts": 1,
-      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cf6UyxxLYoSLaPeozyLyP'}"
+      "error": null,
+      "input_tokens": 3779,
+      "output_tokens": 165,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.2,
+        "readability": 0.3,
+        "security_robustness": 0.2,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch removes critical safety checks and algorithm logic rather than fixing the root cause. Removing the null check in verifyBracketing weakens defensive programming, and removing the REGULA_FALSI stagnation prevention logic deletes essential functionality. The patch only makes the test pass by eliminating checks that would catch real errors."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
     },
     {
       "run": 1,
-      "latency_s": 0.34552220899968233,
+      "latency_s": 2.983208605999991,
       "attempts": 1,
-      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cf6UyzqCqt1vNkecsoDfd'}"
+      "error": null,
+      "input_tokens": 3779,
+      "output_tokens": 161,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.2,
+        "readability": 0.3,
+        "security_robustness": 0.2,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch removes critical safety checks (null validation and REGULA_FALSI convergence logic) rather than fixing the underlying bug. It passes the test by eliminating defensive code, but weakens functionality and introduces security risks by removing null checks and breaking the REGULA_FALSI algorithm's convergence mechanism."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
     },
     {
       "run": 2,
-      "latency_s": 0.3488617089988111,
+      "latency_s": 3.156941718999988,
       "attempts": 1,
-      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cf6Uz2GGyEgbLqjtZV9Z8'}"
+      "error": null,
+      "input_tokens": 3779,
+      "output_tokens": 161,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.2,
+        "readability": 0.3,
+        "security_robustness": 0.2,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch removes critical safety checks (null validation and REGULA_FALSI convergence logic) rather than fixing the underlying bug. It passes the test by eliminating defensive code, but weakens functionality and introduces security risks by removing null checks and breaking the REGULA_FALSI algorithm's convergence mechanism."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
     }
   ]
 }

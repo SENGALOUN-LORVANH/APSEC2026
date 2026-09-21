@@ -3,29 +3,74 @@
   "condition": "C",
   "model": "claude-haiku-4-5",
   "n_runs": 3,
-  "n_parsed": 0,
-  "s_sem_final": null,
-  "decision": null,
+  "n_parsed": 3,
+  "s_sem_final": 0.15000000000000002,
+  "decision": "OVERFITTING",
   "ground_truth_label": null,
   "context_errors": [],
   "runs": [
     {
       "run": 0,
-      "latency_s": 0.6573955049989308,
+      "latency_s": 3.676861800000001,
       "attempts": 1,
-      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cf6TKzH3GjmixRmjoczBJ'}"
+      "error": null,
+      "input_tokens": 2976,
+      "output_tokens": 200,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.3,
+        "readability": 0.2,
+        "security_robustness": 0.6,
+        "judgement": "OVERFITTING",
+        "confidence": 0.85,
+        "brief_reason": "The patch adds a check for c2==0.0 to throw MathIllegalStateException, which makes the test pass by handling a specific edge case. However, this is overfitting because it only addresses the symptom (division by zero in sqrt(c2/c3)) rather than the root cause, and the check is placed awkwardly inline with poor formatting. A proper fix would validate the mathematical preconditions earlier or handle the ill-conditioned case more comprehensively."
+      },
+      "s_sem": 0.15000000000000002,
+      "confidence_clipped": false
     },
     {
       "run": 1,
-      "latency_s": 0.3651769019998028,
+      "latency_s": 3.146237068999998,
       "attempts": 1,
-      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cf6TL2GbPLikyMEJESm4R'}"
+      "error": null,
+      "input_tokens": 2976,
+      "output_tokens": 192,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.3,
+        "readability": 0.2,
+        "security_robustness": 0.6,
+        "judgement": "OVERFITTING",
+        "confidence": 0.85,
+        "brief_reason": "The patch adds a check for c2==0.0 to throw MathIllegalStateException, which makes the test pass by handling a specific edge case. However, this is overfitting because it only addresses the immediate symptom (division by zero in sqrt(c2/c3)) rather than the underlying ill-conditioned case mentioned in the comment. The check is also poorly formatted and doesn't properly validate the mathematical conditions that should trigger the exception."
+      },
+      "s_sem": 0.15000000000000002,
+      "confidence_clipped": false
     },
     {
       "run": 2,
-      "latency_s": 0.39563390300099854,
+      "latency_s": 3.0812325030000025,
       "attempts": 1,
-      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cf6TL3osKZnaH997QmitK'}"
+      "error": null,
+      "input_tokens": 2976,
+      "output_tokens": 188,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.3,
+        "readability": 0.2,
+        "security_robustness": 0.6,
+        "judgement": "OVERFITTING",
+        "confidence": 0.85,
+        "brief_reason": "The patch adds a check for c2==0.0 to throw MathIllegalStateException, which makes the test pass by handling a division-by-zero case. However, this is overfitting because it only addresses the specific failing test case rather than the general root cause. The check is poorly formatted, lacks proper error messaging, and doesn't address why c2 becomes zero or whether other similar edge cases exist in the computation."
+      },
+      "s_sem": 0.15000000000000002,
+      "confidence_clipped": false
     }
   ]
 }

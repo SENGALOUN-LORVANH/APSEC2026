@@ -3,29 +3,74 @@
   "condition": "C",
   "model": "claude-sonnet-5",
   "n_runs": 3,
-  "n_parsed": 0,
-  "s_sem_final": null,
-  "decision": null,
+  "n_parsed": 3,
+  "s_sem_final": 0.19999999999999998,
+  "decision": "OVERFITTING",
   "ground_truth_label": null,
   "context_errors": [],
   "runs": [
     {
       "run": 0,
-      "latency_s": 0.42392420299984224,
+      "latency_s": 6.894962096000029,
       "attempts": 1,
-      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cf6TL7Xra9ij8zJ8w1jSb'}"
+      "error": null,
+      "input_tokens": 3817,
+      "output_tokens": 418,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.4,
+        "readability": 0.1,
+        "security_robustness": 0.5,
+        "judgement": "OVERFITTING",
+        "confidence": 0.75,
+        "brief_reason": "The patch only guards against c2==0, which likely covers the specific failing test case, but does not address other ill-conditioned scenarios (e.g., c3==0, negative ratios) that could also cause NaN/Infinity results in guessAOmega. The added line is also poorly formatted, hurting readability without a general fix."
+      },
+      "s_sem": 0.25,
+      "confidence_clipped": false
     },
     {
       "run": 1,
-      "latency_s": 0.37806890300089435,
+      "latency_s": 7.951393780999979,
       "attempts": 1,
-      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cf6TL95coxSvngXudAvPL'}"
+      "error": null,
+      "input_tokens": 3817,
+      "output_tokens": 604,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.3,
+        "readability": 0.1,
+        "security_robustness": 0.4,
+        "judgement": "OVERFITTING",
+        "confidence": 0.8,
+        "brief_reason": "The patch merely special-cases c2==0 to throw the expected exception, rather than addressing the general ill-conditioned computation (e.g., NaN results from 0/0, or other degenerate ratios). It also has poor formatting (no braces, no line break), reducing readability and risking missed edge cases like c3==0."
+      },
+      "s_sem": 0.19999999999999996,
+      "confidence_clipped": false
     },
     {
       "run": 2,
-      "latency_s": 0.4167727029998787,
+      "latency_s": 5.893878592999954,
       "attempts": 1,
-      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cf6TLAqnaVVDztS3mNGES'}"
+      "error": null,
+      "input_tokens": 3817,
+      "output_tokens": 398,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.4,
+        "readability": 0.2,
+        "security_robustness": 0.5,
+        "judgement": "OVERFITTING",
+        "confidence": 0.85,
+        "brief_reason": "The patch only guards against c2==0, which happens to match the specific failing test's inputs, but doesn't address the more general ill-conditioning issue (e.g., c3==0 or negative ratios producing NaN) that the comment 'MATH-844' refers to. It also has poor formatting/readability, indicating a narrow, non-general fix."
+      },
+      "s_sem": 0.15000000000000002,
+      "confidence_clipped": false
     }
   ]
 }

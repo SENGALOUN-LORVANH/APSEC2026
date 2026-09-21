@@ -3,29 +3,74 @@
   "condition": "C",
   "model": "claude-haiku-4-5",
   "n_runs": 3,
-  "n_parsed": 0,
-  "s_sem_final": null,
-  "decision": null,
+  "n_parsed": 3,
+  "s_sem_final": 0.010000000000000009,
+  "decision": "OVERFITTING",
   "ground_truth_label": null,
   "context_errors": [],
   "runs": [
     {
       "run": 0,
-      "latency_s": 0.8224030170003971,
+      "latency_s": 3.2377478419999903,
       "attempts": 1,
-      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cf6TT8xsHzprhcDoPqvzm'}"
+      "error": null,
+      "input_tokens": 1994,
+      "output_tokens": 177,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.1,
+        "readability": 0.2,
+        "security_robustness": 0.0,
+        "judgement": "OVERFITTING",
+        "confidence": 0.99,
+        "brief_reason": "The patch removes the validation check that prevents invalid Range objects (where lower > upper) from being created, merely silencing the error rather than fixing the root cause. This fundamentally weakens the Range class's contract and introduces a security/robustness risk by allowing invalid state. The patch only makes the test pass by eliminating the exception, not by correcting the underlying logic that produces invalid ranges."
+      },
+      "s_sem": 0.010000000000000009,
+      "confidence_clipped": false
     },
     {
       "run": 1,
-      "latency_s": 0.362771452000743,
+      "latency_s": 372.737151752,
       "attempts": 1,
-      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cf6TTAuhJa22ZLw26f2ok'}"
+      "error": null,
+      "input_tokens": 1994,
+      "output_tokens": 158,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.0,
+        "readability": 0.2,
+        "security_robustness": 0.0,
+        "judgement": "OVERFITTING",
+        "confidence": 0.99,
+        "brief_reason": "The patch removes the validation check entirely instead of fixing the underlying bug, allowing invalid Range objects with lower > upper to be created. This is a dangerous overfitting that silences the error rather than addressing the root cause in BorderArrangement.arrangeFF() where negative dimensions are being passed to Range."
+      },
+      "s_sem": 0.010000000000000009,
+      "confidence_clipped": false
     },
     {
       "run": 2,
-      "latency_s": 0.37797485400005826,
+      "latency_s": 2.896859998000025,
       "attempts": 1,
-      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cf6TTCB6k5PaBDaRLZ1LM'}"
+      "error": null,
+      "input_tokens": 1994,
+      "output_tokens": 176,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.1,
+        "readability": 0.2,
+        "security_robustness": 0.0,
+        "judgement": "OVERFITTING",
+        "confidence": 0.99,
+        "brief_reason": "The patch removes the validation check that prevents invalid Range objects (where lower > upper) from being created, allowing the test to pass by silently accepting invalid state. This deletes critical functionality and introduces a serious robustness issue, as Range objects can now violate their invariant. The patch is overfitting to the specific test case rather than fixing the underlying bug in BorderArrangement."
+      },
+      "s_sem": 0.010000000000000009,
+      "confidence_clipped": false
     }
   ]
 }

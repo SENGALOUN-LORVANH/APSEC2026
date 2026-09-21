@@ -3,29 +3,74 @@
   "condition": "C",
   "model": "claude-sonnet-5",
   "n_runs": 3,
-  "n_parsed": 0,
-  "s_sem_final": null,
-  "decision": null,
+  "n_parsed": 3,
+  "s_sem_final": 0.6833333333333332,
+  "decision": "CORRECT",
   "ground_truth_label": null,
   "context_errors": [],
   "runs": [
     {
       "run": 0,
-      "latency_s": 0.370974068000578,
+      "latency_s": 14.004657676000079,
       "attempts": 1,
-      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cf6TxgcSWqwVx154Cqr2M'}"
+      "error": null,
+      "input_tokens": 7511,
+      "output_tokens": 1120,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.6,
+        "readability": 0.4,
+        "security_robustness": 0.8,
+        "judgement": "CORRECT",
+        "confidence": 0.7,
+        "brief_reason": "Removing the special-case that swallowed '--' prefixed strings and returned null lets the normal numeric parsing path run, which correctly throws NumberFormatException for invalid inputs like '--123', fixing the root cause. However leaving an empty if-block is untidy and could be replaced by simply deleting the if statement, hurting readability slightly."
+      },
+      "s_sem": 0.7,
+      "confidence_clipped": false
     },
     {
       "run": 1,
-      "latency_s": 368.4431553760005,
+      "latency_s": 15.789478118000034,
       "attempts": 1,
-      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cf6URqPHMkeiRmK2Pm2zA'}"
+      "error": null,
+      "input_tokens": 7511,
+      "output_tokens": 1312,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.6,
+        "readability": 0.4,
+        "security_robustness": 0.7,
+        "judgement": "CORRECT",
+        "confidence": 0.65,
+        "brief_reason": "Removing the early return null lets the '--' prefixed string fall through to the normal parsing logic, which correctly raises NumberFormatException as expected by the test, rather than silently returning null. The fix addresses the general cause (special-casing '--' incorrectly) rather than just the specific test case, though leaving an empty if-block is poor style and could be simplified by deleting the whole if statement."
+      },
+      "s_sem": 0.65,
+      "confidence_clipped": false
     },
     {
       "run": 2,
-      "latency_s": 0.37584238999988884,
+      "latency_s": 12.398748767999905,
       "attempts": 1,
-      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cf6URsR4zMn91E4f7QVym'}"
+      "error": null,
+      "input_tokens": 7511,
+      "output_tokens": 1035,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.6,
+        "readability": 0.4,
+        "security_robustness": 0.85,
+        "judgement": "CORRECT",
+        "confidence": 0.7,
+        "brief_reason": "Removing the special-case null return for strings starting with \"--\" lets normal parsing logic run, which correctly throws NumberFormatException for such invalid inputs in general, not just the tested case. However, leaving an empty if-block is poor style rather than simply removing the dead code, hurting readability slightly."
+      },
+      "s_sem": 0.7,
+      "confidence_clipped": false
     }
   ]
 }

@@ -3,8 +3,8 @@
   "condition": "C",
   "model": "claude-sonnet-5",
   "n_runs": 3,
-  "n_parsed": 2,
-  "s_sem_final": 0.7250000000000001,
+  "n_parsed": 3,
+  "s_sem_final": 0.7666666666666667,
   "decision": "CORRECT",
   "ground_truth_label": null,
   "context_errors": [],
@@ -53,9 +53,24 @@
     },
     {
       "run": 2,
-      "latency_s": null,
-      "attempts": 6,
-      "error": "gave up after 6 attempts: APIConnectionError: Connection error."
+      "latency_s": 22.471532663999824,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 4988,
+      "output_tokens": 2033,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.9,
+        "readability": 0.8,
+        "security_robustness": 1.0,
+        "judgement": "CORRECT",
+        "confidence": 0.85,
+        "brief_reason": "The patch correctly extends the decimal-point/exponent validity check to also cover the 'L'/'l' suffix, preventing invalid literals like '1.1L' from being accepted, which matches the root cause described in LANG-664 rather than just patching the specific failing string."
+      },
+      "s_sem": 0.85,
+      "confidence_clipped": false
     }
   ]
 }

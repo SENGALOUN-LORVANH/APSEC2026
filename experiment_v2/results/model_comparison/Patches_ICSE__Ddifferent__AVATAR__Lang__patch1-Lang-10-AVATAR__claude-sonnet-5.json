@@ -3,29 +3,74 @@
   "condition": "C",
   "model": "claude-sonnet-5",
   "n_runs": 3,
-  "n_parsed": 0,
-  "s_sem_final": null,
-  "decision": null,
+  "n_parsed": 3,
+  "s_sem_final": 0.16666666666666666,
+  "decision": "OVERFITTING",
   "ground_truth_label": null,
   "context_errors": [],
   "runs": [
     {
       "run": 0,
-      "latency_s": 0.4139520499993523,
+      "latency_s": 5.0788056200000256,
       "attempts": 1,
-      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cf6Uj8GWa87peo7vpdwYS'}"
+      "error": null,
+      "input_tokens": 5541,
+      "output_tokens": 371,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.2,
+        "readability": 0.4,
+        "security_robustness": 0.5,
+        "judgement": "OVERFITTING",
+        "confidence": 0.9,
+        "brief_reason": "The patch deletes the whitespace-handling logic in escapeRegex entirely, rather than fixing the underlying issue with the possessive quantifier causing incorrect matches; this removes functionality (whitespace normalization in date patterns) that other tests likely depend on, and is not a genuine root-cause fix."
+      },
+      "s_sem": 0.09999999999999998,
+      "confidence_clipped": false
     },
     {
       "run": 1,
-      "latency_s": 0.31741876200067054,
+      "latency_s": 10.22066001600001,
       "attempts": 1,
-      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cf6Uj9bdks4PfGHPMUzBg'}"
+      "error": null,
+      "input_tokens": 5541,
+      "output_tokens": 811,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.3,
+        "readability": 0.5,
+        "security_robustness": 0.6,
+        "judgement": "OVERFITTING",
+        "confidence": 0.75,
+        "brief_reason": "The patch simply deletes the whitespace-collapsing regex logic instead of properly fixing the underlying issue, which removes the ability to flexibly match variable whitespace in date patterns and likely breaks other whitespace-containing date formats not covered by the given tests."
+      },
+      "s_sem": 0.25,
+      "confidence_clipped": false
     },
     {
       "run": 2,
-      "latency_s": 0.3699098560009588,
+      "latency_s": 6.739630577999947,
       "attempts": 1,
-      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cf6UjAwFXZyzdya3AEmht'}"
+      "error": null,
+      "input_tokens": 5541,
+      "output_tokens": 479,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.3,
+        "readability": 0.5,
+        "security_robustness": 0.6,
+        "judgement": "OVERFITTING",
+        "confidence": 0.85,
+        "brief_reason": "The patch removes the whitespace-collapsing logic entirely instead of fixing the underlying regex construction bug, causing literal spaces to be emitted instead of flexible \\s*+ matching, which weakens/loses intended whitespace-matching functionality even though it happens to make the failing tests pass."
+      },
+      "s_sem": 0.15000000000000002,
+      "confidence_clipped": false
     }
   ]
 }

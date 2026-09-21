@@ -3,29 +3,74 @@
   "condition": "C",
   "model": "claude-haiku-4-5",
   "n_runs": 3,
-  "n_parsed": 0,
-  "s_sem_final": null,
-  "decision": null,
+  "n_parsed": 3,
+  "s_sem_final": 0.050000000000000044,
+  "decision": "OVERFITTING",
   "ground_truth_label": null,
   "context_errors": [],
   "runs": [
     {
       "run": 0,
-      "latency_s": 0.4063771060009458,
+      "latency_s": 3.4201822919999927,
       "attempts": 1,
-      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cf6UcRF2XgtFNikBWdbC2'}"
+      "error": null,
+      "input_tokens": 4734,
+      "output_tokens": 197,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.1,
+        "readability": 0.0,
+        "security_robustness": 0.3,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch replaces a clear, semantic condition (DateTimeUtils.isContiguous) with an obfuscated, nonsensical condition that appears to hardcode specific test cases rather than fix the underlying bug. The new condition references an undefined constant (MIN) and uses arbitrary logic that doesn't address the root cause of invalid day-of-month values when adding months to leap day dates. This is classic overfitting that happens to pass tests but introduces maintainability and correctness risks."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
     },
     {
       "run": 1,
-      "latency_s": 0.35426810500030115,
+      "latency_s": 3.2511436590000358,
       "attempts": 1,
-      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cf6UcShaudBKW1rQZ316G'}"
+      "error": null,
+      "input_tokens": 4734,
+      "output_tokens": 181,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.1,
+        "readability": 0.0,
+        "security_robustness": 0.3,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch replaces a meaningful condition (DateTimeUtils.isContiguous) with an obfuscated, nonsensical condition that references an undefined constant MIN and uses arbitrary magic numbers. While it may pass the specific failing tests, it fundamentally breaks the logic by removing the contiguity check that prevents invalid date arithmetic, weakens functionality, and introduces unrelated behavior changes that will likely cause failures in other scenarios."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
     },
     {
       "run": 2,
-      "latency_s": 0.3412221039998258,
+      "latency_s": 3.1953976890000035,
       "attempts": 1,
-      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cf6UcUCP2PsmYsafEVB7t'}"
+      "error": null,
+      "input_tokens": 4734,
+      "output_tokens": 175,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.1,
+        "readability": 0.0,
+        "security_robustness": 0.3,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch replaces a meaningful condition (DateTimeUtils.isContiguous) with an obfuscated, nonsensical condition that references an undefined constant MIN and uses arbitrary logic unrelated to the actual bug. While it may pass the specific failing tests, it fundamentally breaks the original logic and introduces undefined behavior, making it a clear case of overfitting rather than genuine bug repair."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
     }
   ]
 }

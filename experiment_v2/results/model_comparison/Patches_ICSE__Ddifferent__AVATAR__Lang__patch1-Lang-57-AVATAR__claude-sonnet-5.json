@@ -3,29 +3,74 @@
   "condition": "C",
   "model": "claude-sonnet-5",
   "n_runs": 3,
-  "n_parsed": 0,
-  "s_sem_final": null,
-  "decision": null,
+  "n_parsed": 3,
+  "s_sem_final": 0.31666666666666665,
+  "decision": "OVERFITTING",
   "ground_truth_label": null,
   "context_errors": [],
   "runs": [
     {
       "run": 0,
-      "latency_s": 0.3631925079989742,
+      "latency_s": 16.74791591500002,
       "attempts": 1,
-      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cf6UXHhDUyxGUtpcfDDSK'}"
+      "error": null,
+      "input_tokens": 6083,
+      "output_tokens": 1716,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.4,
+        "readability": 0.6,
+        "security_robustness": 0.5,
+        "judgement": "OVERFITTING",
+        "confidence": 0.75,
+        "brief_reason": "The NPE stems from cAvailableLocaleSet not being lazily initialized before use; the proper fix is to call availableLocaleSet() (which triggers lazy init) instead of accessing the field directly. Swapping to cAvailableLocaleList only works because that list happens to already be populated, but it doesn't address the underlying lazy-initialization bug for the Set, and changes the underlying data structure/semantics used for the check.'"
+      },
+      "s_sem": 0.25,
+      "confidence_clipped": false
     },
     {
       "run": 1,
-      "latency_s": 0.37598939499912376,
+      "latency_s": 18.20145444700006,
       "attempts": 1,
-      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cf6UXKAmRfe6Kg8CUAST3'}"
+      "error": null,
+      "input_tokens": 6083,
+      "output_tokens": 1714,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.5,
+        "readability": 0.7,
+        "security_robustness": 0.5,
+        "judgement": "OVERFITTING",
+        "confidence": 0.65,
+        "brief_reason": "The patch avoids the NPE by swapping to a different (properly initialized) collection instead of fixing why cAvailableLocaleSet was null; this changes lookup semantics (List.contains vs Set.contains) and leaves the underlying initialization bug for cAvailableLocaleSet unaddressed, potentially causing issues elsewhere that use that field."
+      },
+      "s_sem": 0.35,
+      "confidence_clipped": false
     },
     {
       "run": 2,
-      "latency_s": 0.34431182899970736,
+      "latency_s": 9.269096633999993,
       "attempts": 1,
-      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cf6UXLpjTCYbaXRGDycYW'}"
+      "error": null,
+      "input_tokens": 6083,
+      "output_tokens": 802,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.4,
+        "readability": 0.6,
+        "security_robustness": 0.5,
+        "judgement": "OVERFITTING",
+        "confidence": 0.65,
+        "brief_reason": "The patch swaps the null cAvailableLocaleSet for cAvailableLocaleList instead of fixing the root cause of why cAvailableLocaleSet is null (likely a static initialization order bug), so it papers over the symptom for this one method rather than addressing the underlying issue that may affect other usages of cAvailableLocaleSet."
+      },
+      "s_sem": 0.35,
+      "confidence_clipped": false
     }
   ]
 }

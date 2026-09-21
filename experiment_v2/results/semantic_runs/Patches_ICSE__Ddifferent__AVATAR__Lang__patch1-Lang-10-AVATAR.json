@@ -3,29 +3,74 @@
   "condition": "C",
   "model": "claude-haiku-4-5",
   "n_runs": 3,
-  "n_parsed": 0,
-  "s_sem_final": null,
-  "decision": null,
+  "n_parsed": 3,
+  "s_sem_final": 0.050000000000000044,
+  "decision": "OVERFITTING",
   "ground_truth_label": null,
   "context_errors": [],
   "runs": [
     {
       "run": 0,
-      "latency_s": 0.4736175429989089,
+      "latency_s": 2.9639778760000013,
       "attempts": 1,
-      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cf6Uj1PGqyUUR6mYS8Mui'}"
+      "error": null,
+      "input_tokens": 4040,
+      "output_tokens": 164,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.3,
+        "readability": 0.4,
+        "security_robustness": 0.8,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch removes whitespace handling logic entirely, which weakens functionality by breaking the intended behavior of collapsing consecutive whitespace into a single regex pattern. While it may pass the specific failing test, it does so by deleting core logic rather than fixing the underlying bug, making it an overfitting solution that likely breaks other use cases."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
     },
     {
       "run": 1,
-      "latency_s": 0.35803685700011556,
+      "latency_s": 12.951136621999993,
       "attempts": 1,
-      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cf6Uj32zU8qo5HDfWGXPs'}"
+      "error": null,
+      "input_tokens": 4040,
+      "output_tokens": 160,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.3,
+        "readability": 0.4,
+        "security_robustness": 0.8,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch removes whitespace handling logic entirely, which weakens functionality by breaking the regex escaping mechanism for whitespace characters. While it may pass the specific failing test, it deletes core behavior needed for proper date parsing with whitespace patterns, making it an overfitting solution that sacrifices correctness for test passage."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
     },
     {
       "run": 2,
-      "latency_s": 0.33095615999991423,
+      "latency_s": 3.2431692610000056,
       "attempts": 1,
-      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cf6Uj4ZGk15qBWzmmqJPv'}"
+      "error": null,
+      "input_tokens": 4040,
+      "output_tokens": 164,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.3,
+        "readability": 0.4,
+        "security_robustness": 0.8,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch removes whitespace handling logic entirely, which weakens functionality by breaking the intended behavior of collapsing consecutive whitespace into a single regex pattern. While it may pass the specific failing test, it does so by deleting core functionality rather than fixing the underlying bug, making it an overfitting solution that likely breaks other use cases."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
     }
   ]
 }

@@ -3,29 +3,74 @@
   "condition": "C",
   "model": "claude-haiku-4-5",
   "n_runs": 3,
-  "n_parsed": 0,
-  "s_sem_final": null,
-  "decision": null,
+  "n_parsed": 3,
+  "s_sem_final": 0.15000000000000002,
+  "decision": "OVERFITTING",
   "ground_truth_label": null,
   "context_errors": [],
   "runs": [
     {
       "run": 0,
-      "latency_s": 0.5488366129993665,
+      "latency_s": 3.422775111,
       "attempts": 1,
-      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cf6To2ZDAwjouure8fA3i'}"
+      "error": null,
+      "input_tokens": 3029,
+      "output_tokens": 172,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.3,
+        "readability": 0.2,
+        "security_robustness": 0.7,
+        "judgement": "OVERFITTING",
+        "confidence": 0.85,
+        "brief_reason": "The patch adds a null check for implicitProto to prevent the NullPointerException, which is correct. However, it introduces a critical structural error: the closing brace placement breaks the control flow by prematurely closing the method, leaving the final for-loop orphaned and unreachable. This causes the patch to be syntactically invalid and would fail to compile."
+      },
+      "s_sem": 0.15000000000000002,
+      "confidence_clipped": false
     },
     {
       "run": 1,
-      "latency_s": 0.3308050079995155,
+      "latency_s": 2.754460617999996,
       "attempts": 1,
-      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cf6To4YXGu1yUSppwKxvZ'}"
+      "error": null,
+      "input_tokens": 3029,
+      "output_tokens": 168,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.3,
+        "readability": 0.2,
+        "security_robustness": 0.7,
+        "judgement": "OVERFITTING",
+        "confidence": 0.85,
+        "brief_reason": "The patch adds a null check for implicitProto to prevent the NullPointerException, which is correct. However, it introduces a critical structural bug by closing the if statement prematurely with a brace, breaking the control flow and leaving the subsequent for-loop orphaned outside the method. This makes the code syntactically invalid and would not compile."
+      },
+      "s_sem": 0.15000000000000002,
+      "confidence_clipped": false
     },
     {
       "run": 2,
-      "latency_s": 0.3505477090002387,
+      "latency_s": 3.1561535680000006,
       "attempts": 1,
-      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cf6To5uNtKnZsbfP7LxQZ'}"
+      "error": null,
+      "input_tokens": 3029,
+      "output_tokens": 181,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.3,
+        "readability": 0.2,
+        "security_robustness": 0.6,
+        "judgement": "OVERFITTING",
+        "confidence": 0.85,
+        "brief_reason": "The patch adds a null check for implicitProto to prevent the NullPointerException, which is correct. However, it introduces a critical structural bug by adding a closing brace that breaks the control flow\u2014the subsequent for loop becomes unreachable dead code, causing the method to skip processing extended interfaces when implicitProto is null. This is overfitting that masks the symptom without properly fixing the underlying logic."
+      },
+      "s_sem": 0.15000000000000002,
+      "confidence_clipped": false
     }
   ]
 }

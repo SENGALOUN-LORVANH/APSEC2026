@@ -3,29 +3,74 @@
   "condition": "C",
   "model": "claude-sonnet-5",
   "n_runs": 3,
-  "n_parsed": 0,
-  "s_sem_final": null,
-  "decision": null,
+  "n_parsed": 3,
+  "s_sem_final": 0.7333333333333334,
+  "decision": "CORRECT",
   "ground_truth_label": null,
   "context_errors": [],
   "runs": [
     {
       "run": 0,
-      "latency_s": 0.31767070699970645,
+      "latency_s": 3.2918931929999644,
       "attempts": 1,
-      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cf6To9wi8WbGHgJ9WyXh1'}"
+      "error": null,
+      "input_tokens": 4171,
+      "output_tokens": 185,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.6,
+        "readability": 0.3,
+        "security_robustness": 0.7,
+        "judgement": "CORRECT",
+        "confidence": 0.7,
+        "brief_reason": "The patch correctly guards against a null implicitProto to avoid the NPE, matching the comment's intent, and generalizes to any interface with a non-existent super type. However, the diff is messy with inconsistent indentation and brace placement, hurting readability though functionally correct."
+      },
+      "s_sem": 0.7,
+      "confidence_clipped": false
     },
     {
       "run": 1,
-      "latency_s": 0.3165137069991033,
+      "latency_s": 4.715488068000013,
       "attempts": 1,
-      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cf6ToBFbRnDpqiDcQ8GHz'}"
+      "error": null,
+      "input_tokens": 4171,
+      "output_tokens": 291,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.6,
+        "readability": 0.3,
+        "security_robustness": 0.8,
+        "judgement": "CORRECT",
+        "confidence": 0.75,
+        "brief_reason": "The patch correctly guards against a null implicitProto, which was the root cause of the NPE, and preserves existing logic when non-null. However the code formatting is messy (tab, mismatched braces) reducing readability, though functionally it addresses the general bug case."
+      },
+      "s_sem": 0.75,
+      "confidence_clipped": false
     },
     {
       "run": 2,
-      "latency_s": 0.6934465159993124,
+      "latency_s": 3.1796299450001015,
       "attempts": 1,
-      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cf6ToCbhzQEPGJHLB78He'}"
+      "error": null,
+      "input_tokens": 4171,
+      "output_tokens": 168,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 1.0,
+        "readability": 0.2,
+        "security_robustness": 0.7,
+        "judgement": "CORRECT",
+        "confidence": 0.75,
+        "brief_reason": "The patch correctly guards against a null implicitProto causing NPE, addressing the root cause, but the diff is poorly formatted with inconsistent indentation and unclear brace placement, harming readability though functionally correct."
+      },
+      "s_sem": 0.75,
+      "confidence_clipped": false
     }
   ]
 }

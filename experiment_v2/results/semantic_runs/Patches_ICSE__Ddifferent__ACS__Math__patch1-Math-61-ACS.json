@@ -3,29 +3,74 @@
   "condition": "C",
   "model": "claude-haiku-4-5",
   "n_runs": 3,
-  "n_parsed": 0,
-  "s_sem_final": null,
-  "decision": null,
+  "n_parsed": 3,
+  "s_sem_final": 0.050000000000000044,
+  "decision": "OVERFITTING",
   "ground_truth_label": null,
   "context_errors": [],
   "runs": [
     {
       "run": 0,
-      "latency_s": 0.49126480800077843,
+      "latency_s": 2.904358035999998,
       "attempts": 1,
-      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cf6T5N7XUtrqdc43nGQLj'}"
+      "error": null,
+      "input_tokens": 2370,
+      "output_tokens": 151,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.1,
+        "readability": 0.2,
+        "security_robustness": 0.3,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch adds a redundant exception throw before the original validation, creating dead code and malformed imports. It doesn't fix the underlying bug\u2014the test still fails because the validation logic remains unchanged. The patch is syntactically broken and introduces unrelated behavior changes without addressing the root cause."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
     },
     {
       "run": 1,
-      "latency_s": 0.3373987059985666,
+      "latency_s": 3.0099015350000045,
       "attempts": 1,
-      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cf6T5Q4MUgLRaTrmGy5ne'}"
+      "error": null,
+      "input_tokens": 2370,
+      "output_tokens": 161,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.1,
+        "readability": 0.2,
+        "security_robustness": 0.3,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch adds a redundant exception throw before the original validation, creating dead code and poor formatting. It changes unrelated behavior by introducing a new exception type that masks the original error message. The patch is neither minimal nor maintainable, appearing to be an artifact of automated repair that doesn't genuinely fix the underlying issue."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
     },
     {
       "run": 2,
-      "latency_s": 0.41713140799947723,
+      "latency_s": 2.9565175389999965,
       "attempts": 1,
-      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cf6T5RgLkzHzJ9QseDLY7'}"
+      "error": null,
+      "input_tokens": 2370,
+      "output_tokens": 153,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.1,
+        "readability": 0.2,
+        "security_robustness": 0.3,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch adds a redundant exception throw before the original validation, creating dead code and poor formatting. It introduces an unrelated NotStrictlyPositiveException with null message instead of fixing the actual validation logic, and the malformed package statement suggests automated tool corruption rather than genuine repair."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
     }
   ]
 }
