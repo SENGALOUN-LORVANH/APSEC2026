@@ -73,6 +73,62 @@ def run_spotbugs(workdir, timeout=180):
     return parse_warnings(p.stdout + p.stderr), None
 
 
+def run_spotbugs_targets(workdir, targets, timeout=180):
+    """Run SpotBugs on an explicit list of .class files (Stage 2B: restrict to CHANGED classes only, so a
+    small candidate-vs-buggy diff is not diluted by whole-project scanning). -> (warnings, error)."""
+    cp_compile = d4j.export(workdir, "cp.compile")
+    existing = [t for t in targets if Path(t).exists()]
+    if not existing:
+        return None, "no changed-class .class files found on disk"
+    try:
+        p = subprocess.run(["spotbugs", "analyze", "-textui", "-low", "-auxclasspath", cp_compile or "",
+                           "-pluginList", SPOTBUGS_PLUGIN, *existing],
+                           capture_output=True, text=True, env=_env(), timeout=timeout)
+    except subprocess.TimeoutExpired:
+        return None, f"spotbugs timed out after {timeout}s"
+    return parse_warnings(p.stdout + p.stderr), None
+
+
+def changed_class_files(workdir, changed_rel_class_paths):
+    """changed_rel_class_paths: package-relative class paths without extension, e.g.
+    'org/jfree/chart/plot/CategoryPlot'. Returns the .class file(s) incl. inner classes ($...)."""
+    bin_dir = d4j.export(workdir, "dir.bin.classes")
+    if not bin_dir:
+        return []
+    base = Path(workdir) / bin_dir
+    files = []
+    for rel in changed_rel_class_paths:
+        main = base / (rel + ".class")
+        if main.exists():
+            files.append(str(main))
+        parent, name = (base / rel).parent, Path(rel).name
+        if parent.exists():
+            files += [str(x) for x in parent.glob(name + "$*.class")]
+    return files
+
+
+def compute_s_vuln_changed_classes(buggy_dir, candidate_dir, changed_rel_class_paths):
+    """S_vuln restricted to the changed classes (Stage 2B). New warnings = candidate - buggy on those classes.
+    Analyzer failure on either side -> s_vuln None (MISSING), never 0."""
+    bt = changed_class_files(buggy_dir, changed_rel_class_paths)
+    ct = changed_class_files(candidate_dir, changed_rel_class_paths)
+    buggy_warnings, buggy_err = run_spotbugs_targets(buggy_dir, bt)
+    cand_warnings, cand_err = run_spotbugs_targets(candidate_dir, ct)
+    if buggy_err or cand_err:
+        return {"s_vuln": None, "new_warnings": [], "buggy_error": buggy_err, "candidate_error": cand_err,
+                "scope": "changed_classes", "n_changed_class_files_buggy": len(bt),
+                "n_changed_class_files_candidate": len(ct)}
+    buggy_keys = [warning_key(w) for w in buggy_warnings]
+    cand_by_key = {warning_key(w): w for w in cand_warnings}
+    new_keys = scores.new_warnings(buggy_keys, list(cand_by_key.keys()))
+    new_severities = [cand_by_key[k]["severity"] for k in new_keys if k in cand_by_key]
+    return {"s_vuln": scores.s_vuln(new_severities, SEVERITY_WEIGHTS),
+            "new_warnings": [dict(cand_by_key[k]) for k in new_keys if k in cand_by_key],
+            "n_buggy_warnings": len(buggy_warnings), "n_candidate_warnings": len(cand_warnings),
+            "scope": "changed_classes", "n_changed_class_files_buggy": len(bt),
+            "n_changed_class_files_candidate": len(ct), "buggy_error": None, "candidate_error": None}
+
+
 def warning_key(w):
     return (w["bug_type"], w["class"], w["method"])
 

@@ -1,0 +1,84 @@
+{
+  "patch_id": "Patches_ICSE__Dsame__SimFix__Lang__patch1-Lang-39-SimFix",
+  "bug_id": "Lang-39",
+  "s_edit_ast": 0.03622047244094488,
+  "s_edit_ast_actions": 23,
+  "s_edit_ast_nodes": 635,
+  "s_edit_error": null,
+  "s_vuln_changed": 0,
+  "s_vuln_new_warning_count": 0,
+  "s_vuln_buggy_error": null,
+  "s_vuln_candidate_error": null,
+  "changed_classes": [
+    "org/apache/commons/lang3/StringUtils"
+  ],
+  "analysis_level": "DATAFLOW",
+  "cfg_buggy": {
+    "analysis_level": "DATAFLOW",
+    "stmts": 152,
+    "cfg_edges": 176,
+    "branch_points": 31,
+    "cyclomatic_complexity": 28,
+    "def_count": 96,
+    "use_count": 333,
+    "defuse_pairs": 96,
+    "per_method": [
+      {
+        "class": "org.apache.commons.lang3.StringUtils",
+        "method": "replaceEach",
+        "analysis_level": "DATAFLOW",
+        "n_methods": 2,
+        "stmts": 152,
+        "cfg_edges": 176,
+        "branch_points": 31,
+        "cyclomatic_complexity": 28,
+        "def_count": 96,
+        "use_count": 333,
+        "defuse_pairs": 96,
+        "error": null
+      }
+    ]
+  },
+  "cfg_candidate": {
+    "analysis_level": "DATAFLOW",
+    "stmts": 157,
+    "cfg_edges": 183,
+    "branch_points": 33,
+    "cyclomatic_complexity": 30,
+    "def_count": 98,
+    "use_count": 345,
+    "defuse_pairs": 98,
+    "per_method": [
+      {
+        "class": "org.apache.commons.lang3.StringUtils",
+        "method": "replaceEach",
+        "analysis_level": "DATAFLOW",
+        "n_methods": 2,
+        "stmts": 157,
+        "cfg_edges": 183,
+        "branch_points": 33,
+        "cyclomatic_complexity": 30,
+        "def_count": 98,
+        "use_count": 345,
+        "defuse_pairs": 98,
+        "error": null
+      }
+    ]
+  },
+  "d_cyclomatic": 2,
+  "d_stmts": 5,
+  "d_branch_points": 2,
+  "d_cfg_edges": 7,
+  "d_defuse_pairs": 2,
+  "vuln_detail": {
+    "s_vuln": 0,
+    "new_warnings": [],
+    "n_buggy_warnings": 85,
+    "n_candidate_warnings": 85,
+    "scope": "changed_classes",
+    "n_changed_class_files_buggy": 1,
+    "n_changed_class_files_candidate": 1,
+    "buggy_error": null,
+    "candidate_error": null
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "patch_id": "Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-61-ACS",
+  "bug_id": "Math-61",
+  "s_edit_ast": 0.17333333333333334,
+  "s_edit_ast_actions": 13,
+  "s_edit_ast_nodes": 75,
+  "s_edit_error": null,
+  "s_vuln_changed": 0,
+  "s_vuln_new_warning_count": 0,
+  "s_vuln_buggy_error": null,
+  "s_vuln_candidate_error": null,
+  "changed_classes": [
+    "org/apache/commons/math/distribution/PoissonDistributionImpl"
+  ],
+  "analysis_level": "DATAFLOW",
+  "cfg_buggy": {
+    "analysis_level": "DATAFLOW",
+    "stmts": 38,
+    "cfg_edges": 34,
+    "branch_points": 1,
+    "cyclomatic_complexity": 4,
+    "def_count": 27,
+    "use_count": 68,
+    "defuse_pairs": 27,
+    "per_method": [
+      {
+        "class": "org.apache.commons.math.distribution.PoissonDistributionImpl",
+        "method": "PoissonDistributionImpl",
+        "analysis_level": "DATAFLOW",
+        "n_methods": 4,
+        "stmts": 38,
+        "cfg_edges": 34,
+        "branch_points": 1,
+        "cyclomatic_complexity": 4,
+        "def_count": 27,
+        "use_count": 68,
+        "defuse_pairs": 27,
+        "error": null
+      }
+    ]
+  },
+  "cfg_candidate": {
+    "analysis_level": "DATAFLOW",
+    "stmts": 45,
+    "cfg_edges": 41,
+    "branch_points": 2,
+    "cyclomatic_complexity": 4,
+    "def_count": 31,
+    "use_count": 83,
+    "defuse_pairs": 31,
+    "per_method": [
+      {
+        "class": "org.apache.commons.math.distribution.PoissonDistributionImpl",
+        "method": "PoissonDistributionImpl",
+        "analysis_level": "DATAFLOW",
+        "n_methods": 4,
+        "stmts": 45,
+        "cfg_edges": 41,
+        "branch_points": 2,
+        "cyclomatic_complexity": 4,
+        "def_count": 31,
+        "use_count": 83,
+        "defuse_pairs": 31,
+        "error": null
+      }
+    ]
+  },
+  "d_cyclomatic": 0,
+  "d_stmts": 7,
+  "d_branch_points": 1,
+  "d_cfg_edges": 7,
+  "d_defuse_pairs": 4,
+  "vuln_detail": {
+    "s_vuln": 0,
+    "new_warnings": [],
+    "n_buggy_warnings": 364,
+    "n_candidate_warnings": 364,
+    "scope": "changed_classes",
+    "n_changed_class_files_buggy": 1,
+    "n_changed_class_files_candidate": 1,
+    "buggy_error": null,
+    "candidate_error": null
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__Nopol__Math__patch1-Math-4-Nopol-plausible",
+  "bug_id": "Math-4",
+  "s_edit_ast": 0.425,
+  "s_edit_ast_actions": 34,
+  "s_edit_ast_nodes": 80,
+  "s_edit_error": null,
+  "s_vuln_changed": 1.0,
+  "s_vuln_new_warning_count": 2,
+  "s_vuln_buggy_error": null,
+  "s_vuln_candidate_error": null,
+  "changed_classes": [
+    "org/apache/commons/math3/geometry/euclidean/twod/Line"
+  ],
+  "analysis_level": "DATAFLOW",
+  "cfg_buggy": {
+    "analysis_level": "DATAFLOW",
+    "stmts": 32,
+    "cfg_edges": 31,
+    "branch_points": 1,
+    "cyclomatic_complexity": 1,
+    "def_count": 28,
+    "use_count": 74,
+    "defuse_pairs": 28,
+    "per_method": [
+      {
+        "class": "org.apache.commons.math3.geometry.euclidean.twod.Line",
+        "method": "intersection",
+        "analysis_level": "DATAFLOW",
+        "n_methods": 1,
+        "stmts": 32,
+        "cfg_edges": 31,
+        "branch_points": 1,
+        "cyclomatic_complexity": 1,
+        "def_count": 28,
+        "use_count": 74,
+        "defuse_pairs": 28,
+        "error": null
+      }
+    ]
+  },
+  "cfg_candidate": {
+    "analysis_level": "DATAFLOW",
+    "stmts": 41,
+    "cfg_edges": 43,
+    "branch_points": 4,
+    "cyclomatic_complexity": 4,
+    "def_count": 34,
+    "use_count": 98,
+    "defuse_pairs": 34,
+    "per_method": [
+      {
+        "class": "org.apache.commons.math3.geometry.euclidean.twod.Line",
+        "method": "intersection",
+        "analysis_level": "DATAFLOW",
+        "n_methods": 1,
+        "stmts": 41,
+        "cfg_edges": 43,
+        "branch_points": 4,
+        "cyclomatic_complexity": 4,
+        "def_count": 34,
+        "use_count": 98,
+        "defuse_pairs": 34,
+        "error": null
+      }
+    ]
+  },
+  "d_cyclomatic": 3,
+  "d_stmts": 9,
+  "d_branch_points": 3,
+  "d_cfg_edges": 12,
+  "d_defuse_pairs": 6,
+  "vuln_detail": {
+    "s_vuln": 1.0,
+    "new_warnings": [
+      {
+        "bug_type": "RpC",
+        "category": "C",
+        "priority": "H",
+        "severity": "HIGH",
+        "class": "Line",
+        "method": "intersection",
+        "location": "Line.java:line 200",
+        "description": "Repeated conditional test in org.apache.commons.math3.geometry.euclidean.twod.Line.intersection(Line)"
+      },
+      {
+        "bug_type": "FE",
+        "category": "D",
+        "priority": "H",
+        "severity": "HIGH",
+        "class": "Line",
+        "method": "intersection",
+        "location": "Line.java:line 200",
+        "description": "Test for floating point equality in org.apache.commons.math3.geometry.euclidean.twod.Line.intersection(Line)"
+      }
+    ],
+    "n_buggy_warnings": 684,
+    "n_candidate_warnings": 686,
+    "scope": "changed_classes",
+    "n_changed_class_files_buggy": 3,
+    "n_changed_class_files_candidate": 3,
+    "buggy_error": null,
+    "candidate_error": null
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "patch_id": "Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-82-ACS",
+  "bug_id": "Math-82",
+  "s_edit_ast": 0.12781954887218044,
+  "s_edit_ast_actions": 17,
+  "s_edit_ast_nodes": 133,
+  "s_edit_error": null,
+  "s_vuln_changed": 0,
+  "s_vuln_new_warning_count": 0,
+  "s_vuln_buggy_error": null,
+  "s_vuln_candidate_error": null,
+  "changed_classes": [
+    "org/apache/commons/math/optimization/linear/SimplexSolver"
+  ],
+  "analysis_level": "DATAFLOW",
+  "cfg_buggy": {
+    "analysis_level": "DATAFLOW",
+    "stmts": 23,
+    "cfg_edges": 25,
+    "branch_points": 3,
+    "cyclomatic_complexity": 4,
+    "def_count": 18,
+    "use_count": 50,
+    "defuse_pairs": 18,
+    "per_method": [
+      {
+        "class": "org.apache.commons.math.optimization.linear.SimplexSolver",
+        "method": "getPivotRow",
+        "analysis_level": "DATAFLOW",
+        "n_methods": 1,
+        "stmts": 23,
+        "cfg_edges": 25,
+        "branch_points": 3,
+        "cyclomatic_complexity": 4,
+        "def_count": 18,
+        "use_count": 50,
+        "defuse_pairs": 18,
+        "error": null
+      }
+    ]
+  },
+  "cfg_candidate": {
+    "analysis_level": "DATAFLOW",
+    "stmts": 28,
+    "cfg_edges": 31,
+    "branch_points": 4,
+    "cyclomatic_complexity": 5,
+    "def_count": 22,
+    "use_count": 64,
+    "defuse_pairs": 22,
+    "per_method": [
+      {
+        "class": "org.apache.commons.math.optimization.linear.SimplexSolver",
+        "method": "getPivotRow",
+        "analysis_level": "DATAFLOW",
+        "n_methods": 1,
+        "stmts": 28,
+        "cfg_edges": 31,
+        "branch_points": 4,
+        "cyclomatic_complexity": 5,
+        "def_count": 22,
+        "use_count": 64,
+        "defuse_pairs": 22,
+        "error": null
+      }
+    ]
+  },
+  "d_cyclomatic": 1,
+  "d_stmts": 5,
+  "d_branch_points": 1,
+  "d_cfg_edges": 6,
+  "d_defuse_pairs": 4,
+  "vuln_detail": {
+    "s_vuln": 0,
+    "new_warnings": [],
+    "n_buggy_warnings": 312,
+    "n_candidate_warnings": 312,
+    "scope": "changed_classes",
+    "n_changed_class_files_buggy": 1,
+    "n_changed_class_files_candidate": 1,
+    "buggy_error": null,
+    "candidate_error": null
+  }
+}

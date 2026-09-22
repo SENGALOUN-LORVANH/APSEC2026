@@ -1,0 +1,84 @@
+{
+  "patch_id": "Patches_ICSE__Ddifferent__SimFix__Closure__patch1-Closure-19-SimFix",
+  "bug_id": "Closure-19",
+  "s_edit_ast": 0.025974025974025976,
+  "s_edit_ast_actions": 4,
+  "s_edit_ast_nodes": 154,
+  "s_edit_error": null,
+  "s_vuln_changed": 0,
+  "s_vuln_new_warning_count": 0,
+  "s_vuln_buggy_error": null,
+  "s_vuln_candidate_error": null,
+  "changed_classes": [
+    "com/google/javascript/jscomp/type/ClosureReverseAbstractInterpreter"
+  ],
+  "analysis_level": "DATAFLOW",
+  "cfg_buggy": {
+    "analysis_level": "DATAFLOW",
+    "stmts": 34,
+    "cfg_edges": 40,
+    "branch_points": 8,
+    "cyclomatic_complexity": 8,
+    "def_count": 24,
+    "use_count": 81,
+    "defuse_pairs": 24,
+    "per_method": [
+      {
+        "class": "com.google.javascript.jscomp.type.ClosureReverseAbstractInterpreter",
+        "method": "getPreciserScopeKnowingConditionOutcome",
+        "analysis_level": "DATAFLOW",
+        "n_methods": 1,
+        "stmts": 34,
+        "cfg_edges": 40,
+        "branch_points": 8,
+        "cyclomatic_complexity": 8,
+        "def_count": 24,
+        "use_count": 81,
+        "defuse_pairs": 24,
+        "error": null
+      }
+    ]
+  },
+  "cfg_candidate": {
+    "analysis_level": "DATAFLOW",
+    "stmts": 34,
+    "cfg_edges": 40,
+    "branch_points": 8,
+    "cyclomatic_complexity": 8,
+    "def_count": 24,
+    "use_count": 81,
+    "defuse_pairs": 24,
+    "per_method": [
+      {
+        "class": "com.google.javascript.jscomp.type.ClosureReverseAbstractInterpreter",
+        "method": "getPreciserScopeKnowingConditionOutcome",
+        "analysis_level": "DATAFLOW",
+        "n_methods": 1,
+        "stmts": 34,
+        "cfg_edges": 40,
+        "branch_points": 8,
+        "cyclomatic_complexity": 8,
+        "def_count": 24,
+        "use_count": 81,
+        "defuse_pairs": 24,
+        "error": null
+      }
+    ]
+  },
+  "d_cyclomatic": 0,
+  "d_stmts": 0,
+  "d_branch_points": 0,
+  "d_cfg_edges": 0,
+  "d_defuse_pairs": 0,
+  "vuln_detail": {
+    "s_vuln": 0,
+    "new_warnings": [],
+    "n_buggy_warnings": 6,
+    "n_candidate_warnings": 6,
+    "scope": "changed_classes",
+    "n_changed_class_files_buggy": 15,
+    "n_changed_class_files_candidate": 15,
+    "buggy_error": null,
+    "candidate_error": null
+  }
+}

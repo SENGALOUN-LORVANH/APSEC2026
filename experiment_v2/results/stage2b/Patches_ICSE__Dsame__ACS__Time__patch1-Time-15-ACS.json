@@ -1,0 +1,84 @@
+{
+  "patch_id": "Patches_ICSE__Dsame__ACS__Time__patch1-Time-15-ACS",
+  "bug_id": "Time-15",
+  "s_edit_ast": 0.21333333333333335,
+  "s_edit_ast_actions": 16,
+  "s_edit_ast_nodes": 75,
+  "s_edit_error": null,
+  "s_vuln_changed": 0,
+  "s_vuln_new_warning_count": 0,
+  "s_vuln_buggy_error": null,
+  "s_vuln_candidate_error": null,
+  "changed_classes": [
+    "org/joda/time/field/FieldUtils"
+  ],
+  "analysis_level": "DATAFLOW",
+  "cfg_buggy": {
+    "analysis_level": "DATAFLOW",
+    "stmts": 87,
+    "cfg_edges": 90,
+    "branch_points": 13,
+    "cyclomatic_complexity": 9,
+    "def_count": 56,
+    "use_count": 193,
+    "defuse_pairs": 56,
+    "per_method": [
+      {
+        "class": "org.joda.time.field.FieldUtils",
+        "method": "safeMultiply",
+        "analysis_level": "DATAFLOW",
+        "n_methods": 3,
+        "stmts": 87,
+        "cfg_edges": 90,
+        "branch_points": 13,
+        "cyclomatic_complexity": 9,
+        "def_count": 56,
+        "use_count": 193,
+        "defuse_pairs": 56,
+        "error": null
+      }
+    ]
+  },
+  "cfg_candidate": {
+    "analysis_level": "DATAFLOW",
+    "stmts": 94,
+    "cfg_edges": 97,
+    "branch_points": 14,
+    "cyclomatic_complexity": 9,
+    "def_count": 60,
+    "use_count": 207,
+    "defuse_pairs": 60,
+    "per_method": [
+      {
+        "class": "org.joda.time.field.FieldUtils",
+        "method": "safeMultiply",
+        "analysis_level": "DATAFLOW",
+        "n_methods": 3,
+        "stmts": 94,
+        "cfg_edges": 97,
+        "branch_points": 14,
+        "cyclomatic_complexity": 9,
+        "def_count": 60,
+        "use_count": 207,
+        "defuse_pairs": 60,
+        "error": null
+      }
+    ]
+  },
+  "d_cyclomatic": 0,
+  "d_stmts": 7,
+  "d_branch_points": 1,
+  "d_cfg_edges": 7,
+  "d_defuse_pairs": 4,
+  "vuln_detail": {
+    "s_vuln": 0,
+    "new_warnings": [],
+    "n_buggy_warnings": 6,
+    "n_candidate_warnings": 6,
+    "scope": "changed_classes",
+    "n_changed_class_files_buggy": 1,
+    "n_changed_class_files_candidate": 1,
+    "buggy_error": null,
+    "candidate_error": null
+  }
+}

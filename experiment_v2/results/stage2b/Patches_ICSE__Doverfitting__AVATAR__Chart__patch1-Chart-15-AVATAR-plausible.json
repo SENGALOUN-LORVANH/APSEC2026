@@ -1,0 +1,84 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Chart__patch1-Chart-15-AVATAR-plausible",
+  "bug_id": "Chart-15",
+  "s_edit_ast": 1.0,
+  "s_edit_ast_actions": 2249,
+  "s_edit_ast_nodes": 2243,
+  "s_edit_error": null,
+  "s_vuln_changed": 0,
+  "s_vuln_new_warning_count": 0,
+  "s_vuln_buggy_error": null,
+  "s_vuln_candidate_error": null,
+  "changed_classes": [
+    "org/jfree/chart/plot/PiePlot3D"
+  ],
+  "analysis_level": "FAILED",
+  "cfg_buggy": {
+    "analysis_level": "DATAFLOW",
+    "stmts": 583,
+    "cfg_edges": 603,
+    "branch_points": 25,
+    "cyclomatic_complexity": 22,
+    "def_count": 459,
+    "use_count": 1418,
+    "defuse_pairs": 459,
+    "per_method": [
+      {
+        "class": "org.jfree.chart.plot.PiePlot3D",
+        "method": "draw",
+        "analysis_level": "DATAFLOW",
+        "n_methods": 1,
+        "stmts": 583,
+        "cfg_edges": 603,
+        "branch_points": 25,
+        "cyclomatic_complexity": 22,
+        "def_count": 459,
+        "use_count": 1418,
+        "defuse_pairs": 459,
+        "error": null
+      }
+    ]
+  },
+  "cfg_candidate": {
+    "analysis_level": "FAILED",
+    "stmts": 0,
+    "cfg_edges": 0,
+    "branch_points": 0,
+    "cyclomatic_complexity": 0,
+    "def_count": 0,
+    "use_count": 0,
+    "defuse_pairs": 0,
+    "per_method": [
+      {
+        "class": "org.jfree.chart.plot.PiePlot3D",
+        "method": "draw",
+        "analysis_level": "FAILED",
+        "n_methods": 0,
+        "stmts": 0,
+        "cfg_edges": 0,
+        "branch_points": 0,
+        "cyclomatic_complexity": 0,
+        "def_count": 0,
+        "use_count": 0,
+        "defuse_pairs": 0,
+        "error": "no method with body named draw"
+      }
+    ]
+  },
+  "d_cyclomatic": null,
+  "d_stmts": null,
+  "d_branch_points": null,
+  "d_cfg_edges": null,
+  "d_defuse_pairs": null,
+  "vuln_detail": {
+    "s_vuln": 0,
+    "new_warnings": [],
+    "n_buggy_warnings": 9,
+    "n_candidate_warnings": 7,
+    "scope": "changed_classes",
+    "n_changed_class_files_buggy": 1,
+    "n_changed_class_files_candidate": 1,
+    "buggy_error": null,
+    "candidate_error": null
+  }
+}

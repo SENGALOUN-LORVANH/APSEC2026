@@ -1,0 +1,113 @@
+{
+  "patch_id": "Patches_ICSE__Ddifferent__Arja__Math__patch1-Math-50-Arja",
+  "bug_id": "Math-50",
+  "s_edit_ast": 0.1301518438177874,
+  "s_edit_ast_actions": 60,
+  "s_edit_ast_nodes": 461,
+  "s_edit_error": null,
+  "s_vuln_changed": 0,
+  "s_vuln_new_warning_count": 0,
+  "s_vuln_buggy_error": null,
+  "s_vuln_candidate_error": null,
+  "changed_classes": [
+    "org/apache/commons/math/analysis/solvers/BaseSecantSolver",
+    "org/apache/commons/math/analysis/solvers/UnivariateRealSolverUtils"
+  ],
+  "analysis_level": "DATAFLOW",
+  "cfg_buggy": {
+    "analysis_level": "DATAFLOW",
+    "stmts": 150,
+    "cfg_edges": 162,
+    "branch_points": 21,
+    "cyclomatic_complexity": 16,
+    "def_count": 93,
+    "use_count": 296,
+    "defuse_pairs": 93,
+    "per_method": [
+      {
+        "class": "org.apache.commons.math.analysis.solvers.BaseSecantSolver",
+        "method": "doSolve",
+        "analysis_level": "DATAFLOW",
+        "n_methods": 1,
+        "stmts": 128,
+        "cfg_edges": 141,
+        "branch_points": 19,
+        "cyclomatic_complexity": 15,
+        "def_count": 79,
+        "use_count": 249,
+        "defuse_pairs": 79,
+        "error": null
+      },
+      {
+        "class": "org.apache.commons.math.analysis.solvers.UnivariateRealSolverUtils",
+        "method": "verifyBracketing",
+        "analysis_level": "DATAFLOW",
+        "n_methods": 1,
+        "stmts": 22,
+        "cfg_edges": 21,
+        "branch_points": 2,
+        "cyclomatic_complexity": 1,
+        "def_count": 14,
+        "use_count": 47,
+        "defuse_pairs": 14,
+        "error": null
+      }
+    ]
+  },
+  "cfg_candidate": {
+    "analysis_level": "DATAFLOW",
+    "stmts": 133,
+    "cfg_edges": 144,
+    "branch_points": 19,
+    "cyclomatic_complexity": 15,
+    "def_count": 80,
+    "use_count": 254,
+    "defuse_pairs": 80,
+    "per_method": [
+      {
+        "class": "org.apache.commons.math.analysis.solvers.BaseSecantSolver",
+        "method": "doSolve",
+        "analysis_level": "DATAFLOW",
+        "n_methods": 1,
+        "stmts": 119,
+        "cfg_edges": 131,
+        "branch_points": 18,
+        "cyclomatic_complexity": 14,
+        "def_count": 71,
+        "use_count": 223,
+        "defuse_pairs": 71,
+        "error": null
+      },
+      {
+        "class": "org.apache.commons.math.analysis.solvers.UnivariateRealSolverUtils",
+        "method": "verifyBracketing",
+        "analysis_level": "DATAFLOW",
+        "n_methods": 1,
+        "stmts": 14,
+        "cfg_edges": 13,
+        "branch_points": 1,
+        "cyclomatic_complexity": 1,
+        "def_count": 9,
+        "use_count": 31,
+        "defuse_pairs": 9,
+        "error": null
+      }
+    ]
+  },
+  "d_cyclomatic": -1,
+  "d_stmts": -17,
+  "d_branch_points": -2,
+  "d_cfg_edges": -18,
+  "d_defuse_pairs": -13,
+  "vuln_detail": {
+    "s_vuln": 0,
+    "new_warnings": [],
+    "n_buggy_warnings": 460,
+    "n_candidate_warnings": 459,
+    "scope": "changed_classes",
+    "n_changed_class_files_buggy": 4,
+    "n_changed_class_files_candidate": 4,
+    "buggy_error": null,
+    "candidate_error": null
+  }
+}

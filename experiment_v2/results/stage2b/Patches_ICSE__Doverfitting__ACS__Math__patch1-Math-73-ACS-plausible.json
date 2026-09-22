@@ -1,0 +1,84 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__ACS__Math__patch1-Math-73-ACS-plausible",
+  "bug_id": "Math-73",
+  "s_edit_ast": 0.08653846153846154,
+  "s_edit_ast_actions": 18,
+  "s_edit_ast_nodes": 208,
+  "s_edit_error": null,
+  "s_vuln_changed": 0,
+  "s_vuln_new_warning_count": 0,
+  "s_vuln_buggy_error": null,
+  "s_vuln_candidate_error": null,
+  "changed_classes": [
+    "org/apache/commons/math/analysis/solvers/BrentSolver"
+  ],
+  "analysis_level": "DATAFLOW",
+  "cfg_buggy": {
+    "analysis_level": "DATAFLOW",
+    "stmts": 240,
+    "cfg_edges": 253,
+    "branch_points": 26,
+    "cyclomatic_complexity": 23,
+    "def_count": 176,
+    "use_count": 549,
+    "defuse_pairs": 176,
+    "per_method": [
+      {
+        "class": "org.apache.commons.math.analysis.solvers.BrentSolver",
+        "method": "solve",
+        "analysis_level": "DATAFLOW",
+        "n_methods": 5,
+        "stmts": 240,
+        "cfg_edges": 253,
+        "branch_points": 26,
+        "cyclomatic_complexity": 23,
+        "def_count": 176,
+        "use_count": 549,
+        "defuse_pairs": 176,
+        "error": null
+      }
+    ]
+  },
+  "cfg_candidate": {
+    "analysis_level": "DATAFLOW",
+    "stmts": 247,
+    "cfg_edges": 260,
+    "branch_points": 27,
+    "cyclomatic_complexity": 23,
+    "def_count": 180,
+    "use_count": 563,
+    "defuse_pairs": 180,
+    "per_method": [
+      {
+        "class": "org.apache.commons.math.analysis.solvers.BrentSolver",
+        "method": "solve",
+        "analysis_level": "DATAFLOW",
+        "n_methods": 5,
+        "stmts": 247,
+        "cfg_edges": 260,
+        "branch_points": 27,
+        "cyclomatic_complexity": 23,
+        "def_count": 180,
+        "use_count": 563,
+        "defuse_pairs": 180,
+        "error": null
+      }
+    ]
+  },
+  "d_cyclomatic": 0,
+  "d_stmts": 7,
+  "d_branch_points": 1,
+  "d_cfg_edges": 7,
+  "d_defuse_pairs": 4,
+  "vuln_detail": {
+    "s_vuln": 0,
+    "new_warnings": [],
+    "n_buggy_warnings": 325,
+    "n_candidate_warnings": 325,
+    "scope": "changed_classes",
+    "n_changed_class_files_buggy": 1,
+    "n_changed_class_files_candidate": 1,
+    "buggy_error": null,
+    "candidate_error": null
+  }
+}

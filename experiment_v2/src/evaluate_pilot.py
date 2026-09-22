@@ -35,6 +35,8 @@ MODEL_COMPARISON_DIR = ROOT / "results" / "model_comparison"
 COUNTEREXAMPLE_RUNS_DIR = ROOT / "results" / "counterexample_runs"
 MEMORIZATION_CSV = ROOT / "results" / "memorization_probe.csv"
 PILOT_SAMPLE = ROOT / "results" / "pilot_sample.csv"
+STAGE2B_CSV = ROOT / "results" / "stage2b_features.csv"
+STATIC_FEATURES = ["s_vuln_changed", "d_cyclomatic", "d_branch_points", "d_stmts", "d_defuse_pairs"]
 PILOT_LOG = ROOT / "results" / "pilot_log.json"
 SMOKE_LOG = ROOT / "results" / "smoke_test_log.json"
 OUT = ROOT / "results" / "pilot_evaluation.json"
@@ -62,6 +64,10 @@ def load_scored_frame():
     if PILOT_SAMPLE.exists():
         with open(PILOT_SAMPLE, newline="", encoding="utf-8") as f:
             sample = {r["patch_id"]: r for r in csv.DictReader(f)}
+    stage2b = {}
+    if STAGE2B_CSV.exists():
+        with open(STAGE2B_CSV, newline="", encoding="utf-8") as f:
+            stage2b = {r["patch_id"]: r for r in csv.DictReader(f)}
     with open(PATCH_SCORES, newline="", encoding="utf-8") as f:
         rows = list(csv.DictReader(f))
     out = []
@@ -71,18 +77,25 @@ def load_scored_frame():
             continue
         s_sem = _f(r["S_sem"])
         samp = sample.get(r["patch_id"], {})
-        out.append({"patch_id": r["patch_id"], "bug_id": m["bug_id"], "project": m["project"],
-                    "ground_truth_label": r["ground_truth_label"],
-                    "y": 1 if r["ground_truth_label"] == "overfitting" else 0,
-                    "label_sensitivity": m.get("label_sensitivity", ""),
-                    "included_sensitivity": m.get("included_sensitivity", ""),
-                    "duplicate_group_id": m.get("duplicate_group_id", ""),
-                    "size": int(samp["size"]) if samp.get("size") else None,
-                    "tercile": samp.get("tercile", ""),
-                    "PVS": _f(r["PVS"]), "S_sem": s_sem, "S_cex": _f(r["S_cex"]),
-                    "S_edit": _f(r["S_edit"]), "S_vuln": _f(r["S_vuln"]),
-                    "s_sem_missing": s_sem is None})
-    return pd.DataFrame(out)
+        s2b = stage2b.get(r["patch_id"], {})
+        rec = {"patch_id": r["patch_id"], "bug_id": m["bug_id"], "project": m["project"],
+               "ground_truth_label": r["ground_truth_label"],
+               "y": 1 if r["ground_truth_label"] == "overfitting" else 0,
+               "label_sensitivity": m.get("label_sensitivity", ""),
+               "included_sensitivity": m.get("included_sensitivity", ""),
+               "duplicate_group_id": m.get("duplicate_group_id", ""),
+               "size": int(samp["size"]) if samp.get("size") else None,
+               "tercile": samp.get("tercile", ""),
+               "PVS": _f(r["PVS"]), "S_sem": s_sem, "S_cex": _f(r["S_cex"]),
+               "S_edit": _f(r["S_edit"]), "S_vuln": _f(r["S_vuln"]),
+               "s_sem_missing": s_sem is None,
+               "analysis_level": s2b.get("analysis_level", "")}
+        for col in STATIC_FEATURES:
+            rec[col] = _f(s2b.get(col))
+        out.append(rec)
+    df = pd.DataFrame(out)
+    df.attrs["has_stage2b"] = bool(stage2b)
+    return df
 
 
 # ---------------------------------------------------------------- detection per method
@@ -101,8 +114,8 @@ def _lopo_lr(df, cols):
             if Xtr[c].isna().any():
                 Xtr[c + "_miss"] = Xtr[c].isna().astype(float)
                 Xte[c + "_miss"] = Xte[c].isna().astype(float)
-        Xtr = Xtr.fillna(means)
-        Xte = Xte.fillna(means)
+        Xtr = Xtr.fillna(means).fillna(0.0)  # 0.0 covers all-missing columns within a fold
+        Xte = Xte.fillna(means).fillna(0.0)
         if len(np.unique(y[tr])) < 2:
             p = np.full(len(te), float(y[tr][0]))
         else:
@@ -181,12 +194,20 @@ def detection_section(df):
     # M6 sem+cex LR
     p6, s6 = _lopo_lr(df, ["S_sem", "S_cex"]); record("M6_sem_cex", p6, s6)
 
-    # pending methods
-    for name, why in [("M5_static", "Stage 2B (CFG/PDG + S_vuln) -- Step 6"),
-                      ("M7_sem_static", "Stage 2B -- Step 6"), ("M8_cex_static", "Stage 2B -- Step 6"),
-                      ("M9_sem_cex_static", "Stage 2B -- Step 6"),
-                      ("M10_full_pvs_human_prefs", "real human preferences (Bradley-Terry) -- PENDING")]:
-        out["methods"][name] = {"status": "PENDING", "reason": why}
+    # static-analysis methods (Stage 2B). Computed only when Stage 2B features are present.
+    has_static = bool(df.attrs.get("has_stage2b")) and bool(df[STATIC_FEATURES].notna().any().any())
+    p9 = p7 = None
+    if has_static:
+        p5, s5 = _lopo_lr(df, STATIC_FEATURES); record("M5_static", p5, s5,
+                                                       {"features": STATIC_FEATURES})
+        p7, s7 = _lopo_lr(df, ["S_sem"] + STATIC_FEATURES); record("M7_sem_static", p7, s7)
+        p8, s8 = _lopo_lr(df, ["S_cex"] + STATIC_FEATURES); record("M8_cex_static", p8, s8)
+        p9, s9 = _lopo_lr(df, ["S_sem", "S_cex"] + STATIC_FEATURES); record("M9_sem_cex_static", p9, s9)
+    else:
+        for name in ("M5_static", "M7_sem_static", "M8_cex_static", "M9_sem_cex_static"):
+            out["methods"][name] = {"status": "PENDING", "reason": "Stage 2B features not present yet"}
+    out["methods"]["M10_full_pvs_human_prefs"] = {"status": "PENDING",
+                                                  "reason": "real human preferences (Bradley-Terry) -- PENDING"}
 
     # paired bootstrap differences (improvement iff 95% CI of paired difference excludes 0)
     out["paired_differences_mcc"] = {
@@ -194,6 +215,12 @@ def detection_section(df):
         "M3_semantic_vs_M2_diff_feature": metrics.paired_difference(y, p3, p2, df["bug_id"].values, metric="mcc"),
         "M6_sem_cex_vs_M3_semantic": metrics.paired_difference(y, p6, p3, df["bug_id"].values, metric="mcc"),
     }
+    if p7 is not None:
+        out["paired_differences_mcc"]["M7_sem_static_vs_M3_semantic"] = \
+            metrics.paired_difference(y, p7, p3, df["bug_id"].values, metric="mcc")
+    if p9 is not None:
+        out["paired_differences_mcc"]["M9_sem_cex_static_vs_M3_semantic"] = \
+            metrics.paired_difference(y, p9, p3, df["bug_id"].values, metric="mcc")
     return out
 
 
@@ -405,25 +432,57 @@ def cost_section():
 
 # ---------------------------------------------------------------- complementarity (RQ3, sem vs cex now)
 def complementarity_section(df):
+    """RQ3: do the detection modules contribute complementary signals? Overlap of the semantic, counterexample,
+    and static flags. Flags: semantic = S_sem<0.5; counterexample = S_cex<1.0 (available only); static = a new
+    SpotBugs/FindSecBugs warning on the changed classes (s_vuln_changed>0)."""
     sem_flag = df["S_sem"].apply(lambda v: v is not None and not pd.isna(v) and v < 0.5)
     cex_available = df["S_cex"].notna()
     cex_flag = df["S_cex"].apply(lambda v: v is not None and not pd.isna(v) and v < 1.0)
-    both = cex_available
-    if both.sum() == 0:
-        return {"n_both_available": 0, "note": "no patches had a non-NA S_cex",
-                "static_arm": "PENDING Stage 2B (Step 6): cex-only/static-only/both/neither overlap"}
     of = df["y"] == 1
-    return {"n_both_available": int(both.sum()),
+    out = {}
+
+    # semantic vs counterexample (among patches with a non-NA S_cex)
+    if cex_available.sum() == 0:
+        out["sem_vs_cex"] = {"n_both_available": 0, "note": "no patches had a non-NA S_cex"}
+    else:
+        b = cex_available
+        out["sem_vs_cex"] = {"n_both_available": int(b.sum()),
             "among_overfitting": {
-                "sem_only": int((sem_flag & ~cex_flag & both & of).sum()),
-                "cex_only": int((~sem_flag & cex_flag & both & of).sum()),
-                "both": int((sem_flag & cex_flag & both & of).sum()),
-                "neither": int((~sem_flag & ~cex_flag & both & of).sum())},
+                "sem_only": int((sem_flag & ~cex_flag & b & of).sum()),
+                "cex_only": int((~sem_flag & cex_flag & b & of).sum()),
+                "both": int((sem_flag & cex_flag & b & of).sum()),
+                "neither": int((~sem_flag & ~cex_flag & b & of).sum())},
             "among_correct_wrongly_flagged": {
-                "sem_only": int((sem_flag & ~cex_flag & both & ~of).sum()),
-                "cex_only": int((~sem_flag & cex_flag & both & ~of).sum()),
-                "both": int((sem_flag & cex_flag & both & ~of).sum())},
-            "static_arm": "PENDING Stage 2B (Step 6)"}
+                "sem_only": int((sem_flag & ~cex_flag & b & ~of).sum()),
+                "cex_only": int((~sem_flag & cex_flag & b & ~of).sum()),
+                "both": int((sem_flag & cex_flag & b & ~of).sum())}}
+
+    # counterexample vs static (RQ3 as specified) -- among patches where BOTH are available
+    if not df.attrs.get("has_stage2b") or "s_vuln_changed" not in df.columns:
+        out["cex_vs_static"] = {"note": "Stage 2B static features not present"}
+        return out
+    static_avail = df["s_vuln_changed"].notna()
+    static_flag = df["s_vuln_changed"].apply(lambda v: v is not None and not pd.isna(v) and v > 0)
+    b = cex_available & static_avail
+    if b.sum() == 0:
+        out["cex_vs_static"] = {"n_both_available": 0,
+                                "note": "no patch had both a non-NA S_cex and static analysis"}
+    else:
+        out["cex_vs_static"] = {"n_both_available": int(b.sum()),
+            "static_flag_definition": "new SpotBugs/FindSecBugs warning on changed classes (s_vuln_changed>0)",
+            "among_overfitting": {
+                "cex_only": int((cex_flag & ~static_flag & b & of).sum()),
+                "static_only": int((~cex_flag & static_flag & b & of).sum()),
+                "both": int((cex_flag & static_flag & b & of).sum()),
+                "neither": int((~cex_flag & ~static_flag & b & of).sum())},
+            "among_correct_wrongly_flagged": {
+                "cex_only": int((cex_flag & ~static_flag & b & ~of).sum()),
+                "static_only": int((~cex_flag & static_flag & b & ~of).sum()),
+                "both": int((cex_flag & static_flag & b & ~of).sum())}}
+    # static flag prevalence overall (context for the sparse overlap)
+    out["static_flag_prevalence"] = {"n_static_available": int(static_avail.sum()),
+                                     "n_static_flag_overfitting_risk": int((static_flag).sum())}
+    return out
 
 
 def sensitivity_section(df):
@@ -459,6 +518,23 @@ def sensitivity_section(df):
         out["duplicates"] = {"n_primary": len(have), "n_duplicate_patches_in_sample": 0,
                              "note": "no duplicate-group members in this pilot sample"}
     return out
+
+
+def stage2b_coverage_section(df):
+    if not df.attrs.get("has_stage2b"):
+        return {"status": "Stage 2B not yet run"}
+    n = len(df)
+    levels = df["analysis_level"].value_counts().to_dict()
+    return {
+        "n_patches": n,
+        "s_edit_ast_available": int(df["S_edit"].notna().sum()),  # after Stage 2B, S_edit is GumTree-primary
+        "analysis_level_counts": {str(k): int(v) for k, v in levels.items()},
+        "note_levels": "hierarchy PDG>DATAFLOW>CFG_AST>FAILED; this tool's ceiling is DATAFLOW "
+                       "(SootUp Jimple CFG + def/use). PDG (control-dependence) not computed -- see DEVIATIONS.",
+        "s_vuln_changed_available": int(df["s_vuln_changed"].notna().sum()) if "s_vuln_changed" in df else 0,
+        "s_vuln_changed_nonzero": int((df["s_vuln_changed"] > 0).sum()) if "s_vuln_changed" in df else 0,
+        "cyclomatic_delta_available": int(df["d_cyclomatic"].notna().sum()) if "d_cyclomatic" in df else 0,
+    }
 
 
 def memorization_section():
@@ -503,6 +579,7 @@ def main():
         "counterexample_funnel": counterexample_funnel_section(df) if len(df) else {},
         "s_cex_missingness": s_cex_missingness_section(df) if len(df) else {},
         "ranking": ranking_section(df) if len(df) else {"note": "no scored patches yet"},
+        "stage2b_coverage": stage2b_coverage_section(df) if len(df) else {},
         "model_comparison": model_comparison_section(),
         "cost": cost_section(),
         "complementarity": complementarity_section(df) if len(df) else {"note": "no scored patches yet"},

@@ -1,0 +1,112 @@
+{
+  "patch_id": "Patches_ICSE__Ddifferent__ACS__Chart__patch1-Chart-19-ACS",
+  "bug_id": "Chart-19",
+  "s_edit_ast": 0.21138211382113822,
+  "s_edit_ast_actions": 26,
+  "s_edit_ast_nodes": 123,
+  "s_edit_error": null,
+  "s_vuln_changed": 0,
+  "s_vuln_new_warning_count": 0,
+  "s_vuln_buggy_error": null,
+  "s_vuln_candidate_error": null,
+  "changed_classes": [
+    "org/jfree/chart/plot/CategoryPlot"
+  ],
+  "analysis_level": "DATAFLOW",
+  "cfg_buggy": {
+    "analysis_level": "DATAFLOW",
+    "stmts": 16,
+    "cfg_edges": 16,
+    "branch_points": 2,
+    "cyclomatic_complexity": 4,
+    "def_count": 12,
+    "use_count": 31,
+    "defuse_pairs": 12,
+    "per_method": [
+      {
+        "class": "org.jfree.chart.plot.CategoryPlot",
+        "method": "getDomainAxisIndex",
+        "analysis_level": "DATAFLOW",
+        "n_methods": 1,
+        "stmts": 5,
+        "cfg_edges": 4,
+        "branch_points": 0,
+        "cyclomatic_complexity": 1,
+        "def_count": 4,
+        "use_count": 8,
+        "defuse_pairs": 4,
+        "error": null
+      },
+      {
+        "class": "org.jfree.chart.plot.CategoryPlot",
+        "method": "getRangeAxisIndex",
+        "analysis_level": "DATAFLOW",
+        "n_methods": 1,
+        "stmts": 11,
+        "cfg_edges": 12,
+        "branch_points": 2,
+        "cyclomatic_complexity": 3,
+        "def_count": 8,
+        "use_count": 23,
+        "defuse_pairs": 8,
+        "error": null
+      }
+    ]
+  },
+  "cfg_candidate": {
+    "analysis_level": "DATAFLOW",
+    "stmts": 28,
+    "cfg_edges": 28,
+    "branch_points": 4,
+    "cyclomatic_complexity": 4,
+    "def_count": 18,
+    "use_count": 53,
+    "defuse_pairs": 18,
+    "per_method": [
+      {
+        "class": "org.jfree.chart.plot.CategoryPlot",
+        "method": "getDomainAxisIndex",
+        "analysis_level": "DATAFLOW",
+        "n_methods": 1,
+        "stmts": 11,
+        "cfg_edges": 10,
+        "branch_points": 1,
+        "cyclomatic_complexity": 1,
+        "def_count": 7,
+        "use_count": 19,
+        "defuse_pairs": 7,
+        "error": null
+      },
+      {
+        "class": "org.jfree.chart.plot.CategoryPlot",
+        "method": "getRangeAxisIndex",
+        "analysis_level": "DATAFLOW",
+        "n_methods": 1,
+        "stmts": 17,
+        "cfg_edges": 18,
+        "branch_points": 3,
+        "cyclomatic_complexity": 3,
+        "def_count": 11,
+        "use_count": 34,
+        "defuse_pairs": 11,
+        "error": null
+      }
+    ]
+  },
+  "d_cyclomatic": 0,
+  "d_stmts": 12,
+  "d_branch_points": 2,
+  "d_cfg_edges": 12,
+  "d_defuse_pairs": 6,
+  "vuln_detail": {
+    "s_vuln": 0,
+    "new_warnings": [],
+    "n_buggy_warnings": 11,
+    "n_candidate_warnings": 11,
+    "scope": "changed_classes",
+    "n_changed_class_files_buggy": 1,
+    "n_changed_class_files_candidate": 1,
+    "buggy_error": null,
+    "candidate_error": null
+  }
+}
