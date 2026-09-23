@@ -1,0 +1,176 @@
+{
+  "patch_id": "Patches_others__Dcorrect__CapGen__Lang__patch1-Lang-26-CapGen",
+  "bug_id": "Lang-26",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 16.727
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.524
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 1.689
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 2.072
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 0.347
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 60.843
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_others__Dcorrect__CapGen__Lang__patch1-Lang-26-CapGen",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 0,
+    "s_sem_final": null,
+    "decision": null,
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 0.4176168999983929,
+        "attempts": 1,
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfM4HvqzDEhR865i4Q5nc'}"
+      },
+      {
+        "run": 1,
+        "latency_s": 0.37984747599693947,
+        "attempts": 1,
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfM4HxRjsa5QmNbCNtCPS'}"
+      },
+      {
+        "run": 2,
+        "latency_s": 0.34912837800220586,
+        "attempts": 1,
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfM4Hz1VVhySrdJgn3ADE'}"
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_others__Dcorrect__CapGen__Lang__patch1-Lang-26-CapGen",
+    "bug_id": "Lang-26",
+    "model": "claude-haiku-4-5",
+    "latency_s": 0.36983000700274715,
+    "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfM4J8qou3fo5QgofhQ3B'}",
+    "context_errors": [],
+    "input_tokens": null,
+    "output_tokens": null,
+    "tests": []
+  },
+  "memorization": {
+    "patch_id": "Patches_others__Dcorrect__CapGen__Lang__patch1-Lang-26-CapGen",
+    "true_project": "Lang",
+    "true_bug_number": "26",
+    "model": "claude-haiku-4-5",
+    "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfM4JASYjZdeJZhd3BCQg'}",
+    "input_tokens": null,
+    "output_tokens": null
+  },
+  "stage2b": {
+    "patch_id": "Patches_others__Dcorrect__CapGen__Lang__patch1-Lang-26-CapGen",
+    "bug_id": "Lang-26",
+    "s_edit_ast": 0.15217391304347827,
+    "s_edit_ast_actions": 7,
+    "s_edit_ast_nodes": 46,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/lang3/time/FastDateFormat"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 97,
+      "cfg_edges": 92,
+      "branch_points": 5,
+      "cyclomatic_complexity": 9,
+      "def_count": 69,
+      "use_count": 188,
+      "defuse_pairs": 69,
+      "per_method": [
+        {
+          "class": "org.apache.commons.lang3.time.FastDateFormat",
+          "method": "format",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 7,
+          "stmts": 97,
+          "cfg_edges": 92,
+          "branch_points": 5,
+          "cyclomatic_complexity": 9,
+          "def_count": 69,
+          "use_count": 188,
+          "defuse_pairs": 69,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 98,
+      "cfg_edges": 93,
+      "branch_points": 5,
+      "cyclomatic_complexity": 9,
+      "def_count": 70,
+      "use_count": 191,
+      "defuse_pairs": 70,
+      "per_method": [
+        {
+          "class": "org.apache.commons.lang3.time.FastDateFormat",
+          "method": "format",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 7,
+          "stmts": 98,
+          "cfg_edges": 93,
+          "branch_points": 5,
+          "cyclomatic_complexity": 9,
+          "def_count": 70,
+          "use_count": 191,
+          "defuse_pairs": 70,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": 1,
+    "d_branch_points": 0,
+    "d_cfg_edges": 1,
+    "d_defuse_pairs": 1,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 113,
+      "n_candidate_warnings": 113,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 18,
+      "n_changed_class_files_candidate": 18,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_others__Dcorrect__CapGen__Lang__patch1-Lang-26-CapGen",
+    "bug_id": "Lang-26",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}
