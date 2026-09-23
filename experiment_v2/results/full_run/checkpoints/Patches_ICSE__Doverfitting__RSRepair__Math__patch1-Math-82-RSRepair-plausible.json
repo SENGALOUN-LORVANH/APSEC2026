@@ -1,0 +1,256 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__RSRepair__Math__patch1-Math-82-RSRepair-plausible",
+  "bug_id": "Math-82",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 13.429
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 1.335
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 9.73
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 22.368
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.479
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 93.057
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__RSRepair__Math__patch1-Math-82-RSRepair-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.193425081999976,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2104,
+        "output_tokens": 162,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.3,
+          "readability": 0.4,
+          "security_robustness": 0.8,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch removes the line that updates minValue, which breaks the algorithm's logic for finding the most negative coefficient. It only passes the test by accident because it returns the first negative value found rather than the most negative one, which is incorrect behavior that happens to satisfy this specific test case but violates the documented contract of the method."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 2.923767624999982,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2104,
+        "output_tokens": 167,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.3,
+          "readability": 0.4,
+          "security_robustness": 0.8,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch removes the line that updates minValue, which breaks the algorithm's logic for finding the most negative coefficient. By not updating minValue, the comparison always uses 0 as the threshold, causing it to select the first negative value rather than the most negative one. This is a fundamental algorithmic error that only passes the specific test case by accident."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 2.862954526000067,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2104,
+        "output_tokens": 168,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.3,
+          "readability": 0.4,
+          "security_robustness": 0.8,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch removes the line that updates minValue, which breaks the algorithm's logic for finding the most negative coefficient. By not updating minValue, the comparison always uses the initial value of 0, causing the algorithm to select the first negative coefficient rather than the most negative one. This is a fundamental algorithmic error that only passes the specific test case by accident."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__RSRepair__Math__patch1-Math-82-RSRepair-plausible",
+    "bug_id": "Math-82",
+    "model": "claude-haiku-4-5",
+    "latency_s": 11.061609094000005,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 1975,
+    "output_tokens": 1794,
+    "tests": [
+      {
+        "name": "testPivotColumnWithMultipleNegativeCoefficients",
+        "target_class": "org.apache.commons.math.optimization.linear.SimplexSolver",
+        "target_method": "getPivotColumn",
+        "class_name": "TestPivotColumnMultipleNegatives",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "tation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Iterable.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Iterable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__RSRepair__Math__patch1-Math-82-RSRepair-plausible/TestPivotColumnMultipleNegatives/fixed/src/test/java/org/apache/commons/math/optimization/linear/TestPivotColumnMultipleNegatives.java:24: error: cannot find symbol\n    [javac]         RealPointValuePair solution = solver.optimize(f, constraints, GoalType.MAXIMIZE, false);\n    [javac]                                                                       ^\n    [javac]   symbol:   variable GoalType\n    [javac]   location: class TestPivotColumnMultipleNegatives\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 1 error\n    [javac] 30 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__RSRepair__Math__patch1-Math-82-RSRepair-plausible/TestPivotColumnMultipleNegatives/fixed/build.xml:168: Compile failed; see the compiler error output for details.\n\nTotal time: 1 second\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testPivotColumnSelectsMostNegativeNotFirst",
+        "target_class": "org.apache.commons.math.optimization.linear.SimplexSolver",
+        "target_method": "getPivotColumn",
+        "class_name": "TestPivotColumnMostNegative",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "g: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Iterable.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Iterable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__RSRepair__Math__patch1-Math-82-RSRepair-plausible/TestPivotColumnMostNegative/fixed/src/test/java/org/apache/commons/math/optimization/linear/TestPivotColumnMostNegative.java:22: error: cannot find symbol\n    [javac]         RealPointValuePair solution = solver.optimize(f, constraints, GoalType.MAXIMIZE, false);\n    [javac]                                                                       ^\n    [javac]   symbol:   variable GoalType\n    [javac]   location: class TestPivotColumnMostNegative\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 1 error\n    [javac] 30 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__RSRepair__Math__patch1-Math-82-RSRepair-plausible/TestPivotColumnMostNegative/fixed/build.xml:168: Compile failed; see the compiler error output for details.\n\nTotal time: 0 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testPivotColumnWithLargeNegativeDifference",
+        "target_class": "org.apache.commons.math.optimization.linear.SimplexSolver",
+        "target_method": "getPivotColumn",
+        "class_name": "TestPivotColumnLargeNegativeDifference",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "n type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Iterable.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Iterable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__RSRepair__Math__patch1-Math-82-RSRepair-plausible/TestPivotColumnLargeNegativeDifference/fixed/src/test/java/org/apache/commons/math/optimization/linear/TestPivotColumnLargeNegativeDifference.java:22: error: cannot find symbol\n    [javac]         RealPointValuePair solution = solver.optimize(f, constraints, GoalType.MAXIMIZE, false);\n    [javac]                                                                       ^\n    [javac]   symbol:   variable GoalType\n    [javac]   location: class TestPivotColumnLargeNegativeDifference\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 1 error\n    [javac] 30 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__RSRepair__Math__patch1-Math-82-RSRepair-plausible/TestPivotColumnLargeNegativeDifference/fixed/build.xml:168: Compile failed; see the compiler error output for details.\n\nTotal time: 0 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__RSRepair__Math__patch1-Math-82-RSRepair-plausible",
+    "true_project": "Math",
+    "true_bug_number": "82",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 578,
+    "output_tokens": 28,
+    "project": "Math",
+    "bug_number": 85,
+    "recalled_label": "OVERFITTING",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__RSRepair__Math__patch1-Math-82-RSRepair-plausible",
+    "bug_id": "Math-82",
+    "s_edit_ast": 0.12359550561797752,
+    "s_edit_ast_actions": 11,
+    "s_edit_ast_nodes": 89,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math/optimization/linear/SimplexSolver"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 17,
+      "cfg_edges": 18,
+      "branch_points": 2,
+      "cyclomatic_complexity": 3,
+      "def_count": 13,
+      "use_count": 37,
+      "defuse_pairs": 13,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.optimization.linear.SimplexSolver",
+          "method": "getPivotColumn",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 17,
+          "cfg_edges": 18,
+          "branch_points": 2,
+          "cyclomatic_complexity": 3,
+          "def_count": 13,
+          "use_count": 37,
+          "defuse_pairs": 13,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 16,
+      "cfg_edges": 17,
+      "branch_points": 2,
+      "cyclomatic_complexity": 3,
+      "def_count": 12,
+      "use_count": 33,
+      "defuse_pairs": 12,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.optimization.linear.SimplexSolver",
+          "method": "getPivotColumn",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 16,
+          "cfg_edges": 17,
+          "branch_points": 2,
+          "cyclomatic_complexity": 3,
+          "def_count": 12,
+          "use_count": 33,
+          "defuse_pairs": 12,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": -1,
+    "d_branch_points": 0,
+    "d_cfg_edges": -1,
+    "d_defuse_pairs": -1,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 312,
+      "n_candidate_warnings": 312,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__RSRepair__Math__patch1-Math-82-RSRepair-plausible",
+    "bug_id": "Math-82",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

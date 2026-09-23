@@ -1,0 +1,303 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__GenProg__Math__patch1-Math-85-GenProg-plausible",
+  "bug_id": "Math-85",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 9.811
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.978
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 10.734
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 53.338
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.546
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 85.858
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__GenProg__Math__patch1-Math-85-GenProg-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.465776652000045,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 4239,
+        "output_tokens": 179,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.3,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch removes the exception throw entirely instead of fixing the underlying bracketing logic, which deletes critical error handling. It adds a hardcoded check for p==0 returning NEGATIVE_INFINITY that only addresses the specific test case rather than the general convergence issue. The unused variable 'int i = 0' and removal of error reporting make this a clear overfitting to the failing test."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.2666656079999257,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 4239,
+        "output_tokens": 179,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.3,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch removes the exception throw entirely instead of fixing the underlying bracketing logic, which deletes critical error handling. It adds a hardcoded check for p==0 returning NEGATIVE_INFINITY that only addresses the specific test case rather than the general convergence issue. The unused variable 'int i = 0' and removal of error reporting make this a clear overfitting to the failing test."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.206031576999976,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 4239,
+        "output_tokens": 179,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.3,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch removes the exception throw entirely instead of fixing the underlying bracketing logic, which deletes critical error handling. It adds a hardcoded check for p==0 returning NEGATIVE_INFINITY that only addresses the specific test case rather than the general convergence issue. The unused variable 'int i = 0' and removal of error reporting make this a clear overfitting to the failing test."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__GenProg__Math__patch1-Math-85-GenProg-plausible",
+    "bug_id": "Math-85",
+    "model": "claude-haiku-4-5",
+    "latency_s": 17.09030272599989,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 4108,
+    "output_tokens": 2863,
+    "tests": [
+      {
+        "name": "testBracketingWithBoundaryValues",
+        "target_class": "org.apache.commons.math.analysis.solvers.UnivariateRealSolverUtils",
+        "target_method": "bracket",
+        "class_name": "BracketingTest",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": "JUnit version 4.11\n.\nTime: 0.021\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testInverseCumulativeProbabilityWithExtremeP",
+        "target_class": "org.apache.commons.math.distribution.AbstractContinuousDistribution",
+        "target_method": "inverseCumulativeProbability",
+        "class_name": "InverseCumulativeProbabilityTest",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": "JUnit version 4.11\n.\nTime: 0.009\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testInverseCumulativeProbabilityWithP0And1",
+        "target_class": "org.apache.commons.math.distribution.AbstractContinuousDistribution",
+        "target_method": "inverseCumulativeProbability",
+        "class_name": "InverseCumulativeProbabilityBoundaryTest",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": " Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Throwable.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Throwable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__GenProg__Math__patch1-Math-85-GenProg-plausible/InverseCumulativeProbabilityBoundaryTest/fixed/src/test/org/apache/commons/math/distribution/InverseCumulativeProbabilityBoundaryTest.java:12: error: cannot find symbol\n    [javac]         ContinuousDistribution dist = new UniformDistributionImpl(0.0, 10.0);\n    [javac]                                           ^\n    [javac]   symbol:   class UniformDistributionImpl\n    [javac]   location: class InverseCumulativeProbabilityBoundaryTest\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 1 error\n    [javac] 20 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__GenProg__Math__patch1-Math-85-GenProg-plausible/InverseCumulativeProbabilityBoundaryTest/fixed/build.xml:165: Compile failed; see the compiler error output for details.\n\nTotal time: 1 second\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testBracketingWithInitialAtBoundary",
+        "target_class": "org.apache.commons.math.analysis.solvers.UnivariateRealSolverUtils",
+        "target_method": "bracket",
+        "class_name": "BracketingBoundaryTest",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Error.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/RuntimeException.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/RuntimeException.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__GenProg__Math__patch1-Math-85-GenProg-plausible/BracketingBoundaryTest/fixed/src/test/org/apache/commons/math/distribution/BracketingBoundaryTest.java:21: error: unreported exception ConvergenceException; must be caught or declared to be thrown\n    [javac]         double[] bracket = UnivariateRealSolverUtils.bracket(function, 0.1, 0.0, 2.0, 100);\n    [javac]                                                             ^\n    [javac] 1 error\n    [javac] 24 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__GenProg__Math__patch1-Math-85-GenProg-plausible/BracketingBoundaryTest/fixed/build.xml:165: Compile failed; see the compiler error output for details.\n\nTotal time: 1 second\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testBracketingSuccessfulCase",
+        "target_class": "org.apache.commons.math.analysis.solvers.UnivariateRealSolverUtils",
+        "target_method": "bracket",
+        "class_name": "BracketingSuccessTest",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "k-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Error.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/RuntimeException.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/RuntimeException.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__GenProg__Math__patch1-Math-85-GenProg-plausible/BracketingSuccessTest/fixed/src/test/org/apache/commons/math/distribution/BracketingSuccessTest.java:20: error: unreported exception ConvergenceException; must be caught or declared to be thrown\n    [javac]         double[] bracket = UnivariateRealSolverUtils.bracket(function, 1.5, 0.0, 5.0, 100);\n    [javac]                                                             ^\n    [javac] 1 error\n    [javac] 24 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__GenProg__Math__patch1-Math-85-GenProg-plausible/BracketingSuccessTest/fixed/build.xml:165: Compile failed; see the compiler error output for details.\n\nTotal time: 0 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__GenProg__Math__patch1-Math-85-GenProg-plausible",
+    "true_project": "Math",
+    "true_bug_number": "85",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 914,
+    "output_tokens": 26,
+    "project": "Math",
+    "bug_number": 32,
+    "recalled_label": "UNKNOWN",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__GenProg__Math__patch1-Math-85-GenProg-plausible",
+    "bug_id": "Math-85",
+    "s_edit_ast": 0.06485355648535565,
+    "s_edit_ast_actions": 31,
+    "s_edit_ast_nodes": 478,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math/analysis/solvers/UnivariateRealSolverUtils",
+      "org/apache/commons/math/distribution/AbstractContinuousDistribution"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 135,
+      "cfg_edges": 138,
+      "branch_points": 14,
+      "cyclomatic_complexity": 9,
+      "def_count": 106,
+      "use_count": 314,
+      "defuse_pairs": 106,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.analysis.solvers.UnivariateRealSolverUtils",
+          "method": "bracket",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 88,
+          "cfg_edges": 92,
+          "branch_points": 10,
+          "cyclomatic_complexity": 8,
+          "def_count": 71,
+          "use_count": 207,
+          "defuse_pairs": 71,
+          "error": null
+        },
+        {
+          "class": "org.apache.commons.math.distribution.AbstractContinuousDistribution",
+          "method": "inverseCumulativeProbability",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 47,
+          "cfg_edges": 46,
+          "branch_points": 4,
+          "cyclomatic_complexity": 1,
+          "def_count": 35,
+          "use_count": 107,
+          "defuse_pairs": 35,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 115,
+      "cfg_edges": 119,
+      "branch_points": 15,
+      "cyclomatic_complexity": 10,
+      "def_count": 86,
+      "use_count": 265,
+      "defuse_pairs": 86,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.analysis.solvers.UnivariateRealSolverUtils",
+          "method": "bracket",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 65,
+          "cfg_edges": 70,
+          "branch_points": 10,
+          "cyclomatic_complexity": 9,
+          "def_count": 50,
+          "use_count": 151,
+          "defuse_pairs": 50,
+          "error": null
+        },
+        {
+          "class": "org.apache.commons.math.distribution.AbstractContinuousDistribution",
+          "method": "inverseCumulativeProbability",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 50,
+          "cfg_edges": 49,
+          "branch_points": 5,
+          "cyclomatic_complexity": 1,
+          "def_count": 36,
+          "use_count": 114,
+          "defuse_pairs": 36,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 1,
+    "d_stmts": -20,
+    "d_branch_points": 1,
+    "d_cfg_edges": -19,
+    "d_defuse_pairs": -20,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 314,
+      "n_candidate_warnings": 314,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 4,
+      "n_changed_class_files_candidate": 4,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__GenProg__Math__patch1-Math-85-GenProg-plausible",
+    "bug_id": "Math-85",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

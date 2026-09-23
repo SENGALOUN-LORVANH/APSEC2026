@@ -1,0 +1,225 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__FixMiner__Math__patch1-Math-85-FixMiner-plausible",
+  "bug_id": "Math-85",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 13.571
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 1.773
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 9.982
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 147.858
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.638
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 89.408
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__FixMiner__Math__patch1-Math-85-FixMiner-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 2.8636237439999377,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3138,
+        "output_tokens": 162,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.0,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch removes the exception throw entirely, allowing the method to return invalid bracketing results instead of reporting convergence failure. This masks the underlying bug rather than fixing it, and will cause silent failures in downstream code that depends on proper bracketing. The test passes only because the exception is no longer raised, not because the algorithm now works correctly."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.042255417999968,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3138,
+        "output_tokens": 163,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.0,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch removes the exception throw entirely instead of fixing the underlying bracketing logic, which merely masks the bug rather than repairing it. This deletes critical error-handling functionality and allows invalid results to be returned silently. The patch only makes the test pass by suppressing the error, not by fixing the actual convergence problem."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.1659073140000373,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3138,
+        "output_tokens": 162,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.0,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch removes the exception throw entirely instead of fixing the underlying bracketing logic, which merely masks the bug rather than repairing it. This deletes critical error-handling functionality and allows invalid results to be returned silently. The patch only passes the test by suppressing the error, not by actually fixing the convergence problem."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__FixMiner__Math__patch1-Math-85-FixMiner-plausible",
+    "bug_id": "Math-85",
+    "model": "claude-haiku-4-5",
+    "latency_s": null,
+    "error": "gave up after 6 attempts: InternalServerError: Error code: 500 - {'type': 'error', 'error': {'type': 'api_error', 'message': 'Internal server error'}, 'request_id': 'req_011CfLJrMjxjayhQqSh4D1L4'}",
+    "context_errors": [],
+    "input_tokens": null,
+    "output_tokens": null,
+    "tests": []
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__FixMiner__Math__patch1-Math-85-FixMiner-plausible",
+    "true_project": "Math",
+    "true_bug_number": "85",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 664,
+    "output_tokens": 28,
+    "project": "Math",
+    "bug_number": 369,
+    "recalled_label": "OVERFITTING",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__FixMiner__Math__patch1-Math-85-FixMiner-plausible",
+    "bug_id": "Math-85",
+    "s_edit_ast": 0.06593406593406594,
+    "s_edit_ast_actions": 18,
+    "s_edit_ast_nodes": 273,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math/analysis/solvers/UnivariateRealSolverUtils"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 88,
+      "cfg_edges": 92,
+      "branch_points": 10,
+      "cyclomatic_complexity": 8,
+      "def_count": 71,
+      "use_count": 207,
+      "defuse_pairs": 71,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.analysis.solvers.UnivariateRealSolverUtils",
+          "method": "bracket",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 88,
+          "cfg_edges": 92,
+          "branch_points": 10,
+          "cyclomatic_complexity": 8,
+          "def_count": 71,
+          "use_count": 207,
+          "defuse_pairs": 71,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 64,
+      "cfg_edges": 69,
+      "branch_points": 10,
+      "cyclomatic_complexity": 9,
+      "def_count": 49,
+      "use_count": 150,
+      "defuse_pairs": 49,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.analysis.solvers.UnivariateRealSolverUtils",
+          "method": "bracket",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 64,
+          "cfg_edges": 69,
+          "branch_points": 10,
+          "cyclomatic_complexity": 9,
+          "def_count": 49,
+          "use_count": 150,
+          "defuse_pairs": 49,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 1,
+    "d_stmts": -24,
+    "d_branch_points": 0,
+    "d_cfg_edges": -23,
+    "d_defuse_pairs": -22,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 314,
+      "n_candidate_warnings": 314,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 2,
+      "n_changed_class_files_candidate": 2,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__FixMiner__Math__patch1-Math-85-FixMiner-plausible",
+    "bug_id": "Math-85",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

@@ -1,0 +1,267 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__Nopol__Math__patch1-Math-82-Nopol-plausible",
+  "bug_id": "Math-82",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 21.779
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 2.178
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 11.953
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 27.533
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.141
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 54.26
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__Nopol__Math__patch1-Math-82-Nopol-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.912445923000064,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2111,
+        "output_tokens": 165,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.2,
+          "readability": 0.3,
+          "security_robustness": 0.7,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch adds a condition that only updates minValue when it equals DEFAULT_EPSILON, which is an arbitrary constraint that doesn't address the root cause of the pivot column selection bug. This overfits to the specific test case rather than fixing the general algorithm logic, and it weakens the functionality by preventing legitimate minValue updates in most cases."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.5402100300000257,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2111,
+        "output_tokens": 165,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.2,
+          "readability": 0.3,
+          "security_robustness": 0.7,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch adds a condition that only updates minValue when it equals DEFAULT_EPSILON, which is an arbitrary constraint that doesn't address the root cause of the pivot column selection bug. This overfits to the specific test case rather than fixing the general algorithm logic, and it weakens the functionality by preventing legitimate minValue updates in most cases."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.485433241999999,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2111,
+        "output_tokens": 165,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.2,
+          "readability": 0.3,
+          "security_robustness": 0.7,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch adds a condition that only updates minValue when it equals DEFAULT_EPSILON, which is an arbitrary constraint that doesn't address the root cause of the pivot column selection bug. This overfits to the specific test case rather than fixing the general algorithm logic, and it weakens the functionality by preventing legitimate minValue updates in most cases."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__Nopol__Math__patch1-Math-82-Nopol-plausible",
+    "bug_id": "Math-82",
+    "model": "claude-haiku-4-5",
+    "latency_s": 15.448881298999936,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 1982,
+    "output_tokens": 1552,
+    "tests": [
+      {
+        "name": "testPivotColumnWithMultipleNegativeCoefficients",
+        "target_class": "org.apache.commons.math.optimization.linear.SimplexSolver",
+        "target_method": "getPivotColumn",
+        "class_name": "TestPivotColumnMultipleNegatives",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "t find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Iterable.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Iterable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__Nopol__Math__patch1-Math-82-Nopol-plausible/TestPivotColumnMultipleNegatives/fixed/src/test/java/org/apache/commons/math/optimization/linear/TestPivotColumnMultipleNegatives.java:18: error: cannot find symbol\n    [javac]         RealPointValuePair solution = solver.optimize(f, constraints, GoalType.MAXIMIZE, false);\n    [javac]                                                                       ^\n    [javac]   symbol:   variable GoalType\n    [javac]   location: class TestPivotColumnMultipleNegatives\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 1 error\n    [javac] 30 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__Nopol__Math__patch1-Math-82-Nopol-plausible/TestPivotColumnMultipleNegatives/fixed/build.xml:168: Compile failed; see the compiler error output for details.\n\nTotal time: 0 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testPivotColumnSelectsMostNegative",
+        "target_class": "org.apache.commons.math.optimization.linear.SimplexSolver",
+        "target_method": "getPivotColumn",
+        "class_name": "TestPivotColumnMostNegative",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "ass): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Iterable.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Iterable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__Nopol__Math__patch1-Math-82-Nopol-plausible/TestPivotColumnMostNegative/fixed/src/test/java/org/apache/commons/math/optimization/linear/TestPivotColumnMostNegative.java:20: error: cannot find symbol\n    [javac]         RealPointValuePair solution = solver.optimize(f, constraints, GoalType.MAXIMIZE, false);\n    [javac]                                                                       ^\n    [javac]   symbol:   variable GoalType\n    [javac]   location: class TestPivotColumnMostNegative\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 1 error\n    [javac] 30 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__Nopol__Math__patch1-Math-82-Nopol-plausible/TestPivotColumnMostNegative/fixed/build.xml:168: Compile failed; see the compiler error output for details.\n\nTotal time: 0 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testPivotColumnWithVaryingNegativeValues",
+        "target_class": "org.apache.commons.math.optimization.linear.SimplexSolver",
+        "target_method": "getPivotColumn",
+        "class_name": "TestPivotColumnVaryingValues",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": ": warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Iterable.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Iterable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__Nopol__Math__patch1-Math-82-Nopol-plausible/TestPivotColumnVaryingValues/fixed/src/test/java/org/apache/commons/math/optimization/linear/TestPivotColumnVaryingValues.java:20: error: cannot find symbol\n    [javac]         RealPointValuePair solution = solver.optimize(f, constraints, GoalType.MAXIMIZE, false);\n    [javac]                                                                       ^\n    [javac]   symbol:   variable GoalType\n    [javac]   location: class TestPivotColumnVaryingValues\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 1 error\n    [javac] 30 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__Nopol__Math__patch1-Math-82-Nopol-plausible/TestPivotColumnVaryingValues/fixed/build.xml:168: Compile failed; see the compiler error output for details.\n\nTotal time: 0 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__Nopol__Math__patch1-Math-82-Nopol-plausible",
+    "true_project": "Math",
+    "true_bug_number": "82",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 585,
+    "output_tokens": 25,
+    "project": "Math",
+    "bug_number": null,
+    "recalled_label": "UNKNOWN",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__Nopol__Math__patch1-Math-82-Nopol-plausible",
+    "bug_id": "Math-82",
+    "s_edit_ast": 0.07865168539325842,
+    "s_edit_ast_actions": 7,
+    "s_edit_ast_nodes": 89,
+    "s_edit_error": null,
+    "s_vuln_changed": 0.5,
+    "s_vuln_new_warning_count": 1,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math/optimization/linear/SimplexSolver"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 17,
+      "cfg_edges": 18,
+      "branch_points": 2,
+      "cyclomatic_complexity": 3,
+      "def_count": 13,
+      "use_count": 37,
+      "defuse_pairs": 13,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.optimization.linear.SimplexSolver",
+          "method": "getPivotColumn",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 17,
+          "cfg_edges": 18,
+          "branch_points": 2,
+          "cyclomatic_complexity": 3,
+          "def_count": 13,
+          "use_count": 37,
+          "defuse_pairs": 13,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 19,
+      "cfg_edges": 21,
+      "branch_points": 3,
+      "cyclomatic_complexity": 4,
+      "def_count": 14,
+      "use_count": 43,
+      "defuse_pairs": 14,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.optimization.linear.SimplexSolver",
+          "method": "getPivotColumn",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 19,
+          "cfg_edges": 21,
+          "branch_points": 3,
+          "cyclomatic_complexity": 4,
+          "def_count": 14,
+          "use_count": 43,
+          "defuse_pairs": 14,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 1,
+    "d_stmts": 2,
+    "d_branch_points": 1,
+    "d_cfg_edges": 3,
+    "d_defuse_pairs": 1,
+    "vuln_detail": {
+      "s_vuln": 0.5,
+      "new_warnings": [
+        {
+          "bug_type": "FE",
+          "category": "D",
+          "priority": "M",
+          "severity": "MEDIUM",
+          "class": "SimplexSolver",
+          "method": "getPivotColumn",
+          "location": "SimplexSolver.java:line 63",
+          "description": "Test for floating point equality in org.apache.commons.math.optimization.linear.SimplexSolver.getPivotColumn(SimplexTableau)"
+        }
+      ],
+      "n_buggy_warnings": 312,
+      "n_candidate_warnings": 313,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__Nopol__Math__patch1-Math-82-Nopol-plausible",
+    "bug_id": "Math-82",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}
