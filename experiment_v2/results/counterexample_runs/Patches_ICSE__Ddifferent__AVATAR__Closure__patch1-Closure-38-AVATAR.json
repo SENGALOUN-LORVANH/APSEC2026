@@ -5,5 +5,8 @@
   "latency_s": 0.33497080800043477,
   "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011Cf6SMoBjTAKLWiRZLtzUX'}",
   "context_errors": [],
-  "tests": []
+  "tests": [],
+  "input_tokens": 2004,
+  "output_tokens": 1220,
+  "tokens_backfilled": true
 }

@@ -217,18 +217,26 @@ Per-stage wall-clock over the 48 pilot patches (seconds; full table in `pilot_ev
   **53 h with 4**, 35 h with 6, 27 h with 8. The PC has 10 physical cores / 20 threads, so 4–6 workers is the
   realistic range for Java builds. A resumable, checkpointed parallel runner is **still to be implemented**
   (the pilot runner is sequential, and the machine has already powered off mid-run once).
-- Tokens (successful runs): haiku mean 3664 in / 172 out; sonnet 4855 in / 614 out.
-- **Cost** (Anthropic list pricing, recorded 2026-09-21: Haiku $1/$5, Sonnet $2/$10 per 1M in/out):
-  semantic haiku $0.65, semantic sonnet (comparison) $2.28, **pilot total ≈ $2.93**. Counterexample calls do
-  not yet log tokens (additive-logging gap) → their API cost is not captured; a small underestimate.
-- Full-run projection (899 labelled patches, selected model haiku, semantic 3 runs): 899×3 ≈ 2697 calls at the
-  pilot's ~$0.0045/call ≈ **$12** for the semantic arm. Counterexample generation (~899 haiku calls, larger
-  outputs, tokens not yet logged) + memorization probe add an unmeasured but small amount; total API cost is
-  very likely **under $20**. Defects4J execution is CPU time, not API cost.
+- Tokens (successful runs): semantic haiku mean 3664 in / 172 out; sonnet 4855 in / 614 out. **Counterexample
+  haiku (now logged) mean 3478 in / 1489 out** — the K=3 test-generation output is ~9× the semantic output,
+  which is why the counterexample arm dominates per-call cost.
+- **Cost** (Anthropic list pricing, recorded 2026-09-21: Haiku $1/$5, Sonnet $2/$10 per 1M in/out): semantic
+  haiku $0.65, semantic sonnet (comparison) $2.28, **counterexample haiku $0.48** (44/48 calls re-issued to
+  measure tokens; see DEVIATIONS #14), **pilot total ≈ $3.41** (was $2.93 before the counterexample arm was
+  measured). 4 counterexample calls could not be re-measured (2 API `400`, 2 API `500`), so the cex figure is a
+  lower bound over 44 calls.
+- Full-run projection (899 patches, haiku, from the pilot's **measured** per-call cost): semantic 899×3 ≈ 2697
+  calls × $0.00452 ≈ **$12.2**; counterexample 899 calls × $0.0109 ≈ **$9.8**; memorization 899 short calls
+  (now logged, tiny output) ≈ **$2–3**. **Total API ≈ $24–25** — above the earlier "under $20" guess, because
+  the counterexample output tokens (previously unlogged) are large. Defects4J execution is CPU time, not API
+  cost. A resumable, checkpointed 4-worker parallel runner (`src/run_full.py`) is now implemented; at the
+  pilot's mean per-patch time the full run is ≈ **53 h at 4 workers**.
 
 ## 19. Memorization diagnostic
-- Probe over 48 patches: **0 recognized** (37 "not recognised", 11 NA/errored). No evidence the model recalls
-  the specific Defects4J bug identities → low memorization risk for the semantic judgement.
+- Probe over **48/48 patches: 0 recognized** (all 48 returned a real judgement; the 11 rows that had failed
+  with a credit-balance error during the pilot were re-run after the top-up — see DEVIATIONS-adjacent gap B2).
+  No evidence the model recalls the specific Defects4J bug identities → low memorization risk for the semantic
+  judgement.
 
 ## 20. Failures
 - 2/50 patches not scored (stopped early in the pipeline) — detail in `pilot_evaluation.json → failures`.
@@ -246,11 +254,14 @@ Per-stage wall-clock over the 48 pilot patches (seconds; full table in `pilot_ev
   n-problem, not a modelling preference; the full run decides it with the primary (imputed) model.
 
 ## 22. Still outstanding before the full run
-1. **Context ablation A / B not run** (primary condition C only) — pre-registered, needs the PC (~$1 of API).
-2. **11 memorization-probe entries errored/NA** (credit exhaustion); rerun for a complete 48/48 diagnostic.
-3. **Counterexample calls do not log tokens** → pilot cost (~$2.93) is a small underestimate.
-4. **No resumable parallel runner** — required for a 212 h sequential workload (§18).
-Items 1–4 do not change any number above; they are gaps in the pilot's own coverage.
+1. **Context ablation A / B** — see §23 below (now run on the 48 pilot patches).
+2. ~~11 memorization-probe entries errored/NA~~ **CLOSED (B2):** re-run after the credit top-up; the probe is
+   now a complete **48/48, 0 recognized** (§19).
+3. ~~Counterexample calls do not log tokens~~ **CLOSED (B3):** `oracle_runner` now records usage; pilot cex
+   cost measured at **$0.48** (44/48 re-issued), pilot total **$3.41** (§18, DEVIATIONS #14).
+4. ~~No resumable parallel runner~~ **CLOSED (B4):** `src/run_full.py` — checkpointed, per-bug parallel
+   (default 4 workers, `--workers`), safe to kill/resume; consolidation in `src/consolidate_full.py`.
+Items 2–4 do not change any pilot number above; they are gaps in the pilot's own coverage now closed.
 
 ---
 

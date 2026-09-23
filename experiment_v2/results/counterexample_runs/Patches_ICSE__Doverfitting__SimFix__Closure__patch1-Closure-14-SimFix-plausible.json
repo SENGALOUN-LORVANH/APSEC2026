@@ -36,5 +36,8 @@
   ],
   "s_cex": null,
   "n_valid": 0,
-  "n_passed": 0
+  "n_passed": 0,
+  "input_tokens": 4691,
+  "output_tokens": 2985,
+  "tokens_backfilled": true
 }

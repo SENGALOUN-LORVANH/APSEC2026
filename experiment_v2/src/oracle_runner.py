@@ -172,10 +172,11 @@ def validate_one_test(patch_id, bug_id, test_item, package, runner_class, candid
     return result
 
 
-def run_counterexamples(patch_id, model="claude-haiku-4-5", k=K):
-    import anthropic
-    client = anthropic.Anthropic()
-
+def build_cex_request(patch_id, k=K):
+    """Assemble the guarded counterexample request for a patch, exactly as run_counterexamples does.
+    Factored out so the pilot token-logging script re-issues a byte-identical generation call (same prompt,
+    same guard receipt) rather than a re-implementation that could drift from the real path.
+    Returns (req, ctx). ctx carries bug_id, runner_class, candidate diff path etc. for the caller."""
     with open(d4j.MANIFEST, newline="", encoding="utf-8") as f:
         row = next(r for r in csv.DictReader(f) if r["patch_id"] == patch_id)
     bug_id = row["bug_id"]
@@ -202,10 +203,27 @@ def run_counterexamples(patch_id, model="claude-haiku-4-5", k=K):
         patch_meta, candidate_diff, ";".join(trigger_tests), failure_messages, context_items,
         test_package=package, junit_style=junit_style, k=k, known_tools=dataset.known_apr_tools(),
         fingerprint_hashes=d4j.load_fingerprint(patch_id), allowed_source_text=candidate_diff)
+    ctx = {"bug_id": bug_id, "package": package, "runner_class": runner_class,
+           "context_errors": context_errors}
+    return req, ctx
+
+
+def run_counterexamples(patch_id, model="claude-haiku-4-5", k=K):
+    import anthropic
+    client = anthropic.Anthropic()
+
+    req, ctx = build_cex_request(patch_id, k)
+    bug_id, package, runner_class, context_errors = (
+        ctx["bug_id"], ctx["package"], ctx["runner_class"], ctx["context_errors"])
 
     resp, latency, attempts, settings, err = llm_client.send(client, req, model)
     result = {"patch_id": patch_id, "bug_id": bug_id, "model": model, "latency_s": latency, "error": err,
-              "context_errors": context_errors, "tests": []}
+              "context_errors": context_errors, "input_tokens": None, "output_tokens": None, "tests": []}
+    if resp is not None:
+        usage = getattr(resp, "usage", None)
+        if usage is not None:
+            result["input_tokens"] = getattr(usage, "input_tokens", None)
+            result["output_tokens"] = getattr(usage, "output_tokens", None)
     if resp is None:
         return result
 
@@ -229,7 +247,8 @@ def _write_result(result):
     COUNTEREXAMPLE_RESULTS.parent.mkdir(parents=True, exist_ok=True)
     row = {"patch_id": result["patch_id"], "bug_id": result["bug_id"], "model": result["model"],
            "s_cex": result.get("s_cex"), "n_valid": result.get("n_valid"), "n_passed": result.get("n_passed"),
-           "n_generated": len(result["tests"]), "error": result["error"]}
+           "n_generated": len(result["tests"]), "input_tokens": result.get("input_tokens"),
+           "output_tokens": result.get("output_tokens"), "error": result["error"]}
     existing = []
     if COUNTEREXAMPLE_RESULTS.exists():
         with open(COUNTEREXAMPLE_RESULTS, newline="", encoding="utf-8") as f:

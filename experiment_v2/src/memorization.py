@@ -36,8 +36,12 @@ def run_probe(patch_id, model="claude-haiku-4-5"):
                                                allowed_source_text=candidate_diff)
     resp, latency, attempts, settings, err = llm_client.send(client, req, model)
     result = {"patch_id": patch_id, "true_project": row["project"], "true_bug_number": row["bug_number"],
-              "model": model, "error": err}
+              "model": model, "error": err, "input_tokens": None, "output_tokens": None}
     if resp is not None:
+        usage = getattr(resp, "usage", None)
+        if usage is not None:
+            result["input_tokens"] = getattr(usage, "input_tokens", None)
+            result["output_tokens"] = getattr(usage, "output_tokens", None)
         try:
             parsed = json.loads(llm_client.response_text(resp))
             result.update(parsed)

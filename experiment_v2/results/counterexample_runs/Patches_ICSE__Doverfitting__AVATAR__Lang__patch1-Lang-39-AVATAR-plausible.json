@@ -5,5 +5,8 @@
   "latency_s": null,
   "error": "gave up after 6 attempts: InternalServerError: Error code: 500 - {'type': 'error', 'error': {'type': 'api_error', 'message': 'Internal server error'}, 'request_id': 'req_011Cf5HbqSFX28fKwShDdKrN'}",
   "context_errors": [],
-  "tests": []
+  "tests": [],
+  "input_tokens": 4522,
+  "output_tokens": 1010,
+  "tokens_backfilled": true
 }

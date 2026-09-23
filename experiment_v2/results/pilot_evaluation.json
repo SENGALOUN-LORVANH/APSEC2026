@@ -1850,14 +1850,14 @@
       },
       "counterexample_haiku": {
         "model": "claude-haiku-4-5",
-        "calls": 0,
-        "input_tokens": 0,
-        "output_tokens": 0,
-        "usd": 0.0
+        "calls": 44,
+        "input_tokens": 153019,
+        "output_tokens": 65499,
+        "usd": 0.4805
       }
     },
-    "total_usd": 2.9332,
-    "total_billable_calls": 288,
+    "total_usd": 3.4137,
+    "total_billable_calls": 332,
     "usd_per_patch_semantic_haiku": 0.013565
   },
   "complementarity": {
