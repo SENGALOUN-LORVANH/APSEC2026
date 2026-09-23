@@ -20,6 +20,7 @@ import shutil
 import subprocess
 import sys
 import tempfile
+import threading
 from pathlib import Path
 
 import leakage_guard
@@ -322,11 +323,17 @@ def _write_status_csv(path, rows, fieldnames):
                 existing[row[fieldnames[0]]] = row
     for row in rows:
         existing[row[fieldnames[0]]] = {k: row.get(k, "") for k in fieldnames}
-    with open(path, "w", newline="", encoding="utf-8") as f:
+    # Atomic rewrite: write a temp file then os.replace, so a concurrent reader (the parallel full runner has
+    # many workers reading d4j_status.csv while one holds the write lock) always sees a complete file, never a
+    # half-written truncation. os.replace is atomic on the same filesystem. Callers that mutate concurrently must
+    # still serialize the read-modify-write (the runner holds a lock); this only guarantees reader consistency.
+    tmp = path.with_suffix(path.suffix + f".tmp.{os.getpid()}.{threading.get_ident()}")
+    with open(tmp, "w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=fieldnames)
         w.writeheader()
         for key in sorted(existing):
             w.writerow(existing[key])
+    os.replace(tmp, path)
 
 
 BUG_FIELDS = ["bug_id", "buggy_checkout_available", "fixed_checkout_available", "buggy_compiles", "fixed_compiles",
