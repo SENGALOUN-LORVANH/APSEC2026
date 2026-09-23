@@ -1,0 +1,187 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__GenProg__Closure__patch1-Closure-78-GenProg-plausible",
+  "bug_id": "Closure-78",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 77.406
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.637
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 1.52
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 2.426
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 0.389
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 64.59
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__GenProg__Closure__patch1-Closure-78-GenProg-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 0,
+    "s_sem_final": null,
+    "decision": null,
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 0.3785628350015031,
+        "attempts": 1,
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLqHRUsy4EntcdX4LMrw'}"
+      },
+      {
+        "run": 1,
+        "latency_s": 0.33407253000041237,
+        "attempts": 1,
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLqHSo1kRsnNXX1YaNoN'}"
+      },
+      {
+        "run": 2,
+        "latency_s": 0.3212368299973605,
+        "attempts": 1,
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLqHUB7DtuaM28ojXfNG'}"
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__GenProg__Closure__patch1-Closure-78-GenProg-plausible",
+    "bug_id": "Closure-78",
+    "model": "claude-haiku-4-5",
+    "latency_s": 0.4052649379991635,
+    "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLqHeavWHydhMbqjPBCR'}",
+    "context_errors": [],
+    "input_tokens": null,
+    "output_tokens": null,
+    "tests": []
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__GenProg__Closure__patch1-Closure-78-GenProg-plausible",
+    "true_project": "Closure",
+    "true_bug_number": "78",
+    "model": "claude-haiku-4-5",
+    "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLqHgAgLYZj9VPRSvqLL'}",
+    "input_tokens": null,
+    "output_tokens": null
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__GenProg__Closure__patch1-Closure-78-GenProg-plausible",
+    "bug_id": "Closure-78",
+    "s_edit_ast": 0.30612244897959184,
+    "s_edit_ast_actions": 15,
+    "s_edit_ast_nodes": 49,
+    "s_edit_error": null,
+    "s_vuln_changed": 0.5,
+    "s_vuln_new_warning_count": 1,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "com/google/javascript/jscomp/AbstractPeepholeOptimization"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 12,
+      "cfg_edges": 11,
+      "branch_points": 0,
+      "cyclomatic_complexity": 1,
+      "def_count": 10,
+      "use_count": 24,
+      "defuse_pairs": 10,
+      "per_method": [
+        {
+          "class": "com.google.javascript.jscomp.AbstractPeepholeOptimization",
+          "method": "error",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 12,
+          "cfg_edges": 11,
+          "branch_points": 0,
+          "cyclomatic_complexity": 1,
+          "def_count": 10,
+          "use_count": 24,
+          "defuse_pairs": 10,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 10,
+      "cfg_edges": 9,
+      "branch_points": 0,
+      "cyclomatic_complexity": 1,
+      "def_count": 9,
+      "use_count": 18,
+      "defuse_pairs": 9,
+      "per_method": [
+        {
+          "class": "com.google.javascript.jscomp.AbstractPeepholeOptimization",
+          "method": "error",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 10,
+          "cfg_edges": 9,
+          "branch_points": 0,
+          "cyclomatic_complexity": 1,
+          "def_count": 9,
+          "use_count": 18,
+          "defuse_pairs": 9,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": -2,
+    "d_branch_points": 0,
+    "d_cfg_edges": -2,
+    "d_defuse_pairs": -1,
+    "vuln_detail": {
+      "s_vuln": 0.5,
+      "new_warnings": [
+        {
+          "bug_type": "DLS",
+          "category": "D",
+          "priority": "M",
+          "severity": "MEDIUM",
+          "class": "AbstractPeepholeOptimization",
+          "method": "error",
+          "location": "AbstractPeepholeOptimization.java:line 53",
+          "description": "Dead store to error in com.google.javascript.jscomp.AbstractPeepholeOptimization.error(DiagnosticType, Node)"
+        }
+      ],
+      "n_buggy_warnings": 6,
+      "n_candidate_warnings": 7,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__GenProg__Closure__patch1-Closure-78-GenProg-plausible",
+    "bug_id": "Closure-78",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

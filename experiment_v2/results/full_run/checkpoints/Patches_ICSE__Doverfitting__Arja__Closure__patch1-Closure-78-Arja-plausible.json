@@ -1,0 +1,244 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__Arja__Closure__patch1-Closure-78-Arja-plausible",
+  "bug_id": "Closure-78",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 99.276
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 1.401
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 3.774
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 4.92
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 0.396
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 51.533
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__Arja__Closure__patch1-Closure-78-Arja-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 0,
+    "s_sem_final": null,
+    "decision": null,
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 0.43217519099925994,
+        "attempts": 1,
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLq7Mj8gSADHtiynVYTr'}"
+      },
+      {
+        "run": 1,
+        "latency_s": 0.35264329300116515,
+        "attempts": 1,
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLq7PMrjEc5G539joqE5'}"
+      },
+      {
+        "run": 2,
+        "latency_s": 0.3455741929974465,
+        "attempts": 1,
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLq7QstY7WjwhhwbEZSM'}"
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__Arja__Closure__patch1-Closure-78-Arja-plausible",
+    "bug_id": "Closure-78",
+    "model": "claude-haiku-4-5",
+    "latency_s": 0.3477529929987213,
+    "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLq7n1syx98JYgofJLDm'}",
+    "context_errors": [],
+    "input_tokens": null,
+    "output_tokens": null,
+    "tests": []
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__Arja__Closure__patch1-Closure-78-Arja-plausible",
+    "true_project": "Closure",
+    "true_bug_number": "78",
+    "model": "claude-haiku-4-5",
+    "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLq7oc89HeJrRkzF8NiB'}",
+    "input_tokens": null,
+    "output_tokens": null
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__Arja__Closure__patch1-Closure-78-Arja-plausible",
+    "bug_id": "Closure-78",
+    "s_edit_ast": 0.11403508771929824,
+    "s_edit_ast_actions": 39,
+    "s_edit_ast_nodes": 342,
+    "s_edit_error": null,
+    "s_vuln_changed": 0.5,
+    "s_vuln_new_warning_count": 1,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "com/google/javascript/jscomp/PeepholeFoldConstants",
+      "com/google/javascript/jscomp/AbstractPeepholeOptimization"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 73,
+      "cfg_edges": 80,
+      "branch_points": 11,
+      "cyclomatic_complexity": 13,
+      "def_count": 43,
+      "use_count": 150,
+      "defuse_pairs": 43,
+      "per_method": [
+        {
+          "class": "com.google.javascript.jscomp.PeepholeFoldConstants",
+          "method": "tryFoldArithmeticOp",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 13,
+          "cfg_edges": 12,
+          "branch_points": 1,
+          "cyclomatic_complexity": 1,
+          "def_count": 7,
+          "use_count": 27,
+          "defuse_pairs": 7,
+          "error": null
+        },
+        {
+          "class": "com.google.javascript.jscomp.PeepholeFoldConstants",
+          "method": "tryFoldLeftChildOp",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 48,
+          "cfg_edges": 57,
+          "branch_points": 10,
+          "cyclomatic_complexity": 11,
+          "def_count": 26,
+          "use_count": 99,
+          "defuse_pairs": 26,
+          "error": null
+        },
+        {
+          "class": "com.google.javascript.jscomp.AbstractPeepholeOptimization",
+          "method": "error",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 12,
+          "cfg_edges": 11,
+          "branch_points": 0,
+          "cyclomatic_complexity": 1,
+          "def_count": 10,
+          "use_count": 24,
+          "defuse_pairs": 10,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 62,
+      "cfg_edges": 67,
+      "branch_points": 9,
+      "cyclomatic_complexity": 11,
+      "def_count": 37,
+      "use_count": 129,
+      "defuse_pairs": 37,
+      "per_method": [
+        {
+          "class": "com.google.javascript.jscomp.PeepholeFoldConstants",
+          "method": "tryFoldArithmeticOp",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 13,
+          "cfg_edges": 12,
+          "branch_points": 1,
+          "cyclomatic_complexity": 1,
+          "def_count": 7,
+          "use_count": 27,
+          "defuse_pairs": 7,
+          "error": null
+        },
+        {
+          "class": "com.google.javascript.jscomp.PeepholeFoldConstants",
+          "method": "tryFoldLeftChildOp",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 40,
+          "cfg_edges": 47,
+          "branch_points": 8,
+          "cyclomatic_complexity": 9,
+          "def_count": 22,
+          "use_count": 85,
+          "defuse_pairs": 22,
+          "error": null
+        },
+        {
+          "class": "com.google.javascript.jscomp.AbstractPeepholeOptimization",
+          "method": "error",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 9,
+          "cfg_edges": 8,
+          "branch_points": 0,
+          "cyclomatic_complexity": 1,
+          "def_count": 8,
+          "use_count": 17,
+          "defuse_pairs": 8,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": -2,
+    "d_stmts": -11,
+    "d_branch_points": -2,
+    "d_cfg_edges": -13,
+    "d_defuse_pairs": -6,
+    "vuln_detail": {
+      "s_vuln": 0.5,
+      "new_warnings": [
+        {
+          "bug_type": "DLS",
+          "category": "D",
+          "priority": "M",
+          "severity": "MEDIUM",
+          "class": "AbstractPeepholeOptimization",
+          "method": "error",
+          "location": "AbstractPeepholeOptimization.java:line 53",
+          "description": "Dead store to error in com.google.javascript.jscomp.AbstractPeepholeOptimization.error(DiagnosticType, Node)"
+        }
+      ],
+      "n_buggy_warnings": 10,
+      "n_candidate_warnings": 11,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 2,
+      "n_changed_class_files_candidate": 2,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__Arja__Closure__patch1-Closure-78-Arja-plausible",
+    "bug_id": "Closure-78",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

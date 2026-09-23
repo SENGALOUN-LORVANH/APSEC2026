@@ -1,0 +1,254 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__GenProg__Math__patch1-Math-40-GenProg-plausible",
+  "bug_id": "Math-40",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 38.665
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 1.178
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 2.634
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 3.076
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 0.393
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 124.852
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__GenProg__Math__patch1-Math-40-GenProg-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 0,
+    "s_sem_final": null,
+    "decision": null,
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 0.4959389989999181,
+        "attempts": 1,
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLqDTMdcHQs8quPMB2kh'}"
+      },
+      {
+        "run": 1,
+        "latency_s": 0.34428159900198807,
+        "attempts": 1,
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLqDVMBrhUNECLZAcAWv'}"
+      },
+      {
+        "run": 2,
+        "latency_s": 0.3529073989993776,
+        "attempts": 1,
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLqDWnkfYZxar2TBEsaE'}"
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__GenProg__Math__patch1-Math-40-GenProg-plausible",
+    "bug_id": "Math-40",
+    "model": "claude-haiku-4-5",
+    "latency_s": 0.37904340000022785,
+    "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLqDjyWZJB9BwQm3mA1u'}",
+    "context_errors": [],
+    "input_tokens": null,
+    "output_tokens": null,
+    "tests": []
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__GenProg__Math__patch1-Math-40-GenProg-plausible",
+    "true_project": "Math",
+    "true_bug_number": "40",
+    "model": "claude-haiku-4-5",
+    "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLqDmcykfwzFsC9Jxtac'}",
+    "input_tokens": null,
+    "output_tokens": null
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__GenProg__Math__patch1-Math-40-GenProg-plausible",
+    "bug_id": "Math-40",
+    "s_edit_ast": 0.0625,
+    "s_edit_ast_actions": 58,
+    "s_edit_ast_nodes": 928,
+    "s_edit_error": null,
+    "s_vuln_changed": 1.0,
+    "s_vuln_new_warning_count": 2,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math/analysis/solvers/BracketingNthOrderBrentSolver",
+      "org/apache/commons/math/analysis/solvers/BaseAbstractUnivariateRealSolver"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 235,
+      "cfg_edges": 249,
+      "branch_points": 25,
+      "cyclomatic_complexity": 22,
+      "def_count": 171,
+      "use_count": 554,
+      "defuse_pairs": 171,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.analysis.solvers.BracketingNthOrderBrentSolver",
+          "method": "doSolve",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 203,
+          "cfg_edges": 221,
+          "branch_points": 25,
+          "cyclomatic_complexity": 20,
+          "def_count": 146,
+          "use_count": 504,
+          "defuse_pairs": 146,
+          "error": null
+        },
+        {
+          "class": "org.apache.commons.math.analysis.solvers.BracketingNthOrderBrentSolver",
+          "method": "solve",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 19,
+          "cfg_edges": 17,
+          "branch_points": 0,
+          "cyclomatic_complexity": 2,
+          "def_count": 17,
+          "use_count": 32,
+          "defuse_pairs": 17,
+          "error": null
+        },
+        {
+          "class": "org.apache.commons.math.analysis.solvers.BaseAbstractUnivariateRealSolver",
+          "method": "incrementEvaluationCount",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 13,
+          "cfg_edges": 11,
+          "branch_points": 0,
+          "cyclomatic_complexity": 0,
+          "def_count": 8,
+          "use_count": 18,
+          "defuse_pairs": 8,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 244,
+      "cfg_edges": 259,
+      "branch_points": 26,
+      "cyclomatic_complexity": 23,
+      "def_count": 177,
+      "use_count": 571,
+      "defuse_pairs": 177,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.analysis.solvers.BracketingNthOrderBrentSolver",
+          "method": "doSolve",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 209,
+          "cfg_edges": 228,
+          "branch_points": 26,
+          "cyclomatic_complexity": 21,
+          "def_count": 150,
+          "use_count": 513,
+          "defuse_pairs": 150,
+          "error": null
+        },
+        {
+          "class": "org.apache.commons.math.analysis.solvers.BracketingNthOrderBrentSolver",
+          "method": "solve",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 21,
+          "cfg_edges": 19,
+          "branch_points": 0,
+          "cyclomatic_complexity": 2,
+          "def_count": 18,
+          "use_count": 38,
+          "defuse_pairs": 18,
+          "error": null
+        },
+        {
+          "class": "org.apache.commons.math.analysis.solvers.BaseAbstractUnivariateRealSolver",
+          "method": "incrementEvaluationCount",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 14,
+          "cfg_edges": 12,
+          "branch_points": 0,
+          "cyclomatic_complexity": 0,
+          "def_count": 9,
+          "use_count": 20,
+          "defuse_pairs": 9,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 1,
+    "d_stmts": 9,
+    "d_branch_points": 1,
+    "d_cfg_edges": 10,
+    "d_defuse_pairs": 6,
+    "vuln_detail": {
+      "s_vuln": 1.0,
+      "new_warnings": [
+        {
+          "bug_type": "DLS",
+          "category": "D",
+          "priority": "M",
+          "severity": "MEDIUM",
+          "class": "BaseAbstractUnivariateRealSolver",
+          "method": "incrementEvaluationCount",
+          "location": "BaseAbstractUnivariateRealSolver.java:line 296",
+          "description": "Dead store to initial in org.apache.commons.math.analysis.solvers.BaseAbstractUnivariateRealSolver.incrementEvaluationCount()"
+        },
+        {
+          "bug_type": "DLS",
+          "category": "D",
+          "priority": "M",
+          "severity": "MEDIUM",
+          "class": "BracketingNthOrderBrentSolver",
+          "method": "solve",
+          "location": "BracketingNthOrderBrentSolver.java:line 396",
+          "description": "Dead store to x1 in org.apache.commons.math.analysis.solvers.BracketingNthOrderBrentSolver.solve(int, UnivariateFunction, double, double, double, AllowedSolution)"
+        }
+      ],
+      "n_buggy_warnings": 503,
+      "n_candidate_warnings": 505,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 3,
+      "n_changed_class_files_candidate": 3,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__GenProg__Math__patch1-Math-40-GenProg-plausible",
+    "bug_id": "Math-40",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}
