@@ -2,3 +2,15 @@ patch_id,S_sem,S_cex,S_edit,S_vuln,alpha,beta,gamma,delta,PVS,PVS_strategy,PVS_p
 Patches_ICSE__Ddifferent__ACS__Chart__patch1-Chart-19-ACS,0.050000000000000044,1.0,0.21138211382113822,0,0.25,0.25,0.25,0.25,0.7096544715447155,shifted_renormalized,0.20965447154471545,,correct
 Patches_ICSE__Ddifferent__ACS__Lang__patch1-Lang-24-ACS,0.050000000000000044,1.0,0.029288702928870293,0,0.25,0.25,0.25,0.25,0.7551778242677825,shifted_renormalized,0.25517782426778246,,correct
 Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-3-ACS,0.050000000000000044,1.0,0.05263157894736842,0,0.25,0.25,0.25,0.25,0.7493421052631579,shifted_renormalized,0.24934210526315792,,correct
+Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-82-ACS,0.15000000000000002,,0.12781954887218044,0,0.25,0.25,0.25,0.25,0.6740601503759399,shifted_renormalized,,S_cex,correct
+Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-85-ACS,0.050000000000000044,,0.047619047619047616,0,0.25,0.25,0.25,0.25,0.6674603174603174,shifted_renormalized,,S_cex,correct
+Patches_ICSE__Doverfitting__AVATAR__Math__patch1-Math-80-AVATAR-plausible,0.15000000000000002,,0.07462686567164178,0,0.25,0.25,0.25,0.25,0.6917910447761194,shifted_renormalized,,S_cex,overfitting
+Patches_ICSE__Doverfitting__AVATAR__Math__patch1-Math-82-AVATAR-plausible,0.050000000000000044,,0.0449438202247191,0,0.25,0.25,0.25,0.25,0.6683520599250937,shifted_renormalized,,S_cex,overfitting
+Patches_ICSE__Doverfitting__Arja__Chart__patch1-Chart-1-Arja-plusible,0.050000000000000044,1.0,0.11602209944751381,0,0.25,0.25,0.25,0.25,0.7334944751381216,shifted_renormalized,0.23349447513812155,,overfitting
+Patches_ICSE__Doverfitting__Arja__Math__patch1-Math-80-Arja-plausible,0.050000000000000044,,0.07952468007312614,1.0,0.25,0.25,0.25,0.25,0.32349177330895795,shifted_renormalized,,S_cex,overfitting
+Patches_ICSE__Doverfitting__Arja__Math__patch1-Math-82-Arja-plausible,0.08333333333333337,,0.200836820083682,0,0.25,0.25,0.25,0.25,0.6274988377498838,shifted_renormalized,,S_cex,overfitting
+Patches_ICSE__Doverfitting__Arja__Math__patch1-Math-85-Arja-plausible,0.023333333333333355,,0.06593406593406594,0,0.25,0.25,0.25,0.25,0.6524664224664225,shifted_renormalized,,S_cex,overfitting
+Patches_ICSE__Doverfitting__Cardumen__Math__patch1-Math-85-Cardumen-plausible,,,,,0.25,0.25,0.25,0.25,,shifted_renormalized,,S_sem;S_cex;S_edit;S_vuln,overfitting
+Patches_ICSE__Doverfitting__DynaMoth__Chart__patch1-Chart-1-DynaMoth-plausible,0.050000000000000044,0.6666666666666666,0.06629834254143646,0,0.25,0.25,0.25,0.25,0.6625920810313075,shifted_renormalized,0.16259208103130757,,overfitting
+Patches_ICSE__Doverfitting__DynaMoth__Math__patch1-Math-85-DynaMoth-plausible,0.050000000000000044,,0.014652014652014652,0,0.25,0.25,0.25,0.25,0.6784493284493284,shifted_renormalized,,S_cex,overfitting
+Patches_ICSE__Doverfitting__GenProg__Chart__patch1-Chart-1-GenProg-plausible,0.050000000000000044,0.6666666666666666,0.1284153005464481,0.5,0.25,0.25,0.25,0.25,0.5220628415300547,shifted_renormalized,0.02206284153005464,,overfitting

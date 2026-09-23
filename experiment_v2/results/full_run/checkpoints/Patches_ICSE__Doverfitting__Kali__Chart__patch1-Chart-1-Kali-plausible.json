@@ -1,0 +1,256 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__Kali__Chart__patch1-Chart-1-Kali-plausible",
+  "bug_id": "Chart-1",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 18.437
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.575
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 10.15
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 65.662
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.039
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 29.288
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__Kali__Chart__patch1-Chart-1-Kali-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.037993326999981,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3123,
+        "output_tokens": 183,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 1.0,
+          "readability": 0.1,
+          "security_robustness": 0.9,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch changes `if (dataset != null)` to `if (false)`, which is a hardcoded constant that only fixes the specific test case by removing the null check. This is clearly overfitting: the condition should be `if (dataset == null)` to properly handle the null case, not `if (false)` which makes the null check meaningless and reduces code readability to near-zero."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.1475308599999607,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3123,
+        "output_tokens": 199,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 1.0,
+          "readability": 0.1,
+          "security_robustness": 0.9,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch changes `if (dataset != null)` to `if (false)`, which is a hardcoded condition that only fixes the specific test case. This is clearly overfitting: the original logic was inverted (should be `if (dataset == null)`), but replacing it with `if (false)` is unmaintainable and semantically incorrect. The patch removes the null-check entirely, creating a potential NullPointerException risk if dataset is actually null in other scenarios."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.1800069749999693,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3123,
+        "output_tokens": 179,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 1.0,
+          "readability": 0.1,
+          "security_robustness": 0.9,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch changes `if (dataset != null)` to `if (false)`, which is a hardcoded constant that only fixes the specific test case. This is clearly overfitting: the original logic was inverted (should be `if (dataset == null)`), but the patch uses a magic constant instead of fixing the actual bug. The code is now unmaintainable and semantically incorrect."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__Kali__Chart__patch1-Chart-1-Kali-plausible",
+    "bug_id": "Chart-1",
+    "model": "claude-haiku-4-5",
+    "latency_s": 8.323037797999973,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 3020,
+    "output_tokens": 1288,
+    "tests": [
+      {
+        "name": "testGetLegendItemsWithNullDataset",
+        "target_class": "org.jfree.chart.renderer.category.AbstractCategoryItemRenderer",
+        "target_method": "getLegendItems",
+        "class_name": "TestGetLegendItemsWithNullDataset",
+        "status": "VALID_BUG_REVEALING",
+        "candidate_pass": false,
+        "log": ".E\nTime: 0.079\nThere was 1 error:\n1) testGetLegendItemsWithNullDataset(org.jfree.chart.renderer.category.junit.TestGetLegendItemsWithNullDataset)java.lang.NullPointerException\n\tat org.jfree.chart.renderer.category.AbstractCategoryItemRenderer.getLegendItems(AbstractCategoryItemRenderer.java:1800)\n\tat org.jfree.chart.renderer.category.junit.TestGetLegendItemsWithNullDataset.testGetLegendItemsWithNullDataset(TestGetLegendItemsWithNullDataset.java:15)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\nFAILURES!!!\nTests run: 1,  Failures: 0,  Errors: 1\n\n"
+      },
+      {
+        "name": "testGetLegendItemsWithValidDataset",
+        "target_class": "org.jfree.chart.renderer.category.AbstractCategoryItemRenderer",
+        "target_method": "getLegendItems",
+        "class_name": "TestGetLegendItemsWithValidDataset",
+        "status": "VALID_BUG_REVEALING",
+        "candidate_pass": true,
+        "log": ".\nTime: 0.136\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testGetLegendItemsMultipleSeries",
+        "target_class": "org.jfree.chart.renderer.category.AbstractCategoryItemRenderer",
+        "target_method": "getLegendItems",
+        "class_name": "TestGetLegendItemsMultipleSeries",
+        "status": "VALID_BUG_REVEALING",
+        "candidate_pass": true,
+        "log": ".\nTime: 0.096\n\nOK (1 test)\n\n"
+      }
+    ],
+    "s_cex": 0.6666666666666666,
+    "n_valid": 3,
+    "n_passed": 2
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__Kali__Chart__patch1-Chart-1-Kali-plausible",
+    "true_project": "Chart",
+    "true_bug_number": "1",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 551,
+    "output_tokens": 25,
+    "project": "Chart",
+    "bug_number": null,
+    "recalled_label": "UNKNOWN",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__Kali__Chart__patch1-Chart-1-Kali-plausible",
+    "bug_id": "Chart-1",
+    "s_edit_ast": 0.0718232044198895,
+    "s_edit_ast_actions": 13,
+    "s_edit_ast_nodes": 181,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/jfree/chart/renderer/category/AbstractCategoryItemRenderer"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 39,
+      "cfg_edges": 45,
+      "branch_points": 9,
+      "cyclomatic_complexity": 8,
+      "def_count": 21,
+      "use_count": 87,
+      "defuse_pairs": 21,
+      "per_method": [
+        {
+          "class": "org.jfree.chart.renderer.category.AbstractCategoryItemRenderer",
+          "method": "getLegendItems",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 39,
+          "cfg_edges": 45,
+          "branch_points": 9,
+          "cyclomatic_complexity": 8,
+          "def_count": 21,
+          "use_count": 87,
+          "defuse_pairs": 21,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 37,
+      "cfg_edges": 43,
+      "branch_points": 8,
+      "cyclomatic_complexity": 8,
+      "def_count": 21,
+      "use_count": 83,
+      "defuse_pairs": 21,
+      "per_method": [
+        {
+          "class": "org.jfree.chart.renderer.category.AbstractCategoryItemRenderer",
+          "method": "getLegendItems",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 37,
+          "cfg_edges": 43,
+          "branch_points": 8,
+          "cyclomatic_complexity": 8,
+          "def_count": 21,
+          "use_count": 83,
+          "defuse_pairs": 21,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": -2,
+    "d_branch_points": -1,
+    "d_cfg_edges": -2,
+    "d_defuse_pairs": 0,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 7,
+      "n_candidate_warnings": 6,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__Kali__Chart__patch1-Chart-1-Kali-plausible",
+    "bug_id": "Chart-1",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

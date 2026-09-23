@@ -1,0 +1,2516 @@
+{
+  "TITLE": "FULL RUN v2 -- 899 primary-policy patches, claude-haiku-4-5, condition C, 3 semantic runs, K=3 counterexamples, Stage 2B every patch. FINAL numbers (not preliminary).",
+  "commit": "69143cb",
+  "n_patches_evaluated": 14,
+  "n_excluded": {
+    "no_semantic_score": 1,
+    "not_in_manifest": 0,
+    "unlabelled": 0
+  },
+  "base_rate_overfitting": 0.6428571428571429,
+  "detection_lopo_primary": {
+    "positive_class": "overfitting",
+    "n": 14,
+    "base_rate_overfitting": 0.6428571428571429,
+    "cv_scheme": "lopo_per_project",
+    "note": "Detection is per-method per protocol.yaml, replacing the earlier placeholder PVS*<0.5.",
+    "methods": {
+      "M0_majority": {
+        "precision": 0.6428571428571429,
+        "recall": 1.0,
+        "f1": 0.782608695652174,
+        "macro_f1": 0.391304347826087,
+        "specificity": 0.0,
+        "correct_patch_retention": 0.0,
+        "balanced_accuracy": 0.5,
+        "accuracy": 0.6428571428571429,
+        "mcc": 0.0,
+        "auroc": null,
+        "average_precision": null,
+        "confusion": {
+          "tp": 9,
+          "fp": 5,
+          "tn": 0,
+          "fn": 0
+        },
+        "n": 14,
+        "base_rate_overfitting": 0.6428571428571429,
+        "mcc_ci95_cluster_bootstrap": [
+          0.0,
+          0.0
+        ],
+        "f1_ci95_cluster_bootstrap": [
+          0.5,
+          0.9142857142857143
+        ],
+        "lopo_per_project": {
+          "Chart": {
+            "precision": 0.75,
+            "recall": 1.0,
+            "f1": 0.8571428571428571,
+            "macro_f1": 0.42857142857142855,
+            "specificity": 0.0,
+            "correct_patch_retention": 0.0,
+            "balanced_accuracy": 0.5,
+            "accuracy": 0.75,
+            "mcc": 0.0,
+            "auroc": null,
+            "average_precision": null,
+            "confusion": {
+              "tp": 3,
+              "fp": 1,
+              "tn": 0,
+              "fn": 0
+            },
+            "n": 4,
+            "base_rate_overfitting": 0.75
+          },
+          "Lang": {
+            "note": "single class in held-out fold",
+            "n": 1
+          },
+          "Math": {
+            "precision": 0.6666666666666666,
+            "recall": 1.0,
+            "f1": 0.8,
+            "macro_f1": 0.4,
+            "specificity": 0.0,
+            "correct_patch_retention": 0.0,
+            "balanced_accuracy": 0.5,
+            "accuracy": 0.6666666666666666,
+            "mcc": 0.0,
+            "auroc": null,
+            "average_precision": null,
+            "confusion": {
+              "tp": 6,
+              "fp": 3,
+              "tn": 0,
+              "fn": 0
+            },
+            "n": 9,
+            "base_rate_overfitting": 0.6666666666666666
+          }
+        }
+      },
+      "M1_random_stratified": {
+        "precision": 0.5,
+        "recall": 0.3333333333333333,
+        "f1": 0.4,
+        "macro_f1": 0.35384615384615387,
+        "specificity": 0.4,
+        "correct_patch_retention": 0.4,
+        "balanced_accuracy": 0.3666666666666667,
+        "accuracy": 0.35714285714285715,
+        "mcc": -0.25819888974716115,
+        "auroc": null,
+        "average_precision": null,
+        "confusion": {
+          "tp": 3,
+          "fp": 3,
+          "tn": 2,
+          "fn": 6
+        },
+        "n": 14,
+        "base_rate_overfitting": 0.6428571428571429,
+        "mcc_ci95_cluster_bootstrap": [
+          -0.8451542547285166,
+          0.28867513459481287
+        ],
+        "f1_ci95_cluster_bootstrap": [
+          0.0,
+          0.6666666666666666
+        ],
+        "lopo_per_project": {
+          "Chart": {
+            "precision": 0.6666666666666666,
+            "recall": 0.6666666666666666,
+            "f1": 0.6666666666666666,
+            "macro_f1": 0.3333333333333333,
+            "specificity": 0.0,
+            "correct_patch_retention": 0.0,
+            "balanced_accuracy": 0.3333333333333333,
+            "accuracy": 0.5,
+            "mcc": -0.3333333333333333,
+            "auroc": null,
+            "average_precision": null,
+            "confusion": {
+              "tp": 2,
+              "fp": 1,
+              "tn": 0,
+              "fn": 1
+            },
+            "n": 4,
+            "base_rate_overfitting": 0.75
+          },
+          "Lang": {
+            "note": "single class in held-out fold",
+            "n": 1
+          },
+          "Math": {
+            "precision": 0.5,
+            "recall": 0.16666666666666666,
+            "f1": 0.25,
+            "macro_f1": 0.325,
+            "specificity": 0.6666666666666666,
+            "correct_patch_retention": 0.6666666666666666,
+            "balanced_accuracy": 0.41666666666666663,
+            "accuracy": 0.3333333333333333,
+            "mcc": -0.1889822365046136,
+            "auroc": null,
+            "average_precision": null,
+            "confusion": {
+              "tp": 1,
+              "fp": 1,
+              "tn": 2,
+              "fn": 5
+            },
+            "n": 9,
+            "base_rate_overfitting": 0.6666666666666666
+          }
+        }
+      },
+      "M2_diff_feature": {
+        "precision": 1.0,
+        "recall": 0.7777777777777778,
+        "f1": 0.875,
+        "macro_f1": 0.8541666666666667,
+        "specificity": 1.0,
+        "correct_patch_retention": 1.0,
+        "balanced_accuracy": 0.8888888888888888,
+        "accuracy": 0.8571428571428571,
+        "mcc": 0.7453559924999299,
+        "auroc": 0.8111111111111111,
+        "average_precision": 0.9232804232804235,
+        "confusion": {
+          "tp": 7,
+          "fp": 0,
+          "tn": 5,
+          "fn": 2
+        },
+        "n": 14,
+        "base_rate_overfitting": 0.6428571428571429,
+        "mcc_ci95_cluster_bootstrap": [
+          0.5,
+          1.0
+        ],
+        "f1_ci95_cluster_bootstrap": [
+          0.6666666666666666,
+          1.0
+        ],
+        "lopo_per_project": {
+          "Chart": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "macro_f1": 1.0,
+            "specificity": 1.0,
+            "correct_patch_retention": 1.0,
+            "balanced_accuracy": 1.0,
+            "accuracy": 1.0,
+            "mcc": 1.0,
+            "auroc": 1.0,
+            "average_precision": 1.0,
+            "confusion": {
+              "tp": 3,
+              "fp": 0,
+              "tn": 1,
+              "fn": 0
+            },
+            "n": 4,
+            "base_rate_overfitting": 0.75
+          },
+          "Lang": {
+            "note": "single class in held-out fold",
+            "n": 1
+          },
+          "Math": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "macro_f1": 0.775,
+            "specificity": 1.0,
+            "correct_patch_retention": 1.0,
+            "balanced_accuracy": 0.8333333333333333,
+            "accuracy": 0.7777777777777778,
+            "mcc": 0.6324555320336759,
+            "auroc": 0.75,
+            "average_precision": 0.8968253968253967,
+            "confusion": {
+              "tp": 4,
+              "fp": 0,
+              "tn": 3,
+              "fn": 2
+            },
+            "n": 9,
+            "base_rate_overfitting": 0.6666666666666666
+          }
+        },
+        "features": [
+          "lines_added",
+          "lines_removed",
+          "total_changed",
+          "code_lines_added",
+          "code_lines_removed",
+          "n_hunks",
+          "n_files",
+          "only_deletes",
+          "adds_conditional_guard",
+          "literal_in_failing_test_message"
+        ],
+        "note": "v1 handcrafted diff features -- not static analysis"
+      },
+      "M2b_s_edit_only": {
+        "precision": 0.6428571428571429,
+        "recall": 1.0,
+        "f1": 0.782608695652174,
+        "macro_f1": 0.391304347826087,
+        "specificity": 0.0,
+        "correct_patch_retention": 0.0,
+        "balanced_accuracy": 0.5,
+        "accuracy": 0.6428571428571429,
+        "mcc": 0.0,
+        "auroc": 0.3555555555555555,
+        "average_precision": 0.5779381112714446,
+        "confusion": {
+          "tp": 9,
+          "fp": 5,
+          "tn": 0,
+          "fn": 0
+        },
+        "n": 14,
+        "base_rate_overfitting": 0.6428571428571429,
+        "mcc_ci95_cluster_bootstrap": [
+          0.0,
+          0.0
+        ],
+        "f1_ci95_cluster_bootstrap": [
+          0.5,
+          0.9142857142857143
+        ],
+        "lopo_per_project": {
+          "Chart": {
+            "precision": 0.75,
+            "recall": 1.0,
+            "f1": 0.8571428571428571,
+            "macro_f1": 0.42857142857142855,
+            "specificity": 0.0,
+            "correct_patch_retention": 0.0,
+            "balanced_accuracy": 0.5,
+            "accuracy": 0.75,
+            "mcc": 0.0,
+            "auroc": 0.0,
+            "average_precision": 0.6388888888888888,
+            "confusion": {
+              "tp": 3,
+              "fp": 1,
+              "tn": 0,
+              "fn": 0
+            },
+            "n": 4,
+            "base_rate_overfitting": 0.75
+          },
+          "Lang": {
+            "note": "single class in held-out fold",
+            "n": 1
+          },
+          "Math": {
+            "precision": 0.6666666666666666,
+            "recall": 1.0,
+            "f1": 0.8,
+            "macro_f1": 0.4,
+            "specificity": 0.0,
+            "correct_patch_retention": 0.0,
+            "balanced_accuracy": 0.5,
+            "accuracy": 0.6666666666666666,
+            "mcc": 0.0,
+            "auroc": 0.5,
+            "average_precision": 0.7746031746031746,
+            "confusion": {
+              "tp": 6,
+              "fp": 3,
+              "tn": 0,
+              "fn": 0
+            },
+            "n": 9,
+            "base_rate_overfitting": 0.6666666666666666
+          }
+        }
+      },
+      "M3_semantic": {
+        "precision": 0.6428571428571429,
+        "recall": 1.0,
+        "f1": 0.782608695652174,
+        "macro_f1": 0.391304347826087,
+        "specificity": 0.0,
+        "correct_patch_retention": 0.0,
+        "balanced_accuracy": 0.5,
+        "accuracy": 0.6428571428571429,
+        "mcc": 0.0,
+        "auroc": 0.5444444444444444,
+        "average_precision": 0.6808561808561808,
+        "confusion": {
+          "tp": 9,
+          "fp": 5,
+          "tn": 0,
+          "fn": 0
+        },
+        "n": 14,
+        "base_rate_overfitting": 0.6428571428571429,
+        "mcc_ci95_cluster_bootstrap": [
+          0.0,
+          0.0
+        ],
+        "f1_ci95_cluster_bootstrap": [
+          0.5,
+          0.9142857142857143
+        ],
+        "lopo_per_project": {
+          "Chart": {
+            "precision": 0.75,
+            "recall": 1.0,
+            "f1": 0.8571428571428571,
+            "macro_f1": 0.42857142857142855,
+            "specificity": 0.0,
+            "correct_patch_retention": 0.0,
+            "balanced_accuracy": 0.5,
+            "accuracy": 0.75,
+            "mcc": 0.0,
+            "auroc": null,
+            "average_precision": null,
+            "confusion": {
+              "tp": 3,
+              "fp": 1,
+              "tn": 0,
+              "fn": 0
+            },
+            "n": 4,
+            "base_rate_overfitting": 0.75
+          },
+          "Lang": {
+            "note": "single class in held-out fold",
+            "n": 1
+          },
+          "Math": {
+            "precision": 0.6666666666666666,
+            "recall": 1.0,
+            "f1": 0.8,
+            "macro_f1": 0.4,
+            "specificity": 0.0,
+            "correct_patch_retention": 0.0,
+            "balanced_accuracy": 0.5,
+            "accuracy": 0.6666666666666666,
+            "mcc": 0.0,
+            "auroc": 0.5833333333333334,
+            "average_precision": 0.7301587301587301,
+            "confusion": {
+              "tp": 6,
+              "fp": 3,
+              "tn": 0,
+              "fn": 0
+            },
+            "n": 9,
+            "base_rate_overfitting": 0.6666666666666666
+          }
+        },
+        "rule": "OVERFITTING iff S_sem_final < 0.5 (frozen)",
+        "n_missing_S_sem": 0
+      },
+      "M4_counterexample": {
+        "n_total": 14,
+        "n_S_cex_available": 6,
+        "n_S_cex_missing": 8,
+        "binary_rule": "OVERFITTING iff S_cex < 1.0 (candidate fails at least one VALID_BUG_REVEALING test), computed only on patches where S_cex is available; S_cex==NA -> abstain (not predicted).",
+        "auroc_on_available": 0.8333333333333333,
+        "average_precision_on_available": 0.8333333333333333,
+        "binary_on_available": {
+          "precision": 1.0,
+          "recall": 0.6666666666666666,
+          "f1": 0.8,
+          "macro_f1": 0.8285714285714285,
+          "specificity": 1.0,
+          "correct_patch_retention": 1.0,
+          "balanced_accuracy": 0.8333333333333333,
+          "accuracy": 0.8333333333333334,
+          "mcc": 0.7071067811865476,
+          "auroc": 0.8333333333333333,
+          "average_precision": 0.8333333333333333,
+          "confusion": {
+            "tp": 2,
+            "fp": 0,
+            "tn": 3,
+            "fn": 1
+          },
+          "n": 6,
+          "base_rate_overfitting": 0.5
+        }
+      },
+      "M6_sem_cex": {
+        "precision": 0.75,
+        "recall": 0.6666666666666666,
+        "f1": 0.7058823529411765,
+        "macro_f1": 0.625668449197861,
+        "specificity": 0.6,
+        "correct_patch_retention": 0.6,
+        "balanced_accuracy": 0.6333333333333333,
+        "accuracy": 0.6428571428571429,
+        "mcc": 0.25819888974716115,
+        "auroc": 0.5666666666666667,
+        "average_precision": 0.7142857142857143,
+        "confusion": {
+          "tp": 6,
+          "fp": 2,
+          "tn": 3,
+          "fn": 3
+        },
+        "n": 14,
+        "base_rate_overfitting": 0.6428571428571429,
+        "mcc_ci95_cluster_bootstrap": [
+          -0.20865621238292043,
+          0.8280786712108251
+        ],
+        "f1_ci95_cluster_bootstrap": [
+          0.2857142857142857,
+          0.9411764705882353
+        ],
+        "lopo_per_project": {
+          "Chart": {
+            "precision": NaN,
+            "recall": 0.0,
+            "f1": 0.0,
+            "macro_f1": 0.2,
+            "specificity": 1.0,
+            "correct_patch_retention": 1.0,
+            "balanced_accuracy": 0.5,
+            "accuracy": 0.25,
+            "mcc": 0.0,
+            "auroc": null,
+            "average_precision": null,
+            "confusion": {
+              "tp": 0,
+              "fp": 0,
+              "tn": 1,
+              "fn": 3
+            },
+            "n": 4,
+            "base_rate_overfitting": 0.75
+          },
+          "Lang": {
+            "note": "single class in held-out fold",
+            "n": 1
+          },
+          "Math": {
+            "precision": 0.75,
+            "recall": 1.0,
+            "f1": 0.8571428571428571,
+            "macro_f1": 0.6785714285714286,
+            "specificity": 0.3333333333333333,
+            "correct_patch_retention": 0.3333333333333333,
+            "balanced_accuracy": 0.6666666666666666,
+            "accuracy": 0.7777777777777778,
+            "mcc": 0.5,
+            "auroc": 0.6666666666666667,
+            "average_precision": 0.75,
+            "confusion": {
+              "tp": 6,
+              "fp": 2,
+              "tn": 1,
+              "fn": 0
+            },
+            "n": 9,
+            "base_rate_overfitting": 0.6666666666666666
+          }
+        }
+      },
+      "M5_static": {
+        "precision": 0.8,
+        "recall": 0.8888888888888888,
+        "f1": 0.8421052631578947,
+        "macro_f1": 0.7543859649122806,
+        "specificity": 0.6,
+        "correct_patch_retention": 0.6,
+        "balanced_accuracy": 0.7444444444444445,
+        "accuracy": 0.7857142857142857,
+        "mcc": 0.5185449728701348,
+        "auroc": 0.9555555555555555,
+        "average_precision": 0.9797979797979797,
+        "confusion": {
+          "tp": 8,
+          "fp": 2,
+          "tn": 3,
+          "fn": 1
+        },
+        "n": 14,
+        "base_rate_overfitting": 0.6428571428571429,
+        "mcc_ci95_cluster_bootstrap": [
+          -0.07308816827558576,
+          1.0
+        ],
+        "f1_ci95_cluster_bootstrap": [
+          0.6153846153846154,
+          1.0
+        ],
+        "lopo_per_project": {
+          "Chart": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "macro_f1": 1.0,
+            "specificity": 1.0,
+            "correct_patch_retention": 1.0,
+            "balanced_accuracy": 1.0,
+            "accuracy": 1.0,
+            "mcc": 1.0,
+            "auroc": 1.0,
+            "average_precision": 1.0,
+            "confusion": {
+              "tp": 3,
+              "fp": 0,
+              "tn": 1,
+              "fn": 0
+            },
+            "n": 4,
+            "base_rate_overfitting": 0.75
+          },
+          "Lang": {
+            "note": "single class in held-out fold",
+            "n": 1
+          },
+          "Math": {
+            "precision": 0.7142857142857143,
+            "recall": 0.8333333333333334,
+            "f1": 0.7692307692307693,
+            "macro_f1": 0.5846153846153846,
+            "specificity": 0.3333333333333333,
+            "correct_patch_retention": 0.3333333333333333,
+            "balanced_accuracy": 0.5833333333333334,
+            "accuracy": 0.6666666666666666,
+            "mcc": 0.1889822365046136,
+            "auroc": 0.888888888888889,
+            "average_precision": 0.9583333333333334,
+            "confusion": {
+              "tp": 5,
+              "fp": 2,
+              "tn": 1,
+              "fn": 1
+            },
+            "n": 9,
+            "base_rate_overfitting": 0.6666666666666666
+          }
+        },
+        "features": [
+          "s_vuln_changed",
+          "d_cyclomatic",
+          "d_branch_points",
+          "d_stmts",
+          "d_defuse_pairs"
+        ]
+      },
+      "M7_sem_static": {
+        "precision": 0.8,
+        "recall": 0.8888888888888888,
+        "f1": 0.8421052631578947,
+        "macro_f1": 0.7543859649122806,
+        "specificity": 0.6,
+        "correct_patch_retention": 0.6,
+        "balanced_accuracy": 0.7444444444444445,
+        "accuracy": 0.7857142857142857,
+        "mcc": 0.5185449728701348,
+        "auroc": 0.9333333333333333,
+        "average_precision": 0.9722222222222221,
+        "confusion": {
+          "tp": 8,
+          "fp": 2,
+          "tn": 3,
+          "fn": 1
+        },
+        "n": 14,
+        "base_rate_overfitting": 0.6428571428571429,
+        "mcc_ci95_cluster_bootstrap": [
+          -0.07308816827558576,
+          1.0
+        ],
+        "f1_ci95_cluster_bootstrap": [
+          0.6153846153846154,
+          1.0
+        ],
+        "lopo_per_project": {
+          "Chart": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "macro_f1": 1.0,
+            "specificity": 1.0,
+            "correct_patch_retention": 1.0,
+            "balanced_accuracy": 1.0,
+            "accuracy": 1.0,
+            "mcc": 1.0,
+            "auroc": 1.0,
+            "average_precision": 1.0,
+            "confusion": {
+              "tp": 3,
+              "fp": 0,
+              "tn": 1,
+              "fn": 0
+            },
+            "n": 4,
+            "base_rate_overfitting": 0.75
+          },
+          "Lang": {
+            "note": "single class in held-out fold",
+            "n": 1
+          },
+          "Math": {
+            "precision": 0.7142857142857143,
+            "recall": 0.8333333333333334,
+            "f1": 0.7692307692307693,
+            "macro_f1": 0.5846153846153846,
+            "specificity": 0.3333333333333333,
+            "correct_patch_retention": 0.3333333333333333,
+            "balanced_accuracy": 0.5833333333333334,
+            "accuracy": 0.6666666666666666,
+            "mcc": 0.1889822365046136,
+            "auroc": 0.888888888888889,
+            "average_precision": 0.9583333333333334,
+            "confusion": {
+              "tp": 5,
+              "fp": 2,
+              "tn": 1,
+              "fn": 1
+            },
+            "n": 9,
+            "base_rate_overfitting": 0.6666666666666666
+          }
+        }
+      },
+      "M8_cex_static": {
+        "precision": 0.7777777777777778,
+        "recall": 0.7777777777777778,
+        "f1": 0.7777777777777778,
+        "macro_f1": 0.6888888888888889,
+        "specificity": 0.6,
+        "correct_patch_retention": 0.6,
+        "balanced_accuracy": 0.6888888888888889,
+        "accuracy": 0.7142857142857143,
+        "mcc": 0.37777777777777777,
+        "auroc": 0.8888888888888888,
+        "average_precision": 0.95,
+        "confusion": {
+          "tp": 7,
+          "fp": 2,
+          "tn": 3,
+          "fn": 2
+        },
+        "n": 14,
+        "base_rate_overfitting": 0.6428571428571429,
+        "mcc_ci95_cluster_bootstrap": [
+          -0.12964074471043288,
+          0.8280786712108251
+        ],
+        "f1_ci95_cluster_bootstrap": [
+          0.5882352941176471,
+          0.9411764705882353
+        ],
+        "lopo_per_project": {
+          "Chart": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "macro_f1": 0.7333333333333334,
+            "specificity": 1.0,
+            "correct_patch_retention": 1.0,
+            "balanced_accuracy": 0.8333333333333333,
+            "accuracy": 0.75,
+            "mcc": 0.5773502691896258,
+            "auroc": 1.0,
+            "average_precision": 1.0,
+            "confusion": {
+              "tp": 2,
+              "fp": 0,
+              "tn": 1,
+              "fn": 1
+            },
+            "n": 4,
+            "base_rate_overfitting": 0.75
+          },
+          "Lang": {
+            "note": "single class in held-out fold",
+            "n": 1
+          },
+          "Math": {
+            "precision": 0.7142857142857143,
+            "recall": 0.8333333333333334,
+            "f1": 0.7692307692307693,
+            "macro_f1": 0.5846153846153846,
+            "specificity": 0.3333333333333333,
+            "correct_patch_retention": 0.3333333333333333,
+            "balanced_accuracy": 0.5833333333333334,
+            "accuracy": 0.6666666666666666,
+            "mcc": 0.1889822365046136,
+            "auroc": 0.888888888888889,
+            "average_precision": 0.9583333333333334,
+            "confusion": {
+              "tp": 5,
+              "fp": 2,
+              "tn": 1,
+              "fn": 1
+            },
+            "n": 9,
+            "base_rate_overfitting": 0.6666666666666666
+          }
+        }
+      },
+      "M9_sem_cex_static": {
+        "precision": 0.7777777777777778,
+        "recall": 0.7777777777777778,
+        "f1": 0.7777777777777778,
+        "macro_f1": 0.6888888888888889,
+        "specificity": 0.6,
+        "correct_patch_retention": 0.6,
+        "balanced_accuracy": 0.6888888888888889,
+        "accuracy": 0.7142857142857143,
+        "mcc": 0.37777777777777777,
+        "auroc": 0.8888888888888888,
+        "average_precision": 0.95,
+        "confusion": {
+          "tp": 7,
+          "fp": 2,
+          "tn": 3,
+          "fn": 2
+        },
+        "n": 14,
+        "base_rate_overfitting": 0.6428571428571429,
+        "mcc_ci95_cluster_bootstrap": [
+          -0.12964074471043288,
+          0.8280786712108251
+        ],
+        "f1_ci95_cluster_bootstrap": [
+          0.5882352941176471,
+          0.9411764705882353
+        ],
+        "lopo_per_project": {
+          "Chart": {
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "macro_f1": 0.7333333333333334,
+            "specificity": 1.0,
+            "correct_patch_retention": 1.0,
+            "balanced_accuracy": 0.8333333333333333,
+            "accuracy": 0.75,
+            "mcc": 0.5773502691896258,
+            "auroc": 1.0,
+            "average_precision": 1.0,
+            "confusion": {
+              "tp": 2,
+              "fp": 0,
+              "tn": 1,
+              "fn": 1
+            },
+            "n": 4,
+            "base_rate_overfitting": 0.75
+          },
+          "Lang": {
+            "note": "single class in held-out fold",
+            "n": 1
+          },
+          "Math": {
+            "precision": 0.7142857142857143,
+            "recall": 0.8333333333333334,
+            "f1": 0.7692307692307693,
+            "macro_f1": 0.5846153846153846,
+            "specificity": 0.3333333333333333,
+            "correct_patch_retention": 0.3333333333333333,
+            "balanced_accuracy": 0.5833333333333334,
+            "accuracy": 0.6666666666666666,
+            "mcc": 0.1889822365046136,
+            "auroc": 0.888888888888889,
+            "average_precision": 0.9583333333333334,
+            "confusion": {
+              "tp": 5,
+              "fp": 2,
+              "tn": 1,
+              "fn": 1
+            },
+            "n": 9,
+            "base_rate_overfitting": 0.6666666666666666
+          }
+        }
+      },
+      "M10_full_pvs_human_prefs": {
+        "status": "PENDING",
+        "reason": "real human preferences (Bradley-Terry) -- PENDING"
+      }
+    },
+    "paired_differences_mcc": {
+      "M3_semantic_vs_M0_majority": {
+        "metric": "mcc",
+        "a": 0.0,
+        "b": 0.0,
+        "difference": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "ci_excludes_zero": false
+      },
+      "M3_semantic_vs_M1_random": {
+        "metric": "mcc",
+        "a": 0.0,
+        "b": -0.25819888974716115,
+        "difference": 0.25819888974716115,
+        "ci95": [
+          -0.28867513459481287,
+          0.8451542547285166
+        ],
+        "ci_excludes_zero": false
+      },
+      "M3_semantic_vs_M2b_s_edit_only": {
+        "metric": "mcc",
+        "a": 0.0,
+        "b": 0.0,
+        "difference": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "ci_excludes_zero": false
+      },
+      "M6_sem_cex_vs_M3_semantic": {
+        "metric": "mcc",
+        "a": 0.25819888974716115,
+        "b": 0.0,
+        "difference": 0.25819888974716115,
+        "ci95": [
+          -0.20865621238292043,
+          0.8280786712108251
+        ],
+        "ci_excludes_zero": false
+      },
+      "M3_semantic_vs_M2_diff_feature": {
+        "metric": "mcc",
+        "a": 0.0,
+        "b": 0.7453559924999299,
+        "difference": -0.7453559924999299,
+        "ci95": [
+          -1.0,
+          -0.5
+        ],
+        "ci_excludes_zero": true
+      },
+      "M7_sem_static_vs_M3_semantic": {
+        "metric": "mcc",
+        "a": 0.5185449728701348,
+        "b": 0.0,
+        "difference": 0.5185449728701348,
+        "ci95": [
+          -0.07308816827558576,
+          1.0
+        ],
+        "ci_excludes_zero": false
+      },
+      "M9_sem_cex_static_vs_M3_semantic": {
+        "metric": "mcc",
+        "a": 0.37777777777777777,
+        "b": 0.0,
+        "difference": 0.37777777777777777,
+        "ci95": [
+          -0.12964074471043288,
+          0.8280786712108251
+        ],
+        "ci_excludes_zero": false
+      }
+    },
+    "baseline_caveat": "M0 majority is degenerate in this balanced pilot sample (52% overfitting): the training-fold majority class flips between LOPO folds, so M0 behaves like a near-random classifier (MCC < 0) rather than an all-one-class baseline. Claims of improvement must rest on M1/M2, not M0.",
+    "static_complete_case_sensitivity": {
+      "n_complete_case": 14,
+      "n_dropped": 0,
+      "note": "no imputation; LOPO logistic regression on complete cases only",
+      "M5_static": {
+        "precision": 0.8,
+        "recall": 0.8888888888888888,
+        "f1": 0.8421052631578947,
+        "macro_f1": 0.7543859649122806,
+        "specificity": 0.6,
+        "correct_patch_retention": 0.6,
+        "balanced_accuracy": 0.7444444444444445,
+        "accuracy": 0.7857142857142857,
+        "mcc": 0.5185449728701348,
+        "auroc": 0.9555555555555555,
+        "average_precision": 0.9797979797979797,
+        "confusion": {
+          "tp": 8,
+          "fp": 2,
+          "tn": 3,
+          "fn": 1
+        },
+        "n": 14,
+        "base_rate_overfitting": 0.6428571428571429
+      },
+      "M7_sem_static": {
+        "precision": 0.8,
+        "recall": 0.8888888888888888,
+        "f1": 0.8421052631578947,
+        "macro_f1": 0.7543859649122806,
+        "specificity": 0.6,
+        "correct_patch_retention": 0.6,
+        "balanced_accuracy": 0.7444444444444445,
+        "accuracy": 0.7857142857142857,
+        "mcc": 0.5185449728701348,
+        "auroc": 0.9333333333333333,
+        "average_precision": 0.9722222222222221,
+        "confusion": {
+          "tp": 8,
+          "fp": 2,
+          "tn": 3,
+          "fn": 1
+        },
+        "n": 14,
+        "base_rate_overfitting": 0.6428571428571429
+      },
+      "M3_semantic": {
+        "precision": 0.6428571428571429,
+        "recall": 1.0,
+        "f1": 0.782608695652174,
+        "macro_f1": 0.391304347826087,
+        "specificity": 0.0,
+        "correct_patch_retention": 0.0,
+        "balanced_accuracy": 0.5,
+        "accuracy": 0.6428571428571429,
+        "mcc": 0.0,
+        "auroc": 0.5444444444444444,
+        "average_precision": 0.6808561808561808,
+        "confusion": {
+          "tp": 9,
+          "fp": 5,
+          "tn": 0,
+          "fn": 0
+        },
+        "n": 14,
+        "base_rate_overfitting": 0.6428571428571429
+      },
+      "M7_vs_M3_mcc": {
+        "metric": "mcc",
+        "a": 0.5185449728701348,
+        "b": 0.0,
+        "difference": 0.5185449728701348,
+        "ci95": [
+          -0.07308816827558576,
+          1.0
+        ],
+        "ci_excludes_zero": false
+      }
+    }
+  },
+  "detection_groupkfold_by_bug_secondary": {
+    "positive_class": "overfitting",
+    "n": 14,
+    "base_rate_overfitting": 0.6428571428571429,
+    "cv_scheme": "groupkfold_per_bug_fold",
+    "note": "Detection is per-method per protocol.yaml, replacing the earlier placeholder PVS*<0.5.",
+    "methods": {
+      "M0_majority": {
+        "precision": 0.6428571428571429,
+        "recall": 1.0,
+        "f1": 0.782608695652174,
+        "macro_f1": 0.391304347826087,
+        "specificity": 0.0,
+        "correct_patch_retention": 0.0,
+        "balanced_accuracy": 0.5,
+        "accuracy": 0.6428571428571429,
+        "mcc": 0.0,
+        "auroc": null,
+        "average_precision": null,
+        "confusion": {
+          "tp": 9,
+          "fp": 5,
+          "tn": 0,
+          "fn": 0
+        },
+        "n": 14,
+        "base_rate_overfitting": 0.6428571428571429,
+        "mcc_ci95_cluster_bootstrap": [
+          0.0,
+          0.0
+        ],
+        "f1_ci95_cluster_bootstrap": [
+          0.5,
+          0.9142857142857143
+        ],
+        "groupkfold_per_bug_fold": {
+          "fold0": {
+            "precision": 0.8,
+            "recall": 1.0,
+            "f1": 0.8888888888888888,
+            "macro_f1": 0.4444444444444444,
+            "specificity": 0.0,
+            "correct_patch_retention": 0.0,
+            "balanced_accuracy": 0.5,
+            "accuracy": 0.8,
+            "mcc": 0.0,
+            "auroc": null,
+            "average_precision": null,
+            "confusion": {
+              "tp": 4,
+              "fp": 1,
+              "tn": 0,
+              "fn": 0
+            },
+            "n": 5,
+            "base_rate_overfitting": 0.8
+          },
+          "fold1": {
+            "precision": 0.5,
+            "recall": 1.0,
+            "f1": 0.6666666666666666,
+            "macro_f1": 0.3333333333333333,
+            "specificity": 0.0,
+            "correct_patch_retention": 0.0,
+            "balanced_accuracy": 0.5,
+            "accuracy": 0.5,
+            "mcc": 0.0,
+            "auroc": null,
+            "average_precision": null,
+            "confusion": {
+              "tp": 2,
+              "fp": 2,
+              "tn": 0,
+              "fn": 0
+            },
+            "n": 4,
+            "base_rate_overfitting": 0.5
+          },
+          "fold2": {
+            "note": "single class in held-out fold",
+            "n": 3
+          },
+          "fold3": {
+            "note": "single class in held-out fold",
+            "n": 1
+          },
+          "fold4": {
+            "note": "single class in held-out fold",
+            "n": 1
+          }
+        }
+      },
+      "M1_random_stratified": {
+        "precision": 0.75,
+        "recall": 0.6666666666666666,
+        "f1": 0.7058823529411765,
+        "macro_f1": 0.625668449197861,
+        "specificity": 0.6,
+        "correct_patch_retention": 0.6,
+        "balanced_accuracy": 0.6333333333333333,
+        "accuracy": 0.6428571428571429,
+        "mcc": 0.25819888974716115,
+        "auroc": null,
+        "average_precision": null,
+        "confusion": {
+          "tp": 6,
+          "fp": 2,
+          "tn": 3,
+          "fn": 3
+        },
+        "n": 14,
+        "base_rate_overfitting": 0.6428571428571429,
+        "mcc_ci95_cluster_bootstrap": [
+          -0.2608745973749754,
+          0.7559289460184545
+        ],
+        "f1_ci95_cluster_bootstrap": [
+          0.4444444444444444,
+          0.8888888888888888
+        ],
+        "groupkfold_per_bug_fold": {
+          "fold0": {
+            "precision": 0.75,
+            "recall": 0.75,
+            "f1": 0.75,
+            "macro_f1": 0.375,
+            "specificity": 0.0,
+            "correct_patch_retention": 0.0,
+            "balanced_accuracy": 0.375,
+            "accuracy": 0.6,
+            "mcc": -0.25,
+            "auroc": null,
+            "average_precision": null,
+            "confusion": {
+              "tp": 3,
+              "fp": 1,
+              "tn": 0,
+              "fn": 1
+            },
+            "n": 5,
+            "base_rate_overfitting": 0.8
+          },
+          "fold1": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "macro_f1": 1.0,
+            "specificity": 1.0,
+            "correct_patch_retention": 1.0,
+            "balanced_accuracy": 1.0,
+            "accuracy": 1.0,
+            "mcc": 1.0,
+            "auroc": null,
+            "average_precision": null,
+            "confusion": {
+              "tp": 2,
+              "fp": 0,
+              "tn": 2,
+              "fn": 0
+            },
+            "n": 4,
+            "base_rate_overfitting": 0.5
+          },
+          "fold2": {
+            "note": "single class in held-out fold",
+            "n": 3
+          },
+          "fold3": {
+            "note": "single class in held-out fold",
+            "n": 1
+          },
+          "fold4": {
+            "note": "single class in held-out fold",
+            "n": 1
+          }
+        }
+      },
+      "M2_diff_feature": {
+        "precision": 0.8571428571428571,
+        "recall": 0.6666666666666666,
+        "f1": 0.75,
+        "macro_f1": 0.7083333333333333,
+        "specificity": 0.8,
+        "correct_patch_retention": 0.8,
+        "balanced_accuracy": 0.7333333333333334,
+        "accuracy": 0.7142857142857143,
+        "mcc": 0.4472135954999579,
+        "auroc": 0.8,
+        "average_precision": 0.9134038800705468,
+        "confusion": {
+          "tp": 6,
+          "fp": 1,
+          "tn": 4,
+          "fn": 3
+        },
+        "n": 14,
+        "base_rate_overfitting": 0.6428571428571429,
+        "mcc_ci95_cluster_bootstrap": [
+          0.0,
+          0.7967564122887292
+        ],
+        "f1_ci95_cluster_bootstrap": [
+          0.5,
+          0.9
+        ],
+        "groupkfold_per_bug_fold": {
+          "fold0": {
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.6666666666666666,
+            "macro_f1": 0.5833333333333333,
+            "specificity": 1.0,
+            "correct_patch_retention": 1.0,
+            "balanced_accuracy": 0.75,
+            "accuracy": 0.6,
+            "mcc": 0.4082482904638631,
+            "auroc": 0.75,
+            "average_precision": 0.95,
+            "confusion": {
+              "tp": 2,
+              "fp": 0,
+              "tn": 1,
+              "fn": 2
+            },
+            "n": 5,
+            "base_rate_overfitting": 0.8
+          },
+          "fold1": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "macro_f1": 1.0,
+            "specificity": 1.0,
+            "correct_patch_retention": 1.0,
+            "balanced_accuracy": 1.0,
+            "accuracy": 1.0,
+            "mcc": 1.0,
+            "auroc": 1.0,
+            "average_precision": 1.0,
+            "confusion": {
+              "tp": 2,
+              "fp": 0,
+              "tn": 2,
+              "fn": 0
+            },
+            "n": 4,
+            "base_rate_overfitting": 0.5
+          },
+          "fold2": {
+            "note": "single class in held-out fold",
+            "n": 3
+          },
+          "fold3": {
+            "note": "single class in held-out fold",
+            "n": 1
+          },
+          "fold4": {
+            "note": "single class in held-out fold",
+            "n": 1
+          }
+        },
+        "features": [
+          "lines_added",
+          "lines_removed",
+          "total_changed",
+          "code_lines_added",
+          "code_lines_removed",
+          "n_hunks",
+          "n_files",
+          "only_deletes",
+          "adds_conditional_guard",
+          "literal_in_failing_test_message"
+        ],
+        "note": "v1 handcrafted diff features -- not static analysis"
+      },
+      "M2b_s_edit_only": {
+        "precision": 0.6428571428571429,
+        "recall": 1.0,
+        "f1": 0.782608695652174,
+        "macro_f1": 0.391304347826087,
+        "specificity": 0.0,
+        "correct_patch_retention": 0.0,
+        "balanced_accuracy": 0.5,
+        "accuracy": 0.6428571428571429,
+        "mcc": 0.0,
+        "auroc": 0.19999999999999998,
+        "average_precision": 0.5287817121150454,
+        "confusion": {
+          "tp": 9,
+          "fp": 5,
+          "tn": 0,
+          "fn": 0
+        },
+        "n": 14,
+        "base_rate_overfitting": 0.6428571428571429,
+        "mcc_ci95_cluster_bootstrap": [
+          0.0,
+          0.0
+        ],
+        "f1_ci95_cluster_bootstrap": [
+          0.5,
+          0.9142857142857143
+        ],
+        "groupkfold_per_bug_fold": {
+          "fold0": {
+            "precision": 0.8,
+            "recall": 1.0,
+            "f1": 0.8888888888888888,
+            "macro_f1": 0.4444444444444444,
+            "specificity": 0.0,
+            "correct_patch_retention": 0.0,
+            "balanced_accuracy": 0.5,
+            "accuracy": 0.8,
+            "mcc": 0.0,
+            "auroc": 0.75,
+            "average_precision": 0.95,
+            "confusion": {
+              "tp": 4,
+              "fp": 1,
+              "tn": 0,
+              "fn": 0
+            },
+            "n": 5,
+            "base_rate_overfitting": 0.8
+          },
+          "fold1": {
+            "precision": 0.5,
+            "recall": 1.0,
+            "f1": 0.6666666666666666,
+            "macro_f1": 0.3333333333333333,
+            "specificity": 0.0,
+            "correct_patch_retention": 0.0,
+            "balanced_accuracy": 0.5,
+            "accuracy": 0.5,
+            "mcc": 0.0,
+            "auroc": 0.5,
+            "average_precision": 0.75,
+            "confusion": {
+              "tp": 2,
+              "fp": 2,
+              "tn": 0,
+              "fn": 0
+            },
+            "n": 4,
+            "base_rate_overfitting": 0.5
+          },
+          "fold2": {
+            "note": "single class in held-out fold",
+            "n": 3
+          },
+          "fold3": {
+            "note": "single class in held-out fold",
+            "n": 1
+          },
+          "fold4": {
+            "note": "single class in held-out fold",
+            "n": 1
+          }
+        }
+      },
+      "M3_semantic": {
+        "precision": 0.6428571428571429,
+        "recall": 1.0,
+        "f1": 0.782608695652174,
+        "macro_f1": 0.391304347826087,
+        "specificity": 0.0,
+        "correct_patch_retention": 0.0,
+        "balanced_accuracy": 0.5,
+        "accuracy": 0.6428571428571429,
+        "mcc": 0.0,
+        "auroc": 0.5444444444444444,
+        "average_precision": 0.6808561808561808,
+        "confusion": {
+          "tp": 9,
+          "fp": 5,
+          "tn": 0,
+          "fn": 0
+        },
+        "n": 14,
+        "base_rate_overfitting": 0.6428571428571429,
+        "mcc_ci95_cluster_bootstrap": [
+          0.0,
+          0.0
+        ],
+        "f1_ci95_cluster_bootstrap": [
+          0.5,
+          0.9142857142857143
+        ],
+        "groupkfold_per_bug_fold": {
+          "fold0": {
+            "precision": 0.8,
+            "recall": 1.0,
+            "f1": 0.8888888888888888,
+            "macro_f1": 0.4444444444444444,
+            "specificity": 0.0,
+            "correct_patch_retention": 0.0,
+            "balanced_accuracy": 0.5,
+            "accuracy": 0.8,
+            "mcc": 0.0,
+            "auroc": 0.875,
+            "average_precision": 0.95,
+            "confusion": {
+              "tp": 4,
+              "fp": 1,
+              "tn": 0,
+              "fn": 0
+            },
+            "n": 5,
+            "base_rate_overfitting": 0.8
+          },
+          "fold1": {
+            "precision": 0.5,
+            "recall": 1.0,
+            "f1": 0.6666666666666666,
+            "macro_f1": 0.3333333333333333,
+            "specificity": 0.0,
+            "correct_patch_retention": 0.0,
+            "balanced_accuracy": 0.5,
+            "accuracy": 0.5,
+            "mcc": 0.0,
+            "auroc": 0.75,
+            "average_precision": 0.75,
+            "confusion": {
+              "tp": 2,
+              "fp": 2,
+              "tn": 0,
+              "fn": 0
+            },
+            "n": 4,
+            "base_rate_overfitting": 0.5
+          },
+          "fold2": {
+            "note": "single class in held-out fold",
+            "n": 3
+          },
+          "fold3": {
+            "note": "single class in held-out fold",
+            "n": 1
+          },
+          "fold4": {
+            "note": "single class in held-out fold",
+            "n": 1
+          }
+        },
+        "rule": "OVERFITTING iff S_sem_final < 0.5 (frozen)",
+        "n_missing_S_sem": 0
+      },
+      "M4_counterexample": {
+        "n_total": 14,
+        "n_S_cex_available": 6,
+        "n_S_cex_missing": 8,
+        "binary_rule": "OVERFITTING iff S_cex < 1.0 (candidate fails at least one VALID_BUG_REVEALING test), computed only on patches where S_cex is available; S_cex==NA -> abstain (not predicted).",
+        "auroc_on_available": 0.8333333333333333,
+        "average_precision_on_available": 0.8333333333333333,
+        "binary_on_available": {
+          "precision": 1.0,
+          "recall": 0.6666666666666666,
+          "f1": 0.8,
+          "macro_f1": 0.8285714285714285,
+          "specificity": 1.0,
+          "correct_patch_retention": 1.0,
+          "balanced_accuracy": 0.8333333333333333,
+          "accuracy": 0.8333333333333334,
+          "mcc": 0.7071067811865476,
+          "auroc": 0.8333333333333333,
+          "average_precision": 0.8333333333333333,
+          "confusion": {
+            "tp": 2,
+            "fp": 0,
+            "tn": 3,
+            "fn": 1
+          },
+          "n": 6,
+          "base_rate_overfitting": 0.5
+        }
+      },
+      "M6_sem_cex": {
+        "precision": 0.8,
+        "recall": 0.4444444444444444,
+        "f1": 0.5714285714285714,
+        "macro_f1": 0.5714285714285714,
+        "specificity": 0.8,
+        "correct_patch_retention": 0.8,
+        "balanced_accuracy": 0.6222222222222222,
+        "accuracy": 0.5714285714285714,
+        "mcc": 0.24444444444444444,
+        "auroc": 0.4888888888888888,
+        "average_precision": 0.7205868205868206,
+        "confusion": {
+          "tp": 4,
+          "fp": 1,
+          "tn": 4,
+          "fn": 5
+        },
+        "n": 14,
+        "base_rate_overfitting": 0.6428571428571429,
+        "mcc_ci95_cluster_bootstrap": [
+          -0.09759000729485333,
+          0.6236095644623235
+        ],
+        "f1_ci95_cluster_bootstrap": [
+          0.16666666666666666,
+          0.7777777777777778
+        ],
+        "groupkfold_per_bug_fold": {
+          "fold0": {
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.6666666666666666,
+            "macro_f1": 0.5833333333333333,
+            "specificity": 1.0,
+            "correct_patch_retention": 1.0,
+            "balanced_accuracy": 0.75,
+            "accuracy": 0.6,
+            "mcc": 0.4082482904638631,
+            "auroc": 0.875,
+            "average_precision": 0.95,
+            "confusion": {
+              "tp": 2,
+              "fp": 0,
+              "tn": 1,
+              "fn": 2
+            },
+            "n": 5,
+            "base_rate_overfitting": 0.8
+          },
+          "fold1": {
+            "precision": 0.6666666666666666,
+            "recall": 1.0,
+            "f1": 0.8,
+            "macro_f1": 0.7333333333333334,
+            "specificity": 0.5,
+            "correct_patch_retention": 0.5,
+            "balanced_accuracy": 0.75,
+            "accuracy": 0.75,
+            "mcc": 0.5773502691896258,
+            "auroc": 0.875,
+            "average_precision": 0.8333333333333333,
+            "confusion": {
+              "tp": 2,
+              "fp": 1,
+              "tn": 1,
+              "fn": 0
+            },
+            "n": 4,
+            "base_rate_overfitting": 0.5
+          },
+          "fold2": {
+            "note": "single class in held-out fold",
+            "n": 3
+          },
+          "fold3": {
+            "note": "single class in held-out fold",
+            "n": 1
+          },
+          "fold4": {
+            "note": "single class in held-out fold",
+            "n": 1
+          }
+        }
+      },
+      "M5_static": {
+        "precision": 0.8888888888888888,
+        "recall": 0.8888888888888888,
+        "f1": 0.8888888888888888,
+        "macro_f1": 0.8444444444444444,
+        "specificity": 0.8,
+        "correct_patch_retention": 0.8,
+        "balanced_accuracy": 0.8444444444444444,
+        "accuracy": 0.8571428571428571,
+        "mcc": 0.6888888888888889,
+        "auroc": 0.8666666666666667,
+        "average_precision": 0.9411206077872747,
+        "confusion": {
+          "tp": 8,
+          "fp": 1,
+          "tn": 4,
+          "fn": 1
+        },
+        "n": 14,
+        "base_rate_overfitting": 0.6428571428571429,
+        "mcc_ci95_cluster_bootstrap": [
+          0.3825184261187248,
+          1.0
+        ],
+        "f1_ci95_cluster_bootstrap": [
+          0.7272727272727273,
+          1.0
+        ],
+        "groupkfold_per_bug_fold": {
+          "fold0": {
+            "precision": 1.0,
+            "recall": 0.75,
+            "f1": 0.8571428571428571,
+            "macro_f1": 0.7619047619047619,
+            "specificity": 1.0,
+            "correct_patch_retention": 1.0,
+            "balanced_accuracy": 0.875,
+            "accuracy": 0.8,
+            "mcc": 0.6123724356957946,
+            "auroc": 0.75,
+            "average_precision": 0.95,
+            "confusion": {
+              "tp": 3,
+              "fp": 0,
+              "tn": 1,
+              "fn": 1
+            },
+            "n": 5,
+            "base_rate_overfitting": 0.8
+          },
+          "fold1": {
+            "precision": 0.6666666666666666,
+            "recall": 1.0,
+            "f1": 0.8,
+            "macro_f1": 0.7333333333333334,
+            "specificity": 0.5,
+            "correct_patch_retention": 0.5,
+            "balanced_accuracy": 0.75,
+            "accuracy": 0.75,
+            "mcc": 0.5773502691896258,
+            "auroc": 1.0,
+            "average_precision": 1.0,
+            "confusion": {
+              "tp": 2,
+              "fp": 1,
+              "tn": 1,
+              "fn": 0
+            },
+            "n": 4,
+            "base_rate_overfitting": 0.5
+          },
+          "fold2": {
+            "note": "single class in held-out fold",
+            "n": 3
+          },
+          "fold3": {
+            "note": "single class in held-out fold",
+            "n": 1
+          },
+          "fold4": {
+            "note": "single class in held-out fold",
+            "n": 1
+          }
+        },
+        "features": [
+          "s_vuln_changed",
+          "d_cyclomatic",
+          "d_branch_points",
+          "d_stmts",
+          "d_defuse_pairs"
+        ]
+      },
+      "M7_sem_static": {
+        "precision": 0.7777777777777778,
+        "recall": 0.7777777777777778,
+        "f1": 0.7777777777777778,
+        "macro_f1": 0.6888888888888889,
+        "specificity": 0.6,
+        "correct_patch_retention": 0.6,
+        "balanced_accuracy": 0.6888888888888889,
+        "accuracy": 0.7142857142857143,
+        "mcc": 0.37777777777777777,
+        "auroc": 0.8444444444444444,
+        "average_precision": 0.9280303030303032,
+        "confusion": {
+          "tp": 7,
+          "fp": 2,
+          "tn": 3,
+          "fn": 2
+        },
+        "n": 14,
+        "base_rate_overfitting": 0.6428571428571429,
+        "mcc_ci95_cluster_bootstrap": [
+          -0.10050378152592121,
+          0.7319250547113999
+        ],
+        "f1_ci95_cluster_bootstrap": [
+          0.5,
+          0.9230769230769231
+        ],
+        "groupkfold_per_bug_fold": {
+          "fold0": {
+            "precision": 1.0,
+            "recall": 0.5,
+            "f1": 0.6666666666666666,
+            "macro_f1": 0.5833333333333333,
+            "specificity": 1.0,
+            "correct_patch_retention": 1.0,
+            "balanced_accuracy": 0.75,
+            "accuracy": 0.6,
+            "mcc": 0.4082482904638631,
+            "auroc": 1.0,
+            "average_precision": 1.0,
+            "confusion": {
+              "tp": 2,
+              "fp": 0,
+              "tn": 1,
+              "fn": 2
+            },
+            "n": 5,
+            "base_rate_overfitting": 0.8
+          },
+          "fold1": {
+            "precision": 0.5,
+            "recall": 1.0,
+            "f1": 0.6666666666666666,
+            "macro_f1": 0.3333333333333333,
+            "specificity": 0.0,
+            "correct_patch_retention": 0.0,
+            "balanced_accuracy": 0.5,
+            "accuracy": 0.5,
+            "mcc": 0.0,
+            "auroc": 1.0,
+            "average_precision": 1.0,
+            "confusion": {
+              "tp": 2,
+              "fp": 2,
+              "tn": 0,
+              "fn": 0
+            },
+            "n": 4,
+            "base_rate_overfitting": 0.5
+          },
+          "fold2": {
+            "note": "single class in held-out fold",
+            "n": 3
+          },
+          "fold3": {
+            "note": "single class in held-out fold",
+            "n": 1
+          },
+          "fold4": {
+            "note": "single class in held-out fold",
+            "n": 1
+          }
+        }
+      },
+      "M8_cex_static": {
+        "precision": 0.8333333333333334,
+        "recall": 0.5555555555555556,
+        "f1": 0.6666666666666666,
+        "macro_f1": 0.641025641025641,
+        "specificity": 0.8,
+        "correct_patch_retention": 0.8,
+        "balanced_accuracy": 0.6777777777777778,
+        "accuracy": 0.6428571428571429,
+        "mcc": 0.34426518632954817,
+        "auroc": 0.8,
+        "average_precision": 0.9077311577311578,
+        "confusion": {
+          "tp": 5,
+          "fp": 1,
+          "tn": 4,
+          "fn": 4
+        },
+        "n": 14,
+        "base_rate_overfitting": 0.6428571428571429,
+        "mcc_ci95_cluster_bootstrap": [
+          0.0,
+          0.6546536707079772
+        ],
+        "f1_ci95_cluster_bootstrap": [
+          0.2857142857142857,
+          0.8
+        ],
+        "groupkfold_per_bug_fold": {
+          "fold0": {
+            "precision": 1.0,
+            "recall": 0.25,
+            "f1": 0.4,
+            "macro_f1": 0.4,
+            "specificity": 1.0,
+            "correct_patch_retention": 1.0,
+            "balanced_accuracy": 0.625,
+            "accuracy": 0.4,
+            "mcc": 0.25,
+            "auroc": 0.75,
+            "average_precision": 0.95,
+            "confusion": {
+              "tp": 1,
+              "fp": 0,
+              "tn": 1,
+              "fn": 3
+            },
+            "n": 5,
+            "base_rate_overfitting": 0.8
+          },
+          "fold1": {
+            "precision": 0.6666666666666666,
+            "recall": 1.0,
+            "f1": 0.8,
+            "macro_f1": 0.7333333333333334,
+            "specificity": 0.5,
+            "correct_patch_retention": 0.5,
+            "balanced_accuracy": 0.75,
+            "accuracy": 0.75,
+            "mcc": 0.5773502691896258,
+            "auroc": 1.0,
+            "average_precision": 1.0,
+            "confusion": {
+              "tp": 2,
+              "fp": 1,
+              "tn": 1,
+              "fn": 0
+            },
+            "n": 4,
+            "base_rate_overfitting": 0.5
+          },
+          "fold2": {
+            "note": "single class in held-out fold",
+            "n": 3
+          },
+          "fold3": {
+            "note": "single class in held-out fold",
+            "n": 1
+          },
+          "fold4": {
+            "note": "single class in held-out fold",
+            "n": 1
+          }
+        }
+      },
+      "M9_sem_cex_static": {
+        "precision": 0.8333333333333334,
+        "recall": 0.5555555555555556,
+        "f1": 0.6666666666666666,
+        "macro_f1": 0.641025641025641,
+        "specificity": 0.8,
+        "correct_patch_retention": 0.8,
+        "balanced_accuracy": 0.6777777777777778,
+        "accuracy": 0.6428571428571429,
+        "mcc": 0.34426518632954817,
+        "auroc": 0.7333333333333333,
+        "average_precision": 0.851972101972102,
+        "confusion": {
+          "tp": 5,
+          "fp": 1,
+          "tn": 4,
+          "fn": 4
+        },
+        "n": 14,
+        "base_rate_overfitting": 0.6428571428571429,
+        "mcc_ci95_cluster_bootstrap": [
+          0.0,
+          0.6546536707079772
+        ],
+        "f1_ci95_cluster_bootstrap": [
+          0.2857142857142857,
+          0.8
+        ],
+        "groupkfold_per_bug_fold": {
+          "fold0": {
+            "precision": 1.0,
+            "recall": 0.25,
+            "f1": 0.4,
+            "macro_f1": 0.4,
+            "specificity": 1.0,
+            "correct_patch_retention": 1.0,
+            "balanced_accuracy": 0.625,
+            "accuracy": 0.4,
+            "mcc": 0.25,
+            "auroc": 1.0,
+            "average_precision": 1.0,
+            "confusion": {
+              "tp": 1,
+              "fp": 0,
+              "tn": 1,
+              "fn": 3
+            },
+            "n": 5,
+            "base_rate_overfitting": 0.8
+          },
+          "fold1": {
+            "precision": 0.6666666666666666,
+            "recall": 1.0,
+            "f1": 0.8,
+            "macro_f1": 0.7333333333333334,
+            "specificity": 0.5,
+            "correct_patch_retention": 0.5,
+            "balanced_accuracy": 0.75,
+            "accuracy": 0.75,
+            "mcc": 0.5773502691896258,
+            "auroc": 1.0,
+            "average_precision": 1.0,
+            "confusion": {
+              "tp": 2,
+              "fp": 1,
+              "tn": 1,
+              "fn": 0
+            },
+            "n": 4,
+            "base_rate_overfitting": 0.5
+          },
+          "fold2": {
+            "note": "single class in held-out fold",
+            "n": 3
+          },
+          "fold3": {
+            "note": "single class in held-out fold",
+            "n": 1
+          },
+          "fold4": {
+            "note": "single class in held-out fold",
+            "n": 1
+          }
+        }
+      },
+      "M10_full_pvs_human_prefs": {
+        "status": "PENDING",
+        "reason": "real human preferences (Bradley-Terry) -- PENDING"
+      }
+    },
+    "paired_differences_mcc": {
+      "M3_semantic_vs_M0_majority": {
+        "metric": "mcc",
+        "a": 0.0,
+        "b": 0.0,
+        "difference": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "ci_excludes_zero": false
+      },
+      "M3_semantic_vs_M1_random": {
+        "metric": "mcc",
+        "a": 0.0,
+        "b": 0.25819888974716115,
+        "difference": -0.25819888974716115,
+        "ci95": [
+          -0.7559289460184545,
+          0.2608745973749754
+        ],
+        "ci_excludes_zero": false
+      },
+      "M3_semantic_vs_M2b_s_edit_only": {
+        "metric": "mcc",
+        "a": 0.0,
+        "b": 0.0,
+        "difference": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "ci_excludes_zero": false
+      },
+      "M6_sem_cex_vs_M3_semantic": {
+        "metric": "mcc",
+        "a": 0.24444444444444444,
+        "b": 0.0,
+        "difference": 0.24444444444444444,
+        "ci95": [
+          -0.09759000729485333,
+          0.6236095644623235
+        ],
+        "ci_excludes_zero": false
+      },
+      "M3_semantic_vs_M2_diff_feature": {
+        "metric": "mcc",
+        "a": 0.0,
+        "b": 0.4472135954999579,
+        "difference": -0.4472135954999579,
+        "ci95": [
+          -0.796756412288731,
+          0.0
+        ],
+        "ci_excludes_zero": false
+      },
+      "M7_sem_static_vs_M3_semantic": {
+        "metric": "mcc",
+        "a": 0.37777777777777777,
+        "b": 0.0,
+        "difference": 0.37777777777777777,
+        "ci95": [
+          -0.10050378152592121,
+          0.7319250547113999
+        ],
+        "ci_excludes_zero": false
+      },
+      "M9_sem_cex_static_vs_M3_semantic": {
+        "metric": "mcc",
+        "a": 0.34426518632954817,
+        "b": 0.0,
+        "difference": 0.34426518632954817,
+        "ci95": [
+          0.0,
+          0.6546536707079772
+        ],
+        "ci_excludes_zero": false
+      }
+    },
+    "baseline_caveat": "M0 majority is degenerate in this balanced pilot sample (52% overfitting): the training-fold majority class flips between LOPO folds, so M0 behaves like a near-random classifier (MCC < 0) rather than an all-one-class baseline. Claims of improvement must rest on M1/M2, not M0.",
+    "static_complete_case_sensitivity": {
+      "n_complete_case": 14,
+      "n_dropped": 0,
+      "note": "no imputation; LOPO logistic regression on complete cases only",
+      "M5_static": {
+        "precision": 0.8,
+        "recall": 0.8888888888888888,
+        "f1": 0.8421052631578947,
+        "macro_f1": 0.7543859649122806,
+        "specificity": 0.6,
+        "correct_patch_retention": 0.6,
+        "balanced_accuracy": 0.7444444444444445,
+        "accuracy": 0.7857142857142857,
+        "mcc": 0.5185449728701348,
+        "auroc": 0.9555555555555555,
+        "average_precision": 0.9797979797979797,
+        "confusion": {
+          "tp": 8,
+          "fp": 2,
+          "tn": 3,
+          "fn": 1
+        },
+        "n": 14,
+        "base_rate_overfitting": 0.6428571428571429
+      },
+      "M7_sem_static": {
+        "precision": 0.8,
+        "recall": 0.8888888888888888,
+        "f1": 0.8421052631578947,
+        "macro_f1": 0.7543859649122806,
+        "specificity": 0.6,
+        "correct_patch_retention": 0.6,
+        "balanced_accuracy": 0.7444444444444445,
+        "accuracy": 0.7857142857142857,
+        "mcc": 0.5185449728701348,
+        "auroc": 0.9333333333333333,
+        "average_precision": 0.9722222222222221,
+        "confusion": {
+          "tp": 8,
+          "fp": 2,
+          "tn": 3,
+          "fn": 1
+        },
+        "n": 14,
+        "base_rate_overfitting": 0.6428571428571429
+      },
+      "M3_semantic": {
+        "precision": 0.6428571428571429,
+        "recall": 1.0,
+        "f1": 0.782608695652174,
+        "macro_f1": 0.391304347826087,
+        "specificity": 0.0,
+        "correct_patch_retention": 0.0,
+        "balanced_accuracy": 0.5,
+        "accuracy": 0.6428571428571429,
+        "mcc": 0.0,
+        "auroc": 0.5444444444444444,
+        "average_precision": 0.6808561808561808,
+        "confusion": {
+          "tp": 9,
+          "fp": 5,
+          "tn": 0,
+          "fn": 0
+        },
+        "n": 14,
+        "base_rate_overfitting": 0.6428571428571429
+      },
+      "M7_vs_M3_mcc": {
+        "metric": "mcc",
+        "a": 0.5185449728701348,
+        "b": 0.0,
+        "difference": 0.5185449728701348,
+        "ci95": [
+          -0.07308816827558576,
+          1.0
+        ],
+        "ci_excludes_zero": false
+      }
+    }
+  },
+  "ranking": {
+    "score": "PVS* (ranking only; placeholder equal weights -- NOT calibrated)",
+    "n_patches_ranked": 14,
+    "n_excluded_PVS_missing": 0,
+    "summary": {
+      "conditional": {
+        "bugs": 2,
+        "precision_at_1": 0.5,
+        "precision_at_1_ci95": [
+          0.0,
+          1.0
+        ],
+        "mrr": 0.75,
+        "top3": 1.0,
+        "random_expected_p_at_1": 0.3333333333333333
+      },
+      "end_to_end": {
+        "bugs": 4,
+        "precision_at_1": 0.25,
+        "precision_at_1_ci95": [
+          0.0,
+          0.75
+        ],
+        "mrr": 0.375,
+        "top3": 0.5,
+        "random_expected_p_at_1": 0.16666666666666666,
+        "theoretical_max_p_at_1": 0.5
+      }
+    },
+    "n_bugs_with_multiple_candidates": 4
+  },
+  "counterexample_funnel": {
+    "overall": {
+      "generated": 50,
+      "compiled": 30,
+      "fixed_pass": 26,
+      "buggy_fail": 13,
+      "stable_bug_revealing": 13,
+      "candidate_discriminating": 2
+    },
+    "n_patches_with_cex_run": 15,
+    "n_patches_with_generation_error": 0,
+    "stage_definitions": "generated->compiled->fixed_pass->buggy_fail->stable_bug_revealing->candidate_discriminating (per-test, summed; see scores.counterexample_status)",
+    "by_project": {
+      "Chart": {
+        "n_patches": 4,
+        "generated": 13,
+        "compiled": 12,
+        "fixed_pass": 12,
+        "buggy_fail": 10,
+        "stable_bug_revealing": 10,
+        "candidate_discriminating": 2
+      },
+      "Lang": {
+        "n_patches": 1,
+        "generated": 3,
+        "compiled": 3,
+        "fixed_pass": 3,
+        "buggy_fail": 1,
+        "stable_bug_revealing": 1,
+        "candidate_discriminating": 0
+      },
+      "Math": {
+        "n_patches": 8,
+        "generated": 26,
+        "compiled": 12,
+        "fixed_pass": 8,
+        "buggy_fail": 1,
+        "stable_bug_revealing": 1,
+        "candidate_discriminating": 0
+      }
+    },
+    "by_ground_truth_label": {
+      "correct": {
+        "n_patches": 5,
+        "generated": 15,
+        "compiled": 12,
+        "fixed_pass": 10,
+        "buggy_fail": 4,
+        "stable_bug_revealing": 4,
+        "candidate_discriminating": 0
+      },
+      "overfitting": {
+        "n_patches": 8,
+        "generated": 27,
+        "compiled": 15,
+        "fixed_pass": 13,
+        "buggy_fail": 8,
+        "stable_bug_revealing": 8,
+        "candidate_discriminating": 2
+      }
+    },
+    "by_tercile": {
+      "(unknown)": {
+        "n_patches": 13,
+        "generated": 42,
+        "compiled": 27,
+        "fixed_pass": 23,
+        "buggy_fail": 12,
+        "stable_bug_revealing": 12,
+        "candidate_discriminating": 2
+      }
+    }
+  },
+  "s_cex_missingness": {
+    "overall": {
+      "n": 14,
+      "n_missing": 8,
+      "missing_rate": 0.5714285714285714
+    },
+    "by_project": {
+      "Chart": {
+        "n": 4,
+        "n_missing": 0,
+        "missing_rate": 0.0
+      },
+      "Lang": {
+        "n": 1,
+        "n_missing": 0,
+        "missing_rate": 0.0
+      },
+      "Math": {
+        "n": 9,
+        "n_missing": 8,
+        "missing_rate": 0.8888888888888888
+      }
+    },
+    "by_ground_truth_label": {
+      "correct": {
+        "n": 5,
+        "n_missing": 2,
+        "missing_rate": 0.4
+      },
+      "overfitting": {
+        "n": 9,
+        "n_missing": 6,
+        "missing_rate": 0.6666666666666666
+      }
+    },
+    "by_tercile": {
+      "(unknown)": {
+        "n": 14,
+        "n_missing": 8,
+        "missing_rate": 0.5714285714285714
+      }
+    }
+  },
+  "stage2b_coverage": {
+    "n_patches": 14,
+    "s_edit_ast_available": 14,
+    "analysis_level_counts": {
+      "DATAFLOW": 14
+    },
+    "note_levels": "hierarchy PDG>DATAFLOW>CFG_AST>FAILED; this tool's ceiling is DATAFLOW (SootUp Jimple CFG + def/use). PDG (control-dependence) not computed -- see DEVIATIONS.",
+    "s_vuln_changed_available": 14,
+    "s_vuln_changed_nonzero": 2,
+    "cyclomatic_delta_available": 14
+  },
+  "complementarity": {
+    "sem_vs_cex": {
+      "n_both_available": 6,
+      "among_overfitting": {
+        "sem_only": 1,
+        "cex_only": 0,
+        "both": 2,
+        "neither": 0
+      },
+      "among_correct_wrongly_flagged": {
+        "sem_only": 3,
+        "cex_only": 0,
+        "both": 0
+      }
+    },
+    "cex_vs_static": {
+      "n_both_available": 6,
+      "static_flag_definition": "new SpotBugs/FindSecBugs warning on changed classes (s_vuln_changed>0)",
+      "among_overfitting": {
+        "cex_only": 1,
+        "static_only": 0,
+        "both": 1,
+        "neither": 1
+      },
+      "among_correct_wrongly_flagged": {
+        "cex_only": 0,
+        "static_only": 0,
+        "both": 0
+      }
+    },
+    "static_flag_prevalence": {
+      "n_static_available": 14,
+      "n_static_flag_overfitting_risk": 2
+    }
+  },
+  "sensitivity": {
+    "label_policy": {
+      "method": "M3 semantic rule S_sem<0.5",
+      "n": 14,
+      "n_labels_changed_vs_primary": 0,
+      "detection_primary_labels": {
+        "precision": 0.6428571428571429,
+        "recall": 1.0,
+        "f1": 0.782608695652174,
+        "macro_f1": 0.391304347826087,
+        "specificity": 0.0,
+        "correct_patch_retention": 0.0,
+        "balanced_accuracy": 0.5,
+        "accuracy": 0.6428571428571429,
+        "mcc": 0.0,
+        "auroc": null,
+        "average_precision": null,
+        "confusion": {
+          "tp": 9,
+          "fp": 5,
+          "tn": 0,
+          "fn": 0
+        },
+        "n": 14,
+        "base_rate_overfitting": 0.6428571428571429
+      },
+      "detection_sensitivity_labels": {
+        "precision": 0.6428571428571429,
+        "recall": 1.0,
+        "f1": 0.782608695652174,
+        "macro_f1": 0.391304347826087,
+        "specificity": 0.0,
+        "correct_patch_retention": 0.0,
+        "balanced_accuracy": 0.5,
+        "accuracy": 0.6428571428571429,
+        "mcc": 0.0,
+        "auroc": null,
+        "average_precision": null,
+        "confusion": {
+          "tp": 9,
+          "fp": 5,
+          "tn": 0,
+          "fn": 0
+        },
+        "n": 14,
+        "base_rate_overfitting": 0.6428571428571429
+      }
+    },
+    "duplicates": {
+      "method": "M3 semantic rule S_sem<0.5",
+      "n_primary": 14,
+      "n_collapsed": 14,
+      "n_duplicate_patches_in_sample": 1,
+      "detection_collapsed": {
+        "precision": 0.6428571428571429,
+        "recall": 1.0,
+        "f1": 0.782608695652174,
+        "macro_f1": 0.391304347826087,
+        "specificity": 0.0,
+        "correct_patch_retention": 0.0,
+        "balanced_accuracy": 0.5,
+        "accuracy": 0.6428571428571429,
+        "mcc": 0.0,
+        "auroc": null,
+        "average_precision": null,
+        "confusion": {
+          "tp": 9,
+          "fp": 5,
+          "tn": 0,
+          "fn": 0
+        },
+        "n": 14,
+        "base_rate_overfitting": 0.6428571428571429
+      }
+    }
+  },
+  "context_ablation": {
+    "source": "48-patch pilot ablation (src/context_ablation.py)",
+    "NOTE": "PRELIMINARY ENGINEERING PILOT -- context ablation on 48 patches, M3 rule (S_sem<0.5), positive class = overfitting. Condition C is the pilot's primary result.",
+    "model": "claude-haiku-4-5",
+    "rule": "predict overfitting iff s_sem_final < 0.5",
+    "conditions": {
+      "A": {
+        "precision": 0.5555555555555556,
+        "recall": 0.8333333333333334,
+        "f1": 0.6666666666666666,
+        "macro_f1": 0.5555555555555556,
+        "specificity": 0.3333333333333333,
+        "correct_patch_retention": 0.3333333333333333,
+        "balanced_accuracy": 0.5833333333333334,
+        "accuracy": 0.5833333333333334,
+        "mcc": 0.19245008972987526,
+        "auroc": 0.7048611111111112,
+        "average_precision": 0.662941644707949,
+        "confusion": {
+          "tp": 20,
+          "fp": 16,
+          "tn": 8,
+          "fn": 4
+        },
+        "n": 48,
+        "base_rate_overfitting": 0.5,
+        "n_scored": 48
+      },
+      "B": {
+        "precision": 0.5641025641025641,
+        "recall": 0.9166666666666666,
+        "f1": 0.6984126984126984,
+        "macro_f1": 0.5613275613275613,
+        "specificity": 0.2916666666666667,
+        "correct_patch_retention": 0.2916666666666667,
+        "balanced_accuracy": 0.6041666666666666,
+        "accuracy": 0.6041666666666666,
+        "mcc": 0.2668802563418119,
+        "auroc": 0.7135416666666667,
+        "average_precision": 0.6630541199506716,
+        "confusion": {
+          "tp": 22,
+          "fp": 17,
+          "tn": 7,
+          "fn": 2
+        },
+        "n": 48,
+        "base_rate_overfitting": 0.5,
+        "n_scored": 48
+      },
+      "C": {
+        "precision": 0.5641025641025641,
+        "recall": 0.9166666666666666,
+        "f1": 0.6984126984126984,
+        "macro_f1": 0.5613275613275613,
+        "specificity": 0.2916666666666667,
+        "correct_patch_retention": 0.2916666666666667,
+        "balanced_accuracy": 0.6041666666666666,
+        "accuracy": 0.6041666666666666,
+        "mcc": 0.2668802563418119,
+        "auroc": 0.7664930555555556,
+        "average_precision": 0.7123329156223893,
+        "confusion": {
+          "tp": 22,
+          "fp": 17,
+          "tn": 7,
+          "fn": 2
+        },
+        "n": 48,
+        "base_rate_overfitting": 0.5,
+        "n_scored": 48
+      }
+    }
+  },
+  "memorization": {
+    "n": 14,
+    "n_recognized": 1,
+    "recognition_rate": 0.07142857142857142
+  },
+  "runtime": {
+    "n_patches": 15,
+    "per_stage_seconds": {
+      "stage2b": {
+        "n": 14,
+        "mean": 65.71,
+        "median": 59.99,
+        "p90": 95.2,
+        "max": 100.01
+      },
+      "counterexample": {
+        "n": 14,
+        "mean": 45.58,
+        "median": 41.86,
+        "p90": 68.81,
+        "max": 75.5
+      },
+      "apply_patch": {
+        "n": 15,
+        "mean": 15.64,
+        "median": 14.63,
+        "p90": 20.53,
+        "max": 41.64
+      },
+      "semantic": {
+        "n": 14,
+        "mean": 11.01,
+        "median": 10.99,
+        "p90": 12.15,
+        "max": 13.33
+      },
+      "memorization": {
+        "n": 14,
+        "mean": 1.32,
+        "median": 1.24,
+        "p90": 1.62,
+        "max": 2.08
+      },
+      "fingerprint": {
+        "n": 14,
+        "mean": 1.03,
+        "median": 0.84,
+        "p90": 1.95,
+        "max": 2.34
+      }
+    },
+    "per_patch_seconds": {
+      "n": 15,
+      "mean": 131.97,
+      "median": 141.1,
+      "p90": 162.42,
+      "max": 192.3
+    },
+    "wall_clock_note": "per-patch seconds are summed stage times inside one worker; wall-clock is lower because bugs run in parallel across workers."
+  },
+  "cost": {
+    "pricing_source": "Anthropic public API list pricing, USD per 1M tokens: Haiku 4.5 $1 in / $5 out, Sonnet 5 $2 in / $10 out. Recorded 2026-09-21.",
+    "pricing_per_mtok_usd": {
+      "claude-haiku-4-5": {
+        "in": 1.0,
+        "out": 5.0
+      },
+      "claude-sonnet-5": {
+        "in": 2.0,
+        "out": 10.0
+      }
+    },
+    "model": "claude-haiku-4-5",
+    "breakdown": {
+      "semantic_haiku": {
+        "calls": 54,
+        "input_tokens": 166716,
+        "output_tokens": 9574,
+        "usd": 0.2146
+      },
+      "counterexample_haiku": {
+        "calls": 15,
+        "input_tokens": 43296,
+        "output_tokens": 29619,
+        "usd": 0.1914
+      },
+      "memorization_haiku": {
+        "calls": 14,
+        "input_tokens": 9430,
+        "output_tokens": 380,
+        "usd": 0.0113
+      }
+    },
+    "total_usd": 0.4173,
+    "total_billable_calls": 83
+  }
+}

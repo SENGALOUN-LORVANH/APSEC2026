@@ -1,0 +1,266 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__Arja__Math__patch1-Math-80-Arja-plausible",
+  "bug_id": "Math-80",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 14.629
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.942
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 11.06
+    },
+    "counterexample": {
+      "ok": false,
+      "seconds": 75.497,
+      "error": "JSONDecodeError: Unterminated string starting at: line 1 column 50676 (char 50675)",
+      "traceback": "Traceback (most recent call last):\n  File \"/work/experiment_v2/src/run_full.py\", line 146, in _stage\n    result = fn(*args)\n  File \"/work/experiment_v2/src/oracle_runner.py\", line 230, in run_counterexamples\n    generated = json.loads(llm_client.response_text(resp))[\"tests\"]\n  File \"/usr/lib/python3.10/json/__init__.py\", line 346, in loads\n    return _default_decoder.decode(s)\n  File \"/usr/lib/python3.10/json/decoder.py\", line 337, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n  File \"/usr/lib/python3.10/json/decoder.py\", line 353, in raw_decode\n    obj, end = self.scan_once(s, idx)\njson.decoder.JSONDecodeError: Unterminated string starting at: line 1 column 50676 (char 50675)\n"
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.121
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 89.052
+    }
+  },
+  "complete": false,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__Arja__Math__patch1-Math-80-Arja-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.607028196999977,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 4242,
+        "output_tokens": 203,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.3,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch makes three problematic changes: (1) replaces a qMax update with dMin=0.0 (redundant with next line), (2) changes tType -= 12 to tType = -8 (arbitrary constant), and (3) removes the entire array-flipping loop in flipIfWarranted, gutting core functionality. These changes appear to be test-specific hacks rather than genuine bug fixes, particularly the removal of the flip logic which breaks the algorithm's correctness."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.302204414000016,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 4242,
+        "output_tokens": 203,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.3,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch makes three problematic changes: (1) replaces a qMax update with dMin=0.0 (redundant with next line), (2) changes tType -= 12 to tType = -8 (arbitrary constant), and (3) removes the entire array-flipping loop in flipIfWarranted, gutting core functionality. These changes appear to be test-specific hacks rather than genuine bug fixes, particularly the removal of the flip logic which breaks the algorithm's correctness."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.423006576999967,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 4242,
+        "output_tokens": 203,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.3,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch makes three problematic changes: (1) replaces a qMax update with dMin=0.0 (redundant with next line), (2) changes tType -= 12 to tType = -8 (arbitrary constant), and (3) removes the entire array-flipping loop in flipIfWarranted, gutting core functionality. These changes appear to be test-specific hacks rather than genuine bug fixes, particularly the removal of the flip logic which breaks the algorithm's correctness."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": null,
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__Arja__Math__patch1-Math-80-Arja-plausible",
+    "true_project": "Math",
+    "true_bug_number": "80",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 850,
+    "output_tokens": 25,
+    "project": "Math",
+    "bug_number": null,
+    "recalled_label": "UNKNOWN",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__Arja__Math__patch1-Math-80-Arja-plausible",
+    "bug_id": "Math-80",
+    "s_edit_ast": 0.07952468007312614,
+    "s_edit_ast_actions": 87,
+    "s_edit_ast_nodes": 1094,
+    "s_edit_error": null,
+    "s_vuln_changed": 1.0,
+    "s_vuln_new_warning_count": 2,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math/linear/EigenDecompositionImpl"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 404,
+      "cfg_edges": 429,
+      "branch_points": 31,
+      "cyclomatic_complexity": 29,
+      "def_count": 351,
+      "use_count": 1026,
+      "defuse_pairs": 351,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+          "method": "goodStep",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 364,
+          "cfg_edges": 388,
+          "branch_points": 28,
+          "cyclomatic_complexity": 26,
+          "def_count": 318,
+          "use_count": 934,
+          "defuse_pairs": 318,
+          "error": null
+        },
+        {
+          "class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+          "method": "flipIfWarranted",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 40,
+          "cfg_edges": 41,
+          "branch_points": 3,
+          "cyclomatic_complexity": 3,
+          "def_count": 33,
+          "use_count": 92,
+          "defuse_pairs": 33,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 375,
+      "cfg_edges": 399,
+      "branch_points": 30,
+      "cyclomatic_complexity": 28,
+      "def_count": 324,
+      "use_count": 954,
+      "defuse_pairs": 324,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+          "method": "goodStep",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 351,
+          "cfg_edges": 375,
+          "branch_points": 28,
+          "cyclomatic_complexity": 26,
+          "def_count": 305,
+          "use_count": 901,
+          "defuse_pairs": 305,
+          "error": null
+        },
+        {
+          "class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+          "method": "flipIfWarranted",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 24,
+          "cfg_edges": 24,
+          "branch_points": 2,
+          "cyclomatic_complexity": 2,
+          "def_count": 19,
+          "use_count": 53,
+          "defuse_pairs": 19,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": -1,
+    "d_stmts": -29,
+    "d_branch_points": -1,
+    "d_cfg_edges": -30,
+    "d_defuse_pairs": -27,
+    "vuln_detail": {
+      "s_vuln": 1.0,
+      "new_warnings": [
+        {
+          "bug_type": "SA",
+          "category": "D",
+          "priority": "M",
+          "severity": "MEDIUM",
+          "class": "EigenDecompositionImpl",
+          "method": "goodStep",
+          "location": "EigenDecompositionImpl.java:line 1063",
+          "description": "Double assignment of field EigenDecompositionImpl.dMin in org.apache.commons.math.linear.EigenDecompositionImpl.goodStep(int, int)"
+        },
+        {
+          "bug_type": "RV",
+          "category": "D",
+          "priority": "M",
+          "severity": "MEDIUM",
+          "class": "EigenDecompositionImpl",
+          "method": "",
+          "location": "EigenDecompositionImpl.java:line 840",
+          "description": "Return value of flipIfWarranted(int, int) ignored, but method has no side effect"
+        }
+      ],
+      "n_buggy_warnings": 317,
+      "n_candidate_warnings": 319,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 3,
+      "n_changed_class_files_candidate": 3,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__Arja__Math__patch1-Math-80-Arja-plausible",
+    "bug_id": "Math-80",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

@@ -1,0 +1,256 @@
+{
+  "patch_id": "Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-82-ACS",
+  "bug_id": "Math-82",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 16.591
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.832
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 11.668
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 26.494
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.655
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 53.203
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-82-ACS",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.15000000000000002,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.5405448260000014,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2297,
+        "output_tokens": 191,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.3,
+          "readability": 0.2,
+          "security_robustness": 0.7,
+          "judgement": "OVERFITTING",
+          "confidence": 0.85,
+          "brief_reason": "The patch adds a redundant condition `&&!(MathUtils.compareTo(entry, 0, epsilon)==0.0)` that excludes the case where entry equals zero, which is already excluded by the original `>= 0` check. This appears to be overfitting to the specific test case rather than fixing the underlying algorithmic issue in the simplex solver's pivot selection logic. The patch also introduces poor formatting and readability issues."
+        },
+        "s_sem": 0.15000000000000002,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.0992754229999946,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2297,
+        "output_tokens": 200,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.3,
+          "readability": 0.2,
+          "security_robustness": 0.7,
+          "judgement": "OVERFITTING",
+          "confidence": 0.85,
+          "brief_reason": "The patch adds a redundant condition `&&!(MathUtils.compareTo(entry, 0, epsilon)==0.0)` that excludes the case where entry equals zero, which is already excluded by the original `>= 0` check (it requires `> 0`). This is overfitting to the specific test case rather than fixing the underlying algorithmic issue. The patch also introduces poor formatting and readability without addressing the root cause of the simplex solver's incorrect pivot selection."
+        },
+        "s_sem": 0.15000000000000002,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.300458366000001,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2297,
+        "output_tokens": 213,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.3,
+          "readability": 0.2,
+          "security_robustness": 0.8,
+          "judgement": "OVERFITTING",
+          "confidence": 0.85,
+          "brief_reason": "The patch adds a redundant condition `&&!(MathUtils.compareTo(entry, 0, epsilon)==0.0)` that excludes the case where entry equals zero, which is already excluded by the original `>= 0` check. This appears to be a workaround for the specific test case rather than fixing the underlying algorithmic issue in the simplex solver. The patch has poor readability and the condition is logically redundant since `>= 0` already filters out negative values, and the new condition only excludes exact zeros."
+        },
+        "s_sem": 0.15000000000000002,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-82-ACS",
+    "bug_id": "Math-82",
+    "model": "claude-haiku-4-5",
+    "latency_s": 13.162336507000006,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 2168,
+    "output_tokens": 2099,
+    "tests": [
+      {
+        "name": "testPivotRowWithZeroEntry",
+        "target_class": "org.apache.commons.math.optimization.linear.SimplexSolver",
+        "target_method": "getPivotRow",
+        "class_name": "SimplexSolverTest",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "+Annotation'\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-82-ACS/SimplexSolverTest/fixed/src/test/java/org/apache/commons/math/optimization/linear/SimplexSolverTest.java:18: error: cannot find symbol\n    [javac]         RealPointValuePair solution = solver.optimize(f, constraints, GoalType.MAXIMIZE, false);\n    [javac]                                                                       ^\n    [javac]   symbol:   variable GoalType\n    [javac]   location: class SimplexSolverTest\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-82-ACS/SimplexSolverTest/fixed/src/test/java/org/apache/commons/math/optimization/linear/SimplexSolverTest.java:34: error: cannot find symbol\n    [javac]         RealPointValuePair solution = solver.optimize(f, constraints, GoalType.MAXIMIZE, false);\n    [javac]                                                                       ^\n    [javac]   symbol:   variable GoalType\n    [javac]   location: class SimplexSolverTest\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-82-ACS/SimplexSolverTest/fixed/src/test/java/org/apache/commons/math/optimization/linear/SimplexSolverTest.java:51: error: cannot find symbol\n    [javac]         RealPointValuePair solution = solver.optimize(f, constraints, GoalType.MAXIMIZE, false);\n    [javac]                                                                       ^\n    [javac]   symbol:   variable GoalType\n    [javac]   location: class SimplexSolverTest\n    [javac] 3 errors\n    [javac] 28 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-82-ACS/SimplexSolverTest/fixed/build.xml:168: Compile failed; see the compiler error output for details.\n\nTotal time: 0 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testPivotRowEpsilonBoundary",
+        "target_class": "org.apache.commons.math.optimization.linear.SimplexSolver",
+        "target_method": "getPivotRow",
+        "class_name": "SimplexSolverEpsilonTest",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "NF/sym/rt.jar/java/util/AbstractCollection.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Iterable.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Iterable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-82-ACS/SimplexSolverEpsilonTest/fixed/src/test/java/org/apache/commons/math/optimization/linear/SimplexSolverEpsilonTest.java:19: error: cannot find symbol\n    [javac]         RealPointValuePair solution = solver.optimize(f, constraints, GoalType.MAXIMIZE, false);\n    [javac]                                                                       ^\n    [javac]   symbol:   variable GoalType\n    [javac]   location: class SimplexSolverEpsilonTest\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 1 error\n    [javac] 30 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-82-ACS/SimplexSolverEpsilonTest/fixed/build.xml:168: Compile failed; see the compiler error output for details.\n\nTotal time: 1 second\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testPivotRowMultipleConstraints",
+        "target_class": "org.apache.commons.math.optimization.linear.SimplexSolver",
+        "target_method": "getPivotRow",
+        "class_name": "SimplexSolverMultipleConstraintsTest",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": ": warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Iterable.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Iterable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-82-ACS/SimplexSolverMultipleConstraintsTest/fixed/src/test/java/org/apache/commons/math/optimization/linear/SimplexSolverMultipleConstraintsTest.java:19: error: cannot find symbol\n    [javac]         RealPointValuePair solution = solver.optimize(f, constraints, GoalType.MAXIMIZE, false);\n    [javac]                                                                       ^\n    [javac]   symbol:   variable GoalType\n    [javac]   location: class SimplexSolverMultipleConstraintsTest\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 1 error\n    [javac] 30 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-82-ACS/SimplexSolverMultipleConstraintsTest/fixed/build.xml:168: Compile failed; see the compiler error output for details.\n\nTotal time: 0 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-82-ACS",
+    "true_project": "Math",
+    "true_bug_number": "82",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 665,
+    "output_tokens": 28,
+    "project": "Math",
+    "bug_number": 41,
+    "recalled_label": "OVERFITTING",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-82-ACS",
+    "bug_id": "Math-82",
+    "s_edit_ast": 0.12781954887218044,
+    "s_edit_ast_actions": 17,
+    "s_edit_ast_nodes": 133,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math/optimization/linear/SimplexSolver"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 23,
+      "cfg_edges": 25,
+      "branch_points": 3,
+      "cyclomatic_complexity": 4,
+      "def_count": 18,
+      "use_count": 50,
+      "defuse_pairs": 18,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.optimization.linear.SimplexSolver",
+          "method": "getPivotRow",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 23,
+          "cfg_edges": 25,
+          "branch_points": 3,
+          "cyclomatic_complexity": 4,
+          "def_count": 18,
+          "use_count": 50,
+          "defuse_pairs": 18,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 28,
+      "cfg_edges": 31,
+      "branch_points": 4,
+      "cyclomatic_complexity": 5,
+      "def_count": 22,
+      "use_count": 64,
+      "defuse_pairs": 22,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.optimization.linear.SimplexSolver",
+          "method": "getPivotRow",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 28,
+          "cfg_edges": 31,
+          "branch_points": 4,
+          "cyclomatic_complexity": 5,
+          "def_count": 22,
+          "use_count": 64,
+          "defuse_pairs": 22,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 1,
+    "d_stmts": 5,
+    "d_branch_points": 1,
+    "d_cfg_edges": 6,
+    "d_defuse_pairs": 4,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 312,
+      "n_candidate_warnings": 312,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-82-ACS",
+    "bug_id": "Math-82",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

@@ -2,3 +2,15 @@ patch_id,bug_id,complete,terminal_failure,t_apply_patch,ok_apply_patch,t_fingerp
 Patches_ICSE__Ddifferent__ACS__Chart__patch1-Chart-19-ACS,Chart-19,True,,11.579,True,0.467,True,12.21,True,34.034,True,1.554,True,41.473,True
 Patches_ICSE__Ddifferent__ACS__Lang__patch1-Lang-24-ACS,Lang-24,True,,12.076,True,0.471,True,12.017,True,28.458,True,1.208,True,48.823,True
 Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-3-ACS,Math-3,True,,41.644,True,0.71,True,10.0,True,35.362,True,1.096,True,62.758,True
+Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-82-ACS,Math-82,True,,16.591,True,0.832,True,11.668,True,26.494,True,1.655,True,53.203,True
+Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-85-ACS,Math-85,True,,10.554,True,0.859,True,11.568,True,36.943,True,1.27,True,100.006,True
+Patches_ICSE__Doverfitting__AVATAR__Math__patch1-Math-80-AVATAR-plausible,Math-80,True,,10.639,True,0.852,True,9.77,True,43.184,True,0.964,True,97.83,True
+Patches_ICSE__Doverfitting__AVATAR__Math__patch1-Math-82-AVATAR-plausible,Math-82,True,,19.052,True,2.238,True,10.92,True,53.307,True,1.033,True,57.213,True
+Patches_ICSE__Doverfitting__Arja__Chart__patch1-Chart-1-Arja-plusible,Chart-1,True,,14.504,True,0.708,True,10.011,True,55.288,True,1.069,True,56.3,True
+Patches_ICSE__Doverfitting__Arja__Math__patch1-Math-80-Arja-plausible,Math-80,False,,14.629,True,0.942,True,11.06,True,75.497,False,1.121,True,89.052,True
+Patches_ICSE__Doverfitting__Arja__Math__patch1-Math-82-Arja-plausible,Math-82,True,,8.814,True,0.77,True,10.542,True,57.762,True,2.081,True,80.137,True
+Patches_ICSE__Doverfitting__Arja__Math__patch1-Math-85-Arja-plausible,Math-85,True,,14.719,True,1.148,True,9.338,True,40.54,True,1.029,True,70.731,True
+Patches_ICSE__Doverfitting__Cardumen__Math__patch1-Math-85-Cardumen-plausible,Math-85,False,apply_patch,1.834,True,,,,,,,,,,
+Patches_ICSE__Doverfitting__DynaMoth__Chart__patch1-Chart-1-DynaMoth-plausible,Chart-1,True,,21.521,True,0.835,True,10.267,True,46.671,True,1.542,True,33.253,True
+Patches_ICSE__Doverfitting__DynaMoth__Math__patch1-Math-85-DynaMoth-plausible,Math-85,True,,17.438,True,2.339,True,11.427,True,30.972,True,1.317,True,77.608,True
+Patches_ICSE__Doverfitting__GenProg__Chart__patch1-Chart-1-GenProg-plausible,Chart-1,True,,18.937,True,1.269,True,13.331,True,73.551,True,1.526,True,51.509,True

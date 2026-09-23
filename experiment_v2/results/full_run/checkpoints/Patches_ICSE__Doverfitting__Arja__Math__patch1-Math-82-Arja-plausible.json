@@ -1,0 +1,285 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__Arja__Math__patch1-Math-82-Arja-plausible",
+  "bug_id": "Math-82",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 8.814
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.77
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 10.542
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 57.762
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 2.081
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 80.137
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__Arja__Math__patch1-Math-82-Arja-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.08333333333333337,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.218092559000013,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2875,
+        "output_tokens": 189,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.2,
+          "readability": 0.3,
+          "security_robustness": 0.4,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch makes two problematic changes: (1) removing the minValue update in getPivotColumn breaks the pivot selection logic by always comparing against 0 instead of tracking the most negative value, and (2) adding artificial variable row subtraction in getSolution is unexplained and appears to be a workaround rather than fixing the root cause. These changes are overfitted to pass the specific test case rather than addressing the underlying bug correctly."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.261626164000006,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2875,
+        "output_tokens": 186,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.2,
+          "readability": 0.3,
+          "security_robustness": 0.4,
+          "judgement": "OVERFITTING",
+          "confidence": 0.85,
+          "brief_reason": "The patch makes two problematic changes: (1) removing the minValue update in getPivotColumn breaks the pivot selection logic by always comparing against 0 instead of tracking the most negative value, and (2) adding artificial variable row subtraction in getSolution is unexplained and appears to be a workaround rather than fixing the root cause. These changes are overfitted to pass the specific test case rather than addressing the underlying bug correctly."
+        },
+        "s_sem": 0.15000000000000002,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.282218714999999,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2875,
+        "output_tokens": 189,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.2,
+          "readability": 0.3,
+          "security_robustness": 0.4,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch makes two problematic changes: (1) removing the minValue update in getPivotColumn breaks the pivot selection logic by always comparing against 0 instead of tracking the most negative value, and (2) adding artificial variable row subtraction in getSolution is unexplained and appears to be a workaround rather than fixing the root cause. These changes are overfitted to pass the specific test case rather than addressing the underlying bug correctly."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__Arja__Math__patch1-Math-82-Arja-plausible",
+    "bug_id": "Math-82",
+    "model": "claude-haiku-4-5",
+    "latency_s": 38.24025555200001,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 2746,
+    "output_tokens": 4619,
+    "tests": [
+      {
+        "name": "testPivotColumnSelectionWithMultipleNegatives",
+        "target_class": "SimplexSolver",
+        "target_method": "getPivotColumn",
+        "class_name": "TestPivotColumnSelection",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "  [javac]   symbol:   class Collection\n    [javac]   location: class TestPivotColumnSelection\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__Arja__Math__patch1-Math-82-Arja-plausible/TestPivotColumnSelection/fixed/src/test/java/org/apache/commons/math/optimization/linear/TestPivotColumnSelection.java:46: error: cannot find symbol\n    [javac]         Collection<LinearConstraint> constraints = new ArrayList<LinearConstraint>();\n    [javac]                                                        ^\n    [javac]   symbol:   class ArrayList\n    [javac]   location: class TestPivotColumnSelection\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/CloneNotSupportedException.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/CloneNotSupportedException.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Class.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Class.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 6 errors\n    [javac] 26 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__Arja__Math__patch1-Math-82-Arja-plausible/TestPivotColumnSelection/fixed/build.xml:168: Compile failed; see the compiler error output for details.\n\nTotal time: 1 second\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testSolutionWithArtificialVariables",
+        "target_class": "SimplexTableau",
+        "target_method": "getSolution",
+        "class_name": "TestSolutionWithArtificialVariables",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "MIZE, false);\n    [javac]                                                      ^\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__Arja__Math__patch1-Math-82-Arja-plausible/TestSolutionWithArtificialVariables/fixed/src/test/java/org/apache/commons/math/optimization/linear/TestSolutionWithArtificialVariables.java:53: error: unreported exception OptimizationException; must be caught or declared to be thrown\n    [javac]         RealPointValuePair solution = solver.optimize(f, constraints, GoalType.MINIMIZE, false);\n    [javac]                                                      ^\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/CloneNotSupportedException.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/CloneNotSupportedException.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Class.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Class.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 3 errors\n    [javac] 46 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__Arja__Math__patch1-Math-82-Arja-plausible/TestSolutionWithArtificialVariables/fixed/build.xml:168: Compile failed; see the compiler error output for details.\n\nTotal time: 2 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testOptimalityWithMostNegativeCoefficient",
+        "target_class": "SimplexSolver",
+        "target_method": "optimize",
+        "class_name": "TestOptimalityWithMostNegativeCoefficient",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": " [javac]                                                      ^\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__Arja__Math__patch1-Math-82-Arja-plausible/TestOptimalityWithMostNegativeCoefficient/fixed/src/test/java/org/apache/commons/math/optimization/linear/TestOptimalityWithMostNegativeCoefficient.java:54: error: unreported exception OptimizationException; must be caught or declared to be thrown\n    [javac]         RealPointValuePair solution = solver.optimize(f, constraints, GoalType.MAXIMIZE, false);\n    [javac]                                                      ^\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/CloneNotSupportedException.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/CloneNotSupportedException.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Class.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Class.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 3 errors\n    [javac] 44 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__Arja__Math__patch1-Math-82-Arja-plausible/TestOptimalityWithMostNegativeCoefficient/fixed/build.xml:168: Compile failed; see the compiler error output for details.\n\nTotal time: 1 second\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__Arja__Math__patch1-Math-82-Arja-plausible",
+    "true_project": "Math",
+    "true_bug_number": "82",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 817,
+    "output_tokens": 28,
+    "project": "Math",
+    "bug_number": 34,
+    "recalled_label": "OVERFITTING",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__Arja__Math__patch1-Math-82-Arja-plausible",
+    "bug_id": "Math-82",
+    "s_edit_ast": 0.200836820083682,
+    "s_edit_ast_actions": 48,
+    "s_edit_ast_nodes": 239,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math/optimization/linear/SimplexTableau",
+      "org/apache/commons/math/optimization/linear/SimplexSolver"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 65,
+      "cfg_edges": 70,
+      "branch_points": 7,
+      "cyclomatic_complexity": 9,
+      "def_count": 47,
+      "use_count": 135,
+      "defuse_pairs": 47,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.optimization.linear.SimplexTableau",
+          "method": "getSolution",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 48,
+          "cfg_edges": 52,
+          "branch_points": 5,
+          "cyclomatic_complexity": 6,
+          "def_count": 34,
+          "use_count": 98,
+          "defuse_pairs": 34,
+          "error": null
+        },
+        {
+          "class": "org.apache.commons.math.optimization.linear.SimplexSolver",
+          "method": "getPivotColumn",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 17,
+          "cfg_edges": 18,
+          "branch_points": 2,
+          "cyclomatic_complexity": 3,
+          "def_count": 13,
+          "use_count": 37,
+          "defuse_pairs": 13,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 74,
+      "cfg_edges": 80,
+      "branch_points": 8,
+      "cyclomatic_complexity": 10,
+      "def_count": 53,
+      "use_count": 155,
+      "defuse_pairs": 53,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.optimization.linear.SimplexTableau",
+          "method": "getSolution",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 58,
+          "cfg_edges": 63,
+          "branch_points": 6,
+          "cyclomatic_complexity": 7,
+          "def_count": 41,
+          "use_count": 122,
+          "defuse_pairs": 41,
+          "error": null
+        },
+        {
+          "class": "org.apache.commons.math.optimization.linear.SimplexSolver",
+          "method": "getPivotColumn",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 16,
+          "cfg_edges": 17,
+          "branch_points": 2,
+          "cyclomatic_complexity": 3,
+          "def_count": 12,
+          "use_count": 33,
+          "defuse_pairs": 12,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 1,
+    "d_stmts": 9,
+    "d_branch_points": 1,
+    "d_cfg_edges": 10,
+    "d_defuse_pairs": 6,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 312,
+      "n_candidate_warnings": 312,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 2,
+      "n_changed_class_files_candidate": 2,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__Arja__Math__patch1-Math-82-Arja-plausible",
+    "bug_id": "Math-82",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

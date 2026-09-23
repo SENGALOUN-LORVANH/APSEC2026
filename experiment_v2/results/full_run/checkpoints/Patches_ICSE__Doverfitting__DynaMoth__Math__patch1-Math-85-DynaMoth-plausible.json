@@ -1,0 +1,265 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__DynaMoth__Math__patch1-Math-85-DynaMoth-plausible",
+  "bug_id": "Math-85",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 17.438
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 2.339
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 11.427
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 30.972
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.317
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 77.608
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__DynaMoth__Math__patch1-Math-85-DynaMoth-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.4524232330000473,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3226,
+        "output_tokens": 161,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.1,
+          "readability": 0.0,
+          "security_robustness": 0.5,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch wraps the exception throw in an `if (false)` block, effectively disabling error reporting when bracketing fails. This is not a genuine bug fix but rather suppresses the symptom by preventing the exception from being thrown, which deletes critical error-handling functionality and leaves the algorithm in an invalid state."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.484023845999957,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3226,
+        "output_tokens": 161,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.1,
+          "readability": 0.0,
+          "security_robustness": 0.5,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch wraps the exception throw in an `if (false)` block, effectively disabling error reporting when bracketing fails. This is not a genuine bug fix but rather suppresses the symptom by preventing the exception from being thrown, which deletes critical error-handling functionality and leaves the algorithm in an invalid state."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.549107507999963,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3226,
+        "output_tokens": 161,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.1,
+          "readability": 0.0,
+          "security_robustness": 0.5,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch wraps the exception throw in an `if (false)` block, effectively disabling error reporting when bracketing fails. This is not a genuine bug fix but rather suppresses the symptom by preventing the exception from being thrown, which deletes critical error-handling functionality and leaves the algorithm in an invalid state."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__DynaMoth__Math__patch1-Math-85-DynaMoth-plausible",
+    "bug_id": "Math-85",
+    "model": "claude-haiku-4-5",
+    "latency_s": 11.589393051999991,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 3095,
+    "output_tokens": 1958,
+    "tests": [
+      {
+        "name": "testBracketWithSignChangeAtBoundary",
+        "target_class": "org.apache.commons.math.analysis.solvers.UnivariateRealSolverUtils",
+        "target_method": "bracket",
+        "class_name": "BracketingTest",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "r be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Throwable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Error.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Error.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/RuntimeException.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/RuntimeException.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__DynaMoth__Math__patch1-Math-85-DynaMoth-plausible/BracketingTest/fixed/src/test/org/apache/commons/math/distribution/BracketingTest.java:21: error: unreported exception ConvergenceException; must be caught or declared to be thrown\n    [javac]         UnivariateRealSolverUtils.bracket(function, 5.0, 0.0, 10.0, 100);\n    [javac]                                          ^\n    [javac] 1 error\n    [javac] 24 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__DynaMoth__Math__patch1-Math-85-DynaMoth-plausible/BracketingTest/fixed/build.xml:165: Compile failed; see the compiler error output for details.\n\nTotal time: 1 second\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testBracketSuccessfulWithSignChange",
+        "target_class": "org.apache.commons.math.analysis.solvers.UnivariateRealSolverUtils",
+        "target_method": "bracket",
+        "class_name": "BracketingSuccessTest",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "d64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Throwable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Error.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Error.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/RuntimeException.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/RuntimeException.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__DynaMoth__Math__patch1-Math-85-DynaMoth-plausible/BracketingSuccessTest/fixed/src/test/org/apache/commons/math/distribution/BracketingSuccessTest.java:19: error: unreported exception ConvergenceException; must be caught or declared to be thrown\n    [javac]         double[] result = UnivariateRealSolverUtils.bracket(function, 2.0, 0.0, 10.0, 100);\n    [javac]                                                            ^\n    [javac] 1 error\n    [javac] 22 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__DynaMoth__Math__patch1-Math-85-DynaMoth-plausible/BracketingSuccessTest/fixed/build.xml:165: Compile failed; see the compiler error output for details.\n\nTotal time: 1 second\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testBracketWithNegativeFunction",
+        "target_class": "org.apache.commons.math.analysis.solvers.UnivariateRealSolverUtils",
+        "target_method": "bracket",
+        "class_name": "BracketingNegativeTest",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "c] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Throwable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Error.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Error.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/RuntimeException.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/RuntimeException.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__DynaMoth__Math__patch1-Math-85-DynaMoth-plausible/BracketingNegativeTest/fixed/src/test/org/apache/commons/math/distribution/BracketingNegativeTest.java:21: error: unreported exception ConvergenceException; must be caught or declared to be thrown\n    [javac]         UnivariateRealSolverUtils.bracket(function, 0.0, -5.0, 5.0, 100);\n    [javac]                                          ^\n    [javac] 1 error\n    [javac] 24 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__DynaMoth__Math__patch1-Math-85-DynaMoth-plausible/BracketingNegativeTest/fixed/build.xml:165: Compile failed; see the compiler error output for details.\n\nTotal time: 1 second\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testBracketAtBoundaryCondition",
+        "target_class": "org.apache.commons.math.analysis.solvers.UnivariateRealSolverUtils",
+        "target_method": "bracket",
+        "class_name": "BracketingBoundaryTest",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": " [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Math.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Error.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Error.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/RuntimeException.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/RuntimeException.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__DynaMoth__Math__patch1-Math-85-DynaMoth-plausible/BracketingBoundaryTest/fixed/src/test/org/apache/commons/math/distribution/BracketingBoundaryTest.java:21: error: unreported exception ConvergenceException; must be caught or declared to be thrown\n    [javac]         UnivariateRealSolverUtils.bracket(function, 0.5, 0.0, 1.0, 100);\n    [javac]                                          ^\n    [javac] 1 error\n    [javac] 26 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__DynaMoth__Math__patch1-Math-85-DynaMoth-plausible/BracketingBoundaryTest/fixed/build.xml:165: Compile failed; see the compiler error output for details.\n\nTotal time: 1 second\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__DynaMoth__Math__patch1-Math-85-DynaMoth-plausible",
+    "true_project": "Math",
+    "true_bug_number": "85",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 752,
+    "output_tokens": 25,
+    "project": "Math",
+    "bug_number": null,
+    "recalled_label": "UNKNOWN",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__DynaMoth__Math__patch1-Math-85-DynaMoth-plausible",
+    "bug_id": "Math-85",
+    "s_edit_ast": 0.014652014652014652,
+    "s_edit_ast_actions": 4,
+    "s_edit_ast_nodes": 273,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math/analysis/solvers/UnivariateRealSolverUtils"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 88,
+      "cfg_edges": 92,
+      "branch_points": 10,
+      "cyclomatic_complexity": 8,
+      "def_count": 71,
+      "use_count": 207,
+      "defuse_pairs": 71,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.analysis.solvers.UnivariateRealSolverUtils",
+          "method": "bracket",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 88,
+          "cfg_edges": 92,
+          "branch_points": 10,
+          "cyclomatic_complexity": 8,
+          "def_count": 71,
+          "use_count": 207,
+          "defuse_pairs": 71,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 64,
+      "cfg_edges": 69,
+      "branch_points": 10,
+      "cyclomatic_complexity": 9,
+      "def_count": 49,
+      "use_count": 150,
+      "defuse_pairs": 49,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.analysis.solvers.UnivariateRealSolverUtils",
+          "method": "bracket",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 64,
+          "cfg_edges": 69,
+          "branch_points": 10,
+          "cyclomatic_complexity": 9,
+          "def_count": 49,
+          "use_count": 150,
+          "defuse_pairs": 49,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 1,
+    "d_stmts": -24,
+    "d_branch_points": 0,
+    "d_cfg_edges": -23,
+    "d_defuse_pairs": -22,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 314,
+      "n_candidate_warnings": 314,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 2,
+      "n_changed_class_files_candidate": 2,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__DynaMoth__Math__patch1-Math-85-DynaMoth-plausible",
+    "bug_id": "Math-85",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}
