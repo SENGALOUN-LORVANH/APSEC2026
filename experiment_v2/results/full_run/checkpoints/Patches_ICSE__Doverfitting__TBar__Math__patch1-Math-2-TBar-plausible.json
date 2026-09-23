@@ -1,0 +1,247 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__TBar__Math__patch1-Math-2-TBar-plausible",
+  "bug_id": "Math-2",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 64.245
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 1.525
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 11.006
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 33.211
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.586
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 119.936
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__TBar__Math__patch1-Math-2-TBar-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.25,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.871178275001512,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2146,
+        "output_tokens": 174,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.9,
+          "readability": 0.8,
+          "security_robustness": 0.9,
+          "judgement": "OVERFITTING",
+          "confidence": 0.75,
+          "brief_reason": "The patch changes variable types from double to int, which fixes the specific test case but doesn't address the underlying numerical issue. The real problem is likely integer overflow in the calculation (n * m * (N - n) * (N - m)), which the patch masks by using int types that may overflow differently, rather than fixing the root cause through proper casting or intermediate double conversions."
+        },
+        "s_sem": 0.25,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.592546541000047,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2146,
+        "output_tokens": 174,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.9,
+          "readability": 0.8,
+          "security_robustness": 0.9,
+          "judgement": "OVERFITTING",
+          "confidence": 0.75,
+          "brief_reason": "The patch changes variable types from double to int, which fixes the specific test case but doesn't address the underlying numerical issue. The real problem is likely integer overflow in the calculation (n * m * (N - n) * (N - m)), which the patch masks by using int types that may overflow differently, rather than fixing the root cause through proper casting or intermediate double conversions."
+        },
+        "s_sem": 0.25,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.0927868179987854,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2146,
+        "output_tokens": 174,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.9,
+          "readability": 0.8,
+          "security_robustness": 0.9,
+          "judgement": "OVERFITTING",
+          "confidence": 0.75,
+          "brief_reason": "The patch changes variable types from double to int, which fixes the specific test case but doesn't address the underlying numerical issue. The real problem is likely integer overflow in the calculation (n * m * (N - n) * (N - m)), which the patch masks by using int types that may overflow differently, rather than fixing the root cause through proper casting or intermediate double conversions."
+        },
+        "s_sem": 0.25,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__TBar__Math__patch1-Math-2-TBar-plausible",
+    "bug_id": "Math-2",
+    "model": "claude-haiku-4-5",
+    "latency_s": 13.258447019999949,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 2016,
+    "output_tokens": 1830,
+    "tests": [
+      {
+        "name": "testCalculateNumericalVarianceWithLargePopulation",
+        "target_class": "org.apache.commons.math3.distribution.HypergeometricDistribution",
+        "target_method": "calculateNumericalVariance",
+        "class_name": "HypergeometricDistributionTest",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": "JUnit version 4.11\n...\nTime: 0.008\n\nOK (3 tests)\n\n"
+      },
+      {
+        "name": "testCalculateNumericalVarianceConsistency",
+        "target_class": "org.apache.commons.math3.distribution.HypergeometricDistribution",
+        "target_method": "calculateNumericalVariance",
+        "class_name": "HypergeometricDistributionConsistencyTest",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": "JUnit version 4.11\n...\nTime: 0.008\n\nOK (3 tests)\n\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__TBar__Math__patch1-Math-2-TBar-plausible",
+    "true_project": "Math",
+    "true_bug_number": "2",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 596,
+    "output_tokens": 29,
+    "project": "Math",
+    "bug_number": 1015,
+    "recalled_label": "OVERFITTING",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__TBar__Math__patch1-Math-2-TBar-plausible",
+    "bug_id": "Math-2",
+    "s_edit_ast": 0.12698412698412698,
+    "s_edit_ast_actions": 8,
+    "s_edit_ast_nodes": 63,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math3/distribution/HypergeometricDistribution"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 17,
+      "cfg_edges": 16,
+      "branch_points": 0,
+      "cyclomatic_complexity": 1,
+      "def_count": 16,
+      "use_count": 41,
+      "defuse_pairs": 16,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math3.distribution.HypergeometricDistribution",
+          "method": "calculateNumericalVariance",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 17,
+          "cfg_edges": 16,
+          "branch_points": 0,
+          "cyclomatic_complexity": 1,
+          "def_count": 16,
+          "use_count": 41,
+          "defuse_pairs": 16,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 18,
+      "cfg_edges": 17,
+      "branch_points": 0,
+      "cyclomatic_complexity": 1,
+      "def_count": 17,
+      "use_count": 43,
+      "defuse_pairs": 17,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math3.distribution.HypergeometricDistribution",
+          "method": "calculateNumericalVariance",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 18,
+          "cfg_edges": 17,
+          "branch_points": 0,
+          "cyclomatic_complexity": 1,
+          "def_count": 17,
+          "use_count": 43,
+          "defuse_pairs": 17,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": 1,
+    "d_branch_points": 0,
+    "d_cfg_edges": 1,
+    "d_defuse_pairs": 1,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 686,
+      "n_candidate_warnings": 686,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__TBar__Math__patch1-Math-2-TBar-plausible",
+    "bug_id": "Math-2",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

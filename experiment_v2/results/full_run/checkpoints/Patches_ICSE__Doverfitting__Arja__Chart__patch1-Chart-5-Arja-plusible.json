@@ -1,0 +1,256 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__Arja__Chart__patch1-Chart-5-Arja-plusible",
+  "bug_id": "Chart-5",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 13.744
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.485
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 10.625
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 19.984
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.428
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 40.902
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__Arja__Chart__patch1-Chart-5-Arja-plusible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.5295114630007447,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2594,
+        "output_tokens": 165,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.3,
+          "readability": 0.7,
+          "security_robustness": 0.8,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch removes the autoSort functionality entirely, which is a significant behavioral change that weakens the class's intended functionality. While it fixes the immediate IndexOutOfBoundsException by always appending items, it breaks the sorted insertion feature that was explicitly designed into the class, making this an overfitting solution rather than a proper bug fix."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.3137674639983743,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2594,
+        "output_tokens": 165,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.3,
+          "readability": 0.7,
+          "security_robustness": 0.8,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch removes the autoSort functionality entirely, which is a significant behavioral change that weakens the class's intended functionality. While it fixes the immediate IndexOutOfBoundsException by always appending items, it breaks the sorted insertion feature that was explicitly designed into the class, making this an overfitting solution rather than a proper bug fix."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.3555063150015485,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2594,
+        "output_tokens": 165,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.3,
+          "readability": 0.7,
+          "security_robustness": 0.8,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch removes the autoSort functionality entirely, which is a significant behavioral change that weakens the class's intended functionality. While it fixes the immediate IndexOutOfBoundsException by always appending items, it breaks the sorted insertion feature that was explicitly designed into the class, making this an overfitting solution rather than a proper bug fix."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__Arja__Chart__patch1-Chart-5-Arja-plusible",
+    "bug_id": "Chart-5",
+    "model": "claude-haiku-4-5",
+    "latency_s": 12.08751640599985,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 2489,
+    "output_tokens": 1788,
+    "tests": [
+      {
+        "name": "testAddOrUpdateWithAutoSortEnabled",
+        "target_class": "org.jfree.data.xy.XYSeries",
+        "target_method": "addOrUpdate",
+        "class_name": "TestAddOrUpdateWithAutoSort",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/io/Serializable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__Arja__Chart__patch1-Chart-5-Arja-plusible/TestAddOrUpdateWithAutoSort/fixed/tests/org/jfree/data/xy/junit/TestAddOrUpdateWithAutoSort.java:10: error: cannot find symbol\n    [javac]         series.setAutoSort(true);\n    [javac]               ^\n    [javac]   symbol:   method setAutoSort(boolean)\n    [javac]   location: variable series of type XYSeries\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Integer.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Integer.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Number.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Number.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 1 error\n    [javac] 15 warnings\n\nBUILD FAILED\n/opt/defects4j-2.0.1/framework/projects/Chart/Chart.build.xml:123: Compile failed; see the compiler error output for details.\n\nTotal time: 0 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testAddOrUpdateWithoutAutoSort",
+        "target_class": "org.jfree.data.xy.XYSeries",
+        "target_method": "addOrUpdate",
+        "class_name": "TestAddOrUpdateWithoutAutoSort",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": ", the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/io/Serializable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__Arja__Chart__patch1-Chart-5-Arja-plusible/TestAddOrUpdateWithoutAutoSort/fixed/tests/org/jfree/data/xy/junit/TestAddOrUpdateWithoutAutoSort.java:10: error: cannot find symbol\n    [javac]         series.setAutoSort(false);\n    [javac]               ^\n    [javac]   symbol:   method setAutoSort(boolean)\n    [javac]   location: variable series of type XYSeries\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Integer.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Integer.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Number.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Number.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 1 error\n    [javac] 15 warnings\n\nBUILD FAILED\n/opt/defects4j-2.0.1/framework/projects/Chart/Chart.build.xml:123: Compile failed; see the compiler error output for details.\n\nTotal time: 0 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testAddOrUpdateDuplicateXWithAutoSort",
+        "target_class": "org.jfree.data.xy.XYSeries",
+        "target_method": "addOrUpdate",
+        "class_name": "TestAddOrUpdateDuplicateX",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "wer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/io/Serializable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__Arja__Chart__patch1-Chart-5-Arja-plusible/TestAddOrUpdateDuplicateX/fixed/tests/org/jfree/data/xy/junit/TestAddOrUpdateDuplicateX.java:10: error: cannot find symbol\n    [javac]         series.setAutoSort(true);\n    [javac]               ^\n    [javac]   symbol:   method setAutoSort(boolean)\n    [javac]   location: variable series of type XYSeries\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Integer.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Integer.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Number.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Number.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 1 error\n    [javac] 15 warnings\n\nBUILD FAILED\n/opt/defects4j-2.0.1/framework/projects/Chart/Chart.build.xml:123: Compile failed; see the compiler error output for details.\n\nTotal time: 0 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__Arja__Chart__patch1-Chart-5-Arja-plusible",
+    "true_project": "Chart",
+    "true_bug_number": "5",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 677,
+    "output_tokens": 28,
+    "project": "Chart",
+    "bug_number": 1,
+    "recalled_label": "OVERFITTING",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__Arja__Chart__patch1-Chart-5-Arja-plusible",
+    "bug_id": "Chart-5",
+    "s_edit_ast": 0.1875,
+    "s_edit_ast_actions": 33,
+    "s_edit_ast_nodes": 176,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/jfree/data/xy/XYSeries"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 62,
+      "cfg_edges": 63,
+      "branch_points": 5,
+      "cyclomatic_complexity": 5,
+      "def_count": 39,
+      "use_count": 122,
+      "defuse_pairs": 39,
+      "per_method": [
+        {
+          "class": "org.jfree.data.xy.XYSeries",
+          "method": "addOrUpdate",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 62,
+          "cfg_edges": 63,
+          "branch_points": 5,
+          "cyclomatic_complexity": 5,
+          "def_count": 39,
+          "use_count": 122,
+          "defuse_pairs": 39,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 53,
+      "cfg_edges": 53,
+      "branch_points": 4,
+      "cyclomatic_complexity": 4,
+      "def_count": 34,
+      "use_count": 101,
+      "defuse_pairs": 34,
+      "per_method": [
+        {
+          "class": "org.jfree.data.xy.XYSeries",
+          "method": "addOrUpdate",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 53,
+          "cfg_edges": 53,
+          "branch_points": 4,
+          "cyclomatic_complexity": 4,
+          "def_count": 34,
+          "use_count": 101,
+          "defuse_pairs": 34,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": -1,
+    "d_stmts": -9,
+    "d_branch_points": -1,
+    "d_cfg_edges": -10,
+    "d_defuse_pairs": -5,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 6,
+      "n_candidate_warnings": 6,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__Arja__Chart__patch1-Chart-5-Arja-plusible",
+    "bug_id": "Chart-5",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

@@ -1,0 +1,256 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Chart__patch1-Chart-5-AVATAR-plausible",
+  "bug_id": "Chart-5",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 18.707
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.683
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 9.848
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 37.964
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.15
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 35.123
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Chart__patch1-Chart-5-AVATAR-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.275409108000531,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2102,
+        "output_tokens": 158,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.3,
+          "security_robustness": 0.5,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch changes the x-parameter to y in the addOrUpdate call, which is clearly incorrect and breaks the intended API contract. While it may pass the specific failing test, it fundamentally corrupts the method's behavior by using y for both x and y coordinates, making it unsuitable for general use."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.388977865000925,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2102,
+        "output_tokens": 158,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.3,
+          "security_robustness": 0.5,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch changes the x-parameter to y in the addOrUpdate call, which is clearly incorrect and breaks the intended API contract. While it may pass the specific failing test, it fundamentally corrupts the method's behavior by using y for both x and y coordinates, making it unsuitable for general use."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 2.679798409999421,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2102,
+        "output_tokens": 158,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.3,
+          "security_robustness": 0.5,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch changes the x-parameter to y in the addOrUpdate call, which is clearly incorrect and breaks the intended API contract. While it may pass the specific failing test, it fundamentally corrupts the method's behavior by using y for both x and y coordinates, making it unsuitable for general use."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Chart__patch1-Chart-5-AVATAR-plausible",
+    "bug_id": "Chart-5",
+    "model": "claude-haiku-4-5",
+    "latency_s": 9.715498649999063,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 1997,
+    "output_tokens": 1014,
+    "tests": [
+      {
+        "name": "testAddOrUpdateWithDifferentXY",
+        "target_class": "org.jfree.data.xy.XYSeries",
+        "target_method": "addOrUpdate",
+        "class_name": "TestAddOrUpdateXYValues",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.004\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testAddOrUpdateNegativeX",
+        "target_class": "org.jfree.data.xy.XYSeries",
+        "target_method": "addOrUpdate",
+        "class_name": "TestAddOrUpdateNegativeX",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.003\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testAddOrUpdateZeroX",
+        "target_class": "org.jfree.data.xy.XYSeries",
+        "target_method": "addOrUpdate",
+        "class_name": "TestAddOrUpdateZeroX",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.006\n\nOK (1 test)\n\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Chart__patch1-Chart-5-AVATAR-plausible",
+    "true_project": "Chart",
+    "true_bug_number": "5",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 545,
+    "output_tokens": 26,
+    "project": "Chart",
+    "bug_number": 3,
+    "recalled_label": "CORRECT",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Chart__patch1-Chart-5-AVATAR-plausible",
+    "bug_id": "Chart-5",
+    "s_edit_ast": 0.175,
+    "s_edit_ast_actions": 7,
+    "s_edit_ast_nodes": 40,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/jfree/data/xy/XYSeries"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 62,
+      "cfg_edges": 63,
+      "branch_points": 5,
+      "cyclomatic_complexity": 5,
+      "def_count": 39,
+      "use_count": 122,
+      "defuse_pairs": 39,
+      "per_method": [
+        {
+          "class": "org.jfree.data.xy.XYSeries",
+          "method": "addOrUpdate",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 62,
+          "cfg_edges": 63,
+          "branch_points": 5,
+          "cyclomatic_complexity": 5,
+          "def_count": 39,
+          "use_count": 122,
+          "defuse_pairs": 39,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 62,
+      "cfg_edges": 63,
+      "branch_points": 5,
+      "cyclomatic_complexity": 5,
+      "def_count": 39,
+      "use_count": 122,
+      "defuse_pairs": 39,
+      "per_method": [
+        {
+          "class": "org.jfree.data.xy.XYSeries",
+          "method": "addOrUpdate",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 62,
+          "cfg_edges": 63,
+          "branch_points": 5,
+          "cyclomatic_complexity": 5,
+          "def_count": 39,
+          "use_count": 122,
+          "defuse_pairs": 39,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": 0,
+    "d_branch_points": 0,
+    "d_cfg_edges": 0,
+    "d_defuse_pairs": 0,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 6,
+      "n_candidate_warnings": 6,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Chart__patch1-Chart-5-AVATAR-plausible",
+    "bug_id": "Chart-5",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

@@ -1,0 +1,256 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__Nopol__Chart__patch1-Chart-5-Nopol-plausible",
+  "bug_id": "Chart-5",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 23.881
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.694
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 10.958
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 45.091
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.312
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 35.831
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__Nopol__Chart__patch1-Chart-5-Nopol-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.38016870499996,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2442,
+        "output_tokens": 160,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.15,
+          "readability": 0.2,
+          "security_robustness": 0.3,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch replaces the autoSort logic with a nonsensical check (overwritten!=null), which is always false in the else branch. This breaks the intended auto-sort functionality entirely and only passes the specific test by accident. The fix should validate the index before using it in the add operation, not replace the sorting logic."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.1213472279996495,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2442,
+        "output_tokens": 176,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.2,
+          "readability": 0.3,
+          "security_robustness": 0.4,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch replaces the autoSort check with an overwritten!=null check, which is logically incorrect. When overwritten is null (no duplicate found), the code should still respect autoSort to insert at the correct position; instead, it now always appends. This breaks the sorting functionality and only masks the immediate test failure without fixing the root cause of the IndexOutOfBoundsException."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.5378030510000826,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2442,
+        "output_tokens": 176,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.2,
+          "readability": 0.3,
+          "security_robustness": 0.4,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch replaces the autoSort check with an overwritten!=null check, which is logically incorrect. When overwritten is null (no duplicate found), the code should still respect autoSort to insert at the correct position; instead, it now always appends. This breaks the sorting functionality and only masks the immediate test failure without fixing the root cause of the IndexOutOfBoundsException."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__Nopol__Chart__patch1-Chart-5-Nopol-plausible",
+    "bug_id": "Chart-5",
+    "model": "claude-haiku-4-5",
+    "latency_s": 13.963777077999111,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 2337,
+    "output_tokens": 1526,
+    "tests": [
+      {
+        "name": "testAddOrUpdateWithAutoSortFalse",
+        "target_class": "org.jfree.data.xy.XYSeries",
+        "target_method": "addOrUpdate",
+        "class_name": "testAddOrUpdateWithAutoSortFalse",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.005\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testAddOrUpdateUpdateExistingWithAutoSort",
+        "target_class": "org.jfree.data.xy.XYSeries",
+        "target_method": "addOrUpdate",
+        "class_name": "testAddOrUpdateUpdateExistingWithAutoSort",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.003\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testAddOrUpdateWithAutoSortFalseNewItem",
+        "target_class": "org.jfree.data.xy.XYSeries",
+        "target_method": "addOrUpdate",
+        "class_name": "testAddOrUpdateWithAutoSortFalseNewItem",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.003\n\nOK (1 test)\n\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__Nopol__Chart__patch1-Chart-5-Nopol-plausible",
+    "true_project": "Chart",
+    "true_bug_number": "5",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 525,
+    "output_tokens": 26,
+    "project": "Chart",
+    "bug_number": 1,
+    "recalled_label": "UNKNOWN",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__Nopol__Chart__patch1-Chart-5-Nopol-plausible",
+    "bug_id": "Chart-5",
+    "s_edit_ast": 0.07386363636363637,
+    "s_edit_ast_actions": 13,
+    "s_edit_ast_nodes": 176,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/jfree/data/xy/XYSeries"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 62,
+      "cfg_edges": 63,
+      "branch_points": 5,
+      "cyclomatic_complexity": 5,
+      "def_count": 39,
+      "use_count": 122,
+      "defuse_pairs": 39,
+      "per_method": [
+        {
+          "class": "org.jfree.data.xy.XYSeries",
+          "method": "addOrUpdate",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 62,
+          "cfg_edges": 63,
+          "branch_points": 5,
+          "cyclomatic_complexity": 5,
+          "def_count": 39,
+          "use_count": 122,
+          "defuse_pairs": 39,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 61,
+      "cfg_edges": 62,
+      "branch_points": 5,
+      "cyclomatic_complexity": 5,
+      "def_count": 38,
+      "use_count": 120,
+      "defuse_pairs": 38,
+      "per_method": [
+        {
+          "class": "org.jfree.data.xy.XYSeries",
+          "method": "addOrUpdate",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 61,
+          "cfg_edges": 62,
+          "branch_points": 5,
+          "cyclomatic_complexity": 5,
+          "def_count": 38,
+          "use_count": 120,
+          "defuse_pairs": 38,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": -1,
+    "d_branch_points": 0,
+    "d_cfg_edges": -1,
+    "d_defuse_pairs": -1,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 6,
+      "n_candidate_warnings": 6,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__Nopol__Chart__patch1-Chart-5-Nopol-plausible",
+    "bug_id": "Chart-5",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

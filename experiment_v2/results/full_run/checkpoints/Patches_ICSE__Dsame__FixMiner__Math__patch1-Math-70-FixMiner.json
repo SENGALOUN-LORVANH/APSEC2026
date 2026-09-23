@@ -1,0 +1,256 @@
+{
+  "patch_id": "Patches_ICSE__Dsame__FixMiner__Math__patch1-Math-70-FixMiner",
+  "bug_id": "Math-70",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 23.64
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 3.14
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 11.739
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 70.257
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.678
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 67.096
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Dsame__FixMiner__Math__patch1-Math-70-FixMiner",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.9499999999999998,
+    "decision": "CORRECT",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.7785040469989326,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2062,
+        "output_tokens": 160,
+        "parsed": {
+          "generalization": "general",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 1.0,
+          "readability": 1.0,
+          "security_robustness": 1.0,
+          "judgement": "CORRECT",
+          "confidence": 0.95,
+          "brief_reason": "The patch fixes a NullPointerException by passing the missing function parameter `f` to the `solve(f, min, max)` method. The original code ignored the function argument entirely, causing a null pointer when the overloaded method tried to use it. This is a minimal, correct fix that addresses the root cause of the bug."
+        },
+        "s_sem": 0.95,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.3405883699997503,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2062,
+        "output_tokens": 160,
+        "parsed": {
+          "generalization": "general",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 1.0,
+          "readability": 1.0,
+          "security_robustness": 1.0,
+          "judgement": "CORRECT",
+          "confidence": 0.95,
+          "brief_reason": "The patch fixes a NullPointerException by passing the missing function parameter `f` to the `solve(f, min, max)` method. The original code ignored the function argument entirely, causing a null pointer when the overloaded method tried to use it. This is a minimal, correct fix that addresses the root cause of the bug."
+        },
+        "s_sem": 0.95,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.453923634999228,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2062,
+        "output_tokens": 160,
+        "parsed": {
+          "generalization": "general",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 1.0,
+          "readability": 1.0,
+          "security_robustness": 1.0,
+          "judgement": "CORRECT",
+          "confidence": 0.95,
+          "brief_reason": "The patch fixes a NullPointerException by passing the missing function parameter `f` to the `solve(f, min, max)` method. The original code ignored the function argument entirely, causing a null pointer when the overloaded method tried to use it. This is a minimal, correct fix that addresses the root cause of the bug."
+        },
+        "s_sem": 0.95,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Dsame__FixMiner__Math__patch1-Math-70-FixMiner",
+    "bug_id": "Math-70",
+    "model": "claude-haiku-4-5",
+    "latency_s": 11.877102672000547,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 1958,
+    "output_tokens": 1262,
+    "tests": [
+      {
+        "name": "testSolveWithFunctionParameter",
+        "target_class": "org.apache.commons.math.analysis.solvers.BisectionSolver",
+        "target_method": "solve(UnivariateRealFunction, double, double, double)",
+        "class_name": "TestBisectionSolverFunctionUsage",
+        "status": "VALID_BUG_REVEALING",
+        "candidate_pass": true,
+        "log": ".\nTime: 0.002\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testSolveWithDifferentFunction",
+        "target_class": "org.apache.commons.math.analysis.solvers.BisectionSolver",
+        "target_method": "solve(UnivariateRealFunction, double, double, double)",
+        "class_name": "TestBisectionSolverDifferentFunctions",
+        "status": "VALID_BUG_REVEALING",
+        "candidate_pass": true,
+        "log": ".\nTime: 0.003\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testSolveWithLinearFunction",
+        "target_class": "org.apache.commons.math.analysis.solvers.BisectionSolver",
+        "target_method": "solve(UnivariateRealFunction, double, double, double)",
+        "class_name": "TestBisectionSolverLinearFunction",
+        "status": "VALID_BUG_REVEALING",
+        "candidate_pass": true,
+        "log": ".\nTime: 0.005\n\nOK (1 test)\n\n"
+      }
+    ],
+    "s_cex": 1.0,
+    "n_valid": 3,
+    "n_passed": 3
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Dsame__FixMiner__Math__patch1-Math-70-FixMiner",
+    "true_project": "Math",
+    "true_bug_number": "70",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 572,
+    "output_tokens": 26,
+    "project": "Math",
+    "bug_number": 70,
+    "recalled_label": "CORRECT",
+    "recognized": true
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Dsame__FixMiner__Math__patch1-Math-70-FixMiner",
+    "bug_id": "Math-70",
+    "s_edit_ast": 0.030303030303030304,
+    "s_edit_ast_actions": 1,
+    "s_edit_ast_nodes": 33,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math/analysis/solvers/BisectionSolver"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 54,
+      "cfg_edges": 52,
+      "branch_points": 3,
+      "cyclomatic_complexity": 6,
+      "def_count": 40,
+      "use_count": 104,
+      "defuse_pairs": 40,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.analysis.solvers.BisectionSolver",
+          "method": "solve",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 4,
+          "stmts": 54,
+          "cfg_edges": 52,
+          "branch_points": 3,
+          "cyclomatic_complexity": 6,
+          "def_count": 40,
+          "use_count": 104,
+          "defuse_pairs": 40,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 54,
+      "cfg_edges": 52,
+      "branch_points": 3,
+      "cyclomatic_complexity": 6,
+      "def_count": 40,
+      "use_count": 105,
+      "defuse_pairs": 40,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.analysis.solvers.BisectionSolver",
+          "method": "solve",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 4,
+          "stmts": 54,
+          "cfg_edges": 52,
+          "branch_points": 3,
+          "cyclomatic_complexity": 6,
+          "def_count": 40,
+          "use_count": 105,
+          "defuse_pairs": 40,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": 0,
+    "d_branch_points": 0,
+    "d_cfg_edges": 0,
+    "d_defuse_pairs": 0,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 336,
+      "n_candidate_warnings": 336,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Dsame__FixMiner__Math__patch1-Math-70-FixMiner",
+    "bug_id": "Math-70",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

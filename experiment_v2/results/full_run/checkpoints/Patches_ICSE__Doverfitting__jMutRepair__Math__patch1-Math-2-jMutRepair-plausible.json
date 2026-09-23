@@ -1,0 +1,256 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__jMutRepair__Math__patch1-Math-2-jMutRepair-plausible",
+  "bug_id": "Math-2",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 51.164
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.713
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 9.898
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 64.856
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.077
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 104.719
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__jMutRepair__Math__patch1-Math-2-jMutRepair-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.15000000000000002,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.1873392460001924,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2661,
+        "output_tokens": 167,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.95,
+          "readability": 0.9,
+          "security_robustness": 0.8,
+          "judgement": "OVERFITTING",
+          "confidence": 0.85,
+          "brief_reason": "The patch changes a comparison operator from '<' to '>=' which inverts the logic of the Chebyshev inequality bracket narrowing. This appears to fix the specific test case (sample=-50) but fundamentally breaks the intended behavior by applying the upper bound adjustment when it should not, weakening the algorithm's correctness for general cases."
+        },
+        "s_sem": 0.15000000000000002,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.056677774000491,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2661,
+        "output_tokens": 177,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.9,
+          "readability": 0.8,
+          "security_robustness": 0.7,
+          "judgement": "OVERFITTING",
+          "confidence": 0.85,
+          "brief_reason": "The patch inverts the condition from `tmp < upper` to `tmp >= upper`, which is logically incorrect and inverts the intended Chebyshev inequality optimization. While it may pass the specific test case, it weakens the bracket-narrowing functionality by applying the upper bound adjustment in the opposite scenario, making the fix overfitted to the failing test rather than addressing the root cause."
+        },
+        "s_sem": 0.15000000000000002,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.317035861999102,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2661,
+        "output_tokens": 170,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.95,
+          "readability": 0.9,
+          "security_robustness": 0.7,
+          "judgement": "OVERFITTING",
+          "confidence": 0.85,
+          "brief_reason": "The patch inverts a comparison operator from '<' to '>=' which appears to fix the specific test case but fundamentally breaks the Chebyshev inequality narrowing logic. The condition should narrow the upper bound when tmp is less than upper, not when it's greater than or equal, making this an incorrect logical inversion that only passes the test by accident."
+        },
+        "s_sem": 0.15000000000000002,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__jMutRepair__Math__patch1-Math-2-jMutRepair-plausible",
+    "bug_id": "Math-2",
+    "model": "claude-haiku-4-5",
+    "latency_s": 13.122759627998676,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 2531,
+    "output_tokens": 2102,
+    "tests": [
+      {
+        "name": "testInverseCumulativeProbabilityUpperBoundAdjustment",
+        "target_class": "org.apache.commons.math3.distribution.AbstractIntegerDistribution",
+        "target_method": "inverseCumulativeProbability",
+        "class_name": "HypergeometricDistributionUpperBoundTest",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": "JUnit version 4.11\n...\nTime: 0.038\n\nOK (3 tests)\n\n"
+      },
+      {
+        "name": "testInverseCumulativeProbabilityNegativeResult",
+        "target_class": "org.apache.commons.math3.distribution.AbstractIntegerDistribution",
+        "target_method": "inverseCumulativeProbability",
+        "class_name": "HypergeometricDistributionNegativeTest",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": "JUnit version 4.11\n.\nTime: 0.019\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testInverseCumulativeProbabilityMonotonicity",
+        "target_class": "org.apache.commons.math3.distribution.AbstractIntegerDistribution",
+        "target_method": "inverseCumulativeProbability",
+        "class_name": "HypergeometricDistributionMonotonicityTest",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": "JUnit version 4.11\n.\nTime: 0.022\n\nOK (1 test)\n\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__jMutRepair__Math__patch1-Math-2-jMutRepair-plausible",
+    "true_project": "Math",
+    "true_bug_number": "2",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 550,
+    "output_tokens": 26,
+    "project": "Math",
+    "bug_number": 1,
+    "recalled_label": "UNKNOWN",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__jMutRepair__Math__patch1-Math-2-jMutRepair-plausible",
+    "bug_id": "Math-2",
+    "s_edit_ast": 0.0036363636363636364,
+    "s_edit_ast_actions": 1,
+    "s_edit_ast_nodes": 275,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math3/distribution/AbstractIntegerDistribution"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 70,
+      "cfg_edges": 79,
+      "branch_points": 14,
+      "cyclomatic_complexity": 11,
+      "def_count": 49,
+      "use_count": 167,
+      "defuse_pairs": 49,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math3.distribution.AbstractIntegerDistribution",
+          "method": "inverseCumulativeProbability",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 70,
+          "cfg_edges": 79,
+          "branch_points": 14,
+          "cyclomatic_complexity": 11,
+          "def_count": 49,
+          "use_count": 167,
+          "defuse_pairs": 49,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 70,
+      "cfg_edges": 79,
+      "branch_points": 14,
+      "cyclomatic_complexity": 11,
+      "def_count": 49,
+      "use_count": 167,
+      "defuse_pairs": 49,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math3.distribution.AbstractIntegerDistribution",
+          "method": "inverseCumulativeProbability",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 70,
+          "cfg_edges": 79,
+          "branch_points": 14,
+          "cyclomatic_complexity": 11,
+          "def_count": 49,
+          "use_count": 167,
+          "defuse_pairs": 49,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": 0,
+    "d_branch_points": 0,
+    "d_cfg_edges": 0,
+    "d_defuse_pairs": 0,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 686,
+      "n_candidate_warnings": 686,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__jMutRepair__Math__patch1-Math-2-jMutRepair-plausible",
+    "bug_id": "Math-2",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}
