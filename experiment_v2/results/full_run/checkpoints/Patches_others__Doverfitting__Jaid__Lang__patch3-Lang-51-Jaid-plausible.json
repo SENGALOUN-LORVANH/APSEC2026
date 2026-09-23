@@ -1,0 +1,256 @@
+{
+  "patch_id": "Patches_others__Doverfitting__Jaid__Lang__patch3-Lang-51-Jaid-plausible",
+  "bug_id": "Lang-51",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 12.651
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.661
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 10.128
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 29.524
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.184
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 34.9
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_others__Doverfitting__Jaid__Lang__patch3-Lang-51-Jaid-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.405767437000577,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3712,
+        "output_tokens": 183,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.3,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch introduces nonsensical logic (checking `str.isEmpty()` in a case 3 branch where length is guaranteed to be 3, and returning `ch == 'Y'` unconditionally) that doesn't address the root cause of the StringIndexOutOfBoundsException. The fix appears to be a random modification that happens to pass tests but weakens functionality and introduces illogical control flow."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 2.8895017759996335,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3712,
+        "output_tokens": 173,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.3,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch introduces a nonsensical condition `(ch == 'y' || str.isEmpty()) == false` that returns `ch == 'Y'` for empty strings, which contradicts the documented behavior and breaks the logic for case 3. The fix is overly specific, poorly written, and introduces unrelated behavior changes that weaken the function's correctness."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 2.957545872999617,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3712,
+        "output_tokens": 173,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.3,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch introduces a nonsensical condition `(ch == 'y' || str.isEmpty()) == false` that returns `ch == 'Y'` for empty strings, which contradicts the documented behavior and breaks the logic for case 3. The fix is overly specific, poorly written, and introduces unrelated behavior changes that weaken the function's correctness."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_others__Doverfitting__Jaid__Lang__patch3-Lang-51-Jaid-plausible",
+    "bug_id": "Lang-51",
+    "model": "claude-haiku-4-5",
+    "latency_s": 6.675632325999686,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 3603,
+    "output_tokens": 907,
+    "tests": [
+      {
+        "name": "testToBooleanEmptyString",
+        "target_class": "org.apache.commons.lang.BooleanUtils",
+        "target_method": "toBoolean",
+        "class_name": "TestToBooleanEmptyString",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.002\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testToBooleanYesVariations",
+        "target_class": "org.apache.commons.lang.BooleanUtils",
+        "target_method": "toBoolean",
+        "class_name": "TestToBooleanYesVariations",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": "...\nTime: 0.001\n\nOK (3 tests)\n\n"
+      },
+      {
+        "name": "testToBooleanLength3NonYes",
+        "target_class": "org.apache.commons.lang.BooleanUtils",
+        "target_method": "toBoolean",
+        "class_name": "TestToBooleanLength3NonYes",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": "...\nTime: 0.001\n\nOK (3 tests)\n\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_others__Doverfitting__Jaid__Lang__patch3-Lang-51-Jaid-plausible",
+    "true_project": "Lang",
+    "true_bug_number": "51",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 650,
+    "output_tokens": 28,
+    "project": "Lang",
+    "bug_number": 42,
+    "recalled_label": "OVERFITTING",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_others__Doverfitting__Jaid__Lang__patch3-Lang-51-Jaid-plausible",
+    "bug_id": "Lang-51",
+    "s_edit_ast": 0.07161803713527852,
+    "s_edit_ast_actions": 27,
+    "s_edit_ast_nodes": 377,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/lang/BooleanUtils"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 145,
+      "cfg_edges": 169,
+      "branch_points": 46,
+      "cyclomatic_complexity": 36,
+      "def_count": 65,
+      "use_count": 298,
+      "defuse_pairs": 65,
+      "per_method": [
+        {
+          "class": "org.apache.commons.lang.BooleanUtils",
+          "method": "toBoolean",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 6,
+          "stmts": 145,
+          "cfg_edges": 169,
+          "branch_points": 46,
+          "cyclomatic_complexity": 36,
+          "def_count": 65,
+          "use_count": 298,
+          "defuse_pairs": 65,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 157,
+      "cfg_edges": 184,
+      "branch_points": 50,
+      "cyclomatic_complexity": 39,
+      "def_count": 70,
+      "use_count": 317,
+      "defuse_pairs": 70,
+      "per_method": [
+        {
+          "class": "org.apache.commons.lang.BooleanUtils",
+          "method": "toBoolean",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 6,
+          "stmts": 157,
+          "cfg_edges": 184,
+          "branch_points": 50,
+          "cyclomatic_complexity": 39,
+          "def_count": 70,
+          "use_count": 317,
+          "defuse_pairs": 70,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 3,
+    "d_stmts": 12,
+    "d_branch_points": 4,
+    "d_cfg_edges": 15,
+    "d_defuse_pairs": 5,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 121,
+      "n_candidate_warnings": 121,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_others__Doverfitting__Jaid__Lang__patch3-Lang-51-Jaid-plausible",
+    "bug_id": "Lang-51",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

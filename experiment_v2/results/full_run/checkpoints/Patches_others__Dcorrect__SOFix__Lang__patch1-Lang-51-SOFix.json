@@ -1,0 +1,256 @@
+{
+  "patch_id": "Patches_others__Dcorrect__SOFix__Lang__patch1-Lang-51-SOFix",
+  "bug_id": "Lang-51",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 10.597
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.44
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 10.295
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 31.176
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 0.862
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 57.496
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_others__Dcorrect__SOFix__Lang__patch1-Lang-51-SOFix",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.9499999999999998,
+    "decision": "CORRECT",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.2794970280001507,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3624,
+        "output_tokens": 166,
+        "parsed": {
+          "generalization": "general",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.95,
+          "readability": 0.95,
+          "security_robustness": 1.0,
+          "judgement": "CORRECT",
+          "confidence": 0.95,
+          "brief_reason": "The patch adds a missing `return false;` statement at the end of the case 3 block, fixing a StringIndexOutOfBoundsException that occurred when the first character didn't match 'y' or 'Y'. This is a minimal, general fix that addresses the root cause of the bug without affecting other functionality or introducing new risks."
+        },
+        "s_sem": 0.95,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.2525358170005347,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3624,
+        "output_tokens": 166,
+        "parsed": {
+          "generalization": "general",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.95,
+          "readability": 0.95,
+          "security_robustness": 1.0,
+          "judgement": "CORRECT",
+          "confidence": 0.95,
+          "brief_reason": "The patch adds a missing `return false;` statement at the end of the case 3 block, fixing a StringIndexOutOfBoundsException that occurred when the first character didn't match 'y' or 'Y'. This is a minimal, general fix that addresses the root cause of the bug without affecting other functionality or introducing new risks."
+        },
+        "s_sem": 0.95,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.38945203700041,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3624,
+        "output_tokens": 166,
+        "parsed": {
+          "generalization": "general",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.95,
+          "readability": 0.95,
+          "security_robustness": 1.0,
+          "judgement": "CORRECT",
+          "confidence": 0.95,
+          "brief_reason": "The patch adds a missing `return false;` statement at the end of the case 3 block, fixing a StringIndexOutOfBoundsException that occurred when the first character didn't match 'y' or 'Y'. This is a minimal, general fix that addresses the root cause of the bug without affecting other functionality or introducing new risks."
+        },
+        "s_sem": 0.95,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_others__Dcorrect__SOFix__Lang__patch1-Lang-51-SOFix",
+    "bug_id": "Lang-51",
+    "model": "claude-haiku-4-5",
+    "latency_s": 12.655090504000327,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 3515,
+    "output_tokens": 1308,
+    "tests": [
+      {
+        "name": "testToBooleanShortStringNotYes",
+        "target_class": "org.apache.commons.lang.BooleanUtils",
+        "target_method": "toBoolean",
+        "class_name": "TestToBooleanShortStringNotYes",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.002\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testToBooleanYesVariations",
+        "target_class": "org.apache.commons.lang.BooleanUtils",
+        "target_method": "toBoolean",
+        "class_name": "TestToBooleanYesVariations",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.001\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testToBooleanEdgeCases",
+        "target_class": "org.apache.commons.lang.BooleanUtils",
+        "target_method": "toBoolean",
+        "class_name": "TestToBooleanEdgeCases",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "d that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/AutoCloseable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Boolean.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Boolean.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] /data/qc_workspaces/gen_tests/Patches_others__Dcorrect__SOFix__Lang__patch1-Lang-51-SOFix/TestToBooleanEdgeCases/fixed/src/test/org/apache/commons/lang/TestToBooleanEdgeCases.java:33: error: reference to toBoolean is ambiguous, both method toBoolean(Boolean) in BooleanUtils and method toBoolean(String) in BooleanUtils match\n    [javac]         assertFalse(BooleanUtils.toBoolean(null));\n    [javac]                                 ^\n    [javac] 1 error\n    [javac] 9 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_others__Dcorrect__SOFix__Lang__patch1-Lang-51-SOFix/TestToBooleanEdgeCases/fixed/build.xml:73: Compile failed; see the compiler error output for details.\n\nTotal time: 0 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_others__Dcorrect__SOFix__Lang__patch1-Lang-51-SOFix",
+    "true_project": "Lang",
+    "true_bug_number": "51",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 562,
+    "output_tokens": 26,
+    "project": "Lang",
+    "bug_number": 35,
+    "recalled_label": "CORRECT",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_others__Dcorrect__SOFix__Lang__patch1-Lang-51-SOFix",
+    "bug_id": "Lang-51",
+    "s_edit_ast": 0.021220159151193633,
+    "s_edit_ast_actions": 8,
+    "s_edit_ast_nodes": 377,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/lang/BooleanUtils"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 145,
+      "cfg_edges": 169,
+      "branch_points": 46,
+      "cyclomatic_complexity": 36,
+      "def_count": 65,
+      "use_count": 298,
+      "defuse_pairs": 65,
+      "per_method": [
+        {
+          "class": "org.apache.commons.lang.BooleanUtils",
+          "method": "toBoolean",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 6,
+          "stmts": 145,
+          "cfg_edges": 169,
+          "branch_points": 46,
+          "cyclomatic_complexity": 36,
+          "def_count": 65,
+          "use_count": 298,
+          "defuse_pairs": 65,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 146,
+      "cfg_edges": 169,
+      "branch_points": 46,
+      "cyclomatic_complexity": 35,
+      "def_count": 65,
+      "use_count": 299,
+      "defuse_pairs": 65,
+      "per_method": [
+        {
+          "class": "org.apache.commons.lang.BooleanUtils",
+          "method": "toBoolean",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 6,
+          "stmts": 146,
+          "cfg_edges": 169,
+          "branch_points": 46,
+          "cyclomatic_complexity": 35,
+          "def_count": 65,
+          "use_count": 299,
+          "defuse_pairs": 65,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": -1,
+    "d_stmts": 1,
+    "d_branch_points": 0,
+    "d_cfg_edges": 0,
+    "d_defuse_pairs": 0,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 121,
+      "n_candidate_warnings": 121,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_others__Dcorrect__SOFix__Lang__patch1-Lang-51-SOFix",
+    "bug_id": "Lang-51",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

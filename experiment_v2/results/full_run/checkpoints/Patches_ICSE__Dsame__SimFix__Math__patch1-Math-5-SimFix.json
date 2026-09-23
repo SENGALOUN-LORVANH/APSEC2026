@@ -1,0 +1,256 @@
+{
+  "patch_id": "Patches_ICSE__Dsame__SimFix__Math__patch1-Math-5-SimFix",
+  "bug_id": "Math-5",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 65.44
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.73
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 9.541
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 33.396
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.197
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 97.415
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Dsame__SimFix__Math__patch1-Math-5-SimFix",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.11115893600072,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2144,
+        "output_tokens": 167,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.95,
+          "readability": 0.9,
+          "security_robustness": 0.3,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch changes the return value from NaN to INF for the reciprocal of zero, which makes the test pass but is mathematically incorrect and weakens the API contract. The reciprocal of zero is undefined (NaN), not infinity, and this change only fixes the specific test case without addressing the underlying semantic correctness of the operation."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.0371062789999996,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2144,
+        "output_tokens": 167,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.95,
+          "readability": 0.9,
+          "security_robustness": 0.3,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch changes the return value from NaN to INF for the reciprocal of zero, which makes the test pass but is mathematically incorrect and weakens the API contract. The reciprocal of zero is undefined (NaN), not infinity, and this change only fixes the specific test case without addressing the underlying semantic correctness of the operation."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 2.995002420999299,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2144,
+        "output_tokens": 167,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.95,
+          "readability": 0.9,
+          "security_robustness": 0.3,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch changes the return value from NaN to INF for the reciprocal of zero, which makes the test pass but is mathematically incorrect and weakens the API contract. The reciprocal of zero is undefined (NaN), not infinity, and this change only fixes the specific test case without addressing the underlying semantic correctness of the operation."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Dsame__SimFix__Math__patch1-Math-5-SimFix",
+    "bug_id": "Math-5",
+    "model": "claude-haiku-4-5",
+    "latency_s": 8.390061594999679,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 2014,
+    "output_tokens": 1021,
+    "tests": [
+      {
+        "name": "testReciprocalZeroReturnsNaN",
+        "target_class": "org.apache.commons.math3.complex.Complex",
+        "target_method": "reciprocal()",
+        "class_name": "TestReciprocalZero",
+        "status": "INVALID_ORACLE",
+        "candidate_pass": null,
+        "log": "tingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.lang.reflect.Method.invoke(Method.java:498)\n\tat org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)\n\tat org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)\n\tat org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)\n\tat org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)\n\tat org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:271)\n\tat org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:70)\n\tat org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)\n\tat org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)\n\tat org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:309)\n\tat org.junit.runners.Suite.runChild(Suite.java:127)\n\tat org.junit.runners.Suite.runChild(Suite.java:26)\n\tat org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)\n\tat org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:309)\n\tat org.junit.runner.JUnitCore.run(JUnitCore.java:160)\n\tat org.junit.runner.JUnitCore.run(JUnitCore.java:138)\n\tat org.junit.runner.JUnitCore.run(JUnitCore.java:117)\n\tat org.junit.runner.JUnitCore.runMain(JUnitCore.java:96)\n\tat org.junit.runner.JUnitCore.runMainAndExit(JUnitCore.java:47)\n\tat org.junit.runner.JUnitCore.main(JUnitCore.java:40)\n\nFAILURES!!!\nTests run: 1,  Failures: 1\n\n"
+      },
+      {
+        "name": "testReciprocalNearZeroNotNaN",
+        "target_class": "org.apache.commons.math3.complex.Complex",
+        "target_method": "reciprocal()",
+        "class_name": "TestReciprocalNearZero",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": "JUnit version 4.11\n.\nTime: 0.007\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testReciprocalSmallRealPartZeroImaginary",
+        "target_class": "org.apache.commons.math3.complex.Complex",
+        "target_method": "reciprocal()",
+        "class_name": "TestReciprocalPartialZero",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": "JUnit version 4.11\n.\nTime: 0.01\n\nOK (1 test)\n\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Dsame__SimFix__Math__patch1-Math-5-SimFix",
+    "true_project": "Math",
+    "true_bug_number": "5",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 530,
+    "output_tokens": 28,
+    "project": "Math",
+    "bug_number": 130,
+    "recalled_label": "OVERFITTING",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Dsame__SimFix__Math__patch1-Math-5-SimFix",
+    "bug_id": "Math-5",
+    "s_edit_ast": 0.058823529411764705,
+    "s_edit_ast_actions": 7,
+    "s_edit_ast_nodes": 119,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math3/complex/Complex"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 50,
+      "cfg_edges": 49,
+      "branch_points": 5,
+      "cyclomatic_complexity": 3,
+      "def_count": 39,
+      "use_count": 111,
+      "defuse_pairs": 39,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math3.complex.Complex",
+          "method": "reciprocal",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 50,
+          "cfg_edges": 49,
+          "branch_points": 5,
+          "cyclomatic_complexity": 3,
+          "def_count": 39,
+          "use_count": 111,
+          "defuse_pairs": 39,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 50,
+      "cfg_edges": 49,
+      "branch_points": 5,
+      "cyclomatic_complexity": 3,
+      "def_count": 39,
+      "use_count": 111,
+      "defuse_pairs": 39,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math3.complex.Complex",
+          "method": "reciprocal",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 50,
+          "cfg_edges": 49,
+          "branch_points": 5,
+          "cyclomatic_complexity": 3,
+          "def_count": 39,
+          "use_count": 111,
+          "defuse_pairs": 39,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": 0,
+    "d_branch_points": 0,
+    "d_cfg_edges": 0,
+    "d_defuse_pairs": 0,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 663,
+      "n_candidate_warnings": 663,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Dsame__SimFix__Math__patch1-Math-5-SimFix",
+    "bug_id": "Math-5",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}
