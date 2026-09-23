@@ -1,0 +1,176 @@
+{
+  "patch_id": "Patches_others__Dcorrect__SequenceR__Math__patch1-Math-57-SequenceR",
+  "bug_id": "Math-57",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 67.393
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 1.757
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 1.899
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 2.298
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 0.392
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 87.219
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_others__Dcorrect__SequenceR__Math__patch1-Math-57-SequenceR",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 0,
+    "s_sem_final": null,
+    "decision": null,
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 0.4465735859994311,
+        "attempts": 1,
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLdpkAVrQd6dav11iKM4'}"
+      },
+      {
+        "run": 1,
+        "latency_s": 0.3269117890013149,
+        "attempts": 1,
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLdpmnERCDq2ty5oE1FQ'}"
+      },
+      {
+        "run": 2,
+        "latency_s": 0.3445561890002864,
+        "attempts": 1,
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLdpoD4Vsr5QwHdqwNs4'}"
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_others__Dcorrect__SequenceR__Math__patch1-Math-57-SequenceR",
+    "bug_id": "Math-57",
+    "model": "claude-haiku-4-5",
+    "latency_s": 0.4416610860007495,
+    "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLdpxzvNpEwRvbAnytXv'}",
+    "context_errors": [],
+    "input_tokens": null,
+    "output_tokens": null,
+    "tests": []
+  },
+  "memorization": {
+    "patch_id": "Patches_others__Dcorrect__SequenceR__Math__patch1-Math-57-SequenceR",
+    "true_project": "Math",
+    "true_bug_number": "57",
+    "model": "claude-haiku-4-5",
+    "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLdpzfdYutFVojLz4y5C'}",
+    "input_tokens": null,
+    "output_tokens": null
+  },
+  "stage2b": {
+    "patch_id": "Patches_others__Dcorrect__SequenceR__Math__patch1-Math-57-SequenceR",
+    "bug_id": "Math-57",
+    "s_edit_ast": 0.02422145328719723,
+    "s_edit_ast_actions": 7,
+    "s_edit_ast_nodes": 289,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math/stat/clustering/KMeansPlusPlusClusterer"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 69,
+      "cfg_edges": 72,
+      "branch_points": 4,
+      "cyclomatic_complexity": 5,
+      "def_count": 54,
+      "use_count": 142,
+      "defuse_pairs": 54,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.stat.clustering.KMeansPlusPlusClusterer",
+          "method": "chooseInitialCenters",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 69,
+          "cfg_edges": 72,
+          "branch_points": 4,
+          "cyclomatic_complexity": 5,
+          "def_count": 54,
+          "use_count": 142,
+          "defuse_pairs": 54,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 65,
+      "cfg_edges": 68,
+      "branch_points": 4,
+      "cyclomatic_complexity": 5,
+      "def_count": 50,
+      "use_count": 134,
+      "defuse_pairs": 50,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.stat.clustering.KMeansPlusPlusClusterer",
+          "method": "chooseInitialCenters",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 65,
+          "cfg_edges": 68,
+          "branch_points": 4,
+          "cyclomatic_complexity": 5,
+          "def_count": 50,
+          "use_count": 134,
+          "defuse_pairs": 50,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": -4,
+    "d_branch_points": 0,
+    "d_cfg_edges": -4,
+    "d_defuse_pairs": -4,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 360,
+      "n_candidate_warnings": 360,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 3,
+      "n_changed_class_files_candidate": 3,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_others__Dcorrect__SequenceR__Math__patch1-Math-57-SequenceR",
+    "bug_id": "Math-57",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}
