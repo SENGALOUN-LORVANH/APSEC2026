@@ -1,0 +1,187 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__Nopol__Math__patch1-Math-105-Nopol-plausible",
+  "bug_id": "Math-105",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 11.723
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.952
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 1.597
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 1.712
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 0.366
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 50.903
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__Nopol__Math__patch1-Math-105-Nopol-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 0,
+    "s_sem_final": null,
+    "decision": null,
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 0.49511562699990463,
+        "attempts": 1,
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLwf4XNTTVnq2tWoCMYZ'}"
+      },
+      {
+        "run": 1,
+        "latency_s": 0.3234842169986223,
+        "attempts": 1,
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLwf6RicAZmcAhitp7p4'}"
+      },
+      {
+        "run": 2,
+        "latency_s": 0.35529341799701797,
+        "attempts": 1,
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLwf7t2dqYJYpDdA7KsL'}"
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__Nopol__Math__patch1-Math-105-Nopol-plausible",
+    "bug_id": "Math-105",
+    "model": "claude-haiku-4-5",
+    "latency_s": 0.40398332200129516,
+    "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLwfF2PsNP2Hh4x1CATi'}",
+    "context_errors": [],
+    "input_tokens": null,
+    "output_tokens": null,
+    "tests": []
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__Nopol__Math__patch1-Math-105-Nopol-plausible",
+    "true_project": "Math",
+    "true_bug_number": "105",
+    "model": "claude-haiku-4-5",
+    "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLwfGp3i51tm5Ms5i68P'}",
+    "input_tokens": null,
+    "output_tokens": null
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__Nopol__Math__patch1-Math-105-Nopol-plausible",
+    "bug_id": "Math-105",
+    "s_edit_ast": 0.2484472049689441,
+    "s_edit_ast_actions": 40,
+    "s_edit_ast_nodes": 161,
+    "s_edit_error": null,
+    "s_vuln_changed": 1.0,
+    "s_vuln_new_warning_count": 1,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math/stat/regression/SimpleRegression"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 83,
+      "cfg_edges": 83,
+      "branch_points": 2,
+      "cyclomatic_complexity": 4,
+      "def_count": 76,
+      "use_count": 188,
+      "defuse_pairs": 76,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.stat.regression.SimpleRegression",
+          "method": "addData",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 83,
+          "cfg_edges": 83,
+          "branch_points": 2,
+          "cyclomatic_complexity": 4,
+          "def_count": 76,
+          "use_count": 188,
+          "defuse_pairs": 76,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 89,
+      "cfg_edges": 92,
+      "branch_points": 5,
+      "cyclomatic_complexity": 7,
+      "def_count": 79,
+      "use_count": 206,
+      "defuse_pairs": 79,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.stat.regression.SimpleRegression",
+          "method": "addData",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 89,
+          "cfg_edges": 92,
+          "branch_points": 5,
+          "cyclomatic_complexity": 7,
+          "def_count": 79,
+          "use_count": 206,
+          "defuse_pairs": 79,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 3,
+    "d_stmts": 6,
+    "d_branch_points": 3,
+    "d_cfg_edges": 9,
+    "d_defuse_pairs": 3,
+    "vuln_detail": {
+      "s_vuln": 1.0,
+      "new_warnings": [
+        {
+          "bug_type": "RpC",
+          "category": "C",
+          "priority": "H",
+          "severity": "HIGH",
+          "class": "SimpleRegression",
+          "method": "addData",
+          "location": "SimpleRegression.java:line 107",
+          "description": "Repeated conditional test in org.apache.commons.math.stat.regression.SimpleRegression.addData(double, double)"
+        }
+      ],
+      "n_buggy_warnings": 6,
+      "n_candidate_warnings": 7,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__Nopol__Math__patch1-Math-105-Nopol-plausible",
+    "bug_id": "Math-105",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}
