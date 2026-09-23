@@ -1,0 +1,204 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__Arja__Lang__patch1-Lang-20-Arja-plausible",
+  "bug_id": "Lang-20",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 11.443
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.952
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 2.663
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 3.645
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 0.406
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 86.723
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__Arja__Lang__patch1-Lang-20-Arja-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 0,
+    "s_sem_final": null,
+    "decision": null,
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 0.3656628520002414,
+        "attempts": 1,
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLmtTjaSh5j3oPowRbsf'}"
+      },
+      {
+        "run": 1,
+        "latency_s": 0.3478250490006758,
+        "attempts": 1,
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLmtVD8DzkCsyDkSx35g'}"
+      },
+      {
+        "run": 2,
+        "latency_s": 0.33495774799666833,
+        "attempts": 1,
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLmtWdwuyJN4UnY5WLwh'}"
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__Arja__Lang__patch1-Lang-20-Arja-plausible",
+    "bug_id": "Lang-20",
+    "model": "claude-haiku-4-5",
+    "latency_s": 0.36462444200151367,
+    "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLmtnH3cf7Q9gsxrxm5o'}",
+    "context_errors": [],
+    "input_tokens": null,
+    "output_tokens": null,
+    "tests": []
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__Arja__Lang__patch1-Lang-20-Arja-plausible",
+    "true_project": "Lang",
+    "true_bug_number": "20",
+    "model": "claude-haiku-4-5",
+    "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLmtow1ZXp4c1cpcQtqZ'}",
+    "input_tokens": null,
+    "output_tokens": null
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__Arja__Lang__patch1-Lang-20-Arja-plausible",
+    "bug_id": "Lang-20",
+    "s_edit_ast": 0.15588235294117647,
+    "s_edit_ast_actions": 53,
+    "s_edit_ast_nodes": 340,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/lang3/StringUtils"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 302,
+      "cfg_edges": 316,
+      "branch_points": 60,
+      "cyclomatic_complexity": 50,
+      "def_count": 156,
+      "use_count": 600,
+      "defuse_pairs": 156,
+      "per_method": [
+        {
+          "class": "org.apache.commons.lang3.StringUtils",
+          "method": "join",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 9,
+          "stmts": 151,
+          "cfg_edges": 158,
+          "branch_points": 30,
+          "cyclomatic_complexity": 25,
+          "def_count": 78,
+          "use_count": 300,
+          "defuse_pairs": 78,
+          "error": null
+        },
+        {
+          "class": "org.apache.commons.lang3.StringUtils",
+          "method": "join",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 9,
+          "stmts": 151,
+          "cfg_edges": 158,
+          "branch_points": 30,
+          "cyclomatic_complexity": 25,
+          "def_count": 78,
+          "use_count": 300,
+          "defuse_pairs": 78,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 268,
+      "cfg_edges": 278,
+      "branch_points": 56,
+      "cyclomatic_complexity": 46,
+      "def_count": 130,
+      "use_count": 528,
+      "defuse_pairs": 130,
+      "per_method": [
+        {
+          "class": "org.apache.commons.lang3.StringUtils",
+          "method": "join",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 9,
+          "stmts": 134,
+          "cfg_edges": 139,
+          "branch_points": 28,
+          "cyclomatic_complexity": 23,
+          "def_count": 65,
+          "use_count": 264,
+          "defuse_pairs": 65,
+          "error": null
+        },
+        {
+          "class": "org.apache.commons.lang3.StringUtils",
+          "method": "join",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 9,
+          "stmts": 134,
+          "cfg_edges": 139,
+          "branch_points": 28,
+          "cyclomatic_complexity": 23,
+          "def_count": 65,
+          "use_count": 264,
+          "defuse_pairs": 65,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": -4,
+    "d_stmts": -34,
+    "d_branch_points": -4,
+    "d_cfg_edges": -38,
+    "d_defuse_pairs": -26,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 111,
+      "n_candidate_warnings": 111,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__Arja__Lang__patch1-Lang-20-Arja-plausible",
+    "bug_id": "Lang-20",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}
