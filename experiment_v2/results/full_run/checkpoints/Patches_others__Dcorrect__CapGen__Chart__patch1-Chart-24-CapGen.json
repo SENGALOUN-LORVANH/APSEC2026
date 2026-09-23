@@ -1,0 +1,265 @@
+{
+  "patch_id": "Patches_others__Dcorrect__CapGen__Chart__patch1-Chart-24-CapGen",
+  "bug_id": "Chart-24",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 10.121
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.439
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 13.232
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 71.487
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.466
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 35.299
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_others__Dcorrect__CapGen__Chart__patch1-Chart-24-CapGen",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.9499999999999998,
+    "decision": "CORRECT",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.533725160999893,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2109,
+        "output_tokens": 169,
+        "parsed": {
+          "generalization": "general",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 1.0,
+          "readability": 1.0,
+          "security_robustness": 1.0,
+          "judgement": "CORRECT",
+          "confidence": 0.95,
+          "brief_reason": "The patch fixes a clear bug where the clamped value `v` was computed but never used; instead, the unclamped `value` was used in the calculation, causing out-of-range color values. The fix changes `value` to `v` in the grayscale calculation, which is minimal, correct, and generalizes to all inputs outside the bounds."
+        },
+        "s_sem": 0.95,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 5.742567427998438,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2109,
+        "output_tokens": 169,
+        "parsed": {
+          "generalization": "general",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 1.0,
+          "readability": 1.0,
+          "security_robustness": 1.0,
+          "judgement": "CORRECT",
+          "confidence": 0.95,
+          "brief_reason": "The patch fixes a clear bug where the clamped value `v` was computed but never used; instead, the unclamped `value` was used in the calculation, causing out-of-range color values. The fix changes `value` to `v` in the grayscale calculation, which is minimal, correct, and generalizes to all inputs outside the bounds."
+        },
+        "s_sem": 0.95,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.6385078000002977,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2109,
+        "output_tokens": 169,
+        "parsed": {
+          "generalization": "general",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 1.0,
+          "readability": 1.0,
+          "security_robustness": 1.0,
+          "judgement": "CORRECT",
+          "confidence": 0.95,
+          "brief_reason": "The patch fixes a clear bug where the clamped value `v` was computed but never used; instead, the unclamped `value` was used in the calculation, causing out-of-range color values. The fix changes `value` to `v` in the grayscale calculation, which is minimal, correct, and generalizes to all inputs outside the bounds."
+        },
+        "s_sem": 0.95,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_others__Dcorrect__CapGen__Chart__patch1-Chart-24-CapGen",
+    "bug_id": "Chart-24",
+    "model": "claude-haiku-4-5",
+    "latency_s": 10.863010069000666,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 2004,
+    "output_tokens": 1677,
+    "tests": [
+      {
+        "name": "testGetPaintBelowLowerBound",
+        "target_class": "org.jfree.chart.renderer.GrayPaintScale",
+        "target_method": "getPaint",
+        "class_name": "testGetPaintBelowLowerBound",
+        "status": "VALID_BUG_REVEALING",
+        "candidate_pass": true,
+        "log": ".\nTime: 0.039\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testGetPaintAboveUpperBound",
+        "target_class": "org.jfree.chart.renderer.GrayPaintScale",
+        "target_method": "getPaint",
+        "class_name": "testGetPaintAboveUpperBound",
+        "status": "VALID_BUG_REVEALING",
+        "candidate_pass": true,
+        "log": ".\nTime: 0.142\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testGetPaintWithinBounds",
+        "target_class": "org.jfree.chart.renderer.GrayPaintScale",
+        "target_method": "getPaint",
+        "class_name": "testGetPaintWithinBounds",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.047\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testGetPaintNegativeBounds",
+        "target_class": "org.jfree.chart.renderer.GrayPaintScale",
+        "target_method": "getPaint",
+        "class_name": "testGetPaintNegativeBounds",
+        "status": "VALID_BUG_REVEALING",
+        "candidate_pass": true,
+        "log": ".\nTime: 0.044\n\nOK (1 test)\n\n"
+      }
+    ],
+    "s_cex": 1.0,
+    "n_valid": 3,
+    "n_passed": 3
+  },
+  "memorization": {
+    "patch_id": "Patches_others__Dcorrect__CapGen__Chart__patch1-Chart-24-CapGen",
+    "true_project": "Chart",
+    "true_bug_number": "24",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 602,
+    "output_tokens": 26,
+    "project": "Chart",
+    "bug_number": 3,
+    "recalled_label": "CORRECT",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_others__Dcorrect__CapGen__Chart__patch1-Chart-24-CapGen",
+    "bug_id": "Chart-24",
+    "s_edit_ast": 0.012658227848101266,
+    "s_edit_ast_actions": 1,
+    "s_edit_ast_nodes": 79,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/jfree/chart/renderer/GrayPaintScale"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 19,
+      "cfg_edges": 18,
+      "branch_points": 0,
+      "cyclomatic_complexity": 1,
+      "def_count": 17,
+      "use_count": 43,
+      "defuse_pairs": 17,
+      "per_method": [
+        {
+          "class": "org.jfree.chart.renderer.GrayPaintScale",
+          "method": "getPaint",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 19,
+          "cfg_edges": 18,
+          "branch_points": 0,
+          "cyclomatic_complexity": 1,
+          "def_count": 17,
+          "use_count": 43,
+          "defuse_pairs": 17,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 19,
+      "cfg_edges": 18,
+      "branch_points": 0,
+      "cyclomatic_complexity": 1,
+      "def_count": 17,
+      "use_count": 43,
+      "defuse_pairs": 17,
+      "per_method": [
+        {
+          "class": "org.jfree.chart.renderer.GrayPaintScale",
+          "method": "getPaint",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 19,
+          "cfg_edges": 18,
+          "branch_points": 0,
+          "cyclomatic_complexity": 1,
+          "def_count": 17,
+          "use_count": 43,
+          "defuse_pairs": 17,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": 0,
+    "d_branch_points": 0,
+    "d_cfg_edges": 0,
+    "d_defuse_pairs": 0,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 11,
+      "n_candidate_warnings": 10,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_others__Dcorrect__CapGen__Chart__patch1-Chart-24-CapGen",
+    "bug_id": "Chart-24",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

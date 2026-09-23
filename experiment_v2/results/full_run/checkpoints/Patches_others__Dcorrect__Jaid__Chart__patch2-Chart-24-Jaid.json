@@ -1,0 +1,256 @@
+{
+  "patch_id": "Patches_others__Dcorrect__Jaid__Chart__patch2-Chart-24-Jaid",
+  "bug_id": "Chart-24",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 21.995
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.971
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 9.864
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 35.718
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.185
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 28.128
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_others__Dcorrect__Jaid__Chart__patch2-Chart-24-Jaid",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.85,
+    "decision": "CORRECT",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.0361905520003347,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2103,
+        "output_tokens": 153,
+        "parsed": {
+          "generalization": "general",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.3,
+          "readability": 0.2,
+          "security_robustness": 0.9,
+          "judgement": "CORRECT",
+          "confidence": 0.85,
+          "brief_reason": "The patch fixes the bug by ensuring the clamped value `v` is used in the calculation instead of the original unclamped `value`, preventing out-of-range color values. However, the implementation is awkwardly written with a confusing conditional and poor formatting that reduces code quality significantly."
+        },
+        "s_sem": 0.85,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.094919288998426,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2103,
+        "output_tokens": 153,
+        "parsed": {
+          "generalization": "general",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.3,
+          "readability": 0.2,
+          "security_robustness": 0.9,
+          "judgement": "CORRECT",
+          "confidence": 0.85,
+          "brief_reason": "The patch fixes the bug by ensuring the clamped value `v` is used in the calculation instead of the original unclamped `value`, preventing out-of-range color values. However, the implementation is awkwardly written with a confusing conditional and poor formatting that reduces code quality significantly."
+        },
+        "s_sem": 0.85,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.0771406210005807,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2103,
+        "output_tokens": 153,
+        "parsed": {
+          "generalization": "general",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.3,
+          "readability": 0.2,
+          "security_robustness": 0.9,
+          "judgement": "CORRECT",
+          "confidence": 0.85,
+          "brief_reason": "The patch fixes the bug by ensuring the clamped value `v` is used in the calculation instead of the original unclamped `value`, preventing out-of-range color values. However, the implementation is awkwardly written with a confusing conditional and poor formatting that reduces code quality significantly."
+        },
+        "s_sem": 0.85,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_others__Dcorrect__Jaid__Chart__patch2-Chart-24-Jaid",
+    "bug_id": "Chart-24",
+    "model": "claude-haiku-4-5",
+    "latency_s": 6.82991660100015,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 1998,
+    "output_tokens": 1085,
+    "tests": [
+      {
+        "name": "testGetPaintBelowLowerBound",
+        "target_class": "org.jfree.chart.renderer.GrayPaintScale",
+        "target_method": "getPaint",
+        "class_name": "TestGetPaintBelowLowerBound",
+        "status": "VALID_BUG_REVEALING",
+        "candidate_pass": true,
+        "log": ".\nTime: 0.053\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testGetPaintAboveUpperBound",
+        "target_class": "org.jfree.chart.renderer.GrayPaintScale",
+        "target_method": "getPaint",
+        "class_name": "TestGetPaintAboveUpperBound",
+        "status": "VALID_BUG_REVEALING",
+        "candidate_pass": true,
+        "log": ".\nTime: 0.04\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testGetPaintWithinBounds",
+        "target_class": "org.jfree.chart.renderer.GrayPaintScale",
+        "target_method": "getPaint",
+        "class_name": "TestGetPaintWithinBounds",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.042\n\nOK (1 test)\n\n"
+      }
+    ],
+    "s_cex": 1.0,
+    "n_valid": 2,
+    "n_passed": 2
+  },
+  "memorization": {
+    "patch_id": "Patches_others__Dcorrect__Jaid__Chart__patch2-Chart-24-Jaid",
+    "true_project": "Chart",
+    "true_bug_number": "24",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 596,
+    "output_tokens": 28,
+    "project": "Chart",
+    "bug_number": 3,
+    "recalled_label": "OVERFITTING",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_others__Dcorrect__Jaid__Chart__patch2-Chart-24-Jaid",
+    "bug_id": "Chart-24",
+    "s_edit_ast": 0.189873417721519,
+    "s_edit_ast_actions": 15,
+    "s_edit_ast_nodes": 79,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/jfree/chart/renderer/GrayPaintScale"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 19,
+      "cfg_edges": 18,
+      "branch_points": 0,
+      "cyclomatic_complexity": 1,
+      "def_count": 17,
+      "use_count": 43,
+      "defuse_pairs": 17,
+      "per_method": [
+        {
+          "class": "org.jfree.chart.renderer.GrayPaintScale",
+          "method": "getPaint",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 19,
+          "cfg_edges": 18,
+          "branch_points": 0,
+          "cyclomatic_complexity": 1,
+          "def_count": 17,
+          "use_count": 43,
+          "defuse_pairs": 17,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 26,
+      "cfg_edges": 27,
+      "branch_points": 2,
+      "cyclomatic_complexity": 3,
+      "def_count": 21,
+      "use_count": 55,
+      "defuse_pairs": 21,
+      "per_method": [
+        {
+          "class": "org.jfree.chart.renderer.GrayPaintScale",
+          "method": "getPaint",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 26,
+          "cfg_edges": 27,
+          "branch_points": 2,
+          "cyclomatic_complexity": 3,
+          "def_count": 21,
+          "use_count": 55,
+          "defuse_pairs": 21,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 2,
+    "d_stmts": 7,
+    "d_branch_points": 2,
+    "d_cfg_edges": 9,
+    "d_defuse_pairs": 4,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 11,
+      "n_candidate_warnings": 10,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_others__Dcorrect__Jaid__Chart__patch2-Chart-24-Jaid",
+    "bug_id": "Chart-24",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

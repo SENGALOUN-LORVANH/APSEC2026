@@ -1,0 +1,256 @@
+{
+  "patch_id": "Patches_others__Dcorrect__SequenceR__Chart__patch1-Chart-9-SequenceR",
+  "bug_id": "Chart-9",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 12.948
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.455
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 8.872
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 21.807
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.088
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 47.474
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_others__Dcorrect__SequenceR__Chart__patch1-Chart-9-SequenceR",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.9499999999999998,
+    "decision": "CORRECT",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 2.8552163379990816,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2555,
+        "output_tokens": 161,
+        "parsed": {
+          "generalization": "general",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 1.0,
+          "readability": 1.0,
+          "security_robustness": 1.0,
+          "judgement": "CORRECT",
+          "confidence": 0.95,
+          "brief_reason": "The patch fixes the root cause of the bug by correctly detecting empty ranges when endIndex < startIndex rather than just endIndex < 0. This handles the case where start and end periods exist in the series but in reverse logical order, which should produce an empty result. The fix is minimal, maintains readability, and introduces no new risks."
+        },
+        "s_sem": 0.95,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 2.7599964820001333,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2555,
+        "output_tokens": 161,
+        "parsed": {
+          "generalization": "general",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 1.0,
+          "readability": 1.0,
+          "security_robustness": 1.0,
+          "judgement": "CORRECT",
+          "confidence": 0.95,
+          "brief_reason": "The patch fixes the root cause of the bug by correctly detecting empty ranges when endIndex < startIndex rather than just endIndex < 0. This handles the case where start and end periods exist in the series but in positions where the range is logically empty. The fix is minimal, maintains readability, and properly addresses the validation logic without affecting other functionality."
+        },
+        "s_sem": 0.95,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 2.8079929529994843,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2555,
+        "output_tokens": 161,
+        "parsed": {
+          "generalization": "general",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 1.0,
+          "readability": 1.0,
+          "security_robustness": 1.0,
+          "judgement": "CORRECT",
+          "confidence": 0.95,
+          "brief_reason": "The patch fixes the root cause of the bug by correctly detecting empty ranges when endIndex < startIndex rather than just endIndex < 0. This handles the case where start and end periods exist in the series but in reverse logical order, which should produce an empty result. The fix is minimal, maintains readability, and introduces no new risks."
+        },
+        "s_sem": 0.95,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_others__Dcorrect__SequenceR__Chart__patch1-Chart-9-SequenceR",
+    "bug_id": "Chart-9",
+    "model": "claude-haiku-4-5",
+    "latency_s": 8.661989660000472,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 2450,
+    "output_tokens": 1326,
+    "tests": [
+      {
+        "name": "testCreateCopyWithStartAfterLastItem",
+        "target_class": "org.jfree.data.time.TimeSeries",
+        "target_method": "createCopy",
+        "class_name": "testCreateCopyWithStartAfterLastItem",
+        "status": "INVALID_ORACLE",
+        "candidate_pass": null,
+        "log": ".E\nTime: 0.017\nThere was 1 error:\n1) testCreateCopyWithStartAfterLastItem(org.jfree.data.time.junit.testCreateCopyWithStartAfterLastItem)org.jfree.data.general.SeriesException: You are trying to add data where the time period class is org.jfree.data.time.Year, but the TimeSeries is expecting an instance of org.jfree.data.time.Day.\n\tat org.jfree.data.time.TimeSeries.add(TimeSeries.java:502)\n\tat org.jfree.data.time.TimeSeries.add(TimeSeries.java:575)\n\tat org.jfree.data.time.TimeSeries.add(TimeSeries.java:561)\n\tat org.jfree.data.time.junit.testCreateCopyWithStartAfterLastItem.testCreateCopyWithStartAfterLastItem(testCreateCopyWithStartAfterLastItem.java:10)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\nFAILURES!!!\nTests run: 1,  Failures: 0,  Errors: 1\n\n"
+      },
+      {
+        "name": "testCreateCopyWithEndBeforeStart",
+        "target_class": "org.jfree.data.time.TimeSeries",
+        "target_method": "createCopy",
+        "class_name": "testCreateCopyWithEndBeforeStart",
+        "status": "INVALID_ORACLE",
+        "candidate_pass": null,
+        "log": ".E\nTime: 0.021\nThere was 1 error:\n1) testCreateCopyWithEndBeforeStart(org.jfree.data.time.junit.testCreateCopyWithEndBeforeStart)org.jfree.data.general.SeriesException: You are trying to add data where the time period class is org.jfree.data.time.Year, but the TimeSeries is expecting an instance of org.jfree.data.time.Day.\n\tat org.jfree.data.time.TimeSeries.add(TimeSeries.java:502)\n\tat org.jfree.data.time.TimeSeries.add(TimeSeries.java:575)\n\tat org.jfree.data.time.TimeSeries.add(TimeSeries.java:561)\n\tat org.jfree.data.time.junit.testCreateCopyWithEndBeforeStart.testCreateCopyWithEndBeforeStart(testCreateCopyWithEndBeforeStart.java:10)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\nFAILURES!!!\nTests run: 1,  Failures: 0,  Errors: 1\n\n"
+      },
+      {
+        "name": "testCreateCopyWithValidRange",
+        "target_class": "org.jfree.data.time.TimeSeries",
+        "target_method": "createCopy",
+        "class_name": "testCreateCopyWithValidRange",
+        "status": "INVALID_ORACLE",
+        "candidate_pass": null,
+        "log": ".E\nTime: 0.017\nThere was 1 error:\n1) testCreateCopyWithValidRange(org.jfree.data.time.junit.testCreateCopyWithValidRange)org.jfree.data.general.SeriesException: You are trying to add data where the time period class is org.jfree.data.time.Year, but the TimeSeries is expecting an instance of org.jfree.data.time.Day.\n\tat org.jfree.data.time.TimeSeries.add(TimeSeries.java:502)\n\tat org.jfree.data.time.TimeSeries.add(TimeSeries.java:575)\n\tat org.jfree.data.time.TimeSeries.add(TimeSeries.java:561)\n\tat org.jfree.data.time.junit.testCreateCopyWithValidRange.testCreateCopyWithValidRange(testCreateCopyWithValidRange.java:10)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\nFAILURES!!!\nTests run: 1,  Failures: 0,  Errors: 1\n\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_others__Dcorrect__SequenceR__Chart__patch1-Chart-9-SequenceR",
+    "true_project": "Chart",
+    "true_bug_number": "9",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 557,
+    "output_tokens": 26,
+    "project": "Time",
+    "bug_number": 16,
+    "recalled_label": "CORRECT",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_others__Dcorrect__SequenceR__Chart__patch1-Chart-9-SequenceR",
+    "bug_id": "Chart-9",
+    "s_edit_ast": 0.041884816753926704,
+    "s_edit_ast_actions": 8,
+    "s_edit_ast_nodes": 191,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/jfree/data/time/TimeSeries"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 87,
+      "cfg_edges": 91,
+      "branch_points": 12,
+      "cyclomatic_complexity": 8,
+      "def_count": 56,
+      "use_count": 173,
+      "defuse_pairs": 56,
+      "per_method": [
+        {
+          "class": "org.jfree.data.time.TimeSeries",
+          "method": "createCopy",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 87,
+          "cfg_edges": 91,
+          "branch_points": 12,
+          "cyclomatic_complexity": 8,
+          "def_count": 56,
+          "use_count": 173,
+          "defuse_pairs": 56,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 87,
+      "cfg_edges": 91,
+      "branch_points": 12,
+      "cyclomatic_complexity": 8,
+      "def_count": 56,
+      "use_count": 173,
+      "defuse_pairs": 56,
+      "per_method": [
+        {
+          "class": "org.jfree.data.time.TimeSeries",
+          "method": "createCopy",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 87,
+          "cfg_edges": 91,
+          "branch_points": 12,
+          "cyclomatic_complexity": 8,
+          "def_count": 56,
+          "use_count": 173,
+          "defuse_pairs": 56,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": 0,
+    "d_branch_points": 0,
+    "d_cfg_edges": 0,
+    "d_defuse_pairs": 0,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 6,
+      "n_candidate_warnings": 6,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_others__Dcorrect__SequenceR__Chart__patch1-Chart-9-SequenceR",
+    "bug_id": "Chart-9",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

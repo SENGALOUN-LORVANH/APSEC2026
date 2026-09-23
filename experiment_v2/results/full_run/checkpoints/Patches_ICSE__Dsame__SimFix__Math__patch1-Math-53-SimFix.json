@@ -1,0 +1,256 @@
+{
+  "patch_id": "Patches_ICSE__Dsame__SimFix__Math__patch1-Math-53-SimFix",
+  "bug_id": "Math-53",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 54.617
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.815
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 7.745
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 35.22
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.035
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 83.875
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Dsame__SimFix__Math__patch1-Math-53-SimFix",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.92,
+    "decision": "CORRECT",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 2.369104708001032,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2229,
+        "output_tokens": 141,
+        "parsed": {
+          "generalization": "general",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.9,
+          "readability": 0.9,
+          "security_robustness": 0.95,
+          "judgement": "CORRECT",
+          "confidence": 0.92,
+          "brief_reason": "The patch correctly implements the documented behavior that NaN should be returned when either operand contains NaN, which aligns with the javadoc specification. The fix is minimal, general, and handles the edge case properly without affecting other functionality or introducing security risks."
+        },
+        "s_sem": 0.92,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 2.473088826000094,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2229,
+        "output_tokens": 141,
+        "parsed": {
+          "generalization": "general",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.9,
+          "readability": 0.9,
+          "security_robustness": 0.95,
+          "judgement": "CORRECT",
+          "confidence": 0.92,
+          "brief_reason": "The patch correctly implements the documented behavior that NaN should be returned when either operand contains NaN, which aligns with the javadoc specification. The fix is minimal, general, and handles the edge case properly without affecting other functionality or introducing security risks."
+        },
+        "s_sem": 0.92,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 2.4650889249987813,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2229,
+        "output_tokens": 141,
+        "parsed": {
+          "generalization": "general",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.9,
+          "readability": 0.9,
+          "security_robustness": 0.95,
+          "judgement": "CORRECT",
+          "confidence": 0.92,
+          "brief_reason": "The patch correctly implements the documented behavior that NaN should be returned when either operand contains NaN, which aligns with the javadoc specification. The fix is minimal, general, and handles the edge case properly without affecting other functionality or introducing security risks."
+        },
+        "s_sem": 0.92,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Dsame__SimFix__Math__patch1-Math-53-SimFix",
+    "bug_id": "Math-53",
+    "model": "claude-haiku-4-5",
+    "latency_s": 5.539076057000784,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 2098,
+    "output_tokens": 815,
+    "tests": [
+      {
+        "name": "testAddNaNWithNaNReal",
+        "target_class": "org.apache.commons.math.complex.Complex",
+        "target_method": "add",
+        "class_name": "TestAddNaNBoundary",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": "JUnit version 4.11\n.\nTime: 0.007\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testAddNaNWithNaNImaginary",
+        "target_class": "org.apache.commons.math.complex.Complex",
+        "target_method": "add",
+        "class_name": "TestAddNaNImaginaryPart",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": "JUnit version 4.11\n.\nTime: 0.006\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testAddBothNaN",
+        "target_class": "org.apache.commons.math.complex.Complex",
+        "target_method": "add",
+        "class_name": "TestAddBothNaN",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": "JUnit version 4.11\n.\nTime: 0.006\n\nOK (1 test)\n\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Dsame__SimFix__Math__patch1-Math-53-SimFix",
+    "true_project": "Math",
+    "true_bug_number": "53",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 561,
+    "output_tokens": 26,
+    "project": "Math",
+    "bug_number": 227,
+    "recalled_label": "CORRECT",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Dsame__SimFix__Math__patch1-Math-53-SimFix",
+    "bug_id": "Math-53",
+    "s_edit_ast": 0.2222222222222222,
+    "s_edit_ast_actions": 14,
+    "s_edit_ast_nodes": 63,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math/complex/Complex"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 16,
+      "cfg_edges": 14,
+      "branch_points": 0,
+      "cyclomatic_complexity": 2,
+      "def_count": 13,
+      "use_count": 31,
+      "defuse_pairs": 13,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.complex.Complex",
+          "method": "add",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 16,
+          "cfg_edges": 14,
+          "branch_points": 0,
+          "cyclomatic_complexity": 2,
+          "def_count": 13,
+          "use_count": 31,
+          "defuse_pairs": 13,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 22,
+      "cfg_edges": 21,
+      "branch_points": 2,
+      "cyclomatic_complexity": 3,
+      "def_count": 16,
+      "use_count": 43,
+      "defuse_pairs": 16,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.complex.Complex",
+          "method": "add",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 22,
+          "cfg_edges": 21,
+          "branch_points": 2,
+          "cyclomatic_complexity": 3,
+          "def_count": 16,
+          "use_count": 43,
+          "defuse_pairs": 16,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 1,
+    "d_stmts": 6,
+    "d_branch_points": 2,
+    "d_cfg_edges": 7,
+    "d_defuse_pairs": 3,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 445,
+      "n_candidate_warnings": 445,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Dsame__SimFix__Math__patch1-Math-53-SimFix",
+    "bug_id": "Math-53",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

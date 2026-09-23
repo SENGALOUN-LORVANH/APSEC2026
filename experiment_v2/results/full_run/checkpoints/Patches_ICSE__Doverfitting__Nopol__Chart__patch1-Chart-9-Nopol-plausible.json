@@ -1,0 +1,256 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__Nopol__Chart__patch1-Chart-9-Nopol-plausible",
+  "bug_id": "Chart-9",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 11.398
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.476
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 19.31
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 30.08
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.084
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 37.375
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__Nopol__Chart__patch1-Chart-9-Nopol-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 12.92677171700052,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2373,
+        "output_tokens": 167,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.3,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch adds a nonsensical condition checking if DEFAULT_RANGE_DESCRIPTION length equals data size, which weakens the validation by allowing invalid start/end pairs to pass when this condition is false. This is clearly overfitting to the specific test case rather than fixing the underlying bug, and introduces a security risk by disabling proper bounds checking."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 2.942902798000432,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2373,
+        "output_tokens": 167,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.3,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch adds a nonsensical condition checking if DEFAULT_RANGE_DESCRIPTION length equals data size, which weakens the validation by allowing invalid start/end pairs to pass when this condition is false. This is clearly overfitting to the specific test case rather than fixing the underlying bug, and introduces a security risk by disabling proper bounds checking."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 2.8815396440004406,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2373,
+        "output_tokens": 167,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.3,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch adds a nonsensical condition checking if DEFAULT_RANGE_DESCRIPTION length equals data size, which weakens the validation by allowing invalid start/end pairs to pass when this condition is false. This is clearly overfitting to the specific test case rather than fixing the underlying bug, and introduces a security risk by disabling proper bounds checking."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__Nopol__Chart__patch1-Chart-9-Nopol-plausible",
+    "bug_id": "Chart-9",
+    "model": "claude-haiku-4-5",
+    "latency_s": 6.908379064998371,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 2268,
+    "output_tokens": 1107,
+    "tests": [
+      {
+        "name": "testCreateCopyWithValidRange",
+        "target_class": "org.jfree.data.time.TimeSeries",
+        "target_method": "createCopy",
+        "class_name": "testCreateCopyWithValidRange",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.018\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testCreateCopyWithInvalidRangeSmallData",
+        "target_class": "org.jfree.data.time.TimeSeries",
+        "target_method": "createCopy",
+        "class_name": "testCreateCopyWithInvalidRangeSmallData",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.013\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testCreateCopyWithInvalidRangeLargeData",
+        "target_class": "org.jfree.data.time.TimeSeries",
+        "target_method": "createCopy",
+        "class_name": "testCreateCopyWithInvalidRangeLargeData",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.018\n\nOK (1 test)\n\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__Nopol__Chart__patch1-Chart-9-Nopol-plausible",
+    "true_project": "Chart",
+    "true_bug_number": "9",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 564,
+    "output_tokens": 25,
+    "project": "Time",
+    "bug_number": null,
+    "recalled_label": "UNKNOWN",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__Nopol__Chart__patch1-Chart-9-Nopol-plausible",
+    "bug_id": "Chart-9",
+    "s_edit_ast": 0.1527777777777778,
+    "s_edit_ast_actions": 22,
+    "s_edit_ast_nodes": 144,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/jfree/data/time/TimeSeries"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 87,
+      "cfg_edges": 91,
+      "branch_points": 12,
+      "cyclomatic_complexity": 8,
+      "def_count": 56,
+      "use_count": 173,
+      "defuse_pairs": 56,
+      "per_method": [
+        {
+          "class": "org.jfree.data.time.TimeSeries",
+          "method": "createCopy",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 87,
+          "cfg_edges": 91,
+          "branch_points": 12,
+          "cyclomatic_complexity": 8,
+          "def_count": 56,
+          "use_count": 173,
+          "defuse_pairs": 56,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 92,
+      "cfg_edges": 97,
+      "branch_points": 13,
+      "cyclomatic_complexity": 9,
+      "def_count": 60,
+      "use_count": 183,
+      "defuse_pairs": 60,
+      "per_method": [
+        {
+          "class": "org.jfree.data.time.TimeSeries",
+          "method": "createCopy",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 92,
+          "cfg_edges": 97,
+          "branch_points": 13,
+          "cyclomatic_complexity": 9,
+          "def_count": 60,
+          "use_count": 183,
+          "defuse_pairs": 60,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 1,
+    "d_stmts": 5,
+    "d_branch_points": 1,
+    "d_cfg_edges": 6,
+    "d_defuse_pairs": 4,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 6,
+      "n_candidate_warnings": 6,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__Nopol__Chart__patch1-Chart-9-Nopol-plausible",
+    "bug_id": "Chart-9",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

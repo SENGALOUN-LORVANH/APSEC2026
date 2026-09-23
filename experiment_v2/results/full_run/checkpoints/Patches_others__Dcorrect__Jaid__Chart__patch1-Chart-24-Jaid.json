@@ -1,0 +1,256 @@
+{
+  "patch_id": "Patches_others__Dcorrect__Jaid__Chart__patch1-Chart-24-Jaid",
+  "bug_id": "Chart-24",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 12.119
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.533
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 9.051
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 37.142
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.065
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 56.856
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_others__Dcorrect__Jaid__Chart__patch1-Chart-24-Jaid",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.9499999999999998,
+    "decision": "CORRECT",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.0890371429995866,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2085,
+        "output_tokens": 163,
+        "parsed": {
+          "generalization": "general",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 1.0,
+          "readability": 0.7,
+          "security_robustness": 1.0,
+          "judgement": "CORRECT",
+          "confidence": 0.95,
+          "brief_reason": "The patch fixes a logic bug where the clamped value `v` was computed but never used, causing out-of-range color values. The fix assigns `v` back to `value` so the clamped value is used in the color calculation. This is minimal, general, and addresses the root cause of the IllegalArgumentException."
+        },
+        "s_sem": 0.95,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 2.777637028000754,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2085,
+        "output_tokens": 162,
+        "parsed": {
+          "generalization": "general",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 1.0,
+          "readability": 0.7,
+          "security_robustness": 1.0,
+          "judgement": "CORRECT",
+          "confidence": 0.95,
+          "brief_reason": "The patch fixes a logic bug where the clamped value `v` was computed but never used, causing out-of-range color values. The fix assigns `v` back to `value` so the clamped value is used in the color calculation. This is minimal, correct, and addresses the root cause of the IllegalArgumentException."
+        },
+        "s_sem": 0.95,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 2.8426057959986792,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2085,
+        "output_tokens": 162,
+        "parsed": {
+          "generalization": "general",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 1.0,
+          "readability": 0.7,
+          "security_robustness": 1.0,
+          "judgement": "CORRECT",
+          "confidence": 0.95,
+          "brief_reason": "The patch fixes a logic bug where the clamped value `v` was computed but never used, causing out-of-range color values. The fix assigns `v` back to `value` so the clamped value is used in the color calculation. This is minimal, general, and addresses the root cause of the IllegalArgumentException."
+        },
+        "s_sem": 0.95,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_others__Dcorrect__Jaid__Chart__patch1-Chart-24-Jaid",
+    "bug_id": "Chart-24",
+    "model": "claude-haiku-4-5",
+    "latency_s": 9.484046934998332,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 1980,
+    "output_tokens": 1001,
+    "tests": [
+      {
+        "name": "testGetPaintBelowLowerBound",
+        "target_class": "org.jfree.chart.renderer.GrayPaintScale",
+        "target_method": "getPaint",
+        "class_name": "GrayPaintScaleTests",
+        "status": "VALID_BUG_REVEALING",
+        "candidate_pass": true,
+        "log": ".\nTime: 0.037\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testGetPaintAboveUpperBound",
+        "target_class": "org.jfree.chart.renderer.GrayPaintScale",
+        "target_method": "getPaint",
+        "class_name": "GrayPaintScaleTests2",
+        "status": "VALID_BUG_REVEALING",
+        "candidate_pass": true,
+        "log": ".\nTime: 0.04\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testGetPaintWithinBounds",
+        "target_class": "org.jfree.chart.renderer.GrayPaintScale",
+        "target_method": "getPaint",
+        "class_name": "GrayPaintScaleTests3",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.072\n\nOK (1 test)\n\n"
+      }
+    ],
+    "s_cex": 1.0,
+    "n_valid": 2,
+    "n_passed": 2
+  },
+  "memorization": {
+    "patch_id": "Patches_others__Dcorrect__Jaid__Chart__patch1-Chart-24-Jaid",
+    "true_project": "Chart",
+    "true_bug_number": "24",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 578,
+    "output_tokens": 26,
+    "project": "Chart",
+    "bug_number": 4,
+    "recalled_label": "CORRECT",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_others__Dcorrect__Jaid__Chart__patch1-Chart-24-Jaid",
+    "bug_id": "Chart-24",
+    "s_edit_ast": 0.06329113924050633,
+    "s_edit_ast_actions": 5,
+    "s_edit_ast_nodes": 79,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/jfree/chart/renderer/GrayPaintScale"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 19,
+      "cfg_edges": 18,
+      "branch_points": 0,
+      "cyclomatic_complexity": 1,
+      "def_count": 17,
+      "use_count": 43,
+      "defuse_pairs": 17,
+      "per_method": [
+        {
+          "class": "org.jfree.chart.renderer.GrayPaintScale",
+          "method": "getPaint",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 19,
+          "cfg_edges": 18,
+          "branch_points": 0,
+          "cyclomatic_complexity": 1,
+          "def_count": 17,
+          "use_count": 43,
+          "defuse_pairs": 17,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 19,
+      "cfg_edges": 18,
+      "branch_points": 0,
+      "cyclomatic_complexity": 1,
+      "def_count": 17,
+      "use_count": 43,
+      "defuse_pairs": 17,
+      "per_method": [
+        {
+          "class": "org.jfree.chart.renderer.GrayPaintScale",
+          "method": "getPaint",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 19,
+          "cfg_edges": 18,
+          "branch_points": 0,
+          "cyclomatic_complexity": 1,
+          "def_count": 17,
+          "use_count": 43,
+          "defuse_pairs": 17,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": 0,
+    "d_branch_points": 0,
+    "d_cfg_edges": 0,
+    "d_defuse_pairs": 0,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 11,
+      "n_candidate_warnings": 10,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_others__Dcorrect__Jaid__Chart__patch1-Chart-24-Jaid",
+    "bug_id": "Chart-24",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

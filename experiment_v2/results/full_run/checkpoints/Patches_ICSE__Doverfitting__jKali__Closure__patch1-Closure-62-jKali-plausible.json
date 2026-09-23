@@ -1,0 +1,256 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__jKali__Closure__patch1-Closure-62-jKali-plausible",
+  "bug_id": "Closure-62",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 68.799
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.492
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 12.579
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 46.408
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.025
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 49.683
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__jKali__Closure__patch1-Closure-62-jKali-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 4.769190364999304,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3197,
+        "output_tokens": 188,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.3,
+          "security_robustness": 0.2,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch replaces the conditional check with `if (true)`, which removes the bounds checking logic that prevents out-of-bounds access when charno >= sourceExcerpt.length(). This is overfitting to the specific test cases where charno equals the line length, but it breaks the safety guard and will cause ArrayIndexOutOfBoundsException in other scenarios. The patch also introduces poor code style and weakens existing functionality."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 4.325668654000765,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3197,
+        "output_tokens": 201,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.3,
+          "security_robustness": 0.2,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch replaces the conditional check `excerpt.equals(LINE) && 0 <= charno && charno < sourceExcerpt.length()` with `true`, which removes all validation logic and will cause the arrow pointer to be printed even when it shouldn't be (e.g., when charno is out of bounds or excerpt is not LINE). This is overfitting to the specific test cases rather than fixing the underlying bug, and introduces potential ArrayIndexOutOfBoundsException risks."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.1401471450008103,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3197,
+        "output_tokens": 181,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.3,
+          "security_robustness": 0.2,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch replaces the conditional check with `if (true)`, which removes the bounds checking that prevents array access errors when charno >= sourceExcerpt.length(). This overfits to the specific test cases where charno happens to equal sourceExcerpt.length() (end-of-line errors) but breaks the general safety mechanism and introduces potential IndexOutOfBoundsException risks."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__jKali__Closure__patch1-Closure-62-jKali-plausible",
+    "bug_id": "Closure-62",
+    "model": "claude-haiku-4-5",
+    "latency_s": 7.4592663740004355,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 3090,
+    "output_tokens": 1132,
+    "tests": [
+      {
+        "name": "testFormatErrorWithCharnoAtEndOfLine",
+        "target_class": "com.google.javascript.jscomp.LightweightMessageFormatter",
+        "target_method": "format",
+        "class_name": "TestFormatErrorWithCharnoAtEndOfLine",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "olean) has private access in LightweightMessageFormatter\n    [javac]     String result = formatter.format(error, false);\n    [javac]                              ^\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/CharSequence.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/CharSequence.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/io/Serializable.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/io/Serializable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Comparable.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Comparable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 3 errors\n    [javac] 19 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__jKali__Closure__patch1-Closure-62-jKali-plausible/TestFormatErrorWithCharnoAtEndOfLine/fixed/build.xml:294: Compile failed; see the compiler error output for details.\n\nTotal time: 1 second\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testFormatErrorWithNegativeCharno",
+        "target_class": "com.google.javascript.jscomp.LightweightMessageFormatter",
+        "target_method": "format",
+        "class_name": "TestFormatErrorWithNegativeCharno",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "boolean) has private access in LightweightMessageFormatter\n    [javac]     String result = formatter.format(error, false);\n    [javac]                              ^\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/CharSequence.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/CharSequence.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/io/Serializable.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/io/Serializable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Comparable.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Comparable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 3 errors\n    [javac] 19 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__jKali__Closure__patch1-Closure-62-jKali-plausible/TestFormatErrorWithNegativeCharno/fixed/build.xml:294: Compile failed; see the compiler error output for details.\n\nTotal time: 4 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testFormatErrorWithZeroCharno",
+        "target_class": "com.google.javascript.jscomp.LightweightMessageFormatter",
+        "target_method": "format",
+        "class_name": "TestFormatErrorWithZeroCharno",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "ror,boolean) has private access in LightweightMessageFormatter\n    [javac]     String result = formatter.format(error, false);\n    [javac]                              ^\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/CharSequence.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/CharSequence.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/io/Serializable.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/io/Serializable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Comparable.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Comparable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 3 errors\n    [javac] 19 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__jKali__Closure__patch1-Closure-62-jKali-plausible/TestFormatErrorWithZeroCharno/fixed/build.xml:294: Compile failed; see the compiler error output for details.\n\nTotal time: 3 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__jKali__Closure__patch1-Closure-62-jKali-plausible",
+    "true_project": "Closure",
+    "true_bug_number": "62",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 603,
+    "output_tokens": 26,
+    "project": "Closure",
+    "bug_number": null,
+    "recalled_label": "UNKNOWN",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__jKali__Closure__patch1-Closure-62-jKali-plausible",
+    "bug_id": "Closure-62",
+    "s_edit_ast": 0.09482758620689655,
+    "s_edit_ast_actions": 22,
+    "s_edit_ast_nodes": 232,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "com/google/javascript/jscomp/LightweightMessageFormatter"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 59,
+      "cfg_edges": 68,
+      "branch_points": 10,
+      "cyclomatic_complexity": 11,
+      "def_count": 30,
+      "use_count": 129,
+      "defuse_pairs": 30,
+      "per_method": [
+        {
+          "class": "com.google.javascript.jscomp.LightweightMessageFormatter",
+          "method": "format",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 59,
+          "cfg_edges": 68,
+          "branch_points": 10,
+          "cyclomatic_complexity": 11,
+          "def_count": 30,
+          "use_count": 129,
+          "defuse_pairs": 30,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 52,
+      "cfg_edges": 58,
+      "branch_points": 7,
+      "cyclomatic_complexity": 8,
+      "def_count": 26,
+      "use_count": 112,
+      "defuse_pairs": 26,
+      "per_method": [
+        {
+          "class": "com.google.javascript.jscomp.LightweightMessageFormatter",
+          "method": "format",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 52,
+          "cfg_edges": 58,
+          "branch_points": 7,
+          "cyclomatic_complexity": 8,
+          "def_count": 26,
+          "use_count": 112,
+          "defuse_pairs": 26,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": -3,
+    "d_stmts": -7,
+    "d_branch_points": -3,
+    "d_cfg_edges": -10,
+    "d_defuse_pairs": -4,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 6,
+      "n_candidate_warnings": 6,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 2,
+      "n_changed_class_files_candidate": 2,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__jKali__Closure__patch1-Closure-62-jKali-plausible",
+    "bug_id": "Closure-62",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

@@ -1,0 +1,256 @@
+{
+  "patch_id": "Patches_others__Dcorrect__SketchFix__Chart__patch1-Chart-9-SketchFix",
+  "bug_id": "Chart-9",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 22.88
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.644
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 9.313
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 23.469
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.017
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 27.084
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_others__Dcorrect__SketchFix__Chart__patch1-Chart-9-SketchFix",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.92,
+    "decision": "CORRECT",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 2.975665724999999,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2563,
+        "output_tokens": 159,
+        "parsed": {
+          "generalization": "general",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.95,
+          "readability": 0.9,
+          "security_robustness": 0.95,
+          "judgement": "CORRECT",
+          "confidence": 0.92,
+          "brief_reason": "The patch correctly identifies and fixes the general bug: when endIndex < startIndex (an empty range), the code should treat it as an empty range rather than passing invalid indices to createCopy(startIndex, endIndex). The fix is minimal, adds a single logical condition, and properly handles the edge case without affecting other functionality."
+        },
+        "s_sem": 0.92,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 2.8461872190000577,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2563,
+        "output_tokens": 159,
+        "parsed": {
+          "generalization": "general",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.95,
+          "readability": 0.9,
+          "security_robustness": 0.95,
+          "judgement": "CORRECT",
+          "confidence": 0.92,
+          "brief_reason": "The patch correctly identifies and fixes the general bug: when endIndex < startIndex (an empty range), the code should treat it as an empty range rather than passing invalid indices to createCopy(startIndex, endIndex). The fix is minimal, adds a single logical condition, and properly handles the edge case without affecting other functionality."
+        },
+        "s_sem": 0.92,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 2.789801664999686,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2563,
+        "output_tokens": 159,
+        "parsed": {
+          "generalization": "general",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.95,
+          "readability": 0.9,
+          "security_robustness": 0.95,
+          "judgement": "CORRECT",
+          "confidence": 0.92,
+          "brief_reason": "The patch correctly identifies and fixes the general bug: when endIndex < startIndex (an empty range), the code should treat it as an empty range rather than passing invalid indices to createCopy(startIndex, endIndex). The fix is minimal, adds a single logical condition, and properly handles the edge case without affecting other functionality."
+        },
+        "s_sem": 0.92,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_others__Dcorrect__SketchFix__Chart__patch1-Chart-9-SketchFix",
+    "bug_id": "Chart-9",
+    "model": "claude-haiku-4-5",
+    "latency_s": 8.302738196998689,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 2458,
+    "output_tokens": 1280,
+    "tests": [
+      {
+        "name": "testCreateCopyWithEndBeforeStart",
+        "target_class": "org.jfree.data.time.TimeSeries",
+        "target_method": "createCopy",
+        "class_name": "TestCreateCopyEndBeforeStart",
+        "status": "INVALID_ORACLE",
+        "candidate_pass": null,
+        "log": ".E\nTime: 0.037\nThere was 1 error:\n1) testCreateCopyWithEndBeforeStart(org.jfree.data.time.junit.TestCreateCopyEndBeforeStart)org.jfree.data.general.SeriesException: You are trying to add data where the time period class is org.jfree.data.time.Year, but the TimeSeries is expecting an instance of org.jfree.data.time.Day.\n\tat org.jfree.data.time.TimeSeries.add(TimeSeries.java:502)\n\tat org.jfree.data.time.TimeSeries.add(TimeSeries.java:575)\n\tat org.jfree.data.time.TimeSeries.add(TimeSeries.java:561)\n\tat org.jfree.data.time.junit.TestCreateCopyEndBeforeStart.testCreateCopyWithEndBeforeStart(TestCreateCopyEndBeforeStart.java:10)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\nFAILURES!!!\nTests run: 1,  Failures: 0,  Errors: 1\n\n"
+      },
+      {
+        "name": "testCreateCopyWithGapBetweenPeriods",
+        "target_class": "org.jfree.data.time.TimeSeries",
+        "target_method": "createCopy",
+        "class_name": "TestCreateCopyGapBetweenPeriods",
+        "status": "INVALID_ORACLE",
+        "candidate_pass": null,
+        "log": ".E\nTime: 0.023\nThere was 1 error:\n1) testCreateCopyWithGapBetweenPeriods(org.jfree.data.time.junit.TestCreateCopyGapBetweenPeriods)org.jfree.data.general.SeriesException: You are trying to add data where the time period class is org.jfree.data.time.Year, but the TimeSeries is expecting an instance of org.jfree.data.time.Day.\n\tat org.jfree.data.time.TimeSeries.add(TimeSeries.java:502)\n\tat org.jfree.data.time.TimeSeries.add(TimeSeries.java:575)\n\tat org.jfree.data.time.TimeSeries.add(TimeSeries.java:561)\n\tat org.jfree.data.time.junit.TestCreateCopyGapBetweenPeriods.testCreateCopyWithGapBetweenPeriods(TestCreateCopyGapBetweenPeriods.java:10)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\nFAILURES!!!\nTests run: 1,  Failures: 0,  Errors: 1\n\n"
+      },
+      {
+        "name": "testCreateCopyWithSingleItemRange",
+        "target_class": "org.jfree.data.time.TimeSeries",
+        "target_method": "createCopy",
+        "class_name": "TestCreateCopySingleItem",
+        "status": "INVALID_ORACLE",
+        "candidate_pass": null,
+        "log": ".E\nTime: 0.021\nThere was 1 error:\n1) testCreateCopyWithSingleItemRange(org.jfree.data.time.junit.TestCreateCopySingleItem)org.jfree.data.general.SeriesException: You are trying to add data where the time period class is org.jfree.data.time.Year, but the TimeSeries is expecting an instance of org.jfree.data.time.Day.\n\tat org.jfree.data.time.TimeSeries.add(TimeSeries.java:502)\n\tat org.jfree.data.time.TimeSeries.add(TimeSeries.java:575)\n\tat org.jfree.data.time.TimeSeries.add(TimeSeries.java:561)\n\tat org.jfree.data.time.junit.TestCreateCopySingleItem.testCreateCopyWithSingleItemRange(TestCreateCopySingleItem.java:10)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\nFAILURES!!!\nTests run: 1,  Failures: 0,  Errors: 1\n\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_others__Dcorrect__SketchFix__Chart__patch1-Chart-9-SketchFix",
+    "true_project": "Chart",
+    "true_bug_number": "9",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 565,
+    "output_tokens": 26,
+    "project": "Time",
+    "bug_number": 16,
+    "recalled_label": "CORRECT",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_others__Dcorrect__SketchFix__Chart__patch1-Chart-9-SketchFix",
+    "bug_id": "Chart-9",
+    "s_edit_ast": 0.07329842931937172,
+    "s_edit_ast_actions": 14,
+    "s_edit_ast_nodes": 191,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/jfree/data/time/TimeSeries"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 87,
+      "cfg_edges": 91,
+      "branch_points": 12,
+      "cyclomatic_complexity": 8,
+      "def_count": 56,
+      "use_count": 173,
+      "defuse_pairs": 56,
+      "per_method": [
+        {
+          "class": "org.jfree.data.time.TimeSeries",
+          "method": "createCopy",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 87,
+          "cfg_edges": 91,
+          "branch_points": 12,
+          "cyclomatic_complexity": 8,
+          "def_count": 56,
+          "use_count": 173,
+          "defuse_pairs": 56,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 88,
+      "cfg_edges": 93,
+      "branch_points": 13,
+      "cyclomatic_complexity": 9,
+      "def_count": 56,
+      "use_count": 176,
+      "defuse_pairs": 56,
+      "per_method": [
+        {
+          "class": "org.jfree.data.time.TimeSeries",
+          "method": "createCopy",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 88,
+          "cfg_edges": 93,
+          "branch_points": 13,
+          "cyclomatic_complexity": 9,
+          "def_count": 56,
+          "use_count": 176,
+          "defuse_pairs": 56,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 1,
+    "d_stmts": 1,
+    "d_branch_points": 1,
+    "d_cfg_edges": 2,
+    "d_defuse_pairs": 0,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 6,
+      "n_candidate_warnings": 6,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_others__Dcorrect__SketchFix__Chart__patch1-Chart-9-SketchFix",
+    "bug_id": "Chart-9",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

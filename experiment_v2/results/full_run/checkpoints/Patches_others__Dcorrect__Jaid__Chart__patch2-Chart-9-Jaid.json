@@ -1,0 +1,256 @@
+{
+  "patch_id": "Patches_others__Dcorrect__Jaid__Chart__patch2-Chart-9-Jaid",
+  "bug_id": "Chart-9",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 22.744
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 1.042
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 11.079
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 24.108
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.605
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 29.505
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_others__Dcorrect__Jaid__Chart__patch2-Chart-9-Jaid",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.15000000000000002,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.6025593239992304,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2573,
+        "output_tokens": 204,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.3,
+          "readability": 0.2,
+          "security_robustness": 0.8,
+          "judgement": "OVERFITTING",
+          "confidence": 0.85,
+          "brief_reason": "The patch adds a convoluted condition `(endIndex + 1 >= startIndex + 1) == false` which is logically equivalent to `endIndex < startIndex`, but this is an unrelated behavior change that masks the real issue. The condition should simply check `endIndex < startIndex` to detect when the range is invalid, but the patch's obfuscated logic and the awkward double negation suggest it's overfitting to the specific test case rather than fixing the underlying validation logic properly."
+        },
+        "s_sem": 0.15000000000000002,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.247498163000273,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2573,
+        "output_tokens": 204,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.3,
+          "readability": 0.2,
+          "security_robustness": 0.8,
+          "judgement": "OVERFITTING",
+          "confidence": 0.85,
+          "brief_reason": "The patch adds a convoluted condition `(endIndex + 1 >= startIndex + 1) == false` which is logically equivalent to `endIndex < startIndex`, but this is an unrelated behavior change that masks the real issue. The condition should simply check `endIndex < startIndex` to detect when the range is empty, but the patch's obfuscated logic and the awkward double negation suggest it's overfitting to the specific test case rather than fixing the underlying validation logic properly."
+        },
+        "s_sem": 0.15000000000000002,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.4059781370015116,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2573,
+        "output_tokens": 204,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.3,
+          "readability": 0.2,
+          "security_robustness": 0.8,
+          "judgement": "OVERFITTING",
+          "confidence": 0.85,
+          "brief_reason": "The patch adds a convoluted condition `(endIndex + 1 >= startIndex + 1) == false` which is logically equivalent to `endIndex < startIndex`, but this is an unrelated behavior change that masks the real issue. The condition should simply check `endIndex < startIndex` to detect when the range is invalid, but the patch's obfuscated logic and the awkward double negation suggest it's overfitting to the specific test case rather than fixing the underlying validation logic properly."
+        },
+        "s_sem": 0.15000000000000002,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_others__Dcorrect__Jaid__Chart__patch2-Chart-9-Jaid",
+    "bug_id": "Chart-9",
+    "model": "claude-haiku-4-5",
+    "latency_s": 11.999442514001203,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 2468,
+    "output_tokens": 1204,
+    "tests": [
+      {
+        "name": "testCreateCopyWithStartAfterEnd",
+        "target_class": "org.jfree.data.time.TimeSeries",
+        "target_method": "createCopy",
+        "class_name": "testCreateCopyWithStartAfterEnd",
+        "status": "INVALID_ORACLE",
+        "candidate_pass": null,
+        "log": ".E\nTime: 0.016\nThere was 1 error:\n1) testCreateCopyWithStartAfterEnd(org.jfree.data.time.junit.testCreateCopyWithStartAfterEnd)org.jfree.data.general.SeriesException: You are trying to add data where the time period class is org.jfree.data.time.Year, but the TimeSeries is expecting an instance of org.jfree.data.time.Day.\n\tat org.jfree.data.time.TimeSeries.add(TimeSeries.java:502)\n\tat org.jfree.data.time.TimeSeries.add(TimeSeries.java:575)\n\tat org.jfree.data.time.TimeSeries.add(TimeSeries.java:561)\n\tat org.jfree.data.time.junit.testCreateCopyWithStartAfterEnd.testCreateCopyWithStartAfterEnd(testCreateCopyWithStartAfterEnd.java:10)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\nFAILURES!!!\nTests run: 1,  Failures: 0,  Errors: 1\n\n"
+      },
+      {
+        "name": "testCreateCopyWithStartEqualsEnd",
+        "target_class": "org.jfree.data.time.TimeSeries",
+        "target_method": "createCopy",
+        "class_name": "testCreateCopyWithStartEqualsEnd",
+        "status": "INVALID_ORACLE",
+        "candidate_pass": null,
+        "log": ".E\nTime: 0.017\nThere was 1 error:\n1) testCreateCopyWithStartEqualsEnd(org.jfree.data.time.junit.testCreateCopyWithStartEqualsEnd)org.jfree.data.general.SeriesException: You are trying to add data where the time period class is org.jfree.data.time.Year, but the TimeSeries is expecting an instance of org.jfree.data.time.Day.\n\tat org.jfree.data.time.TimeSeries.add(TimeSeries.java:502)\n\tat org.jfree.data.time.TimeSeries.add(TimeSeries.java:575)\n\tat org.jfree.data.time.TimeSeries.add(TimeSeries.java:561)\n\tat org.jfree.data.time.junit.testCreateCopyWithStartEqualsEnd.testCreateCopyWithStartEqualsEnd(testCreateCopyWithStartEqualsEnd.java:10)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\nFAILURES!!!\nTests run: 1,  Failures: 0,  Errors: 1\n\n"
+      },
+      {
+        "name": "testCreateCopyWithNullStart",
+        "target_class": "org.jfree.data.time.TimeSeries",
+        "target_method": "createCopy",
+        "class_name": "testCreateCopyWithNullStart",
+        "status": "INVALID_ORACLE",
+        "candidate_pass": null,
+        "log": ".E\nTime: 0.018\nThere was 1 error:\n1) testCreateCopyWithNullStart(org.jfree.data.time.junit.testCreateCopyWithNullStart)org.jfree.data.general.SeriesException: You are trying to add data where the time period class is org.jfree.data.time.Year, but the TimeSeries is expecting an instance of org.jfree.data.time.Day.\n\tat org.jfree.data.time.TimeSeries.add(TimeSeries.java:502)\n\tat org.jfree.data.time.TimeSeries.add(TimeSeries.java:575)\n\tat org.jfree.data.time.TimeSeries.add(TimeSeries.java:561)\n\tat org.jfree.data.time.junit.testCreateCopyWithNullStart.testCreateCopyWithNullStart(testCreateCopyWithNullStart.java:10)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\nFAILURES!!!\nTests run: 1,  Failures: 0,  Errors: 1\n\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_others__Dcorrect__Jaid__Chart__patch2-Chart-9-Jaid",
+    "true_project": "Chart",
+    "true_bug_number": "9",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 575,
+    "output_tokens": 28,
+    "project": "Time",
+    "bug_number": 16,
+    "recalled_label": "OVERFITTING",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_others__Dcorrect__Jaid__Chart__patch2-Chart-9-Jaid",
+    "bug_id": "Chart-9",
+    "s_edit_ast": 0.12041884816753927,
+    "s_edit_ast_actions": 23,
+    "s_edit_ast_nodes": 191,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/jfree/data/time/TimeSeries"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 87,
+      "cfg_edges": 91,
+      "branch_points": 12,
+      "cyclomatic_complexity": 8,
+      "def_count": 56,
+      "use_count": 173,
+      "defuse_pairs": 56,
+      "per_method": [
+        {
+          "class": "org.jfree.data.time.TimeSeries",
+          "method": "createCopy",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 87,
+          "cfg_edges": 91,
+          "branch_points": 12,
+          "cyclomatic_complexity": 8,
+          "def_count": 56,
+          "use_count": 173,
+          "defuse_pairs": 56,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 94,
+      "cfg_edges": 100,
+      "branch_points": 14,
+      "cyclomatic_complexity": 10,
+      "def_count": 60,
+      "use_count": 187,
+      "defuse_pairs": 60,
+      "per_method": [
+        {
+          "class": "org.jfree.data.time.TimeSeries",
+          "method": "createCopy",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 94,
+          "cfg_edges": 100,
+          "branch_points": 14,
+          "cyclomatic_complexity": 10,
+          "def_count": 60,
+          "use_count": 187,
+          "defuse_pairs": 60,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 2,
+    "d_stmts": 7,
+    "d_branch_points": 2,
+    "d_cfg_edges": 9,
+    "d_defuse_pairs": 4,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 6,
+      "n_candidate_warnings": 6,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_others__Dcorrect__Jaid__Chart__patch2-Chart-9-Jaid",
+    "bug_id": "Chart-9",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}
