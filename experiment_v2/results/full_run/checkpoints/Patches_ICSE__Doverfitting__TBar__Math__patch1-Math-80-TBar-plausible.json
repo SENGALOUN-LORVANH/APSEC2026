@@ -1,0 +1,256 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__TBar__Math__patch1-Math-80-TBar-plausible",
+  "bug_id": "Math-80",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 13.505
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.957
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 9.912
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 50.054
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 0.956
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 52.587
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__TBar__Math__patch1-Math-80-TBar-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.15000000000000002,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.066351118000057,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2266,
+        "output_tokens": 179,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.3,
+          "readability": 0.6,
+          "security_robustness": 0.8,
+          "judgement": "OVERFITTING",
+          "confidence": 0.85,
+          "brief_reason": "The patch changes the loop initialization from `4 * n - 1` to `4 * this.pingPong - 1`, which appears to be a specific fix for the test case rather than addressing the root cause. The change introduces unrelated behavior by using pingPong instead of the parameter n, fundamentally altering the algorithm's logic in a way that seems incorrect for the general case."
+        },
+        "s_sem": 0.15000000000000002,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 2.9044078179999815,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2266,
+        "output_tokens": 179,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.3,
+          "readability": 0.6,
+          "security_robustness": 0.8,
+          "judgement": "OVERFITTING",
+          "confidence": 0.85,
+          "brief_reason": "The patch changes the loop initialization from `4 * n - 1` to `4 * this.pingPong - 1`, which appears to be a specific fix for the test case rather than addressing the root cause. The change introduces unrelated behavior by using pingPong instead of the parameter n, fundamentally altering the algorithm's logic in a way that seems incorrect for the general case."
+        },
+        "s_sem": 0.15000000000000002,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.0577645179998854,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2266,
+        "output_tokens": 179,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.3,
+          "readability": 0.6,
+          "security_robustness": 0.8,
+          "judgement": "OVERFITTING",
+          "confidence": 0.85,
+          "brief_reason": "The patch changes the loop initialization from `4 * n - 1` to `4 * this.pingPong - 1`, which appears to be a specific fix for the test case rather than addressing the root cause. The change introduces unrelated behavior by using pingPong instead of the parameter n, fundamentally altering the algorithm's logic in a way that seems incorrect for the general case."
+        },
+        "s_sem": 0.15000000000000002,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__TBar__Math__patch1-Math-80-TBar-plausible",
+    "bug_id": "Math-80",
+    "model": "claude-haiku-4-5",
+    "latency_s": 13.792045600999927,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 2159,
+    "output_tokens": 2165,
+    "tests": [
+      {
+        "name": "testFlipIfWarrantedBoundaryCondition",
+        "target_class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+        "target_method": "flipIfWarranted",
+        "class_name": "TestFlipIfWarrantedBoundaryCondition",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.014\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testFlipIfWarrantedWithDifferentMatrixSize",
+        "target_class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+        "target_method": "flipIfWarranted",
+        "class_name": "TestFlipIfWarrantedWithDifferentMatrixSize",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.03\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testFlipIfWarrantedLargeMatrix",
+        "target_class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+        "target_method": "flipIfWarranted",
+        "class_name": "TestFlipIfWarrantedLargeMatrix",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.025\n\nOK (1 test)\n\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__TBar__Math__patch1-Math-80-TBar-plausible",
+    "true_project": "Math",
+    "true_bug_number": "80",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 630,
+    "output_tokens": 28,
+    "project": "Math",
+    "bug_number": 28,
+    "recalled_label": "OVERFITTING",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__TBar__Math__patch1-Math-80-TBar-plausible",
+    "bug_id": "Math-80",
+    "s_edit_ast": 0.07462686567164178,
+    "s_edit_ast_actions": 10,
+    "s_edit_ast_nodes": 134,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math/linear/EigenDecompositionImpl"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 40,
+      "cfg_edges": 41,
+      "branch_points": 3,
+      "cyclomatic_complexity": 3,
+      "def_count": 33,
+      "use_count": 92,
+      "defuse_pairs": 33,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+          "method": "flipIfWarranted",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 40,
+          "cfg_edges": 41,
+          "branch_points": 3,
+          "cyclomatic_complexity": 3,
+          "def_count": 33,
+          "use_count": 92,
+          "defuse_pairs": 33,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 41,
+      "cfg_edges": 42,
+      "branch_points": 3,
+      "cyclomatic_complexity": 3,
+      "def_count": 34,
+      "use_count": 94,
+      "defuse_pairs": 34,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+          "method": "flipIfWarranted",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 41,
+          "cfg_edges": 42,
+          "branch_points": 3,
+          "cyclomatic_complexity": 3,
+          "def_count": 34,
+          "use_count": 94,
+          "defuse_pairs": 34,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": 1,
+    "d_branch_points": 0,
+    "d_cfg_edges": 1,
+    "d_defuse_pairs": 1,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 317,
+      "n_candidate_warnings": 317,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 3,
+      "n_changed_class_files_candidate": 3,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__TBar__Math__patch1-Math-80-TBar-plausible",
+    "bug_id": "Math-80",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

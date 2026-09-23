@@ -1,0 +1,265 @@
+{
+  "patch_id": "Patches_others__Dcorrect__Jaid__Math__patch1-Math-82-Jaid",
+  "bug_id": "Math-82",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 10.145
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.824
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 11.344
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 29.994
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.198
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 69.087
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_others__Dcorrect__Jaid__Math__patch1-Math-82-Jaid",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.85,
+    "decision": "CORRECT",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.804598111999894,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2272,
+        "output_tokens": 174,
+        "parsed": {
+          "generalization": "general",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 1.0,
+          "readability": 1.0,
+          "security_robustness": 1.0,
+          "judgement": "CORRECT",
+          "confidence": 0.85,
+          "brief_reason": "The patch changes the pivot row selection criterion from >= 0 to > 0, which fixes the minimum ratio test (MRT) in the simplex algorithm by excluding zero entries that would cause division issues or incorrect pivot selection. This is a minimal, one-character change that addresses the root cause of the incorrect optimization result (11.5 vs expected 10.0) without affecting other functionality."
+        },
+        "s_sem": 0.85,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.639680766999845,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2272,
+        "output_tokens": 174,
+        "parsed": {
+          "generalization": "general",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 1.0,
+          "readability": 1.0,
+          "security_robustness": 1.0,
+          "judgement": "CORRECT",
+          "confidence": 0.85,
+          "brief_reason": "The patch changes the pivot row selection criterion from >= 0 to > 0, which fixes the minimum ratio test (MRT) in the simplex algorithm by excluding zero entries that would cause division issues or incorrect pivot selection. This is a minimal, one-character change that addresses the root cause of the incorrect optimization result (11.5 vs expected 10.0) without affecting other functionality."
+        },
+        "s_sem": 0.85,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.5032425389999844,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2272,
+        "output_tokens": 174,
+        "parsed": {
+          "generalization": "general",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 1.0,
+          "readability": 1.0,
+          "security_robustness": 1.0,
+          "judgement": "CORRECT",
+          "confidence": 0.85,
+          "brief_reason": "The patch changes the pivot row selection criterion from >= 0 to > 0, which fixes the minimum ratio test (MRT) in the simplex algorithm by excluding zero entries that would cause division issues or incorrect pivot selection. This is a minimal, one-character change that addresses the root cause of the incorrect optimization result (11.5 vs expected 10.0) without affecting other functionality."
+        },
+        "s_sem": 0.85,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_others__Dcorrect__Jaid__Math__patch1-Math-82-Jaid",
+    "bug_id": "Math-82",
+    "model": "claude-haiku-4-5",
+    "latency_s": 14.062310853000099,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 2143,
+    "output_tokens": 2314,
+    "tests": [
+      {
+        "name": "testPivotRowWithZeroEntry",
+        "target_class": "org.apache.commons.math.optimization.linear.SimplexSolver",
+        "target_method": "getPivotRow",
+        "class_name": "TestPivotRowZeroEntry",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "jar/java/util/AbstractList.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/util/AbstractCollection.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/util/AbstractCollection.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Iterable.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Iterable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] /data/qc_workspaces/gen_tests/Patches_others__Dcorrect__Jaid__Math__patch1-Math-82-Jaid/TestPivotRowZeroEntry/fixed/src/test/java/org/apache/commons/math/optimization/linear/TestPivotRowZeroEntry.java:22: error: cannot find symbol\n    [javac]         RealPointValuePair solution = solver.optimize(f, constraints, GoalType.MAXIMIZE, false);\n    [javac]                                                                       ^\n    [javac]   symbol:   variable GoalType\n    [javac]   location: class TestPivotRowZeroEntry\n    [javac] 1 error\n    [javac] 28 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_others__Dcorrect__Jaid__Math__patch1-Math-82-Jaid/TestPivotRowZeroEntry/fixed/build.xml:168: Compile failed; see the compiler error output for details.\n\nTotal time: 1 second\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testPivotRowNegativeEntry",
+        "target_class": "org.apache.commons.math.optimization.linear.SimplexSolver",
+        "target_method": "getPivotRow",
+        "class_name": "TestPivotRowNegativeEntry",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "stractList.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/util/AbstractCollection.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/util/AbstractCollection.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Iterable.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Iterable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] /data/qc_workspaces/gen_tests/Patches_others__Dcorrect__Jaid__Math__patch1-Math-82-Jaid/TestPivotRowNegativeEntry/fixed/src/test/java/org/apache/commons/math/optimization/linear/TestPivotRowNegativeEntry.java:21: error: cannot find symbol\n    [javac]         RealPointValuePair solution = solver.optimize(f, constraints, GoalType.MAXIMIZE, false);\n    [javac]                                                                       ^\n    [javac]   symbol:   variable GoalType\n    [javac]   location: class TestPivotRowNegativeEntry\n    [javac] 1 error\n    [javac] 28 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_others__Dcorrect__Jaid__Math__patch1-Math-82-Jaid/TestPivotRowNegativeEntry/fixed/build.xml:168: Compile failed; see the compiler error output for details.\n\nTotal time: 1 second\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testPivotRowBoundaryPositiveEntry",
+        "target_class": "org.apache.commons.math.optimization.linear.SimplexSolver",
+        "target_method": "getPivotRow",
+        "class_name": "TestPivotRowBoundaryPositive",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "lass): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/util/AbstractCollection.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/util/AbstractCollection.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Iterable.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Iterable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] /data/qc_workspaces/gen_tests/Patches_others__Dcorrect__Jaid__Math__patch1-Math-82-Jaid/TestPivotRowBoundaryPositive/fixed/src/test/java/org/apache/commons/math/optimization/linear/TestPivotRowBoundaryPositive.java:22: error: cannot find symbol\n    [javac]         RealPointValuePair solution = solver.optimize(f, constraints, GoalType.MAXIMIZE, false);\n    [javac]                                                                       ^\n    [javac]   symbol:   variable GoalType\n    [javac]   location: class TestPivotRowBoundaryPositive\n    [javac] 1 error\n    [javac] 28 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_others__Dcorrect__Jaid__Math__patch1-Math-82-Jaid/TestPivotRowBoundaryPositive/fixed/build.xml:168: Compile failed; see the compiler error output for details.\n\nTotal time: 1 second\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testMath288VariantWithDifferentRHS",
+        "target_class": "org.apache.commons.math.optimization.linear.SimplexSolver",
+        "target_method": "getPivotRow",
+        "class_name": "TestMath288Variant",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "-INF/sym/rt.jar/java/util/AbstractList.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/util/AbstractCollection.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/util/AbstractCollection.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Iterable.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Iterable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] /data/qc_workspaces/gen_tests/Patches_others__Dcorrect__Jaid__Math__patch1-Math-82-Jaid/TestMath288Variant/fixed/src/test/java/org/apache/commons/math/optimization/linear/TestMath288Variant.java:22: error: cannot find symbol\n    [javac]         RealPointValuePair solution = solver.optimize(f, constraints, GoalType.MAXIMIZE, false);\n    [javac]                                                                       ^\n    [javac]   symbol:   variable GoalType\n    [javac]   location: class TestMath288Variant\n    [javac] 1 error\n    [javac] 28 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_others__Dcorrect__Jaid__Math__patch1-Math-82-Jaid/TestMath288Variant/fixed/build.xml:168: Compile failed; see the compiler error output for details.\n\nTotal time: 1 second\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_others__Dcorrect__Jaid__Math__patch1-Math-82-Jaid",
+    "true_project": "Math",
+    "true_bug_number": "82",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 640,
+    "output_tokens": 26,
+    "project": "Math",
+    "bug_number": 41,
+    "recalled_label": "CORRECT",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_others__Dcorrect__Jaid__Math__patch1-Math-82-Jaid",
+    "bug_id": "Math-82",
+    "s_edit_ast": 0.007518796992481203,
+    "s_edit_ast_actions": 1,
+    "s_edit_ast_nodes": 133,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math/optimization/linear/SimplexSolver"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 23,
+      "cfg_edges": 25,
+      "branch_points": 3,
+      "cyclomatic_complexity": 4,
+      "def_count": 18,
+      "use_count": 50,
+      "defuse_pairs": 18,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.optimization.linear.SimplexSolver",
+          "method": "getPivotRow",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 23,
+          "cfg_edges": 25,
+          "branch_points": 3,
+          "cyclomatic_complexity": 4,
+          "def_count": 18,
+          "use_count": 50,
+          "defuse_pairs": 18,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 23,
+      "cfg_edges": 25,
+      "branch_points": 3,
+      "cyclomatic_complexity": 4,
+      "def_count": 18,
+      "use_count": 50,
+      "defuse_pairs": 18,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.optimization.linear.SimplexSolver",
+          "method": "getPivotRow",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 23,
+          "cfg_edges": 25,
+          "branch_points": 3,
+          "cyclomatic_complexity": 4,
+          "def_count": 18,
+          "use_count": 50,
+          "defuse_pairs": 18,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": 0,
+    "d_branch_points": 0,
+    "d_cfg_edges": 0,
+    "d_defuse_pairs": 0,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 312,
+      "n_candidate_warnings": 312,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_others__Dcorrect__Jaid__Math__patch1-Math-82-Jaid",
+    "bug_id": "Math-82",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

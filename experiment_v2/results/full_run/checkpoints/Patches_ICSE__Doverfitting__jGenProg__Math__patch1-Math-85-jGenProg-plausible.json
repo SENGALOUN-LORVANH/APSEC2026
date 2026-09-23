@@ -1,0 +1,25 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__jGenProg__Math__patch1-Math-85-jGenProg-plausible",
+  "bug_id": "Math-85",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 1.173
+    }
+  },
+  "complete": false,
+  "terminal_failure": "apply_patch",
+  "semantic": null,
+  "counterexample": null,
+  "memorization": null,
+  "stage2b": null,
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__jGenProg__Math__patch1-Math-85-jGenProg-plausible",
+    "bug_id": "Math-85",
+    "patch_applies": false,
+    "patch_compiles": "NA",
+    "original_tests_pass": "NA",
+    "error": "dry-run failed: checking file src/java/org/apache/commons/math/analysis/solvers/UnivariateRealSolverUtils.java\nHunk #1 FAILED at 196.\n1 out of 1 hunk FAILED\n"
+  }
+}

@@ -1,0 +1,265 @@
+{
+  "patch_id": "Patches_ICSE__Dsame__jMutRepair__Math__patch1-Math-85-jMutRepair",
+  "bug_id": "Math-85",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 7.964
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.705
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 8.476
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 72.721
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.518
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 64.818
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Dsame__jMutRepair__Math__patch1-Math-85-jMutRepair",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.9499999999999998,
+    "decision": "CORRECT",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 2.9054152449998583,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3098,
+        "output_tokens": 182,
+        "parsed": {
+          "generalization": "general",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 1.0,
+          "readability": 1.0,
+          "security_robustness": 1.0,
+          "judgement": "CORRECT",
+          "confidence": 0.95,
+          "brief_reason": "The patch fixes a logical bug in the convergence check by changing `>=` to `>`. The original condition incorrectly threw an exception when `fa * fb == 0.0` (meaning a root was found), while the loop condition correctly continues only when `fa * fb > 0.0`. This one-character fix is minimal, general, and directly addresses the root cause of the convergence failure in the test."
+        },
+        "s_sem": 0.95,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 2.7776622169999428,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3098,
+        "output_tokens": 175,
+        "parsed": {
+          "generalization": "general",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 1.0,
+          "readability": 1.0,
+          "security_robustness": 1.0,
+          "judgement": "CORRECT",
+          "confidence": 0.95,
+          "brief_reason": "The patch fixes a logical error in the convergence check by changing `>=` to `>`. The original condition incorrectly threw an exception when `fa * fb == 0.0` (meaning a root was found), while the loop condition correctly continues only when `fa * fb > 0.0`. This one-character fix addresses the root cause and allows valid bracketing solutions to be returned."
+        },
+        "s_sem": 0.95,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 2.4615551209999467,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3098,
+        "output_tokens": 176,
+        "parsed": {
+          "generalization": "general",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 1.0,
+          "readability": 1.0,
+          "security_robustness": 1.0,
+          "judgement": "CORRECT",
+          "confidence": 0.95,
+          "brief_reason": "The patch fixes a logical error in the convergence check by changing `fa * fb >= 0.0` to `fa * fb > 0.0`. This correctly handles the case where `fa * fb == 0.0` (meaning one endpoint is exactly at a root), which should be treated as success rather than failure. The change is minimal, general, and directly addresses the root cause of the test failure."
+        },
+        "s_sem": 0.95,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Dsame__jMutRepair__Math__patch1-Math-85-jMutRepair",
+    "bug_id": "Math-85",
+    "model": "claude-haiku-4-5",
+    "latency_s": 24.042976671999895,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 2967,
+    "output_tokens": 2625,
+    "tests": [
+      {
+        "name": "testBracketWithExactZeroAtBoundary",
+        "target_class": "org.apache.commons.math.analysis.solvers.UnivariateRealSolverUtils",
+        "target_method": "bracket",
+        "class_name": "BracketExactZeroTest",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": "JUnit version 4.11\n.\nTime: 0.006\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testBracketWithBothEndpointsNegative",
+        "target_class": "org.apache.commons.math.analysis.solvers.UnivariateRealSolverUtils",
+        "target_method": "bracket",
+        "class_name": "BracketNoRootTest",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": "JUnit version 4.11\n.\nTime: 0.027\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testBracketWithZeroProductAtEnd",
+        "target_class": "org.apache.commons.math.analysis.solvers.UnivariateRealSolverUtils",
+        "target_method": "bracket",
+        "class_name": "BracketZeroProductTest",
+        "status": "VALID_BUG_REVEALING",
+        "candidate_pass": true,
+        "log": "JUnit version 4.11\n.\nTime: 0.007\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testBracketNegativeProductSuccess",
+        "target_class": "org.apache.commons.math.analysis.solvers.UnivariateRealSolverUtils",
+        "target_method": "bracket",
+        "class_name": "BracketNegativeProductTest",
+        "status": "INVALID_ORACLE",
+        "candidate_pass": null,
+        "log": "tingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.lang.reflect.Method.invoke(Method.java:498)\n\tat org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)\n\tat org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)\n\tat org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)\n\tat org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)\n\tat org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:271)\n\tat org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:70)\n\tat org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)\n\tat org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)\n\tat org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:309)\n\tat org.junit.runners.Suite.runChild(Suite.java:127)\n\tat org.junit.runners.Suite.runChild(Suite.java:26)\n\tat org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)\n\tat org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:309)\n\tat org.junit.runner.JUnitCore.run(JUnitCore.java:160)\n\tat org.junit.runner.JUnitCore.run(JUnitCore.java:138)\n\tat org.junit.runner.JUnitCore.run(JUnitCore.java:117)\n\tat org.junit.runner.JUnitCore.runMain(JUnitCore.java:96)\n\tat org.junit.runner.JUnitCore.runMainAndExit(JUnitCore.java:47)\n\tat org.junit.runner.JUnitCore.main(JUnitCore.java:40)\n\nFAILURES!!!\nTests run: 1,  Failures: 1\n\n"
+      }
+    ],
+    "s_cex": 1.0,
+    "n_valid": 1,
+    "n_passed": 1
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Dsame__jMutRepair__Math__patch1-Math-85-jMutRepair",
+    "true_project": "Math",
+    "true_bug_number": "85",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 624,
+    "output_tokens": 26,
+    "project": "Math",
+    "bug_number": 369,
+    "recalled_label": "CORRECT",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Dsame__jMutRepair__Math__patch1-Math-85-jMutRepair",
+    "bug_id": "Math-85",
+    "s_edit_ast": 0.003663003663003663,
+    "s_edit_ast_actions": 1,
+    "s_edit_ast_nodes": 273,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math/analysis/solvers/UnivariateRealSolverUtils"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 88,
+      "cfg_edges": 92,
+      "branch_points": 10,
+      "cyclomatic_complexity": 8,
+      "def_count": 71,
+      "use_count": 207,
+      "defuse_pairs": 71,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.analysis.solvers.UnivariateRealSolverUtils",
+          "method": "bracket",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 88,
+          "cfg_edges": 92,
+          "branch_points": 10,
+          "cyclomatic_complexity": 8,
+          "def_count": 71,
+          "use_count": 207,
+          "defuse_pairs": 71,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 88,
+      "cfg_edges": 92,
+      "branch_points": 10,
+      "cyclomatic_complexity": 8,
+      "def_count": 71,
+      "use_count": 207,
+      "defuse_pairs": 71,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.analysis.solvers.UnivariateRealSolverUtils",
+          "method": "bracket",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 88,
+          "cfg_edges": 92,
+          "branch_points": 10,
+          "cyclomatic_complexity": 8,
+          "def_count": 71,
+          "use_count": 207,
+          "defuse_pairs": 71,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": 0,
+    "d_branch_points": 0,
+    "d_cfg_edges": 0,
+    "d_defuse_pairs": 0,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 314,
+      "n_candidate_warnings": 314,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 2,
+      "n_changed_class_files_candidate": 2,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Dsame__jMutRepair__Math__patch1-Math-85-jMutRepair",
+    "bug_id": "Math-85",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

@@ -1,0 +1,256 @@
+{
+  "patch_id": "Patches_others__Dcorrect__CapGen__Chart__patch1-Chart-1-CapGen",
+  "bug_id": "Chart-1",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 12.378
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.518
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 11.486
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 48.226
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.383
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 39.694
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_others__Dcorrect__CapGen__Chart__patch1-Chart-1-CapGen",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.9499999999999998,
+    "decision": "CORRECT",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.6774506270000984,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3125,
+        "output_tokens": 168,
+        "parsed": {
+          "generalization": "general",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 1.0,
+          "readability": 1.0,
+          "security_robustness": 1.0,
+          "judgement": "CORRECT",
+          "confidence": 0.95,
+          "brief_reason": "The patch fixes a logic error where the condition was inverted: the original code returned early when dataset was NOT null, preventing legend items from being generated. Changing `!=` to `==` correctly returns early only when the dataset is null, allowing the method to proceed and generate legend items as intended. This is a minimal, one-character fix that addresses the root cause of the bug."
+        },
+        "s_sem": 0.95,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.554802335999966,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3125,
+        "output_tokens": 168,
+        "parsed": {
+          "generalization": "general",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 1.0,
+          "readability": 1.0,
+          "security_robustness": 1.0,
+          "judgement": "CORRECT",
+          "confidence": 0.95,
+          "brief_reason": "The patch fixes a logic error where the condition was inverted: the original code returned early when dataset was NOT null, preventing legend items from being generated. Changing `!=` to `==` correctly returns early only when the dataset is null, allowing the method to proceed and generate legend items as intended. This is a minimal, one-character fix that addresses the root cause of the bug."
+        },
+        "s_sem": 0.95,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.627082728000005,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3125,
+        "output_tokens": 168,
+        "parsed": {
+          "generalization": "general",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 1.0,
+          "readability": 1.0,
+          "security_robustness": 1.0,
+          "judgement": "CORRECT",
+          "confidence": 0.95,
+          "brief_reason": "The patch fixes a logic error where the condition was inverted: the original code returned early when dataset was NOT null, preventing legend items from being generated. Changing `!=` to `==` correctly returns early only when the dataset is null, allowing the method to proceed and generate legend items as intended. This is a minimal, one-character fix that addresses the root cause of the bug."
+        },
+        "s_sem": 0.95,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_others__Dcorrect__CapGen__Chart__patch1-Chart-1-CapGen",
+    "bug_id": "Chart-1",
+    "model": "claude-haiku-4-5",
+    "latency_s": 11.690100753000024,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 3022,
+    "output_tokens": 1199,
+    "tests": [
+      {
+        "name": "testGetLegendItemsWithNullDataset",
+        "target_class": "org.jfree.chart.renderer.category.AbstractCategoryItemRenderer",
+        "target_method": "getLegendItems",
+        "class_name": "TestGetLegendItemsWithNullDataset",
+        "status": "VALID_BUG_REVEALING",
+        "candidate_pass": true,
+        "log": ".\nTime: 0.062\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testGetLegendItemsWithValidDataset",
+        "target_class": "org.jfree.chart.renderer.category.AbstractCategoryItemRenderer",
+        "target_method": "getLegendItems",
+        "class_name": "TestGetLegendItemsWithValidDataset",
+        "status": "VALID_BUG_REVEALING",
+        "candidate_pass": true,
+        "log": ".\nTime: 0.108\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testGetLegendItemsWithPlotNull",
+        "target_class": "org.jfree.chart.renderer.category.AbstractCategoryItemRenderer",
+        "target_method": "getLegendItems",
+        "class_name": "TestGetLegendItemsWithPlotNull",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.077\n\nOK (1 test)\n\n"
+      }
+    ],
+    "s_cex": 1.0,
+    "n_valid": 2,
+    "n_passed": 2
+  },
+  "memorization": {
+    "patch_id": "Patches_others__Dcorrect__CapGen__Chart__patch1-Chart-1-CapGen",
+    "true_project": "Chart",
+    "true_bug_number": "1",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 553,
+    "output_tokens": 26,
+    "project": "Chart",
+    "bug_number": 4,
+    "recalled_label": "CORRECT",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_others__Dcorrect__CapGen__Chart__patch1-Chart-1-CapGen",
+    "bug_id": "Chart-1",
+    "s_edit_ast": 0.049723756906077346,
+    "s_edit_ast_actions": 9,
+    "s_edit_ast_nodes": 181,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/jfree/chart/renderer/category/AbstractCategoryItemRenderer"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 39,
+      "cfg_edges": 45,
+      "branch_points": 9,
+      "cyclomatic_complexity": 8,
+      "def_count": 21,
+      "use_count": 87,
+      "defuse_pairs": 21,
+      "per_method": [
+        {
+          "class": "org.jfree.chart.renderer.category.AbstractCategoryItemRenderer",
+          "method": "getLegendItems",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 39,
+          "cfg_edges": 45,
+          "branch_points": 9,
+          "cyclomatic_complexity": 8,
+          "def_count": 21,
+          "use_count": 87,
+          "defuse_pairs": 21,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 39,
+      "cfg_edges": 45,
+      "branch_points": 9,
+      "cyclomatic_complexity": 8,
+      "def_count": 21,
+      "use_count": 87,
+      "defuse_pairs": 21,
+      "per_method": [
+        {
+          "class": "org.jfree.chart.renderer.category.AbstractCategoryItemRenderer",
+          "method": "getLegendItems",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 39,
+          "cfg_edges": 45,
+          "branch_points": 9,
+          "cyclomatic_complexity": 8,
+          "def_count": 21,
+          "use_count": 87,
+          "defuse_pairs": 21,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": 0,
+    "d_branch_points": 0,
+    "d_cfg_edges": 0,
+    "d_defuse_pairs": 0,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 7,
+      "n_candidate_warnings": 6,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_others__Dcorrect__CapGen__Chart__patch1-Chart-1-CapGen",
+    "bug_id": "Chart-1",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

@@ -1,0 +1,256 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__TBar__Math__patch1-Math-82-TBar-plausible",
+  "bug_id": "Math-82",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 12.924
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.717
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 9.392
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 34.975
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.644
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 97.125
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__TBar__Math__patch1-Math-82-TBar-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.15000000000000002,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.057099763999986,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2169,
+        "output_tokens": 185,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.3,
+          "readability": 0.4,
+          "security_robustness": 0.9,
+          "judgement": "OVERFITTING",
+          "confidence": 0.85,
+          "brief_reason": "The patch adds a redundant condition that checks if the entry is negative (< 0), which is already implicitly checked by comparing against minValue (initialized to 0). This appears to be overfitting to the specific test case rather than fixing the underlying algorithmic issue. The condition is logically redundant since if minValue starts at 0 and we're looking for values less than minValue, they must be negative anyway."
+        },
+        "s_sem": 0.15000000000000002,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.010632004999934,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2169,
+        "output_tokens": 185,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.3,
+          "readability": 0.4,
+          "security_robustness": 0.9,
+          "judgement": "OVERFITTING",
+          "confidence": 0.85,
+          "brief_reason": "The patch adds a redundant condition that checks if the entry is negative (< 0), which is already implicitly checked by comparing against minValue (initialized to 0). This appears to be overfitting to the specific test case rather than fixing the underlying algorithmic issue. The condition is logically redundant since if minValue starts at 0 and we're looking for values less than minValue, they must be negative anyway."
+        },
+        "s_sem": 0.15000000000000002,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 2.986616002000119,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2169,
+        "output_tokens": 185,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.3,
+          "readability": 0.4,
+          "security_robustness": 0.9,
+          "judgement": "OVERFITTING",
+          "confidence": 0.85,
+          "brief_reason": "The patch adds a redundant condition that checks if the entry is negative (< 0), which is already implicitly checked by comparing against minValue (initialized to 0). This appears to be overfitting to the specific test case rather than fixing the underlying algorithmic issue. The condition is logically redundant since if minValue starts at 0 and we're looking for values less than minValue, they must be negative anyway."
+        },
+        "s_sem": 0.15000000000000002,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__TBar__Math__patch1-Math-82-TBar-plausible",
+    "bug_id": "Math-82",
+    "model": "claude-haiku-4-5",
+    "latency_s": 21.623538674999963,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 2040,
+    "output_tokens": 2532,
+    "tests": [
+      {
+        "name": "testPivotColumnWithNegativeValuesBelowMinusEpsilon",
+        "target_class": "org.apache.commons.math.optimization.linear.SimplexSolver",
+        "target_method": "getPivotColumn",
+        "class_name": "SimplexSolverTest",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": " [javac]   location: class SimplexSolverTest\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__TBar__Math__patch1-Math-82-TBar-plausible/SimplexSolverTest/fixed/src/test/java/org/apache/commons/math/optimization/linear/SimplexSolverTest.java:34: error: cannot find symbol\n    [javac]         RealPointValuePair solution = solver.optimize(f, constraints, GoalType.MAXIMIZE, false);\n    [javac]                                                                       ^\n    [javac]   symbol:   variable GoalType\n    [javac]   location: class SimplexSolverTest\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__TBar__Math__patch1-Math-82-TBar-plausible/SimplexSolverTest/fixed/src/test/java/org/apache/commons/math/optimization/linear/SimplexSolverTest.java:52: error: cannot find symbol\n    [javac]         RealPointValuePair solution = solver.optimize(f, constraints, GoalType.MAXIMIZE, false);\n    [javac]                                                                       ^\n    [javac]   symbol:   variable GoalType\n    [javac]   location: class SimplexSolverTest\n    [javac] 3 errors\n    [javac] 30 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__TBar__Math__patch1-Math-82-TBar-plausible/SimplexSolverTest/fixed/build.xml:168: Compile failed; see the compiler error output for details.\n\nTotal time: 1 second\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testPivotColumnDoesNotSelectZeroCoefficients",
+        "target_class": "org.apache.commons.math.optimization.linear.SimplexSolver",
+        "target_method": "getPivotColumn",
+        "class_name": "SimplexSolverZeroCoefficientTest",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Iterable.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Iterable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__TBar__Math__patch1-Math-82-TBar-plausible/SimplexSolverZeroCoefficientTest/fixed/src/test/java/org/apache/commons/math/optimization/linear/SimplexSolverZeroCoefficientTest.java:20: error: cannot find symbol\n    [javac]         RealPointValuePair solution = solver.optimize(f, constraints, GoalType.MAXIMIZE, false);\n    [javac]                                                                       ^\n    [javac]   symbol:   variable GoalType\n    [javac]   location: class SimplexSolverZeroCoefficientTest\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 1 error\n    [javac] 30 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__TBar__Math__patch1-Math-82-TBar-plausible/SimplexSolverZeroCoefficientTest/fixed/build.xml:168: Compile failed; see the compiler error output for details.\n\nTotal time: 1 second\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testPivotColumnWithMixedCoefficientSigns",
+        "target_class": "org.apache.commons.math.optimization.linear.SimplexSolver",
+        "target_method": "getPivotColumn",
+        "class_name": "SimplexSolverMixedCoefficientsTest",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "ind annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Iterable.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Iterable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__TBar__Math__patch1-Math-82-TBar-plausible/SimplexSolverMixedCoefficientsTest/fixed/src/test/java/org/apache/commons/math/optimization/linear/SimplexSolverMixedCoefficientsTest.java:20: error: cannot find symbol\n    [javac]         RealPointValuePair solution = solver.optimize(f, constraints, GoalType.MAXIMIZE, false);\n    [javac]                                                                       ^\n    [javac]   symbol:   variable GoalType\n    [javac]   location: class SimplexSolverMixedCoefficientsTest\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 1 error\n    [javac] 30 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__TBar__Math__patch1-Math-82-TBar-plausible/SimplexSolverMixedCoefficientsTest/fixed/build.xml:168: Compile failed; see the compiler error output for details.\n\nTotal time: 1 second\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__TBar__Math__patch1-Math-82-TBar-plausible",
+    "true_project": "Math",
+    "true_bug_number": "82",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 643,
+    "output_tokens": 28,
+    "project": "Math",
+    "bug_number": 34,
+    "recalled_label": "OVERFITTING",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__TBar__Math__patch1-Math-82-TBar-plausible",
+    "bug_id": "Math-82",
+    "s_edit_ast": 0.24719101123595505,
+    "s_edit_ast_actions": 22,
+    "s_edit_ast_nodes": 89,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math/optimization/linear/SimplexSolver"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 17,
+      "cfg_edges": 18,
+      "branch_points": 2,
+      "cyclomatic_complexity": 3,
+      "def_count": 13,
+      "use_count": 37,
+      "defuse_pairs": 13,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.optimization.linear.SimplexSolver",
+          "method": "getPivotColumn",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 17,
+          "cfg_edges": 18,
+          "branch_points": 2,
+          "cyclomatic_complexity": 3,
+          "def_count": 13,
+          "use_count": 37,
+          "defuse_pairs": 13,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 21,
+      "cfg_edges": 23,
+      "branch_points": 3,
+      "cyclomatic_complexity": 4,
+      "def_count": 16,
+      "use_count": 50,
+      "defuse_pairs": 16,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.optimization.linear.SimplexSolver",
+          "method": "getPivotColumn",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 21,
+          "cfg_edges": 23,
+          "branch_points": 3,
+          "cyclomatic_complexity": 4,
+          "def_count": 16,
+          "use_count": 50,
+          "defuse_pairs": 16,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 1,
+    "d_stmts": 4,
+    "d_branch_points": 1,
+    "d_cfg_edges": 5,
+    "d_defuse_pairs": 3,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 312,
+      "n_candidate_warnings": 312,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__TBar__Math__patch1-Math-82-TBar-plausible",
+    "bug_id": "Math-82",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

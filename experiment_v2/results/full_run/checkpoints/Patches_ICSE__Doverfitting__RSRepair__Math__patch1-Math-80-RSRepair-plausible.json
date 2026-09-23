@@ -1,0 +1,304 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__RSRepair__Math__patch1-Math-80-RSRepair-plausible",
+  "bug_id": "Math-80",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 8.892
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.865
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 9.7
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 82.271
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.064
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 44.789
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__RSRepair__Math__patch1-Math-80-RSRepair-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.1486958079999567,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2299,
+        "output_tokens": 156,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.5,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch removes the entire array-flipping logic that was supposed to execute when the condition is met, replacing it with a dead assignment. While it passes the test by avoiding incorrect flips, it fundamentally breaks the intended functionality of the method and only addresses the specific test case rather than fixing the underlying bug."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 2.9535179909998988,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2299,
+        "output_tokens": 157,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.5,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch removes the entire array-flipping logic that was supposed to execute when the condition is met, replacing it with a dead assignment. While it makes the test pass, it does so by eliminating the actual bug fix rather than implementing it correctly, which is a classic overfitting pattern that breaks the intended functionality."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 2.9818471889998364,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2299,
+        "output_tokens": 157,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.5,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch removes the entire array-flipping logic that was supposed to execute when the condition is met, replacing it with a dead assignment. While it makes the test pass, it does so by eliminating the actual bug fix rather than implementing it correctly, which is a classic overfitting pattern that breaks the intended functionality."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__RSRepair__Math__patch1-Math-80-RSRepair-plausible",
+    "bug_id": "Math-80",
+    "model": "claude-haiku-4-5",
+    "latency_s": 18.83032213499996,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 2192,
+    "output_tokens": 3352,
+    "tests": [
+      {
+        "name": "testFlipIfWarrantedActuallyFlips",
+        "target_class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+        "target_method": "flipIfWarranted",
+        "class_name": "TestFlipIfWarrantedActuallyFlips",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.008\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testFlipIfWarrantedWithLargerMatrix",
+        "target_class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+        "target_method": "flipIfWarranted",
+        "class_name": "TestFlipIfWarrantedWithLargerMatrix",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.009\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testFlipIfWarrantedPreservesArrayStructure",
+        "target_class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+        "target_method": "flipIfWarranted",
+        "class_name": "TestFlipIfWarrantedPreservesArrayStructure",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.038\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testFlipIfWarrantedBoundaryCondition",
+        "target_class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+        "target_method": "flipIfWarranted",
+        "class_name": "TestFlipIfWarrantedBoundaryCondition",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.012\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testFlipIfWarrantedLoopLogic",
+        "target_class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+        "target_method": "flipIfWarranted",
+        "class_name": "TestFlipIfWarrantedLoopLogic",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.007\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testFlipIfWarrantedStepParameter",
+        "target_class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+        "target_method": "flipIfWarranted",
+        "class_name": "TestFlipIfWarrantedStepParameter",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.032\n\nOK (1 test)\n\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__RSRepair__Math__patch1-Math-80-RSRepair-plausible",
+    "true_project": "Math",
+    "true_bug_number": "80",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 663,
+    "output_tokens": 28,
+    "project": "Math",
+    "bug_number": 41,
+    "recalled_label": "OVERFITTING",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__RSRepair__Math__patch1-Math-80-RSRepair-plausible",
+    "bug_id": "Math-80",
+    "s_edit_ast": 0.5746268656716418,
+    "s_edit_ast_actions": 77,
+    "s_edit_ast_nodes": 134,
+    "s_edit_error": null,
+    "s_vuln_changed": 1.0,
+    "s_vuln_new_warning_count": 2,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math/linear/EigenDecompositionImpl"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 40,
+      "cfg_edges": 41,
+      "branch_points": 3,
+      "cyclomatic_complexity": 3,
+      "def_count": 33,
+      "use_count": 92,
+      "defuse_pairs": 33,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+          "method": "flipIfWarranted",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 40,
+          "cfg_edges": 41,
+          "branch_points": 3,
+          "cyclomatic_complexity": 3,
+          "def_count": 33,
+          "use_count": 92,
+          "defuse_pairs": 33,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 20,
+      "cfg_edges": 19,
+      "branch_points": 1,
+      "cyclomatic_complexity": 1,
+      "def_count": 17,
+      "use_count": 44,
+      "defuse_pairs": 17,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+          "method": "flipIfWarranted",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 20,
+          "cfg_edges": 19,
+          "branch_points": 1,
+          "cyclomatic_complexity": 1,
+          "def_count": 17,
+          "use_count": 44,
+          "defuse_pairs": 17,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": -2,
+    "d_stmts": -20,
+    "d_branch_points": -2,
+    "d_cfg_edges": -22,
+    "d_defuse_pairs": -16,
+    "vuln_detail": {
+      "s_vuln": 1.0,
+      "new_warnings": [
+        {
+          "bug_type": "DLS",
+          "category": "D",
+          "priority": "M",
+          "severity": "MEDIUM",
+          "class": "EigenDecompositionImpl",
+          "method": "flipIfWarranted",
+          "location": "EigenDecompositionImpl.java:line 1135",
+          "description": "Dead store to j in org.apache.commons.math.linear.EigenDecompositionImpl.flipIfWarranted(int, int)"
+        },
+        {
+          "bug_type": "RV",
+          "category": "D",
+          "priority": "M",
+          "severity": "MEDIUM",
+          "class": "EigenDecompositionImpl",
+          "method": "",
+          "location": "EigenDecompositionImpl.java:line 840",
+          "description": "Return value of flipIfWarranted(int, int) ignored, but method has no side effect"
+        }
+      ],
+      "n_buggy_warnings": 317,
+      "n_candidate_warnings": 319,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 3,
+      "n_changed_class_files_candidate": 3,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__RSRepair__Math__patch1-Math-80-RSRepair-plausible",
+    "bug_id": "Math-80",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

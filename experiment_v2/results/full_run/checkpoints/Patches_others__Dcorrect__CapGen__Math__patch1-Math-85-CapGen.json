@@ -1,0 +1,238 @@
+{
+  "patch_id": "Patches_others__Dcorrect__CapGen__Math__patch1-Math-85-CapGen",
+  "bug_id": "Math-85",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 9.627
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.972
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 9.348
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 12.896
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.635
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 60.619
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_others__Dcorrect__CapGen__Math__patch1-Math-85-CapGen",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.9499999999999998,
+    "decision": "CORRECT",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.099268617000007,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3099,
+        "output_tokens": 190,
+        "parsed": {
+          "generalization": "general",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 1.0,
+          "readability": 1.0,
+          "security_robustness": 1.0,
+          "judgement": "CORRECT",
+          "confidence": 0.95,
+          "brief_reason": "The patch fixes a critical bug where the condition `fa * fb >= 0.0` should be `fa * fb > 0.0`. The original condition incorrectly throws an exception when `fa * fb == 0.0` (meaning a root is found), while the loop exits successfully when `fa * fb <= 0.0`. This is a minimal, one-character change that corrects the logic to match the intended algorithm behavior described in the documentation."
+        },
+        "s_sem": 0.95,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 2.875181201000032,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3099,
+        "output_tokens": 186,
+        "parsed": {
+          "generalization": "general",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 1.0,
+          "readability": 1.0,
+          "security_robustness": 1.0,
+          "judgement": "CORRECT",
+          "confidence": 0.95,
+          "brief_reason": "The patch fixes a critical logic bug where the condition `fa * fb >= 0.0` should be `fa * fb > 0.0`. The original condition incorrectly throws an exception when `fa * fb == 0.0` (meaning a root is found), while the loop only continues when `fa * fb > 0.0`. This change is minimal, general, and directly addresses the root cause of the convergence exception in the test."
+        },
+        "s_sem": 0.95,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 2.92225191600005,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3099,
+        "output_tokens": 188,
+        "parsed": {
+          "generalization": "general",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 1.0,
+          "readability": 1.0,
+          "security_robustness": 1.0,
+          "judgement": "CORRECT",
+          "confidence": 0.95,
+          "brief_reason": "The patch fixes a critical logic bug where the condition `fa * fb >= 0.0` should be `fa * fb > 0.0`. The original condition incorrectly throws an exception when `fa * fb == 0.0` (meaning a root is found), while the loop only exits when `fa * fb <= 0.0`. This change is minimal, general, and directly addresses the root cause of the convergence exception in the test."
+        },
+        "s_sem": 0.95,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_others__Dcorrect__CapGen__Math__patch1-Math-85-CapGen",
+    "bug_id": "Math-85",
+    "model": "claude-haiku-4-5",
+    "latency_s": 8.085475932000008,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 2968,
+    "output_tokens": 1149,
+    "tests": [
+      {
+        "name": "testBracketingWithExactZeroAtBoundary",
+        "target_class": "org.apache.commons.math.analysis.solvers.UnivariateRealSolverUtils",
+        "target_method": "bracket",
+        "class_name": "BracketingBoundaryTest",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "/projects -Dbasedir=/data/qc_workspaces/gen_tests/Patches_others__Dcorrect__CapGen__Math__patch1-Math-85-CapGen/BracketingBoundaryTest/fixed -Dbuild.compiler=javac1.7  compile.tests 2>&1\nOpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=1G; support was removed in 8.0\nBuildfile: /opt/defects4j-2.0.1/framework/projects/defects4j.build.xml\n\ninit:\n     [echo] -------- Commons MATH 2.0-SNAPSHOT --------\n\ncompile:\n    [javac] /data/qc_workspaces/gen_tests/Patches_others__Dcorrect__CapGen__Math__patch1-Math-85-CapGen/BracketingBoundaryTest/fixed/build.xml:151: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds\n\ncheck-availability:\n     [echo] doing check-availability...\n\ndownload-dependencies:\n     [echo] doing download-dependencies...\n\ndownload-junit:\n\ncompile.tests:\n    [javac] /data/qc_workspaces/gen_tests/Patches_others__Dcorrect__CapGen__Math__patch1-Math-85-CapGen/BracketingBoundaryTest/fixed/build.xml:165: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds\n    [javac] Compiling 1 source file to /data/qc_workspaces/gen_tests/Patches_others__Dcorrect__CapGen__Math__patch1-Math-85-CapGen/BracketingBoundaryTest/fixed/target/test-classes\n    [javac] /data/qc_workspaces/gen_tests/Patches_others__Dcorrect__CapGen__Math__patch1-Math-85-CapGen/BracketingBoundaryTest/fixed/src/test/org/apache/commons/math/distribution/BracketingBoundaryTest.java:61: error: class, interface, or enum expected\n    [javac] }}\n    [javac]  ^\n    [javac] 1 error\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_others__Dcorrect__CapGen__Math__patch1-Math-85-CapGen/BracketingBoundaryTest/fixed/build.xml:165: Compile failed; see the compiler error output for details.\n\nTotal time: 1 second\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_others__Dcorrect__CapGen__Math__patch1-Math-85-CapGen",
+    "true_project": "Math",
+    "true_bug_number": "85",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 625,
+    "output_tokens": 26,
+    "project": "Math",
+    "bug_number": 32,
+    "recalled_label": "CORRECT",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_others__Dcorrect__CapGen__Math__patch1-Math-85-CapGen",
+    "bug_id": "Math-85",
+    "s_edit_ast": 0.01098901098901099,
+    "s_edit_ast_actions": 3,
+    "s_edit_ast_nodes": 273,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math/analysis/solvers/UnivariateRealSolverUtils"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 88,
+      "cfg_edges": 92,
+      "branch_points": 10,
+      "cyclomatic_complexity": 8,
+      "def_count": 71,
+      "use_count": 207,
+      "defuse_pairs": 71,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.analysis.solvers.UnivariateRealSolverUtils",
+          "method": "bracket",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 88,
+          "cfg_edges": 92,
+          "branch_points": 10,
+          "cyclomatic_complexity": 8,
+          "def_count": 71,
+          "use_count": 207,
+          "defuse_pairs": 71,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 88,
+      "cfg_edges": 92,
+      "branch_points": 10,
+      "cyclomatic_complexity": 8,
+      "def_count": 71,
+      "use_count": 207,
+      "defuse_pairs": 71,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.analysis.solvers.UnivariateRealSolverUtils",
+          "method": "bracket",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 88,
+          "cfg_edges": 92,
+          "branch_points": 10,
+          "cyclomatic_complexity": 8,
+          "def_count": 71,
+          "use_count": 207,
+          "defuse_pairs": 71,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": 0,
+    "d_branch_points": 0,
+    "d_cfg_edges": 0,
+    "d_defuse_pairs": 0,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 314,
+      "n_candidate_warnings": 314,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 2,
+      "n_changed_class_files_candidate": 2,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_others__Dcorrect__CapGen__Math__patch1-Math-85-CapGen",
+    "bug_id": "Math-85",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}
