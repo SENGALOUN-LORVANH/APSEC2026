@@ -1,0 +1,215 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__Arja__Math__patch1-Math-95-Arja-plausible",
+  "bug_id": "Math-95",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 9.452
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 2.238
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 2.127
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 2.542
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 0.423
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 36.746
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__Arja__Math__patch1-Math-95-Arja-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 0,
+    "s_sem_final": null,
+    "decision": null,
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 0.44848047199957364,
+        "attempts": 1,
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLcDxhihuhuuHgEYXvjK'}"
+      },
+      {
+        "run": 1,
+        "latency_s": 0.35837175699998625,
+        "attempts": 1,
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLcDzBX2evRcBQsfYkDV'}"
+      },
+      {
+        "run": 2,
+        "latency_s": 0.352746942999147,
+        "attempts": 1,
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLcE1j2xz3Nq3BQHtgbo'}"
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__Arja__Math__patch1-Math-95-Arja-plausible",
+    "bug_id": "Math-95",
+    "model": "claude-haiku-4-5",
+    "latency_s": 0.49650929200106475,
+    "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLcEC2Qmo9HSPc7Q4g3k'}",
+    "context_errors": [],
+    "input_tokens": null,
+    "output_tokens": null,
+    "tests": []
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__Arja__Math__patch1-Math-95-Arja-plausible",
+    "true_project": "Math",
+    "true_bug_number": "95",
+    "model": "claude-haiku-4-5",
+    "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLcEEKaK5dG5Qkar55Zk'}",
+    "input_tokens": null,
+    "output_tokens": null
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__Arja__Math__patch1-Math-95-Arja-plausible",
+    "bug_id": "Math-95",
+    "s_edit_ast": 0.07216494845360824,
+    "s_edit_ast_actions": 7,
+    "s_edit_ast_nodes": 97,
+    "s_edit_error": null,
+    "s_vuln_changed": 0.5,
+    "s_vuln_new_warning_count": 1,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math/distribution/FDistributionImpl"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 16,
+      "cfg_edges": 14,
+      "branch_points": 2,
+      "cyclomatic_complexity": 2,
+      "def_count": 10,
+      "use_count": 31,
+      "defuse_pairs": 10,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.distribution.FDistributionImpl",
+          "method": "inverseCumulativeProbability",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 10,
+          "cfg_edges": 9,
+          "branch_points": 2,
+          "cyclomatic_complexity": 1,
+          "def_count": 5,
+          "use_count": 20,
+          "defuse_pairs": 5,
+          "error": null
+        },
+        {
+          "class": "org.apache.commons.math.distribution.FDistributionImpl",
+          "method": "getInitialDomain",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 6,
+          "cfg_edges": 5,
+          "branch_points": 0,
+          "cyclomatic_complexity": 1,
+          "def_count": 5,
+          "use_count": 11,
+          "defuse_pairs": 5,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 18,
+      "cfg_edges": 16,
+      "branch_points": 2,
+      "cyclomatic_complexity": 2,
+      "def_count": 11,
+      "use_count": 36,
+      "defuse_pairs": 11,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.distribution.FDistributionImpl",
+          "method": "inverseCumulativeProbability",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 12,
+          "cfg_edges": 11,
+          "branch_points": 2,
+          "cyclomatic_complexity": 1,
+          "def_count": 6,
+          "use_count": 25,
+          "defuse_pairs": 6,
+          "error": null
+        },
+        {
+          "class": "org.apache.commons.math.distribution.FDistributionImpl",
+          "method": "getInitialDomain",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 6,
+          "cfg_edges": 5,
+          "branch_points": 0,
+          "cyclomatic_complexity": 1,
+          "def_count": 5,
+          "use_count": 11,
+          "defuse_pairs": 5,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": 2,
+    "d_branch_points": 0,
+    "d_cfg_edges": 2,
+    "d_defuse_pairs": 1,
+    "vuln_detail": {
+      "s_vuln": 0.5,
+      "new_warnings": [
+        {
+          "bug_type": "DLS",
+          "category": "D",
+          "priority": "M",
+          "severity": "MEDIUM",
+          "class": "FDistributionImpl",
+          "method": "getInitialDomain",
+          "location": "FDistributionImpl.java:line 148",
+          "description": "Dead store to ret in org.apache.commons.math.distribution.FDistributionImpl.getInitialDomain(double)"
+        }
+      ],
+      "n_buggy_warnings": 7,
+      "n_candidate_warnings": 8,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__Arja__Math__patch1-Math-95-Arja-plausible",
+    "bug_id": "Math-95",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

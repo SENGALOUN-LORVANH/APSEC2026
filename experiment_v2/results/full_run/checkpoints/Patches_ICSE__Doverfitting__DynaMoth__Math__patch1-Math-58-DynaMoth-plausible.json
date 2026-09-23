@@ -1,0 +1,176 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__DynaMoth__Math__patch1-Math-58-DynaMoth-plausible",
+  "bug_id": "Math-58",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 60.215
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 1.982
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 2.333
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 2.56
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 0.384
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 107.827
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__DynaMoth__Math__patch1-Math-58-DynaMoth-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 0,
+    "s_sem_final": null,
+    "decision": null,
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 0.4740229979997821,
+        "attempts": 1,
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLcNmdU1P7cuQ1XJQTm4'}"
+      },
+      {
+        "run": 1,
+        "latency_s": 0.311339099000179,
+        "attempts": 1,
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLcNoFSxjqqziqtiF3Kx'}"
+      },
+      {
+        "run": 2,
+        "latency_s": 0.3699720990007336,
+        "attempts": 1,
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLcNpkUy9TBSSemneFhA'}"
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__DynaMoth__Math__patch1-Math-58-DynaMoth-plausible",
+    "bug_id": "Math-58",
+    "model": "claude-haiku-4-5",
+    "latency_s": 0.3905662979996123,
+    "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLcP1goXbC7bVFgNpZE3'}",
+    "context_errors": [],
+    "input_tokens": null,
+    "output_tokens": null,
+    "tests": []
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__DynaMoth__Math__patch1-Math-58-DynaMoth-plausible",
+    "true_project": "Math",
+    "true_bug_number": "58",
+    "model": "claude-haiku-4-5",
+    "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLcP3LXWJniBsBiU7N2g'}",
+    "input_tokens": null,
+    "output_tokens": null
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__DynaMoth__Math__patch1-Math-58-DynaMoth-plausible",
+    "bug_id": "Math-58",
+    "s_edit_ast": 0.017543859649122806,
+    "s_edit_ast_actions": 17,
+    "s_edit_ast_nodes": 969,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math/optimization/general/LevenbergMarquardtOptimizer"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 278,
+      "cfg_edges": 303,
+      "branch_points": 28,
+      "cyclomatic_complexity": 27,
+      "def_count": 228,
+      "use_count": 653,
+      "defuse_pairs": 228,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.optimization.general.LevenbergMarquardtOptimizer",
+          "method": "determineLMParameter",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 278,
+          "cfg_edges": 303,
+          "branch_points": 28,
+          "cyclomatic_complexity": 27,
+          "def_count": 228,
+          "use_count": 653,
+          "defuse_pairs": 228,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 282,
+      "cfg_edges": 308,
+      "branch_points": 29,
+      "cyclomatic_complexity": 28,
+      "def_count": 231,
+      "use_count": 663,
+      "defuse_pairs": 231,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.optimization.general.LevenbergMarquardtOptimizer",
+          "method": "determineLMParameter",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 282,
+          "cfg_edges": 308,
+          "branch_points": 29,
+          "cyclomatic_complexity": 28,
+          "def_count": 231,
+          "use_count": 663,
+          "defuse_pairs": 231,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 1,
+    "d_stmts": 4,
+    "d_branch_points": 1,
+    "d_cfg_edges": 5,
+    "d_defuse_pairs": 3,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 354,
+      "n_candidate_warnings": 354,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__DynaMoth__Math__patch1-Math-58-DynaMoth-plausible",
+    "bug_id": "Math-58",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}
