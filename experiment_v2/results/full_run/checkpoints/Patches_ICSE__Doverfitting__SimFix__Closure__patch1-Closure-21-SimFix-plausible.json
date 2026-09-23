@@ -1,0 +1,256 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__SimFix__Closure__patch1-Closure-21-SimFix-plausible",
+  "bug_id": "Closure-21",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 92.595
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.644
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 11.278
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 35.657
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.053
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 33.485
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__SimFix__Closure__patch1-Closure-21-SimFix-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.4874509519995627,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2749,
+        "output_tokens": 160,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.2,
+          "readability": 0.3,
+          "security_robustness": 0.5,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch replaces the loop variable `an` with a hardcoded `parent.getParent()`, breaking the ancestor traversal logic and only fixing the specific test case. This removes the intended functionality of checking all ancestors and introduces a logic error that happens to pass the test but fails to address the general bug."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.479311905999566,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2749,
+        "output_tokens": 160,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.2,
+          "readability": 0.3,
+          "security_robustness": 0.5,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch replaces the loop variable `an` with a hardcoded `parent.getParent()`, breaking the ancestor traversal logic and only fixing the specific test case. This removes the intended functionality of checking all ancestors and introduces a logic error that happens to pass the test but fails to address the general bug."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.8749586029989587,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2749,
+        "output_tokens": 160,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.2,
+          "readability": 0.3,
+          "security_robustness": 0.5,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch replaces the loop variable `an` with a hardcoded `parent.getParent()`, breaking the ancestor traversal logic and only fixing the specific test case. This removes the intended functionality of checking all ancestors and introduces a logic error that happens to pass the test but fails to address the general bug."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__SimFix__Closure__patch1-Closure-21-SimFix-plausible",
+    "bug_id": "Closure-21",
+    "model": "claude-haiku-4-5",
+    "latency_s": 14.505488049999258,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 2618,
+    "output_tokens": 2262,
+    "tests": [
+      {
+        "name": "testCommaExpressionWithMultipleAncestors",
+        "target_class": "com.google.javascript.jscomp.CheckSideEffects",
+        "target_method": "visit",
+        "class_name": "CheckSideEffectsTest",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "Closure__patch1-Closure-21-SimFix-plausible/CheckSideEffectsTest/fixed/test/com/google/javascript/jscomp/CheckSideEffectsTest.java:47: error: no suitable method found for init(JSModule[],CompilerInput[])\n    [javac]     compiler.init(new JSModule[]{}, new CompilerInput[]{});\n    [javac]             ^\n    [javac]     method Compiler.init(JSSourceFile[],JSModule[],CompilerOptions) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]     method Compiler.<T1,T2>init(List<T1>,List<T2>,CompilerOptions) is not applicable\n    [javac]       (cannot instantiate from arguments because actual and formal argument lists differ in length)\n    [javac]     method Compiler.init(JSSourceFile[],JSSourceFile[],CompilerOptions) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]   where T1,T2 are type-variables:\n    [javac]     T1 extends SourceFile declared in method <T1,T2>init(List<T1>,List<T2>,CompilerOptions)\n    [javac]     T2 extends SourceFile declared in method <T1,T2>init(List<T1>,List<T2>,CompilerOptions)\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__SimFix__Closure__patch1-Closure-21-SimFix-plausible/CheckSideEffectsTest/fixed/test/com/google/javascript/jscomp/CheckSideEffectsTest.java:48: error: cannot find symbol\n    [javac]     compiler.setOptions(options);\n    [javac]             ^\n    [javac]   symbol:   method setOptions(CompilerOptions)\n    [javac]   location: variable compiler of type Compiler\n    [javac] 3 errors\n    [javac] 19 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__SimFix__Closure__patch1-Closure-21-SimFix-plausible/CheckSideEffectsTest/fixed/build.xml:331: Compile failed; see the compiler error output for details.\n\nTotal time: 2 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testCommaExpressionAncestorWalkCorrectness",
+        "target_class": "com.google.javascript.jscomp.CheckSideEffects",
+        "target_method": "visit",
+        "class_name": "CheckSideEffectsAncestorTest",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "ible/CheckSideEffectsAncestorTest/fixed/test/com/google/javascript/jscomp/CheckSideEffectsAncestorTest.java:46: error: no suitable method found for init(JSModule[],CompilerInput[])\n    [javac]     compiler.init(new JSModule[]{}, new CompilerInput[]{});\n    [javac]             ^\n    [javac]     method Compiler.init(JSSourceFile[],JSModule[],CompilerOptions) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]     method Compiler.<T1,T2>init(List<T1>,List<T2>,CompilerOptions) is not applicable\n    [javac]       (cannot instantiate from arguments because actual and formal argument lists differ in length)\n    [javac]     method Compiler.init(JSSourceFile[],JSSourceFile[],CompilerOptions) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]   where T1,T2 are type-variables:\n    [javac]     T1 extends SourceFile declared in method <T1,T2>init(List<T1>,List<T2>,CompilerOptions)\n    [javac]     T2 extends SourceFile declared in method <T1,T2>init(List<T1>,List<T2>,CompilerOptions)\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__SimFix__Closure__patch1-Closure-21-SimFix-plausible/CheckSideEffectsAncestorTest/fixed/test/com/google/javascript/jscomp/CheckSideEffectsAncestorTest.java:47: error: cannot find symbol\n    [javac]     compiler.setOptions(options);\n    [javac]             ^\n    [javac]   symbol:   method setOptions(CompilerOptions)\n    [javac]   location: variable compiler of type Compiler\n    [javac] 3 errors\n    [javac] 19 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__SimFix__Closure__patch1-Closure-21-SimFix-plausible/CheckSideEffectsAncestorTest/fixed/build.xml:331: Compile failed; see the compiler error output for details.\n\nTotal time: 1 second\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testCommaExpressionLastChildDetection",
+        "target_class": "com.google.javascript.jscomp.CheckSideEffects",
+        "target_method": "visit",
+        "class_name": "CheckSideEffectsLastChildTest",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "CheckSideEffectsLastChildTest/fixed/test/com/google/javascript/jscomp/CheckSideEffectsLastChildTest.java:46: error: no suitable method found for init(JSModule[],CompilerInput[])\n    [javac]     compiler.init(new JSModule[]{}, new CompilerInput[]{});\n    [javac]             ^\n    [javac]     method Compiler.init(JSSourceFile[],JSModule[],CompilerOptions) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]     method Compiler.<T1,T2>init(List<T1>,List<T2>,CompilerOptions) is not applicable\n    [javac]       (cannot instantiate from arguments because actual and formal argument lists differ in length)\n    [javac]     method Compiler.init(JSSourceFile[],JSSourceFile[],CompilerOptions) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]   where T1,T2 are type-variables:\n    [javac]     T1 extends SourceFile declared in method <T1,T2>init(List<T1>,List<T2>,CompilerOptions)\n    [javac]     T2 extends SourceFile declared in method <T1,T2>init(List<T1>,List<T2>,CompilerOptions)\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__SimFix__Closure__patch1-Closure-21-SimFix-plausible/CheckSideEffectsLastChildTest/fixed/test/com/google/javascript/jscomp/CheckSideEffectsLastChildTest.java:47: error: cannot find symbol\n    [javac]     compiler.setOptions(options);\n    [javac]             ^\n    [javac]   symbol:   method setOptions(CompilerOptions)\n    [javac]   location: variable compiler of type Compiler\n    [javac] 3 errors\n    [javac] 19 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__SimFix__Closure__patch1-Closure-21-SimFix-plausible/CheckSideEffectsLastChildTest/fixed/build.xml:331: Compile failed; see the compiler error output for details.\n\nTotal time: 1 second\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__SimFix__Closure__patch1-Closure-21-SimFix-plausible",
+    "true_project": "Closure",
+    "true_bug_number": "21",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 580,
+    "output_tokens": 26,
+    "project": "Closure",
+    "bug_number": null,
+    "recalled_label": "UNKNOWN",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__SimFix__Closure__patch1-Closure-21-SimFix-plausible",
+    "bug_id": "Closure-21",
+    "s_edit_ast": 0.016556291390728478,
+    "s_edit_ast_actions": 5,
+    "s_edit_ast_nodes": 302,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "com/google/javascript/jscomp/CheckSideEffects"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 87,
+      "cfg_edges": 103,
+      "branch_points": 24,
+      "cyclomatic_complexity": 18,
+      "def_count": 49,
+      "use_count": 179,
+      "defuse_pairs": 49,
+      "per_method": [
+        {
+          "class": "com.google.javascript.jscomp.CheckSideEffects",
+          "method": "visit",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 87,
+          "cfg_edges": 103,
+          "branch_points": 24,
+          "cyclomatic_complexity": 18,
+          "def_count": 49,
+          "use_count": 179,
+          "defuse_pairs": 49,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 88,
+      "cfg_edges": 104,
+      "branch_points": 24,
+      "cyclomatic_complexity": 18,
+      "def_count": 50,
+      "use_count": 181,
+      "defuse_pairs": 50,
+      "per_method": [
+        {
+          "class": "com.google.javascript.jscomp.CheckSideEffects",
+          "method": "visit",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 88,
+          "cfg_edges": 104,
+          "branch_points": 24,
+          "cyclomatic_complexity": 18,
+          "def_count": 50,
+          "use_count": 181,
+          "defuse_pairs": 50,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": 1,
+    "d_branch_points": 0,
+    "d_cfg_edges": 1,
+    "d_defuse_pairs": 1,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 6,
+      "n_candidate_warnings": 6,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 2,
+      "n_changed_class_files_candidate": 2,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__SimFix__Closure__patch1-Closure-21-SimFix-plausible",
+    "bug_id": "Closure-21",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

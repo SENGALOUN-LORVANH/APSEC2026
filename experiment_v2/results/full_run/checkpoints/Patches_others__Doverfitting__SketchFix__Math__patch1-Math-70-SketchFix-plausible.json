@@ -1,0 +1,284 @@
+{
+  "patch_id": "Patches_others__Doverfitting__SketchFix__Math__patch1-Math-70-SketchFix-plausible",
+  "bug_id": "Math-70",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 10.995
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 1.487
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 10.852
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 45.558
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.178
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 78.788
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_others__Doverfitting__SketchFix__Math__patch1-Math-70-SketchFix-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.5381998760003626,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2537,
+        "output_tokens": 179,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.3,
+          "readability": 0.4,
+          "security_robustness": 0.6,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch fixes the NullPointerException by correctly passing the function parameter `f` to the recursive solve call, which is the genuine bug fix. However, it adds an unrelated and nonsensical condition `||i<0` that will never be true (i starts at 0 and only increments), weakening code quality and suggesting overfitting to pass the test rather than proper repair."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.3443033839994314,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2537,
+        "output_tokens": 179,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.3,
+          "readability": 0.4,
+          "security_robustness": 0.5,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch fixes the NullPointerException by correctly passing the function parameter `f` to the recursive solve call, which is the genuine bug fix. However, it adds an unrelated and nonsensical condition `||i<0` that will never be true (i starts at 0 and only increments), weakening code quality and suggesting overfitting to pass the test rather than proper repair."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.378368081001099,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2537,
+        "output_tokens": 179,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.3,
+          "readability": 0.4,
+          "security_robustness": 0.5,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch fixes the NullPointerException by correctly passing the function parameter `f` to the recursive solve call, which is the genuine bug fix. However, it adds an unrelated and nonsensical condition `||i<0` that will never be true (i starts at 0 and only increments), weakening code quality and suggesting overfitting to pass the test rather than proper repair."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_others__Doverfitting__SketchFix__Math__patch1-Math-70-SketchFix-plausible",
+    "bug_id": "Math-70",
+    "model": "claude-haiku-4-5",
+    "latency_s": 11.74102067899912,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 2433,
+    "output_tokens": 1245,
+    "tests": [
+      {
+        "name": "testSolveWithInitialParameter",
+        "target_class": "org.apache.commons.math.analysis.solvers.BisectionSolver",
+        "target_method": "solve(UnivariateRealFunction, double, double, double)",
+        "class_name": "BisectionSolverTest1",
+        "status": "VALID_BUG_REVEALING",
+        "candidate_pass": true,
+        "log": ".\nTime: 0.003\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testSolveWithDifferentBracketingInterval",
+        "target_class": "org.apache.commons.math.analysis.solvers.BisectionSolver",
+        "target_method": "solve(UnivariateRealFunction, double, double)",
+        "class_name": "BisectionSolverTest2",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.004\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testSolveWithNegativeInterval",
+        "target_class": "org.apache.commons.math.analysis.solvers.BisectionSolver",
+        "target_method": "solve(UnivariateRealFunction, double, double)",
+        "class_name": "BisectionSolverTest3",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.003\n\nOK (1 test)\n\n"
+      }
+    ],
+    "s_cex": 1.0,
+    "n_valid": 1,
+    "n_passed": 1
+  },
+  "memorization": {
+    "patch_id": "Patches_others__Doverfitting__SketchFix__Math__patch1-Math-70-SketchFix-plausible",
+    "true_project": "Math",
+    "true_bug_number": "70",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 670,
+    "output_tokens": 28,
+    "project": "Math",
+    "bug_number": 280,
+    "recalled_label": "OVERFITTING",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_others__Doverfitting__SketchFix__Math__patch1-Math-70-SketchFix-plausible",
+    "bug_id": "Math-70",
+    "s_edit_ast": 0.04395604395604396,
+    "s_edit_ast_actions": 8,
+    "s_edit_ast_nodes": 182,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math/analysis/solvers/BisectionSolver"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 108,
+      "cfg_edges": 104,
+      "branch_points": 6,
+      "cyclomatic_complexity": 12,
+      "def_count": 80,
+      "use_count": 208,
+      "defuse_pairs": 80,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.analysis.solvers.BisectionSolver",
+          "method": "solve",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 4,
+          "stmts": 54,
+          "cfg_edges": 52,
+          "branch_points": 3,
+          "cyclomatic_complexity": 6,
+          "def_count": 40,
+          "use_count": 104,
+          "defuse_pairs": 40,
+          "error": null
+        },
+        {
+          "class": "org.apache.commons.math.analysis.solvers.BisectionSolver",
+          "method": "solve",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 4,
+          "stmts": 54,
+          "cfg_edges": 52,
+          "branch_points": 3,
+          "cyclomatic_complexity": 6,
+          "def_count": 40,
+          "use_count": 104,
+          "defuse_pairs": 40,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 110,
+      "cfg_edges": 108,
+      "branch_points": 8,
+      "cyclomatic_complexity": 14,
+      "def_count": 80,
+      "use_count": 216,
+      "defuse_pairs": 80,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.analysis.solvers.BisectionSolver",
+          "method": "solve",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 4,
+          "stmts": 55,
+          "cfg_edges": 54,
+          "branch_points": 4,
+          "cyclomatic_complexity": 7,
+          "def_count": 40,
+          "use_count": 108,
+          "defuse_pairs": 40,
+          "error": null
+        },
+        {
+          "class": "org.apache.commons.math.analysis.solvers.BisectionSolver",
+          "method": "solve",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 4,
+          "stmts": 55,
+          "cfg_edges": 54,
+          "branch_points": 4,
+          "cyclomatic_complexity": 7,
+          "def_count": 40,
+          "use_count": 108,
+          "defuse_pairs": 40,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 2,
+    "d_stmts": 2,
+    "d_branch_points": 2,
+    "d_cfg_edges": 4,
+    "d_defuse_pairs": 0,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 336,
+      "n_candidate_warnings": 336,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_others__Doverfitting__SketchFix__Math__patch1-Math-70-SketchFix-plausible",
+    "bug_id": "Math-70",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

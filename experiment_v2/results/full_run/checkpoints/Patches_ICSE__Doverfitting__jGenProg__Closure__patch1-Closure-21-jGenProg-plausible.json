@@ -1,0 +1,25 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__jGenProg__Closure__patch1-Closure-21-jGenProg-plausible",
+  "bug_id": "Closure-21",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 2.247
+    }
+  },
+  "complete": false,
+  "terminal_failure": "apply_patch",
+  "semantic": null,
+  "counterexample": null,
+  "memorization": null,
+  "stage2b": null,
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__jGenProg__Closure__patch1-Closure-21-jGenProg-plausible",
+    "bug_id": "Closure-21",
+    "patch_applies": false,
+    "patch_compiles": "NA",
+    "original_tests_pass": "NA",
+    "error": "dry-run failed: checking file src/com/google/javascript/jscomp/CheckSideEffects.java\nHunk #1 FAILED at 115.\n1 out of 1 hunk FAILED\n"
+  }
+}

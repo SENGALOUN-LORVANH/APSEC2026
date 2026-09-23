@@ -1,0 +1,284 @@
+{
+  "patch_id": "Patches_others__Doverfitting__SketchFix__Math__patch2-Math-70-SketchFix-plausible",
+  "bug_id": "Math-70",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 12.55
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.839
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 11.598
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 52.803
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.111
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 80.427
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_others__Doverfitting__SketchFix__Math__patch2-Math-70-SketchFix-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.15000000000000002,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.779132044999642,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2538,
+        "output_tokens": 176,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.3,
+          "readability": 0.4,
+          "security_robustness": 0.6,
+          "judgement": "OVERFITTING",
+          "confidence": 0.85,
+          "brief_reason": "The patch makes two changes: fixing the obvious bug (missing `f` parameter in line 72) and adding a questionable condition `||fmin == fm` that appears to handle only the specific test case rather than the general root-cause. The second change weakens the bisection algorithm's logic and introduces unrelated behavior that may mask other issues or cause incorrect convergence in edge cases."
+        },
+        "s_sem": 0.15000000000000002,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.669301099000222,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2538,
+        "output_tokens": 176,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.3,
+          "readability": 0.4,
+          "security_robustness": 0.6,
+          "judgement": "OVERFITTING",
+          "confidence": 0.85,
+          "brief_reason": "The patch makes two changes: fixing the obvious bug (missing `f` parameter in line 72) and adding a questionable condition `||fmin == fm` that appears to handle only the specific test case rather than the general root-cause. The second change weakens the bisection algorithm's logic and introduces unrelated behavior that may mask other issues or cause incorrect convergence in edge cases."
+        },
+        "s_sem": 0.15000000000000002,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.7770509160000074,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2538,
+        "output_tokens": 176,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.3,
+          "readability": 0.4,
+          "security_robustness": 0.6,
+          "judgement": "OVERFITTING",
+          "confidence": 0.85,
+          "brief_reason": "The patch makes two changes: fixing the obvious bug (missing `f` parameter in line 72) and adding a questionable condition `||fmin == fm` that appears to handle only the specific test case rather than the general root-cause. The second change weakens the bisection algorithm's logic and introduces unrelated behavior that may mask other issues or cause incorrect convergence in edge cases."
+        },
+        "s_sem": 0.15000000000000002,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_others__Doverfitting__SketchFix__Math__patch2-Math-70-SketchFix-plausible",
+    "bug_id": "Math-70",
+    "model": "claude-haiku-4-5",
+    "latency_s": 8.699992707001002,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 2434,
+    "output_tokens": 1225,
+    "tests": [
+      {
+        "name": "testSolveWithInitialParameter",
+        "target_class": "org.apache.commons.math.analysis.solvers.BisectionSolver",
+        "target_method": "solve(UnivariateRealFunction, double, double, double)",
+        "class_name": "TestBisectionSolverFunctionParameter",
+        "status": "VALID_BUG_REVEALING",
+        "candidate_pass": true,
+        "log": ".\nTime: 0.005\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testSolveWithDifferentFunctions",
+        "target_class": "org.apache.commons.math.analysis.solvers.BisectionSolver",
+        "target_method": "solve(UnivariateRealFunction, double, double)",
+        "class_name": "TestBisectionSolverEdgeCase",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.002\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testSolveWithLinearFunction",
+        "target_class": "org.apache.commons.math.analysis.solvers.BisectionSolver",
+        "target_method": "solve(UnivariateRealFunction, double, double)",
+        "class_name": "TestBisectionSolverLinear",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.003\n\nOK (1 test)\n\n"
+      }
+    ],
+    "s_cex": 1.0,
+    "n_valid": 1,
+    "n_passed": 1
+  },
+  "memorization": {
+    "patch_id": "Patches_others__Doverfitting__SketchFix__Math__patch2-Math-70-SketchFix-plausible",
+    "true_project": "Math",
+    "true_bug_number": "70",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 671,
+    "output_tokens": 28,
+    "project": "Math",
+    "bug_number": 280,
+    "recalled_label": "OVERFITTING",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_others__Doverfitting__SketchFix__Math__patch2-Math-70-SketchFix-plausible",
+    "bug_id": "Math-70",
+    "s_edit_ast": 0.04395604395604396,
+    "s_edit_ast_actions": 8,
+    "s_edit_ast_nodes": 182,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math/analysis/solvers/BisectionSolver"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 108,
+      "cfg_edges": 104,
+      "branch_points": 6,
+      "cyclomatic_complexity": 12,
+      "def_count": 80,
+      "use_count": 208,
+      "defuse_pairs": 80,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.analysis.solvers.BisectionSolver",
+          "method": "solve",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 4,
+          "stmts": 54,
+          "cfg_edges": 52,
+          "branch_points": 3,
+          "cyclomatic_complexity": 6,
+          "def_count": 40,
+          "use_count": 104,
+          "defuse_pairs": 40,
+          "error": null
+        },
+        {
+          "class": "org.apache.commons.math.analysis.solvers.BisectionSolver",
+          "method": "solve",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 4,
+          "stmts": 54,
+          "cfg_edges": 52,
+          "branch_points": 3,
+          "cyclomatic_complexity": 6,
+          "def_count": 40,
+          "use_count": 104,
+          "defuse_pairs": 40,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 112,
+      "cfg_edges": 110,
+      "branch_points": 8,
+      "cyclomatic_complexity": 14,
+      "def_count": 82,
+      "use_count": 222,
+      "defuse_pairs": 82,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.analysis.solvers.BisectionSolver",
+          "method": "solve",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 4,
+          "stmts": 56,
+          "cfg_edges": 55,
+          "branch_points": 4,
+          "cyclomatic_complexity": 7,
+          "def_count": 41,
+          "use_count": 111,
+          "defuse_pairs": 41,
+          "error": null
+        },
+        {
+          "class": "org.apache.commons.math.analysis.solvers.BisectionSolver",
+          "method": "solve",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 4,
+          "stmts": 56,
+          "cfg_edges": 55,
+          "branch_points": 4,
+          "cyclomatic_complexity": 7,
+          "def_count": 41,
+          "use_count": 111,
+          "defuse_pairs": 41,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 2,
+    "d_stmts": 4,
+    "d_branch_points": 2,
+    "d_cfg_edges": 6,
+    "d_defuse_pairs": 2,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 336,
+      "n_candidate_warnings": 336,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_others__Doverfitting__SketchFix__Math__patch2-Math-70-SketchFix-plausible",
+    "bug_id": "Math-70",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

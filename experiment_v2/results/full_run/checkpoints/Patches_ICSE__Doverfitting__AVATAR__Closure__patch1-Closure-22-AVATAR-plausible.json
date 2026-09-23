@@ -1,0 +1,217 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Closure__patch1-Closure-22-AVATAR-plausible",
+  "bug_id": "Closure-22",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 88.85
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 2.119
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 10.873
+    },
+    "counterexample": {
+      "ok": false,
+      "seconds": 128.848,
+      "error": "JSONDecodeError: Unterminated string starting at: line 1 column 51868 (char 51867)",
+      "traceback": "Traceback (most recent call last):\n  File \"/work/experiment_v2/src/run_full.py\", line 146, in _stage\n    result = fn(*args)\n  File \"/work/experiment_v2/src/oracle_runner.py\", line 230, in run_counterexamples\n    generated = json.loads(llm_client.response_text(resp))[\"tests\"]\n  File \"/usr/lib/python3.10/json/__init__.py\", line 346, in loads\n    return _default_decoder.decode(s)\n  File \"/usr/lib/python3.10/json/decoder.py\", line 337, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n  File \"/usr/lib/python3.10/json/decoder.py\", line 353, in raw_decode\n    obj, end = self.scan_once(s, idx)\njson.decoder.JSONDecodeError: Unterminated string starting at: line 1 column 51868 (char 51867)\n"
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 0.988
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 44.983
+    }
+  },
+  "complete": false,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Closure__patch1-Closure-22-AVATAR-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.2194091569999728,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2828,
+        "output_tokens": 186,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.3,
+          "security_robustness": 0.5,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch changes `n == parent.getLastChild()` to `gramps == parent.getLastChild()`, which is semantically incorrect. The variable `gramps` is only defined in a specific nested condition (when parent is a COMMA and gramps is a call), making it undefined in the broader context. This introduces a null pointer risk and changes unrelated behavior rather than fixing the actual bug in side-effect detection logic."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.0569641109996155,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2828,
+        "output_tokens": 192,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.3,
+          "security_robustness": 0.2,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch changes `n == parent.getLastChild()` to `gramps == parent.getLastChild()`, which is semantically incorrect. The variable `gramps` is only defined in a specific nested condition (when parent.getType() == Token.COMMA), making it undefined in the broader context where this check occurs. This introduces a null pointer risk and fundamentally breaks the intended logic of checking if the current node is the last child of its parent."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.1826112029993965,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2828,
+        "output_tokens": 191,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.3,
+          "security_robustness": 0.5,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch changes `n == parent.getLastChild()` to `gramps == parent.getLastChild()`, which is semantically incorrect. The variable `gramps` is only defined in a specific nested condition (when parent.getType() == Token.COMMA), making this change introduce a null reference risk and alter the intended logic. This appears to be a copy-paste error that happens to pass the test by accident rather than fixing the underlying bug."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": null,
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Closure__patch1-Closure-22-AVATAR-plausible",
+    "true_project": "Closure",
+    "true_bug_number": "22",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 577,
+    "output_tokens": 27,
+    "project": "Closure",
+    "bug_number": 1,
+    "recalled_label": "CORRECT",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Closure__patch1-Closure-22-AVATAR-plausible",
+    "bug_id": "Closure-22",
+    "s_edit_ast": 0.0027247956403269754,
+    "s_edit_ast_actions": 1,
+    "s_edit_ast_nodes": 367,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "com/google/javascript/jscomp/CheckSideEffects"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 105,
+      "cfg_edges": 127,
+      "branch_points": 30,
+      "cyclomatic_complexity": 24,
+      "def_count": 60,
+      "use_count": 219,
+      "defuse_pairs": 60,
+      "per_method": [
+        {
+          "class": "com.google.javascript.jscomp.CheckSideEffects",
+          "method": "visit",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 105,
+          "cfg_edges": 127,
+          "branch_points": 30,
+          "cyclomatic_complexity": 24,
+          "def_count": 60,
+          "use_count": 219,
+          "defuse_pairs": 60,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 105,
+      "cfg_edges": 127,
+      "branch_points": 30,
+      "cyclomatic_complexity": 24,
+      "def_count": 60,
+      "use_count": 219,
+      "defuse_pairs": 60,
+      "per_method": [
+        {
+          "class": "com.google.javascript.jscomp.CheckSideEffects",
+          "method": "visit",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 105,
+          "cfg_edges": 127,
+          "branch_points": 30,
+          "cyclomatic_complexity": 24,
+          "def_count": 60,
+          "use_count": 219,
+          "defuse_pairs": 60,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": 0,
+    "d_branch_points": 0,
+    "d_cfg_edges": 0,
+    "d_defuse_pairs": 0,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 6,
+      "n_candidate_warnings": 6,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 2,
+      "n_changed_class_files_candidate": 2,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Closure__patch1-Closure-22-AVATAR-plausible",
+    "bug_id": "Closure-22",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

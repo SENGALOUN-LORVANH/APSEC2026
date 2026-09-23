@@ -1,0 +1,265 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__FixMiner__Math__patch1-Math-84-FixMiner-plausible",
+  "bug_id": "Math-84",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 9.992
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 1.013
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 10.58
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 41.627
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.186
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 77.492
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__FixMiner__Math__patch1-Math-84-FixMiner-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.25,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.48016874699897,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3065,
+        "output_tokens": 173,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 1.0,
+          "readability": 1.0,
+          "security_robustness": 1.0,
+          "judgement": "OVERFITTING",
+          "confidence": 0.75,
+          "brief_reason": "The patch changes a strict less-than comparison to less-than-or-equal, which is a minimal syntactic change that makes the tests pass. However, this appears to be a workaround for convergence issues rather than fixing the underlying algorithmic problem. The change only addresses the specific test cases without addressing why the algorithm was failing to converge properly in the first place."
+        },
+        "s_sem": 0.25,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.4054663259994413,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3065,
+        "output_tokens": 173,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 1.0,
+          "readability": 1.0,
+          "security_robustness": 1.0,
+          "judgement": "OVERFITTING",
+          "confidence": 0.75,
+          "brief_reason": "The patch changes a strict less-than comparison to less-than-or-equal, which is a minimal syntactic change that makes the tests pass. However, this appears to be a workaround for convergence issues rather than fixing the underlying algorithmic problem. The change only addresses the specific test cases without addressing why the algorithm was failing to converge properly in the first place."
+        },
+        "s_sem": 0.25,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.3485892709995824,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3065,
+        "output_tokens": 173,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 1.0,
+          "readability": 1.0,
+          "security_robustness": 1.0,
+          "judgement": "OVERFITTING",
+          "confidence": 0.75,
+          "brief_reason": "The patch changes a strict less-than comparison to less-than-or-equal, which is a minimal syntactic change that makes the tests pass. However, this appears to be a workaround for convergence issues rather than fixing the underlying algorithmic problem. The change only addresses the specific test cases without addressing why the algorithm was failing to converge properly in the first place."
+        },
+        "s_sem": 0.25,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__FixMiner__Math__patch1-Math-84-FixMiner-plausible",
+    "bug_id": "Math-84",
+    "model": "claude-haiku-4-5",
+    "latency_s": 23.793275415000608,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 2936,
+    "output_tokens": 2661,
+    "tests": [
+      {
+        "name": "testContractedSimplexEqualToBest",
+        "target_class": "org.apache.commons.math.optimization.direct.MultiDirectional",
+        "target_method": "iterateSimplex",
+        "class_name": "TestContractedSimplexEqualToBest",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "r__Math__patch1-Math-84-FixMiner-plausible/TestContractedSimplexEqualToBest/fixed/src/test/java/org/apache/commons/math/optimization/direct/TestContractedSimplexEqualToBest.java:32: error: method optimize in class DirectSearchOptimizer cannot be applied to given types;\n    [javac]         RealPointValuePair result = optimizer.optimize(f, GoalType.MINIMIZE, start, steps);\n    [javac]                                              ^\n    [javac]   required: MultivariateRealFunction,GoalType,double[]\n    [javac]   found: UnivariateRealFunction,GoalType,double[],double[]\n    [javac]   reason: actual and formal argument lists differ in length\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Math.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Math.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 2 errors\n    [javac] 24 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__FixMiner__Math__patch1-Math-84-FixMiner-plausible/TestContractedSimplexEqualToBest/fixed/build.xml:168: Compile failed; see the compiler error output for details.\n\nTotal time: 1 second\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testReflectedSimplexNotAcceptedWhenNotBetter",
+        "target_class": "org.apache.commons.math.optimization.direct.MultiDirectional",
+        "target_method": "iterateSimplex",
+        "class_name": "TestReflectedSimplexNotAcceptedWhenNotBetter",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "/src/test/java/org/apache/commons/math/optimization/direct/TestReflectedSimplexNotAcceptedWhenNotBetter.java:25: error: RealConvergenceChecker is abstract; cannot be instantiated\n    [javac]         optimizer.setConvergenceChecker(new RealConvergenceChecker(1e-8, 1e-8));\n    [javac]                                         ^\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__FixMiner__Math__patch1-Math-84-FixMiner-plausible/TestReflectedSimplexNotAcceptedWhenNotBetter/fixed/src/test/java/org/apache/commons/math/optimization/direct/TestReflectedSimplexNotAcceptedWhenNotBetter.java:31: error: method optimize in class DirectSearchOptimizer cannot be applied to given types;\n    [javac]         RealPointValuePair result = optimizer.optimize(f, GoalType.MINIMIZE, start, steps);\n    [javac]                                              ^\n    [javac]   required: MultivariateRealFunction,GoalType,double[]\n    [javac]   found: UnivariateRealFunction,GoalType,double[],double[]\n    [javac]   reason: actual and formal argument lists differ in length\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 2 errors\n    [javac] 24 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__FixMiner__Math__patch1-Math-84-FixMiner-plausible/TestReflectedSimplexNotAcceptedWhenNotBetter/fixed/build.xml:168: Compile failed; see the compiler error output for details.\n\nTotal time: 1 second\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testAlgorithmConvergesWithSmallSteps",
+        "target_class": "org.apache.commons.math.optimization.direct.MultiDirectional",
+        "target_method": "iterateSimplex",
+        "class_name": "TestAlgorithmConvergesWithSmallSteps",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "ch1-Math-84-FixMiner-plausible/TestAlgorithmConvergesWithSmallSteps/fixed/src/test/java/org/apache/commons/math/optimization/direct/TestAlgorithmConvergesWithSmallSteps.java:31: error: method optimize in class DirectSearchOptimizer cannot be applied to given types;\n    [javac]         RealPointValuePair result = optimizer.optimize(f, GoalType.MINIMIZE, start, steps);\n    [javac]                                              ^\n    [javac]   required: MultivariateRealFunction,GoalType,double[]\n    [javac]   found: UnivariateRealFunction,GoalType,double[],double[]\n    [javac]   reason: actual and formal argument lists differ in length\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Math.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Math.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 2 errors\n    [javac] 24 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__FixMiner__Math__patch1-Math-84-FixMiner-plausible/TestAlgorithmConvergesWithSmallSteps/fixed/build.xml:168: Compile failed; see the compiler error output for details.\n\nTotal time: 1 second\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testMultidimensionalOptimization",
+        "target_class": "org.apache.commons.math.optimization.direct.MultiDirectional",
+        "target_method": "iterateSimplex",
+        "class_name": "TestMultidimensionalOptimization",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "_Math__patch1-Math-84-FixMiner-plausible/TestMultidimensionalOptimization/fixed/src/test/java/org/apache/commons/math/optimization/direct/TestMultidimensionalOptimization.java:32: error: method optimize in class DirectSearchOptimizer cannot be applied to given types;\n    [javac]         RealPointValuePair result = optimizer.optimize(f, GoalType.MINIMIZE, start, steps);\n    [javac]                                              ^\n    [javac]   required: MultivariateRealFunction,GoalType,double[]\n    [javac]   found: MultivariateRealFunction,GoalType,double[],double[]\n    [javac]   reason: actual and formal argument lists differ in length\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Math.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Math.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 2 errors\n    [javac] 24 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__FixMiner__Math__patch1-Math-84-FixMiner-plausible/TestMultidimensionalOptimization/fixed/build.xml:168: Compile failed; see the compiler error output for details.\n\nTotal time: 1 second\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__FixMiner__Math__patch1-Math-84-FixMiner-plausible",
+    "true_project": "Math",
+    "true_bug_number": "84",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 569,
+    "output_tokens": 26,
+    "project": "Math",
+    "bug_number": 32,
+    "recalled_label": "CORRECT",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__FixMiner__Math__patch1-Math-84-FixMiner-plausible",
+    "bug_id": "Math-84",
+    "s_edit_ast": 0.0072992700729927005,
+    "s_edit_ast_actions": 1,
+    "s_edit_ast_nodes": 137,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math/optimization/direct/MultiDirectional"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 21,
+      "cfg_edges": 22,
+      "branch_points": 3,
+      "cyclomatic_complexity": 3,
+      "def_count": 14,
+      "use_count": 53,
+      "defuse_pairs": 14,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.optimization.direct.MultiDirectional",
+          "method": "iterateSimplex",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 21,
+          "cfg_edges": 22,
+          "branch_points": 3,
+          "cyclomatic_complexity": 3,
+          "def_count": 14,
+          "use_count": 53,
+          "defuse_pairs": 14,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 21,
+      "cfg_edges": 22,
+      "branch_points": 3,
+      "cyclomatic_complexity": 3,
+      "def_count": 14,
+      "use_count": 53,
+      "defuse_pairs": 14,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.optimization.direct.MultiDirectional",
+          "method": "iterateSimplex",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 21,
+          "cfg_edges": 22,
+          "branch_points": 3,
+          "cyclomatic_complexity": 3,
+          "def_count": 14,
+          "use_count": 53,
+          "defuse_pairs": 14,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": 0,
+    "d_branch_points": 0,
+    "d_cfg_edges": 0,
+    "d_defuse_pairs": 0,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 312,
+      "n_candidate_warnings": 312,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__FixMiner__Math__patch1-Math-84-FixMiner-plausible",
+    "bug_id": "Math-84",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

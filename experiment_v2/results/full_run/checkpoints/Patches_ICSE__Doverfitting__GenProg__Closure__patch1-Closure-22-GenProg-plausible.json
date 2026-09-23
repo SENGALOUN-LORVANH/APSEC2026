@@ -1,0 +1,256 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__GenProg__Closure__patch1-Closure-22-GenProg-plausible",
+  "bug_id": "Closure-22",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 80.681
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 1.015
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 9.477
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 30.581
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.161
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 43.174
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__GenProg__Closure__patch1-Closure-22-GenProg-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.15000000000000002,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 2.9568802989997494,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2829,
+        "output_tokens": 160,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.3,
+          "readability": 0.4,
+          "security_robustness": 0.7,
+          "judgement": "OVERFITTING",
+          "confidence": 0.85,
+          "brief_reason": "The patch removes a critical control flow check that validates ancestor node types, making the loop infinite and causing it to iterate through all ancestors without proper termination. While this makes the specific test pass, it deletes essential functionality that prevents false negatives in side-effect detection for JSDoc-annotated names in comma expressions."
+        },
+        "s_sem": 0.15000000000000002,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 2.9035413000001427,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2829,
+        "output_tokens": 161,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.3,
+          "readability": 0.4,
+          "security_robustness": 0.7,
+          "judgement": "OVERFITTING",
+          "confidence": 0.85,
+          "brief_reason": "The patch removes a critical control flow check that validates ancestor node types, making the loop infinite and allowing the code to proceed when it shouldn't. While this makes the specific test pass, it deletes essential functionality that prevents false negatives in side-effect detection and introduces a logical bug (infinite loop without proper termination condition)."
+        },
+        "s_sem": 0.15000000000000002,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 2.9303392429992527,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2829,
+        "output_tokens": 173,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.3,
+          "readability": 0.4,
+          "security_robustness": 0.7,
+          "judgement": "OVERFITTING",
+          "confidence": 0.85,
+          "brief_reason": "The patch removes a critical control flow check that was preventing false positives in side-effect detection. By deleting the condition that returns early when encountering non-EXPR_RESULT/BLOCK ancestors, it allows the code to proceed and report warnings in cases where it previously didn't. This is overfitting to the specific test case rather than fixing the underlying bug logic."
+        },
+        "s_sem": 0.15000000000000002,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__GenProg__Closure__patch1-Closure-22-GenProg-plausible",
+    "bug_id": "Closure-22",
+    "model": "claude-haiku-4-5",
+    "latency_s": 7.37391973999911,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 2698,
+    "output_tokens": 942,
+    "tests": [
+      {
+        "name": "testUselessCodeWithCommaInNonExprResultBlock",
+        "target_class": "com.google.javascript.jscomp.CheckSideEffects",
+        "target_method": "visit",
+        "class_name": "CheckSideEffectsTest",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": " (actual and formal argument lists differ in length)\n    [javac]     method CompilerTestCase.test(String[],String[]) is not applicable\n    [javac]       (actual argument String cannot be converted to String[] by method invocation conversion)\n    [javac]     method CompilerTestCase.test(List<SourceFile>,String,String,DiagnosticType,DiagnosticType,String) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]     method CompilerTestCase.test(String,String,String,DiagnosticType,DiagnosticType,String) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]     method CompilerTestCase.test(String,String,String,DiagnosticType,DiagnosticType) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]     method CompilerTestCase.test(String,String,DiagnosticType,DiagnosticType) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]     method CompilerTestCase.test(String,String,DiagnosticType,DiagnosticType,String) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]     method CompilerTestCase.test(String,String,DiagnosticType) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]     method CompilerTestCase.test(String,String) is not applicable\n    [javac]       (actual argument String[] cannot be converted to String by method invocation conversion)\n    [javac] 2 errors\n    [javac] 21 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__GenProg__Closure__patch1-Closure-22-GenProg-plausible/CheckSideEffectsTest/fixed/build.xml:331: Compile failed; see the compiler error output for details.\n\nTotal time: 2 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testUselessCodeMultipleCommaLevels",
+        "target_class": "com.google.javascript.jscomp.CheckSideEffects",
+        "target_method": "visit",
+        "class_name": "CheckSideEffectsTest",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "  (actual and formal argument lists differ in length)\n    [javac]     method CompilerTestCase.test(String[],String[]) is not applicable\n    [javac]       (actual argument String cannot be converted to String[] by method invocation conversion)\n    [javac]     method CompilerTestCase.test(List<SourceFile>,String,String,DiagnosticType,DiagnosticType,String) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]     method CompilerTestCase.test(String,String,String,DiagnosticType,DiagnosticType,String) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]     method CompilerTestCase.test(String,String,String,DiagnosticType,DiagnosticType) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]     method CompilerTestCase.test(String,String,DiagnosticType,DiagnosticType) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]     method CompilerTestCase.test(String,String,DiagnosticType,DiagnosticType,String) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]     method CompilerTestCase.test(String,String,DiagnosticType) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]     method CompilerTestCase.test(String,String) is not applicable\n    [javac]       (actual argument String[] cannot be converted to String by method invocation conversion)\n    [javac] 2 errors\n    [javac] 21 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__GenProg__Closure__patch1-Closure-22-GenProg-plausible/CheckSideEffectsTest/fixed/build.xml:331: Compile failed; see the compiler error output for details.\n\nTotal time: 1 second\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testUselessCodeCommaAsLastChild",
+        "target_class": "com.google.javascript.jscomp.CheckSideEffects",
+        "target_method": "visit",
+        "class_name": "CheckSideEffectsTest",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": " (actual and formal argument lists differ in length)\n    [javac]     method CompilerTestCase.test(String[],String[]) is not applicable\n    [javac]       (actual argument String cannot be converted to String[] by method invocation conversion)\n    [javac]     method CompilerTestCase.test(List<SourceFile>,String,String,DiagnosticType,DiagnosticType,String) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]     method CompilerTestCase.test(String,String,String,DiagnosticType,DiagnosticType,String) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]     method CompilerTestCase.test(String,String,String,DiagnosticType,DiagnosticType) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]     method CompilerTestCase.test(String,String,DiagnosticType,DiagnosticType) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]     method CompilerTestCase.test(String,String,DiagnosticType,DiagnosticType,String) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]     method CompilerTestCase.test(String,String,DiagnosticType) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]     method CompilerTestCase.test(String,String) is not applicable\n    [javac]       (actual argument String[] cannot be converted to String by method invocation conversion)\n    [javac] 2 errors\n    [javac] 21 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__GenProg__Closure__patch1-Closure-22-GenProg-plausible/CheckSideEffectsTest/fixed/build.xml:331: Compile failed; see the compiler error output for details.\n\nTotal time: 2 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__GenProg__Closure__patch1-Closure-22-GenProg-plausible",
+    "true_project": "Closure",
+    "true_bug_number": "22",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 578,
+    "output_tokens": 27,
+    "project": "Closure",
+    "bug_number": 1,
+    "recalled_label": "UNKNOWN",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__GenProg__Closure__patch1-Closure-22-GenProg-plausible",
+    "bug_id": "Closure-22",
+    "s_edit_ast": 0.035422343324250684,
+    "s_edit_ast_actions": 13,
+    "s_edit_ast_nodes": 367,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "com/google/javascript/jscomp/CheckSideEffects"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 105,
+      "cfg_edges": 127,
+      "branch_points": 30,
+      "cyclomatic_complexity": 24,
+      "def_count": 60,
+      "use_count": 219,
+      "defuse_pairs": 60,
+      "per_method": [
+        {
+          "class": "com.google.javascript.jscomp.CheckSideEffects",
+          "method": "visit",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 105,
+          "cfg_edges": 127,
+          "branch_points": 30,
+          "cyclomatic_complexity": 24,
+          "def_count": 60,
+          "use_count": 219,
+          "defuse_pairs": 60,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 103,
+      "cfg_edges": 124,
+      "branch_points": 28,
+      "cyclomatic_complexity": 23,
+      "def_count": 60,
+      "use_count": 213,
+      "defuse_pairs": 60,
+      "per_method": [
+        {
+          "class": "com.google.javascript.jscomp.CheckSideEffects",
+          "method": "visit",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 103,
+          "cfg_edges": 124,
+          "branch_points": 28,
+          "cyclomatic_complexity": 23,
+          "def_count": 60,
+          "use_count": 213,
+          "defuse_pairs": 60,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": -1,
+    "d_stmts": -2,
+    "d_branch_points": -2,
+    "d_cfg_edges": -3,
+    "d_defuse_pairs": 0,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 6,
+      "n_candidate_warnings": 6,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 2,
+      "n_changed_class_files_candidate": 2,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__GenProg__Closure__patch1-Closure-22-GenProg-plausible",
+    "bug_id": "Closure-22",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

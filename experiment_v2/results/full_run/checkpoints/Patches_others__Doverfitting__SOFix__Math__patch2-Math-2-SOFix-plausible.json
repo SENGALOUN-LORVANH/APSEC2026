@@ -1,0 +1,256 @@
+{
+  "patch_id": "Patches_others__Doverfitting__SOFix__Math__patch2-Math-2-SOFix-plausible",
+  "bug_id": "Math-2",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 74.622
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 1.692
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 10.478
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 58.673
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.864
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 111.865
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_others__Doverfitting__SOFix__Math__patch2-Math-2-SOFix-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.15000000000000002,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.372573832000853,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2661,
+        "output_tokens": 184,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 1.0,
+          "readability": 0.9,
+          "security_robustness": 1.0,
+          "judgement": "OVERFITTING",
+          "confidence": 0.85,
+          "brief_reason": "The patch changes a comparison operator from '<' to '>' in the Chebyshev inequality bracket narrowing logic, but this appears to be a logic error fix rather than addressing the root cause. The test failure shows a negative sample value (-50), suggesting the real issue is likely in the binary search bounds or the solveInverseCumulativeProbability method, not in this comparison operator which controls upper bound narrowing."
+        },
+        "s_sem": 0.15000000000000002,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.08060613699854,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2661,
+        "output_tokens": 178,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 1.0,
+          "readability": 0.9,
+          "security_robustness": 1.0,
+          "judgement": "OVERFITTING",
+          "confidence": 0.85,
+          "brief_reason": "The patch changes a comparison operator from '<' to '>' in the Chebyshev inequality bracket narrowing logic, which appears to be a logic error fix rather than addressing the root cause. However, the change inverts the condition in a way that seems semantically incorrect\u2014if tmp > upper, we should not be narrowing upper downward. This suggests the patch masks the real bug rather than fixing it properly."
+        },
+        "s_sem": 0.15000000000000002,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.021197674001087,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2661,
+        "output_tokens": 178,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 1.0,
+          "readability": 0.9,
+          "security_robustness": 1.0,
+          "judgement": "OVERFITTING",
+          "confidence": 0.85,
+          "brief_reason": "The patch changes a comparison operator from '<' to '>' in the Chebyshev inequality bracket narrowing logic, which appears to be a logic error fix rather than addressing the root cause. However, the change inverts the condition in a way that seems semantically incorrect\u2014if tmp > upper, we should not be narrowing upper downward. This suggests the patch masks the real bug rather than fixing it properly."
+        },
+        "s_sem": 0.15000000000000002,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_others__Doverfitting__SOFix__Math__patch2-Math-2-SOFix-plausible",
+    "bug_id": "Math-2",
+    "model": "claude-haiku-4-5",
+    "latency_s": 27.974415221000527,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 2531,
+    "output_tokens": 3119,
+    "tests": [
+      {
+        "name": "testInverseCumulativeProbabilityUpperBoundAdjustment",
+        "target_class": "org.apache.commons.math3.distribution.AbstractIntegerDistribution",
+        "target_method": "inverseCumulativeProbability",
+        "class_name": "HypergeometricDistributionTest",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": "JUnit version 4.11\n...\nTime: 0.026\n\nOK (3 tests)\n\n"
+      },
+      {
+        "name": "testInverseCumulativeProbabilityNoNegativeSamples",
+        "target_class": "org.apache.commons.math3.distribution.AbstractIntegerDistribution",
+        "target_method": "inverseCumulativeProbability",
+        "class_name": "HypergeometricDistributionNegativeTest",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": "JUnit version 4.11\n...\nTime: 0.022\n\nOK (3 tests)\n\n"
+      },
+      {
+        "name": "testInverseCumulativeProbabilityBracketValidity",
+        "target_class": "org.apache.commons.math3.distribution.AbstractIntegerDistribution",
+        "target_method": "inverseCumulativeProbability",
+        "class_name": "HypergeometricDistributionBracketTest",
+        "status": "INVALID_ORACLE",
+        "candidate_pass": null,
+        "log": "tingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.lang.reflect.Method.invoke(Method.java:498)\n\tat org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)\n\tat org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)\n\tat org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)\n\tat org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)\n\tat org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:271)\n\tat org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:70)\n\tat org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)\n\tat org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)\n\tat org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:309)\n\tat org.junit.runners.Suite.runChild(Suite.java:127)\n\tat org.junit.runners.Suite.runChild(Suite.java:26)\n\tat org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)\n\tat org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:309)\n\tat org.junit.runner.JUnitCore.run(JUnitCore.java:160)\n\tat org.junit.runner.JUnitCore.run(JUnitCore.java:138)\n\tat org.junit.runner.JUnitCore.run(JUnitCore.java:117)\n\tat org.junit.runner.JUnitCore.runMain(JUnitCore.java:96)\n\tat org.junit.runner.JUnitCore.runMainAndExit(JUnitCore.java:47)\n\tat org.junit.runner.JUnitCore.main(JUnitCore.java:40)\n\nFAILURES!!!\nTests run: 3,  Failures: 1\n\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_others__Doverfitting__SOFix__Math__patch2-Math-2-SOFix-plausible",
+    "true_project": "Math",
+    "true_bug_number": "2",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 550,
+    "output_tokens": 26,
+    "project": "Math",
+    "bug_number": 1,
+    "recalled_label": "CORRECT",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_others__Doverfitting__SOFix__Math__patch2-Math-2-SOFix-plausible",
+    "bug_id": "Math-2",
+    "s_edit_ast": 0.0036363636363636364,
+    "s_edit_ast_actions": 1,
+    "s_edit_ast_nodes": 275,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math3/distribution/AbstractIntegerDistribution"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 70,
+      "cfg_edges": 79,
+      "branch_points": 14,
+      "cyclomatic_complexity": 11,
+      "def_count": 49,
+      "use_count": 167,
+      "defuse_pairs": 49,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math3.distribution.AbstractIntegerDistribution",
+          "method": "inverseCumulativeProbability",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 70,
+          "cfg_edges": 79,
+          "branch_points": 14,
+          "cyclomatic_complexity": 11,
+          "def_count": 49,
+          "use_count": 167,
+          "defuse_pairs": 49,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 70,
+      "cfg_edges": 79,
+      "branch_points": 14,
+      "cyclomatic_complexity": 11,
+      "def_count": 49,
+      "use_count": 167,
+      "defuse_pairs": 49,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math3.distribution.AbstractIntegerDistribution",
+          "method": "inverseCumulativeProbability",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 70,
+          "cfg_edges": 79,
+          "branch_points": 14,
+          "cyclomatic_complexity": 11,
+          "def_count": 49,
+          "use_count": 167,
+          "defuse_pairs": 49,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": 0,
+    "d_branch_points": 0,
+    "d_cfg_edges": 0,
+    "d_defuse_pairs": 0,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 686,
+      "n_candidate_warnings": 686,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_others__Doverfitting__SOFix__Math__patch2-Math-2-SOFix-plausible",
+    "bug_id": "Math-2",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}
