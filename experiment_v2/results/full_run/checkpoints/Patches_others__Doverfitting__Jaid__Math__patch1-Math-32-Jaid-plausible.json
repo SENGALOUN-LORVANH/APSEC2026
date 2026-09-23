@@ -1,0 +1,187 @@
+{
+  "patch_id": "Patches_others__Doverfitting__Jaid__Math__patch1-Math-32-Jaid-plausible",
+  "bug_id": "Math-32",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 55.004
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 1.561
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 2.131
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 2.869
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 0.394
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 140.911
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_others__Doverfitting__Jaid__Math__patch1-Math-32-Jaid-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 0,
+    "s_sem_final": null,
+    "decision": null,
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 0.3641112110017275,
+        "attempts": 1,
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLmW7rdTwYzKsQVM5v4g'}"
+      },
+      {
+        "run": 1,
+        "latency_s": 0.3525599099993997,
+        "attempts": 1,
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLmW9JC9BsMykWm3qn7M'}"
+      },
+      {
+        "run": 2,
+        "latency_s": 0.33868041100140545,
+        "attempts": 1,
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLmWApULYenm2XTNZwy1'}"
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_others__Doverfitting__Jaid__Math__patch1-Math-32-Jaid-plausible",
+    "bug_id": "Math-32",
+    "model": "claude-haiku-4-5",
+    "latency_s": 0.46233581400156254,
+    "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLmWNiLrrjfWeUHAdGhk'}",
+    "context_errors": [],
+    "input_tokens": null,
+    "output_tokens": null,
+    "tests": []
+  },
+  "memorization": {
+    "patch_id": "Patches_others__Doverfitting__Jaid__Math__patch1-Math-32-Jaid-plausible",
+    "true_project": "Math",
+    "true_bug_number": "32",
+    "model": "claude-haiku-4-5",
+    "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLmWQnN1GrnXp9xJcfxZ'}",
+    "input_tokens": null,
+    "output_tokens": null
+  },
+  "stage2b": {
+    "patch_id": "Patches_others__Doverfitting__Jaid__Math__patch1-Math-32-Jaid-plausible",
+    "bug_id": "Math-32",
+    "s_edit_ast": 0.072992700729927,
+    "s_edit_ast_actions": 20,
+    "s_edit_ast_nodes": 274,
+    "s_edit_error": null,
+    "s_vuln_changed": 0.5,
+    "s_vuln_new_warning_count": 1,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math3/geometry/euclidean/twod/PolygonsSet"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 80,
+      "cfg_edges": 85,
+      "branch_points": 6,
+      "cyclomatic_complexity": 7,
+      "def_count": 55,
+      "use_count": 178,
+      "defuse_pairs": 55,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math3.geometry.euclidean.twod.PolygonsSet",
+          "method": "computeGeometricalProperties",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 80,
+          "cfg_edges": 85,
+          "branch_points": 6,
+          "cyclomatic_complexity": 7,
+          "def_count": 55,
+          "use_count": 178,
+          "defuse_pairs": 55,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 86,
+      "cfg_edges": 93,
+      "branch_points": 8,
+      "cyclomatic_complexity": 9,
+      "def_count": 58,
+      "use_count": 188,
+      "defuse_pairs": 58,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math3.geometry.euclidean.twod.PolygonsSet",
+          "method": "computeGeometricalProperties",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 86,
+          "cfg_edges": 93,
+          "branch_points": 8,
+          "cyclomatic_complexity": 9,
+          "def_count": 58,
+          "use_count": 188,
+          "defuse_pairs": 58,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 2,
+    "d_stmts": 6,
+    "d_branch_points": 2,
+    "d_cfg_edges": 8,
+    "d_defuse_pairs": 3,
+    "vuln_detail": {
+      "s_vuln": 0.5,
+      "new_warnings": [
+        {
+          "bug_type": "EC",
+          "category": "C",
+          "priority": "M",
+          "severity": "MEDIUM",
+          "class": "PolygonsSet",
+          "method": "computeGeometricalProperties",
+          "location": "PolygonsSet.java:line 136",
+          "description": "Using pointer equality to compare a org.apache.commons.math3.geometry.partitioning.SubHyperplane<S> with a org.apache.commons.math3.geometry.partitioning.BSPTree<S> in org.apache.commons.math3.geometry.euclidean.twod.PolygonsSet.computeGeometricalProperties()"
+        }
+      ],
+      "n_buggy_warnings": 505,
+      "n_candidate_warnings": 506,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 3,
+      "n_changed_class_files_candidate": 3,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_others__Doverfitting__Jaid__Math__patch1-Math-32-Jaid-plausible",
+    "bug_id": "Math-32",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}
