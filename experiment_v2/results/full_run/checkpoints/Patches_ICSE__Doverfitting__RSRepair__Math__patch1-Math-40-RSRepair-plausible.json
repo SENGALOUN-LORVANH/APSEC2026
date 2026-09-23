@@ -1,0 +1,176 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__RSRepair__Math__patch1-Math-40-RSRepair-plausible",
+  "bug_id": "Math-40",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 30.326
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.904
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 1.557
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 1.963
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 0.364
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 131.941
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__RSRepair__Math__patch1-Math-40-RSRepair-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 0,
+    "s_sem_final": null,
+    "decision": null,
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 0.4225473169972247,
+        "attempts": 1,
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLqRLYwhP2Exf3YgitAp'}"
+      },
+      {
+        "run": 1,
+        "latency_s": 0.3097014119994128,
+        "attempts": 1,
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLqRNG8VtttGctkNLD5q'}"
+      },
+      {
+        "run": 2,
+        "latency_s": 0.3565199129989196,
+        "attempts": 1,
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLqRPej2es197ssnRbz4'}"
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__RSRepair__Math__patch1-Math-40-RSRepair-plausible",
+    "bug_id": "Math-40",
+    "model": "claude-haiku-4-5",
+    "latency_s": 0.38313622400164604,
+    "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLqRY2WF3rfV6XbuVPa1'}",
+    "context_errors": [],
+    "input_tokens": null,
+    "output_tokens": null,
+    "tests": []
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__RSRepair__Math__patch1-Math-40-RSRepair-plausible",
+    "true_project": "Math",
+    "true_bug_number": "40",
+    "model": "claude-haiku-4-5",
+    "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLqRZgE1FpB5Vs7CgrDY'}",
+    "input_tokens": null,
+    "output_tokens": null
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__RSRepair__Math__patch1-Math-40-RSRepair-plausible",
+    "bug_id": "Math-40",
+    "s_edit_ast": 0.013095238095238096,
+    "s_edit_ast_actions": 11,
+    "s_edit_ast_nodes": 840,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math/analysis/solvers/BracketingNthOrderBrentSolver"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 203,
+      "cfg_edges": 221,
+      "branch_points": 25,
+      "cyclomatic_complexity": 20,
+      "def_count": 146,
+      "use_count": 504,
+      "defuse_pairs": 146,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.analysis.solvers.BracketingNthOrderBrentSolver",
+          "method": "doSolve",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 203,
+          "cfg_edges": 221,
+          "branch_points": 25,
+          "cyclomatic_complexity": 20,
+          "def_count": 146,
+          "use_count": 504,
+          "defuse_pairs": 146,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 204,
+      "cfg_edges": 222,
+      "branch_points": 25,
+      "cyclomatic_complexity": 20,
+      "def_count": 147,
+      "use_count": 505,
+      "defuse_pairs": 147,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.analysis.solvers.BracketingNthOrderBrentSolver",
+          "method": "doSolve",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 204,
+          "cfg_edges": 222,
+          "branch_points": 25,
+          "cyclomatic_complexity": 20,
+          "def_count": 147,
+          "use_count": 505,
+          "defuse_pairs": 147,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": 1,
+    "d_branch_points": 0,
+    "d_cfg_edges": 1,
+    "d_defuse_pairs": 1,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 503,
+      "n_candidate_warnings": 503,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 2,
+      "n_changed_class_files_candidate": 2,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__RSRepair__Math__patch1-Math-40-RSRepair-plausible",
+    "bug_id": "Math-40",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

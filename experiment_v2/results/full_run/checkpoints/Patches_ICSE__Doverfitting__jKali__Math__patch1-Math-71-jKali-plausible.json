@@ -1,0 +1,187 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__jKali__Math__patch1-Math-71-jKali-plausible",
+  "bug_id": "Math-71",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 15.27
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 1.21
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 1.969
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 2.49
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 0.401
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 79.439
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__jKali__Math__patch1-Math-71-jKali-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 0,
+    "s_sem_final": null,
+    "decision": null,
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 0.44397856800060254,
+        "attempts": 1,
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLr1MYAiPWmRrpJMPK91'}"
+      },
+      {
+        "run": 1,
+        "latency_s": 0.35926865600049496,
+        "attempts": 1,
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLr1PENYYjeR7DhaDyMV'}"
+      },
+      {
+        "run": 2,
+        "latency_s": 0.34791505400062306,
+        "attempts": 1,
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLr1Qnt1HSdkR8Dx3o4t'}"
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__jKali__Math__patch1-Math-71-jKali-plausible",
+    "bug_id": "Math-71",
+    "model": "claude-haiku-4-5",
+    "latency_s": 0.37020265700266464,
+    "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLr1bUpBXm6pDaL4BFNr'}",
+    "context_errors": [],
+    "input_tokens": null,
+    "output_tokens": null,
+    "tests": []
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__jKali__Math__patch1-Math-71-jKali-plausible",
+    "true_project": "Math",
+    "true_bug_number": "71",
+    "model": "claude-haiku-4-5",
+    "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLr1dA2EXqMhtai4ozFK'}",
+    "input_tokens": null,
+    "output_tokens": null
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__jKali__Math__patch1-Math-71-jKali-plausible",
+    "bug_id": "Math-71",
+    "s_edit_ast": 0.0945945945945946,
+    "s_edit_ast_actions": 7,
+    "s_edit_ast_nodes": 74,
+    "s_edit_error": null,
+    "s_vuln_changed": 0.5,
+    "s_vuln_new_warning_count": 1,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math/ConvergingAlgorithmImpl"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 13,
+      "cfg_edges": 12,
+      "branch_points": 0,
+      "cyclomatic_complexity": 1,
+      "def_count": 11,
+      "use_count": 21,
+      "defuse_pairs": 11,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.ConvergingAlgorithmImpl",
+          "method": "ConvergingAlgorithmImpl",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 13,
+          "cfg_edges": 12,
+          "branch_points": 0,
+          "cyclomatic_complexity": 1,
+          "def_count": 11,
+          "use_count": 21,
+          "defuse_pairs": 11,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 12,
+      "cfg_edges": 11,
+      "branch_points": 0,
+      "cyclomatic_complexity": 1,
+      "def_count": 10,
+      "use_count": 19,
+      "defuse_pairs": 10,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.ConvergingAlgorithmImpl",
+          "method": "ConvergingAlgorithmImpl",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 12,
+          "cfg_edges": 11,
+          "branch_points": 0,
+          "cyclomatic_complexity": 1,
+          "def_count": 10,
+          "use_count": 19,
+          "defuse_pairs": 10,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": -1,
+    "d_branch_points": 0,
+    "d_cfg_edges": -1,
+    "d_defuse_pairs": -1,
+    "vuln_detail": {
+      "s_vuln": 0.5,
+      "new_warnings": [
+        {
+          "bug_type": "UR",
+          "category": "C",
+          "priority": "M",
+          "severity": "MEDIUM",
+          "class": "ConvergingAlgorithmImpl",
+          "method": "ConvergingAlgorithmImpl",
+          "location": "ConvergingAlgorithmImpl.java:line 64",
+          "description": "Uninitialized read of defaultRelativeAccuracy in new org.apache.commons.math.ConvergingAlgorithmImpl(int, double)"
+        }
+      ],
+      "n_buggy_warnings": 335,
+      "n_candidate_warnings": 336,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__jKali__Math__patch1-Math-71-jKali-plausible",
+    "bug_id": "Math-71",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

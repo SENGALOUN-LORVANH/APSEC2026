@@ -1,0 +1,25 @@
+{
+  "patch_id": "Patches_ICSE__Ddifferent__SimFix__Math__patch1-Math-71-SimFix",
+  "bug_id": "Math-71",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 1.738
+    }
+  },
+  "complete": false,
+  "terminal_failure": "apply_patch",
+  "semantic": null,
+  "counterexample": null,
+  "memorization": null,
+  "stage2b": null,
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Ddifferent__SimFix__Math__patch1-Math-71-SimFix",
+    "bug_id": "Math-71",
+    "patch_applies": false,
+    "patch_compiles": "NA",
+    "original_tests_pass": "NA",
+    "error": "dry-run failed: checking file src/main/java/org/apache/commons/math/ode/nonstiff/EmbeddedRungeKuttaIntegrator.java\nHunk #2 FAILED at 312.\n1 out of 2 hunks FAILED\n"
+  }
+}
