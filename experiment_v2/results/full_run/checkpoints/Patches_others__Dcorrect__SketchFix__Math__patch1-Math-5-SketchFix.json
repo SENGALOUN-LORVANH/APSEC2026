@@ -1,0 +1,256 @@
+{
+  "patch_id": "Patches_others__Dcorrect__SketchFix__Math__patch1-Math-5-SketchFix",
+  "bug_id": "Math-5",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 72.743
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 2.056
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 9.408
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 49.169
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.129
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 97.498
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_others__Dcorrect__SketchFix__Math__patch1-Math-5-SketchFix",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 2.8877046009993137,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2157,
+        "output_tokens": 144,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 1.0,
+          "readability": 1.0,
+          "security_robustness": 1.0,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch changes the reciprocal of zero from NaN to INF to pass the specific test, but this is mathematically incorrect and weakens the API contract. The test expectation itself appears to be the bug, not the implementation."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 2.834128301000419,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2157,
+        "output_tokens": 161,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.95,
+          "readability": 0.9,
+          "security_robustness": 0.8,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch changes the reciprocal of zero from NaN to INF to pass a single test, but this is mathematically incorrect and overfits to the specific test case. The reciprocal of zero is undefined and should return NaN, not INF, which weakens the correctness of the mathematical implementation."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 2.552006670999617,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2157,
+        "output_tokens": 144,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 1.0,
+          "readability": 1.0,
+          "security_robustness": 1.0,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch changes the reciprocal of zero from NaN to INF to pass the specific test, but this is mathematically incorrect and weakens the API contract. The test expectation itself appears to be the bug, not the implementation."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_others__Dcorrect__SketchFix__Math__patch1-Math-5-SketchFix",
+    "bug_id": "Math-5",
+    "model": "claude-haiku-4-5",
+    "latency_s": 11.484416633000365,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 2027,
+    "output_tokens": 2089,
+    "tests": [
+      {
+        "name": "testReciprocalNonZeroSmallValues",
+        "target_class": "org.apache.commons.math3.complex.Complex",
+        "target_method": "reciprocal",
+        "class_name": "ComplexReciprocalBoundaryTest",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": "JUnit version 4.11\n...\nTime: 0.007\n\nOK (3 tests)\n\n"
+      },
+      {
+        "name": "testReciprocalNormalValues",
+        "target_class": "org.apache.commons.math3.complex.Complex",
+        "target_method": "reciprocal",
+        "class_name": "ComplexReciprocalNormalTest",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": "JUnit version 4.11\n.\nTime: 0.012\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testReciprocalEdgeCases",
+        "target_class": "org.apache.commons.math3.complex.Complex",
+        "target_method": "reciprocal",
+        "class_name": "ComplexReciprocalEdgeCasesTest",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": "JUnit version 4.11\n.\nTime: 0.005\n\nOK (1 test)\n\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_others__Dcorrect__SketchFix__Math__patch1-Math-5-SketchFix",
+    "true_project": "Math",
+    "true_bug_number": "5",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 543,
+    "output_tokens": 28,
+    "project": "Math",
+    "bug_number": 105,
+    "recalled_label": "OVERFITTING",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_others__Dcorrect__SketchFix__Math__patch1-Math-5-SketchFix",
+    "bug_id": "Math-5",
+    "s_edit_ast": 0.058823529411764705,
+    "s_edit_ast_actions": 7,
+    "s_edit_ast_nodes": 119,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math3/complex/Complex"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 50,
+      "cfg_edges": 49,
+      "branch_points": 5,
+      "cyclomatic_complexity": 3,
+      "def_count": 39,
+      "use_count": 111,
+      "defuse_pairs": 39,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math3.complex.Complex",
+          "method": "reciprocal",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 50,
+          "cfg_edges": 49,
+          "branch_points": 5,
+          "cyclomatic_complexity": 3,
+          "def_count": 39,
+          "use_count": 111,
+          "defuse_pairs": 39,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 50,
+      "cfg_edges": 49,
+      "branch_points": 5,
+      "cyclomatic_complexity": 3,
+      "def_count": 39,
+      "use_count": 111,
+      "defuse_pairs": 39,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math3.complex.Complex",
+          "method": "reciprocal",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 50,
+          "cfg_edges": 49,
+          "branch_points": 5,
+          "cyclomatic_complexity": 3,
+          "def_count": 39,
+          "use_count": 111,
+          "defuse_pairs": 39,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": 0,
+    "d_branch_points": 0,
+    "d_cfg_edges": 0,
+    "d_defuse_pairs": 0,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 663,
+      "n_candidate_warnings": 663,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_others__Dcorrect__SketchFix__Math__patch1-Math-5-SketchFix",
+    "bug_id": "Math-5",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

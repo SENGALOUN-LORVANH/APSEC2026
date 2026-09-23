@@ -1,0 +1,256 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__TBar__Math__patch1-Math-81-TBar-plausible",
+  "bug_id": "Math-81",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 19.545
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 1.315
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 13.003
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 51.854
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.079
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 81.388
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__TBar__Math__patch1-Math-81-TBar-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 4.065015854999729,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 5072,
+        "output_tokens": 200,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.1,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch replaces `pingPong` with `this.tType` in a single location, which appears to be a coincidental fix rather than addressing the root cause. The change uses `tType` (which is -5 at this point) instead of `pingPong`, producing a different array index that happens to avoid the -1 index in the test case but fundamentally corrupts the algorithm's logic. This is overfitting to the specific test case rather than fixing the underlying bug."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.9621307320003325,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 5072,
+        "output_tokens": 200,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.1,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch replaces `pingPong` with `this.tType` in a single location, which appears to be a coincidental fix rather than addressing the root cause. The change uses `tType` (which is -5 at this point) instead of `pingPong`, producing a different array index that happens to avoid the -1 index in the test case but fundamentally corrupts the algorithm's logic. This is overfitting to the specific test case rather than fixing the underlying bug."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.84495913200044,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 5072,
+        "output_tokens": 200,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.1,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch replaces `pingPong` with `this.tType` in a single location, which appears to be a coincidental fix rather than addressing the root cause. The change uses `tType` (which is -5 at this point) instead of `pingPong`, producing a different array index that happens to avoid the -1 index in the test case but fundamentally corrupts the algorithm's logic. This is overfitting to the specific test case rather than fixing the underlying bug."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__TBar__Math__patch1-Math-81-TBar-plausible",
+    "bug_id": "Math-81",
+    "model": "claude-haiku-4-5",
+    "latency_s": 17.166797717999543,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 4965,
+    "output_tokens": 1763,
+    "tests": [
+      {
+        "name": "testComputeShiftIncrementCase5WithDifferentPingPong",
+        "target_class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+        "target_method": "computeShiftIncrement",
+        "class_name": "TestComputeShiftIncrementCase5",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.011\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testEigenDecompositionWithSmallMatrix",
+        "target_class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+        "target_method": "computeShiftIncrement",
+        "class_name": "TestEigenDecompositionSmallMatrix",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.008\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testEigenDecompositionLargeMatrix",
+        "target_class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+        "target_method": "computeShiftIncrement",
+        "class_name": "TestEigenDecompositionLargeMatrix",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.008\n\nOK (1 test)\n\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__TBar__Math__patch1-Math-81-TBar-plausible",
+    "true_project": "Math",
+    "true_bug_number": "81",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 595,
+    "output_tokens": 26,
+    "project": "Math",
+    "bug_number": 45,
+    "recalled_label": "CORRECT",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__TBar__Math__patch1-Math-81-TBar-plausible",
+    "bug_id": "Math-81",
+    "s_edit_ast": 0.01543026706231454,
+    "s_edit_ast_actions": 26,
+    "s_edit_ast_nodes": 1685,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math/linear/EigenDecompositionImpl"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 560,
+      "cfg_edges": 603,
+      "branch_points": 53,
+      "cyclomatic_complexity": 45,
+      "def_count": 469,
+      "use_count": 1378,
+      "defuse_pairs": 469,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+          "method": "computeShiftIncrement",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 560,
+          "cfg_edges": 603,
+          "branch_points": 53,
+          "cyclomatic_complexity": 45,
+          "def_count": 469,
+          "use_count": 1378,
+          "defuse_pairs": 469,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 560,
+      "cfg_edges": 603,
+      "branch_points": 53,
+      "cyclomatic_complexity": 45,
+      "def_count": 469,
+      "use_count": 1378,
+      "defuse_pairs": 469,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+          "method": "computeShiftIncrement",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 560,
+          "cfg_edges": 603,
+          "branch_points": 53,
+          "cyclomatic_complexity": 45,
+          "def_count": 469,
+          "use_count": 1378,
+          "defuse_pairs": 469,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": 0,
+    "d_branch_points": 0,
+    "d_cfg_edges": 0,
+    "d_defuse_pairs": 0,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 317,
+      "n_candidate_warnings": 317,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 3,
+      "n_changed_class_files_candidate": 3,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__TBar__Math__patch1-Math-81-TBar-plausible",
+    "bug_id": "Math-81",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

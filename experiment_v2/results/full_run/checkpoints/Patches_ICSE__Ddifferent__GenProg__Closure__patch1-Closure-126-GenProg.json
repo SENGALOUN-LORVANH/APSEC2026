@@ -1,0 +1,256 @@
+{
+  "patch_id": "Patches_ICSE__Ddifferent__GenProg__Closure__patch1-Closure-126-GenProg",
+  "bug_id": "Closure-126",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 93.785
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.836
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 10.766
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 29.353
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 0.948
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 39.767
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Ddifferent__GenProg__Closure__patch1-Closure-126-GenProg",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.4383316489993376,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3815,
+        "output_tokens": 158,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.95,
+          "readability": 0.9,
+          "security_robustness": 0.85,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch removes the recursive call to tryMinimizeExits for finally blocks, which causes it to fail the very tests it claims to fix. The test failures show that break statements and return statements in finally blocks are being incorrectly removed, indicating the patch deletes necessary functionality rather than fixing the bug."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.2795901600002253,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3815,
+        "output_tokens": 158,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.95,
+          "readability": 0.9,
+          "security_robustness": 0.85,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch removes the recursive call to tryMinimizeExits for finally blocks, which causes it to fail the very tests it claims to fix. The test failures show that break statements and return statements in finally blocks are being incorrectly removed, indicating the patch deletes necessary functionality rather than fixing the bug."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.3082853299993076,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3815,
+        "output_tokens": 158,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.95,
+          "readability": 0.9,
+          "security_robustness": 0.85,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch removes the recursive call to tryMinimizeExits for finally blocks, which causes it to fail the very tests it claims to fix. The test failures show that break statements and return statements in finally blocks are being incorrectly removed, indicating the patch deletes necessary functionality rather than fixing the bug."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Ddifferent__GenProg__Closure__patch1-Closure-126-GenProg",
+    "bug_id": "Closure-126",
+    "model": "claude-haiku-4-5",
+    "latency_s": 11.662750905999928,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 3684,
+    "output_tokens": 1632,
+    "tests": [
+      {
+        "name": "testFinallyBlockWithBreakStatement",
+        "target_class": "com.google.javascript.jscomp.MinimizeExitPoints",
+        "target_method": "tryMinimizeExits",
+        "class_name": "MinimizeExitPointsTest",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "hest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/io/Serializable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Comparable.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Comparable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Ddifferent__GenProg__Closure__patch1-Closure-126-GenProg/MinimizeExitPointsTest/fixed/test/com/google/javascript/jscomp/MinimizeExitPointsTest.java:33: error: cannot find symbol\n    [javac]     Node root = compiler.parseTestCode(code);\n    [javac]     ^\n    [javac]   symbol:   class Node\n    [javac]   location: class MinimizeExitPointsTest\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Ddifferent__GenProg__Closure__patch1-Closure-126-GenProg/MinimizeExitPointsTest/fixed/test/com/google/javascript/jscomp/MinimizeExitPointsTest.java:47: error: cannot find symbol\n    [javac]     Node root = compiler.parseTestCode(code);\n    [javac]     ^\n    [javac]   symbol:   class Node\n    [javac]   location: class MinimizeExitPointsTest\n    [javac] 3 errors\n    [javac] 23 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Ddifferent__GenProg__Closure__patch1-Closure-126-GenProg/MinimizeExitPointsTest/fixed/build.xml:335: Compile failed; see the compiler error output for details.\n\nTotal time: 2 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testFinallyBlockPreservesControlFlow",
+        "target_class": "com.google.javascript.jscomp.MinimizeExitPoints",
+        "target_method": "tryMinimizeExits",
+        "class_name": "FinallyBlockControlFlowTest",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "find symbol\n    [javac]     Node root = compiler.parseTestCode(code);\n    [javac]     ^\n    [javac]   symbol:   class Node\n    [javac]   location: class FinallyBlockControlFlowTest\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/CharSequence.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/CharSequence.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/io/Serializable.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/io/Serializable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Comparable.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Comparable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 1 error\n    [javac] 23 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Ddifferent__GenProg__Closure__patch1-Closure-126-GenProg/FinallyBlockControlFlowTest/fixed/build.xml:335: Compile failed; see the compiler error output for details.\n\nTotal time: 1 second\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testFinallyBlockNotMinimized",
+        "target_class": "com.google.javascript.jscomp.MinimizeExitPoints",
+        "target_method": "tryMinimizeExits",
+        "class_name": "FinallyBlockMinimizationTest",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "nd symbol\n    [javac]     Node root = compiler.parseTestCode(code);\n    [javac]     ^\n    [javac]   symbol:   class Node\n    [javac]   location: class FinallyBlockMinimizationTest\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/CharSequence.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/CharSequence.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/io/Serializable.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/io/Serializable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Comparable.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Comparable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 1 error\n    [javac] 23 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Ddifferent__GenProg__Closure__patch1-Closure-126-GenProg/FinallyBlockMinimizationTest/fixed/build.xml:335: Compile failed; see the compiler error output for details.\n\nTotal time: 1 second\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Ddifferent__GenProg__Closure__patch1-Closure-126-GenProg",
+    "true_project": "Closure",
+    "true_bug_number": "126",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 529,
+    "output_tokens": 26,
+    "project": "Closure",
+    "bug_number": null,
+    "recalled_label": "UNKNOWN",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Ddifferent__GenProg__Closure__patch1-Closure-126-GenProg",
+    "bug_id": "Closure-126",
+    "s_edit_ast": 0.017543859649122806,
+    "s_edit_ast_actions": 7,
+    "s_edit_ast_nodes": 399,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "com/google/javascript/jscomp/MinimizeExitPoints"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 76,
+      "cfg_edges": 87,
+      "branch_points": 15,
+      "cyclomatic_complexity": 13,
+      "def_count": 41,
+      "use_count": 180,
+      "defuse_pairs": 41,
+      "per_method": [
+        {
+          "class": "com.google.javascript.jscomp.MinimizeExitPoints",
+          "method": "tryMinimizeExits",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 76,
+          "cfg_edges": 87,
+          "branch_points": 15,
+          "cyclomatic_complexity": 13,
+          "def_count": 41,
+          "use_count": 180,
+          "defuse_pairs": 41,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 75,
+      "cfg_edges": 86,
+      "branch_points": 15,
+      "cyclomatic_complexity": 13,
+      "def_count": 41,
+      "use_count": 175,
+      "defuse_pairs": 41,
+      "per_method": [
+        {
+          "class": "com.google.javascript.jscomp.MinimizeExitPoints",
+          "method": "tryMinimizeExits",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 75,
+          "cfg_edges": 86,
+          "branch_points": 15,
+          "cyclomatic_complexity": 13,
+          "def_count": 41,
+          "use_count": 175,
+          "defuse_pairs": 41,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": -1,
+    "d_branch_points": 0,
+    "d_cfg_edges": -1,
+    "d_defuse_pairs": 0,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 8,
+      "n_candidate_warnings": 8,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Ddifferent__GenProg__Closure__patch1-Closure-126-GenProg",
+    "bug_id": "Closure-126",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

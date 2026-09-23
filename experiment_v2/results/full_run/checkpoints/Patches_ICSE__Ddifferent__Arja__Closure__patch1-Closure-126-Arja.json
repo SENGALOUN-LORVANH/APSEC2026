@@ -1,0 +1,256 @@
+{
+  "patch_id": "Patches_ICSE__Ddifferent__Arja__Closure__patch1-Closure-126-Arja",
+  "bug_id": "Closure-126",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 93.224
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 2.423
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 12.558
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 40.76
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.905
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 34.844
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Ddifferent__Arja__Closure__patch1-Closure-126-Arja",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.6825016699995103,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3924,
+        "output_tokens": 167,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.3,
+          "readability": 0.7,
+          "security_robustness": 0.5,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch removes the entire finally block processing logic to make the tests pass, but this deletes functionality rather than fixing the underlying bug. The tests expect exit statements (break/return) to be preserved in finally blocks, but the patch simply skips processing them entirely, which is a regression that happens to pass these specific tests while breaking the intended optimization behavior."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.785771143999227,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3924,
+        "output_tokens": 167,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.3,
+          "readability": 0.7,
+          "security_robustness": 0.5,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch removes the entire finally block processing logic to make the tests pass, but this deletes functionality rather than fixing the underlying bug. The tests expect exit statements (break/return) to be preserved in finally blocks, but the patch simply skips processing them entirely, which is a regression that happens to pass these specific tests while breaking the intended optimization behavior."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.6666902400002073,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3924,
+        "output_tokens": 167,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.3,
+          "readability": 0.7,
+          "security_robustness": 0.5,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch removes the entire finally block processing logic to make the tests pass, but this deletes functionality rather than fixing the underlying bug. The tests expect exit statements (break/return) to be preserved in finally blocks, but the patch simply skips processing them entirely, which is a regression that happens to pass these specific tests while breaking the intended optimization behavior."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Ddifferent__Arja__Closure__patch1-Closure-126-Arja",
+    "bug_id": "Closure-126",
+    "model": "claude-haiku-4-5",
+    "latency_s": 9.819517841999186,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 3793,
+    "output_tokens": 1353,
+    "tests": [
+      {
+        "name": "testFinallyBlockWithBreakPreserved",
+        "target_class": "com.google.javascript.jscomp.MinimizeExitPoints",
+        "target_method": "tryMinimizeExits",
+        "class_name": "TestFinallyBlockWithBreakPreserved",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "s(compiler)).process(root, root);\n    [javac]             ^\n    [javac]   symbol:   method getPass(MinimizeExitPoints)\n    [javac]   location: variable compiler of type Compiler\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/CharSequence.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/CharSequence.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/io/Serializable.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/io/Serializable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Comparable.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Comparable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 2 errors\n    [javac] 25 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Ddifferent__Arja__Closure__patch1-Closure-126-Arja/TestFinallyBlockWithBreakPreserved/fixed/build.xml:335: Compile failed; see the compiler error output for details.\n\nTotal time: 2 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testFinallyBlockWithReturnPreserved",
+        "target_class": "com.google.javascript.jscomp.MinimizeExitPoints",
+        "target_method": "tryMinimizeExits",
+        "class_name": "TestFinallyBlockWithReturnPreserved",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "(compiler)).process(root, root);\n    [javac]             ^\n    [javac]   symbol:   method getPass(MinimizeExitPoints)\n    [javac]   location: variable compiler of type Compiler\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/CharSequence.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/CharSequence.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/io/Serializable.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/io/Serializable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Comparable.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Comparable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 2 errors\n    [javac] 25 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Ddifferent__Arja__Closure__patch1-Closure-126-Arja/TestFinallyBlockWithReturnPreserved/fixed/build.xml:335: Compile failed; see the compiler error output for details.\n\nTotal time: 3 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testFinallyBlockWithThrowPreserved",
+        "target_class": "com.google.javascript.jscomp.MinimizeExitPoints",
+        "target_method": "tryMinimizeExits",
+        "class_name": "TestFinallyBlockWithThrowPreserved",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "s(compiler)).process(root, root);\n    [javac]             ^\n    [javac]   symbol:   method getPass(MinimizeExitPoints)\n    [javac]   location: variable compiler of type Compiler\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/CharSequence.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/CharSequence.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/io/Serializable.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/io/Serializable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Comparable.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Comparable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 2 errors\n    [javac] 25 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Ddifferent__Arja__Closure__patch1-Closure-126-Arja/TestFinallyBlockWithThrowPreserved/fixed/build.xml:335: Compile failed; see the compiler error output for details.\n\nTotal time: 2 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Ddifferent__Arja__Closure__patch1-Closure-126-Arja",
+    "true_project": "Closure",
+    "true_bug_number": "126",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 638,
+    "output_tokens": 27,
+    "project": "Closure",
+    "bug_number": 1,
+    "recalled_label": "CORRECT",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Ddifferent__Arja__Closure__patch1-Closure-126-Arja",
+    "bug_id": "Closure-126",
+    "s_edit_ast": 0.06015037593984962,
+    "s_edit_ast_actions": 24,
+    "s_edit_ast_nodes": 399,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "com/google/javascript/jscomp/MinimizeExitPoints"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 76,
+      "cfg_edges": 87,
+      "branch_points": 15,
+      "cyclomatic_complexity": 13,
+      "def_count": 41,
+      "use_count": 180,
+      "defuse_pairs": 41,
+      "per_method": [
+        {
+          "class": "com.google.javascript.jscomp.MinimizeExitPoints",
+          "method": "tryMinimizeExits",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 76,
+          "cfg_edges": 87,
+          "branch_points": 15,
+          "cyclomatic_complexity": 13,
+          "def_count": 41,
+          "use_count": 180,
+          "defuse_pairs": 41,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 72,
+      "cfg_edges": 82,
+      "branch_points": 14,
+      "cyclomatic_complexity": 12,
+      "def_count": 39,
+      "use_count": 168,
+      "defuse_pairs": 39,
+      "per_method": [
+        {
+          "class": "com.google.javascript.jscomp.MinimizeExitPoints",
+          "method": "tryMinimizeExits",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 72,
+          "cfg_edges": 82,
+          "branch_points": 14,
+          "cyclomatic_complexity": 12,
+          "def_count": 39,
+          "use_count": 168,
+          "defuse_pairs": 39,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": -1,
+    "d_stmts": -4,
+    "d_branch_points": -1,
+    "d_cfg_edges": -5,
+    "d_defuse_pairs": -2,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 8,
+      "n_candidate_warnings": 8,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Ddifferent__Arja__Closure__patch1-Closure-126-Arja",
+    "bug_id": "Closure-126",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

@@ -1,0 +1,256 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__FixMiner__Math__patch1-Math-63-FixMiner-plausible",
+  "bug_id": "Math-63",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 57.936
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 1.48
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 9.268
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 33.69
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.398
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 71.491
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__FixMiner__Math__patch1-Math-63-FixMiner-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 2.751911438999741,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2051,
+        "output_tokens": 150,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 1.0,
+          "readability": 1.0,
+          "security_robustness": 1.0,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch removes the NaN equality check, which weakens the original functionality. While it passes the failing test, it deletes intentional behavior (treating NaN == NaN as true) that was documented in the method's contract and likely required by other use cases."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 2.7610471610005334,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2051,
+        "output_tokens": 157,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 1.0,
+          "readability": 0.9,
+          "security_robustness": 0.5,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch removes the NaN equality check, which was intentional functionality documented in the method's contract. While it passes the failing test, it weakens the method by breaking the documented behavior that NaN values should be considered equal to each other, which is a regression in functionality rather than a bug fix."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 2.7200280420001945,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2051,
+        "output_tokens": 148,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 1.0,
+          "readability": 1.0,
+          "security_robustness": 1.0,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch removes NaN equality handling, which weakens the documented functionality. While it passes the specific test case, it breaks the semantic contract that NaN values should be considered equal to each other, which is a regression in behavior rather than a genuine bug fix."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__FixMiner__Math__patch1-Math-63-FixMiner-plausible",
+    "bug_id": "Math-63",
+    "model": "claude-haiku-4-5",
+    "latency_s": 7.316706756999338,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 1944,
+    "output_tokens": 833,
+    "tests": [
+      {
+        "name": "testEqualsWithNaNValues",
+        "target_class": "org.apache.commons.math.util.MathUtils",
+        "target_method": "equals",
+        "class_name": "TestEqualsNaN",
+        "status": "INVALID_ORACLE",
+        "candidate_pass": null,
+        "log": ".F\nTime: 0.157\nThere was 1 failure:\n1) testEqualsWithNaNValues(org.apache.commons.math.util.TestEqualsNaN)junit.framework.AssertionFailedError: Two NaN values should be equal\n\tat org.apache.commons.math.util.TestEqualsNaN.testEqualsWithNaNValues(TestEqualsNaN.java:8)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\nFAILURES!!!\nTests run: 1,  Failures: 1,  Errors: 0\n\n"
+      },
+      {
+        "name": "testEqualsWithNaNAndRegularValue",
+        "target_class": "org.apache.commons.math.util.MathUtils",
+        "target_method": "equals",
+        "class_name": "TestEqualsNaNRegular",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.003\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testEqualsWithRegularValues",
+        "target_class": "org.apache.commons.math.util.MathUtils",
+        "target_method": "equals",
+        "class_name": "TestEqualsRegularValues",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.003\n\nOK (1 test)\n\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__FixMiner__Math__patch1-Math-63-FixMiner-plausible",
+    "true_project": "Math",
+    "true_bug_number": "63",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 550,
+    "output_tokens": 28,
+    "project": "Math",
+    "bug_number": 41,
+    "recalled_label": "OVERFITTING",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__FixMiner__Math__patch1-Math-63-FixMiner-plausible",
+    "bug_id": "Math-63",
+    "s_edit_ast": 0.4406779661016949,
+    "s_edit_ast_actions": 26,
+    "s_edit_ast_nodes": 59,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math/util/MathUtils"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 95,
+      "cfg_edges": 109,
+      "branch_points": 22,
+      "cyclomatic_complexity": 22,
+      "def_count": 56,
+      "use_count": 175,
+      "defuse_pairs": 56,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.util.MathUtils",
+          "method": "equals",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 4,
+          "stmts": 95,
+          "cfg_edges": 109,
+          "branch_points": 22,
+          "cyclomatic_complexity": 22,
+          "def_count": 56,
+          "use_count": 175,
+          "defuse_pairs": 56,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 91,
+      "cfg_edges": 103,
+      "branch_points": 20,
+      "cyclomatic_complexity": 20,
+      "def_count": 54,
+      "use_count": 165,
+      "defuse_pairs": 54,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.util.MathUtils",
+          "method": "equals",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 4,
+          "stmts": 91,
+          "cfg_edges": 103,
+          "branch_points": 20,
+          "cyclomatic_complexity": 20,
+          "def_count": 54,
+          "use_count": 165,
+          "defuse_pairs": 54,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": -2,
+    "d_stmts": -4,
+    "d_branch_points": -2,
+    "d_cfg_edges": -6,
+    "d_defuse_pairs": -2,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 349,
+      "n_candidate_warnings": 349,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 3,
+      "n_changed_class_files_candidate": 3,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__FixMiner__Math__patch1-Math-63-FixMiner-plausible",
+    "bug_id": "Math-63",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}
