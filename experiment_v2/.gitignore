@@ -9,3 +9,9 @@ logs/dev_environment_*.json
 tools/java/target/
 tools/java/dependency-reduced-pom.xml
 tools/bin/
+# Full-run per-patch detail files are redundant audit copies -- each checkpoint JSON is self-contained
+# (embeds the semantic/counterexample/stage2b results), so only checkpoints + consolidated CSVs are tracked.
+results/full_run/semantic_runs/
+results/full_run/counterexample_runs/
+results/full_run/stage2b/
+results/full_run/*.tmp.*
