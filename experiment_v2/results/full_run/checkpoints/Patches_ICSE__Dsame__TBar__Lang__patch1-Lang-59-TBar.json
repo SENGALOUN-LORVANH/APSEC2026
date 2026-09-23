@@ -1,0 +1,256 @@
+{
+  "patch_id": "Patches_ICSE__Dsame__TBar__Lang__patch1-Lang-59-TBar",
+  "bug_id": "Lang-59",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 9.992
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.479
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 9.389
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 36.012
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.257
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 62.441
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Dsame__TBar__Lang__patch1-Lang-59-TBar",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.15000000000000002,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 2.9635804389999976,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3042,
+        "output_tokens": 178,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.9,
+          "readability": 0.8,
+          "security_robustness": 0.6,
+          "judgement": "OVERFITTING",
+          "confidence": 0.85,
+          "brief_reason": "The patch fixes the ArrayIndexOutOfBoundsException by changing the getChars call to use `width` instead of `strLen` when the string is longer than the width. However, this weakens functionality by truncating the string instead of properly handling the overflow case as documented. The fix is overfitted to the specific test case rather than addressing the root cause of incorrect buffer indexing."
+        },
+        "s_sem": 0.15000000000000002,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 2.863808448999862,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3042,
+        "output_tokens": 170,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.9,
+          "readability": 0.8,
+          "security_robustness": 0.6,
+          "judgement": "OVERFITTING",
+          "confidence": 0.85,
+          "brief_reason": "The patch fixes the ArrayIndexOutOfBoundsException by changing the getChars call to use width instead of strLen when strLen >= width, but this weakens functionality by truncating strings that are longer than the fixed width instead of properly handling them. The fix is minimal but semantically incorrect as it changes the intended behavior of padding to a fixed width."
+        },
+        "s_sem": 0.15000000000000002,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 2.97080340399998,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3042,
+        "output_tokens": 171,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.9,
+          "readability": 0.8,
+          "security_robustness": 0.6,
+          "judgement": "OVERFITTING",
+          "confidence": 0.85,
+          "brief_reason": "The patch fixes the ArrayIndexOutOfBoundsException by changing the getChars call to use width instead of strLen when strLen >= width, but this weakens functionality by truncating strings that are longer than the fixed width instead of properly handling them. The fix is overfitted to the specific test case rather than addressing the root cause of the logic error."
+        },
+        "s_sem": 0.15000000000000002,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Dsame__TBar__Lang__patch1-Lang-59-TBar",
+    "bug_id": "Lang-59",
+    "model": "claude-haiku-4-5",
+    "latency_s": 10.223471401000097,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 2935,
+    "output_tokens": 992,
+    "tests": [
+      {
+        "name": "testAppendFixedWidthPadRightTruncatesLongString",
+        "target_class": "org.apache.commons.lang.text.StrBuilder",
+        "target_method": "appendFixedWidthPadRight",
+        "class_name": "TestAppendFixedWidthPadRightTruncatesLongString",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.007\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testAppendFixedWidthPadRightWithExactWidth",
+        "target_class": "org.apache.commons.lang.text.StrBuilder",
+        "target_method": "appendFixedWidthPadRight",
+        "class_name": "TestAppendFixedWidthPadRightWithExactWidth",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.007\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testAppendFixedWidthPadRightMultipleAppends",
+        "target_class": "org.apache.commons.lang.text.StrBuilder",
+        "target_method": "appendFixedWidthPadRight",
+        "class_name": "TestAppendFixedWidthPadRightMultipleAppends",
+        "status": "INVALID_ORACLE",
+        "candidate_pass": null,
+        "log": ".F\nTime: 0.01\nThere was 1 failure:\n1) testAppendFixedWidthPadRightMultipleAppends(org.apache.commons.lang.text.TestAppendFixedWidthPadRightMultipleAppends)junit.framework.ComparisonFailure: expected:<ver[y]hi  test> but was:<ver[]hi  test>\n\tat org.apache.commons.lang.text.TestAppendFixedWidthPadRightMultipleAppends.testAppendFixedWidthPadRightMultipleAppends(TestAppendFixedWidthPadRightMultipleAppends.java:11)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\nFAILURES!!!\nTests run: 1,  Failures: 1,  Errors: 0\n\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Dsame__TBar__Lang__patch1-Lang-59-TBar",
+    "true_project": "Lang",
+    "true_bug_number": "59",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 580,
+    "output_tokens": 26,
+    "project": "Lang",
+    "bug_number": 38,
+    "recalled_label": "CORRECT",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Dsame__TBar__Lang__patch1-Lang-59-TBar",
+    "bug_id": "Lang-59",
+    "s_edit_ast": 0.050359712230215826,
+    "s_edit_ast_actions": 7,
+    "s_edit_ast_nodes": 139,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/lang/text/StrBuilder"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 42,
+      "cfg_edges": 44,
+      "branch_points": 4,
+      "cyclomatic_complexity": 6,
+      "def_count": 30,
+      "use_count": 90,
+      "defuse_pairs": 30,
+      "per_method": [
+        {
+          "class": "org.apache.commons.lang.text.StrBuilder",
+          "method": "appendFixedWidthPadRight",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 42,
+          "cfg_edges": 44,
+          "branch_points": 4,
+          "cyclomatic_complexity": 6,
+          "def_count": 30,
+          "use_count": 90,
+          "defuse_pairs": 30,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 42,
+      "cfg_edges": 44,
+      "branch_points": 4,
+      "cyclomatic_complexity": 6,
+      "def_count": 30,
+      "use_count": 90,
+      "defuse_pairs": 30,
+      "per_method": [
+        {
+          "class": "org.apache.commons.lang.text.StrBuilder",
+          "method": "appendFixedWidthPadRight",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 42,
+          "cfg_edges": 44,
+          "branch_points": 4,
+          "cyclomatic_complexity": 6,
+          "def_count": 30,
+          "use_count": 90,
+          "defuse_pairs": 30,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": 0,
+    "d_branch_points": 0,
+    "d_cfg_edges": 0,
+    "d_defuse_pairs": 0,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 119,
+      "n_candidate_warnings": 119,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 4,
+      "n_changed_class_files_candidate": 4,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Dsame__TBar__Lang__patch1-Lang-59-TBar",
+    "bug_id": "Lang-59",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

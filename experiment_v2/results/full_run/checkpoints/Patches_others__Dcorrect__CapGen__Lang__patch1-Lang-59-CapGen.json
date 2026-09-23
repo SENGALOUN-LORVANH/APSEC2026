@@ -1,0 +1,256 @@
+{
+  "patch_id": "Patches_others__Dcorrect__CapGen__Lang__patch1-Lang-59-CapGen",
+  "bug_id": "Lang-59",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 10.556
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.458
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 8.583
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 27.157
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.119
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 55.524
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_others__Dcorrect__CapGen__Lang__patch1-Lang-59-CapGen",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.9499999999999998,
+    "decision": "CORRECT",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 2.6904078060001666,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3053,
+        "output_tokens": 167,
+        "parsed": {
+          "generalization": "general",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 1.0,
+          "readability": 1.0,
+          "security_robustness": 1.0,
+          "judgement": "CORRECT",
+          "confidence": 0.95,
+          "brief_reason": "The patch fixes an ArrayIndexOutOfBoundsException in appendFixedWidthPadRight by correctly limiting the character extraction to the fixed width when the string is longer than the width. The change is minimal, targeted, and addresses the root cause: when strLen >= width, only width characters should be copied to avoid buffer overflow, not the entire string length."
+        },
+        "s_sem": 0.95,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 2.754869138000231,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3053,
+        "output_tokens": 191,
+        "parsed": {
+          "generalization": "general",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 1.0,
+          "readability": 1.0,
+          "security_robustness": 1.0,
+          "judgement": "CORRECT",
+          "confidence": 0.95,
+          "brief_reason": "The patch fixes an ArrayIndexOutOfBoundsException in appendFixedWidthPadRight by correctly limiting the character extraction to the fixed width when the string is longer than the width. The fix changes str.getChars(0, strLen, buffer, size) to str.getChars(0, width, buffer, size), which prevents copying more characters than the allocated space. This is a minimal, targeted fix that addresses the root cause of the bug."
+        },
+        "s_sem": 0.95,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 2.624670084000172,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3053,
+        "output_tokens": 167,
+        "parsed": {
+          "generalization": "general",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 1.0,
+          "readability": 1.0,
+          "security_robustness": 1.0,
+          "judgement": "CORRECT",
+          "confidence": 0.95,
+          "brief_reason": "The patch fixes an ArrayIndexOutOfBoundsException in appendFixedWidthPadRight by correctly limiting the character extraction to the fixed width when the string is longer than the width. The change is minimal, targeted, and addresses the root cause: when strLen >= width, only width characters should be copied to avoid buffer overflow, not the entire string length."
+        },
+        "s_sem": 0.95,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_others__Dcorrect__CapGen__Lang__patch1-Lang-59-CapGen",
+    "bug_id": "Lang-59",
+    "model": "claude-haiku-4-5",
+    "latency_s": 8.9873851010002,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 2946,
+    "output_tokens": 846,
+    "tests": [
+      {
+        "name": "testAppendFixedWidthPadRightTruncatesLongString",
+        "target_class": "org.apache.commons.lang.text.StrBuilder",
+        "target_method": "appendFixedWidthPadRight",
+        "class_name": "TestAppendFixedWidthPadRightTruncatesLongString",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.004\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testAppendFixedWidthPadRightWithExactWidth",
+        "target_class": "org.apache.commons.lang.text.StrBuilder",
+        "target_method": "appendFixedWidthPadRight",
+        "class_name": "TestAppendFixedWidthPadRightWithExactWidth",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.004\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testAppendFixedWidthPadRightWithShorterString",
+        "target_class": "org.apache.commons.lang.text.StrBuilder",
+        "target_method": "appendFixedWidthPadRight",
+        "class_name": "TestAppendFixedWidthPadRightWithShorterString",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.003\n\nOK (1 test)\n\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_others__Dcorrect__CapGen__Lang__patch1-Lang-59-CapGen",
+    "true_project": "Lang",
+    "true_bug_number": "59",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 591,
+    "output_tokens": 26,
+    "project": "Lang",
+    "bug_number": 38,
+    "recalled_label": "CORRECT",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_others__Dcorrect__CapGen__Lang__patch1-Lang-59-CapGen",
+    "bug_id": "Lang-59",
+    "s_edit_ast": 0.050359712230215826,
+    "s_edit_ast_actions": 7,
+    "s_edit_ast_nodes": 139,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/lang/text/StrBuilder"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 42,
+      "cfg_edges": 44,
+      "branch_points": 4,
+      "cyclomatic_complexity": 6,
+      "def_count": 30,
+      "use_count": 90,
+      "defuse_pairs": 30,
+      "per_method": [
+        {
+          "class": "org.apache.commons.lang.text.StrBuilder",
+          "method": "appendFixedWidthPadRight",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 42,
+          "cfg_edges": 44,
+          "branch_points": 4,
+          "cyclomatic_complexity": 6,
+          "def_count": 30,
+          "use_count": 90,
+          "defuse_pairs": 30,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 42,
+      "cfg_edges": 44,
+      "branch_points": 4,
+      "cyclomatic_complexity": 6,
+      "def_count": 30,
+      "use_count": 90,
+      "defuse_pairs": 30,
+      "per_method": [
+        {
+          "class": "org.apache.commons.lang.text.StrBuilder",
+          "method": "appendFixedWidthPadRight",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 42,
+          "cfg_edges": 44,
+          "branch_points": 4,
+          "cyclomatic_complexity": 6,
+          "def_count": 30,
+          "use_count": 90,
+          "defuse_pairs": 30,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": 0,
+    "d_branch_points": 0,
+    "d_cfg_edges": 0,
+    "d_defuse_pairs": 0,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 119,
+      "n_candidate_warnings": 119,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 4,
+      "n_changed_class_files_candidate": 4,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_others__Dcorrect__CapGen__Lang__patch1-Lang-59-CapGen",
+    "bug_id": "Lang-59",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

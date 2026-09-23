@@ -1,0 +1,256 @@
+{
+  "patch_id": "Patches_others__Dcorrect__SOFix__Lang__patch1-Lang-59-SOFix",
+  "bug_id": "Lang-59",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 16.848
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 1.06
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 11.697
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 31.751
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 0.939
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 42.641
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_others__Dcorrect__SOFix__Lang__patch1-Lang-59-SOFix",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.15000000000000002,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.561518189999788,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3042,
+        "output_tokens": 179,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.9,
+          "readability": 0.7,
+          "security_robustness": 0.6,
+          "judgement": "OVERFITTING",
+          "confidence": 0.85,
+          "brief_reason": "The patch fixes the ArrayIndexOutOfBoundsException by truncating the string copy to `width` instead of `strLen` when the string is longer than the width. However, this changes the documented behavior: the method should copy the full string and then truncate on the right, but the patch silently truncates during the copy, losing the original intent and potentially causing data loss in edge cases."
+        },
+        "s_sem": 0.15000000000000002,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.442611197000133,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3042,
+        "output_tokens": 179,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.9,
+          "readability": 0.7,
+          "security_robustness": 0.6,
+          "judgement": "OVERFITTING",
+          "confidence": 0.85,
+          "brief_reason": "The patch fixes the ArrayIndexOutOfBoundsException by truncating the string copy to `width` instead of `strLen` when the string is longer than the width. However, this changes the documented behavior: the method should copy the full string and then truncate on the right, but the patch silently truncates during the copy, losing the original intent and potentially causing data loss in edge cases."
+        },
+        "s_sem": 0.15000000000000002,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.4162127529998543,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3042,
+        "output_tokens": 179,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.9,
+          "readability": 0.7,
+          "security_robustness": 0.6,
+          "judgement": "OVERFITTING",
+          "confidence": 0.85,
+          "brief_reason": "The patch fixes the ArrayIndexOutOfBoundsException by truncating the string copy to `width` instead of `strLen` when the string is longer than the width. However, this changes the documented behavior: the method should copy the full string and then truncate on the right, but the patch silently truncates during the copy, losing the original intent and potentially causing data loss in edge cases."
+        },
+        "s_sem": 0.15000000000000002,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_others__Dcorrect__SOFix__Lang__patch1-Lang-59-SOFix",
+    "bug_id": "Lang-59",
+    "model": "claude-haiku-4-5",
+    "latency_s": 9.45197970900017,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 2935,
+    "output_tokens": 925,
+    "tests": [
+      {
+        "name": "testAppendFixedWidthPadRightTruncatesLongString",
+        "target_class": "org.apache.commons.lang.text.StrBuilder",
+        "target_method": "appendFixedWidthPadRight",
+        "class_name": "TestAppendFixedWidthPadRightTruncatesLongString",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.004\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testAppendFixedWidthPadRightWithStringEqualToWidth",
+        "target_class": "org.apache.commons.lang.text.StrBuilder",
+        "target_method": "appendFixedWidthPadRight",
+        "class_name": "TestAppendFixedWidthPadRightWithStringEqualToWidth",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.003\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testAppendFixedWidthPadRightWithShorterString",
+        "target_class": "org.apache.commons.lang.text.StrBuilder",
+        "target_method": "appendFixedWidthPadRight",
+        "class_name": "TestAppendFixedWidthPadRightWithShorterString",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.003\n\nOK (1 test)\n\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_others__Dcorrect__SOFix__Lang__patch1-Lang-59-SOFix",
+    "true_project": "Lang",
+    "true_bug_number": "59",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 580,
+    "output_tokens": 26,
+    "project": "Lang",
+    "bug_number": 39,
+    "recalled_label": "CORRECT",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_others__Dcorrect__SOFix__Lang__patch1-Lang-59-SOFix",
+    "bug_id": "Lang-59",
+    "s_edit_ast": 0.050359712230215826,
+    "s_edit_ast_actions": 7,
+    "s_edit_ast_nodes": 139,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/lang/text/StrBuilder"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 42,
+      "cfg_edges": 44,
+      "branch_points": 4,
+      "cyclomatic_complexity": 6,
+      "def_count": 30,
+      "use_count": 90,
+      "defuse_pairs": 30,
+      "per_method": [
+        {
+          "class": "org.apache.commons.lang.text.StrBuilder",
+          "method": "appendFixedWidthPadRight",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 42,
+          "cfg_edges": 44,
+          "branch_points": 4,
+          "cyclomatic_complexity": 6,
+          "def_count": 30,
+          "use_count": 90,
+          "defuse_pairs": 30,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 42,
+      "cfg_edges": 44,
+      "branch_points": 4,
+      "cyclomatic_complexity": 6,
+      "def_count": 30,
+      "use_count": 90,
+      "defuse_pairs": 30,
+      "per_method": [
+        {
+          "class": "org.apache.commons.lang.text.StrBuilder",
+          "method": "appendFixedWidthPadRight",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 42,
+          "cfg_edges": 44,
+          "branch_points": 4,
+          "cyclomatic_complexity": 6,
+          "def_count": 30,
+          "use_count": 90,
+          "defuse_pairs": 30,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": 0,
+    "d_branch_points": 0,
+    "d_cfg_edges": 0,
+    "d_defuse_pairs": 0,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 119,
+      "n_candidate_warnings": 119,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 4,
+      "n_changed_class_files_candidate": 4,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_others__Dcorrect__SOFix__Lang__patch1-Lang-59-SOFix",
+    "bug_id": "Lang-59",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

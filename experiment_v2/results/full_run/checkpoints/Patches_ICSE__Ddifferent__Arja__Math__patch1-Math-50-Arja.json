@@ -1,0 +1,303 @@
+{
+  "patch_id": "Patches_ICSE__Ddifferent__Arja__Math__patch1-Math-50-Arja",
+  "bug_id": "Math-50",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 64.356
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.861
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 9.95
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 63.817
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.169
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 83.131
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Ddifferent__Arja__Math__patch1-Math-50-Arja",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.2051252309997835,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3779,
+        "output_tokens": 161,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.2,
+          "readability": 0.3,
+          "security_robustness": 0.2,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch removes critical safety checks (null validation and REGULA_FALSI convergence logic) rather than fixing the underlying bug. It passes the test by eliminating defensive code, but weakens functionality and introduces security risks by removing null checks and breaking the REGULA_FALSI algorithm's convergence mechanism."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 2.9851823109997895,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3779,
+        "output_tokens": 161,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.2,
+          "readability": 0.3,
+          "security_robustness": 0.2,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch removes critical safety checks (null validation and REGULA_FALSI convergence logic) rather than fixing the underlying bug. It passes the test by eliminating defensive code, but weakens functionality and introduces security risks by removing null checks and breaking the REGULA_FALSI algorithm's convergence mechanism."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 2.941233366999768,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3779,
+        "output_tokens": 161,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.2,
+          "readability": 0.3,
+          "security_robustness": 0.2,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch removes critical safety checks (null validation and REGULA_FALSI convergence logic) rather than fixing the underlying bug. It passes the test by eliminating defensive code, but weakens functionality and introduces security risks by removing null checks and breaking the REGULA_FALSI algorithm's convergence mechanism."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Ddifferent__Arja__Math__patch1-Math-50-Arja",
+    "bug_id": "Math-50",
+    "model": "claude-haiku-4-5",
+    "latency_s": 12.495160301999931,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 3651,
+    "output_tokens": 2081,
+    "tests": [
+      {
+        "name": "testReguliFalsiWithStagnationDetection",
+        "target_class": "org.apache.commons.math.analysis.solvers.BaseSecantSolver",
+        "target_method": "doSolve",
+        "class_name": "RegulaFalsiStagnationTest",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": ": warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/IllegalStateException.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/RuntimeException.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Exception.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/AutoCloseable.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/AutoCloseable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Ddifferent__Arja__Math__patch1-Math-50-Arja/RegulaFalsiStagnationTest/fixed/src/test/java/org/apache/commons/math/analysis/solvers/RegulaFalsiStagnationTest.java:19: error: cannot find symbol\n    [javac]         solver.setMaxEvaluations(100);\n    [javac]               ^\n    [javac]   symbol:   method setMaxEvaluations(int)\n    [javac]   location: variable solver of type RegulaFalsiSolver\n    [javac] 1 error\n    [javac] 22 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Ddifferent__Arja__Math__patch1-Math-50-Arja/RegulaFalsiStagnationTest/fixed/build.xml:177: Compile failed; see the compiler error output for details.\n\nTotal time: 2 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testVerifyBracketingWithNullFunction",
+        "target_class": "org.apache.commons.math.analysis.solvers.UnivariateRealSolverUtils",
+        "target_method": "verifyBracketing",
+        "class_name": "VerifyBracketingNullTest",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": "JUnit version 4.11\n.\nTime: 0.015\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testRegulaFalsiConvergenceWithSmallInterval",
+        "target_class": "org.apache.commons.math.analysis.solvers.BaseSecantSolver",
+        "target_method": "doSolve",
+        "class_name": "RegulaFalsiSmallIntervalTest",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": " [javac]         solver.setAbsoluteAccuracy(1e-10);\n    [javac]               ^\n    [javac]   symbol:   method setAbsoluteAccuracy(double)\n    [javac]   location: variable solver of type RegulaFalsiSolver\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Ddifferent__Arja__Math__patch1-Math-50-Arja/RegulaFalsiSmallIntervalTest/fixed/src/test/java/org/apache/commons/math/analysis/solvers/RegulaFalsiSmallIntervalTest.java:20: error: cannot find symbol\n    [javac]         solver.setRelativeAccuracy(1e-10);\n    [javac]               ^\n    [javac]   symbol:   method setRelativeAccuracy(double)\n    [javac]   location: variable solver of type RegulaFalsiSolver\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Math.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Math.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 3 errors\n    [javac] 18 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Ddifferent__Arja__Math__patch1-Math-50-Arja/RegulaFalsiSmallIntervalTest/fixed/build.xml:177: Compile failed; see the compiler error output for details.\n\nTotal time: 1 second\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testRegulaFalsiWithPathologicalFunction",
+        "target_class": "org.apache.commons.math.analysis.solvers.BaseSecantSolver",
+        "target_method": "doSolve",
+        "class_name": "RegulaFalsiPathologicalTest",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "avac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/IllegalStateException.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/RuntimeException.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/RuntimeException.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Exception.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Exception.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Throwable.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Throwable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 3 errors\n    [javac] 24 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Ddifferent__Arja__Math__patch1-Math-50-Arja/RegulaFalsiPathologicalTest/fixed/build.xml:177: Compile failed; see the compiler error output for details.\n\nTotal time: 1 second\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testVerifyBracketingValidatesInput",
+        "target_class": "org.apache.commons.math.analysis.solvers.UnivariateRealSolverUtils",
+        "target_method": "verifyBracketing",
+        "class_name": "VerifyBracketingValidationTest",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": "JUnit version 4.11\n.\nTime: 0.015\n\nOK (1 test)\n\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Ddifferent__Arja__Math__patch1-Math-50-Arja",
+    "true_project": "Math",
+    "true_bug_number": "50",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 819,
+    "output_tokens": 28,
+    "project": "Math",
+    "bug_number": 280,
+    "recalled_label": "OVERFITTING",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Ddifferent__Arja__Math__patch1-Math-50-Arja",
+    "bug_id": "Math-50",
+    "s_edit_ast": 0.1301518438177874,
+    "s_edit_ast_actions": 60,
+    "s_edit_ast_nodes": 461,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math/analysis/solvers/BaseSecantSolver",
+      "org/apache/commons/math/analysis/solvers/UnivariateRealSolverUtils"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 150,
+      "cfg_edges": 162,
+      "branch_points": 21,
+      "cyclomatic_complexity": 16,
+      "def_count": 93,
+      "use_count": 296,
+      "defuse_pairs": 93,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.analysis.solvers.BaseSecantSolver",
+          "method": "doSolve",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 128,
+          "cfg_edges": 141,
+          "branch_points": 19,
+          "cyclomatic_complexity": 15,
+          "def_count": 79,
+          "use_count": 249,
+          "defuse_pairs": 79,
+          "error": null
+        },
+        {
+          "class": "org.apache.commons.math.analysis.solvers.UnivariateRealSolverUtils",
+          "method": "verifyBracketing",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 22,
+          "cfg_edges": 21,
+          "branch_points": 2,
+          "cyclomatic_complexity": 1,
+          "def_count": 14,
+          "use_count": 47,
+          "defuse_pairs": 14,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 133,
+      "cfg_edges": 144,
+      "branch_points": 19,
+      "cyclomatic_complexity": 15,
+      "def_count": 80,
+      "use_count": 254,
+      "defuse_pairs": 80,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.analysis.solvers.BaseSecantSolver",
+          "method": "doSolve",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 119,
+          "cfg_edges": 131,
+          "branch_points": 18,
+          "cyclomatic_complexity": 14,
+          "def_count": 71,
+          "use_count": 223,
+          "defuse_pairs": 71,
+          "error": null
+        },
+        {
+          "class": "org.apache.commons.math.analysis.solvers.UnivariateRealSolverUtils",
+          "method": "verifyBracketing",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 14,
+          "cfg_edges": 13,
+          "branch_points": 1,
+          "cyclomatic_complexity": 1,
+          "def_count": 9,
+          "use_count": 31,
+          "defuse_pairs": 9,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": -1,
+    "d_stmts": -17,
+    "d_branch_points": -2,
+    "d_cfg_edges": -18,
+    "d_defuse_pairs": -13,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 460,
+      "n_candidate_warnings": 459,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 4,
+      "n_changed_class_files_candidate": 4,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Ddifferent__Arja__Math__patch1-Math-50-Arja",
+    "bug_id": "Math-50",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}
