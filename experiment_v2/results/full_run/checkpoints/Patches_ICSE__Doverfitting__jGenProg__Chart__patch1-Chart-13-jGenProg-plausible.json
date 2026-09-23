@@ -1,0 +1,393 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__jGenProg__Chart__patch1-Chart-13-jGenProg-plausible",
+  "bug_id": "Chart-13",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 13.408
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.624
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 10.685
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 145.314
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.686
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 51.33
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__jGenProg__Chart__patch1-Chart-13-jGenProg-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.470137149000948,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 15803,
+        "output_tokens": 177,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.0,
+          "readability": 0.0,
+          "security_robustness": 0.5,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch deletes massive amounts of functional code including entire method implementations (arrangeNN, arrangeFR, arrangeFN, arrangeRR, arrangeFF, clear) and replaces them with malformed, unreadable code that appears to be a corrupted merge. While it may pass the specific test, it destroys the entire class functionality and is syntactically broken."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.314578741999867,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 15803,
+        "output_tokens": 176,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.0,
+          "readability": 0.0,
+          "security_robustness": 0.5,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch deletes massive amounts of code including entire method implementations (arrangeNN, arrangeFR, arrangeFN, arrangeRR, arrangeFF, clear) and replaces them with malformed, unreadable code that appears to be a corrupted merge. While it may pass the specific test, it destroys the entire class functionality and introduces severe code quality issues."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.3105765500004054,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 15803,
+        "output_tokens": 190,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.0,
+          "readability": 0.0,
+          "security_robustness": 0.5,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch deletes massive amounts of code including entire method implementations (arrangeNN, arrangeFR, arrangeFN, arrangeRR, arrangeFF, clear) and replaces them with malformed, unreadable code that appears to be a mangled attempt to inline everything. While it may pass the specific test, it destroys the entire class structure and functionality, making this a catastrophic overfitting that breaks the codebase."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__jGenProg__Chart__patch1-Chart-13-jGenProg-plausible",
+    "bug_id": "Chart-13",
+    "model": "claude-haiku-4-5",
+    "latency_s": null,
+    "error": "gave up after 6 attempts: InternalServerError: Error code: 500 - {'type': 'error', 'error': {'type': 'api_error', 'message': 'Internal server error'}, 'request_id': 'req_011CfLVeZijr2kNSHtLsDwjY'}",
+    "context_errors": [],
+    "input_tokens": null,
+    "output_tokens": null,
+    "tests": []
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__jGenProg__Chart__patch1-Chart-13-jGenProg-plausible",
+    "true_project": "Chart",
+    "true_bug_number": "13",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 9846,
+    "output_tokens": 26,
+    "project": "Chart",
+    "bug_number": 3,
+    "recalled_label": "UNKNOWN",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__jGenProg__Chart__patch1-Chart-13-jGenProg-plausible",
+    "bug_id": "Chart-13",
+    "s_edit_ast": 0.2617477328936521,
+    "s_edit_ast_actions": 635,
+    "s_edit_ast_nodes": 2426,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/jfree/chart/block/BorderArrangement"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 657,
+      "cfg_edges": 693,
+      "branch_points": 48,
+      "cyclomatic_complexity": 50,
+      "def_count": 533,
+      "use_count": 1661,
+      "defuse_pairs": 533,
+      "per_method": [
+        {
+          "class": "org.jfree.chart.block.BorderArrangement",
+          "method": "arrange",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 71,
+          "cfg_edges": 78,
+          "branch_points": 12,
+          "cyclomatic_complexity": 9,
+          "def_count": 45,
+          "use_count": 143,
+          "defuse_pairs": 45,
+          "error": null
+        },
+        {
+          "class": "org.jfree.chart.block.BorderArrangement",
+          "method": "arrangeNN",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 133,
+          "cfg_edges": 142,
+          "branch_points": 10,
+          "cyclomatic_complexity": 11,
+          "def_count": 111,
+          "use_count": 348,
+          "defuse_pairs": 111,
+          "error": null
+        },
+        {
+          "class": "org.jfree.chart.block.BorderArrangement",
+          "method": "arrangeFR",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 17,
+          "cfg_edges": 16,
+          "branch_points": 1,
+          "cyclomatic_complexity": 1,
+          "def_count": 14,
+          "use_count": 38,
+          "defuse_pairs": 14,
+          "error": null
+        },
+        {
+          "class": "org.jfree.chart.block.BorderArrangement",
+          "method": "arrangeFN",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 98,
+          "cfg_edges": 102,
+          "branch_points": 5,
+          "cyclomatic_complexity": 6,
+          "def_count": 85,
+          "use_count": 254,
+          "defuse_pairs": 85,
+          "error": null
+        },
+        {
+          "class": "org.jfree.chart.block.BorderArrangement",
+          "method": "arrangeRR",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 167,
+          "cfg_edges": 176,
+          "branch_points": 10,
+          "cyclomatic_complexity": 11,
+          "def_count": 140,
+          "use_count": 440,
+          "defuse_pairs": 140,
+          "error": null
+        },
+        {
+          "class": "org.jfree.chart.block.BorderArrangement",
+          "method": "arrangeFF",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 164,
+          "cfg_edges": 173,
+          "branch_points": 10,
+          "cyclomatic_complexity": 11,
+          "def_count": 132,
+          "use_count": 427,
+          "defuse_pairs": 132,
+          "error": null
+        },
+        {
+          "class": "org.jfree.chart.block.BorderArrangement",
+          "method": "clear",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 7,
+          "cfg_edges": 6,
+          "branch_points": 0,
+          "cyclomatic_complexity": 1,
+          "def_count": 6,
+          "use_count": 11,
+          "defuse_pairs": 6,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 658,
+      "cfg_edges": 694,
+      "branch_points": 48,
+      "cyclomatic_complexity": 50,
+      "def_count": 534,
+      "use_count": 1663,
+      "defuse_pairs": 534,
+      "per_method": [
+        {
+          "class": "org.jfree.chart.block.BorderArrangement",
+          "method": "arrange",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 72,
+          "cfg_edges": 79,
+          "branch_points": 12,
+          "cyclomatic_complexity": 9,
+          "def_count": 46,
+          "use_count": 145,
+          "defuse_pairs": 46,
+          "error": null
+        },
+        {
+          "class": "org.jfree.chart.block.BorderArrangement",
+          "method": "arrangeNN",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 133,
+          "cfg_edges": 142,
+          "branch_points": 10,
+          "cyclomatic_complexity": 11,
+          "def_count": 111,
+          "use_count": 348,
+          "defuse_pairs": 111,
+          "error": null
+        },
+        {
+          "class": "org.jfree.chart.block.BorderArrangement",
+          "method": "arrangeFR",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 17,
+          "cfg_edges": 16,
+          "branch_points": 1,
+          "cyclomatic_complexity": 1,
+          "def_count": 14,
+          "use_count": 38,
+          "defuse_pairs": 14,
+          "error": null
+        },
+        {
+          "class": "org.jfree.chart.block.BorderArrangement",
+          "method": "arrangeFN",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 98,
+          "cfg_edges": 102,
+          "branch_points": 5,
+          "cyclomatic_complexity": 6,
+          "def_count": 85,
+          "use_count": 254,
+          "defuse_pairs": 85,
+          "error": null
+        },
+        {
+          "class": "org.jfree.chart.block.BorderArrangement",
+          "method": "arrangeRR",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 167,
+          "cfg_edges": 176,
+          "branch_points": 10,
+          "cyclomatic_complexity": 11,
+          "def_count": 140,
+          "use_count": 440,
+          "defuse_pairs": 140,
+          "error": null
+        },
+        {
+          "class": "org.jfree.chart.block.BorderArrangement",
+          "method": "arrangeFF",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 164,
+          "cfg_edges": 173,
+          "branch_points": 10,
+          "cyclomatic_complexity": 11,
+          "def_count": 132,
+          "use_count": 427,
+          "defuse_pairs": 132,
+          "error": null
+        },
+        {
+          "class": "org.jfree.chart.block.BorderArrangement",
+          "method": "clear",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 7,
+          "cfg_edges": 6,
+          "branch_points": 0,
+          "cyclomatic_complexity": 1,
+          "def_count": 6,
+          "use_count": 11,
+          "defuse_pairs": 6,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": 1,
+    "d_branch_points": 0,
+    "d_cfg_edges": 1,
+    "d_defuse_pairs": 1,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 7,
+      "n_candidate_warnings": 7,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__jGenProg__Chart__patch1-Chart-13-jGenProg-plausible",
+    "bug_id": "Chart-13",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

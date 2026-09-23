@@ -1,0 +1,256 @@
+{
+  "patch_id": "Patches_others__Doverfitting__CapGen__Math__patch7-Math-63-CapGen-plausible",
+  "bug_id": "Math-63",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 41.103
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.953
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 10.344
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 54.087
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.288
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 70.099
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_others__Doverfitting__CapGen__Math__patch7-Math-63-CapGen-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.222486368000318,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2108,
+        "output_tokens": 178,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.5,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch introduces nonsensical logic that checks if a sign-normalized version of x is NaN, which is impossible since the ternary operator always returns a numeric value (0.0, 1.0, or -1.0). This breaks the intended NaN-handling semantics and only passes the test by accident. The change is unmaintainable and does not fix the underlying bug correctly."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.2015134299999772,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2108,
+        "output_tokens": 178,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.5,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch introduces nonsensical logic that checks if a sign-normalized version of x is NaN, which is impossible since the ternary operator always returns a numeric value (0.0, 1.0, or -1.0). This breaks the intended NaN-handling semantics and only passes the test by accident. The change is unmaintainable and does not fix the underlying bug correctly."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.1355268339993927,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2108,
+        "output_tokens": 178,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.5,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch introduces nonsensical logic that checks if a sign-normalized version of x is NaN, which is impossible since the ternary operator always returns a numeric value (0.0, 1.0, or -1.0). This breaks the intended NaN-handling semantics and only passes the test by accident. The change is unmaintainable and does not fix the underlying bug correctly."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_others__Doverfitting__CapGen__Math__patch7-Math-63-CapGen-plausible",
+    "bug_id": "Math-63",
+    "model": "claude-haiku-4-5",
+    "latency_s": 6.575770098999783,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 2001,
+    "output_tokens": 823,
+    "tests": [
+      {
+        "name": "testEqualsWithNaNAndZero",
+        "target_class": "org.apache.commons.math.util.MathUtils",
+        "target_method": "equals",
+        "class_name": "TestEqualsNaNZero",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.007\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testEqualsWithNegativeAndNaN",
+        "target_class": "org.apache.commons.math.util.MathUtils",
+        "target_method": "equals",
+        "class_name": "TestEqualsNegativeNaN",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.004\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testEqualsWithPositiveAndNaN",
+        "target_class": "org.apache.commons.math.util.MathUtils",
+        "target_method": "equals",
+        "class_name": "TestEqualsPositiveNaN",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.004\n\nOK (1 test)\n\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_others__Doverfitting__CapGen__Math__patch7-Math-63-CapGen-plausible",
+    "true_project": "Math",
+    "true_bug_number": "63",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 607,
+    "output_tokens": 28,
+    "project": "Math",
+    "bug_number": 41,
+    "recalled_label": "OVERFITTING",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_others__Doverfitting__CapGen__Math__patch7-Math-63-CapGen-plausible",
+    "bug_id": "Math-63",
+    "s_edit_ast": 0.4067796610169492,
+    "s_edit_ast_actions": 24,
+    "s_edit_ast_nodes": 59,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math/util/MathUtils"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 95,
+      "cfg_edges": 109,
+      "branch_points": 22,
+      "cyclomatic_complexity": 22,
+      "def_count": 56,
+      "use_count": 175,
+      "defuse_pairs": 56,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.util.MathUtils",
+          "method": "equals",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 4,
+          "stmts": 95,
+          "cfg_edges": 109,
+          "branch_points": 22,
+          "cyclomatic_complexity": 22,
+          "def_count": 56,
+          "use_count": 175,
+          "defuse_pairs": 56,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 104,
+      "cfg_edges": 120,
+      "branch_points": 24,
+      "cyclomatic_complexity": 24,
+      "def_count": 61,
+      "use_count": 190,
+      "defuse_pairs": 61,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.util.MathUtils",
+          "method": "equals",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 4,
+          "stmts": 104,
+          "cfg_edges": 120,
+          "branch_points": 24,
+          "cyclomatic_complexity": 24,
+          "def_count": 61,
+          "use_count": 190,
+          "defuse_pairs": 61,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 2,
+    "d_stmts": 9,
+    "d_branch_points": 2,
+    "d_cfg_edges": 11,
+    "d_defuse_pairs": 5,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 349,
+      "n_candidate_warnings": 349,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 3,
+      "n_changed_class_files_candidate": 3,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_others__Doverfitting__CapGen__Math__patch7-Math-63-CapGen-plausible",
+    "bug_id": "Math-63",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}
