@@ -1,0 +1,187 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__SimFix__Lang__patch1-Lang-61-SimFix-plausible",
+  "bug_id": "Lang-61",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 12.441
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.66
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 2.224
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 1.595
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 0.354
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 58.785
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__SimFix__Lang__patch1-Lang-61-SimFix-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 0,
+    "s_sem_final": null,
+    "decision": null,
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 0.3678635790020053,
+        "attempts": 1,
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLtZaSS63SBxp3XQWjwf'}"
+      },
+      {
+        "run": 1,
+        "latency_s": 0.3285454489996482,
+        "attempts": 1,
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLtZbrGdGDu1mYTSvtTG'}"
+      },
+      {
+        "run": 2,
+        "latency_s": 0.3452696610002022,
+        "attempts": 1,
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLtZdPHyZtVxVzmQbwcD'}"
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__SimFix__Lang__patch1-Lang-61-SimFix-plausible",
+    "bug_id": "Lang-61",
+    "model": "claude-haiku-4-5",
+    "latency_s": 0.34614946199872065,
+    "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLtZkC4j6Gh7LWFdGLPy'}",
+    "context_errors": [],
+    "input_tokens": null,
+    "output_tokens": null,
+    "tests": []
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__SimFix__Lang__patch1-Lang-61-SimFix-plausible",
+    "true_project": "Lang",
+    "true_bug_number": "61",
+    "model": "claude-haiku-4-5",
+    "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLtZmfNVf4Wqtur2JRqX'}",
+    "input_tokens": null,
+    "output_tokens": null
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__SimFix__Lang__patch1-Lang-61-SimFix-plausible",
+    "bug_id": "Lang-61",
+    "s_edit_ast": 0.04216867469879518,
+    "s_edit_ast_actions": 7,
+    "s_edit_ast_nodes": 166,
+    "s_edit_error": null,
+    "s_vuln_changed": 0.5,
+    "s_vuln_new_warning_count": 1,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/lang/text/StrBuilder"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 92,
+      "cfg_edges": 95,
+      "branch_points": 18,
+      "cyclomatic_complexity": 15,
+      "def_count": 51,
+      "use_count": 168,
+      "defuse_pairs": 51,
+      "per_method": [
+        {
+          "class": "org.apache.commons.lang.text.StrBuilder",
+          "method": "indexOf",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 6,
+          "stmts": 92,
+          "cfg_edges": 95,
+          "branch_points": 18,
+          "cyclomatic_complexity": 15,
+          "def_count": 51,
+          "use_count": 168,
+          "defuse_pairs": 51,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 93,
+      "cfg_edges": 96,
+      "branch_points": 18,
+      "cyclomatic_complexity": 15,
+      "def_count": 52,
+      "use_count": 170,
+      "defuse_pairs": 52,
+      "per_method": [
+        {
+          "class": "org.apache.commons.lang.text.StrBuilder",
+          "method": "indexOf",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 6,
+          "stmts": 93,
+          "cfg_edges": 96,
+          "branch_points": 18,
+          "cyclomatic_complexity": 15,
+          "def_count": 52,
+          "use_count": 170,
+          "defuse_pairs": 52,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": 1,
+    "d_branch_points": 0,
+    "d_cfg_edges": 1,
+    "d_defuse_pairs": 1,
+    "vuln_detail": {
+      "s_vuln": 0.5,
+      "new_warnings": [
+        {
+          "bug_type": "DLS",
+          "category": "D",
+          "priority": "M",
+          "severity": "MEDIUM",
+          "class": "StrBuilder",
+          "method": "indexOf",
+          "location": "StrBuilder.java:line 1776",
+          "description": "Dead store to len in org.apache.commons.lang.text.StrBuilder.indexOf(String, int)"
+        }
+      ],
+      "n_buggy_warnings": 119,
+      "n_candidate_warnings": 120,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 4,
+      "n_changed_class_files_candidate": 4,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__SimFix__Lang__patch1-Lang-61-SimFix-plausible",
+    "bug_id": "Lang-61",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": false,
+    "error": ""
+  }
+}
