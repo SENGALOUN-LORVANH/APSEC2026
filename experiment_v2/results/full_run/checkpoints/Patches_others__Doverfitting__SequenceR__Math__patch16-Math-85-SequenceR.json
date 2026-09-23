@@ -1,0 +1,225 @@
+{
+  "patch_id": "Patches_others__Doverfitting__SequenceR__Math__patch16-Math-85-SequenceR",
+  "bug_id": "Math-85",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 11.208
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 1.166
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 10.576
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 13.165
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.448
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 68.726
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_others__Doverfitting__SequenceR__Math__patch16-Math-85-SequenceR",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.2623707749999085,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3106,
+        "output_tokens": 193,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.2,
+          "readability": 0.3,
+          "security_robustness": 0.6,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch changes the convergence condition from `fa * fb >= 0.0` to `((fa)==0.0)||((fa*fb)> 0.0)`, which is logically different and weaker. It only addresses the specific test case where fa=0 but weakens the general bracketing requirement, allowing cases where fa*fb > 0 to throw an exception when they shouldn't, fundamentally breaking the bracketing algorithm's contract."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.4448891629999707,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3106,
+        "output_tokens": 212,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.2,
+          "readability": 0.3,
+          "security_robustness": 0.6,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch changes the error condition from `fa * fb >= 0.0` to `(fa == 0.0) || (fa * fb > 0.0)`, which is logically different and weaker. It only throws when fa is exactly zero or the product is strictly positive, missing the case where fa*fb equals zero but fa is not zero (i.e., fb is zero), thus weakening the convergence check. The patch appears to fix the specific test case but introduces a logical flaw that violates the bracketing requirement."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.3853617949998807,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3106,
+        "output_tokens": 208,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.2,
+          "readability": 0.3,
+          "security_robustness": 0.6,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch changes the error condition from `fa * fb >= 0.0` to `(fa == 0.0) || (fa * fb > 0.0)`, which is logically different and weaker. It only throws when fa is exactly zero or the product is strictly positive, missing the case where fa*fb equals zero but fa is not zero (i.e., fb is zero), thus weakening the convergence check. The patch appears tailored to pass the specific test rather than fixing the underlying algorithmic issue."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_others__Doverfitting__SequenceR__Math__patch16-Math-85-SequenceR",
+    "bug_id": "Math-85",
+    "model": "claude-haiku-4-5",
+    "latency_s": 12.012133590999838,
+    "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Invalid request data'}, 'request_id': 'req_011CfLPDjqnzF6xYWQ9iv1Nh'}",
+    "context_errors": [],
+    "input_tokens": null,
+    "output_tokens": null,
+    "tests": []
+  },
+  "memorization": {
+    "patch_id": "Patches_others__Doverfitting__SequenceR__Math__patch16-Math-85-SequenceR",
+    "true_project": "Math",
+    "true_bug_number": "85",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 632,
+    "output_tokens": 28,
+    "project": "Math",
+    "bug_number": 28,
+    "recalled_label": "OVERFITTING",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_others__Doverfitting__SequenceR__Math__patch16-Math-85-SequenceR",
+    "bug_id": "Math-85",
+    "s_edit_ast": 0.047619047619047616,
+    "s_edit_ast_actions": 13,
+    "s_edit_ast_nodes": 273,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math/analysis/solvers/UnivariateRealSolverUtils"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 88,
+      "cfg_edges": 92,
+      "branch_points": 10,
+      "cyclomatic_complexity": 8,
+      "def_count": 71,
+      "use_count": 207,
+      "defuse_pairs": 71,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.analysis.solvers.UnivariateRealSolverUtils",
+          "method": "bracket",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 88,
+          "cfg_edges": 92,
+          "branch_points": 10,
+          "cyclomatic_complexity": 8,
+          "def_count": 71,
+          "use_count": 207,
+          "defuse_pairs": 71,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 90,
+      "cfg_edges": 95,
+      "branch_points": 11,
+      "cyclomatic_complexity": 9,
+      "def_count": 72,
+      "use_count": 213,
+      "defuse_pairs": 72,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.analysis.solvers.UnivariateRealSolverUtils",
+          "method": "bracket",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 90,
+          "cfg_edges": 95,
+          "branch_points": 11,
+          "cyclomatic_complexity": 9,
+          "def_count": 72,
+          "use_count": 213,
+          "defuse_pairs": 72,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 1,
+    "d_stmts": 2,
+    "d_branch_points": 1,
+    "d_cfg_edges": 3,
+    "d_defuse_pairs": 1,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 314,
+      "n_candidate_warnings": 314,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 2,
+      "n_changed_class_files_candidate": 2,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_others__Doverfitting__SequenceR__Math__patch16-Math-85-SequenceR",
+    "bug_id": "Math-85",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

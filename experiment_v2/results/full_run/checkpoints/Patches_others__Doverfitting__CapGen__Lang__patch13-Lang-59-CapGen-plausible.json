@@ -1,0 +1,256 @@
+{
+  "patch_id": "Patches_others__Doverfitting__CapGen__Lang__patch13-Lang-59-CapGen-plausible",
+  "bug_id": "Lang-59",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 11.304
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.961
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 12.313
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 33.273
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.042
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 44.142
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_others__Doverfitting__CapGen__Lang__patch13-Lang-59-CapGen-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.8089787879998767,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3055,
+        "output_tokens": 191,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.3,
+          "security_robustness": 0.4,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch adds an arbitrary ensureCapacity call with a hardcoded magic number (4) that has no logical connection to the actual bug. The real issue is that when strLen >= width, the code calls str.getChars(0, strLen, ...) which tries to copy strLen characters, but should only copy width characters. The patch doesn't fix this root cause and introduces unrelated, unexplained capacity checks that weaken code quality."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.933665151999776,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3055,
+        "output_tokens": 198,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.3,
+          "security_robustness": 0.4,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch adds an arbitrary ensureCapacity call with a hardcoded magic number (4) that has no logical connection to the actual bug. The real issue is that when strLen >= width, the code calls str.getChars(0, strLen, ...) which tries to copy strLen characters, but should only copy width characters. The patch doesn't fix this root cause and introduces unrelated, nonsensical code that weakens maintainability and introduces unexplained magic numbers."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.29860488399936,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3055,
+        "output_tokens": 210,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.3,
+          "security_robustness": 0.4,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch adds an arbitrary `ensureCapacity(size + 4)` call that has no logical connection to fixing the ArrayIndexOutOfBoundsException in the appendFixedWidthPadRight method. The real bug is that when strLen >= width, the code calls `str.getChars(0, strLen, buffer, size)` which tries to copy strLen characters, but should only copy width characters. The patch introduces unrelated behavior change and is clearly overfitting to pass the test without addressing the root cause."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_others__Doverfitting__CapGen__Lang__patch13-Lang-59-CapGen-plausible",
+    "bug_id": "Lang-59",
+    "model": "claude-haiku-4-5",
+    "latency_s": 8.096557168999425,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 2948,
+    "output_tokens": 971,
+    "tests": [
+      {
+        "name": "testAppendFixedWidthPadRightWithLargeWidth",
+        "target_class": "org.apache.commons.lang.text.StrBuilder",
+        "target_method": "appendFixedWidthPadRight",
+        "class_name": "TestAppendFixedWidthPadRightLargeWidth",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.005\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testAppendFixedWidthPadRightMultipleCalls",
+        "target_class": "org.apache.commons.lang.text.StrBuilder",
+        "target_method": "appendFixedWidthPadRight",
+        "class_name": "TestAppendFixedWidthPadRightMultipleCalls",
+        "status": "INVALID_ORACLE",
+        "candidate_pass": null,
+        "log": ".F\nTime: 0.006\nThere was 1 failure:\n1) testAppendFixedWidthPadRightMultipleCalls(org.apache.commons.lang.text.TestAppendFixedWidthPadRightMultipleCalls)junit.framework.ComparisonFailure: expected:<a--------[]> but was:<a--------[-]>\n\tat org.apache.commons.lang.text.TestAppendFixedWidthPadRightMultipleCalls.testAppendFixedWidthPadRightMultipleCalls(TestAppendFixedWidthPadRightMultipleCalls.java:12)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\nFAILURES!!!\nTests run: 1,  Failures: 1,  Errors: 0\n\n"
+      },
+      {
+        "name": "testAppendFixedWidthPadRightExactWidth",
+        "target_class": "org.apache.commons.lang.text.StrBuilder",
+        "target_method": "appendFixedWidthPadRight",
+        "class_name": "TestAppendFixedWidthPadRightExactWidth",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.012\n\nOK (1 test)\n\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_others__Doverfitting__CapGen__Lang__patch13-Lang-59-CapGen-plausible",
+    "true_project": "Lang",
+    "true_bug_number": "59",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 593,
+    "output_tokens": 28,
+    "project": "Lang",
+    "bug_number": 38,
+    "recalled_label": "OVERFITTING",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_others__Doverfitting__CapGen__Lang__patch13-Lang-59-CapGen-plausible",
+    "bug_id": "Lang-59",
+    "s_edit_ast": 0.11510791366906475,
+    "s_edit_ast_actions": 16,
+    "s_edit_ast_nodes": 139,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/lang/text/StrBuilder"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 42,
+      "cfg_edges": 44,
+      "branch_points": 4,
+      "cyclomatic_complexity": 6,
+      "def_count": 30,
+      "use_count": 90,
+      "defuse_pairs": 30,
+      "per_method": [
+        {
+          "class": "org.apache.commons.lang.text.StrBuilder",
+          "method": "appendFixedWidthPadRight",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 42,
+          "cfg_edges": 44,
+          "branch_points": 4,
+          "cyclomatic_complexity": 6,
+          "def_count": 30,
+          "use_count": 90,
+          "defuse_pairs": 30,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 45,
+      "cfg_edges": 47,
+      "branch_points": 4,
+      "cyclomatic_complexity": 6,
+      "def_count": 32,
+      "use_count": 98,
+      "defuse_pairs": 32,
+      "per_method": [
+        {
+          "class": "org.apache.commons.lang.text.StrBuilder",
+          "method": "appendFixedWidthPadRight",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 45,
+          "cfg_edges": 47,
+          "branch_points": 4,
+          "cyclomatic_complexity": 6,
+          "def_count": 32,
+          "use_count": 98,
+          "defuse_pairs": 32,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": 3,
+    "d_branch_points": 0,
+    "d_cfg_edges": 3,
+    "d_defuse_pairs": 2,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 119,
+      "n_candidate_warnings": 119,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 4,
+      "n_changed_class_files_candidate": 4,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_others__Doverfitting__CapGen__Lang__patch13-Lang-59-CapGen-plausible",
+    "bug_id": "Lang-59",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

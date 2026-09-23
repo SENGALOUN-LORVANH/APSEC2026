@@ -1,0 +1,256 @@
+{
+  "patch_id": "Patches_others__Doverfitting__CapGen__Math__patch7-Math-80-CapGen-plausible",
+  "bug_id": "Math-80",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 9.73
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 1.36
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 12.767
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 43.614
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 0.997
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 56.263
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_others__Doverfitting__CapGen__Math__patch7-Math-80-CapGen-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.15000000000000002,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.7273733879997053,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2286,
+        "output_tokens": 194,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.3,
+          "readability": 0.4,
+          "security_robustness": 0.7,
+          "judgement": "OVERFITTING",
+          "confidence": 0.85,
+          "brief_reason": "The patch changes the loop termination condition from `4 * n - 1` to `4 * 2 * (pingPong) - 1`, which appears to be a hardcoded fix for the specific test case rather than addressing the underlying algorithmic issue. The change introduces an unrelated behavior modification by using `pingPong` (a state variable) instead of the method parameter `n`, making the fix brittle and likely incorrect for general cases."
+        },
+        "s_sem": 0.15000000000000002,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.702815485999963,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2286,
+        "output_tokens": 194,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.3,
+          "readability": 0.4,
+          "security_robustness": 0.7,
+          "judgement": "OVERFITTING",
+          "confidence": 0.85,
+          "brief_reason": "The patch changes the loop termination condition from `4 * n - 1` to `4 * 2 * (pingPong) - 1`, which appears to be a hardcoded fix for the specific test case rather than addressing the underlying algorithmic issue. The change introduces an unrelated behavior modification by using `pingPong` (a state variable) instead of the method parameter `n`, making the fix brittle and likely incorrect for general cases."
+        },
+        "s_sem": 0.15000000000000002,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.6763042239999777,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2286,
+        "output_tokens": 194,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.3,
+          "readability": 0.4,
+          "security_robustness": 0.7,
+          "judgement": "OVERFITTING",
+          "confidence": 0.85,
+          "brief_reason": "The patch changes the loop termination condition from `4 * n - 1` to `4 * 2 * (pingPong) - 1`, which appears to be a hardcoded fix for the specific test case rather than addressing the underlying algorithmic issue. The change introduces an unrelated behavior modification by using `pingPong` (a state variable) instead of the method parameter `n`, making the fix brittle and likely incorrect for general cases."
+        },
+        "s_sem": 0.15000000000000002,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_others__Doverfitting__CapGen__Math__patch7-Math-80-CapGen-plausible",
+    "bug_id": "Math-80",
+    "model": "claude-haiku-4-5",
+    "latency_s": 12.863708718999987,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 2179,
+    "output_tokens": 2035,
+    "tests": [
+      {
+        "name": "testFlipIfWarrantedBoundaryCondition",
+        "target_class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+        "target_method": "flipIfWarranted",
+        "class_name": "TestFlipIfWarrantedBoundary",
+        "status": "INVALID_ORACLE",
+        "candidate_pass": null,
+        "log": ".F\nTime: 0.017\nThere was 1 failure:\n1) testFlipIfWarrantedBoundaryCondition(org.apache.commons.math.linear.TestFlipIfWarrantedBoundary)junit.framework.AssertionFailedError: First eigenvalue should be approximately 2 expected:<2.0> but was:<2.381966011250105>\n\tat org.apache.commons.math.linear.TestFlipIfWarrantedBoundary.testFlipIfWarrantedBoundaryCondition(TestFlipIfWarrantedBoundary.java:31)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\nFAILURES!!!\nTests run: 1,  Failures: 1,  Errors: 0\n\n"
+      },
+      {
+        "name": "testFlipIfWarrantedWithLargerMatrix",
+        "target_class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+        "target_method": "flipIfWarranted",
+        "class_name": "TestFlipIfWarrantedLargerMatrix",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.017\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testFlipIfWarrantedConsistency",
+        "target_class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+        "target_method": "flipIfWarranted",
+        "class_name": "TestFlipIfWarrantedConsistency",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.017\n\nOK (1 test)\n\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_others__Doverfitting__CapGen__Math__patch7-Math-80-CapGen-plausible",
+    "true_project": "Math",
+    "true_bug_number": "80",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 650,
+    "output_tokens": 28,
+    "project": "Math",
+    "bug_number": 369,
+    "recalled_label": "OVERFITTING",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_others__Doverfitting__CapGen__Math__patch7-Math-80-CapGen-plausible",
+    "bug_id": "Math-80",
+    "s_edit_ast": 0.07462686567164178,
+    "s_edit_ast_actions": 10,
+    "s_edit_ast_nodes": 134,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math/linear/EigenDecompositionImpl"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 40,
+      "cfg_edges": 41,
+      "branch_points": 3,
+      "cyclomatic_complexity": 3,
+      "def_count": 33,
+      "use_count": 92,
+      "defuse_pairs": 33,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+          "method": "flipIfWarranted",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 40,
+          "cfg_edges": 41,
+          "branch_points": 3,
+          "cyclomatic_complexity": 3,
+          "def_count": 33,
+          "use_count": 92,
+          "defuse_pairs": 33,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 41,
+      "cfg_edges": 42,
+      "branch_points": 3,
+      "cyclomatic_complexity": 3,
+      "def_count": 34,
+      "use_count": 94,
+      "defuse_pairs": 34,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+          "method": "flipIfWarranted",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 41,
+          "cfg_edges": 42,
+          "branch_points": 3,
+          "cyclomatic_complexity": 3,
+          "def_count": 34,
+          "use_count": 94,
+          "defuse_pairs": 34,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": 1,
+    "d_branch_points": 0,
+    "d_cfg_edges": 1,
+    "d_defuse_pairs": 1,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 317,
+      "n_candidate_warnings": 317,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 3,
+      "n_changed_class_files_candidate": 3,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_others__Doverfitting__CapGen__Math__patch7-Math-80-CapGen-plausible",
+    "bug_id": "Math-80",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

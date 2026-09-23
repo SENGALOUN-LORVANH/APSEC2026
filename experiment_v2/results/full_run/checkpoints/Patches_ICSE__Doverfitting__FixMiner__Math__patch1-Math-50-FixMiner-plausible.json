@@ -1,0 +1,256 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__FixMiner__Math__patch1-Math-50-FixMiner-plausible",
+  "bug_id": "Math-50",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 62.295
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 1.735
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 10.158
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 32.596
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.39
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 87.847
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__FixMiner__Math__patch1-Math-50-FixMiner-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.25,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.2609438500003307,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3198,
+        "output_tokens": 199,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 1.0,
+          "readability": 0.8,
+          "security_robustness": 0.7,
+          "judgement": "OVERFITTING",
+          "confidence": 0.75,
+          "brief_reason": "The patch changes `atol` to `fx` in a single line within the REGULA_FALSI case, which is a minimal syntactic change. However, this appears to be an overfitting fix that addresses the specific test case rather than the underlying algorithmic issue. The change substitutes a tolerance parameter with a function value, which lacks clear mathematical justification and may not generalize to other scenarios where the regula falsi method should throw TooManyEvaluationsException."
+        },
+        "s_sem": 0.25,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.1172677000004114,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3198,
+        "output_tokens": 188,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 1.0,
+          "readability": 0.8,
+          "security_robustness": 0.7,
+          "judgement": "OVERFITTING",
+          "confidence": 0.75,
+          "brief_reason": "The patch changes `atol` to `fx` in a single line within the REGULA_FALSI case, which is a minimal syntactic change. However, this appears to be an overfitting fix that addresses the specific test case rather than the underlying bug. The change replaces an absolute tolerance parameter with a function value, which lacks semantic justification and may not generalize to other scenarios where the regula falsi method is used."
+        },
+        "s_sem": 0.25,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.0871567989997857,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3198,
+        "output_tokens": 185,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 1.0,
+          "readability": 0.8,
+          "security_robustness": 0.7,
+          "judgement": "OVERFITTING",
+          "confidence": 0.75,
+          "brief_reason": "The patch changes `atol` to `fx` in a single line within the REGULA_FALSI case, which is a minimal syntactic change. However, this appears to be an overfitting fix that addresses only the specific failing test rather than the underlying bug. The change substitutes a tolerance parameter with a function value, which lacks clear semantic justification and may not generalize to other cases where the same issue occurs."
+        },
+        "s_sem": 0.25,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__FixMiner__Math__patch1-Math-50-FixMiner-plausible",
+    "bug_id": "Math-50",
+    "model": "claude-haiku-4-5",
+    "latency_s": 9.805612565999581,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 3070,
+    "output_tokens": 1626,
+    "tests": [
+      {
+        "name": "testRegulaFalsiWithSmallFunctionValue",
+        "target_class": "org.apache.commons.math.analysis.solvers.RegulaFalsiSolver",
+        "target_method": "solve",
+        "class_name": "RegulaFalsiSolverTest",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "   [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Exception.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/AutoCloseable.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/AutoCloseable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__FixMiner__Math__patch1-Math-50-FixMiner-plausible/RegulaFalsiSolverTest/fixed/src/test/java/org/apache/commons/math/analysis/solvers/RegulaFalsiSolverTest.java:17: error: cannot find symbol\n    [javac]         solver.setMaxEvaluations(100);\n    [javac]               ^\n    [javac]   symbol:   method setMaxEvaluations(int)\n    [javac]   location: variable solver of type RegulaFalsiSolver\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Math.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Math.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 1 error\n    [javac] 24 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__FixMiner__Math__patch1-Math-50-FixMiner-plausible/RegulaFalsiSolverTest/fixed/build.xml:177: Compile failed; see the compiler error output for details.\n\nTotal time: 1 second\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testRegulaFalsiStagnationDetection",
+        "target_class": "org.apache.commons.math.analysis.solvers.RegulaFalsiSolver",
+        "target_method": "solve",
+        "class_name": "RegulaFalsiStagnationTest",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Exception.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/AutoCloseable.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/AutoCloseable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Math.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Math.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__FixMiner__Math__patch1-Math-50-FixMiner-plausible/RegulaFalsiStagnationTest/fixed/src/test/java/org/apache/commons/math/analysis/solvers/RegulaFalsiStagnationTest.java:17: error: cannot find symbol\n    [javac]         solver.setMaxEvaluations(50);\n    [javac]               ^\n    [javac]   symbol:   method setMaxEvaluations(int)\n    [javac]   location: variable solver of type RegulaFalsiSolver\n    [javac] 1 error\n    [javac] 24 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__FixMiner__Math__patch1-Math-50-FixMiner-plausible/RegulaFalsiStagnationTest/fixed/build.xml:177: Compile failed; see the compiler error output for details.\n\nTotal time: 2 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testRegulaFalsiWithVerySmallInterval",
+        "target_class": "org.apache.commons.math.analysis.solvers.RegulaFalsiSolver",
+        "target_method": "solve",
+        "class_name": "RegulaFalsiSmallIntervalTest",
+        "status": "INVALID_ORACLE",
+        "candidate_pass": null,
+        "log": "tingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.lang.reflect.Method.invoke(Method.java:498)\n\tat org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)\n\tat org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)\n\tat org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)\n\tat org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)\n\tat org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:271)\n\tat org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:70)\n\tat org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)\n\tat org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)\n\tat org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:309)\n\tat org.junit.runners.Suite.runChild(Suite.java:127)\n\tat org.junit.runners.Suite.runChild(Suite.java:26)\n\tat org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)\n\tat org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:309)\n\tat org.junit.runner.JUnitCore.run(JUnitCore.java:160)\n\tat org.junit.runner.JUnitCore.run(JUnitCore.java:138)\n\tat org.junit.runner.JUnitCore.run(JUnitCore.java:117)\n\tat org.junit.runner.JUnitCore.runMain(JUnitCore.java:96)\n\tat org.junit.runner.JUnitCore.runMainAndExit(JUnitCore.java:47)\n\tat org.junit.runner.JUnitCore.main(JUnitCore.java:40)\n\nFAILURES!!!\nTests run: 1,  Failures: 1\n\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__FixMiner__Math__patch1-Math-50-FixMiner-plausible",
+    "true_project": "Math",
+    "true_bug_number": "50",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 626,
+    "output_tokens": 26,
+    "project": "Math",
+    "bug_number": 280,
+    "recalled_label": "CORRECT",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__FixMiner__Math__patch1-Math-50-FixMiner-plausible",
+    "bug_id": "Math-50",
+    "s_edit_ast": 0.0026246719160104987,
+    "s_edit_ast_actions": 1,
+    "s_edit_ast_nodes": 381,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math/analysis/solvers/BaseSecantSolver"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 128,
+      "cfg_edges": 141,
+      "branch_points": 19,
+      "cyclomatic_complexity": 15,
+      "def_count": 79,
+      "use_count": 249,
+      "defuse_pairs": 79,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.analysis.solvers.BaseSecantSolver",
+          "method": "doSolve",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 128,
+          "cfg_edges": 141,
+          "branch_points": 19,
+          "cyclomatic_complexity": 15,
+          "def_count": 79,
+          "use_count": 249,
+          "defuse_pairs": 79,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 128,
+      "cfg_edges": 141,
+      "branch_points": 19,
+      "cyclomatic_complexity": 15,
+      "def_count": 79,
+      "use_count": 249,
+      "defuse_pairs": 79,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.analysis.solvers.BaseSecantSolver",
+          "method": "doSolve",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 128,
+          "cfg_edges": 141,
+          "branch_points": 19,
+          "cyclomatic_complexity": 15,
+          "def_count": 79,
+          "use_count": 249,
+          "defuse_pairs": 79,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": 0,
+    "d_branch_points": 0,
+    "d_cfg_edges": 0,
+    "d_defuse_pairs": 0,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 460,
+      "n_candidate_warnings": 460,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 3,
+      "n_changed_class_files_candidate": 3,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__FixMiner__Math__patch1-Math-50-FixMiner-plausible",
+    "bug_id": "Math-50",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

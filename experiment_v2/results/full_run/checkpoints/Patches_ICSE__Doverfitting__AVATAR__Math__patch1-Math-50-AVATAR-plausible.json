@@ -1,0 +1,238 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Math__patch1-Math-50-AVATAR-plausible",
+  "bug_id": "Math-50",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 68.472
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 1.05
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 9.626
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 9.692
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.193
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 104.186
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Math__patch1-Math-50-AVATAR-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.0607289960003072,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3199,
+        "output_tokens": 173,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.3,
+          "security_robustness": 0.2,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch changes x0 (a bound) to f0 (a function value), which is semantically incorrect and mixes incompatible types. While it may pass the specific test by causing different behavior, it breaks the mathematical logic of the algorithm and weakens the solver's functionality. This is a clear case of overfitting to pass a single test rather than fixing the underlying bug."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 2.9912202499999694,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3199,
+        "output_tokens": 164,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.3,
+          "security_robustness": 0.2,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch changes x0 (a bound) to f0 (a function value), which is semantically incorrect and mixes incompatible types. While it may pass the test by causing different behavior that triggers the expected exception, it fundamentally breaks the algorithm's logic by replacing a coordinate with a function value in a mathematical formula."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.175510352999936,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3199,
+        "output_tokens": 170,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.3,
+          "security_robustness": 0.2,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch changes x0 (a bound) to f0 (a function value), which is semantically incorrect and mixes incompatible types. While it may pass the specific test by causing different behavior, it fundamentally breaks the algorithm's logic by replacing a position variable with a function value, introducing a serious semantic error that would fail on other inputs."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Math__patch1-Math-50-AVATAR-plausible",
+    "bug_id": "Math-50",
+    "model": "claude-haiku-4-5",
+    "latency_s": 5.335713644999942,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 3071,
+    "output_tokens": 730,
+    "tests": [
+      {
+        "name": "testRegulaFalsiWithDifferentBoundaryValues",
+        "target_class": "org.apache.commons.math.analysis.solvers.RegulaFalsiSolver",
+        "target_method": "solve",
+        "class_name": "RegulaFalsiSolverTest",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "...................................................... OK\nRunning ant (compile.tests)................................................ FAIL\nExecuted command:  cd /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__AVATAR__Math__patch1-Math-50-AVATAR-plausible/RegulaFalsiSolverTest/fixed && /opt/defects4j-2.0.1/major/bin/ant -f /opt/defects4j-2.0.1/framework/projects/defects4j.build.xml -Dd4j.home=/opt/defects4j-2.0.1 -Dd4j.dir.projects=/opt/defects4j-2.0.1/framework/projects -Dbasedir=/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__AVATAR__Math__patch1-Math-50-AVATAR-plausible/RegulaFalsiSolverTest/fixed -Dbuild.compiler=javac1.7  compile.tests 2>&1\nOpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=1G; support was removed in 8.0\nBuildfile: /opt/defects4j-2.0.1/framework/projects/defects4j.build.xml\n\ninit:\n     [echo] -------- Commons MATH 3.0-SNAPSHOT --------\n\ncompile:\n\ncheck-availability:\n     [echo] doing check-availability...\n\ndownload-dependencies:\n     [echo] doing download-dependencies...\n\ndownload-junit:\n\ncompile.tests:\n    [javac] Compiling 1 source file to /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__AVATAR__Math__patch1-Math-50-AVATAR-plausible/RegulaFalsiSolverTest/fixed/target/test-classes\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__AVATAR__Math__patch1-Math-50-AVATAR-plausible/RegulaFalsiSolverTest/fixed/src/test/java/org/apache/commons/math/analysis/solvers/RegulaFalsiSolverTest.java:44: error: class, interface, or enum expected\n    [javac] }}\n    [javac]  ^\n    [javac] 1 error\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__AVATAR__Math__patch1-Math-50-AVATAR-plausible/RegulaFalsiSolverTest/fixed/build.xml:177: Compile failed; see the compiler error output for details.\n\nTotal time: 0 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Math__patch1-Math-50-AVATAR-plausible",
+    "true_project": "Math",
+    "true_bug_number": "50",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 627,
+    "output_tokens": 26,
+    "project": "Math",
+    "bug_number": 280,
+    "recalled_label": "CORRECT",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Math__patch1-Math-50-AVATAR-plausible",
+    "bug_id": "Math-50",
+    "s_edit_ast": 0.0026246719160104987,
+    "s_edit_ast_actions": 1,
+    "s_edit_ast_nodes": 381,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math/analysis/solvers/BaseSecantSolver"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 128,
+      "cfg_edges": 141,
+      "branch_points": 19,
+      "cyclomatic_complexity": 15,
+      "def_count": 79,
+      "use_count": 249,
+      "defuse_pairs": 79,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.analysis.solvers.BaseSecantSolver",
+          "method": "doSolve",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 128,
+          "cfg_edges": 141,
+          "branch_points": 19,
+          "cyclomatic_complexity": 15,
+          "def_count": 79,
+          "use_count": 249,
+          "defuse_pairs": 79,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 128,
+      "cfg_edges": 141,
+      "branch_points": 19,
+      "cyclomatic_complexity": 15,
+      "def_count": 79,
+      "use_count": 249,
+      "defuse_pairs": 79,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.analysis.solvers.BaseSecantSolver",
+          "method": "doSolve",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 128,
+          "cfg_edges": 141,
+          "branch_points": 19,
+          "cyclomatic_complexity": 15,
+          "def_count": 79,
+          "use_count": 249,
+          "defuse_pairs": 79,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": 0,
+    "d_branch_points": 0,
+    "d_cfg_edges": 0,
+    "d_defuse_pairs": 0,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 460,
+      "n_candidate_warnings": 460,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 3,
+      "n_changed_class_files_candidate": 3,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Math__patch1-Math-50-AVATAR-plausible",
+    "bug_id": "Math-50",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

@@ -1,0 +1,256 @@
+{
+  "patch_id": "Patches_ICSE__Ddifferent__jKali__Math__patch1-Math-50-jKali",
+  "bug_id": "Math-50",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 63.702
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 1.891
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 11.145
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 27.204
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.002
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 79.018
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Ddifferent__jKali__Math__patch1-Math-50-jKali",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.252605026999845,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3194,
+        "output_tokens": 164,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.3,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch removes the critical logic that prevents infinite loops in REGULA_FALSI mode by deleting the x0 update calculation. While it may pass the test by accident (possibly due to test framework behavior), it fundamentally breaks the algorithm's convergence guarantee and introduces an infinite loop risk when x == x1 occurs."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.130612669999664,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3194,
+        "output_tokens": 162,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.3,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch removes the critical logic that adjusts x0 when x == x1 in REGULA_FALSI mode, leaving only a stale f0 computation. This deletes essential functionality needed to prevent infinite loops and ensure convergence, merely passing the test by accident while breaking the algorithm's correctness."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.4364122130000396,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3194,
+        "output_tokens": 163,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.3,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch removes the critical logic that prevents infinite loops in REGULA_FALSI mode by deleting the x0 update calculation. While it may pass the test by accident (possibly due to test setup), it fundamentally breaks the algorithm's convergence guarantee and introduces an infinite loop risk when x == x1 occurs."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Ddifferent__jKali__Math__patch1-Math-50-jKali",
+    "bug_id": "Math-50",
+    "model": "claude-haiku-4-5",
+    "latency_s": 8.487892944999658,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 3066,
+    "output_tokens": 1237,
+    "tests": [
+      {
+        "name": "testRegulaFalsiWithDifferentBounds",
+        "target_class": "org.apache.commons.math.analysis.solvers.RegulaFalsiSolver",
+        "target_method": "solve",
+        "class_name": "RegulaFalsiSolverTest",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "ss.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/IllegalStateException.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/RuntimeException.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Exception.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/AutoCloseable.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/AutoCloseable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Ddifferent__jKali__Math__patch1-Math-50-jKali/RegulaFalsiSolverTest/fixed/src/test/java/org/apache/commons/math/analysis/solvers/RegulaFalsiSolverTest.java:17: error: cannot find symbol\n    [javac]         solver.setMaxEvaluations(100);\n    [javac]               ^\n    [javac]   symbol:   method setMaxEvaluations(int)\n    [javac]   location: variable solver of type RegulaFalsiSolver\n    [javac] 1 error\n    [javac] 22 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Ddifferent__jKali__Math__patch1-Math-50-jKali/RegulaFalsiSolverTest/fixed/build.xml:177: Compile failed; see the compiler error output for details.\n\nTotal time: 1 second\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testRegulaFalsiConvergenceWithSmallInterval",
+        "target_class": "org.apache.commons.math.analysis.solvers.RegulaFalsiSolver",
+        "target_method": "solve",
+        "class_name": "RegulaFalsiConvergenceTest",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "ning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/IllegalStateException.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/RuntimeException.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Exception.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/AutoCloseable.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/AutoCloseable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Ddifferent__jKali__Math__patch1-Math-50-jKali/RegulaFalsiConvergenceTest/fixed/src/test/java/org/apache/commons/math/analysis/solvers/RegulaFalsiConvergenceTest.java:17: error: cannot find symbol\n    [javac]         solver.setMaxEvaluations(50);\n    [javac]               ^\n    [javac]   symbol:   method setMaxEvaluations(int)\n    [javac]   location: variable solver of type RegulaFalsiSolver\n    [javac] 1 error\n    [javac] 22 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Ddifferent__jKali__Math__patch1-Math-50-jKali/RegulaFalsiConvergenceTest/fixed/build.xml:177: Compile failed; see the compiler error output for details.\n\nTotal time: 1 second\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testRegulaFalsiWithNarrowBracket",
+        "target_class": "org.apache.commons.math.analysis.solvers.RegulaFalsiSolver",
+        "target_method": "solve",
+        "class_name": "RegulaFalsiNarrowBracketTest",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "le+Annotation'\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Exception.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/AutoCloseable.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/AutoCloseable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Math.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Math.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Ddifferent__jKali__Math__patch1-Math-50-jKali/RegulaFalsiNarrowBracketTest/fixed/src/test/java/org/apache/commons/math/analysis/solvers/RegulaFalsiNarrowBracketTest.java:17: error: cannot find symbol\n    [javac]         solver.setMaxEvaluations(75);\n    [javac]               ^\n    [javac]   symbol:   method setMaxEvaluations(int)\n    [javac]   location: variable solver of type RegulaFalsiSolver\n    [javac] 1 error\n    [javac] 24 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Ddifferent__jKali__Math__patch1-Math-50-jKali/RegulaFalsiNarrowBracketTest/fixed/build.xml:177: Compile failed; see the compiler error output for details.\n\nTotal time: 1 second\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Ddifferent__jKali__Math__patch1-Math-50-jKali",
+    "true_project": "Math",
+    "true_bug_number": "50",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 622,
+    "output_tokens": 28,
+    "project": "Math",
+    "bug_number": 427,
+    "recalled_label": "OVERFITTING",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Ddifferent__jKali__Math__patch1-Math-50-jKali",
+    "bug_id": "Math-50",
+    "s_edit_ast": 0.08136482939632546,
+    "s_edit_ast_actions": 31,
+    "s_edit_ast_nodes": 381,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math/analysis/solvers/BaseSecantSolver"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 128,
+      "cfg_edges": 141,
+      "branch_points": 19,
+      "cyclomatic_complexity": 15,
+      "def_count": 79,
+      "use_count": 249,
+      "defuse_pairs": 79,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.analysis.solvers.BaseSecantSolver",
+          "method": "doSolve",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 128,
+          "cfg_edges": 141,
+          "branch_points": 19,
+          "cyclomatic_complexity": 15,
+          "def_count": 79,
+          "use_count": 249,
+          "defuse_pairs": 79,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 122,
+      "cfg_edges": 135,
+      "branch_points": 19,
+      "cyclomatic_complexity": 15,
+      "def_count": 73,
+      "use_count": 232,
+      "defuse_pairs": 73,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.analysis.solvers.BaseSecantSolver",
+          "method": "doSolve",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 122,
+          "cfg_edges": 135,
+          "branch_points": 19,
+          "cyclomatic_complexity": 15,
+          "def_count": 73,
+          "use_count": 232,
+          "defuse_pairs": 73,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": -6,
+    "d_branch_points": 0,
+    "d_cfg_edges": -6,
+    "d_defuse_pairs": -6,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 460,
+      "n_candidate_warnings": 460,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 3,
+      "n_changed_class_files_candidate": 3,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Ddifferent__jKali__Math__patch1-Math-50-jKali",
+    "bug_id": "Math-50",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}
