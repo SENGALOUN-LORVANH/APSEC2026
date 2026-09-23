@@ -1,0 +1,215 @@
+{
+  "patch_id": "Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-35-ACS",
+  "bug_id": "Math-35",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 43.908
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 1.035
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 1.498
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 2.675
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 0.416
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 113.018
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-35-ACS",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 0,
+    "s_sem_final": null,
+    "decision": null,
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 0.3585934030015778,
+        "attempts": 1,
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLu8UkJYzpVBD6J9Ta2B'}"
+      },
+      {
+        "run": 1,
+        "latency_s": 0.3259599029988749,
+        "attempts": 1,
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLu8W7QXWToVa4FFmuhD'}"
+      },
+      {
+        "run": 2,
+        "latency_s": 0.33200470299925655,
+        "attempts": 1,
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLu8XWVQ3op2Ab6tLUdr'}"
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-35-ACS",
+    "bug_id": "Math-35",
+    "model": "claude-haiku-4-5",
+    "latency_s": 0.4096245059990906,
+    "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLu8ioPfZ2D5QKsMnkzr'}",
+    "context_errors": [],
+    "input_tokens": null,
+    "output_tokens": null,
+    "tests": []
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-35-ACS",
+    "true_project": "Math",
+    "true_bug_number": "35",
+    "model": "claude-haiku-4-5",
+    "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLu8kjUiSns2tKeRh3GW'}",
+    "input_tokens": null,
+    "output_tokens": null
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-35-ACS",
+    "bug_id": "Math-35",
+    "s_edit_ast": 0.7654320987654321,
+    "s_edit_ast_actions": 62,
+    "s_edit_ast_nodes": 81,
+    "s_edit_error": null,
+    "s_vuln_changed": 0.5,
+    "s_vuln_new_warning_count": 1,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math3/genetics/ElitisticListPopulation"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 30,
+      "cfg_edges": 26,
+      "branch_points": 0,
+      "cyclomatic_complexity": 4,
+      "def_count": 22,
+      "use_count": 44,
+      "defuse_pairs": 22,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math3.genetics.ElitisticListPopulation",
+          "method": "ElitisticListPopulation",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 15,
+          "cfg_edges": 13,
+          "branch_points": 0,
+          "cyclomatic_complexity": 2,
+          "def_count": 11,
+          "use_count": 22,
+          "defuse_pairs": 11,
+          "error": null
+        },
+        {
+          "class": "org.apache.commons.math3.genetics.ElitisticListPopulation",
+          "method": "ElitisticListPopulation",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 15,
+          "cfg_edges": 13,
+          "branch_points": 0,
+          "cyclomatic_complexity": 2,
+          "def_count": 11,
+          "use_count": 22,
+          "defuse_pairs": 11,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 86,
+      "cfg_edges": 82,
+      "branch_points": 8,
+      "cyclomatic_complexity": 4,
+      "def_count": 54,
+      "use_count": 180,
+      "defuse_pairs": 54,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math3.genetics.ElitisticListPopulation",
+          "method": "ElitisticListPopulation",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 43,
+          "cfg_edges": 41,
+          "branch_points": 4,
+          "cyclomatic_complexity": 2,
+          "def_count": 27,
+          "use_count": 90,
+          "defuse_pairs": 27,
+          "error": null
+        },
+        {
+          "class": "org.apache.commons.math3.genetics.ElitisticListPopulation",
+          "method": "ElitisticListPopulation",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 43,
+          "cfg_edges": 41,
+          "branch_points": 4,
+          "cyclomatic_complexity": 2,
+          "def_count": 27,
+          "use_count": 90,
+          "defuse_pairs": 27,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": 56,
+    "d_branch_points": 8,
+    "d_cfg_edges": 56,
+    "d_defuse_pairs": 32,
+    "vuln_detail": {
+      "s_vuln": 0.5,
+      "new_warnings": [
+        {
+          "bug_type": "CT",
+          "category": "B",
+          "priority": "M",
+          "severity": "MEDIUM",
+          "class": "ElitisticListPopulation",
+          "method": "ElitisticListPopulation",
+          "location": "ElitisticListPopulation.java:line 73",
+          "description": "Exception thrown in class org.apache.commons.math3.genetics.ElitisticListPopulation at new org.apache.commons.math3.genetics.ElitisticListPopulation(int, double) will leave the constructor. The object under construction remains partially initialized and may be vulnerable to Finalizer attacks."
+        }
+      ],
+      "n_buggy_warnings": 500,
+      "n_candidate_warnings": 502,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-35-ACS",
+    "bug_id": "Math-35",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}
