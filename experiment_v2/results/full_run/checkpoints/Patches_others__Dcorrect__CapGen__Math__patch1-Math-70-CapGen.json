@@ -1,0 +1,256 @@
+{
+  "patch_id": "Patches_others__Dcorrect__CapGen__Math__patch1-Math-70-CapGen",
+  "bug_id": "Math-70",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 13.813
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.801
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 8.281
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 43.725
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.346
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 91.08
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_others__Dcorrect__CapGen__Math__patch1-Math-70-CapGen",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.92,
+    "decision": "CORRECT",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 2.7070333100000425,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2084,
+        "output_tokens": 162,
+        "parsed": {
+          "generalization": "general",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.95,
+          "readability": 0.85,
+          "security_robustness": 0.9,
+          "judgement": "CORRECT",
+          "confidence": 0.92,
+          "brief_reason": "The patch fixes a NullPointerException by passing the function parameter `f` to the `solve` method, which was previously being ignored. The original code called `solve(min, max)` without the function, causing a null reference when the method tried to use it. This is a minimal, targeted fix that addresses the root cause of the bug."
+        },
+        "s_sem": 0.92,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 2.62328978000005,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2084,
+        "output_tokens": 162,
+        "parsed": {
+          "generalization": "general",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.95,
+          "readability": 0.85,
+          "security_robustness": 0.9,
+          "judgement": "CORRECT",
+          "confidence": 0.92,
+          "brief_reason": "The patch fixes a NullPointerException by passing the function parameter `f` to the `solve` method, which was previously being ignored. The original code called `solve(min, max)` without the function, causing a null reference when the method tried to use it. This is a minimal, targeted fix that addresses the root cause of the bug."
+        },
+        "s_sem": 0.92,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 2.6104910779995407,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2084,
+        "output_tokens": 152,
+        "parsed": {
+          "generalization": "general",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.95,
+          "readability": 0.85,
+          "security_robustness": 0.9,
+          "judgement": "CORRECT",
+          "confidence": 0.92,
+          "brief_reason": "The patch fixes a NullPointerException by passing the function parameter `f` to the `solve` method, which was previously being ignored. This addresses the root cause where the function was null when used in the solver logic. The change is minimal, general, and maintains the intended behavior of the method signature."
+        },
+        "s_sem": 0.92,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_others__Dcorrect__CapGen__Math__patch1-Math-70-CapGen",
+    "bug_id": "Math-70",
+    "model": "claude-haiku-4-5",
+    "latency_s": 13.215312296000775,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 1980,
+    "output_tokens": 1461,
+    "tests": [
+      {
+        "name": "testSolveWithFunctionParameter",
+        "target_class": "org.apache.commons.math.analysis.solvers.BisectionSolver",
+        "target_method": "solve(UnivariateRealFunction, double, double, double)",
+        "class_name": "TestBisectionSolverFunctionUsage",
+        "status": "VALID_BUG_REVEALING",
+        "candidate_pass": true,
+        "log": ".\nTime: 0.002\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testSolveWithDifferentFunction",
+        "target_class": "org.apache.commons.math.analysis.solvers.BisectionSolver",
+        "target_method": "solve(UnivariateRealFunction, double, double, double)",
+        "class_name": "TestBisectionSolverDifferentFunction",
+        "status": "INVALID_ORACLE",
+        "candidate_pass": null,
+        "log": ".F\nTime: 0.004\nThere was 1 failure:\n1) testSolveWithDifferentFunction(org.apache.commons.math.analysis.solvers.TestBisectionSolverDifferentFunction)junit.framework.AssertionFailedError: expected:<0.0> but was:<-1.9073484054388246E-6>\n\tat org.apache.commons.math.analysis.solvers.TestBisectionSolverDifferentFunction.testSolveWithDifferentFunction(TestBisectionSolverDifferentFunction.java:28)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\nFAILURES!!!\nTests run: 1,  Failures: 1,  Errors: 0\n\n"
+      },
+      {
+        "name": "testSolveWithNegativeRoot",
+        "target_class": "org.apache.commons.math.analysis.solvers.BisectionSolver",
+        "target_method": "solve(UnivariateRealFunction, double, double, double)",
+        "class_name": "TestBisectionSolverNegativeRoot",
+        "status": "VALID_BUG_REVEALING",
+        "candidate_pass": true,
+        "log": ".\nTime: 0.003\n\nOK (1 test)\n\n"
+      }
+    ],
+    "s_cex": 1.0,
+    "n_valid": 2,
+    "n_passed": 2
+  },
+  "memorization": {
+    "patch_id": "Patches_others__Dcorrect__CapGen__Math__patch1-Math-70-CapGen",
+    "true_project": "Math",
+    "true_bug_number": "70",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 594,
+    "output_tokens": 25,
+    "project": "Math",
+    "bug_number": null,
+    "recalled_label": "UNKNOWN",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_others__Dcorrect__CapGen__Math__patch1-Math-70-CapGen",
+    "bug_id": "Math-70",
+    "s_edit_ast": 0.030303030303030304,
+    "s_edit_ast_actions": 1,
+    "s_edit_ast_nodes": 33,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math/analysis/solvers/BisectionSolver"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 54,
+      "cfg_edges": 52,
+      "branch_points": 3,
+      "cyclomatic_complexity": 6,
+      "def_count": 40,
+      "use_count": 104,
+      "defuse_pairs": 40,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.analysis.solvers.BisectionSolver",
+          "method": "solve",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 4,
+          "stmts": 54,
+          "cfg_edges": 52,
+          "branch_points": 3,
+          "cyclomatic_complexity": 6,
+          "def_count": 40,
+          "use_count": 104,
+          "defuse_pairs": 40,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 54,
+      "cfg_edges": 52,
+      "branch_points": 3,
+      "cyclomatic_complexity": 6,
+      "def_count": 40,
+      "use_count": 105,
+      "defuse_pairs": 40,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.analysis.solvers.BisectionSolver",
+          "method": "solve",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 4,
+          "stmts": 54,
+          "cfg_edges": 52,
+          "branch_points": 3,
+          "cyclomatic_complexity": 6,
+          "def_count": 40,
+          "use_count": 105,
+          "defuse_pairs": 40,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": 0,
+    "d_branch_points": 0,
+    "d_cfg_edges": 0,
+    "d_defuse_pairs": 0,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 336,
+      "n_candidate_warnings": 336,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_others__Dcorrect__CapGen__Math__patch1-Math-70-CapGen",
+    "bug_id": "Math-70",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

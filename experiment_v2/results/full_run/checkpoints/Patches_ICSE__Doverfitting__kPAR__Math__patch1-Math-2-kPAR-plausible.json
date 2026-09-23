@@ -1,0 +1,256 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__kPAR__Math__patch1-Math-2-kPAR-plausible",
+  "bug_id": "Math-2",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 77.559
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 1.352
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 9.544
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 38.658
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.044
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 124.677
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__kPAR__Math__patch1-Math-2-kPAR-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.010000000000000009,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.328465620001225,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2743,
+        "output_tokens": 178,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.0,
+          "security_robustness": 0.0,
+          "judgement": "OVERFITTING",
+          "confidence": 0.99,
+          "brief_reason": "The patch replaces the correct formula `FastMath.sqrt((1.0 - p) / p)` with `FastMath.sqrt(serialVersionUID)`, which is nonsensical and breaks the mathematical logic of the Chebyshev inequality calculation. This appears to be a random or corrupted fix that happens to pass the test by accident rather than addressing the actual bug."
+        },
+        "s_sem": 0.010000000000000009,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 2.911110496001129,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2743,
+        "output_tokens": 170,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.0,
+          "security_robustness": 0.0,
+          "judgement": "OVERFITTING",
+          "confidence": 0.99,
+          "brief_reason": "The patch replaces the correct Chebyshev inequality calculation with `FastMath.sqrt(serialVersionUID)`, which is nonsensical and breaks the mathematical logic. While it may pass the specific test case by accident, it fundamentally corrupts the algorithm and would fail on other inputs. This is clearly an overfitting artifact that does not repair the underlying bug."
+        },
+        "s_sem": 0.010000000000000009,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 2.790340904999539,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2743,
+        "output_tokens": 178,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.0,
+          "security_robustness": 0.0,
+          "judgement": "OVERFITTING",
+          "confidence": 0.99,
+          "brief_reason": "The patch replaces the correct formula `FastMath.sqrt((1.0 - p) / p)` with `FastMath.sqrt(serialVersionUID)`, which is nonsensical and breaks the mathematical logic of the Chebyshev inequality calculation. This appears to be a random or corrupted fix that happens to pass the test by accident rather than addressing the actual bug."
+        },
+        "s_sem": 0.010000000000000009,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__kPAR__Math__patch1-Math-2-kPAR-plausible",
+    "bug_id": "Math-2",
+    "model": "claude-haiku-4-5",
+    "latency_s": 10.686636493999686,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 2613,
+    "output_tokens": 1756,
+    "tests": [
+      {
+        "name": "testInverseCumulativeProbabilityWithChebyshevBoundary",
+        "target_class": "org.apache.commons.math3.distribution.HypergeometricDistribution",
+        "target_method": "inverseCumulativeProbability",
+        "class_name": "TestInverseCumulativeProbabilityBoundary",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": "JUnit version 4.11\n.\nTime: 0.013\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testInverseCumulativeProbabilitySmallP",
+        "target_class": "org.apache.commons.math3.distribution.HypergeometricDistribution",
+        "target_method": "inverseCumulativeProbability",
+        "class_name": "TestInverseCumulativeProbabilitySmallP",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": "JUnit version 4.11\n.\nTime: 0.015\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testInverseCumulativeProbabilityLargeP",
+        "target_class": "org.apache.commons.math3.distribution.HypergeometricDistribution",
+        "target_method": "inverseCumulativeProbability",
+        "class_name": "TestInverseCumulativeProbabilityLargeP",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": "JUnit version 4.11\n.\nTime: 0.014\n\nOK (1 test)\n\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__kPAR__Math__patch1-Math-2-kPAR-plausible",
+    "true_project": "Math",
+    "true_bug_number": "2",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 632,
+    "output_tokens": 25,
+    "project": "Math",
+    "bug_number": null,
+    "recalled_label": "UNKNOWN",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__kPAR__Math__patch1-Math-2-kPAR-plausible",
+    "bug_id": "Math-2",
+    "s_edit_ast": 0.03272727272727273,
+    "s_edit_ast_actions": 9,
+    "s_edit_ast_nodes": 275,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math3/distribution/AbstractIntegerDistribution"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 70,
+      "cfg_edges": 79,
+      "branch_points": 14,
+      "cyclomatic_complexity": 11,
+      "def_count": 49,
+      "use_count": 167,
+      "defuse_pairs": 49,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math3.distribution.AbstractIntegerDistribution",
+          "method": "inverseCumulativeProbability",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 70,
+          "cfg_edges": 79,
+          "branch_points": 14,
+          "cyclomatic_complexity": 11,
+          "def_count": 49,
+          "use_count": 167,
+          "defuse_pairs": 49,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 68,
+      "cfg_edges": 77,
+      "branch_points": 14,
+      "cyclomatic_complexity": 11,
+      "def_count": 47,
+      "use_count": 161,
+      "defuse_pairs": 47,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math3.distribution.AbstractIntegerDistribution",
+          "method": "inverseCumulativeProbability",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 68,
+          "cfg_edges": 77,
+          "branch_points": 14,
+          "cyclomatic_complexity": 11,
+          "def_count": 47,
+          "use_count": 161,
+          "defuse_pairs": 47,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": -2,
+    "d_branch_points": 0,
+    "d_cfg_edges": -2,
+    "d_defuse_pairs": -2,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 686,
+      "n_candidate_warnings": 686,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__kPAR__Math__patch1-Math-2-kPAR-plausible",
+    "bug_id": "Math-2",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

@@ -1,0 +1,256 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__RSRepair__Closure__patch1-Closure-21-RSRepair-plausible",
+  "bug_id": "Closure-21",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 110.932
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.971
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 10.285
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 35.083
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.182
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 36.222
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__RSRepair__Closure__patch1-Closure-21-RSRepair-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.6060135580009955,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2841,
+        "output_tokens": 185,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.2,
+          "readability": 0.3,
+          "security_robustness": 0.5,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch removes a critical loop that validates ancestor nodes, replacing it with a dead assignment (`int index = -1;`) that serves no purpose. This deletes essential functionality that checks whether a comma expression is in a valid context (EXPR_RESULT or BLOCK), causing the code to incorrectly suppress warnings for useless code in invalid contexts. The patch only makes the specific test pass by accident while breaking the intended logic."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 2.962986144999377,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2841,
+        "output_tokens": 163,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.2,
+          "readability": 0.1,
+          "security_robustness": 0.5,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch removes a critical loop that validates ancestor nodes, replacing it with a dead assignment (`int index = -1;`) that serves no purpose. This gutting of logic cannot be a genuine bug fix and only passes the test by accident, likely due to test suite limitations. The patch deletes functional code without providing any replacement logic."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.0217808189991047,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2841,
+        "output_tokens": 163,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.2,
+          "readability": 0.1,
+          "security_robustness": 0.5,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch removes a critical loop that validates ancestor nodes, replacing it with a dead assignment (`int index = -1;`) that serves no purpose. This gutting of logic cannot be a genuine bug fix and only passes the test by accident, likely due to test suite limitations. The patch deletes functional code without providing any replacement logic."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__RSRepair__Closure__patch1-Closure-21-RSRepair-plausible",
+    "bug_id": "Closure-21",
+    "model": "claude-haiku-4-5",
+    "latency_s": 8.365431084001102,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 2710,
+    "output_tokens": 1181,
+    "tests": [
+      {
+        "name": "testCommaExpressionWithMultipleAncestors",
+        "target_class": "com.google.javascript.jscomp.CheckSideEffects",
+        "target_method": "visit",
+        "class_name": "CheckSideEffectsTest",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": " and formal argument lists differ in length)\n    [javac]     method CompilerTestCase.test(String[],String[]) is not applicable\n    [javac]       (actual argument String cannot be converted to String[] by method invocation conversion)\n    [javac]     method CompilerTestCase.test(List<SourceFile>,String,String,DiagnosticType,DiagnosticType,String) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]     method CompilerTestCase.test(String,String,String,DiagnosticType,DiagnosticType,String) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]     method CompilerTestCase.test(String,String,String,DiagnosticType,DiagnosticType) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]     method CompilerTestCase.test(String,String,DiagnosticType,DiagnosticType) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]     method CompilerTestCase.test(String,String,DiagnosticType,DiagnosticType,String) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]     method CompilerTestCase.test(String,String,DiagnosticType) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]     method CompilerTestCase.test(String,String) is not applicable\n    [javac]       (actual argument DiagnosticType cannot be converted to String by method invocation conversion)\n    [javac] 4 errors\n    [javac] 29 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__RSRepair__Closure__patch1-Closure-21-RSRepair-plausible/CheckSideEffectsTest/fixed/build.xml:331: Compile failed; see the compiler error output for details.\n\nTotal time: 2 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testCommaOperatorLastChildWithoutSideEffects",
+        "target_class": "com.google.javascript.jscomp.CheckSideEffects",
+        "target_method": "visit",
+        "class_name": "CheckSideEffectsTest2",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "and formal argument lists differ in length)\n    [javac]     method CompilerTestCase.test(String[],String[]) is not applicable\n    [javac]       (actual argument String cannot be converted to String[] by method invocation conversion)\n    [javac]     method CompilerTestCase.test(List<SourceFile>,String,String,DiagnosticType,DiagnosticType,String) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]     method CompilerTestCase.test(String,String,String,DiagnosticType,DiagnosticType,String) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]     method CompilerTestCase.test(String,String,String,DiagnosticType,DiagnosticType) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]     method CompilerTestCase.test(String,String,DiagnosticType,DiagnosticType) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]     method CompilerTestCase.test(String,String,DiagnosticType,DiagnosticType,String) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]     method CompilerTestCase.test(String,String,DiagnosticType) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]     method CompilerTestCase.test(String,String) is not applicable\n    [javac]       (actual argument DiagnosticType cannot be converted to String by method invocation conversion)\n    [javac] 2 errors\n    [javac] 29 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__RSRepair__Closure__patch1-Closure-21-RSRepair-plausible/CheckSideEffectsTest2/fixed/build.xml:331: Compile failed; see the compiler error output for details.\n\nTotal time: 2 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testCommaExpressionInConditional",
+        "target_class": "com.google.javascript.jscomp.CheckSideEffects",
+        "target_method": "visit",
+        "class_name": "CheckSideEffectsTest3",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": " and formal argument lists differ in length)\n    [javac]     method CompilerTestCase.test(String[],String[]) is not applicable\n    [javac]       (actual argument String cannot be converted to String[] by method invocation conversion)\n    [javac]     method CompilerTestCase.test(List<SourceFile>,String,String,DiagnosticType,DiagnosticType,String) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]     method CompilerTestCase.test(String,String,String,DiagnosticType,DiagnosticType,String) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]     method CompilerTestCase.test(String,String,String,DiagnosticType,DiagnosticType) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]     method CompilerTestCase.test(String,String,DiagnosticType,DiagnosticType) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]     method CompilerTestCase.test(String,String,DiagnosticType,DiagnosticType,String) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]     method CompilerTestCase.test(String,String,DiagnosticType) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]     method CompilerTestCase.test(String,String) is not applicable\n    [javac]       (actual argument DiagnosticType cannot be converted to String by method invocation conversion)\n    [javac] 2 errors\n    [javac] 29 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__RSRepair__Closure__patch1-Closure-21-RSRepair-plausible/CheckSideEffectsTest3/fixed/build.xml:331: Compile failed; see the compiler error output for details.\n\nTotal time: 1 second\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__RSRepair__Closure__patch1-Closure-21-RSRepair-plausible",
+    "true_project": "Closure",
+    "true_bug_number": "21",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 672,
+    "output_tokens": 26,
+    "project": "Closure",
+    "bug_number": null,
+    "recalled_label": "UNKNOWN",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__RSRepair__Closure__patch1-Closure-21-RSRepair-plausible",
+    "bug_id": "Closure-21",
+    "s_edit_ast": 0.12582781456953643,
+    "s_edit_ast_actions": 38,
+    "s_edit_ast_nodes": 302,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "com/google/javascript/jscomp/CheckSideEffects"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 87,
+      "cfg_edges": 103,
+      "branch_points": 24,
+      "cyclomatic_complexity": 18,
+      "def_count": 49,
+      "use_count": 179,
+      "defuse_pairs": 49,
+      "per_method": [
+        {
+          "class": "com.google.javascript.jscomp.CheckSideEffects",
+          "method": "visit",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 87,
+          "cfg_edges": 103,
+          "branch_points": 24,
+          "cyclomatic_complexity": 18,
+          "def_count": 49,
+          "use_count": 179,
+          "defuse_pairs": 49,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 76,
+      "cfg_edges": 89,
+      "branch_points": 20,
+      "cyclomatic_complexity": 15,
+      "def_count": 44,
+      "use_count": 156,
+      "defuse_pairs": 44,
+      "per_method": [
+        {
+          "class": "com.google.javascript.jscomp.CheckSideEffects",
+          "method": "visit",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 76,
+          "cfg_edges": 89,
+          "branch_points": 20,
+          "cyclomatic_complexity": 15,
+          "def_count": 44,
+          "use_count": 156,
+          "defuse_pairs": 44,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": -3,
+    "d_stmts": -11,
+    "d_branch_points": -4,
+    "d_cfg_edges": -14,
+    "d_defuse_pairs": -5,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 6,
+      "n_candidate_warnings": 6,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 2,
+      "n_changed_class_files_candidate": 2,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__RSRepair__Closure__patch1-Closure-21-RSRepair-plausible",
+    "bug_id": "Closure-21",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

@@ -1,0 +1,256 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__Kali__Closure__patch1-Closure-21-Kali-plausible",
+  "bug_id": "Closure-21",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 81.166
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.511
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 10.881
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 42.234
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.105
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 56.174
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__Kali__Closure__patch1-Closure-21-Kali-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.550797441999748,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2741,
+        "output_tokens": 164,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.0,
+          "security_robustness": 0.5,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch replaces a meaningful condition `ancestorType == Token.COMMA` with `if (true)`, which makes the loop always continue on the first iteration, effectively breaking the ancestor traversal logic. This is a nonsensical change that only passes the test by accident and severely weakens the code's functionality and readability."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.4560204239987797,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2741,
+        "output_tokens": 164,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.0,
+          "security_robustness": 0.5,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch replaces a meaningful condition `ancestorType == Token.COMMA` with `if (true)`, which makes the loop always continue on the first iteration, effectively breaking the ancestor traversal logic. This is a nonsensical change that only passes the test by accident and severely weakens the code's functionality and readability."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.4998973999990994,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2741,
+        "output_tokens": 164,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.0,
+          "security_robustness": 0.5,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch replaces a meaningful condition `ancestorType == Token.COMMA` with `if (true)`, which makes the loop always continue on the first iteration, effectively breaking the ancestor traversal logic. This is a nonsensical change that only passes the test by accident and severely weakens the code's functionality and readability."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__Kali__Closure__patch1-Closure-21-Kali-plausible",
+    "bug_id": "Closure-21",
+    "model": "claude-haiku-4-5",
+    "latency_s": 16.25573361500028,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 2610,
+    "output_tokens": 2477,
+    "tests": [
+      {
+        "name": "testCommaOperatorWithMultipleAncestors",
+        "target_class": "com.google.javascript.jscomp.CheckSideEffects",
+        "target_method": "visit",
+        "class_name": "CheckSideEffectsTest",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "ler.init(new Node[0], new JSModule[0], options);\n    [javac]             ^\n    [javac]     method Compiler.init(JSSourceFile[],JSModule[],CompilerOptions) is not applicable\n    [javac]       (actual argument Node[] cannot be converted to JSSourceFile[] by method invocation conversion)\n    [javac]     method Compiler.<T1,T2>init(List<T1>,List<T2>,CompilerOptions) is not applicable\n    [javac]       (no instance(s) of type variable(s) T1,T2 exist so that argument type Node[] conforms to formal parameter type List<T1>)\n    [javac]     method Compiler.init(JSSourceFile[],JSSourceFile[],CompilerOptions) is not applicable\n    [javac]       (actual argument Node[] cannot be converted to JSSourceFile[] by method invocation conversion)\n    [javac]   where T1,T2 are type-variables:\n    [javac]     T1 extends SourceFile declared in method <T1,T2>init(List<T1>,List<T2>,CompilerOptions)\n    [javac]     T2 extends SourceFile declared in method <T1,T2>init(List<T1>,List<T2>,CompilerOptions)\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__Kali__Closure__patch1-Closure-21-Kali-plausible/CheckSideEffectsTest/fixed/test/com/google/javascript/jscomp/CheckSideEffectsTest.java:55: error: method parseInputs in class Compiler cannot be applied to given types;\n    [javac]     compiler.parseInputs(new SourceFile[]{SourceFile.fromCode(\"test\", code)});\n    [javac]             ^\n    [javac]   required: no arguments\n    [javac]   found: SourceFile[]\n    [javac]   reason: actual and formal argument lists differ in length\n    [javac] 8 errors\n    [javac] 21 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__Kali__Closure__patch1-Closure-21-Kali-plausible/CheckSideEffectsTest/fixed/build.xml:331: Compile failed; see the compiler error output for details.\n\nTotal time: 3 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testCommaOperatorAncestorTypeChecking",
+        "target_class": "com.google.javascript.jscomp.CheckSideEffects",
+        "target_method": "visit",
+        "class_name": "CheckSideEffectsAncestorTest",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "w JSModule[0], options);\n    [javac]             ^\n    [javac]     method Compiler.init(JSSourceFile[],JSModule[],CompilerOptions) is not applicable\n    [javac]       (actual argument Node[] cannot be converted to JSSourceFile[] by method invocation conversion)\n    [javac]     method Compiler.<T1,T2>init(List<T1>,List<T2>,CompilerOptions) is not applicable\n    [javac]       (no instance(s) of type variable(s) T1,T2 exist so that argument type Node[] conforms to formal parameter type List<T1>)\n    [javac]     method Compiler.init(JSSourceFile[],JSSourceFile[],CompilerOptions) is not applicable\n    [javac]       (actual argument Node[] cannot be converted to JSSourceFile[] by method invocation conversion)\n    [javac]   where T1,T2 are type-variables:\n    [javac]     T1 extends SourceFile declared in method <T1,T2>init(List<T1>,List<T2>,CompilerOptions)\n    [javac]     T2 extends SourceFile declared in method <T1,T2>init(List<T1>,List<T2>,CompilerOptions)\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__Kali__Closure__patch1-Closure-21-Kali-plausible/CheckSideEffectsAncestorTest/fixed/test/com/google/javascript/jscomp/CheckSideEffectsAncestorTest.java:47: error: method parseInputs in class Compiler cannot be applied to given types;\n    [javac]     compiler.parseInputs(new SourceFile[]{SourceFile.fromCode(\"test\", code)});\n    [javac]             ^\n    [javac]   required: no arguments\n    [javac]   found: SourceFile[]\n    [javac]   reason: actual and formal argument lists differ in length\n    [javac] 7 errors\n    [javac] 19 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__Kali__Closure__patch1-Closure-21-Kali-plausible/CheckSideEffectsAncestorTest/fixed/build.xml:331: Compile failed; see the compiler error output for details.\n\nTotal time: 2 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testCommaOperatorAncestorLoopLogic",
+        "target_class": "com.google.javascript.jscomp.CheckSideEffects",
+        "target_method": "visit",
+        "class_name": "CheckSideEffectsAncestorLoopTest",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "], options);\n    [javac]             ^\n    [javac]     method Compiler.init(JSSourceFile[],JSModule[],CompilerOptions) is not applicable\n    [javac]       (actual argument Node[] cannot be converted to JSSourceFile[] by method invocation conversion)\n    [javac]     method Compiler.<T1,T2>init(List<T1>,List<T2>,CompilerOptions) is not applicable\n    [javac]       (no instance(s) of type variable(s) T1,T2 exist so that argument type Node[] conforms to formal parameter type List<T1>)\n    [javac]     method Compiler.init(JSSourceFile[],JSSourceFile[],CompilerOptions) is not applicable\n    [javac]       (actual argument Node[] cannot be converted to JSSourceFile[] by method invocation conversion)\n    [javac]   where T1,T2 are type-variables:\n    [javac]     T1 extends SourceFile declared in method <T1,T2>init(List<T1>,List<T2>,CompilerOptions)\n    [javac]     T2 extends SourceFile declared in method <T1,T2>init(List<T1>,List<T2>,CompilerOptions)\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__Kali__Closure__patch1-Closure-21-Kali-plausible/CheckSideEffectsAncestorLoopTest/fixed/test/com/google/javascript/jscomp/CheckSideEffectsAncestorLoopTest.java:46: error: method parseInputs in class Compiler cannot be applied to given types;\n    [javac]     compiler.parseInputs(new SourceFile[]{SourceFile.fromCode(\"test\", code)});\n    [javac]             ^\n    [javac]   required: no arguments\n    [javac]   found: SourceFile[]\n    [javac]   reason: actual and formal argument lists differ in length\n    [javac] 7 errors\n    [javac] 19 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__Kali__Closure__patch1-Closure-21-Kali-plausible/CheckSideEffectsAncestorLoopTest/fixed/build.xml:331: Compile failed; see the compiler error output for details.\n\nTotal time: 2 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__Kali__Closure__patch1-Closure-21-Kali-plausible",
+    "true_project": "Closure",
+    "true_bug_number": "21",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 572,
+    "output_tokens": 26,
+    "project": "Closure",
+    "bug_number": null,
+    "recalled_label": "UNKNOWN",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__Kali__Closure__patch1-Closure-21-Kali-plausible",
+    "bug_id": "Closure-21",
+    "s_edit_ast": 0.016556291390728478,
+    "s_edit_ast_actions": 5,
+    "s_edit_ast_nodes": 302,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "com/google/javascript/jscomp/CheckSideEffects"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 87,
+      "cfg_edges": 103,
+      "branch_points": 24,
+      "cyclomatic_complexity": 18,
+      "def_count": 49,
+      "use_count": 179,
+      "defuse_pairs": 49,
+      "per_method": [
+        {
+          "class": "com.google.javascript.jscomp.CheckSideEffects",
+          "method": "visit",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 87,
+          "cfg_edges": 103,
+          "branch_points": 24,
+          "cyclomatic_complexity": 18,
+          "def_count": 49,
+          "use_count": 179,
+          "defuse_pairs": 49,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 83,
+      "cfg_edges": 97,
+      "branch_points": 21,
+      "cyclomatic_complexity": 16,
+      "def_count": 49,
+      "use_count": 170,
+      "defuse_pairs": 49,
+      "per_method": [
+        {
+          "class": "com.google.javascript.jscomp.CheckSideEffects",
+          "method": "visit",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 83,
+          "cfg_edges": 97,
+          "branch_points": 21,
+          "cyclomatic_complexity": 16,
+          "def_count": 49,
+          "use_count": 170,
+          "defuse_pairs": 49,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": -2,
+    "d_stmts": -4,
+    "d_branch_points": -3,
+    "d_cfg_edges": -6,
+    "d_defuse_pairs": 0,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 6,
+      "n_candidate_warnings": 6,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 2,
+      "n_changed_class_files_candidate": 2,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__Kali__Closure__patch1-Closure-21-Kali-plausible",
+    "bug_id": "Closure-21",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

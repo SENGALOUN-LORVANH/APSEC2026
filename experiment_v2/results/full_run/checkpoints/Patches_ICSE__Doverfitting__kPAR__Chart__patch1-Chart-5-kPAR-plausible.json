@@ -1,0 +1,256 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__kPAR__Chart__patch1-Chart-5-kPAR-plausible",
+  "bug_id": "Chart-5",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 14.491
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.495
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 9.279
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 21.882
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.02
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 37.691
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__kPAR__Chart__patch1-Chart-5-kPAR-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 2.8440332879999914,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2495,
+        "output_tokens": 167,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.3,
+          "readability": 0.4,
+          "security_robustness": 0.6,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch replaces the autoSort check with a condition that contradicts the surrounding logic (index >= 0 && !allowDuplicateXValues would never be true in the else branch). This breaks the intended auto-sort functionality and only masks the specific test failure rather than fixing the root cause of the IndexOutOfBoundsException."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 2.8784644099996513,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2495,
+        "output_tokens": 166,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.3,
+          "readability": 0.4,
+          "security_robustness": 0.6,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch replaces the autoSort check with a condition that contradicts the surrounding logic (index >= 0 && !allowDuplicateXValues would never be true in the else branch). This breaks the intended autoSort functionality and only masks the specific test failure rather than fixing the root cause of the IndexOutOfBoundsException."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 2.9526558210000076,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2495,
+        "output_tokens": 167,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.3,
+          "readability": 0.4,
+          "security_robustness": 0.6,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch replaces the autoSort check with a condition that contradicts the surrounding logic (index >= 0 && !allowDuplicateXValues would never be true in the else branch). This breaks the intended auto-sorting functionality and only masks the specific test failure rather than fixing the root cause of the IndexOutOfBoundsException."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__kPAR__Chart__patch1-Chart-5-kPAR-plausible",
+    "bug_id": "Chart-5",
+    "model": "claude-haiku-4-5",
+    "latency_s": 8.941702198999337,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 2390,
+    "output_tokens": 1480,
+    "tests": [
+      {
+        "name": "testAddOrUpdateWithAutoSortFalse",
+        "target_class": "org.jfree.data.xy.XYSeries",
+        "target_method": "addOrUpdate",
+        "class_name": "testAddOrUpdateWithAutoSortFalse",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "jfree/data/xy/junit/testAddOrUpdateWithAutoSortFalse.java:10: error: cannot find symbol\n    [javac]         series.setAutoSort(true);\n    [javac]               ^\n    [javac]   symbol:   method setAutoSort(boolean)\n    [javac]   location: variable series of type XYSeries\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__kPAR__Chart__patch1-Chart-5-kPAR-plausible/testAddOrUpdateWithAutoSortFalse/fixed/tests/org/jfree/data/xy/junit/testAddOrUpdateWithAutoSortFalse.java:11: error: cannot find symbol\n    [javac]         series.setAllowDuplicateXValues(false);\n    [javac]               ^\n    [javac]   symbol:   method setAllowDuplicateXValues(boolean)\n    [javac]   location: variable series of type XYSeries\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Integer.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Integer.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Number.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Number.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 2 errors\n    [javac] 15 warnings\n\nBUILD FAILED\n/opt/defects4j-2.0.1/framework/projects/Chart/Chart.build.xml:123: Compile failed; see the compiler error output for details.\n\nTotal time: 0 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testAddOrUpdateDuplicateXWithAllowDuplicatesFalse",
+        "target_class": "org.jfree.data.xy.XYSeries",
+        "target_method": "addOrUpdate",
+        "class_name": "testAddOrUpdateDuplicateXWithAllowDuplicatesFalse",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "lowDuplicatesFalse.java:10: error: cannot find symbol\n    [javac]         series.setAutoSort(true);\n    [javac]               ^\n    [javac]   symbol:   method setAutoSort(boolean)\n    [javac]   location: variable series of type XYSeries\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__kPAR__Chart__patch1-Chart-5-kPAR-plausible/testAddOrUpdateDuplicateXWithAllowDuplicatesFalse/fixed/tests/org/jfree/data/xy/junit/testAddOrUpdateDuplicateXWithAllowDuplicatesFalse.java:11: error: cannot find symbol\n    [javac]         series.setAllowDuplicateXValues(false);\n    [javac]               ^\n    [javac]   symbol:   method setAllowDuplicateXValues(boolean)\n    [javac]   location: variable series of type XYSeries\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Integer.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Integer.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Number.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Number.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 2 errors\n    [javac] 15 warnings\n\nBUILD FAILED\n/opt/defects4j-2.0.1/framework/projects/Chart/Chart.build.xml:123: Compile failed; see the compiler error output for details.\n\nTotal time: 0 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testAddOrUpdateWithAllowDuplicatesTrue",
+        "target_class": "org.jfree.data.xy.XYSeries",
+        "target_method": "addOrUpdate",
+        "class_name": "testAddOrUpdateWithAllowDuplicatesTrue",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "t/testAddOrUpdateWithAllowDuplicatesTrue.java:10: error: cannot find symbol\n    [javac]         series.setAutoSort(false);\n    [javac]               ^\n    [javac]   symbol:   method setAutoSort(boolean)\n    [javac]   location: variable series of type XYSeries\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__kPAR__Chart__patch1-Chart-5-kPAR-plausible/testAddOrUpdateWithAllowDuplicatesTrue/fixed/tests/org/jfree/data/xy/junit/testAddOrUpdateWithAllowDuplicatesTrue.java:11: error: cannot find symbol\n    [javac]         series.setAllowDuplicateXValues(true);\n    [javac]               ^\n    [javac]   symbol:   method setAllowDuplicateXValues(boolean)\n    [javac]   location: variable series of type XYSeries\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Integer.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Integer.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Number.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Number.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 2 errors\n    [javac] 15 warnings\n\nBUILD FAILED\n/opt/defects4j-2.0.1/framework/projects/Chart/Chart.build.xml:123: Compile failed; see the compiler error output for details.\n\nTotal time: 0 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__kPAR__Chart__patch1-Chart-5-kPAR-plausible",
+    "true_project": "Chart",
+    "true_bug_number": "5",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 578,
+    "output_tokens": 28,
+    "project": "Chart",
+    "bug_number": 7,
+    "recalled_label": "OVERFITTING",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__kPAR__Chart__patch1-Chart-5-kPAR-plausible",
+    "bug_id": "Chart-5",
+    "s_edit_ast": 0.09659090909090909,
+    "s_edit_ast_actions": 17,
+    "s_edit_ast_nodes": 176,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/jfree/data/xy/XYSeries"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 62,
+      "cfg_edges": 63,
+      "branch_points": 5,
+      "cyclomatic_complexity": 5,
+      "def_count": 39,
+      "use_count": 122,
+      "defuse_pairs": 39,
+      "per_method": [
+        {
+          "class": "org.jfree.data.xy.XYSeries",
+          "method": "addOrUpdate",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 62,
+          "cfg_edges": 63,
+          "branch_points": 5,
+          "cyclomatic_complexity": 5,
+          "def_count": 39,
+          "use_count": 122,
+          "defuse_pairs": 39,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 63,
+      "cfg_edges": 65,
+      "branch_points": 6,
+      "cyclomatic_complexity": 6,
+      "def_count": 39,
+      "use_count": 125,
+      "defuse_pairs": 39,
+      "per_method": [
+        {
+          "class": "org.jfree.data.xy.XYSeries",
+          "method": "addOrUpdate",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 63,
+          "cfg_edges": 65,
+          "branch_points": 6,
+          "cyclomatic_complexity": 6,
+          "def_count": 39,
+          "use_count": 125,
+          "defuse_pairs": 39,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 1,
+    "d_stmts": 1,
+    "d_branch_points": 1,
+    "d_cfg_edges": 2,
+    "d_defuse_pairs": 0,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 6,
+      "n_candidate_warnings": 6,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__kPAR__Chart__patch1-Chart-5-kPAR-plausible",
+    "bug_id": "Chart-5",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}
