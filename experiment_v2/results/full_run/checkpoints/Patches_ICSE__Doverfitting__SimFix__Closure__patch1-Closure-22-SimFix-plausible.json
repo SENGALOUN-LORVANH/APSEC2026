@@ -1,0 +1,265 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__SimFix__Closure__patch1-Closure-22-SimFix-plausible",
+  "bug_id": "Closure-22",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 79.417
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.529
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 9.096
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 42.006
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.51
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 41.909
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__SimFix__Closure__patch1-Closure-22-SimFix-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 2.884995083000831,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2841,
+        "output_tokens": 163,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.3,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch replaces the loop variable `an` with a hardcoded `parent.getParent()`, breaking the ancestor traversal logic and only passing the test by accident. This fundamentally weakens the intended functionality of checking all ancestors, not just the immediate parent, and introduces a logic error that will fail on nested structures."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 2.8397117710010207,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2841,
+        "output_tokens": 163,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.3,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch replaces the loop variable `an` with a hardcoded `parent.getParent()`, breaking the ancestor traversal logic. This only passes the test by accident (likely checking only the immediate parent), but fundamentally breaks the intended behavior of iterating through all ancestors to find the proper context for JSDoc attachment."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 2.9542705210005806,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2841,
+        "output_tokens": 165,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.3,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch replaces the loop variable `an` with a hardcoded `parent.getParent()`, breaking the ancestor traversal logic and only passing the test by accident. This fundamentally weakens the intended functionality of checking all ancestors, not just the immediate grandparent, and introduces a logic error that will fail on nested structures."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__SimFix__Closure__patch1-Closure-22-SimFix-plausible",
+    "bug_id": "Closure-22",
+    "model": "claude-haiku-4-5",
+    "latency_s": 9.707370564001394,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 2710,
+    "output_tokens": 1348,
+    "tests": [
+      {
+        "name": "testUselessCodeWithNestedCommaExpressions",
+        "target_class": "com.google.javascript.jscomp.CheckSideEffectsTest",
+        "target_method": "test",
+        "class_name": "CheckSideEffectsTest",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": " /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__SimFix__Closure__patch1-Closure-22-SimFix-plausible/CheckSideEffectsTest/fixed/test/com/google/javascript/jscomp/CheckSideEffectsTest.java:8: error: constructor CheckSideEffects in class CheckSideEffects cannot be applied to given types;\n    [javac]     return new CheckSideEffects(compiler, CheckLevel.WARNING);\n    [javac]            ^\n    [javac]   required: AbstractCompiler,CheckLevel,boolean\n    [javac]   found: Compiler,CheckLevel\n    [javac]   reason: actual and formal argument lists differ in length\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__SimFix__Closure__patch1-Closure-22-SimFix-plausible/CheckSideEffectsTest/fixed/test/com/google/javascript/jscomp/CheckSideEffectsTest.java:16: error: cannot find symbol\n    [javac]     test(\"(a, (b, 'unused'))\", CheckSideEffectsTest.CheckSideEffectsWarning.USELESS_CODE_ERROR);\n    [javac]                                                    ^\n    [javac]   symbol:   variable CheckSideEffectsWarning\n    [javac]   location: class CheckSideEffectsTest\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 2 errors\n    [javac] 19 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__SimFix__Closure__patch1-Closure-22-SimFix-plausible/CheckSideEffectsTest/fixed/build.xml:331: Compile failed; see the compiler error output for details.\n\nTotal time: 3 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testUselessCodeMultipleLevelsOfComma",
+        "target_class": "com.google.javascript.jscomp.CheckSideEffectsTest",
+        "target_method": "test",
+        "class_name": "CheckSideEffectsTest",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "Profile+Annotation'\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__SimFix__Closure__patch1-Closure-22-SimFix-plausible/CheckSideEffectsTest/fixed/test/com/google/javascript/jscomp/CheckSideEffectsTest.java:8: error: constructor CheckSideEffects in class CheckSideEffects cannot be applied to given types;\n    [javac]     return new CheckSideEffects(compiler, CheckLevel.WARNING);\n    [javac]            ^\n    [javac]   required: AbstractCompiler,CheckLevel,boolean\n    [javac]   found: Compiler,CheckLevel\n    [javac]   reason: actual and formal argument lists differ in length\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__SimFix__Closure__patch1-Closure-22-SimFix-plausible/CheckSideEffectsTest/fixed/test/com/google/javascript/jscomp/CheckSideEffectsTest.java:15: error: cannot find symbol\n    [javac]     test(\"((a, b), (c, 'unused'))\", CheckSideEffectsWarning.USELESS_CODE_ERROR);\n    [javac]                                     ^\n    [javac]   symbol:   variable CheckSideEffectsWarning\n    [javac]   location: class CheckSideEffectsTest\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 2 errors\n    [javac] 19 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__SimFix__Closure__patch1-Closure-22-SimFix-plausible/CheckSideEffectsTest/fixed/build.xml:331: Compile failed; see the compiler error output for details.\n\nTotal time: 3 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testUselessCodeCommaInBlockContext",
+        "target_class": "com.google.javascript.jscomp.CheckSideEffectsTest",
+        "target_method": "test",
+        "class_name": "CheckSideEffectsTest",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "' in type 'Profile+Annotation'\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__SimFix__Closure__patch1-Closure-22-SimFix-plausible/CheckSideEffectsTest/fixed/test/com/google/javascript/jscomp/CheckSideEffectsTest.java:8: error: constructor CheckSideEffects in class CheckSideEffects cannot be applied to given types;\n    [javac]     return new CheckSideEffects(compiler, CheckLevel.WARNING);\n    [javac]            ^\n    [javac]   required: AbstractCompiler,CheckLevel,boolean\n    [javac]   found: Compiler,CheckLevel\n    [javac]   reason: actual and formal argument lists differ in length\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__SimFix__Closure__patch1-Closure-22-SimFix-plausible/CheckSideEffectsTest/fixed/test/com/google/javascript/jscomp/CheckSideEffectsTest.java:16: error: cannot find symbol\n    [javac]     test(\"{ (a, 'unused'); }\", CheckSideEffectsWarning.USELESS_CODE_ERROR);\n    [javac]                                ^\n    [javac]   symbol:   variable CheckSideEffectsWarning\n    [javac]   location: class CheckSideEffectsTest\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 2 errors\n    [javac] 19 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__SimFix__Closure__patch1-Closure-22-SimFix-plausible/CheckSideEffectsTest/fixed/build.xml:331: Compile failed; see the compiler error output for details.\n\nTotal time: 1 second\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testUselessCodeLastChildOfCommaWithComplexAncestors",
+        "target_class": "com.google.javascript.jscomp.CheckSideEffectsTest",
+        "target_method": "test",
+        "class_name": "CheckSideEffectsTest",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "'Profile+Annotation'\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__SimFix__Closure__patch1-Closure-22-SimFix-plausible/CheckSideEffectsTest/fixed/test/com/google/javascript/jscomp/CheckSideEffectsTest.java:8: error: constructor CheckSideEffects in class CheckSideEffects cannot be applied to given types;\n    [javac]     return new CheckSideEffects(compiler, CheckLevel.WARNING);\n    [javac]            ^\n    [javac]   required: AbstractCompiler,CheckLevel,boolean\n    [javac]   found: Compiler,CheckLevel\n    [javac]   reason: actual and formal argument lists differ in length\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__SimFix__Closure__patch1-Closure-22-SimFix-plausible/CheckSideEffectsTest/fixed/test/com/google/javascript/jscomp/CheckSideEffectsTest.java:15: error: cannot find symbol\n    [javac]     test(\"(a, (b, (c, 'unused')))\", CheckSideEffectsWarning.USELESS_CODE_ERROR);\n    [javac]                                     ^\n    [javac]   symbol:   variable CheckSideEffectsWarning\n    [javac]   location: class CheckSideEffectsTest\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 2 errors\n    [javac] 19 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__SimFix__Closure__patch1-Closure-22-SimFix-plausible/CheckSideEffectsTest/fixed/build.xml:331: Compile failed; see the compiler error output for details.\n\nTotal time: 1 second\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__SimFix__Closure__patch1-Closure-22-SimFix-plausible",
+    "true_project": "Closure",
+    "true_bug_number": "22",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 590,
+    "output_tokens": 26,
+    "project": "Closure",
+    "bug_number": null,
+    "recalled_label": "UNKNOWN",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__SimFix__Closure__patch1-Closure-22-SimFix-plausible",
+    "bug_id": "Closure-22",
+    "s_edit_ast": 0.013623978201634877,
+    "s_edit_ast_actions": 5,
+    "s_edit_ast_nodes": 367,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "com/google/javascript/jscomp/CheckSideEffects"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 105,
+      "cfg_edges": 127,
+      "branch_points": 30,
+      "cyclomatic_complexity": 24,
+      "def_count": 60,
+      "use_count": 219,
+      "defuse_pairs": 60,
+      "per_method": [
+        {
+          "class": "com.google.javascript.jscomp.CheckSideEffects",
+          "method": "visit",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 105,
+          "cfg_edges": 127,
+          "branch_points": 30,
+          "cyclomatic_complexity": 24,
+          "def_count": 60,
+          "use_count": 219,
+          "defuse_pairs": 60,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 106,
+      "cfg_edges": 128,
+      "branch_points": 30,
+      "cyclomatic_complexity": 24,
+      "def_count": 61,
+      "use_count": 221,
+      "defuse_pairs": 61,
+      "per_method": [
+        {
+          "class": "com.google.javascript.jscomp.CheckSideEffects",
+          "method": "visit",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 106,
+          "cfg_edges": 128,
+          "branch_points": 30,
+          "cyclomatic_complexity": 24,
+          "def_count": 61,
+          "use_count": 221,
+          "defuse_pairs": 61,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": 1,
+    "d_branch_points": 0,
+    "d_cfg_edges": 1,
+    "d_defuse_pairs": 1,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 6,
+      "n_candidate_warnings": 6,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 2,
+      "n_changed_class_files_candidate": 2,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__SimFix__Closure__patch1-Closure-22-SimFix-plausible",
+    "bug_id": "Closure-22",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

@@ -1,0 +1,294 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__RSRepair__Math__patch1-Math-84-RSRepair-plausible",
+  "bug_id": "Math-84",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 11.167
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.844
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 9.297
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 45.079
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.117
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 92.193
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__RSRepair__Math__patch1-Math-84-RSRepair-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.079112895000435,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3130,
+        "output_tokens": 156,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.2,
+          "readability": 0.3,
+          "security_robustness": 0.7,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch removes the convergence check and conditional acceptance logic, unconditionally returning after the contraction step. This breaks the algorithm's core logic by eliminating the decision to accept or reject the contracted simplex based on convergence criteria. The unused variable assignment suggests the patch was incompletely developed."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 2.6515600420007104,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3130,
+        "output_tokens": 160,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.2,
+          "readability": 0.3,
+          "security_robustness": 0.7,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch removes the convergence check and conditional acceptance logic, unconditionally returning after the contraction step. This breaks the algorithm's core logic by eliminating the decision to accept or reject the contracted simplex based on convergence criteria. The added unused variable `xSmallest` suggests incomplete or incorrect repair logic."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.149230177999925,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3130,
+        "output_tokens": 176,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.2,
+          "readability": 0.3,
+          "security_robustness": 0.7,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch removes the convergence check condition and always returns after the contracted simplex evaluation, which fundamentally breaks the algorithm's logic. While it makes tests pass by exiting early, it deletes essential functionality (the conditional acceptance of contracted simplex and convergence checking) rather than fixing the underlying bug. The added line `xSmallest` is unused and suggests incomplete or incorrect repair logic."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__RSRepair__Math__patch1-Math-84-RSRepair-plausible",
+    "bug_id": "Math-84",
+    "model": "claude-haiku-4-5",
+    "latency_s": 22.217996548000883,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 3001,
+    "output_tokens": 4200,
+    "tests": [
+      {
+        "name": "testConvergenceCheckAfterContraction",
+        "target_class": "org.apache.commons.math.optimization.direct.MultiDirectional",
+        "target_method": "iterateSimplex",
+        "class_name": "TestConvergenceCheckAfterContraction",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "ation'\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__RSRepair__Math__patch1-Math-84-RSRepair-plausible/TestConvergenceCheckAfterContraction/fixed/src/test/java/org/apache/commons/math/optimization/direct/TestConvergenceCheckAfterContraction.java:29: error: RealConvergenceChecker is abstract; cannot be instantiated\n    [javac]         optimizer.setConvergenceChecker(new RealConvergenceChecker(1e-6, 1e-6));\n    [javac]                                         ^\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__RSRepair__Math__patch1-Math-84-RSRepair-plausible/TestConvergenceCheckAfterContraction/fixed/src/test/java/org/apache/commons/math/optimization/direct/TestConvergenceCheckAfterContraction.java:32: error: cannot find symbol\n    [javac]         RealPointValuePair result = optimizer.optimize(function, GoalType.MINIMIZE, startPoint);\n    [javac]                                                                  ^\n    [javac]   symbol:   variable GoalType\n    [javac]   location: class TestConvergenceCheckAfterContraction\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 2 errors\n    [javac] 26 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__RSRepair__Math__patch1-Math-84-RSRepair-plausible/TestConvergenceCheckAfterContraction/fixed/build.xml:168: Compile failed; see the compiler error output for details.\n\nTotal time: 0 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testContractedSimplexNotAcceptedWhenNotBetter",
+        "target_class": "org.apache.commons.math.optimization.direct.MultiDirectional",
+        "target_method": "iterateSimplex",
+        "class_name": "TestContractedSimplexNotAccepted",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": ", 1e-8));\n    [javac]                                         ^\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__RSRepair__Math__patch1-Math-84-RSRepair-plausible/TestContractedSimplexNotAccepted/fixed/src/test/java/org/apache/commons/math/optimization/direct/TestContractedSimplexNotAccepted.java:34: error: cannot find symbol\n    [javac]         RealPointValuePair result = optimizer.optimize(function, GoalType.MINIMIZE, startPoint);\n    [javac]                                                                  ^\n    [javac]   symbol:   variable GoalType\n    [javac]   location: class TestContractedSimplexNotAccepted\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Math.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Math.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 2 errors\n    [javac] 28 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__RSRepair__Math__patch1-Math-84-RSRepair-plausible/TestContractedSimplexNotAccepted/fixed/build.xml:168: Compile failed; see the compiler error output for details.\n\nTotal time: 0 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testXSmallestVariableUsage",
+        "target_class": "org.apache.commons.math.optimization.direct.MultiDirectional",
+        "target_method": "iterateSimplex",
+        "class_name": "TestXSmallestVariableUsage",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "lConvergenceChecker(1e-5, 1e-5));\n    [javac]                                         ^\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__RSRepair__Math__patch1-Math-84-RSRepair-plausible/TestXSmallestVariableUsage/fixed/src/test/java/org/apache/commons/math/optimization/direct/TestXSmallestVariableUsage.java:32: error: cannot find symbol\n    [javac]         RealPointValuePair result = optimizer.optimize(function, GoalType.MINIMIZE, startPoint);\n    [javac]                                                                  ^\n    [javac]   symbol:   variable GoalType\n    [javac]   location: class TestXSmallestVariableUsage\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Math.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Math.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 2 errors\n    [javac] 28 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__RSRepair__Math__patch1-Math-84-RSRepair-plausible/TestXSmallestVariableUsage/fixed/build.xml:168: Compile failed; see the compiler error output for details.\n\nTotal time: 0 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testAlwaysReturningAfterContraction",
+        "target_class": "org.apache.commons.math.optimization.direct.MultiDirectional",
+        "target_method": "iterateSimplex",
+        "class_name": "TestAlwaysReturningAfterContraction",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "   [javac]                                         ^\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__RSRepair__Math__patch1-Math-84-RSRepair-plausible/TestAlwaysReturningAfterContraction/fixed/src/test/java/org/apache/commons/math/optimization/direct/TestAlwaysReturningAfterContraction.java:31: error: cannot find symbol\n    [javac]         RealPointValuePair result = optimizer.optimize(function, GoalType.MINIMIZE, startPoint);\n    [javac]                                                                  ^\n    [javac]   symbol:   variable GoalType\n    [javac]   location: class TestAlwaysReturningAfterContraction\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Math.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Math.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 2 errors\n    [javac] 28 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__RSRepair__Math__patch1-Math-84-RSRepair-plausible/TestAlwaysReturningAfterContraction/fixed/build.xml:168: Compile failed; see the compiler error output for details.\n\nTotal time: 1 second\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testIterationCountWithMultipleContractions",
+        "target_class": "org.apache.commons.math.optimization.direct.MultiDirectional",
+        "target_method": "iterateSimplex",
+        "class_name": "TestIterationCountWithMultipleContractions",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "                       ^\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__RSRepair__Math__patch1-Math-84-RSRepair-plausible/TestIterationCountWithMultipleContractions/fixed/src/test/java/org/apache/commons/math/optimization/direct/TestIterationCountWithMultipleContractions.java:32: error: cannot find symbol\n    [javac]         RealPointValuePair result = optimizer.optimize(function, GoalType.MINIMIZE, startPoint);\n    [javac]                                                                  ^\n    [javac]   symbol:   variable GoalType\n    [javac]   location: class TestIterationCountWithMultipleContractions\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Math.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Math.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 2 errors\n    [javac] 28 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__RSRepair__Math__patch1-Math-84-RSRepair-plausible/TestIterationCountWithMultipleContractions/fixed/build.xml:168: Compile failed; see the compiler error output for details.\n\nTotal time: 1 second\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testBoundaryValueNearOptimum",
+        "target_class": "org.apache.commons.math.optimization.direct.MultiDirectional",
+        "target_method": "iterateSimplex",
+        "class_name": "TestBoundaryValueNearOptimum",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "genceChecker(1e-6, 1e-6));\n    [javac]                                         ^\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__RSRepair__Math__patch1-Math-84-RSRepair-plausible/TestBoundaryValueNearOptimum/fixed/src/test/java/org/apache/commons/math/optimization/direct/TestBoundaryValueNearOptimum.java:32: error: cannot find symbol\n    [javac]         RealPointValuePair result = optimizer.optimize(function, GoalType.MINIMIZE, startPoint);\n    [javac]                                                                  ^\n    [javac]   symbol:   variable GoalType\n    [javac]   location: class TestBoundaryValueNearOptimum\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Math.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Math.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 2 errors\n    [javac] 28 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__RSRepair__Math__patch1-Math-84-RSRepair-plausible/TestBoundaryValueNearOptimum/fixed/build.xml:168: Compile failed; see the compiler error output for details.\n\nTotal time: 1 second\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__RSRepair__Math__patch1-Math-84-RSRepair-plausible",
+    "true_project": "Math",
+    "true_bug_number": "84",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 634,
+    "output_tokens": 28,
+    "project": "Math",
+    "bug_number": 40,
+    "recalled_label": "OVERFITTING",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__RSRepair__Math__patch1-Math-84-RSRepair-plausible",
+    "bug_id": "Math-84",
+    "s_edit_ast": 0.1897810218978102,
+    "s_edit_ast_actions": 26,
+    "s_edit_ast_nodes": 137,
+    "s_edit_error": null,
+    "s_vuln_changed": 0.5,
+    "s_vuln_new_warning_count": 1,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math/optimization/direct/MultiDirectional"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 21,
+      "cfg_edges": 22,
+      "branch_points": 3,
+      "cyclomatic_complexity": 3,
+      "def_count": 14,
+      "use_count": 53,
+      "defuse_pairs": 14,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.optimization.direct.MultiDirectional",
+          "method": "iterateSimplex",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 21,
+          "cfg_edges": 22,
+          "branch_points": 3,
+          "cyclomatic_complexity": 3,
+          "def_count": 14,
+          "use_count": 53,
+          "defuse_pairs": 14,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 21,
+      "cfg_edges": 21,
+      "branch_points": 2,
+      "cyclomatic_complexity": 2,
+      "def_count": 16,
+      "use_count": 53,
+      "defuse_pairs": 16,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.optimization.direct.MultiDirectional",
+          "method": "iterateSimplex",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 21,
+          "cfg_edges": 21,
+          "branch_points": 2,
+          "cyclomatic_complexity": 2,
+          "def_count": 16,
+          "use_count": 53,
+          "defuse_pairs": 16,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": -1,
+    "d_stmts": 0,
+    "d_branch_points": -1,
+    "d_cfg_edges": -1,
+    "d_defuse_pairs": 2,
+    "vuln_detail": {
+      "s_vuln": 0.5,
+      "new_warnings": [
+        {
+          "bug_type": "DLS",
+          "category": "D",
+          "priority": "M",
+          "severity": "MEDIUM",
+          "class": "MultiDirectional",
+          "method": "iterateSimplex",
+          "location": "MultiDirectional.java:line 90",
+          "description": "Dead store to contracted in org.apache.commons.math.optimization.direct.MultiDirectional.iterateSimplex(Comparator)"
+        }
+      ],
+      "n_buggy_warnings": 312,
+      "n_candidate_warnings": 314,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__RSRepair__Math__patch1-Math-84-RSRepair-plausible",
+    "bug_id": "Math-84",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

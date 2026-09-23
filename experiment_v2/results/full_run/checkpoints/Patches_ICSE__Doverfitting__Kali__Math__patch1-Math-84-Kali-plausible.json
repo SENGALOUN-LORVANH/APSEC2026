@@ -1,0 +1,228 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__Kali__Math__patch1-Math-84-Kali-plausible",
+  "bug_id": "Math-84",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 12.257
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 1.024
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 10.207
+    },
+    "counterexample": {
+      "ok": false,
+      "seconds": 121.405,
+      "error": "JSONDecodeError: Unterminated string starting at: line 1 column 53737 (char 53736)",
+      "traceback": "Traceback (most recent call last):\n  File \"/work/experiment_v2/src/run_full.py\", line 146, in _stage\n    result = fn(*args)\n  File \"/work/experiment_v2/src/oracle_runner.py\", line 230, in run_counterexamples\n    generated = json.loads(llm_client.response_text(resp))[\"tests\"]\n  File \"/usr/lib/python3.10/json/__init__.py\", line 346, in loads\n    return _default_decoder.decode(s)\n  File \"/usr/lib/python3.10/json/decoder.py\", line 337, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n  File \"/usr/lib/python3.10/json/decoder.py\", line 353, in raw_decode\n    obj, end = self.scan_once(s, idx)\njson.decoder.JSONDecodeError: Unterminated string starting at: line 1 column 53737 (char 53736)\n"
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.587
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 71.715
+    }
+  },
+  "complete": false,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__Kali__Math__patch1-Math-84-Kali-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.3939012060000096,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3054,
+        "output_tokens": 179,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.0,
+          "security_robustness": 0.5,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch replaces a meaningful comparison condition with 'if (true)', which unconditionally accepts the contracted simplex regardless of whether it actually improves the solution. This removes the core logic that determines when to accept a contraction step, weakening the algorithm's ability to converge properly. While it may pass the specific test cases by avoiding max iterations, it fundamentally breaks the optimization algorithm's correctness."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.145043911999892,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3054,
+        "output_tokens": 179,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.0,
+          "security_robustness": 0.5,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch replaces a meaningful comparison condition with 'if (true)', which unconditionally accepts the contracted simplex regardless of whether it actually improves the solution. This removes the core logic that determines when to accept a contraction step, weakening the algorithm's ability to converge properly. While it may pass the specific test cases by avoiding max iterations, it fundamentally breaks the optimization algorithm's correctness."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.088491051001256,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3054,
+        "output_tokens": 181,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.0,
+          "security_robustness": 0.5,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch replaces a meaningful comparison condition with 'if (true)', which unconditionally accepts the contracted simplex regardless of whether it actually improves the solution. This removes the core logic that determines when to accept a contraction step, weakening the algorithm's ability to properly optimize. While it may pass the specific test cases, it fundamentally breaks the algorithm's correctness by eliminating a critical convergence check."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": null,
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__Kali__Math__patch1-Math-84-Kali-plausible",
+    "true_project": "Math",
+    "true_bug_number": "84",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 558,
+    "output_tokens": 28,
+    "project": "Math",
+    "bug_number": 70,
+    "recalled_label": "OVERFITTING",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__Kali__Math__patch1-Math-84-Kali-plausible",
+    "bug_id": "Math-84",
+    "s_edit_ast": 0.08029197080291971,
+    "s_edit_ast_actions": 11,
+    "s_edit_ast_nodes": 137,
+    "s_edit_error": null,
+    "s_vuln_changed": 0.5,
+    "s_vuln_new_warning_count": 1,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math/optimization/direct/MultiDirectional"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 21,
+      "cfg_edges": 22,
+      "branch_points": 3,
+      "cyclomatic_complexity": 3,
+      "def_count": 14,
+      "use_count": 53,
+      "defuse_pairs": 14,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.optimization.direct.MultiDirectional",
+          "method": "iterateSimplex",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 21,
+          "cfg_edges": 22,
+          "branch_points": 3,
+          "cyclomatic_complexity": 3,
+          "def_count": 14,
+          "use_count": 53,
+          "defuse_pairs": 14,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 18,
+      "cfg_edges": 18,
+      "branch_points": 2,
+      "cyclomatic_complexity": 2,
+      "def_count": 13,
+      "use_count": 46,
+      "defuse_pairs": 13,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.optimization.direct.MultiDirectional",
+          "method": "iterateSimplex",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 18,
+          "cfg_edges": 18,
+          "branch_points": 2,
+          "cyclomatic_complexity": 2,
+          "def_count": 13,
+          "use_count": 46,
+          "defuse_pairs": 13,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": -1,
+    "d_stmts": -3,
+    "d_branch_points": -1,
+    "d_cfg_edges": -4,
+    "d_defuse_pairs": -1,
+    "vuln_detail": {
+      "s_vuln": 0.5,
+      "new_warnings": [
+        {
+          "bug_type": "DLS",
+          "category": "D",
+          "priority": "M",
+          "severity": "MEDIUM",
+          "class": "MultiDirectional",
+          "method": "iterateSimplex",
+          "location": "MultiDirectional.java:line 89",
+          "description": "Dead store to contracted in org.apache.commons.math.optimization.direct.MultiDirectional.iterateSimplex(Comparator)"
+        }
+      ],
+      "n_buggy_warnings": 312,
+      "n_candidate_warnings": 313,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__Kali__Math__patch1-Math-84-Kali-plausible",
+    "bug_id": "Math-84",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

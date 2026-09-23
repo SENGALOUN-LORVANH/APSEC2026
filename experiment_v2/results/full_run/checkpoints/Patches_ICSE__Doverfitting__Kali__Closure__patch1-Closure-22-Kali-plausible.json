@@ -1,0 +1,256 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__Kali__Closure__patch1-Closure-22-Kali-plausible",
+  "bug_id": "Closure-22",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 70.394
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.507
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 9.947
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 28.091
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.032
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 25.426
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__Kali__Closure__patch1-Closure-22-Kali-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.1104820309992647,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2821,
+        "output_tokens": 184,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.9,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch replaces a meaningful condition `if (n == parent.getLastChild())` with `if (false)`, which makes the entire block unreachable and removes legitimate functionality. This is a hardcoded hack that only passes the specific test case by disabling a check, rather than fixing the underlying bug. The patch weakens the side-effects checker by preventing it from handling a documented case about JSDoc information attachment."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 2.979957020999791,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2821,
+        "output_tokens": 175,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 1.0,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch replaces a meaningful condition `if (n == parent.getLastChild())` with `if (false)`, which makes the entire block unreachable. This is a hardcoded fix that only passes the specific test case by disabling legitimate functionality rather than fixing the underlying bug. The patch weakens the side-effects checker by removing a valid JSDoc-related check."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.4320994469999277,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2821,
+        "output_tokens": 175,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.9,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch replaces a meaningful condition `if (n == parent.getLastChild())` with `if (false)`, which makes the entire block unreachable. This is a hardcoded fix that only passes the specific test case by disabling legitimate functionality rather than fixing the underlying bug. The patch weakens the side-effects checker by removing a valid JSDoc-related check."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__Kali__Closure__patch1-Closure-22-Kali-plausible",
+    "bug_id": "Closure-22",
+    "model": "claude-haiku-4-5",
+    "latency_s": 10.139576928000679,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 2690,
+    "output_tokens": 982,
+    "tests": [
+      {
+        "name": "testUselessCodeWithJSDocOnLastChild",
+        "target_class": "com.google.javascript.jscomp.CheckSideEffects",
+        "target_method": "visit",
+        "class_name": "CheckSideEffectsTest",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/AutoCloseable.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/AutoCloseable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__Kali__Closure__patch1-Closure-22-Kali-plausible/CheckSideEffectsTest/fixed/test/com/google/javascript/jscomp/CheckSideEffectsTest.java:9: error: constructor CheckSideEffects in class CheckSideEffects cannot be applied to given types;\n    [javac]     return new CheckSideEffects(compiler, CheckLevel.WARNING);\n    [javac]            ^\n    [javac]   required: AbstractCompiler,CheckLevel,boolean\n    [javac]   found: Compiler,CheckLevel\n    [javac]   reason: actual and formal argument lists differ in length\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 1 error\n    [javac] 19 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__Kali__Closure__patch1-Closure-22-Kali-plausible/CheckSideEffectsTest/fixed/build.xml:331: Compile failed; see the compiler error output for details.\n\nTotal time: 2 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testUselessCodeWithMultipleCommaChildren",
+        "target_class": "com.google.javascript.jscomp.CheckSideEffects",
+        "target_method": "visit",
+        "class_name": "CheckSideEffectsTest",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "arning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__Kali__Closure__patch1-Closure-22-Kali-plausible/CheckSideEffectsTest/fixed/test/com/google/javascript/jscomp/CheckSideEffectsTest.java:9: error: constructor CheckSideEffects in class CheckSideEffects cannot be applied to given types;\n    [javac]     return new CheckSideEffects(compiler, CheckLevel.WARNING);\n    [javac]            ^\n    [javac]   required: AbstractCompiler,CheckLevel,boolean\n    [javac]   found: Compiler,CheckLevel\n    [javac]   reason: actual and formal argument lists differ in length\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__Kali__Closure__patch1-Closure-22-Kali-plausible/CheckSideEffectsTest/fixed/test/com/google/javascript/jscomp/CheckSideEffectsTest.java:17: error: cannot find symbol\n    [javac]     testWarning(code, CheckSideEffects.USELESS_CODE_ERROR);\n    [javac]     ^\n    [javac]   symbol:   method testWarning(String,DiagnosticType)\n    [javac]   location: class CheckSideEffectsTest\n    [javac] 2 errors\n    [javac] 19 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__Kali__Closure__patch1-Closure-22-Kali-plausible/CheckSideEffectsTest/fixed/build.xml:331: Compile failed; see the compiler error output for details.\n\nTotal time: 1 second\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testUselessCodeWithJSDocNotOnLastChild",
+        "target_class": "com.google.javascript.jscomp.CheckSideEffects",
+        "target_method": "visit",
+        "class_name": "CheckSideEffectsTest",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "arning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__Kali__Closure__patch1-Closure-22-Kali-plausible/CheckSideEffectsTest/fixed/test/com/google/javascript/jscomp/CheckSideEffectsTest.java:9: error: constructor CheckSideEffects in class CheckSideEffects cannot be applied to given types;\n    [javac]     return new CheckSideEffects(compiler, CheckLevel.WARNING);\n    [javac]            ^\n    [javac]   required: AbstractCompiler,CheckLevel,boolean\n    [javac]   found: Compiler,CheckLevel\n    [javac]   reason: actual and formal argument lists differ in length\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__Kali__Closure__patch1-Closure-22-Kali-plausible/CheckSideEffectsTest/fixed/test/com/google/javascript/jscomp/CheckSideEffectsTest.java:17: error: cannot find symbol\n    [javac]     testWarning(code, CheckSideEffects.USELESS_CODE_ERROR);\n    [javac]     ^\n    [javac]   symbol:   method testWarning(String,DiagnosticType)\n    [javac]   location: class CheckSideEffectsTest\n    [javac] 2 errors\n    [javac] 19 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__Kali__Closure__patch1-Closure-22-Kali-plausible/CheckSideEffectsTest/fixed/build.xml:331: Compile failed; see the compiler error output for details.\n\nTotal time: 1 second\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__Kali__Closure__patch1-Closure-22-Kali-plausible",
+    "true_project": "Closure",
+    "true_bug_number": "22",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 570,
+    "output_tokens": 26,
+    "project": "Closure",
+    "bug_number": null,
+    "recalled_label": "UNKNOWN",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__Kali__Closure__patch1-Closure-22-Kali-plausible",
+    "bug_id": "Closure-22",
+    "s_edit_ast": 0.021798365122615803,
+    "s_edit_ast_actions": 8,
+    "s_edit_ast_nodes": 367,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "com/google/javascript/jscomp/CheckSideEffects"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 105,
+      "cfg_edges": 127,
+      "branch_points": 30,
+      "cyclomatic_complexity": 24,
+      "def_count": 60,
+      "use_count": 219,
+      "defuse_pairs": 60,
+      "per_method": [
+        {
+          "class": "com.google.javascript.jscomp.CheckSideEffects",
+          "method": "visit",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 105,
+          "cfg_edges": 127,
+          "branch_points": 30,
+          "cyclomatic_complexity": 24,
+          "def_count": 60,
+          "use_count": 219,
+          "defuse_pairs": 60,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 91,
+      "cfg_edges": 109,
+      "branch_points": 25,
+      "cyclomatic_complexity": 20,
+      "def_count": 53,
+      "use_count": 190,
+      "defuse_pairs": 53,
+      "per_method": [
+        {
+          "class": "com.google.javascript.jscomp.CheckSideEffects",
+          "method": "visit",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 91,
+          "cfg_edges": 109,
+          "branch_points": 25,
+          "cyclomatic_complexity": 20,
+          "def_count": 53,
+          "use_count": 190,
+          "defuse_pairs": 53,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": -4,
+    "d_stmts": -14,
+    "d_branch_points": -5,
+    "d_cfg_edges": -18,
+    "d_defuse_pairs": -7,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 6,
+      "n_candidate_warnings": 6,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 2,
+      "n_changed_class_files_candidate": 2,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__Kali__Closure__patch1-Closure-22-Kali-plausible",
+    "bug_id": "Closure-22",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

@@ -1,0 +1,256 @@
+{
+  "patch_id": "Patches_others__Doverfitting__SequenceR__Closure__patch10-Closure-92-SequenceR",
+  "bug_id": "Closure-92",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 43.109
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.496
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 10.987
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 36.774
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.567
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 40.982
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_others__Doverfitting__SequenceR__Closure__patch10-Closure-92-SequenceR",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 4.128250440000556,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2654,
+        "output_tokens": 190,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.0,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch changes `namespace.indexOf('.')` to `namespace.indexOf(namespace,'.')`, which is semantically incorrect\u2014it searches for the substring 'namespace' instead of the character '.', and passes an extra argument that doesn't match the String.indexOf() API. This appears to be a typo that accidentally passes the test due to coincidental behavior rather than fixing the underlying bug. The change introduces a critical functional error that would break in other scenarios."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.23493206600142,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2654,
+        "output_tokens": 176,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.0,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch changes `namespace.indexOf('.')` to `namespace.indexOf(namespace,'.')`, which is semantically incorrect\u2014the second argument should be a start index (int), not a string. This appears to accidentally pass the test due to method overloading or other coincidental behavior, but it introduces a critical bug that breaks the intended functionality of finding the dot position in the namespace string."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.1576812459989014,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2654,
+        "output_tokens": 173,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.0,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch changes `namespace.indexOf('.')` to `namespace.indexOf(namespace,'.')`, which is semantically incorrect\u2014the second argument should be a start index (int), not a string. This appears to accidentally pass the test due to method overloading or compiler behavior, but introduces a logic error that breaks the intended functionality of finding the dot position in the namespace string."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_others__Doverfitting__SequenceR__Closure__patch10-Closure-92-SequenceR",
+    "bug_id": "Closure-92",
+    "model": "claude-haiku-4-5",
+    "latency_s": 26.35613300300065,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 2523,
+    "output_tokens": 3096,
+    "tests": [
+      {
+        "name": "testSimpleNamespaceWithoutDot",
+        "target_class": "com.google.javascript.jscomp.ProcessClosurePrimitives",
+        "target_method": "replace",
+        "class_name": "ProcessClosurePrimitivesTest",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "osure__patch10-Closure-92-SequenceR/ProcessClosurePrimitivesTest/fixed/test/com/google/javascript/jscomp/ProcessClosurePrimitivesTest.java:61: error: cannot find symbol\n    [javac]     compiler.getOptions().setClosurePass(true);\n    [javac]                          ^\n    [javac]   symbol:   method setClosurePass(boolean)\n    [javac]   location: class CompilerOptions\n    [javac] /data/qc_workspaces/gen_tests/Patches_others__Doverfitting__SequenceR__Closure__patch10-Closure-92-SequenceR/ProcessClosurePrimitivesTest/fixed/test/com/google/javascript/jscomp/ProcessClosurePrimitivesTest.java:62: error: cannot find symbol\n    [javac]     compiler.getOptions().setProcessClosurePrimitives(true);\n    [javac]                          ^\n    [javac]   symbol:   method setProcessClosurePrimitives(boolean)\n    [javac]   location: class CompilerOptions\n    [javac] /data/qc_workspaces/gen_tests/Patches_others__Doverfitting__SequenceR__Closure__patch10-Closure-92-SequenceR/ProcessClosurePrimitivesTest/fixed/test/com/google/javascript/jscomp/ProcessClosurePrimitivesTest.java:64: error: constructor ProcessClosurePrimitives in class ProcessClosurePrimitives cannot be applied to given types;\n    [javac]     CompilerPass pass = new ProcessClosurePrimitives(compiler, null, null);\n    [javac]                         ^\n    [javac]   required: AbstractCompiler,CheckLevel,boolean\n    [javac]   found: Compiler,<null>,<null>\n    [javac]   reason: actual argument <null> cannot be converted to boolean by method invocation conversion\n    [javac] 10 errors\n    [javac] 22 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_others__Doverfitting__SequenceR__Closure__patch10-Closure-92-SequenceR/ProcessClosurePrimitivesTest/fixed/build.xml:117: Compile failed; see the compiler error output for details.\n\nTotal time: 1 second\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testIndexOfDotBoundaryCondition",
+        "target_class": "com.google.javascript.jscomp.ProcessClosurePrimitives",
+        "target_method": "replace",
+        "class_name": "ProcessClosurePrimitivesIndexOfTest",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "ePrimitivesIndexOfTest/fixed/test/com/google/javascript/jscomp/ProcessClosurePrimitivesIndexOfTest.java:57: error: cannot find symbol\n    [javac]     compiler.getOptions().setClosurePass(true);\n    [javac]                          ^\n    [javac]   symbol:   method setClosurePass(boolean)\n    [javac]   location: class CompilerOptions\n    [javac] /data/qc_workspaces/gen_tests/Patches_others__Doverfitting__SequenceR__Closure__patch10-Closure-92-SequenceR/ProcessClosurePrimitivesIndexOfTest/fixed/test/com/google/javascript/jscomp/ProcessClosurePrimitivesIndexOfTest.java:58: error: cannot find symbol\n    [javac]     compiler.getOptions().setProcessClosurePrimitives(true);\n    [javac]                          ^\n    [javac]   symbol:   method setProcessClosurePrimitives(boolean)\n    [javac]   location: class CompilerOptions\n    [javac] /data/qc_workspaces/gen_tests/Patches_others__Doverfitting__SequenceR__Closure__patch10-Closure-92-SequenceR/ProcessClosurePrimitivesIndexOfTest/fixed/test/com/google/javascript/jscomp/ProcessClosurePrimitivesIndexOfTest.java:60: error: constructor ProcessClosurePrimitives in class ProcessClosurePrimitives cannot be applied to given types;\n    [javac]     CompilerPass pass = new ProcessClosurePrimitives(compiler, null, null);\n    [javac]                         ^\n    [javac]   required: AbstractCompiler,CheckLevel,boolean\n    [javac]   found: Compiler,<null>,<null>\n    [javac]   reason: actual argument <null> cannot be converted to boolean by method invocation conversion\n    [javac] 9 errors\n    [javac] 22 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_others__Doverfitting__SequenceR__Closure__patch10-Closure-92-SequenceR/ProcessClosurePrimitivesIndexOfTest/fixed/build.xml:117: Compile failed; see the compiler error output for details.\n\nTotal time: 0 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testProvideOrderingWithParentNamespace",
+        "target_class": "com.google.javascript.jscomp.ProcessClosurePrimitives",
+        "target_method": "replace",
+        "class_name": "ProcessClosurePrimitivesOrderingTest",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "l,boolean\n    [javac]   found: Compiler,<null>,<null>\n    [javac]   reason: actual argument <null> cannot be converted to boolean by method invocation conversion\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/CharSequence.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/CharSequence.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/io/Serializable.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/io/Serializable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Comparable.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Comparable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 6 errors\n    [javac] 22 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_others__Doverfitting__SequenceR__Closure__patch10-Closure-92-SequenceR/ProcessClosurePrimitivesOrderingTest/fixed/build.xml:117: Compile failed; see the compiler error output for details.\n\nTotal time: 0 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_others__Doverfitting__SequenceR__Closure__patch10-Closure-92-SequenceR",
+    "true_project": "Closure",
+    "true_bug_number": "92",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 581,
+    "output_tokens": 26,
+    "project": "Closure",
+    "bug_number": null,
+    "recalled_label": "UNKNOWN",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_others__Doverfitting__SequenceR__Closure__patch10-Closure-92-SequenceR",
+    "bug_id": "Closure-92",
+    "s_edit_ast": 0.017605633802816902,
+    "s_edit_ast_actions": 5,
+    "s_edit_ast_nodes": 284,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "com/google/javascript/jscomp/ProcessClosurePrimitives"
+    ],
+    "analysis_level": "FAILED",
+    "cfg_buggy": {
+      "analysis_level": "FAILED",
+      "stmts": 0,
+      "cfg_edges": 0,
+      "branch_points": 0,
+      "cyclomatic_complexity": 0,
+      "def_count": 0,
+      "use_count": 0,
+      "defuse_pairs": 0,
+      "per_method": [
+        {
+          "class": "com.google.javascript.jscomp.ProcessClosurePrimitives",
+          "method": "replace",
+          "analysis_level": "FAILED",
+          "n_methods": 0,
+          "stmts": 0,
+          "cfg_edges": 0,
+          "branch_points": 0,
+          "cyclomatic_complexity": 0,
+          "def_count": 0,
+          "use_count": 0,
+          "defuse_pairs": 0,
+          "error": "no method with body named replace"
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "FAILED",
+      "stmts": 0,
+      "cfg_edges": 0,
+      "branch_points": 0,
+      "cyclomatic_complexity": 0,
+      "def_count": 0,
+      "use_count": 0,
+      "defuse_pairs": 0,
+      "per_method": [
+        {
+          "class": "com.google.javascript.jscomp.ProcessClosurePrimitives",
+          "method": "replace",
+          "analysis_level": "FAILED",
+          "n_methods": 0,
+          "stmts": 0,
+          "cfg_edges": 0,
+          "branch_points": 0,
+          "cyclomatic_complexity": 0,
+          "def_count": 0,
+          "use_count": 0,
+          "defuse_pairs": 0,
+          "error": "no method with body named replace"
+        }
+      ]
+    },
+    "d_cyclomatic": null,
+    "d_stmts": null,
+    "d_branch_points": null,
+    "d_cfg_edges": null,
+    "d_defuse_pairs": null,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 9,
+      "n_candidate_warnings": 9,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 4,
+      "n_changed_class_files_candidate": 4,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_others__Doverfitting__SequenceR__Closure__patch10-Closure-92-SequenceR",
+    "bug_id": "Closure-92",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

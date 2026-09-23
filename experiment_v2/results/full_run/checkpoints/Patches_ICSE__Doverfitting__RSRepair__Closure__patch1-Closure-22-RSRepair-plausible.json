@@ -1,0 +1,249 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__RSRepair__Closure__patch1-Closure-22-RSRepair-plausible",
+  "bug_id": "Closure-22",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 94.351
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.644
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 11.577
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 13.44
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.598
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 60.322
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__RSRepair__Closure__patch1-Closure-22-RSRepair-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.15000000000000002,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.8636555049997696,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2932,
+        "output_tokens": 163,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.3,
+          "readability": 0.4,
+          "security_robustness": 0.8,
+          "judgement": "OVERFITTING",
+          "confidence": 0.85,
+          "brief_reason": "The patch removes a protective loop that was checking ancestor nodes for JSDoc attachment scenarios, leaving only an empty if-block. This deletes existing functionality that prevented false positives in specific cases, making the code less robust. While it passes the test, it likely overfits to that single test case rather than fixing the underlying bug."
+        },
+        "s_sem": 0.15000000000000002,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.6654305339998245,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2932,
+        "output_tokens": 163,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.3,
+          "readability": 0.4,
+          "security_robustness": 0.8,
+          "judgement": "OVERFITTING",
+          "confidence": 0.85,
+          "brief_reason": "The patch removes a protective loop that was checking ancestor nodes for JSDoc attachment scenarios, leaving only an empty if-block. This deletes existing functionality that prevented false positives in specific cases, making the code less robust. While it passes the test, it likely overfits to that single test case rather than fixing the underlying bug."
+        },
+        "s_sem": 0.15000000000000002,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.6950970090001647,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2932,
+        "output_tokens": 163,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.3,
+          "readability": 0.4,
+          "security_robustness": 0.8,
+          "judgement": "OVERFITTING",
+          "confidence": 0.85,
+          "brief_reason": "The patch removes a protective loop that was checking ancestor nodes for JSDoc attachment scenarios, leaving only an empty if-block. This deletes existing functionality that prevented false positives in specific cases, making the code less robust. While it passes the test, it likely overfits to that single test case rather than fixing the underlying bug."
+        },
+        "s_sem": 0.15000000000000002,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__RSRepair__Closure__patch1-Closure-22-RSRepair-plausible",
+    "bug_id": "Closure-22",
+    "model": "claude-haiku-4-5",
+    "latency_s": 7.401303901999199,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 2801,
+    "output_tokens": 574,
+    "tests": [
+      {
+        "name": "testUselessCodeInCommaExpressionWithJSDoc",
+        "target_class": "com.google.javascript.jscomp.CheckSideEffects",
+        "target_method": "visit",
+        "class_name": "CheckSideEffectsTest",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "                                   ^\n    [javac]   symbol:   variable USELESS_CODE_ERROR\n    [javac]   location: class CheckSideEffectsTest\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__RSRepair__Closure__patch1-Closure-22-RSRepair-plausible/CheckSideEffectsTest/fixed/test/com/google/javascript/jscomp/CheckSideEffectsTest.java:33: error: cannot find symbol\n    [javac]     test(\"((x, y), 1);\", CheckSideEffectsTest.USELESS_CODE_ERROR);\n    [javac]                                              ^\n    [javac]   symbol:   variable USELESS_CODE_ERROR\n    [javac]   location: class CheckSideEffectsTest\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__RSRepair__Closure__patch1-Closure-22-RSRepair-plausible/CheckSideEffectsTest/fixed/test/com/google/javascript/jscomp/CheckSideEffectsTest.java:40: error: cannot find symbol\n    [javac]     test(\"1;\", CheckSideEffectsTest.USELESS_CODE_ERROR);\n    [javac]                                    ^\n    [javac]   symbol:   variable USELESS_CODE_ERROR\n    [javac]   location: class CheckSideEffectsTest\n    [javac] 4 errors\n    [javac] 27 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__RSRepair__Closure__patch1-Closure-22-RSRepair-plausible/CheckSideEffectsTest/fixed/build.xml:331: Compile failed; see the compiler error output for details.\n\nTotal time: 1 second\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__RSRepair__Closure__patch1-Closure-22-RSRepair-plausible",
+    "true_project": "Closure",
+    "true_bug_number": "22",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 681,
+    "output_tokens": 26,
+    "project": "Closure",
+    "bug_number": null,
+    "recalled_label": "UNKNOWN",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__RSRepair__Closure__patch1-Closure-22-RSRepair-plausible",
+    "bug_id": "Closure-22",
+    "s_edit_ast": 0.10354223433242507,
+    "s_edit_ast_actions": 38,
+    "s_edit_ast_nodes": 367,
+    "s_edit_error": null,
+    "s_vuln_changed": 0.5,
+    "s_vuln_new_warning_count": 1,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "com/google/javascript/jscomp/CheckSideEffects"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 105,
+      "cfg_edges": 127,
+      "branch_points": 30,
+      "cyclomatic_complexity": 24,
+      "def_count": 60,
+      "use_count": 219,
+      "defuse_pairs": 60,
+      "per_method": [
+        {
+          "class": "com.google.javascript.jscomp.CheckSideEffects",
+          "method": "visit",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 105,
+          "cfg_edges": 127,
+          "branch_points": 30,
+          "cyclomatic_complexity": 24,
+          "def_count": 60,
+          "use_count": 219,
+          "defuse_pairs": 60,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 93,
+      "cfg_edges": 112,
+      "branch_points": 26,
+      "cyclomatic_complexity": 21,
+      "def_count": 54,
+      "use_count": 195,
+      "defuse_pairs": 54,
+      "per_method": [
+        {
+          "class": "com.google.javascript.jscomp.CheckSideEffects",
+          "method": "visit",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 93,
+          "cfg_edges": 112,
+          "branch_points": 26,
+          "cyclomatic_complexity": 21,
+          "def_count": 54,
+          "use_count": 195,
+          "defuse_pairs": 54,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": -3,
+    "d_stmts": -12,
+    "d_branch_points": -4,
+    "d_cfg_edges": -15,
+    "d_defuse_pairs": -6,
+    "vuln_detail": {
+      "s_vuln": 0.5,
+      "new_warnings": [
+        {
+          "bug_type": "UCF",
+          "category": "D",
+          "priority": "M",
+          "severity": "MEDIUM",
+          "class": "CheckSideEffects",
+          "method": "visit",
+          "location": "CheckSideEffects.java:line 111",
+          "description": "Useless control flow in com.google.javascript.jscomp.CheckSideEffects.visit(NodeTraversal, Node, Node)"
+        }
+      ],
+      "n_buggy_warnings": 6,
+      "n_candidate_warnings": 7,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 2,
+      "n_changed_class_files_candidate": 2,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__RSRepair__Closure__patch1-Closure-22-RSRepair-plausible",
+    "bug_id": "Closure-22",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

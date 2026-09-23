@@ -1,0 +1,256 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__SimFix__Math__patch1-Math-84-SimFix-plausible",
+  "bug_id": "Math-84",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 10.265
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.962
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 11.743
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 72.285
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.484
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 72.927
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__SimFix__Math__patch1-Math-84-SimFix-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.85,
+    "decision": "CORRECT",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.7429445929992653,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3072,
+        "output_tokens": 183,
+        "parsed": {
+          "generalization": "general",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.85,
+          "readability": 0.6,
+          "security_robustness": 1.0,
+          "judgement": "CORRECT",
+          "confidence": 0.85,
+          "brief_reason": "The patch fixes the logic error in the contraction step by changing the condition from strict less-than (<) to less-than-or-equal (<=), which correctly accepts the contracted simplex when it equals the best point. This addresses the infinite loop issue in testMath283 and the convergence problem in testMinimizeMaximize. The change is minimal and general, though readability is slightly reduced by removing whitespace."
+        },
+        "s_sem": 0.85,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.818950225999288,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3072,
+        "output_tokens": 183,
+        "parsed": {
+          "generalization": "general",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.85,
+          "readability": 0.6,
+          "security_robustness": 1.0,
+          "judgement": "CORRECT",
+          "confidence": 0.85,
+          "brief_reason": "The patch fixes the logic error in the contraction step by changing the condition from strict less-than (<) to less-than-or-equal (<=), which correctly accepts the contracted simplex when it equals the best point. This addresses the infinite loop issue in testMath283 and the convergence problem in testMinimizeMaximize. The change is minimal and general, though readability is slightly reduced by removing whitespace."
+        },
+        "s_sem": 0.85,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.7682234789990616,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3072,
+        "output_tokens": 183,
+        "parsed": {
+          "generalization": "general",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.85,
+          "readability": 0.6,
+          "security_robustness": 1.0,
+          "judgement": "CORRECT",
+          "confidence": 0.85,
+          "brief_reason": "The patch fixes the logic error in the contraction step by changing the condition from strict less-than (<) to less-than-or-equal (<=), which correctly accepts the contracted simplex when it equals the best point. This addresses the infinite loop issue in testMath283 and the convergence problem in testMinimizeMaximize. The change is minimal and general, though readability is slightly reduced by removing whitespace."
+        },
+        "s_sem": 0.85,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__SimFix__Math__patch1-Math-84-SimFix-plausible",
+    "bug_id": "Math-84",
+    "model": "claude-haiku-4-5",
+    "latency_s": 16.091667638000217,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 2943,
+    "output_tokens": 1726,
+    "tests": [
+      {
+        "name": "testMultiDirectionalConvergenceWithContractedSimplex",
+        "target_class": "org.apache.commons.math.optimization.direct.MultiDirectional",
+        "target_method": "iterateSimplex",
+        "class_name": "MultiDirectionalTest1",
+        "status": "VALID_BUG_REVEALING",
+        "candidate_pass": true,
+        "log": "JUnit version 4.11\n.\nTime: 0.012\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testMultiDirectionalBoundaryConditionEqualComparison",
+        "target_class": "org.apache.commons.math.optimization.direct.MultiDirectional",
+        "target_method": "iterateSimplex",
+        "class_name": "MultiDirectionalTest2",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": "JUnit version 4.11\n.\nTime: 0.007\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testMultiDirectionalTerminationWithinIterationLimit",
+        "target_class": "org.apache.commons.math.optimization.direct.MultiDirectional",
+        "target_method": "iterateSimplex",
+        "class_name": "MultiDirectionalTest3",
+        "status": "VALID_BUG_REVEALING",
+        "candidate_pass": true,
+        "log": "JUnit version 4.11\n.\nTime: 0.009\n\nOK (1 test)\n\n"
+      }
+    ],
+    "s_cex": 1.0,
+    "n_valid": 2,
+    "n_passed": 2
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__SimFix__Math__patch1-Math-84-SimFix-plausible",
+    "true_project": "Math",
+    "true_bug_number": "84",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 576,
+    "output_tokens": 28,
+    "project": "Math",
+    "bug_number": 2,
+    "recalled_label": "OVERFITTING",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__SimFix__Math__patch1-Math-84-SimFix-plausible",
+    "bug_id": "Math-84",
+    "s_edit_ast": 0.0072992700729927005,
+    "s_edit_ast_actions": 1,
+    "s_edit_ast_nodes": 137,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math/optimization/direct/MultiDirectional"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 21,
+      "cfg_edges": 22,
+      "branch_points": 3,
+      "cyclomatic_complexity": 3,
+      "def_count": 14,
+      "use_count": 53,
+      "defuse_pairs": 14,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.optimization.direct.MultiDirectional",
+          "method": "iterateSimplex",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 21,
+          "cfg_edges": 22,
+          "branch_points": 3,
+          "cyclomatic_complexity": 3,
+          "def_count": 14,
+          "use_count": 53,
+          "defuse_pairs": 14,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 21,
+      "cfg_edges": 22,
+      "branch_points": 3,
+      "cyclomatic_complexity": 3,
+      "def_count": 14,
+      "use_count": 53,
+      "defuse_pairs": 14,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.optimization.direct.MultiDirectional",
+          "method": "iterateSimplex",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 21,
+          "cfg_edges": 22,
+          "branch_points": 3,
+          "cyclomatic_complexity": 3,
+          "def_count": 14,
+          "use_count": 53,
+          "defuse_pairs": 14,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": 0,
+    "d_branch_points": 0,
+    "d_cfg_edges": 0,
+    "d_defuse_pairs": 0,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 312,
+      "n_candidate_warnings": 312,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__SimFix__Math__patch1-Math-84-SimFix-plausible",
+    "bug_id": "Math-84",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}
