@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Ddifferent__AVATAR__Chart__patch1-Chart-11-AVATAR",
+  "condition": "A",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.9499999999999998,
+  "decision": "CORRECT",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 3.0304292250000344,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 996,
+      "output_tokens": 163,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 1.0,
+        "readability": 1.0,
+        "security_robustness": 1.0,
+        "judgement": "CORRECT",
+        "confidence": 0.95,
+        "brief_reason": "The patch fixes a clear copy-paste bug where p1.getPathIterator(null) was called twice instead of calling p2.getPathIterator(null) for the second iterator. This is a minimal one-character fix that corrects the logic for comparing two paths by ensuring both iterators are properly initialized from their respective path objects."
+      },
+      "s_sem": 0.95,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 3.0632449209999777,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 996,
+      "output_tokens": 163,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 1.0,
+        "readability": 1.0,
+        "security_robustness": 1.0,
+        "judgement": "CORRECT",
+        "confidence": 0.95,
+        "brief_reason": "The patch fixes a clear copy-paste bug where p1.getPathIterator(null) was called twice instead of calling p2.getPathIterator(null) for the second iterator. This is a minimal one-character fix that corrects the logic for comparing two paths by ensuring both iterators are properly initialized from their respective path objects."
+      },
+      "s_sem": 0.95,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 3.0270215760000383,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 996,
+      "output_tokens": 163,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 1.0,
+        "readability": 1.0,
+        "security_robustness": 1.0,
+        "judgement": "CORRECT",
+        "confidence": 0.95,
+        "brief_reason": "The patch fixes a clear copy-paste bug where p1.getPathIterator(null) was called twice instead of calling p2.getPathIterator(null) for the second iterator. This is a minimal one-character fix that corrects the logic for comparing two paths by ensuring both iterators are properly initialized from their respective path objects."
+      },
+      "s_sem": 0.95,
+      "confidence_clipped": false
+    }
+  ]
+}

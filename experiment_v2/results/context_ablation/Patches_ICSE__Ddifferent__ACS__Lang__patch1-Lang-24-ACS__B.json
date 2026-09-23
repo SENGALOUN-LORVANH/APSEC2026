@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Ddifferent__ACS__Lang__patch1-Lang-24-ACS",
+  "condition": "B",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.15000000000000002,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 3.3960368790000075,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 2518,
+      "output_tokens": 190,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.3,
+        "readability": 0.2,
+        "security_robustness": 0.9,
+        "judgement": "OVERFITTING",
+        "confidence": 0.85,
+        "brief_reason": "The patch adds a check for decimal points when encountering 'L' suffix, but this is overly specific to the failing test case and introduces poor code formatting. The fix appears to address LANG-664 (rejecting numbers like '1.0L') but does so in a way that duplicates logic already present in the subsequent return statement, making it unmaintainable and suggesting the tool fitted to the specific test rather than understanding the underlying issue."
+      },
+      "s_sem": 0.15000000000000002,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 3.3606764879999673,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 2518,
+      "output_tokens": 194,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.3,
+        "readability": 0.2,
+        "security_robustness": 0.9,
+        "judgement": "OVERFITTING",
+        "confidence": 0.85,
+        "brief_reason": "The patch adds a check for decimal points when encountering 'L' suffix, but this is overly specific to the failing test case and introduces poor code formatting. The fix appears to address LANG-664 (rejecting numbers with both 'L' suffix and decimal point) but does so in a way that duplicates logic already present in the subsequent return statement, making it unmaintainable and suggesting the tool fitted to the specific test rather than understanding the underlying bug."
+      },
+      "s_sem": 0.15000000000000002,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 3.1821146919999137,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 2518,
+      "output_tokens": 166,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.3,
+        "readability": 0.2,
+        "security_robustness": 0.9,
+        "judgement": "OVERFITTING",
+        "confidence": 0.85,
+        "brief_reason": "The patch adds a check for decimal points when encountering 'L' suffix, but this is overfitting to a specific test case. The fix is poorly formatted, unreadable, and changes behavior beyond what the bug requires. The original logic already handles the case through the hasExp check, making this additional validation redundant and fragile."
+      },
+      "s_sem": 0.15000000000000002,
+      "confidence_clipped": false
+    }
+  ]
+}

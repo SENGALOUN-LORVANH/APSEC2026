@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__Arja__Closure__patch1-Closure-117-Arja-plausible",
+  "condition": "B",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.08333333333333337,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 2.828462105000199,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1731,
+      "output_tokens": 152,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.3,
+        "readability": 0.2,
+        "security_robustness": 0.8,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch removes a return statement that generates error messages, causing the function to fall through and return a different (less specific) message. This fixes the test by changing the error message format rather than addressing the underlying bug. The patch deletes functionality and is not a proper repair of the root cause."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 2.771798100999831,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1731,
+      "output_tokens": 154,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.3,
+        "readability": 0.4,
+        "security_robustness": 0.8,
+        "judgement": "OVERFITTING",
+        "confidence": 0.85,
+        "brief_reason": "The patch removes a return statement that generates error messages, causing the function to fall through and return a different (less specific) message. This fixes the test by changing the error message format rather than addressing the underlying bug. The patch weakens functionality by removing legitimate error reporting logic without replacing it with correct behavior."
+      },
+      "s_sem": 0.15000000000000002,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 2.8034935579999,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1731,
+      "output_tokens": 152,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.3,
+        "readability": 0.2,
+        "security_robustness": 0.8,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch removes a return statement that generates error messages, causing the function to fall through and return a different (less specific) message. This fixes the test by changing the error message format rather than addressing the underlying bug. The patch deletes functionality and is not a proper repair of the root cause."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Ddifferent__Arja__Math__patch1-Math-50-Arja",
+  "condition": "A",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.050000000000000044,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 2.3305199420000235,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1231,
+      "output_tokens": 149,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.1,
+        "readability": 0.3,
+        "security_robustness": 0.2,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch removes defensive null-checking and special case handling that are unrelated to fixing the actual bug. It deletes functionality (null validation) and weakens robustness by removing necessary guards, suggesting it only passes tests by accident rather than fixing the root cause."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 2.853695329999937,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1231,
+      "output_tokens": 160,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.1,
+        "readability": 0.3,
+        "security_robustness": 0.2,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch removes defensive null-checking and special case handling that are unrelated to fixing the actual bug. Deleting the null check in verifyBracketing weakens functionality by removing input validation, and removing the REGULA_FALSI case handling removes legitimate algorithmic logic rather than fixing a bug."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 2.253553540999974,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1231,
+      "output_tokens": 160,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.1,
+        "readability": 0.3,
+        "security_robustness": 0.2,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch removes defensive null-checking and special case handling that are unrelated to fixing the actual bug. Deleting the null check in verifyBracketing weakens functionality by removing input validation, and removing the REGULA_FALSI case handling removes legitimate algorithmic logic rather than fixing a bug."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    }
+  ]
+}

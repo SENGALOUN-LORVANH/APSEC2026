@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-35-ACS",
+  "condition": "B",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.15000000000000002,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 3.265524613000025,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 4317,
+      "output_tokens": 173,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.4,
+        "readability": 0.5,
+        "security_robustness": 0.6,
+        "judgement": "OVERFITTING",
+        "confidence": 0.85,
+        "brief_reason": "The patch adds validation to throw OutOfRangeException for invalid elitismRate values, which correctly addresses the failing tests. However, it passes null arguments to the exception constructor instead of providing meaningful error messages and bounds information, making the exceptions uninformative and suggesting incomplete implementation. The code duplication across two constructors and poor exception initialization indicate this is a minimal but poorly executed fix."
+      },
+      "s_sem": 0.15000000000000002,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 3.1365876240000716,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 4317,
+      "output_tokens": 170,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.4,
+        "readability": 0.5,
+        "security_robustness": 0.6,
+        "judgement": "OVERFITTING",
+        "confidence": 0.85,
+        "brief_reason": "The patch adds validation to throw OutOfRangeException for invalid elitismRate values, which correctly addresses the failing tests. However, it passes null arguments to OutOfRangeException constructors, which is improper and suggests the patch was generated without understanding the exception API. The validation logic itself is correct but the implementation is suboptimal and potentially fragile."
+      },
+      "s_sem": 0.15000000000000002,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 2.9158051639999485,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 4317,
+      "output_tokens": 152,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.4,
+        "readability": 0.5,
+        "security_robustness": 0.3,
+        "judgement": "OVERFITTING",
+        "confidence": 0.85,
+        "brief_reason": "The patch adds validation for elitismRate bounds but uses OutOfRangeException with null arguments, which is improper API usage and likely causes runtime errors. The validation logic is correct but the implementation is defective, suggesting the tool fitted to pass tests without understanding proper exception construction."
+      },
+      "s_sem": 0.15000000000000002,
+      "confidence_clipped": false
+    }
+  ]
+}

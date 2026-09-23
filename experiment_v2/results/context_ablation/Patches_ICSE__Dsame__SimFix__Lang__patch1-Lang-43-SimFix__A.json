@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Dsame__SimFix__Lang__patch1-Lang-43-SimFix",
+  "condition": "A",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.25,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 2.9417634169999474,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 963,
+      "output_tokens": 175,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.3,
+        "readability": 0.7,
+        "security_robustness": 0.6,
+        "judgement": "OVERFITTING",
+        "confidence": 0.75,
+        "brief_reason": "The patch adds a single `next(pos)` call to advance the position when a quote is encountered with escaping enabled. While this may fix a specific test case, it appears to be a minimal, targeted fix that only addresses the observed failing case rather than the underlying cause of the bug. The change lacks context about why this position advancement is necessary and may not generalize to other related scenarios."
+      },
+      "s_sem": 0.25,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 2.6552087150000716,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 963,
+      "output_tokens": 171,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.3,
+        "readability": 0.7,
+        "security_robustness": 0.6,
+        "judgement": "OVERFITTING",
+        "confidence": 0.75,
+        "brief_reason": "The patch adds a single `next(pos)` call to advance the position when a quote is encountered with escaping enabled. While this may fix a specific test case, it appears to be a minimal fix that only addresses the observed failing case rather than the underlying logic issue. The change lacks context about whether this position advancement is correct in all scenarios where this code path is executed."
+      },
+      "s_sem": 0.25,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 3.4350273920001655,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 963,
+      "output_tokens": 170,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.3,
+        "readability": 0.7,
+        "security_robustness": 0.6,
+        "judgement": "OVERFITTING",
+        "confidence": 0.75,
+        "brief_reason": "The patch adds a single `next(pos)` call to advance the position when a quote is encountered during escaping. While this may fix a specific test case, it appears to be a minimal, targeted fix that only addresses the observed failing case rather than the underlying logic issue. The change lacks context about whether this position advancement is correct in all scenarios where escaped quotes appear."
+      },
+      "s_sem": 0.25,
+      "confidence_clipped": false
+    }
+  ]
+}

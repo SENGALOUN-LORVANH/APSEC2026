@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Chart__patch1-Chart-13-AVATAR-plausible",
+  "condition": "B",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.050000000000000044,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 3.0153121129999363,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1780,
+      "output_tokens": 160,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.1,
+        "readability": 0.2,
+        "security_robustness": 0.0,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch removes the validation check that prevents invalid Range objects (where lower > upper) from being created, merely silencing the error rather than fixing the underlying bug. This deletes critical functionality and creates a security risk by allowing invalid state, making it an overfitting solution that only passes the test by removing the exception."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 2.9487777549999237,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1780,
+      "output_tokens": 160,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.1,
+        "readability": 0.2,
+        "security_robustness": 0.0,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch removes the validation check that prevents invalid Range objects with lower > upper, merely silencing the error rather than fixing the root cause. This deletes critical functionality and creates a security risk by allowing invalid state, making it an overfitting solution that masks the underlying bug in BorderArrangement.arrangeFF()."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 2.9068867810000256,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1780,
+      "output_tokens": 160,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.1,
+        "readability": 0.2,
+        "security_robustness": 0.0,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch removes the validation check that prevents invalid Range objects (where lower > upper) from being created, merely silencing the error rather than fixing the underlying bug. This deletes critical functionality and creates a security risk by allowing invalid state, making it an overfitting solution that only passes the test by removing the exception."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    }
+  ]
+}

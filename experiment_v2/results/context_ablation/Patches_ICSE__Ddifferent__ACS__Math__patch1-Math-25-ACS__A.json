@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-25-ACS",
+  "condition": "A",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.15000000000000002,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 3.1307949349999262,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 992,
+      "output_tokens": 183,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.3,
+        "readability": 0.2,
+        "security_robustness": 0.6,
+        "judgement": "OVERFITTING",
+        "confidence": 0.85,
+        "brief_reason": "The patch adds a check for c2==0.0 before computing omega, but this only addresses the specific case where c2 is exactly zero. The real issue is likely division by zero in c2/c3 when c3 is zero, which the patch doesn't fix. The code formatting is also severely broken with the if statement on the same line, making it unreadable and unmaintainable."
+      },
+      "s_sem": 0.15000000000000002,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 3.2068903530000625,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 992,
+      "output_tokens": 183,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.3,
+        "readability": 0.2,
+        "security_robustness": 0.6,
+        "judgement": "OVERFITTING",
+        "confidence": 0.85,
+        "brief_reason": "The patch adds a check for c2==0.0 before computing omega, but this only addresses the specific case where c2 is exactly zero. The real issue is likely division by zero in c2/c3 when c3 is zero, which the patch doesn't fix. The code formatting is also severely broken with the if statement on the same line, making it unreadable and unmaintainable."
+      },
+      "s_sem": 0.15000000000000002,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 3.101015138999969,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 992,
+      "output_tokens": 183,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.3,
+        "readability": 0.2,
+        "security_robustness": 0.6,
+        "judgement": "OVERFITTING",
+        "confidence": 0.85,
+        "brief_reason": "The patch adds a check for c2==0.0 before computing omega, but this only addresses the specific case where c2 is exactly zero. The real issue is likely division by zero in c2/c3 when c3 is zero, which the patch doesn't fix. The code formatting is also severely broken with the if statement on the same line, making it unreadable and unmaintainable."
+      },
+      "s_sem": 0.15000000000000002,
+      "confidence_clipped": false
+    }
+  ]
+}

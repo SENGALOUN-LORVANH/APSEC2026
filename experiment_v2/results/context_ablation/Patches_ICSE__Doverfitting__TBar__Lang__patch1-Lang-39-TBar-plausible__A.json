@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__TBar__Lang__patch1-Lang-39-TBar-plausible",
+  "condition": "A",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.010000000000000009,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 2.4570425120000436,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 998,
+      "output_tokens": 173,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.1,
+        "readability": 0.0,
+        "security_robustness": 0.0,
+        "judgement": "OVERFITTING",
+        "confidence": 0.99,
+        "brief_reason": "The patch changes the loop condition from 'i < searchList.length' to 'i==searchList.length', which breaks the loop entirely by making the condition false on the first iteration. This destroys the intended functionality of counting replacement text elements rather than fixing any bug. The patch only passes tests if those tests don't actually exercise this code path or have insufficient coverage."
+      },
+      "s_sem": 0.010000000000000009,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 2.2870983960001467,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 998,
+      "output_tokens": 178,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.1,
+        "readability": 0.0,
+        "security_robustness": 0.0,
+        "judgement": "OVERFITTING",
+        "confidence": 0.99,
+        "brief_reason": "The patch changes the loop condition from 'i < searchList.length' to 'i==searchList.length', which breaks the loop entirely by making the condition false on the first iteration (when i=0). This destroys the intended functionality of counting replacements rather than fixing any bug. The patch only passes tests if those tests don't actually exercise this code path or don't verify the correct behavior."
+      },
+      "s_sem": 0.010000000000000009,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 2.3299423009998463,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 998,
+      "output_tokens": 177,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.1,
+        "readability": 0.0,
+        "security_robustness": 0.0,
+        "judgement": "OVERFITTING",
+        "confidence": 0.99,
+        "brief_reason": "The patch changes the loop condition from 'i < searchList.length' to 'i==searchList.length', which breaks the loop entirely by making the condition false on the first iteration (when i=0). This destroys the intended functionality of counting replacements rather than fixing any bug. The patch only passes tests if those tests don't actually exercise this code path or don't verify correct behavior."
+      },
+      "s_sem": 0.010000000000000009,
+      "confidence_clipped": false
+    }
+  ]
+}

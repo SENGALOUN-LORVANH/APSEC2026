@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Lang__patch1-Lang-58-AVATAR-plausible",
+  "condition": "A",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.15000000000000002,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 2.3606723789998796,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 964,
+      "output_tokens": 163,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.9,
+        "readability": 0.8,
+        "security_robustness": 0.3,
+        "judgement": "OVERFITTING",
+        "confidence": 0.85,
+        "brief_reason": "The patch removes a validation check (isDigits) that ensures the substring after the first character contains only digits before attempting to parse as Long. This weakens input validation and could allow invalid numeric strings to reach createLong(), potentially causing exceptions or incorrect behavior. The fix appears tailored to pass specific tests rather than addressing the underlying validation logic properly."
+      },
+      "s_sem": 0.15000000000000002,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 2.404452577000029,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 964,
+      "output_tokens": 166,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.2,
+        "readability": 0.8,
+        "security_robustness": 0.3,
+        "judgement": "OVERFITTING",
+        "confidence": 0.85,
+        "brief_reason": "The patch removes a validation check (isDigits) that ensures the substring after the first character contains only digits before attempting to parse as Long. This weakens input validation and could allow invalid numeric strings to reach createLong(), potentially causing exceptions or incorrect behavior. The fix appears tailored to pass specific tests rather than addressing the underlying validation logic properly."
+      },
+      "s_sem": 0.15000000000000002,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 2.447982798000112,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 964,
+      "output_tokens": 166,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.2,
+        "readability": 0.8,
+        "security_robustness": 0.3,
+        "judgement": "OVERFITTING",
+        "confidence": 0.85,
+        "brief_reason": "The patch removes a validation check (isDigits) that ensures the substring after the first character contains only digits before attempting to parse as Long. This weakens input validation and could allow invalid numeric strings to reach createLong(), potentially causing exceptions or incorrect behavior. The fix appears tailored to pass specific tests rather than addressing the underlying validation logic properly."
+      },
+      "s_sem": 0.15000000000000002,
+      "confidence_clipped": false
+    }
+  ]
+}

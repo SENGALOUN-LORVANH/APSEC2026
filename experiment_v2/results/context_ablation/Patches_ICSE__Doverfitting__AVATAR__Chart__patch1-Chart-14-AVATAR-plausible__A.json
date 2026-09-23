@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Chart__patch1-Chart-14-AVATAR-plausible",
+  "condition": "A",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.050000000000000044,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 2.0962547909999785,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 956,
+      "output_tokens": 157,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.1,
+        "readability": 0.2,
+        "security_robustness": 0.3,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch changes the removal operation from the correct 'markers' list to 'this.annotations', which is semantically incorrect and removes the intended functionality of removing domain markers. This appears to be a copy-paste error that only fixes a specific test case by accident rather than addressing the actual bug in marker removal logic."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 2.178245658000037,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 956,
+      "output_tokens": 157,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.1,
+        "readability": 0.2,
+        "security_robustness": 0.3,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch changes the removal operation from the correct 'markers' list to 'this.annotations', which is semantically incorrect and breaks the intended functionality of removing domain markers. This appears to be a copy-paste error that only fixes a specific test case by accident rather than addressing the actual bug in marker removal logic."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 1.9927146200000152,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 956,
+      "output_tokens": 152,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.1,
+        "readability": 0.2,
+        "security_robustness": 0.3,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch changes the removal operation from the correct 'markers' list to 'this.annotations', which is semantically incorrect and removes the intended functionality of removing domain markers. This appears to be a copy-paste error that only happens to pass tests by accident, not a genuine bug fix."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    }
+  ]
+}

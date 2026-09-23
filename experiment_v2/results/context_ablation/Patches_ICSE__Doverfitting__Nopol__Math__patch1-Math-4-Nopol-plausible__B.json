@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__Nopol__Math__patch1-Math-4-Nopol-plausible",
+  "condition": "B",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.050000000000000044,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 3.1925082860000202,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 2596,
+      "output_tokens": 168,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.1,
+        "readability": 0.2,
+        "security_robustness": 0.3,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch adds a nonsensical condition that doesn't address the root cause (null pointer in toSubSpace). It only masks the symptom for specific test cases while introducing illogical logic (comparing sin < 1 twice, comparing offset to d) that weakens the original null-return behavior and will likely cause regressions in other scenarios."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 2.7873572869998497,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 2596,
+      "output_tokens": 161,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.1,
+        "readability": 0.2,
+        "security_robustness": 0.3,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch adds a nonsensical conditional check with redundant comparisons (other.sin < 1 twice) and an unrelated offset comparison that doesn't address the root cause of the NullPointerException. It only masks the symptom for specific test cases rather than fixing the underlying null handling issue in the intersection logic."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 3.4494139630000973,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 2596,
+      "output_tokens": 172,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.1,
+        "readability": 0.2,
+        "security_robustness": 0.3,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch adds a nonsensical conditional check with tautological logic (other.sin < 1 twice) and a meaningless comparison that doesn't address the root cause of the NullPointerException. It only masks the symptom for specific test cases while introducing confusing, unmaintainable code that weakens the original null-return behavior without fixing the underlying issue."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    }
+  ]
+}

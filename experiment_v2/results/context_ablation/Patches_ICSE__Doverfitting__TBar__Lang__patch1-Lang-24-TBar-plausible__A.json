@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__TBar__Lang__patch1-Lang-24-TBar-plausible",
+  "condition": "A",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.85,
+  "decision": "CORRECT",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 2.344398950999903,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 992,
+      "output_tokens": 166,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.75,
+        "readability": 0.65,
+        "security_robustness": 0.9,
+        "judgement": "CORRECT",
+        "confidence": 0.85,
+        "brief_reason": "The patch extends the validation logic to reject long literal suffixes ('l' or 'L') in numeric strings, which is a general fix for the bug where such suffixes were incorrectly accepted. The change is minimal and addresses the root cause, though the parenthesization could be cleaner. The fix properly prevents invalid number formats while maintaining existing functionality."
+      },
+      "s_sem": 0.85,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 2.335307981000142,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 992,
+      "output_tokens": 166,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.75,
+        "readability": 0.65,
+        "security_robustness": 0.9,
+        "judgement": "CORRECT",
+        "confidence": 0.85,
+        "brief_reason": "The patch extends the validation logic to reject long literal suffixes ('l' or 'L') in numeric strings, which is a general fix for the bug where such suffixes were incorrectly accepted. The change is minimal and addresses the root cause, though the parenthesization could be cleaner. The fix properly prevents invalid numeric formats while maintaining existing functionality."
+      },
+      "s_sem": 0.85,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 2.5696220889999495,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 992,
+      "output_tokens": 166,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.75,
+        "readability": 0.65,
+        "security_robustness": 0.9,
+        "judgement": "CORRECT",
+        "confidence": 0.85,
+        "brief_reason": "The patch extends the validation logic to reject long literal suffixes ('l' or 'L') in numeric strings, which is a general fix for the bug where such suffixes were incorrectly accepted. The change is minimal and addresses the root cause, though the parenthesization could be cleaner. The fix properly prevents invalid numeric formats while maintaining existing functionality."
+      },
+      "s_sem": 0.85,
+      "confidence_clipped": false
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_others__Dcorrect__SketchFix__Closure__patch1-Closure-14-SketchFix",
+  "condition": "B",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.85,
+  "decision": "CORRECT",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 3.3882674890001,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 3323,
+      "output_tokens": 164,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.95,
+        "readability": 0.9,
+        "security_robustness": 0.95,
+        "judgement": "CORRECT",
+        "confidence": 0.85,
+        "brief_reason": "The patch fixes a control flow analysis bug where finally blocks were being connected with UNCOND (unconditional) edges instead of ON_EX (exception) edges. This is the correct semantic for finally blocks that should execute on exception paths. The fix is minimal, targeted, and addresses the root cause affecting all three failing tests related to finally block handling."
+      },
+      "s_sem": 0.85,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 3.4766423809999196,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 3323,
+      "output_tokens": 179,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.95,
+        "readability": 0.9,
+        "security_robustness": 0.95,
+        "judgement": "CORRECT",
+        "confidence": 0.85,
+        "brief_reason": "The patch fixes a control flow analysis bug where finally blocks were incorrectly connected with UNCOND (unconditional) edges instead of ON_EX (exception) edges. This is a minimal, targeted fix that addresses the root cause of missing return statement detection and cross-edge tracking in nested finally blocks. The change is semantically correct as finally blocks should be reachable via exception paths, not unconditional paths."
+      },
+      "s_sem": 0.85,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 3.2258363700000245,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 3323,
+      "output_tokens": 164,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.95,
+        "readability": 0.9,
+        "security_robustness": 0.95,
+        "judgement": "CORRECT",
+        "confidence": 0.85,
+        "brief_reason": "The patch fixes a control flow analysis bug where finally blocks were being connected with UNCOND (unconditional) edges instead of ON_EX (exception) edges. This is the correct semantic for finally blocks that should execute on exception paths. The fix is minimal, targeted, and addresses the root cause affecting all three failing tests related to finally block handling."
+      },
+      "s_sem": 0.85,
+      "confidence_clipped": false
+    }
+  ]
+}

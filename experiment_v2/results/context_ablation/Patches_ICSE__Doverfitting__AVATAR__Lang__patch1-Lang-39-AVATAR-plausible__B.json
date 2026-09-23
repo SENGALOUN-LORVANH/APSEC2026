@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Lang__patch1-Lang-39-AVATAR-plausible",
+  "condition": "B",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.050000000000000044,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 3.7983951969999907,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 2539,
+      "output_tokens": 160,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.2,
+        "readability": 0.3,
+        "security_robustness": 0.5,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch changes `replacementList[i].length()` to `searchList[i].length()`, which removes the intended logic of comparing replacement text length against search text length. This breaks the core functionality of calculating size increases for replacements, making the variable always zero and causing incorrect behavior in the general case."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 3.234355098999913,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 2539,
+      "output_tokens": 162,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.2,
+        "readability": 0.3,
+        "security_robustness": 0.5,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch changes `replacementList[i].length()` to `searchList[i].length()`, which removes the intended logic of comparing replacement text length against search text length. This breaks the core functionality of calculating size increases for replacements, making the code compute zero for all cases instead of handling actual replacements properly."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 2.89619957900004,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 2539,
+      "output_tokens": 160,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.2,
+        "readability": 0.3,
+        "security_robustness": 0.5,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch changes `replacementList[i].length()` to `searchList[i].length()`, which makes the calculation always zero and breaks the intended logic for estimating capacity increases. This is a nonsensical fix that happens to pass the test by accident rather than addressing the actual null pointer exception cause."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    }
+  ]
+}

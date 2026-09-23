@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Ddifferent__Arja__Chart__patch1-Chart-12-Arja",
+  "condition": "B",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.82,
+  "decision": "CORRECT",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 2.536182958999916,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1775,
+      "output_tokens": 151,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.95,
+        "readability": 0.9,
+        "security_robustness": 0.85,
+        "judgement": "CORRECT",
+        "confidence": 0.82,
+        "brief_reason": "The patch adds a missing call to setDataset(dataset) in the constructor, which properly initializes the dataset through the setter method rather than just assigning it directly. This is a minimal, focused fix that addresses the general initialization issue. The change is safe and maintains existing functionality while ensuring proper dataset setup."
+      },
+      "s_sem": 0.82,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 3.1162778599999683,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1775,
+      "output_tokens": 151,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.95,
+        "readability": 0.9,
+        "security_robustness": 0.85,
+        "judgement": "CORRECT",
+        "confidence": 0.82,
+        "brief_reason": "The patch adds a missing call to setDataset(dataset) in the constructor, which properly initializes the dataset through the setter method rather than just assigning it directly. This is a minimal, focused fix that addresses the general initialization issue. The change is safe and maintains existing functionality while ensuring proper dataset setup."
+      },
+      "s_sem": 0.82,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 3.1805071600000474,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1775,
+      "output_tokens": 151,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.95,
+        "readability": 0.9,
+        "security_robustness": 0.85,
+        "judgement": "CORRECT",
+        "confidence": 0.82,
+        "brief_reason": "The patch adds a missing call to setDataset(dataset) in the constructor, which properly initializes the dataset through the setter method rather than just assigning it directly. This is a minimal, focused fix that addresses the general initialization issue. The change is safe and maintains existing functionality while ensuring proper dataset setup."
+      },
+      "s_sem": 0.82,
+      "confidence_clipped": false
+    }
+  ]
+}

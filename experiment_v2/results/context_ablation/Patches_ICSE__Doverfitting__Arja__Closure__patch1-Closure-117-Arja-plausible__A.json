@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__Arja__Closure__patch1-Closure-117-Arja-plausible",
+  "condition": "A",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.1166666666666667,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 2.4257820249999895,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 939,
+      "output_tokens": 165,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.1,
+        "readability": 0.3,
+        "security_robustness": 1.0,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch simply deletes a return statement without replacing it with any alternative logic, which removes functionality rather than fixing a bug. This appears to be an overfitting fix that makes a specific test pass by eliminating code rather than correcting the underlying issue. The deletion weakens the method's ability to construct qualified property names for object types."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 2.360505415000034,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 939,
+      "output_tokens": 165,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.2,
+        "readability": 0.3,
+        "security_robustness": 0.8,
+        "judgement": "OVERFITTING",
+        "confidence": 0.85,
+        "brief_reason": "The patch simply removes a return statement without replacing it with any alternative logic, which deletes functionality rather than fixing a bug. This appears to be an overfitting fix that only addresses a specific test case by removing code rather than correcting the underlying logic. The change weakens the method's ability to generate qualified property names for object types."
+      },
+      "s_sem": 0.15000000000000002,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 2.4782720040000186,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 939,
+      "output_tokens": 167,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.1,
+        "readability": 0.3,
+        "security_robustness": 0.8,
+        "judgement": "OVERFITTING",
+        "confidence": 0.85,
+        "brief_reason": "The patch simply deletes a return statement without replacing it with any alternative logic, which weakens functionality by removing the qualified property name generation. This appears to be an overfitting fix that passes tests by accident rather than genuinely repairing the underlying bug, as the method would now fall through to other return statements instead of providing the intended qualified name."
+      },
+      "s_sem": 0.15000000000000002,
+      "confidence_clipped": false
+    }
+  ]
+}

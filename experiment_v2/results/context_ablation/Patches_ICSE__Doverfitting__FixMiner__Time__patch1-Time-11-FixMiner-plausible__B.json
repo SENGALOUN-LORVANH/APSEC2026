@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__FixMiner__Time__patch1-Time-11-FixMiner-plausible",
+  "condition": "B",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.050000000000000044,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 3.071388653999975,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1741,
+      "output_tokens": 162,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.1,
+        "readability": 0.2,
+        "security_robustness": 0.3,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch introduces a logic error: it uses OR instead of AND, causing the method to always return true when cVerbose is null (the opposite of the intended fix). This masks the underlying null pointer exception rather than properly initializing cVerbose, and weakens the functionality by making verbose() always true when null."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 2.810977173000083,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1741,
+      "output_tokens": 162,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.1,
+        "readability": 0.2,
+        "security_robustness": 0.3,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch introduces a logic error: it uses OR instead of AND, causing the method to always return true when cVerbose is null (the opposite of the intended fix). This masks the underlying null pointer exception rather than properly initializing cVerbose, and weakens the functionality by making verbose() always true when null."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 2.962229670999932,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1741,
+      "output_tokens": 162,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.2,
+        "readability": 0.1,
+        "security_robustness": 0.3,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch introduces a logical error: it uses OR instead of AND, causing the method to always return true when cVerbose is null (the opposite of the intended fix). This masks the underlying null pointer exception rather than properly initializing cVerbose, and weakens the functionality by making verbose() always true when null."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Chart__patch1-Chart-15-AVATAR-plausible",
+  "condition": "A",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.050000000000000044,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 3.1699490830001196,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 5789,
+      "output_tokens": 175,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.0,
+        "readability": 0.0,
+        "security_robustness": 0.5,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch deletes the entire 379-line draw() method from PiePlot3D, which is a core rendering method responsible for drawing 3D pie charts. This is an extreme overfitting that removes essential functionality rather than fixing a bug. While it may pass tests if those tests don't exercise 3D pie chart rendering, it completely breaks the class's primary purpose."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 3.241903045999834,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 5789,
+      "output_tokens": 176,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.0,
+        "readability": 0.0,
+        "security_robustness": 0.5,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch deletes the entire draw() method (379 lines) which is the core rendering functionality of PiePlot3D. This is not a repair but a complete removal of essential behavior, likely causing the class to fail at its primary purpose of drawing 3D pie charts. While this may pass tests that don't exercise the draw method, it fundamentally breaks the class's functionality."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 3.0261889480000264,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 5789,
+      "output_tokens": 164,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.0,
+        "readability": 0.0,
+        "security_robustness": 0.5,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch deletes the entire draw() method (379 lines) which is a core rendering method for 3D pie charts. This is an extreme overfitting that removes essential functionality rather than fixing a bug. While it may pass tests if those tests don't exercise the draw method, it completely breaks the intended behavior of the class."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    }
+  ]
+}

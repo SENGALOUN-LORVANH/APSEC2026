@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Ddifferent__GenProg__Closure__patch1-Closure-126-GenProg",
+  "condition": "B",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.050000000000000044,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 3.017884712999944,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 2356,
+      "output_tokens": 160,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.95,
+        "readability": 0.9,
+        "security_robustness": 0.8,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch removes a critical recursive call that processes finally blocks, which weakens the optimization logic by preventing exit point minimization in finally blocks. While it makes the two failing tests pass, it does so by disabling functionality rather than fixing the underlying bug, causing the optimizer to incorrectly remove break and return statements from finally blocks."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 3.0011144019999847,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 2356,
+      "output_tokens": 163,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.95,
+        "readability": 0.9,
+        "security_robustness": 0.85,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch removes a critical recursive call that processes finally blocks, which weakens functionality by preventing exit point minimization in finally blocks. While it makes the two failing tests pass, it does so by removing the problematic behavior rather than fixing the underlying issue, causing the code to incorrectly omit break and return statements in finally blocks."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 3.173659761000067,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 2356,
+      "output_tokens": 160,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.95,
+        "readability": 0.9,
+        "security_robustness": 0.8,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch removes a critical recursive call that processes finally blocks, which weakens the optimization logic by preventing exit point minimization in finally blocks. While it makes the two failing tests pass, it does so by disabling functionality rather than fixing the underlying bug, causing the optimizer to incorrectly remove break and return statements from finally blocks."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Ddifferent__GenProg__Closure__patch1-Closure-126-GenProg",
+  "condition": "A",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.15000000000000002,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 2.993172538000067,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 941,
+      "output_tokens": 153,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.95,
+        "readability": 0.9,
+        "security_robustness": 0.85,
+        "judgement": "OVERFITTING",
+        "confidence": 0.85,
+        "brief_reason": "The patch removes a recursive call to tryMinimizeExits on finally blocks, which deletes existing functionality for minimizing exit points in finally blocks. This is overfitting to a specific test case rather than fixing the underlying bug, as finally blocks should still be processed for exit point minimization."
+      },
+      "s_sem": 0.15000000000000002,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 2.774041751000027,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 941,
+      "output_tokens": 153,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.95,
+        "readability": 0.9,
+        "security_robustness": 0.85,
+        "judgement": "OVERFITTING",
+        "confidence": 0.85,
+        "brief_reason": "The patch removes a recursive call to tryMinimizeExits on finally blocks, which deletes existing functionality for minimizing exit points in finally blocks. This is overfitting to a specific test case rather than fixing the underlying bug, as finally blocks should still be processed for exit point minimization."
+      },
+      "s_sem": 0.15000000000000002,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 2.84677491299999,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 941,
+      "output_tokens": 153,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.95,
+        "readability": 0.9,
+        "security_robustness": 0.85,
+        "judgement": "OVERFITTING",
+        "confidence": 0.85,
+        "brief_reason": "The patch removes a recursive call to tryMinimizeExits on finally blocks, which deletes existing functionality for minimizing exit points in finally blocks. This is overfitting to a specific test case rather than fixing the underlying bug, as finally blocks should still be processed for exit point minimization."
+      },
+      "s_sem": 0.15000000000000002,
+      "confidence_clipped": false
+    }
+  ]
+}

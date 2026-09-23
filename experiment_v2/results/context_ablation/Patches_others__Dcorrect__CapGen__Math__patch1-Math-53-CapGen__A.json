@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_others__Dcorrect__CapGen__Math__patch1-Math-53-CapGen",
+  "condition": "A",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.85,
+  "decision": "CORRECT",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 2.168416248000085,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 996,
+      "output_tokens": 153,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.95,
+        "readability": 0.7,
+        "security_robustness": 0.9,
+        "judgement": "CORRECT",
+        "confidence": 0.85,
+        "brief_reason": "The patch adds NaN propagation to the add method, which is a standard mathematical behavior for complex numbers. It correctly checks if either operand is NaN and returns NaN, fixing the general case of NaN handling in addition operations. The change is minimal and addresses the root cause rather than a specific test case."
+      },
+      "s_sem": 0.85,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 2.4506914959999904,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 996,
+      "output_tokens": 141,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.95,
+        "readability": 0.7,
+        "security_robustness": 0.9,
+        "judgement": "CORRECT",
+        "confidence": 0.85,
+        "brief_reason": "The patch correctly handles NaN propagation in Complex addition by returning NaN when either operand is NaN, which is mathematically correct and generalizes to all cases. The implementation is minimal and maintains security, though the formatting could be improved for readability."
+      },
+      "s_sem": 0.85,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 2.171868442999994,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 996,
+      "output_tokens": 153,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.95,
+        "readability": 0.7,
+        "security_robustness": 0.9,
+        "judgement": "CORRECT",
+        "confidence": 0.85,
+        "brief_reason": "The patch adds NaN propagation to the add method, which is a standard mathematical behavior for complex numbers. It correctly checks if either operand is NaN and returns NaN, fixing the general case of NaN handling in addition operations. The change is minimal and addresses the root cause rather than a specific test case."
+      },
+      "s_sem": 0.85,
+      "confidence_clipped": false
+    }
+  ]
+}

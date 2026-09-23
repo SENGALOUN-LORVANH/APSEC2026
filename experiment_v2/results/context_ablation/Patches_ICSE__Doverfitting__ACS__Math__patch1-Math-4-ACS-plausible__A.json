@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__ACS__Math__patch1-Math-4-ACS-plausible",
+  "condition": "A",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.85,
+  "decision": "CORRECT",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 3.2791682769999397,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1202,
+      "output_tokens": 158,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.9,
+        "readability": 0.6,
+        "security_robustness": 0.95,
+        "judgement": "CORRECT",
+        "confidence": 0.85,
+        "brief_reason": "The patch adds null checks for intersection results before dereferencing them, preventing NullPointerExceptions when two lines don't intersect. This is a general fix addressing the root cause in both 2D and 3D cases. The code style is poor (inline comment placement), but the logic is sound and minimal."
+      },
+      "s_sem": 0.85,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 2.812321619000045,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1202,
+      "output_tokens": 151,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.9,
+        "readability": 0.6,
+        "security_robustness": 0.95,
+        "judgement": "CORRECT",
+        "confidence": 0.85,
+        "brief_reason": "The patch adds null checks for intersection results before dereferencing them, preventing NullPointerExceptions when two lines don't intersect. This is a general fix addressing the root cause of the bug. The code style is poor (inline if statement), but the logic is sound and minimal."
+      },
+      "s_sem": 0.85,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 2.1303598389999934,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1202,
+      "output_tokens": 151,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.9,
+        "readability": 0.6,
+        "security_robustness": 0.95,
+        "judgement": "CORRECT",
+        "confidence": 0.85,
+        "brief_reason": "The patch adds null checks for intersection results before dereferencing them, preventing NullPointerExceptions when two lines don't intersect. This is a general fix addressing the root cause of the bug. The code style is poor (inline if statement), but the logic is sound and minimal."
+      },
+      "s_sem": 0.85,
+      "confidence_clipped": false
+    }
+  ]
+}

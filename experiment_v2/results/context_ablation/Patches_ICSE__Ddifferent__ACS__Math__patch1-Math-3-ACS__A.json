@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-3-ACS",
+  "condition": "A",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.050000000000000044,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 3.2857622309999215,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1024,
+      "output_tokens": 172,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.2,
+        "readability": 0.1,
+        "security_robustness": 0.3,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch adds a special case check for len==1.0 that returns early, but this is a type mismatch (len is an int, not a double) and the fix is poorly integrated into the code with no proper formatting. The patch appears to address only a specific test case rather than the underlying bug, and introduces unrelated behavior changes with questionable logic."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 3.323719186000062,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1024,
+      "output_tokens": 172,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.2,
+        "readability": 0.1,
+        "security_robustness": 0.3,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch adds a special case check for len==1.0 that returns early, but this is a type mismatch (len is an int, not a double) and the fix is poorly integrated into the code with no proper formatting. The patch appears to address only a specific test case rather than the underlying bug, and introduces unrelated behavior changes with questionable logic."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 3.2986405890000015,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1024,
+      "output_tokens": 172,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.2,
+        "readability": 0.1,
+        "security_robustness": 0.3,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch adds a special case check for len==1.0 that returns early, but this is a type mismatch (len is an int, not a double) and the fix is poorly integrated into the code with no proper formatting. The patch appears to address only a specific test case rather than the underlying bug, and introduces unrelated behavior changes with questionable logic."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    }
+  ]
+}

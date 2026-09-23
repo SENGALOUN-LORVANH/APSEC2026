@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_others__Dcorrect__SOFix__Time__patch1-Time-19-SOFix",
+  "condition": "A",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.85,
+  "decision": "CORRECT",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 2.8141743399999086,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 966,
+      "output_tokens": 150,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.95,
+        "readability": 0.95,
+        "security_robustness": 0.95,
+        "judgement": "CORRECT",
+        "confidence": 0.85,
+        "brief_reason": "The patch changes a boundary condition from `offsetLocal > 0` to `offsetLocal >= 0`, which correctly handles the edge case where offsetLocal equals zero. This is a minimal, focused fix that addresses the general cause of the bug in timezone offset calculation without affecting other functionality or introducing new risks."
+      },
+      "s_sem": 0.85,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 2.7467129609999574,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 966,
+      "output_tokens": 150,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.95,
+        "readability": 0.95,
+        "security_robustness": 0.95,
+        "judgement": "CORRECT",
+        "confidence": 0.85,
+        "brief_reason": "The patch changes a boundary condition from `offsetLocal > 0` to `offsetLocal >= 0`, which correctly handles the edge case where offsetLocal equals zero. This is a minimal, focused fix that addresses the general cause of the bug in timezone offset calculation without affecting other functionality or introducing new risks."
+      },
+      "s_sem": 0.85,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 2.838738858999932,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 966,
+      "output_tokens": 150,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.95,
+        "readability": 0.95,
+        "security_robustness": 0.95,
+        "judgement": "CORRECT",
+        "confidence": 0.85,
+        "brief_reason": "The patch changes a boundary condition from `offsetLocal > 0` to `offsetLocal >= 0`, which correctly handles the edge case where offsetLocal equals zero. This is a minimal, focused fix that addresses the general cause of the bug in timezone offset calculation without affecting other functionality or introducing new risks."
+      },
+      "s_sem": 0.85,
+      "confidence_clipped": false
+    }
+  ]
+}

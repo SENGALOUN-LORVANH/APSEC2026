@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Ddifferent__AVATAR__Chart__patch1-Chart-11-AVATAR",
+  "condition": "B",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.9499999999999998,
+  "decision": "CORRECT",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 2.9326006329999927,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1803,
+      "output_tokens": 159,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 1.0,
+        "readability": 1.0,
+        "security_robustness": 1.0,
+        "judgement": "CORRECT",
+        "confidence": 0.95,
+        "brief_reason": "The patch fixes a clear copy-paste bug where iterator1 was incorrectly initialized from p1 instead of p2, causing the comparison to always compare p1 with itself. The fix is minimal (one character change), maintains readability, and correctly implements the intended equality comparison logic for two GeneralPath objects."
+      },
+      "s_sem": 0.95,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 2.844756038000014,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1803,
+      "output_tokens": 157,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 1.0,
+        "readability": 1.0,
+        "security_robustness": 1.0,
+        "judgement": "CORRECT",
+        "confidence": 0.95,
+        "brief_reason": "The patch fixes a clear copy-paste bug where iterator1 was incorrectly initialized from p1 instead of p2, causing the comparison to always compare p1 with itself. The fix is minimal (one character change), maintains readability, and correctly implements the intended logic of comparing two different path iterators."
+      },
+      "s_sem": 0.95,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 2.903073440999947,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1803,
+      "output_tokens": 154,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 1.0,
+        "readability": 1.0,
+        "security_robustness": 1.0,
+        "judgement": "CORRECT",
+        "confidence": 0.95,
+        "brief_reason": "The patch fixes a clear copy-paste bug where iterator1 was incorrectly initialized from p1 instead of p2, causing the comparison to always compare p1 with itself. The fix is minimal (one character change), maintains readability, and correctly implements the intended logic of comparing two different path iterators."
+      },
+      "s_sem": 0.95,
+      "confidence_clipped": false
+    }
+  ]
+}

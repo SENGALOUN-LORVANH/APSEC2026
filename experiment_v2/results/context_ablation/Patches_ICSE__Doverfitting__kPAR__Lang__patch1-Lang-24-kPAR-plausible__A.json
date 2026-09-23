@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__kPAR__Lang__patch1-Lang-24-kPAR-plausible",
+  "condition": "A",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.75,
+  "decision": "CORRECT",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 2.3154103470001246,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 992,
+      "output_tokens": 172,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.7,
+        "readability": 0.6,
+        "security_robustness": 0.9,
+        "judgement": "CORRECT",
+        "confidence": 0.75,
+        "brief_reason": "The patch extends the validation logic to reject long literal suffixes ('l' or 'L') in numeric strings, which is a reasonable generalization of the decimal point validation. It correctly identifies that these suffixes should not be allowed in the same context as decimal points. The change is relatively minimal and maintains security, though the readability could be improved by extracting the condition into a named variable."
+      },
+      "s_sem": 0.75,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 2.702677554999809,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 992,
+      "output_tokens": 172,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.7,
+        "readability": 0.6,
+        "security_robustness": 0.9,
+        "judgement": "CORRECT",
+        "confidence": 0.75,
+        "brief_reason": "The patch extends the validation logic to reject long literal suffixes ('l' or 'L') in numeric strings, which is a reasonable generalization of the decimal point validation. It correctly identifies that these suffixes should not be allowed in the same context as decimal points. The change is relatively minimal and maintains security, though the readability could be improved by extracting the condition into a named variable."
+      },
+      "s_sem": 0.75,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 2.373695100000077,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 992,
+      "output_tokens": 160,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.7,
+        "readability": 0.6,
+        "security_robustness": 0.9,
+        "judgement": "CORRECT",
+        "confidence": 0.75,
+        "brief_reason": "The patch extends the decimal point validation logic to also reject 'l' and 'L' suffixes (long literal indicators) in the same way, treating them as invalid characters in numeric strings. This generalizes the fix to handle long literals consistently with the existing decimal point validation, though the parenthesization could be cleaner."
+      },
+      "s_sem": 0.75,
+      "confidence_clipped": false
+    }
+  ]
+}

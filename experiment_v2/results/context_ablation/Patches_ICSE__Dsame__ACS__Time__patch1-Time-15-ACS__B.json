@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Dsame__ACS__Time__patch1-Time-15-ACS",
+  "condition": "B",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.15000000000000002,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 2.990301633999934,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1778,
+      "output_tokens": 180,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.3,
+        "readability": 0.2,
+        "security_robustness": 0.9,
+        "judgement": "OVERFITTING",
+        "confidence": 0.85,
+        "brief_reason": "The patch only handles the specific case where val1 == Long.MIN_VALUE and val2 == -1, which would cause integer overflow. However, it doesn't address the general overflow problem that could occur with other multiplications (e.g., large positive values with positive multipliers). The code formatting is also poor with the if statement on the same line as the return statement, reducing readability significantly."
+      },
+      "s_sem": 0.15000000000000002,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 3.1756566980000116,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1778,
+      "output_tokens": 180,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.3,
+        "readability": 0.2,
+        "security_robustness": 0.9,
+        "judgement": "OVERFITTING",
+        "confidence": 0.85,
+        "brief_reason": "The patch only handles the specific case where val1 == Long.MIN_VALUE and val2 == -1, which would cause integer overflow. However, it doesn't address the general overflow problem that could occur with other multiplications (e.g., large positive values with positive multipliers). The code formatting is also poor with the if statement on the same line as the return statement, reducing readability significantly."
+      },
+      "s_sem": 0.15000000000000002,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 3.0007533460000104,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1778,
+      "output_tokens": 181,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.3,
+        "readability": 0.2,
+        "security_robustness": 0.9,
+        "judgement": "OVERFITTING",
+        "confidence": 0.85,
+        "brief_reason": "The patch only handles the specific case where val1 == Long.MIN_VALUE and val2 == -1, which would cause integer overflow. However, it doesn't address the general overflow problem that could occur with other multiplications (e.g., large positive values multiplied by large factors). The code formatting is also poor with the if statement on the same line as the return statement, reducing readability significantly."
+      },
+      "s_sem": 0.15000000000000002,
+      "confidence_clipped": false
+    }
+  ]
+}

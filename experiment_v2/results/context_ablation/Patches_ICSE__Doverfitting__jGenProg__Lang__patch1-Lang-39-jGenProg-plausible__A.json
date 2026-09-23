@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__jGenProg__Lang__patch1-Lang-39-jGenProg-plausible",
+  "condition": "A",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.050000000000000044,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 2.839415686999928,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1035,
+      "output_tokens": 167,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.1,
+        "readability": 0.0,
+        "security_robustness": 1.0,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch completely removes the loop that calculates the capacity increase needed for StringBuilder, replacing it with blank lines. This deletes core functionality that estimates replacement text size, causing the code to always use a minimal buffer regardless of actual replacement needs. While it may pass tests with small inputs, it breaks the optimization logic and will cause performance degradation on larger strings."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 2.4949072759998216,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1035,
+      "output_tokens": 162,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.1,
+        "readability": 0.0,
+        "security_robustness": 1.0,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch completely removes the loop that calculates the capacity increase needed for StringBuilder, replacing it with blank lines. This deletes core functionality that estimates replacement text size, causing the StringBuilder to be initialized with insufficient capacity. While it may pass tests with small inputs, it breaks the optimization logic and will degrade performance on larger strings."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 2.5628569729999526,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1035,
+      "output_tokens": 163,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.1,
+        "readability": 0.0,
+        "security_robustness": 1.0,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch completely removes the loop that calculates the capacity increase needed for StringBuilder, replacing it with blank lines. This deletes core functionality that estimates replacement text size, causing the StringBuilder to be initialized with insufficient capacity. While it may pass tests with small inputs, it breaks the optimization logic and will cause performance degradation on larger strings."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    }
+  ]
+}

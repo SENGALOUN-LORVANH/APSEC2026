@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Ddifferent__AVATAR__Closure__patch1-Closure-2-AVATAR",
+  "condition": "A",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.5499999999999999,
+  "decision": "CORRECT",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 1.9686947830000463,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1102,
+      "output_tokens": 159,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.7,
+        "readability": 0.6,
+        "security_robustness": 0.9,
+        "judgement": "CORRECT",
+        "confidence": 0.75,
+        "brief_reason": "The patch adds a null check for implicitProto before calling getOwnPropertyNames(), which prevents a NullPointerException and addresses the general cause of the bug. However, the patch has formatting issues (inconsistent indentation and misplaced closing brace) that suggest it may not compile correctly, reducing confidence in its correctness."
+      },
+      "s_sem": 0.75,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 1.87399158300002,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1102,
+      "output_tokens": 159,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.7,
+        "readability": 0.6,
+        "security_robustness": 0.9,
+        "judgement": "CORRECT",
+        "confidence": 0.75,
+        "brief_reason": "The patch adds a null check for implicitProto before calling getOwnPropertyNames(), which prevents a NullPointerException and addresses the general cause of the bug. However, the patch has formatting issues (inconsistent indentation and misplaced closing brace) that suggest it may not compile correctly, reducing confidence in its correctness."
+      },
+      "s_sem": 0.75,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 2.287430373999996,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1102,
+      "output_tokens": 178,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.3,
+        "readability": 0.2,
+        "security_robustness": 0.9,
+        "judgement": "OVERFITTING",
+        "confidence": 0.85,
+        "brief_reason": "The patch adds a null check for implicitProto to prevent a NullPointerException, which is a valid fix. However, the patch has severe formatting issues: it introduces incorrect indentation (tab instead of spaces), misplaces a closing brace, and breaks the control flow structure, making the code syntactically incorrect and unmaintainable. The fix itself is sound but the implementation is broken."
+      },
+      "s_sem": 0.15000000000000002,
+      "confidence_clipped": false
+    }
+  ]
+}

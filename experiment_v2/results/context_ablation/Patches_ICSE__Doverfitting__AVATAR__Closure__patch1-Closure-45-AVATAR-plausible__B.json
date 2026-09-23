@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Closure__patch1-Closure-45-AVATAR-plausible",
+  "condition": "B",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.050000000000000044,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 3.1135253899999498,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1727,
+      "output_tokens": 164,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.2,
+        "readability": 0.3,
+        "security_robustness": 0.8,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch removes a critical check for literal values, causing it to incorrectly mark variables as assigned to unknown values even when they're assigned to literals like arrays. This overfits to the specific test case by weakening the logic that prevents removal of variables with side effects, breaking the intended optimization for cases where assignments are to literal values."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 2.987089008000112,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1727,
+      "output_tokens": 177,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.3,
+        "readability": 0.4,
+        "security_robustness": 0.8,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch removes a critical check for literal values, causing the code to incorrectly mark all non-property assignments as 'assignedToUnknownValue' regardless of whether they are literal values. This weakens the functionality by removing the distinction between assignments to literals (safe to remove) and assignments to unknown values (must be preserved), fixing only the specific test case while breaking the general logic."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 3.4893522050001593,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1727,
+      "output_tokens": 169,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.2,
+        "readability": 0.3,
+        "security_robustness": 0.5,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch removes a critical check for literal values, causing it to incorrectly mark variables as assigned to unknown values even when assigned to literals like arrays. This weakens the optimization logic and only fixes the specific test case by accident, not the underlying bug. The change is overly broad and breaks the intended functionality of distinguishing between literal and non-literal assignments."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    }
+  ]
+}

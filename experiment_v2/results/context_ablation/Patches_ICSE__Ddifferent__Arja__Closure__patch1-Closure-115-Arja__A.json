@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Ddifferent__Arja__Closure__patch1-Closure-115-Arja",
+  "condition": "A",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.06999999999999999,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 2.920963013000005,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 975,
+      "output_tokens": 155,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.95,
+        "readability": 0.3,
+        "security_robustness": 0.2,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch simply removes a safety check that prevents inlining when arguments have side effects, weakening the function's protective logic. This appears to be overfitting to pass a specific test rather than fixing the underlying bug. The removal introduces a correctness risk by allowing unsafe inlining operations."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 2.769260781000071,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 975,
+      "output_tokens": 149,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.95,
+        "readability": 0.85,
+        "security_robustness": 0.3,
+        "judgement": "OVERFITTING",
+        "confidence": 0.92,
+        "brief_reason": "The patch removes a safety check that prevents inlining when arguments have side effects, which weakens functionality rather than fixing a bug. This appears to be overfitting to pass specific tests while introducing a correctness regression that could allow unsafe inlining in general cases."
+      },
+      "s_sem": 0.07999999999999996,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 2.438764495999976,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 975,
+      "output_tokens": 160,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.95,
+        "readability": 0.85,
+        "security_robustness": 0.3,
+        "judgement": "OVERFITTING",
+        "confidence": 0.92,
+        "brief_reason": "The patch removes a safety check that prevents inlining when arguments have side effects, which weakens the function's correctness guarantees. While minimal in size, this deletion removes necessary validation logic rather than fixing the underlying bug, making it an overfitting solution that passes tests but introduces a latent defect."
+      },
+      "s_sem": 0.07999999999999996,
+      "confidence_clipped": false
+    }
+  ]
+}

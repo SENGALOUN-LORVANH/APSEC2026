@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Dsame__SimFix__Lang__patch1-Lang-39-SimFix",
+  "condition": "B",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.85,
+  "decision": "CORRECT",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 3.777986902000066,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 2546,
+      "output_tokens": 155,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.9,
+        "readability": 0.95,
+        "security_robustness": 0.95,
+        "judgement": "CORRECT",
+        "confidence": 0.85,
+        "brief_reason": "The patch adds a null check before accessing the length() method on searchList[i] and replacementList[i], preventing the NullPointerException. This is a minimal, general fix that handles the root cause of null values in the replacement arrays. The fix is appropriate and maintains existing functionality while safely handling edge cases."
+      },
+      "s_sem": 0.85,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 3.6540633479999087,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 2546,
+      "output_tokens": 152,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.9,
+        "readability": 0.95,
+        "security_robustness": 0.95,
+        "judgement": "CORRECT",
+        "confidence": 0.85,
+        "brief_reason": "The patch adds a null check before accessing the length() method on searchList[i] and replacementList[i], preventing the NullPointerException. This is a minimal, general fix that handles the root cause of null array elements. The change is safe and maintains existing functionality while properly handling edge cases."
+      },
+      "s_sem": 0.85,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 3.2419666429998415,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 2546,
+      "output_tokens": 166,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.9,
+        "readability": 0.95,
+        "security_robustness": 0.95,
+        "judgement": "CORRECT",
+        "confidence": 0.85,
+        "brief_reason": "The patch adds a null check before accessing the length() method on searchList and replacementList elements, preventing the NullPointerException. This is a minimal, targeted fix that addresses the root cause of the bug by handling null values gracefully. The fix is general and applies to any case where null elements exist in these arrays, not just the specific test case."
+      },
+      "s_sem": 0.85,
+      "confidence_clipped": false
+    }
+  ]
+}

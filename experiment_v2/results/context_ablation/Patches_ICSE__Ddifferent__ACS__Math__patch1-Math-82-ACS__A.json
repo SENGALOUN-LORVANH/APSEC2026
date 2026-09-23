@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-82-ACS",
+  "condition": "A",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.050000000000000044,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 2.907937539000045,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1077,
+      "output_tokens": 160,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.2,
+        "readability": 0.1,
+        "security_robustness": 0.3,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch adds a redundant condition that excludes the case where entry equals 0 (within epsilon), which weakens the original logic by preventing valid ratio calculations when entry is exactly zero. The formatting is also severely degraded, and the fix appears to address only a specific test case rather than the underlying bug cause."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 2.9238306070000135,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1077,
+      "output_tokens": 202,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.2,
+        "readability": 0.1,
+        "security_robustness": 0.3,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch adds a redundant condition that excludes the case where entry equals 0 (within epsilon), which weakens the original logic by preventing division by zero handling in edge cases. The formatting is severely degraded, and the condition `!(MathUtils.compareTo(entry, 0, epsilon)==0.0)` is logically flawed since compareTo returns an int, not a double. This appears to be an overfitting fix that only addresses a specific test case rather than the underlying bug."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 2.394296387000054,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1077,
+      "output_tokens": 157,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.2,
+        "readability": 0.1,
+        "security_robustness": 0.3,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch adds a redundant condition that excludes the case where entry equals 0 (within epsilon), which weakens the original logic by preventing valid ratio calculations when entry is exactly zero. The formatting is also severely degraded, and the fix appears to address only a specific test case rather than the underlying bug cause."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Ddifferent__ACS__Lang__patch1-Lang-24-ACS",
+  "condition": "A",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.050000000000000044,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 3.1940733860000137,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 980,
+      "output_tokens": 164,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.2,
+        "readability": 0.1,
+        "security_robustness": 0.8,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch adds a check that returns false when a decimal point is present with 'L' suffix, but this is overly specific and weakens the original logic which correctly rejected 'L' with exponents. The patch breaks the existing behavior for valid cases like '123L' and introduces poor code formatting that violates readability standards."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 2.9958286000000953,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 980,
+      "output_tokens": 164,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.2,
+        "readability": 0.1,
+        "security_robustness": 0.8,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch adds a check that returns false when a decimal point is present with 'L' suffix, but this is overly specific and weakens the original logic which correctly rejected 'L' with exponents. The patch breaks the existing behavior for valid cases like '123L' and introduces poor code formatting that violates readability standards."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 3.0240508089999594,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 980,
+      "output_tokens": 164,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.2,
+        "readability": 0.1,
+        "security_robustness": 0.8,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch adds a check that returns false when a decimal point is present with 'L' suffix, but this is overly specific and weakens the original logic which correctly rejected 'L' with exponents. The patch breaks the existing behavior for valid cases like '123L' and introduces poor code formatting that violates readability standards."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    }
+  ]
+}

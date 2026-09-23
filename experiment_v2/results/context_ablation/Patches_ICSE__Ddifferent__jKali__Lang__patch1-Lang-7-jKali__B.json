@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Ddifferent__jKali__Lang__patch1-Lang-7-jKali",
+  "condition": "B",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.050000000000000044,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 3.9486033140000245,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 2533,
+      "output_tokens": 188,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.1,
+        "readability": 0.2,
+        "security_robustness": 0.3,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch removes the `return null;` statement without replacing it with proper logic, causing the method to fall through and continue execution instead of handling the double-dash case. This breaks the intended behavior by allowing invalid input (strings starting with '--') to proceed to further parsing, which is a weakening of functionality rather than a genuine bug fix. The patch only makes the specific test pass by accident but introduces a logical error that violates the method's contract."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 3.9139911249999386,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 2533,
+      "output_tokens": 188,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.1,
+        "readability": 0.2,
+        "security_robustness": 0.3,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch removes the `return null;` statement without replacing it with proper logic, causing the method to fall through and continue execution instead of handling the double-dash case. This breaks the intended behavior by allowing invalid input (strings starting with '--') to proceed to further parsing, which is a weakening of functionality rather than a genuine bug fix. The patch only makes the specific test pass by accident but introduces a logical error that violates the method's contract."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 3.960615342999972,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 2533,
+      "output_tokens": 188,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.1,
+        "readability": 0.2,
+        "security_robustness": 0.3,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch removes the `return null;` statement without replacing it with proper logic, causing the method to fall through and continue execution instead of handling the double-dash case. This breaks the intended behavior by allowing invalid input (strings starting with '--') to proceed to further parsing, which is a weakening of functionality rather than a genuine bug fix. The patch only makes the specific test pass by accident but introduces a logical error that violates the method's contract."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    }
+  ]
+}

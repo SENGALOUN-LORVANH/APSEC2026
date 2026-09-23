@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Dsame__ACS__Time__patch1-Time-15-ACS",
+  "condition": "A",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.85,
+  "decision": "CORRECT",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 2.977424185000018,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 975,
+      "output_tokens": 162,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.7,
+        "readability": 0.3,
+        "security_robustness": 0.9,
+        "judgement": "CORRECT",
+        "confidence": 0.85,
+        "brief_reason": "The patch correctly addresses an integer overflow bug in the safeMultiply method by detecting when negating Long.MIN_VALUE would overflow and throwing an ArithmeticException. This is a general fix that applies to the root cause. However, the code formatting is poor with the if statement on the same line as the return, significantly reducing readability."
+      },
+      "s_sem": 0.85,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 3.029261780999832,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 975,
+      "output_tokens": 162,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.7,
+        "readability": 0.3,
+        "security_robustness": 0.9,
+        "judgement": "CORRECT",
+        "confidence": 0.85,
+        "brief_reason": "The patch correctly addresses an integer overflow bug in the safeMultiply method by detecting when negating Long.MIN_VALUE would overflow and throwing an ArithmeticException. This is a general fix that applies to the root cause. However, the code formatting is poor with the if statement on the same line as the return, significantly reducing readability."
+      },
+      "s_sem": 0.85,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 2.9977659349999612,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 975,
+      "output_tokens": 162,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.7,
+        "readability": 0.3,
+        "security_robustness": 0.9,
+        "judgement": "CORRECT",
+        "confidence": 0.85,
+        "brief_reason": "The patch correctly addresses an integer overflow bug in the safeMultiply method by detecting when negating Long.MIN_VALUE would overflow and throwing an ArithmeticException. This is a general fix that applies to the root cause. However, the code formatting is poor with the if statement on the same line as the return, significantly reducing readability."
+      },
+      "s_sem": 0.85,
+      "confidence_clipped": false
+    }
+  ]
+}

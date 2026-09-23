@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Ddifferent__ACS__Chart__patch1-Chart-19-ACS",
+  "condition": "A",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.15000000000000002,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 3.4921107719999327,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1028,
+      "output_tokens": 168,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.3,
+        "readability": 0.2,
+        "security_robustness": 0.6,
+        "judgement": "OVERFITTING",
+        "confidence": 0.85,
+        "brief_reason": "The patch adds null-checks that throw IllegalArgumentException in two methods, but these checks are placed inconsistently (one at the start, one at the end) and don't address the actual bug. The changes appear to be defensive programming rather than fixing the underlying issue, and the poor code formatting suggests overfitting to specific test cases rather than a principled fix."
+      },
+      "s_sem": 0.15000000000000002,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 3.3393603549999398,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1028,
+      "output_tokens": 168,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.3,
+        "readability": 0.2,
+        "security_robustness": 0.6,
+        "judgement": "OVERFITTING",
+        "confidence": 0.85,
+        "brief_reason": "The patch adds null-checks that throw IllegalArgumentException in two methods, but these checks are placed inconsistently (one at the start, one at the end) and don't address the actual bug. The changes appear to be defensive programming rather than fixing the underlying issue, and the poor code formatting suggests overfitting to specific test cases rather than a principled fix."
+      },
+      "s_sem": 0.15000000000000002,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 3.163304607999976,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1028,
+      "output_tokens": 168,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.3,
+        "readability": 0.2,
+        "security_robustness": 0.6,
+        "judgement": "OVERFITTING",
+        "confidence": 0.85,
+        "brief_reason": "The patch adds null-checks that throw IllegalArgumentException in two methods, but these checks are placed inconsistently (one at the start, one at the end) and don't address the actual bug. The changes appear to be defensive programming rather than fixing the underlying issue, and the poor code formatting suggests overfitting to specific test cases rather than a principled fix."
+      },
+      "s_sem": 0.15000000000000002,
+      "confidence_clipped": false
+    }
+  ]
+}

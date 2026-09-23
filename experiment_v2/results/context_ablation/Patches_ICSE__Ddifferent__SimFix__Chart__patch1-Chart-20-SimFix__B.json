@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Ddifferent__SimFix__Chart__patch1-Chart-20-SimFix",
+  "condition": "B",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.050000000000000044,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 3.313107941999988,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1801,
+      "output_tokens": 177,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.3,
+        "readability": 0.2,
+        "security_robustness": 1.0,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch changes the third parameter from 'paint' to 'stroke' in the super() call, which fixes the specific test case but introduces an unrelated behavior change by passing the wrong parameter type (Stroke instead of Paint for outlinePaint). The patch also leaves commented-out code, reducing readability. This appears to be overfitting to the specific test rather than fixing the underlying bug correctly."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 3.000075532999972,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1801,
+      "output_tokens": 177,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.3,
+        "readability": 0.2,
+        "security_robustness": 1.0,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch changes the third parameter from 'paint' to 'stroke' in the super() call, which fixes the specific test case but introduces an unrelated behavior change by passing the wrong parameter type (Stroke instead of Paint for outlinePaint). The patch also leaves commented-out code, reducing readability. This appears to be overfitting to the specific test rather than fixing the underlying bug correctly."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 2.9283993400000554,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1801,
+      "output_tokens": 168,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.2,
+        "readability": 0.3,
+        "security_robustness": 0.8,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch changes the third parameter from 'paint' to 'stroke' in the super() call, which fixes the specific test but introduces a logic error by passing stroke where outlinePaint is expected. This is overfitting to the test case rather than fixing the underlying bug, and the commented-out code makes the patch unmaintainable."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    }
+  ]
+}

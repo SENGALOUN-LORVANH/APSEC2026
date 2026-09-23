@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__Nopol__Math__patch1-Math-4-Nopol-plausible",
+  "condition": "A",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.050000000000000044,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 2.9543613809998988,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 994,
+      "output_tokens": 164,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.1,
+        "readability": 0.2,
+        "security_robustness": 0.3,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch adds a convoluted condition that appears to be overfitting to specific test cases rather than fixing the underlying bug. The condition contains redundant checks (other.sin < 1 twice), unrelated comparisons, and weakens the original null-return logic by making it conditional. This does not represent a genuine bug fix."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 3.0948370789999444,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 994,
+      "output_tokens": 164,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.1,
+        "readability": 0.2,
+        "security_robustness": 0.3,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch adds a convoluted condition that appears to be overfitting to specific test cases rather than fixing the underlying bug. The condition contains redundant checks (other.sin < 1 twice), unrelated comparisons, and weakens the original null-return logic by making it conditional. This does not represent a genuine bug fix."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 3.036756483999852,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 994,
+      "output_tokens": 164,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.1,
+        "readability": 0.2,
+        "security_robustness": 0.3,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch adds a convoluted condition that appears to be overfitting to specific test cases rather than fixing the underlying bug. The condition contains redundant checks (other.sin < 1 twice), unrelated comparisons, and weakens the original null-return logic by making it conditional. This does not represent a genuine bug fix."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    }
+  ]
+}

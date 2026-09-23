@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-25-ACS",
+  "condition": "B",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.15000000000000002,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 2.9543680620000714,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1798,
+      "output_tokens": 164,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.3,
+        "readability": 0.2,
+        "security_robustness": 0.6,
+        "judgement": "OVERFITTING",
+        "confidence": 0.85,
+        "brief_reason": "The patch adds a check for c2==0.0 to throw an exception, but this only addresses the specific test case rather than the underlying mathematical issue. The check is poorly formatted, lacks proper exception message, and doesn't address why c2 becomes zero or handle the general case of invalid input data that should trigger the exception."
+      },
+      "s_sem": 0.15000000000000002,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 3.248831414999927,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1798,
+      "output_tokens": 179,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.3,
+        "readability": 0.2,
+        "security_robustness": 0.6,
+        "judgement": "OVERFITTING",
+        "confidence": 0.85,
+        "brief_reason": "The patch adds a check for c2==0.0 to throw an exception, but this only addresses the specific test case rather than the underlying mathematical issue. The check is poorly formatted, lacks proper exception message, and doesn't address why c2 becomes zero or handle the general case of invalid input data. A proper fix would validate input data earlier or handle the mathematical singularity more comprehensively."
+      },
+      "s_sem": 0.15000000000000002,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 3.3030408060000127,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1798,
+      "output_tokens": 180,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.3,
+        "readability": 0.2,
+        "security_robustness": 0.6,
+        "judgement": "OVERFITTING",
+        "confidence": 0.85,
+        "brief_reason": "The patch adds a check for c2==0.0 to throw an exception, which makes the specific test pass by catching a division-by-zero case. However, the fix is poorly formatted (missing newline), doesn't address the root cause of why c2 becomes zero, and only handles one specific edge case rather than the general problem. The underlying issue likely requires more comprehensive validation or algorithm adjustment."
+      },
+      "s_sem": 0.15000000000000002,
+      "confidence_clipped": false
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_others__Dcorrect__SketchFix__Closure__patch1-Closure-14-SketchFix",
+  "condition": "A",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.3833333333333333,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 2.5661522930001865,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1001,
+      "output_tokens": 146,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.95,
+        "readability": 0.9,
+        "security_robustness": 0.85,
+        "judgement": "CORRECT",
+        "confidence": 0.75,
+        "brief_reason": "The patch changes the branch type from UNCOND to ON_EX when creating edges to finally blocks, which correctly represents that finally blocks are reached via exception paths. This is a minimal, targeted fix that addresses the semantic correctness of control flow analysis for exception handling in finally blocks."
+      },
+      "s_sem": 0.75,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 2.453778324000041,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1001,
+      "output_tokens": 175,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.9,
+        "readability": 0.8,
+        "security_robustness": 0.6,
+        "judgement": "OVERFITTING",
+        "confidence": 0.85,
+        "brief_reason": "The patch changes Branch.UNCOND to Branch.ON_EX for finally block edges, which appears to be a targeted fix for a specific test case rather than addressing the root cause. This change weakens functionality by incorrectly marking normal control flow (UNCOND) as exception flow (ON_EX), which could break exception handling semantics in other scenarios not covered by the test suite."
+      },
+      "s_sem": 0.15000000000000002,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 2.5429247710001164,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1001,
+      "output_tokens": 170,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.9,
+        "readability": 0.8,
+        "security_robustness": 0.6,
+        "judgement": "OVERFITTING",
+        "confidence": 0.75,
+        "brief_reason": "The patch changes the branch type from UNCOND to ON_EX for finally block edges, which appears to be a targeted fix for a specific test case rather than addressing the root cause. This change weakens functionality by incorrectly marking normal control flow to finally blocks as exception-based, which could break exception handling semantics in other scenarios not covered by the test suite."
+      },
+      "s_sem": 0.25,
+      "confidence_clipped": false
+    }
+  ]
+}

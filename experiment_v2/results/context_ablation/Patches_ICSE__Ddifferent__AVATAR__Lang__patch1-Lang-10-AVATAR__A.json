@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Ddifferent__AVATAR__Lang__patch1-Lang-10-AVATAR",
+  "condition": "A",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.050000000000000044,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 2.2393288370000164,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1014,
+      "output_tokens": 149,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.1,
+        "readability": 0.3,
+        "security_robustness": 1.0,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch removes whitespace handling logic entirely, which deletes core functionality rather than fixing a bug. It only passes tests if the test suite doesn't cover whitespace scenarios, making it an overfitting fix that breaks the general case of parsing dates with whitespace."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 2.2700789359998907,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1014,
+      "output_tokens": 149,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.1,
+        "readability": 0.3,
+        "security_robustness": 1.0,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch removes whitespace handling logic entirely, which deletes core functionality rather than fixing a bug. It only passes tests if the test suite doesn't cover whitespace scenarios, making it an overfitting fix that breaks the general case of parsing dates with whitespace."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 2.190069041000015,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1014,
+      "output_tokens": 149,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.1,
+        "readability": 0.3,
+        "security_robustness": 1.0,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch removes whitespace handling logic entirely, which deletes core functionality rather than fixing a bug. It only passes tests if the test suite doesn't cover whitespace scenarios, making it an overfitting fix that breaks the general case of parsing dates with whitespace."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__ACS__Math__patch1-Math-4-ACS-plausible",
+  "condition": "B",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.9166666666666666,
+  "decision": "CORRECT",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 2.9628564300001017,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 2804,
+      "output_tokens": 158,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 1.0,
+        "readability": 0.6,
+        "security_robustness": 1.0,
+        "judgement": "CORRECT",
+        "confidence": 0.95,
+        "brief_reason": "The patch correctly addresses the root cause by adding null checks before calling toSubSpace() on potentially null intersection results. This prevents NullPointerException when lines are parallel or non-intersecting, which is the expected behavior. The fix is minimal, general, and maintains proper semantics by returning null when no valid intersection exists."
+      },
+      "s_sem": 0.95,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 2.6982214949999843,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 2804,
+      "output_tokens": 148,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.95,
+        "readability": 0.6,
+        "security_robustness": 0.95,
+        "judgement": "CORRECT",
+        "confidence": 0.85,
+        "brief_reason": "The patch correctly addresses the root cause by adding null checks before calling toSubSpace() on potentially null intersection results. This prevents NullPointerExceptions when lines are parallel or non-intersecting. The fix is minimal and semantically correct, though the formatting could be improved."
+      },
+      "s_sem": 0.85,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 3.1981202939999775,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 2804,
+      "output_tokens": 158,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 1.0,
+        "readability": 0.6,
+        "security_robustness": 1.0,
+        "judgement": "CORRECT",
+        "confidence": 0.95,
+        "brief_reason": "The patch correctly addresses the root cause by adding null checks before dereferencing intersection results that can be null when lines are parallel or non-intersecting. This is a minimal, semantically correct fix that prevents NullPointerException and returns null appropriately when no intersection exists. The code style is poor but functionally sound."
+      },
+      "s_sem": 0.95,
+      "confidence_clipped": false
+    }
+  ]
+}

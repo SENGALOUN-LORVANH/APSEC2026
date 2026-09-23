@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_others__Dcorrect__SOFix__Time__patch1-Time-19-SOFix",
+  "condition": "B",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.25,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 3.8989317829998527,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1774,
+      "output_tokens": 185,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.95,
+        "readability": 0.9,
+        "security_robustness": 0.95,
+        "judgement": "OVERFITTING",
+        "confidence": 0.75,
+        "brief_reason": "The patch changes a boundary condition from > 0 to >= 0, which fixes the specific failing test case where offsetLocal equals 0 (UTC timezone). However, this appears to be a narrow fix for the observed test failure rather than addressing the underlying logic of timezone cutover handling. The change lacks context about whether offsetLocal == 0 should genuinely be treated the same as offsetLocal > 0 in all scenarios."
+      },
+      "s_sem": 0.25,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 3.7332346700000016,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1774,
+      "output_tokens": 185,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.95,
+        "readability": 0.9,
+        "security_robustness": 0.95,
+        "judgement": "OVERFITTING",
+        "confidence": 0.75,
+        "brief_reason": "The patch changes a boundary condition from > 0 to >= 0, which fixes the specific failing test case where offsetLocal equals 0 (UTC timezone). However, this appears to be a narrow fix for the observed test failure rather than addressing the underlying logic of timezone cutover handling. The change lacks context about whether offsetLocal == 0 should genuinely be treated the same as offsetLocal > 0 in all scenarios."
+      },
+      "s_sem": 0.25,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 3.903550229000075,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1774,
+      "output_tokens": 185,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.95,
+        "readability": 0.9,
+        "security_robustness": 0.95,
+        "judgement": "OVERFITTING",
+        "confidence": 0.75,
+        "brief_reason": "The patch changes a boundary condition from > 0 to >= 0, which fixes the specific failing test case where offsetLocal equals 0 (UTC timezone). However, this appears to be a narrow fix for the observed test failure rather than addressing the underlying logic of timezone cutover handling. The change lacks context about whether offsetLocal == 0 should genuinely be treated the same as offsetLocal > 0 in all scenarios."
+      },
+      "s_sem": 0.25,
+      "confidence_clipped": false
+    }
+  ]
+}

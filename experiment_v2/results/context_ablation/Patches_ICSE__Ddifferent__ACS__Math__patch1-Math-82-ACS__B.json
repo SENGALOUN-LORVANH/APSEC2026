@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-82-ACS",
+  "condition": "B",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.15000000000000002,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 3.4801970549999623,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1878,
+      "output_tokens": 194,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.3,
+        "readability": 0.2,
+        "security_robustness": 0.7,
+        "judgement": "OVERFITTING",
+        "confidence": 0.85,
+        "brief_reason": "The patch adds an extra condition to exclude the case where entry equals 0, which is a workaround for the specific test case rather than fixing the underlying algorithmic issue. The condition is poorly formatted, redundant (the second check is equivalent to the negation of the first), and changes behavior in ways unrelated to the core bug. This appears to be overfitting to pass testMath288 rather than addressing the root cause of the simplex solver's incorrect result."
+      },
+      "s_sem": 0.15000000000000002,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 3.130424057999903,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1878,
+      "output_tokens": 178,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.3,
+        "readability": 0.2,
+        "security_robustness": 0.7,
+        "judgement": "OVERFITTING",
+        "confidence": 0.85,
+        "brief_reason": "The patch adds an extra condition to exclude the case where entry equals 0 (within epsilon), which is a very specific fix for the failing test case. However, this introduces unrelated behavior changes by modifying the algorithm's logic in a way that may not address the root cause of the bug. The code is also poorly formatted and the fix appears to be a workaround rather than a proper repair."
+      },
+      "s_sem": 0.15000000000000002,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 3.3529481969999324,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1878,
+      "output_tokens": 208,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.3,
+        "readability": 0.2,
+        "security_robustness": 0.6,
+        "judgement": "OVERFITTING",
+        "confidence": 0.85,
+        "brief_reason": "The patch adds a redundant condition `&&!(MathUtils.compareTo(entry, 0, epsilon)==0.0)` that excludes the case where entry equals zero, but this appears to be a workaround for a specific test case rather than fixing the underlying algorithmic issue. The condition is poorly formatted, introduces unnecessary complexity, and the logic is unclear since `MathUtils.compareTo(entry, 0, epsilon) >= 0` already includes the zero case, making the additional check redundant and confusing."
+      },
+      "s_sem": 0.15000000000000002,
+      "confidence_clipped": false
+    }
+  ]
+}

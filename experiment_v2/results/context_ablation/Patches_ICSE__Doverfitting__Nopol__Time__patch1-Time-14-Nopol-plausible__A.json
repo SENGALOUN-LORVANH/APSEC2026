@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__Nopol__Time__patch1-Time-14-Nopol-plausible",
+  "condition": "A",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.050000000000000044,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 3.779128159000038,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 993,
+      "output_tokens": 164,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.1,
+        "readability": 0.0,
+        "security_robustness": 0.3,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch replaces a meaningful contiguity check with an unrelated and nonsensical condition involving MIN and valueToAdd comparisons. This breaks the original logic, introduces unreadable code, and only happens to pass tests by accident rather than fixing the actual bug. The change weakens functionality by removing the proper validation that was intended."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 3.3595941700000367,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 993,
+      "output_tokens": 164,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.1,
+        "readability": 0.0,
+        "security_robustness": 0.3,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch replaces a meaningful contiguity check with an unrelated and nonsensical condition involving MIN and valueToAdd comparisons. This breaks the original logic, introduces unreadable code, and only happens to pass tests by accident rather than fixing the actual bug. The change weakens functionality by removing the proper validation that was intended."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 3.293690971999922,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 993,
+      "output_tokens": 164,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.1,
+        "readability": 0.0,
+        "security_robustness": 0.3,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch replaces a meaningful contiguity check with an unrelated and nonsensical condition involving MIN and valueToAdd comparisons. This breaks the original logic, introduces unreadable code, and only happens to pass tests by accident rather than fixing the actual bug. The change weakens functionality by removing the proper validation that was intended."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    }
+  ]
+}

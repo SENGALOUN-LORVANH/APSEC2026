@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_others__Dcorrect__Jaid__Closure__patch1-Closure-31-Jaid",
+  "condition": "A",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.050000000000000044,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 2.602982010000005,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 963,
+      "output_tokens": 177,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.1,
+        "readability": 0.0,
+        "security_robustness": 1.0,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch replaces `!options.skipAllPasses` with `!false` (which always evaluates to true), effectively removing a legitimate configuration check. This weakens functionality by ignoring the skipAllPasses option and only fixes the specific test case rather than addressing the underlying bug. The change is semantically incorrect and introduces a hardcoded boolean that defeats the purpose of the configuration option."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 2.4705156179998085,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 963,
+      "output_tokens": 165,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.1,
+        "readability": 0.0,
+        "security_robustness": 1.0,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch replaces `!options.skipAllPasses` with `!false` (which always evaluates to true), effectively removing a legitimate configuration check. This is a hardcoded constant that weakens functionality by ignoring the skipAllPasses option, suggesting the patch only fixes a specific test case rather than addressing the underlying bug."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 3.3357225029999427,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 963,
+      "output_tokens": 177,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.1,
+        "readability": 0.0,
+        "security_robustness": 1.0,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch replaces `!options.skipAllPasses` with `!false` (which always evaluates to true), effectively removing a legitimate configuration check. This weakens functionality by ignoring the skipAllPasses option and only fixes the specific test case rather than addressing the underlying bug. The change is semantically incorrect and introduces a hardcoded boolean that defeats the purpose of the configuration option."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    }
+  ]
+}

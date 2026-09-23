@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Ddifferent__jKali__Lang__patch1-Lang-7-jKali",
+  "condition": "A",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.050000000000000044,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 2.3946812219999174,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 992,
+      "output_tokens": 163,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.1,
+        "readability": 0.2,
+        "security_robustness": 0.3,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch removes the `return null;` statement when a string starts with '--', replacing it with an empty line. This deletes the validation logic that rejects invalid double-negative numbers, weakening functionality. The code will now fall through to subsequent parsing logic instead of properly rejecting malformed input, which is incorrect behavior repair."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 3.2991376559999708,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 992,
+      "output_tokens": 165,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.1,
+        "readability": 0.2,
+        "security_robustness": 0.3,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch removes the `return null;` statement when a string starts with '--', replacing it with an empty statement. This deletes the intended validation behavior that rejects double-negative prefixes, allowing invalid input to proceed through the parsing logic. The fix is overfitting to a specific test case rather than properly handling the validation requirement."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 2.212893775999987,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 992,
+      "output_tokens": 163,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.1,
+        "readability": 0.2,
+        "security_robustness": 0.3,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch removes the `return null;` statement when a string starts with '--', replacing it with an empty line. This deletes the validation logic that rejects invalid double-negative numbers, weakening functionality. The code will now fall through to subsequent parsing logic instead of properly rejecting malformed input, which is incorrect behavior repair."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    }
+  ]
+}

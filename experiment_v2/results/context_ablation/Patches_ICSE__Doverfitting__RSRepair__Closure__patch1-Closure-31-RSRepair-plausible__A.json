@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__RSRepair__Closure__patch1-Closure-31-RSRepair-plausible",
+  "condition": "A",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.050000000000000044,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 3.230364609000162,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 925,
+      "output_tokens": 177,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.1,
+        "readability": 0.3,
+        "security_robustness": 0.8,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch changes a return statement from 'return res' to 'return null', which fundamentally inverts the logic of the checkTreeEqualsImpl method by discarding the actual comparison result. This weakens functionality by always returning null when a mismatch is found, rather than propagating the mismatch information, suggesting the patch only masks a specific test case rather than fixing the underlying bug."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 3.2404462090000834,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 925,
+      "output_tokens": 177,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.1,
+        "readability": 0.3,
+        "security_robustness": 0.8,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch changes a return statement from 'return res' to 'return null', which fundamentally inverts the logic of the checkTreeEqualsImpl method by discarding the actual comparison result. This weakens functionality by always returning null when a mismatch is found, rather than propagating the mismatch information, suggesting the patch only masks a specific test case rather than fixing the underlying bug."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 3.1339387000000443,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 925,
+      "output_tokens": 177,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.1,
+        "readability": 0.3,
+        "security_robustness": 0.8,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch changes a return statement from 'return res' to 'return null', which fundamentally inverts the logic of the checkTreeEqualsImpl method by discarding the actual comparison result. This weakens functionality by always returning null when a mismatch is found, rather than propagating the mismatch information, suggesting the patch only masks a specific test case rather than fixing the underlying bug."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    }
+  ]
+}

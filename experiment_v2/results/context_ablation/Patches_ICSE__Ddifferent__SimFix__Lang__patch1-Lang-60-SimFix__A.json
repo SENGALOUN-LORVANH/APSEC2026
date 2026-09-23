@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Ddifferent__SimFix__Lang__patch1-Lang-60-SimFix",
+  "condition": "A",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.75,
+  "decision": "CORRECT",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 2.2723861099999567,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1038,
+      "output_tokens": 148,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.3,
+        "readability": 0.4,
+        "security_robustness": 0.9,
+        "judgement": "CORRECT",
+        "confidence": 0.75,
+        "brief_reason": "The patch fixes the bug by iterating over the actual size of the buffer instead of its full length, preventing false positives from uninitialized array elements. However, it leaves commented-out original code and uses poor formatting, reducing readability and maintainability despite being functionally correct."
+      },
+      "s_sem": 0.75,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 2.2659610110000585,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1038,
+      "output_tokens": 146,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.3,
+        "readability": 0.4,
+        "security_robustness": 0.9,
+        "judgement": "CORRECT",
+        "confidence": 0.75,
+        "brief_reason": "The patch fixes the bug by iterating over the actual size of the buffer instead of its full length, preventing false positives from uninitialized array elements. However, it leaves commented-out original code and uses poor formatting, reducing code quality without affecting correctness."
+      },
+      "s_sem": 0.75,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 2.375675294999951,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1038,
+      "output_tokens": 148,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.3,
+        "readability": 0.4,
+        "security_robustness": 0.9,
+        "judgement": "CORRECT",
+        "confidence": 0.75,
+        "brief_reason": "The patch fixes the bug by iterating over the actual size of the buffer instead of its full length, preventing false positives from uninitialized array elements. However, it leaves commented-out original code and uses poor formatting, reducing readability and maintainability despite being functionally correct."
+      },
+      "s_sem": 0.75,
+      "confidence_clipped": false
+    }
+  ]
+}

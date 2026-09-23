@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Lang__patch1-Lang-39-AVATAR-plausible",
+  "condition": "A",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.050000000000000044,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 2.407549997999922,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 993,
+      "output_tokens": 178,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.1,
+        "readability": 0.5,
+        "security_robustness": 0.8,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch changes `replacementList[i].length()` to `searchList[i].length()`, making the calculation always zero (subtracting a value from itself). This removes the intended functionality of accounting for replacement text that is larger than the search text, which is the core logic of this capacity estimation. The patch appears to fix a specific test case by accident rather than addressing the actual bug."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 2.3896748980000666,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 993,
+      "output_tokens": 171,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.1,
+        "readability": 0.3,
+        "security_robustness": 0.5,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch changes `replacementList[i].length()` to `searchList[i].length()`, making the calculation always zero (subtracting a value from itself). This breaks the intended logic of computing the difference between replacement and search text lengths, weakening functionality rather than fixing a bug. The patch appears to be a regression that only passes tests by accident."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 2.3741792979999445,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 993,
+      "output_tokens": 178,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.1,
+        "readability": 0.3,
+        "security_robustness": 0.8,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch changes `replacementList[i].length()` to `searchList[i].length()`, making the calculation always zero (subtracting a value from itself). This removes the intended functionality of accounting for replacement text that is larger than the search text, which is the core logic of this capacity estimation. The patch appears to fix a specific test case by accident rather than addressing the actual bug."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    }
+  ]
+}

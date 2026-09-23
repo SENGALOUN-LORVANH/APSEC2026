@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__TBar__Lang__patch1-Lang-39-TBar-plausible",
+  "condition": "B",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.010000000000000009,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 3.1199970160000703,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 2544,
+      "output_tokens": 178,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.1,
+        "readability": 0.0,
+        "security_robustness": 0.0,
+        "judgement": "OVERFITTING",
+        "confidence": 0.99,
+        "brief_reason": "The patch changes the loop condition from 'i < searchList.length' to 'i==searchList.length', which creates an infinite loop that never executes the body (since i starts at 0 and the condition is false). This breaks the core functionality of the replaceEach method by preventing proper calculation of the increase variable, making the patch fundamentally incorrect despite passing the test."
+      },
+      "s_sem": 0.010000000000000009,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 3.0909226600001602,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 2544,
+      "output_tokens": 191,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.0,
+        "readability": 0.0,
+        "security_robustness": 0.0,
+        "judgement": "OVERFITTING",
+        "confidence": 0.99,
+        "brief_reason": "The patch changes the loop condition from 'i < searchList.length' to 'i==searchList.length', which creates an infinite loop that never executes the body (since i starts at 0 and the condition is false). This breaks the core functionality of the replaceEach method rather than fixing the NullPointerException. The patch only passes the test by accident or due to test framework timeout behavior, not by actually fixing the bug."
+      },
+      "s_sem": 0.010000000000000009,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 2.956735260999949,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 2544,
+      "output_tokens": 178,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.1,
+        "readability": 0.0,
+        "security_robustness": 0.0,
+        "judgement": "OVERFITTING",
+        "confidence": 0.99,
+        "brief_reason": "The patch changes the loop condition from 'i < searchList.length' to 'i==searchList.length', which creates an infinite loop that never executes the body (since i starts at 0 and the condition is false). This breaks the core functionality of the replaceEach method by preventing proper calculation of the increase variable, making the patch fundamentally incorrect despite passing the test."
+      },
+      "s_sem": 0.010000000000000009,
+      "confidence_clipped": false
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__SimFix__Closure__patch1-Closure-14-SimFix-plausible",
+  "condition": "A",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.15000000000000002,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 3.243337497000084,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1001,
+      "output_tokens": 163,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.3,
+        "readability": 0.7,
+        "security_robustness": 0.4,
+        "judgement": "OVERFITTING",
+        "confidence": 0.85,
+        "brief_reason": "The patch changes Branch.UNCOND to Branch.ON_EX for finally block edges, which appears to be a semantic change that alters control flow semantics rather than fixing a bug. Finally blocks should execute unconditionally after try/catch, not only on exceptions, making this change incorrect and overfitted to specific test cases."
+      },
+      "s_sem": 0.15000000000000002,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 3.158784636000064,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1001,
+      "output_tokens": 163,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.3,
+        "readability": 0.7,
+        "security_robustness": 0.4,
+        "judgement": "OVERFITTING",
+        "confidence": 0.85,
+        "brief_reason": "The patch changes Branch.UNCOND to Branch.ON_EX for finally block edges, which appears to be a semantic change that alters control flow semantics rather than fixing a bug. Finally blocks should execute unconditionally after try/catch, not only on exceptions, making this change incorrect and overfitted to specific test cases."
+      },
+      "s_sem": 0.15000000000000002,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 3.085779422000087,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1001,
+      "output_tokens": 163,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.3,
+        "readability": 0.7,
+        "security_robustness": 0.4,
+        "judgement": "OVERFITTING",
+        "confidence": 0.85,
+        "brief_reason": "The patch changes Branch.UNCOND to Branch.ON_EX for finally block edges, which appears to be a semantic change that alters control flow semantics rather than fixing a bug. Finally blocks should execute unconditionally after try/catch, not only on exceptions, making this change incorrect and overfitted to specific test cases."
+      },
+      "s_sem": 0.15000000000000002,
+      "confidence_clipped": false
+    }
+  ]
+}

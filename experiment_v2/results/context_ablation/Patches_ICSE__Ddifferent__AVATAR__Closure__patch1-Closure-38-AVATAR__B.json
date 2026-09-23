@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Ddifferent__AVATAR__Closure__patch1-Closure-38-AVATAR",
+  "condition": "B",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.25,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 3.238427586000057,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1762,
+      "output_tokens": 186,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.95,
+        "readability": 0.9,
+        "security_robustness": 0.95,
+        "judgement": "OVERFITTING",
+        "confidence": 0.75,
+        "brief_reason": "The patch changes the condition from `x < 0` to `x <= 0` to handle negative zero specifically, but this is a narrow fix for the exact test case rather than addressing the underlying logic. The condition now treats zero and negative zero identically when the previous character is '-', which may not be semantically correct for all cases since negative zero is a special IEEE 754 value that should be handled distinctly from regular zero."
+      },
+      "s_sem": 0.25,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 3.155116096000029,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1762,
+      "output_tokens": 186,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.95,
+        "readability": 0.9,
+        "security_robustness": 0.95,
+        "judgement": "OVERFITTING",
+        "confidence": 0.75,
+        "brief_reason": "The patch changes the condition from `x < 0` to `x <= 0` to handle negative zero specifically, but this is a narrow fix for the exact test case rather than addressing the underlying logic. The condition now treats zero and negative zero identically when the previous character is '-', which may not be semantically correct for all cases since negative zero is a special IEEE 754 value that should be handled distinctly from regular zero."
+      },
+      "s_sem": 0.25,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 3.206161683000005,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1762,
+      "output_tokens": 186,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.95,
+        "readability": 0.9,
+        "security_robustness": 0.95,
+        "judgement": "OVERFITTING",
+        "confidence": 0.75,
+        "brief_reason": "The patch changes the condition from `x < 0` to `x <= 0` to handle negative zero specifically, but this is a narrow fix for the exact test case rather than addressing the underlying logic. The condition now treats zero and negative zero identically when the previous character is '-', which may not be semantically correct for all cases since negative zero is a special IEEE 754 value that should be handled distinctly from positive zero."
+      },
+      "s_sem": 0.25,
+      "confidence_clipped": false
+    }
+  ]
+}

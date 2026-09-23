@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__Arja__Math__patch1-Math-28-Arja-plausible",
+  "condition": "B",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.15000000000000002,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 2.9274454940000396,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1743,
+      "output_tokens": 160,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.95,
+        "readability": 0.85,
+        "security_robustness": 0.9,
+        "judgement": "OVERFITTING",
+        "confidence": 0.75,
+        "brief_reason": "The patch removes a single line that updates minIndex, which breaks the intended logic of finding the minimum index. While it passes the specific failing test (likely by avoiding an infinite loop through a different code path), it appears to weaken the algorithm's correctness by not properly tracking the minimum index during the pivot selection process."
+      },
+      "s_sem": 0.25,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 3.0023905949999516,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1743,
+      "output_tokens": 176,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.3,
+        "readability": 0.4,
+        "security_robustness": 0.8,
+        "judgement": "OVERFITTING",
+        "confidence": 0.85,
+        "brief_reason": "The patch removes a critical assignment (`minIndex = i`) that updates the minimum index during pivot selection in the simplex algorithm. While this makes the specific test pass by avoiding cycling, it breaks the intended logic of finding the lexicographically smallest pivot, which is essential for correctness in general cases. The fix is overfitted to the failing test rather than addressing the root cause of cycling."
+      },
+      "s_sem": 0.15000000000000002,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 2.9672888940001485,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1743,
+      "output_tokens": 176,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.3,
+        "readability": 0.4,
+        "security_robustness": 0.8,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch removes a critical assignment (`minIndex = i`) that updates the minimum index during pivot selection in the simplex algorithm. While this makes the specific test pass by avoiding cycling, it breaks the intended logic of finding the lexicographically smallest pivot, which is essential for correctness in general cases. The fix is overfitted to the failing test rather than addressing the root cause of cycling."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    }
+  ]
+}

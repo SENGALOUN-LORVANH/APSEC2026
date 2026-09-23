@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Chart__patch1-Chart-14-AVATAR-plausible",
+  "condition": "B",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.050000000000000044,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 3.186126732000048,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 4150,
+      "output_tokens": 168,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.1,
+        "readability": 0.3,
+        "security_robustness": 0.5,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch removes the marker from `this.annotations` instead of from the `markers` list, which is semantically incorrect and breaks the intended functionality of removing domain/range markers. This appears to be a copy-paste error that happens to pass tests by accident rather than fixing the underlying null pointer issue, which likely stems from uninitialized marker collections."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 3.1794601080000575,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 4150,
+      "output_tokens": 168,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.1,
+        "readability": 0.3,
+        "security_robustness": 0.5,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch removes the marker from `this.annotations` instead of from the `markers` list, which is semantically incorrect and breaks the intended functionality of removing domain/range markers. This appears to be a copy-paste error that happens to pass tests by accident rather than fixing the underlying null pointer issue, which likely stems from uninitialized marker collections."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 3.0645181840000078,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 4150,
+      "output_tokens": 166,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.1,
+        "readability": 0.3,
+        "security_robustness": 0.2,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch removes the marker from `this.annotations` instead of from the `markers` list, which is semantically incorrect and breaks the intended functionality of removing domain/range markers. While it may pass the specific failing tests due to test design issues, it introduces a critical logic error that changes unrelated behavior and weakens the actual marker removal functionality."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    }
+  ]
+}

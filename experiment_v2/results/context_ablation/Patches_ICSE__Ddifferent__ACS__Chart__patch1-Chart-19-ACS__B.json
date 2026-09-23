@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Ddifferent__ACS__Chart__patch1-Chart-19-ACS",
+  "condition": "B",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.050000000000000044,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 3.269165421000025,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 2590,
+      "output_tokens": 169,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.3,
+        "readability": 0.2,
+        "security_robustness": 0.6,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch adds null-check exceptions that are not semantically required to fix the failing tests, which appear to test valid axis lookups. The checks are placed inconsistently (one at method entry, one at exit) and weaken functionality by rejecting null inputs that may have been intentionally allowed. This is overfitting to pass tests rather than fixing the underlying bug."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 3.4269458859999986,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 2590,
+      "output_tokens": 192,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.3,
+        "readability": 0.2,
+        "security_robustness": 0.6,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch adds null-check guards that make the tests pass, but this is overfitting to the test cases rather than fixing the underlying bug. The null checks are added in inconsistent locations (one at the start of getDomainAxisIndex, one at the end of getRangeAxisIndex), introduce poor code style, and weaken functionality by throwing exceptions for null inputs that may have been intentionally allowed. The patch does not address the actual logic error causing the test failures."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 3.2891554390000692,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 2590,
+      "output_tokens": 193,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.3,
+        "readability": 0.2,
+        "security_robustness": 0.6,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch adds null-check guards that make the tests pass, but this is overfitting to the specific test cases rather than fixing the underlying bug. The null checks are added in inconsistent locations (one at the start of getDomainAxisIndex, one at the end of getRangeAxisIndex), introduce poor code formatting, and weaken functionality by throwing exceptions for null inputs that may have been intentionally allowed. The patch does not address the actual logic error causing the test failures."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    }
+  ]
+}

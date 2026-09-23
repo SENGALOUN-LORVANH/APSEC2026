@@ -1,0 +1,73 @@
+{
+  "NOTE": "PRELIMINARY ENGINEERING PILOT -- context ablation on 48 patches, M3 rule (S_sem<0.5), positive class = overfitting. Condition C is the pilot's primary result.",
+  "model": "claude-haiku-4-5",
+  "rule": "predict overfitting iff s_sem_final < 0.5",
+  "conditions": {
+    "A": {
+      "precision": 0.5555555555555556,
+      "recall": 0.8333333333333334,
+      "f1": 0.6666666666666666,
+      "macro_f1": 0.5555555555555556,
+      "specificity": 0.3333333333333333,
+      "correct_patch_retention": 0.3333333333333333,
+      "balanced_accuracy": 0.5833333333333334,
+      "accuracy": 0.5833333333333334,
+      "mcc": 0.19245008972987526,
+      "auroc": 0.7048611111111112,
+      "average_precision": 0.662941644707949,
+      "confusion": {
+        "tp": 20,
+        "fp": 16,
+        "tn": 8,
+        "fn": 4
+      },
+      "n": 48,
+      "base_rate_overfitting": 0.5,
+      "n_scored": 48
+    },
+    "B": {
+      "precision": 0.5641025641025641,
+      "recall": 0.9166666666666666,
+      "f1": 0.6984126984126984,
+      "macro_f1": 0.5613275613275613,
+      "specificity": 0.2916666666666667,
+      "correct_patch_retention": 0.2916666666666667,
+      "balanced_accuracy": 0.6041666666666666,
+      "accuracy": 0.6041666666666666,
+      "mcc": 0.2668802563418119,
+      "auroc": 0.7135416666666667,
+      "average_precision": 0.6630541199506716,
+      "confusion": {
+        "tp": 22,
+        "fp": 17,
+        "tn": 7,
+        "fn": 2
+      },
+      "n": 48,
+      "base_rate_overfitting": 0.5,
+      "n_scored": 48
+    },
+    "C": {
+      "precision": 0.5641025641025641,
+      "recall": 0.9166666666666666,
+      "f1": 0.6984126984126984,
+      "macro_f1": 0.5613275613275613,
+      "specificity": 0.2916666666666667,
+      "correct_patch_retention": 0.2916666666666667,
+      "balanced_accuracy": 0.6041666666666666,
+      "accuracy": 0.6041666666666666,
+      "mcc": 0.2668802563418119,
+      "auroc": 0.7664930555555556,
+      "average_precision": 0.7123329156223893,
+      "confusion": {
+        "tp": 22,
+        "fp": 17,
+        "tn": 7,
+        "fn": 2
+      },
+      "n": 48,
+      "base_rate_overfitting": 0.5,
+      "n_scored": 48
+    }
+  }
+}

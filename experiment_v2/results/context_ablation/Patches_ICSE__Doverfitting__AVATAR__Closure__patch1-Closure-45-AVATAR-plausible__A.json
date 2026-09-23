@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Closure__patch1-Closure-45-AVATAR-plausible",
+  "condition": "A",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.08333333333333337,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 2.2349176870000065,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1011,
+      "output_tokens": 159,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.9,
+        "readability": 0.6,
+        "security_robustness": 0.8,
+        "judgement": "OVERFITTING",
+        "confidence": 0.85,
+        "brief_reason": "The patch removes a critical condition check (NodeUtil.isLiteralValue) that distinguishes between assignments to literal values and unknown values. This weakens the original logic by marking all non-property assignments as unknown values, which is overfitting to pass specific test cases rather than fixing the underlying bug correctly."
+      },
+      "s_sem": 0.15000000000000002,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 2.1570056739999472,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1011,
+      "output_tokens": 169,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.9,
+        "readability": 0.6,
+        "security_robustness": 0.8,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch removes the NodeUtil.isLiteralValue check, causing assignedToUnknownValue to be set to true for all non-property assignments, not just those assigned to unknown values. This weakens the original logic by treating literal value assignments the same as unknown value assignments, which is semantically incorrect and likely only passes tests due to incomplete test coverage."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 2.2508235889999924,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1011,
+      "output_tokens": 172,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.2,
+        "readability": 0.6,
+        "security_robustness": 0.8,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch removes the NodeUtil.isLiteralValue check, causing assignedToUnknownValue to be set to true for all non-property assignments, not just those assigned to unknown values. This weakens the original logic by treating literal value assignments the same as unknown value assignments, which is semantically incorrect and likely overfits to a specific test case."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    }
+  ]
+}

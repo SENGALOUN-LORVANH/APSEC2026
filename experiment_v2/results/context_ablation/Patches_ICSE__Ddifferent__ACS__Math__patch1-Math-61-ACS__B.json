@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-61-ACS",
+  "condition": "B",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.050000000000000044,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 3.074760680000054,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1935,
+      "output_tokens": 172,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.1,
+        "readability": 0.2,
+        "security_robustness": 0.3,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch adds a redundant throw statement that duplicates the existing validation logic, making the code less readable and maintainable. It introduces an unrelated behavior change by throwing a different exception type (NotStrictlyPositiveException with null message) before the original exception, which is poor practice. The patch only masks the specific test failure rather than addressing the underlying issue properly."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 2.930267828999945,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1935,
+      "output_tokens": 168,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.1,
+        "readability": 0.2,
+        "security_robustness": 0.3,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch adds a redundant throw statement that duplicates the existing validation logic, making the code less readable and maintainable. It changes the exception type from MathRuntimeException to NotStrictlyPositiveException without justification, introducing unrelated behavior changes. The patch appears to target only the specific test case rather than fixing the underlying bug properly."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 3.846953988999985,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1935,
+      "output_tokens": 167,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.1,
+        "readability": 0.2,
+        "security_robustness": 0.3,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch adds a redundant throw statement that duplicates the existing validation logic, making the code less readable and maintainable. It appears to be overfitting to the specific test case rather than properly fixing the underlying issue. The original exception handling is still present and will execute after the new throw, indicating the patch does not address the root cause correctly."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    }
+  ]
+}

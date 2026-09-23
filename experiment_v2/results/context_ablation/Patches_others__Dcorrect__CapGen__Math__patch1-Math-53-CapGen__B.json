@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_others__Dcorrect__CapGen__Math__patch1-Math-53-CapGen",
+  "condition": "B",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.85,
+  "decision": "CORRECT",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 2.932188553999822,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1790,
+      "output_tokens": 155,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.9,
+        "readability": 0.6,
+        "security_robustness": 0.95,
+        "judgement": "CORRECT",
+        "confidence": 0.85,
+        "brief_reason": "The patch correctly addresses the bug by ensuring that adding NaN to any Complex number returns NaN, which is mathematically sound and matches IEEE 754 semantics. The fix is minimal and general, though the code formatting could be improved. The implementation properly handles the NaN propagation case that was missing from the original code."
+      },
+      "s_sem": 0.85,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 3.1028629400000227,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1790,
+      "output_tokens": 155,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.9,
+        "readability": 0.6,
+        "security_robustness": 0.95,
+        "judgement": "CORRECT",
+        "confidence": 0.85,
+        "brief_reason": "The patch correctly addresses the bug by ensuring that adding NaN to any Complex number returns NaN, which is mathematically sound and matches IEEE 754 semantics. The fix is minimal and general, though the code formatting could be improved. The implementation properly handles the NaN propagation case that was missing from the original code."
+      },
+      "s_sem": 0.85,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 2.8903583779999735,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1790,
+      "output_tokens": 146,
+      "parsed": {
+        "generalization": "general",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.9,
+        "readability": 0.6,
+        "security_robustness": 0.95,
+        "judgement": "CORRECT",
+        "confidence": 0.85,
+        "brief_reason": "The patch correctly addresses the bug by checking if either operand is NaN before performing addition, returning NaN as expected. This is a general fix that handles the root cause of the test failure. The code is minimal and functionally correct, though the formatting and style could be improved."
+      },
+      "s_sem": 0.85,
+      "confidence_clipped": false
+    }
+  ]
+}

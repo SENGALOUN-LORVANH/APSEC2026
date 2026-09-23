@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__kPAR__Lang__patch1-Lang-24-kPAR-plausible",
+  "condition": "B",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.050000000000000044,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 2.9479481710000073,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 2530,
+      "output_tokens": 162,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.2,
+        "readability": 0.4,
+        "security_robustness": 0.7,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch treats 'l' and 'L' (long suffixes) the same as decimal points, incorrectly rejecting valid long literals like '123L'. This is overfitting to a specific test case rather than fixing the underlying validation logic. The patch weakens functionality by rejecting previously valid number formats."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 2.904264170000033,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 2530,
+      "output_tokens": 167,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.2,
+        "readability": 0.4,
+        "security_robustness": 0.7,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch treats 'l' and 'L' (long suffixes) the same as decimal points, incorrectly rejecting valid long literals like '123L'. This is overfitting to a specific test case rather than fixing the underlying validation logic. The patch weakens functionality by rejecting previously valid numbers and introduces unrelated behavior changes."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 3.2517102819999764,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 2530,
+      "output_tokens": 181,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.2,
+        "readability": 0.4,
+        "security_robustness": 0.7,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch treats 'l' and 'L' (long suffixes) the same as decimal points, incorrectly rejecting valid long literals like '123L' and breaking the decimal point validation logic. This is a fundamental misunderstanding of the bug\u2014it should handle long suffixes separately, not conflate them with decimal points, making the fix both incorrect and overfitted to the specific test case."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    }
+  ]
+}

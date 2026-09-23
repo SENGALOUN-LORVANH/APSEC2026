@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-3-ACS",
+  "condition": "B",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.050000000000000044,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 3.1925094319999516,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1845,
+      "output_tokens": 187,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.3,
+        "readability": 0.2,
+        "security_robustness": 0.7,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch adds a special case check for single-element arrays but does so in a hacky manner with poor code formatting and placement. It only fixes the specific failing test case rather than addressing the underlying algorithmic issue that causes the ArrayIndexOutOfBoundsException when accessing prodHigh[1]. The patch introduces a type mismatch (comparing len==1.0 when len should be an int) and violates code style conventions."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 2.90617336899993,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1845,
+      "output_tokens": 173,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.3,
+        "readability": 0.2,
+        "security_robustness": 0.7,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch adds a special case check for single-element arrays but does so in a hacky manner with poor code formatting and placement. It only fixes the specific failing test case rather than addressing the underlying algorithmic issue that causes the ArrayIndexOutOfBoundsException when accessing prodHigh[1]. A proper fix would restructure the algorithm to handle edge cases more elegantly."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 2.961975841000026,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 1845,
+      "output_tokens": 177,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "false",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.3,
+        "readability": 0.2,
+        "security_robustness": 0.7,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch adds a special case for single-element arrays but uses a float comparison (len==1.0) instead of integer comparison, has poor code formatting, and doesn't address the underlying algorithmic issue that causes the ArrayIndexOutOfBoundsException when accessing prodHigh[1]. This is a band-aid fix that only handles the specific test case rather than fixing the general bug."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Ddifferent__AVATAR__Closure__patch1-Closure-38-AVATAR",
+  "condition": "A",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.25,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 3.2014471850000064,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 959,
+      "output_tokens": 182,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.9,
+        "readability": 0.8,
+        "security_robustness": 0.7,
+        "judgement": "OVERFITTING",
+        "confidence": 0.75,
+        "brief_reason": "The patch changes the condition from `x < 0` to `x <= 0`, which adds a space when x equals 0. However, the code already has a `negativeZero` check on line 244, suggesting the original logic was intentional. This change appears to be overfitting to a specific test case rather than addressing the root cause, and it weakens the original functionality by treating zero differently than intended."
+      },
+      "s_sem": 0.25,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 3.2098628589999407,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 959,
+      "output_tokens": 182,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.9,
+        "readability": 0.8,
+        "security_robustness": 0.7,
+        "judgement": "OVERFITTING",
+        "confidence": 0.75,
+        "brief_reason": "The patch changes the condition from `x < 0` to `x <= 0`, which adds a space when x equals 0. However, the code already has a `negativeZero` check on line 244, suggesting the original logic was intentional. This change appears to be overfitting to a specific test case rather than addressing the root cause, and it weakens the original functionality by treating zero differently than intended."
+      },
+      "s_sem": 0.25,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 3.224687557999914,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 959,
+      "output_tokens": 182,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.9,
+        "readability": 0.8,
+        "security_robustness": 0.7,
+        "judgement": "OVERFITTING",
+        "confidence": 0.75,
+        "brief_reason": "The patch changes the condition from `x < 0` to `x <= 0`, which adds a space when x equals 0. However, the code already has a `negativeZero` check on line 244, suggesting the original logic was intentional. This change appears to be overfitting to a specific test case rather than addressing the root cause, and it weakens the original functionality by treating zero differently than intended."
+      },
+      "s_sem": 0.25,
+      "confidence_clipped": false
+    }
+  ]
+}

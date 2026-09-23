@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__Nopol__Time__patch1-Time-14-Nopol-plausible",
+  "condition": "B",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.050000000000000044,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 3.445098689000133,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 4266,
+      "output_tokens": 173,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.1,
+        "readability": 0.0,
+        "security_robustness": 0.3,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch replaces a meaningful contiguity check with an obfuscated, nonsensical condition that doesn't address the root cause of the bug. The new condition is unreadable, logically incoherent (MIN is never defined in this context), and appears to accidentally pass tests rather than genuinely fix the underlying issue with month/day arithmetic on leap years."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 3.7545362210000803,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 4266,
+      "output_tokens": 172,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.1,
+        "readability": 0.0,
+        "security_robustness": 0.3,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch replaces a meaningful semantic check (DateTimeUtils.isContiguous) with an obfuscated, nonsensical condition that doesn't address the root cause of the bug. The new condition is unreadable, logically incoherent, and appears to accidentally pass tests rather than genuinely fix the underlying issue with month/day arithmetic on leap years."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 3.360084317000201,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 4266,
+      "output_tokens": 173,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "true",
+        "minimality": 0.1,
+        "readability": 0.0,
+        "security_robustness": 0.3,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch replaces a meaningful contiguity check with an obfuscated, nonsensical condition that doesn't address the root cause of the bug. The new condition is unreadable, logically incoherent (MIN is never defined in this context), and appears to accidentally pass tests rather than genuinely fix the underlying issue with month/day arithmetic on leap years."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    }
+  ]
+}

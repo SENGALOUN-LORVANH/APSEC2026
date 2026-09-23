@@ -1,0 +1,76 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__Kali__Closure__patch1-Closure-31-Kali-plausible",
+  "condition": "A",
+  "model": "claude-haiku-4-5",
+  "n_runs": 3,
+  "n_parsed": 3,
+  "s_sem_final": 0.050000000000000044,
+  "decision": "OVERFITTING",
+  "ground_truth_label": null,
+  "context_errors": [],
+  "runs": [
+    {
+      "run": 0,
+      "latency_s": 2.4547946910001883,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 926,
+      "output_tokens": 174,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.1,
+        "readability": 0.0,
+        "security_robustness": 1.0,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch adds an unconditional 'if (true) return null;' that makes the subsequent 'return res;' unreachable, effectively disabling the tree equality check logic. This is a nonsensical fix that weakens functionality rather than repairing the actual bug, and only passes tests by accident if the test suite doesn't properly validate tree equality comparisons."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 1,
+      "latency_s": 2.3081460969999625,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 926,
+      "output_tokens": 170,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.1,
+        "readability": 0.0,
+        "security_robustness": 1.0,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch adds an unconditional 'if (true) return null;' that makes the subsequent 'return res;' unreachable, effectively disabling the tree equality check logic. This is clearly overfitting to pass a specific test case rather than fixing the underlying bug, and it weakens functionality by always returning null instead of the actual comparison result."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    },
+    {
+      "run": 2,
+      "latency_s": 2.407822397000018,
+      "attempts": 1,
+      "error": null,
+      "input_tokens": 926,
+      "output_tokens": 174,
+      "parsed": {
+        "generalization": "specific_only",
+        "deletes_or_weakens_functionality": "true",
+        "unrelated_behavior_change": "false",
+        "minimality": 0.1,
+        "readability": 0.0,
+        "security_robustness": 1.0,
+        "judgement": "OVERFITTING",
+        "confidence": 0.95,
+        "brief_reason": "The patch adds an unconditional 'if (true) return null;' that makes the subsequent 'return res;' unreachable, effectively disabling the tree equality check logic. This is a nonsensical fix that weakens functionality rather than repairing the actual bug, and only passes tests by accident if the test suite doesn't properly validate tree equality comparisons."
+      },
+      "s_sem": 0.050000000000000044,
+      "confidence_clipped": false
+    }
+  ]
+}

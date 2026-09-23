@@ -254,7 +254,8 @@ Per-stage wall-clock over the 48 pilot patches (seconds; full table in `pilot_ev
   n-problem, not a modelling preference; the full run decides it with the primary (imputed) model.
 
 ## 22. Still outstanding before the full run
-1. **Context ablation A / B** — see §23 below (now run on the 48 pilot patches).
+1. ~~Context ablation A / B not run~~ **CLOSED (B1):** A/B/C reported side by side in §23. Adding failing
+   tests (A→B) lifts the decisions; extracted context (B→C) sharpens ranking (AUROC 0.714→0.766).
 2. ~~11 memorization-probe entries errored/NA~~ **CLOSED (B2):** re-run after the credit top-up; the probe is
    now a complete **48/48, 0 recognized** (§19).
 3. ~~Counterexample calls do not log tokens~~ **CLOSED (B3):** `oracle_runner` now records usage; pilot cex
@@ -262,6 +263,30 @@ Per-stage wall-clock over the 48 pilot patches (seconds; full table in `pilot_ev
 4. ~~No resumable parallel runner~~ **CLOSED (B4):** `src/run_full.py` — checkpointed, per-bug parallel
    (default 4 workers, `--workers`), safe to kill/resume; consolidation in `src/consolidate_full.py`.
 Items 2–4 do not change any pilot number above; they are gaps in the pilot's own coverage now closed.
+
+## 23. Context ablation A / B / C (B1)
+The pre-registered context conditions run on the **same 48 pilot patches**, claude-haiku-4-5, 3 runs each,
+scored with the identical M3 rule (positive = overfitting, predict overfitting iff `s_sem_final < 0.5`).
+A = candidate diff + patch metadata only; B = A + failing-test names + failure messages; C = B + extracted
+changed-method/signature/class context (**C is the pilot's primary condition**). Source:
+`src/context_ablation.py`; per-condition results in `results/context_ablation/` (A/B) and
+`results/semantic_runs/` (C); summary `results/context_ablation_summary.json`.
+
+| Condition | F1 | MCC | Precision | Recall | AUROC | Correct-patch retention | Confusion (tp/fp/tn/fn) |
+|---|---|---|---|---|---|---|---|
+| A (diff only) | 0.667 | 0.192 | 0.556 | 0.833 | 0.705 | 0.333 | 20/16/8/4 |
+| B (+ failing tests + messages) | 0.698 | 0.267 | 0.564 | 0.917 | 0.714 | 0.292 | 22/17/7/2 |
+| **C (+ extracted context) — primary** | **0.698** | **0.267** | **0.564** | **0.917** | **0.766** | 0.292 | 22/17/7/2 |
+
+**Read (PRELIMINARY, n=48, point estimates only — no CIs computed for the ablation):**
+- The **failing-test information (A→B)** is what moves the 0.5-threshold decisions: recall 0.833→0.917, MCC
+  0.192→0.267, two more true overfitting catches (fn 4→2).
+- The **extracted code context (B→C)** does **not** change any binary decision on these 48 (identical
+  confusion) but **improves ranking** (AUROC 0.714→0.766) — it sharpens the score separation without moving
+  the operating point. Whether that ranking gain is worth the extraction cost is an open question the full run
+  (with CIs and the 73%-overfitting base rate) is better placed to judge.
+- The C row reproduces §8's M3 numbers exactly (F1 0.698, MCC 0.267, AUROC 0.766), confirming the ablation
+  harness scores identically to the primary evaluation.
 
 ---
 
