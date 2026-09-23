@@ -1,0 +1,187 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__jGenProg__Lang__patch1-Lang-27-jGenProg-plausible",
+  "bug_id": "Lang-27",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 14.457
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.897
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 2.164
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 2.716
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 0.362
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 64.574
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__jGenProg__Lang__patch1-Lang-27-jGenProg-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 0,
+    "s_sem_final": null,
+    "decision": null,
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 0.3915305009995791,
+        "attempts": 1,
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLeM9y4Ui7zQ55HwtL9s'}"
+      },
+      {
+        "run": 1,
+        "latency_s": 0.3658943949994864,
+        "attempts": 1,
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLeMBXKyXyeutkEdXsq4'}"
+      },
+      {
+        "run": 2,
+        "latency_s": 0.36582869499943627,
+        "attempts": 1,
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLeMD75UZ8NTD9Hn3Guz'}"
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__jGenProg__Lang__patch1-Lang-27-jGenProg-plausible",
+    "bug_id": "Lang-27",
+    "model": "claude-haiku-4-5",
+    "latency_s": 0.3814554990003671,
+    "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLeMQqma4hSKFtGceg6d'}",
+    "context_errors": [],
+    "input_tokens": null,
+    "output_tokens": null,
+    "tests": []
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__jGenProg__Lang__patch1-Lang-27-jGenProg-plausible",
+    "true_project": "Lang",
+    "true_bug_number": "27",
+    "model": "claude-haiku-4-5",
+    "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLeMSQ2kd3xsxSMLofNo'}",
+    "input_tokens": null,
+    "output_tokens": null
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__jGenProg__Lang__patch1-Lang-27-jGenProg-plausible",
+    "bug_id": "Lang-27",
+    "s_edit_ast": 0.01780821917808219,
+    "s_edit_ast_actions": 13,
+    "s_edit_ast_nodes": 730,
+    "s_edit_error": null,
+    "s_vuln_changed": 0.5,
+    "s_vuln_new_warning_count": 1,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/lang3/math/NumberUtils"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 245,
+      "cfg_edges": 271,
+      "branch_points": 39,
+      "cyclomatic_complexity": 28,
+      "def_count": 170,
+      "use_count": 503,
+      "defuse_pairs": 170,
+      "per_method": [
+        {
+          "class": "org.apache.commons.lang3.math.NumberUtils",
+          "method": "createNumber",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 245,
+          "cfg_edges": 271,
+          "branch_points": 39,
+          "cyclomatic_complexity": 28,
+          "def_count": 170,
+          "use_count": 503,
+          "defuse_pairs": 170,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 244,
+      "cfg_edges": 270,
+      "branch_points": 39,
+      "cyclomatic_complexity": 28,
+      "def_count": 169,
+      "use_count": 499,
+      "defuse_pairs": 169,
+      "per_method": [
+        {
+          "class": "org.apache.commons.lang3.math.NumberUtils",
+          "method": "createNumber",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 244,
+          "cfg_edges": 270,
+          "branch_points": 39,
+          "cyclomatic_complexity": 28,
+          "def_count": 169,
+          "use_count": 499,
+          "defuse_pairs": 169,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": -1,
+    "d_branch_points": 0,
+    "d_cfg_edges": -1,
+    "d_defuse_pairs": -1,
+    "vuln_detail": {
+      "s_vuln": 0.5,
+      "new_warnings": [
+        {
+          "bug_type": "DB",
+          "category": "D",
+          "priority": "M",
+          "severity": "MEDIUM",
+          "class": "NumberUtils",
+          "method": "createNumber",
+          "location": "NumberUtils.java:line 489",
+          "description": "org.apache.commons.lang3.math.NumberUtils.createNumber(String) uses the same code for two branches"
+        }
+      ],
+      "n_buggy_warnings": 111,
+      "n_candidate_warnings": 112,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__jGenProg__Lang__patch1-Lang-27-jGenProg-plausible",
+    "bug_id": "Lang-27",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}
