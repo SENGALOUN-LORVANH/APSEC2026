@@ -1,0 +1,216 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__Arja__Closure__patch1-Closure-1-Arja-plausible",
+  "bug_id": "Closure-1",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 116.708
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.594
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 4.955
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 4.412
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 0.342
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 45.419
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__Arja__Closure__patch1-Closure-1-Arja-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 0,
+    "s_sem_final": null,
+    "decision": null,
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 0.4843476259993622,
+        "attempts": 1,
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLvjjmH8hfVQeqZwmzyb'}"
+      },
+      {
+        "run": 1,
+        "latency_s": 0.31955897599982563,
+        "attempts": 1,
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLvjm8dThEBDPuSzQnkt'}"
+      },
+      {
+        "run": 2,
+        "latency_s": 0.33972161500059883,
+        "attempts": 1,
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLvjnYToS5F78kmUTRGa'}"
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__Arja__Closure__patch1-Closure-1-Arja-plausible",
+    "bug_id": "Closure-1",
+    "model": "claude-haiku-4-5",
+    "latency_s": 0.3682499150017975,
+    "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLvk7M44zWozikUCzhof'}",
+    "context_errors": [],
+    "input_tokens": null,
+    "output_tokens": null,
+    "tests": []
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__Arja__Closure__patch1-Closure-1-Arja-plausible",
+    "true_project": "Closure",
+    "true_bug_number": "1",
+    "model": "claude-haiku-4-5",
+    "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLvk8woTdrrEP5Zp8PmE'}",
+    "input_tokens": null,
+    "output_tokens": null
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__Arja__Closure__patch1-Closure-1-Arja-plausible",
+    "bug_id": "Closure-1",
+    "s_edit_ast": 0.31443298969072164,
+    "s_edit_ast_actions": 61,
+    "s_edit_ast_nodes": 194,
+    "s_edit_error": null,
+    "s_vuln_changed": 0.5,
+    "s_vuln_new_warning_count": 1,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "com/google/javascript/rhino/Node",
+      "com/google/javascript/jscomp/RemoveUnusedVars"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 58,
+      "cfg_edges": 61,
+      "branch_points": 7,
+      "cyclomatic_complexity": 7,
+      "def_count": 39,
+      "use_count": 119,
+      "defuse_pairs": 39,
+      "per_method": [
+        {
+          "class": "com.google.javascript.rhino.Node",
+          "method": "checkTreeEquals",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 23,
+          "cfg_edges": 22,
+          "branch_points": 1,
+          "cyclomatic_complexity": 1,
+          "def_count": 19,
+          "use_count": 51,
+          "defuse_pairs": 19,
+          "error": null
+        },
+        {
+          "class": "com.google.javascript.jscomp.RemoveUnusedVars",
+          "method": "removeUnreferencedFunctionArgs",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 35,
+          "cfg_edges": 39,
+          "branch_points": 6,
+          "cyclomatic_complexity": 6,
+          "def_count": 20,
+          "use_count": 68,
+          "defuse_pairs": 20,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 36,
+      "cfg_edges": 38,
+      "branch_points": 6,
+      "cyclomatic_complexity": 6,
+      "def_count": 21,
+      "use_count": 68,
+      "defuse_pairs": 21,
+      "per_method": [
+        {
+          "class": "com.google.javascript.rhino.Node",
+          "method": "checkTreeEquals",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 7,
+          "cfg_edges": 6,
+          "branch_points": 1,
+          "cyclomatic_complexity": 1,
+          "def_count": 4,
+          "use_count": 15,
+          "defuse_pairs": 4,
+          "error": null
+        },
+        {
+          "class": "com.google.javascript.jscomp.RemoveUnusedVars",
+          "method": "removeUnreferencedFunctionArgs",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 29,
+          "cfg_edges": 32,
+          "branch_points": 5,
+          "cyclomatic_complexity": 5,
+          "def_count": 17,
+          "use_count": 53,
+          "defuse_pairs": 17,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": -1,
+    "d_stmts": -22,
+    "d_branch_points": -1,
+    "d_cfg_edges": -23,
+    "d_defuse_pairs": -18,
+    "vuln_detail": {
+      "s_vuln": 0.5,
+      "new_warnings": [
+        {
+          "bug_type": "DLS",
+          "category": "D",
+          "priority": "M",
+          "severity": "MEDIUM",
+          "class": "RemoveUnusedVars",
+          "method": "removeUnreferencedFunctionArgs",
+          "location": "RemoveUnusedVars.java:line 395",
+          "description": "Dead store to var in com.google.javascript.jscomp.RemoveUnusedVars.removeUnreferencedFunctionArgs(Scope)"
+        }
+      ],
+      "n_buggy_warnings": 38,
+      "n_candidate_warnings": 39,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 17,
+      "n_changed_class_files_candidate": 17,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__Arja__Closure__patch1-Closure-1-Arja-plausible",
+    "bug_id": "Closure-1",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}
