@@ -280,6 +280,155 @@
         }
       },
       "M2_diff_feature": {
+        "precision": 0.5555555555555556,
+        "recall": 0.4166666666666667,
+        "f1": 0.47619047619047616,
+        "macro_f1": 0.5343915343915344,
+        "specificity": 0.6666666666666666,
+        "correct_patch_retention": 0.6666666666666666,
+        "balanced_accuracy": 0.5416666666666666,
+        "accuracy": 0.5416666666666666,
+        "mcc": 0.08606629658238706,
+        "auroc": 0.5190972222222223,
+        "average_precision": 0.5441198794948273,
+        "confusion": {
+          "tp": 10,
+          "fp": 8,
+          "tn": 16,
+          "fn": 14
+        },
+        "n": 48,
+        "base_rate_overfitting": 0.5,
+        "mcc_ci95_cluster_bootstrap": [
+          -0.1989030541757539,
+          0.35497977666978664
+        ],
+        "f1_ci95_cluster_bootstrap": [
+          0.26657894736842114,
+          0.64
+        ],
+        "lopo_per_project": {
+          "Chart": {
+            "precision": 0.5,
+            "recall": 1.0,
+            "f1": 0.6666666666666666,
+            "macro_f1": 0.5333333333333333,
+            "specificity": 0.25,
+            "correct_patch_retention": 0.25,
+            "balanced_accuracy": 0.625,
+            "accuracy": 0.5714285714285714,
+            "mcc": 0.3535533905932738,
+            "auroc": 0.7916666666666666,
+            "average_precision": 0.7555555555555555,
+            "confusion": {
+              "tp": 3,
+              "fp": 3,
+              "tn": 1,
+              "fn": 0
+            },
+            "n": 7,
+            "base_rate_overfitting": 0.42857142857142855
+          },
+          "Closure": {
+            "precision": 0.3333333333333333,
+            "recall": 0.16666666666666666,
+            "f1": 0.2222222222222222,
+            "macro_f1": 0.37777777777777777,
+            "specificity": 0.6666666666666666,
+            "correct_patch_retention": 0.6666666666666666,
+            "balanced_accuracy": 0.41666666666666663,
+            "accuracy": 0.4166666666666667,
+            "mcc": -0.19245008972987526,
+            "auroc": 0.5138888888888888,
+            "average_precision": 0.4890572390572391,
+            "confusion": {
+              "tp": 1,
+              "fp": 2,
+              "tn": 4,
+              "fn": 5
+            },
+            "n": 12,
+            "base_rate_overfitting": 0.5
+          },
+          "Lang": {
+            "precision": 0.5714285714285714,
+            "recall": 0.5,
+            "f1": 0.5333333333333333,
+            "macro_f1": 0.4484848484848485,
+            "specificity": 0.4,
+            "correct_patch_retention": 0.4,
+            "balanced_accuracy": 0.45,
+            "accuracy": 0.46153846153846156,
+            "mcc": -0.09759000729485333,
+            "auroc": 0.475,
+            "average_precision": 0.6804584304584305,
+            "confusion": {
+              "tp": 4,
+              "fp": 3,
+              "tn": 2,
+              "fn": 4
+            },
+            "n": 13,
+            "base_rate_overfitting": 0.6153846153846154
+          },
+          "Math": {
+            "precision": 1.0,
+            "recall": 0.4,
+            "f1": 0.5714285714285714,
+            "macro_f1": 0.6974789915966386,
+            "specificity": 1.0,
+            "correct_patch_retention": 1.0,
+            "balanced_accuracy": 0.7,
+            "accuracy": 0.75,
+            "mcc": 0.5291502622129182,
+            "auroc": 0.6000000000000001,
+            "average_precision": 0.6797979797979798,
+            "confusion": {
+              "tp": 2,
+              "fp": 0,
+              "tn": 7,
+              "fn": 3
+            },
+            "n": 12,
+            "base_rate_overfitting": 0.4166666666666667
+          },
+          "Time": {
+            "precision": NaN,
+            "recall": 0.0,
+            "f1": 0.0,
+            "macro_f1": 0.3333333333333333,
+            "specificity": 1.0,
+            "correct_patch_retention": 1.0,
+            "balanced_accuracy": 0.5,
+            "accuracy": 0.5,
+            "mcc": 0.0,
+            "auroc": 0.25,
+            "average_precision": 0.41666666666666663,
+            "confusion": {
+              "tp": 0,
+              "fp": 0,
+              "tn": 2,
+              "fn": 2
+            },
+            "n": 4,
+            "base_rate_overfitting": 0.5
+          }
+        },
+        "features": [
+          "lines_added",
+          "lines_removed",
+          "total_changed",
+          "code_lines_added",
+          "code_lines_removed",
+          "n_hunks",
+          "n_files",
+          "only_deletes",
+          "adds_conditional_guard",
+          "literal_in_failing_test_message"
+        ],
+        "note": "v1 handcrafted diff features -- not static analysis"
+      },
+      "M2b_s_edit_only": {
         "precision": 0.47058823529411764,
         "recall": 0.3333333333333333,
         "f1": 0.3902439024390244,
@@ -1286,7 +1435,18 @@
         ],
         "ci_excludes_zero": true
       },
-      "M3_semantic_vs_M2_diff_feature": {
+      "M3_semantic_vs_M1_random": {
+        "metric": "mcc",
+        "a": 0.2668802563418119,
+        "b": 0.0,
+        "difference": 0.2668802563418119,
+        "ci95": [
+          -0.05047593449157903,
+          0.5775800965783142
+        ],
+        "ci_excludes_zero": false
+      },
+      "M3_semantic_vs_M2b_s_edit_only": {
         "metric": "mcc",
         "a": 0.2668802563418119,
         "b": -0.04356068418690321,
@@ -1305,6 +1465,17 @@
         "ci95": [
           -0.3076571541392782,
           0.053911422679992105
+        ],
+        "ci_excludes_zero": false
+      },
+      "M3_semantic_vs_M2_diff_feature": {
+        "metric": "mcc",
+        "a": 0.2668802563418119,
+        "b": 0.08606629658238706,
+        "difference": 0.18081395975942482,
+        "ci95": [
+          -0.16630363993847314,
+          0.5260872320499008
         ],
         "ci_excludes_zero": false
       },
@@ -1329,6 +1500,86 @@
           0.2535903997146135
         ],
         "ci_excludes_zero": false
+      }
+    },
+    "baseline_caveat": "M0 majority is degenerate in this balanced pilot sample (52% overfitting): the training-fold majority class flips between LOPO folds, so M0 behaves like a near-random classifier (MCC < 0) rather than an all-one-class baseline. Claims of improvement must rest on M1/M2, not M0.",
+    "static_complete_case_sensitivity": {
+      "n_complete_case": 45,
+      "n_dropped": 3,
+      "note": "no imputation; LOPO logistic regression on complete cases only",
+      "M5_static": {
+        "precision": 0.6956521739130435,
+        "recall": 0.6956521739130435,
+        "f1": 0.6956521739130435,
+        "macro_f1": 0.6887351778656126,
+        "specificity": 0.6818181818181818,
+        "correct_patch_retention": 0.6818181818181818,
+        "balanced_accuracy": 0.6887351778656126,
+        "accuracy": 0.6888888888888889,
+        "mcc": 0.3774703557312253,
+        "auroc": 0.7579051383399209,
+        "average_precision": 0.785934007817654,
+        "confusion": {
+          "tp": 16,
+          "fp": 7,
+          "tn": 15,
+          "fn": 7
+        },
+        "n": 45,
+        "base_rate_overfitting": 0.5111111111111111
+      },
+      "M7_sem_static": {
+        "precision": 0.7307692307692307,
+        "recall": 0.8260869565217391,
+        "f1": 0.7755102040816326,
+        "macro_f1": 0.7536087605774017,
+        "specificity": 0.6818181818181818,
+        "correct_patch_retention": 0.6818181818181818,
+        "balanced_accuracy": 0.7539525691699605,
+        "accuracy": 0.7555555555555555,
+        "mcc": 0.5140370119973438,
+        "auroc": 0.775691699604743,
+        "average_precision": 0.7942157925659955,
+        "confusion": {
+          "tp": 19,
+          "fp": 7,
+          "tn": 15,
+          "fn": 4
+        },
+        "n": 45,
+        "base_rate_overfitting": 0.5111111111111111
+      },
+      "M3_semantic": {
+        "precision": 0.5675675675675675,
+        "recall": 0.9130434782608695,
+        "f1": 0.7,
+        "macro_f1": 0.55,
+        "specificity": 0.2727272727272727,
+        "correct_patch_retention": 0.2727272727272727,
+        "balanced_accuracy": 0.592885375494071,
+        "accuracy": 0.6,
+        "mcc": 0.24288838077706526,
+        "auroc": 0.7519762845849802,
+        "average_precision": 0.7061457061457062,
+        "confusion": {
+          "tp": 21,
+          "fp": 16,
+          "tn": 6,
+          "fn": 2
+        },
+        "n": 45,
+        "base_rate_overfitting": 0.5111111111111111
+      },
+      "M7_vs_M3_mcc": {
+        "metric": "mcc",
+        "a": 0.5140370119973438,
+        "b": 0.24288838077706526,
+        "difference": 0.2711486312202785,
+        "ci95": [
+          0.03044511306785645,
+          0.5133904478886056
+        ],
+        "ci_excludes_zero": true
       }
     }
   },
@@ -1561,7 +1812,7 @@
       "token_limit_failure_rate_excl_billing": 0.0,
       "mean_judgement_stability": 0.9791666666666666,
       "median_latency_s": 6.787241049499073,
-      "mean_latency_s": 51.42622445460423,
+      "mean_latency_s": 51.42622445460424,
       "mean_input_tokens": 4854.708333333333,
       "mean_output_tokens": 613.8333333333334,
       "error_class_counts": {
@@ -1728,9 +1979,114 @@
   "runtime": {
     "smoke_test_seconds": 2382.154643525002,
     "smoke_test_n_patches": 10,
-    "pilot_seconds": 42465.821679246015,
+    "pilot_seconds": 42465.821679245986,
     "pilot_n_patches": 50,
-    "pilot_mean_seconds_per_patch": 849.3164335849203
+    "pilot_mean_seconds_per_patch": 849.3164335849198,
+    "per_stage_seconds": {
+      "semantic_comparison": {
+        "n": 48,
+        "mean": 411.48,
+        "median": 18.74,
+        "p90": 506.25,
+        "max": 7829.21
+      },
+      "counterexample": {
+        "n": 48,
+        "mean": 264.52,
+        "median": 45.64,
+        "p90": 753.0,
+        "max": 2979.03
+      },
+      "semantic_primary": {
+        "n": 48,
+        "mean": 87.14,
+        "median": 10.4,
+        "p90": 379.52,
+        "max": 1117.59
+      },
+      "assemble_pvs": {
+        "n": 48,
+        "mean": 48.13,
+        "median": 49.92,
+        "p90": 68.53,
+        "max": 71.12
+      },
+      "checkout_bug": {
+        "n": 50,
+        "mean": 34.91,
+        "median": 27.95,
+        "p90": 112.48,
+        "max": 141.52
+      },
+      "apply_patch": {
+        "n": 50,
+        "mean": 26.45,
+        "median": 11.36,
+        "p90": 52.12,
+        "max": 65.54
+      },
+      "memorization_probe": {
+        "n": 48,
+        "mean": 8.97,
+        "median": 1.33,
+        "p90": 1.94,
+        "max": 368.82
+      },
+      "fingerprint": {
+        "n": 48,
+        "mean": 0.53,
+        "median": 0.48,
+        "p90": 0.69,
+        "max": 0.71
+      },
+      "write_probe": {
+        "n": 48,
+        "mean": 0.0,
+        "median": 0.0,
+        "p90": 0.01,
+        "max": 0.01
+      },
+      "write_semantic_primary": {
+        "n": 48,
+        "mean": 0.0,
+        "median": 0.0,
+        "p90": 0.01,
+        "max": 0.01
+      },
+      "write_counterexample": {
+        "n": 48,
+        "mean": 0.0,
+        "median": 0.0,
+        "p90": 0.0,
+        "max": 0.01
+      },
+      "write_pvs": {
+        "n": 48,
+        "mean": 0.0,
+        "median": 0.0,
+        "p90": 0.0,
+        "max": 0.0
+      }
+    },
+    "per_patch_seconds": {
+      "n": 50,
+      "mean": 849.32,
+      "median": 254.5,
+      "p90": 1352.98,
+      "max": 8656.4
+    },
+    "full_run_projection": {
+      "n_patches_full_run": 899,
+      "sequential_hours": 212.1,
+      "hours_with_workers": {
+        "1": 212.1,
+        "2": 106.0,
+        "4": 53.0,
+        "6": 35.3,
+        "8": 26.5
+      },
+      "assumption": "per-patch wall-clock scales linearly with workers until CPU/API limits; the PC has 10 physical cores / 20 threads, so 4-6 workers is the realistic range for Java builds. Excludes re-runs and failures."
+    }
   },
   "failures": {
     "n_total": 50,

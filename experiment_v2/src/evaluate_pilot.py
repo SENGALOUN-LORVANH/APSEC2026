@@ -3,7 +3,10 @@ rules (protocol.yaml evaluation.methods), NOT the old placeholder `PVS* < 0.5`:
 
   M0 majority            baseline (LOPO, predict training-fold majority class)
   M1 random stratified   baseline (LOPO, predict 1 at training-fold base rate; seed 2026)
-  M2 diff-feature        logistic regression on [S_edit] (LOPO, C=1.0, standardized in-fold, no tuning)
+  M2 diff-feature        logistic regression on the v1 handcrafted diff features (lines added/removed/total,
+                         code lines, hunks, files, only-deletes, guard added, literal-in-failure-message);
+                         LOPO, C=1.0, standardized in-fold, no tuning. NOT static analysis.
+  M2b S_edit only        logistic regression on [S_edit] alone (kept as the narrower size-only reference)
   M3 semantic            frozen rule: OVERFITTING iff S_sem_final < 0.5 (no training); score = 1 - S_sem
   M4 counterexample      threshold-free AUROC/AP on (1 - S_cex) among patches with S_cex available, plus a
                          PRE-DECLARED binary rule (see protocol/DEVIATIONS.md) and S_cex missingness
@@ -37,6 +40,10 @@ MEMORIZATION_CSV = ROOT / "results" / "memorization_probe.csv"
 PILOT_SAMPLE = ROOT / "results" / "pilot_sample.csv"
 STAGE2B_CSV = ROOT / "results" / "stage2b_features.csv"
 STATIC_FEATURES = ["s_vuln_changed", "d_cyclomatic", "d_branch_points", "d_stmts", "d_defuse_pairs"]
+DIFF_FEATURES_CSV = ROOT / "results" / "diff_features_baseline.csv"
+DIFF_FEATURES = ["lines_added", "lines_removed", "total_changed", "code_lines_added", "code_lines_removed",
+                 "n_hunks", "n_files", "only_deletes", "adds_conditional_guard",
+                 "literal_in_failing_test_message"]
 PILOT_LOG = ROOT / "results" / "pilot_log.json"
 SMOKE_LOG = ROOT / "results" / "smoke_test_log.json"
 OUT = ROOT / "results" / "pilot_evaluation.json"
@@ -64,6 +71,10 @@ def load_scored_frame():
     if PILOT_SAMPLE.exists():
         with open(PILOT_SAMPLE, newline="", encoding="utf-8") as f:
             sample = {r["patch_id"]: r for r in csv.DictReader(f)}
+    diff_feats = {}
+    if DIFF_FEATURES_CSV.exists():
+        with open(DIFF_FEATURES_CSV, newline="", encoding="utf-8") as f:
+            diff_feats = {r["patch_id"]: r for r in csv.DictReader(f)}
     stage2b = {}
     if STAGE2B_CSV.exists():
         with open(STAGE2B_CSV, newline="", encoding="utf-8") as f:
@@ -92,9 +103,13 @@ def load_scored_frame():
                "analysis_level": s2b.get("analysis_level", "")}
         for col in STATIC_FEATURES:
             rec[col] = _f(s2b.get(col))
+        dfeat = diff_feats.get(r["patch_id"], {})
+        for col in DIFF_FEATURES:
+            rec[col] = _f(dfeat.get(col))
         out.append(rec)
     df = pd.DataFrame(out)
     df.attrs["has_stage2b"] = bool(stage2b)
+    df.attrs["has_diff_features"] = bool(diff_feats)
     return df
 
 
@@ -182,8 +197,15 @@ def detection_section(df):
     # M0 / M1 baselines
     p0, _ = _baseline_majority(df); record("M0_majority", p0, None)
     p1, _ = _baseline_random(df); record("M1_random_stratified", p1, None)
-    # M2 diff-feature LR
-    p2, s2 = _lopo_lr(df, ["S_edit"]); record("M2_diff_feature", p2, s2)
+    # M2 diff-feature LR (v1 handcrafted features); M2b keeps the narrower S_edit-only reference
+    if df.attrs.get("has_diff_features"):
+        p2, s2 = _lopo_lr(df, DIFF_FEATURES)
+        record("M2_diff_feature", p2, s2, {"features": DIFF_FEATURES,
+                                           "note": "v1 handcrafted diff features -- not static analysis"})
+    else:
+        out["methods"]["M2_diff_feature"] = {"status": "PENDING", "reason": "diff_features_baseline.csv missing"}
+        p2 = None
+    p2b, s2b_score = _lopo_lr(df, ["S_edit"]); record("M2b_s_edit_only", p2b, s2b_score)
     # M3 semantic frozen rule (no training)
     p3 = (df["S_sem"] < 0.5).astype(int).values
     s3 = (1.0 - df["S_sem"]).values
@@ -212,16 +234,47 @@ def detection_section(df):
     # paired bootstrap differences (improvement iff 95% CI of paired difference excludes 0)
     out["paired_differences_mcc"] = {
         "M3_semantic_vs_M0_majority": metrics.paired_difference(y, p3, p0, df["bug_id"].values, metric="mcc"),
-        "M3_semantic_vs_M2_diff_feature": metrics.paired_difference(y, p3, p2, df["bug_id"].values, metric="mcc"),
+        "M3_semantic_vs_M1_random": metrics.paired_difference(y, p3, p1, df["bug_id"].values, metric="mcc"),
+        "M3_semantic_vs_M2b_s_edit_only": metrics.paired_difference(y, p3, p2b, df["bug_id"].values, metric="mcc"),
         "M6_sem_cex_vs_M3_semantic": metrics.paired_difference(y, p6, p3, df["bug_id"].values, metric="mcc"),
     }
+    out["baseline_caveat"] = ("M0 majority is degenerate in this balanced pilot sample (52% overfitting): the "
+                              "training-fold majority class flips between LOPO folds, so M0 behaves like a "
+                              "near-random classifier (MCC < 0) rather than an all-one-class baseline. Claims of "
+                              "improvement must rest on M1/M2, not M0.")
+    if p2 is not None:
+        out["paired_differences_mcc"]["M3_semantic_vs_M2_diff_feature"] = \
+            metrics.paired_difference(y, p3, p2, df["bug_id"].values, metric="mcc")
     if p7 is not None:
         out["paired_differences_mcc"]["M7_sem_static_vs_M3_semantic"] = \
             metrics.paired_difference(y, p7, p3, df["bug_id"].values, metric="mcc")
     if p9 is not None:
         out["paired_differences_mcc"]["M9_sem_cex_static_vs_M3_semantic"] = \
             metrics.paired_difference(y, p9, p3, df["bug_id"].values, metric="mcc")
+    out["static_complete_case_sensitivity"] = _static_complete_case(df, p3)
     return out
+
+
+def _static_complete_case(df, p3):
+    """Sensitivity for DEVIATIONS #11: the same static methods fitted on complete cases only (no in-fold mean
+    imputation, no missingness indicators). Rows with any missing static feature or missing S_sem are dropped."""
+    if not df.attrs.get("has_stage2b"):
+        return {"status": "PENDING", "reason": "Stage 2B features not present yet"}
+    cc = df.dropna(subset=STATIC_FEATURES + ["S_sem"]).reset_index(drop=True)
+    result = {"n_complete_case": int(len(cc)), "n_dropped": int(len(df) - len(cc)),
+              "note": "no imputation; LOPO logistic regression on complete cases only"}
+    if len(cc) < 10 or cc["y"].nunique() < 2:
+        result["status"] = "insufficient complete cases"
+        return result
+    y = cc["y"].values
+    p5, s5 = _lopo_lr(cc, STATIC_FEATURES)
+    p7, s7 = _lopo_lr(cc, ["S_sem"] + STATIC_FEATURES)
+    p3cc = (cc["S_sem"] < 0.5).astype(int).values
+    result["M5_static"] = metrics.detection_metrics(y, p5, score=s5)
+    result["M7_sem_static"] = metrics.detection_metrics(y, p7, score=s7)
+    result["M3_semantic"] = metrics.detection_metrics(y, p3cc, score=(1.0 - cc["S_sem"]).values)
+    result["M7_vs_M3_mcc"] = metrics.paired_difference(y, p7, p3cc, cc["bug_id"].values, metric="mcc")
+    return result
 
 
 def _m4_counterexample(df):
@@ -555,11 +608,44 @@ def runtime_section():
         total = sum(s["seconds"] for e in entries for s in e["stages"].values())
         return total, len(entries)
 
+    def per_stage(log_path):
+        """mean/median/p90/max seconds per stage, plus per-patch totals."""
+        if not log_path.exists():
+            return {}, {}
+        entries = json.loads(log_path.read_text())
+        by_stage = {}
+        for e in entries:
+            for name, s in e["stages"].items():
+                by_stage.setdefault(name, []).append(s["seconds"])
+        stats = {name: {"n": len(v), "mean": round(statistics.mean(v), 2),
+                        "median": round(statistics.median(v), 2),
+                        "p90": round(float(np.percentile(v, 90)), 2), "max": round(max(v), 2)}
+                 for name, v in sorted(by_stage.items(), key=lambda kv: -sum(kv[1]))}
+        totals = [sum(s["seconds"] for s in e["stages"].values()) for e in entries]
+        per_patch = {"n": len(totals), "mean": round(statistics.mean(totals), 2),
+                     "median": round(statistics.median(totals), 2),
+                     "p90": round(float(np.percentile(totals, 90)), 2), "max": round(max(totals), 2)} if totals else {}
+        return stats, per_patch
+
     smoke_total, smoke_n = total_seconds(SMOKE_LOG)
     pilot_total, pilot_n = total_seconds(PILOT_LOG)
+    stage_stats, per_patch = per_stage(PILOT_LOG)
+    mean_per_patch = (pilot_total / pilot_n) if pilot_total and pilot_n else None
+    projection = {}
+    if mean_per_patch:
+        n_full = 899
+        projection = {"n_patches_full_run": n_full,
+                      "sequential_hours": round(n_full * mean_per_patch / 3600, 1),
+                      "hours_with_workers": {str(w): round(n_full * mean_per_patch / 3600 / w, 1)
+                                             for w in (1, 2, 4, 6, 8)},
+                      "assumption": "per-patch wall-clock scales linearly with workers until CPU/API limits; "
+                                    "the PC has 10 physical cores / 20 threads, so 4-6 workers is the realistic "
+                                    "range for Java builds. Excludes re-runs and failures."}
     return {"smoke_test_seconds": smoke_total, "smoke_test_n_patches": smoke_n,
             "pilot_seconds": pilot_total, "pilot_n_patches": pilot_n,
-            "pilot_mean_seconds_per_patch": (pilot_total / pilot_n) if pilot_total and pilot_n else None}
+            "pilot_mean_seconds_per_patch": mean_per_patch,
+            "per_stage_seconds": stage_stats, "per_patch_seconds": per_patch,
+            "full_run_projection": projection}
 
 
 def failures_section():

@@ -17,21 +17,24 @@ The pilot clears the bar for the full 899-patch run, for four reasons:
 1. **The pipeline runs end-to-end on real, diverse data** — checkout, patch apply/compile, context (0 errors),
    semantic (both models 100% parse), counterexample generation + empirical oracle, GumTree S_edit (48/48),
    SootUp CFG/dataflow (45/48 DATAFLOW), and changed-class SpotBugs. No blocking engineering issue remains.
-2. **The core signal is real and honest.** M3 semantic significantly beats the majority baseline (MCC paired
-   CI excludes 0; recall 0.917, AUROC 0.766). Combining with SootUp static features (M7) gives the best point
-   estimate of any method (MCC 0.462, F1 0.745). These are far below the manuscript's fabricated 0.81 — exactly
-   the corrected, measured picture the project exists to produce.
+2. **A measurable semantic signal exists, but no advantage is yet established.** M3 semantic reaches recall
+   0.917 and AUROC 0.766, and M7 (semantic + SootUp CFG/dataflow) has the best point estimates of any method
+   (MCC 0.462, F1 0.745). Against the meaningful baselines (M1 random, M2 corrected diff-feature) **none of
+   these differences has a CI excluding 0 at n=48** (§8). These values are far below the manuscript's
+   unsupported 0.81 — the corrected, measured picture the project exists to produce.
 3. **Cost is negligible** (~$12–20 API for the full run) and the selected model (haiku) is decided on
    label-free pilot evidence.
-4. **The full n is needed to resolve the one open statistical question**: whether M7 (sem+static) genuinely
-   beats M3 (its +0.195 MCC CI just includes 0 at n=48). Only the full corpus has the power to settle it.
+4. **The full n is needed to resolve the open statistical questions**: whether M3 beats the corrected M2/M1
+   baselines at all, and whether M7 (sem+static) beats M3 — every relevant CI includes 0 at n=48, and the
+   imputed and complete-case static analyses disagree (§8). Only the full corpus has the power to settle this.
 
 **Conditions the full run must carry (already reflected in the protocol/DEVIATIONS):**
 - **RQ1 narrows** to the semantic (+static) arm. The **counterexample arm is designed-but-weak** — 2/106
   discriminating tests, S_cex missing on 65% — and must be reported as such, never as a working dual-verifier.
   Adding it hurts detection (M6, M9). This matches the handover's RQ1 reconciliation.
 - **PDG is not computed** (analysis ceiling DATAFLOW); the paper must say CFG/dataflow, not PDG.
-- **S_vuln contributes almost nothing** (3/48); the static signal that helps is the CFG/dataflow deltas.
+- **S_vuln contributes almost nothing** (3/48); within the static block the CFG/dataflow deltas carry what
+  little signal there is — and that block's contribution is itself not yet established (§8).
 - All full-run numbers remain PRELIMINARY until the frozen protocol's bootstrap CIs are computed on the full n;
   PVS* stays ranking-only until real human preferences (RQ2) exist.
 
@@ -47,8 +50,10 @@ This is **not** GO for the paper's original claims; it is GO to measure the narr
 
 ## 2. Dataset
 - Source: Zenodo 3730599 `Patches.zip`, archive MD5 `11203b88…` verified; manifest SHA256 pinned in `protocol.yaml`.
-- Full labelled corpus: **908 patches** (Math 350, Closure 240, Chart 159, Lang 153, Time 6); labels 654
-  overfitting / 245 correct / 9 unlabelled → **899 labelled** (the full-run size). Base rate 73% overfitting.
+- Archive: **908 patch files** parsed (Math 350, Closure 240, Chart 159, Lang 153, Time 6). Under the primary
+  label policy **899 are included** (654 overfitting / 245 correct; base rate 73%) and **9 are excluded**:
+  3 borderline, 5 failed-plausibility (dataset-author notes) and 1 in the unlabeled `Error` folder — exclusions,
+  not "unlabelled" patches. 12 labels are corrected per the dataset authors (`results/corrected_labels.csv`).
 - Two label policies (primary + sensitivity) and duplicate handling per `protocol.yaml dataset`.
 
 ## 3. Pilot sample & Defects4J coverage
@@ -97,7 +102,8 @@ Detection is reported **per method** per `protocol.yaml evaluation.methods`. The
 |---|---|---|---|---|---|---|
 | M0 majority | 0.421 | 0.333 | 0.372 | −0.128 | — | 8/11/13/16 |
 | M1 random stratified | 0.500 | 0.542 | 0.520 | 0.000 | — | 13/13/11/11 |
-| M2 diff-feature (S_edit) | 0.433 | 0.542 | 0.481 | −0.172 | 0.313 | 13/17/7/11 |
+| **M2 diff-feature (v1 handcrafted, LR)** | 0.556 | 0.417 | 0.476 | 0.086 | 0.519 | 10/8/16/14 |
+| M2b S_edit only (LR) | 0.471 | 0.333 | 0.390 | −0.044 | 0.457 | 8/9/15/16 |
 | **M3 semantic (S_sem<0.5, frozen)** | **0.564** | **0.917** | **0.698** | **0.267** | **0.766** | 22/17/7/2 |
 | M4 counterexample (binary, avail=17) | 0.500 | 0.143 | 0.222 | — | 0.529 | — |
 | M6 sem+cex (LR, LOPO) | 0.545 | 0.750 | 0.632 | 0.135 | 0.636 | 18/15/9/6 |
@@ -111,17 +117,31 @@ Static features (M5/M7/M8/M9): `[s_vuln_changed, d_cyclomatic, d_branch_points, 
 (SootUp CFG/dataflow deltas + changed-class S_vuln), mean-imputed in-fold with missingness indicators.
 
 Paired cluster-bootstrap (MCC, improvement iff 95% CI excludes 0):
-- M3 vs M0 majority: +0.395, CI [0.008, 0.765] → **improves**.
-- M3 vs M2 diff-feature: +0.310, CI [−0.092, 0.686] → not significant.
+- M3 vs M0 majority: +0.395, CI [0.008, 0.765] → excludes 0, **but see the baseline caveat below**.
+- M3 vs M1 random stratified: +0.267, CI [−0.050, 0.578] → **not established**.
+- M3 vs M2 diff-feature (corrected baseline): +0.181, CI [−0.166, 0.526] → **not established**.
+- M3 vs M2b S_edit only: +0.310, CI [−0.092, 0.686] → not established.
 - M6 (sem+cex) vs M3: −0.132, CI [−0.308, 0.054] → **no improvement** (sparse S_cex dilutes).
-- **M7 (sem+static) vs M3: +0.195, CI [−0.050, 0.436] → best point estimate, CI just includes 0.**
+- M7 (sem+static) vs M3: +0.195, CI [−0.050, 0.436] → **not established** (best point estimate of any method).
 - M9 (sem+cex+static) vs M3: −0.017, CI [−0.271, 0.254] → no improvement (cex again dilutes).
 
-**Read:** the semantic signal (M3) carries detection and **significantly beats the baselines** (recall 0.917,
-AUROC 0.766, MCC vs majority CI excludes 0). Adding SootUp CFG/dataflow + S_vuln (M7) gives the best point
-estimate of all methods (MCC 0.462, F1 0.745) — a real, complementary static signal — but at n=48 the
-improvement over M3 is not yet significant (CI lower bound −0.05). The counterexample arm consistently fails to
-help (M6, M9). All values are far from the manuscript's fabricated 0.81 F1 — the correct, honest outcome.
+**Baseline caveat (DEVIATIONS #12):** M0 "majority" is degenerate in this deliberately balanced pilot (52%
+overfitting): the training-fold majority class flips between LOPO folds, so M0 behaves like a near-random
+classifier (MCC −0.128) rather than an all-one-class baseline. The M0 comparison therefore cannot carry a claim.
+Against the meaningful baselines (M1 random, M2 diff-feature) **no method's advantage is established at n=48.**
+
+**Read:** M3 semantic has the highest recall (0.917) and a mid AUROC (0.766); M7 (semantic + SootUp
+CFG/dataflow + S_vuln) has the best point estimates of all methods (MCC 0.462, F1 0.745). **None of these
+advantages is statistically established at n=48** against M1/M2 — that is precisely what the full run is for.
+The counterexample arm consistently fails to help (M6, M9). All values are far from the manuscript's unsupported
+0.81 F1.
+
+**Static-feature imputation sensitivity (DEVIATIONS #11).** The static models are primary with in-fold mean
+imputation + missingness indicators. A complete-case re-fit (no imputation; n=45 after dropping 3 rows with a
+missing static feature) gives M3 MCC 0.243, M5 0.377, M7 0.514, and M7 vs M3 = +0.271, CI [0.030, 0.513],
+which excludes 0. The **primary (imputed) analysis does not establish the improvement**; the complete-case
+result is reported as a sensitivity analysis only, and both are in
+`pilot_evaluation.json → detection.static_complete_case_sensitivity`.
 
 ## 9. Correct-patch retention
 - M3 semantic specificity / correct-patch retention = **0.292** (tn 7 / (tn 7 + fp 17)): M3 flags many correct
@@ -181,7 +201,22 @@ Per-test attrition (summed over 48 patches):
   future sensitivity).
 
 ## 18. Runtime by component, tokens, cost
-- Runtime per patch and per stage: `pilot_evaluation.json → runtime`.
+Per-stage wall-clock over the 48 pilot patches (seconds; full table in `pilot_evaluation.json → runtime`):
+
+| Stage | median | p90 | max |
+|---|---|---|---|
+| assemble_pvs (Stage 2B: GumTree + SootUp + SpotBugs) | 49.9 | — | — |
+| counterexample (1 LLM call + compile + oracle runs) | 45.6 | — | — |
+| checkout_bug (buggy + fixed_oracle) | 28.0 | — | — |
+| semantic_comparison (sonnet, 3 runs) | 18.7 | — | — |
+| apply_patch + compile | 11.4 | — | — |
+| semantic_primary (haiku, 3 runs) | 10.4 | — | — |
+
+- Per patch: mean **849 s**, median and p90 in `runtime.per_patch_seconds`.
+- **Full-run projection** (899 patches at the pilot's mean): **212 h sequential**; 106 h with 2 workers,
+  **53 h with 4**, 35 h with 6, 27 h with 8. The PC has 10 physical cores / 20 threads, so 4–6 workers is the
+  realistic range for Java builds. A resumable, checkpointed parallel runner is **still to be implemented**
+  (the pilot runner is sequential, and the machine has already powered off mid-run once).
 - Tokens (successful runs): haiku mean 3664 in / 172 out; sonnet 4855 in / 614 out.
 - **Cost** (Anthropic list pricing, recorded 2026-09-21: Haiku $1/$5, Sonnet $2/$10 per 1M in/out):
   semantic haiku $0.65, semantic sonnet (comparison) $2.28, **pilot total ≈ $2.93**. Counterexample calls do
@@ -207,6 +242,15 @@ Per-test attrition (summed over 48 patches):
 - M3 semantic recall is high but precision/retention low (many correct patches flagged). Is a calibrated
   threshold (not 0.5) or the preference-weighted PVS the answer? (Requires the RQ2 human-preference data.)
 - The full corpus is 73% overfitting vs the balanced pilot; the detection operating point will shift.
+- Imputed and complete-case static analyses disagree on whether M7 beats M3 (§8). Which is right is an
+  n-problem, not a modelling preference; the full run decides it with the primary (imputed) model.
+
+## 22. Still outstanding before the full run
+1. **Context ablation A / B not run** (primary condition C only) — pre-registered, needs the PC (~$1 of API).
+2. **11 memorization-probe entries errored/NA** (credit exhaustion); rerun for a complete 48/48 diagnostic.
+3. **Counterexample calls do not log tokens** → pilot cost (~$2.93) is a small underestimate.
+4. **No resumable parallel runner** — required for a 212 h sequential workload (§18).
+Items 1–4 do not change any number above; they are gaps in the pilot's own coverage.
 
 ---
 
