@@ -1,0 +1,4 @@
+patch_id,bug_id,model,s_cex,n_valid,n_passed,n_generated,input_tokens,output_tokens,error
+Patches_ICSE__Ddifferent__ACS__Chart__patch1-Chart-19-ACS,Chart-19,claude-haiku-4-5,1.0,2,2,3,3762,1013,
+Patches_ICSE__Ddifferent__ACS__Lang__patch1-Lang-24-ACS,Lang-24,claude-haiku-4-5,1.0,1,1,3,3684,950,
+Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-3-ACS,Math-3,claude-haiku-4-5,1.0,1,1,3,3004,991,

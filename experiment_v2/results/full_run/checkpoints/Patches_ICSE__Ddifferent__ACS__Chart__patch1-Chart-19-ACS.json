@@ -1,0 +1,284 @@
+{
+  "patch_id": "Patches_ICSE__Ddifferent__ACS__Chart__patch1-Chart-19-ACS",
+  "bug_id": "Chart-19",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 11.579
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.467
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 12.21
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 34.034
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.554
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 41.473
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Ddifferent__ACS__Chart__patch1-Chart-19-ACS",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 4.415500277000007,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3867,
+        "output_tokens": 160,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.3,
+          "readability": 0.2,
+          "security_robustness": 0.7,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch adds null-checking that throws IllegalArgumentException, but this is unrelated to the actual bug causing test failures. The tests fail due to missing logic to search parent plots for domain axes (similar to the existing range axis logic), not null validation. The patch is poorly formatted and doesn't address the root cause."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 2.9749556620000135,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3867,
+        "output_tokens": 154,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.3,
+          "readability": 0.2,
+          "security_robustness": 0.7,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch adds null-checking that throws IllegalArgumentException, which is unrelated to the actual bug causing test failures. The tests fail due to missing logic (likely not checking parent plots for domain axes), not null handling. The patch introduces unrelated behavior changes and poor code formatting without addressing the root cause."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.1602184029999876,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3867,
+        "output_tokens": 179,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.3,
+          "readability": 0.2,
+          "security_robustness": 0.7,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch adds null-checking that throws IllegalArgumentException, which is unrelated to the actual bug being fixed (the methods should delegate to parent plots). The null checks are added at the wrong locations (after logic completion) and don't address the core issue that getDomainAxisIndex lacks the parent delegation logic that getRangeAxisIndex has. This is overfitting to pass tests rather than fixing the underlying bug."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Ddifferent__ACS__Chart__patch1-Chart-19-ACS",
+    "bug_id": "Chart-19",
+    "model": "claude-haiku-4-5",
+    "latency_s": 6.848076339000045,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 3762,
+    "output_tokens": 1013,
+    "tests": [
+      {
+        "name": "testGetDomainAxisIndexWithNullAxis",
+        "target_class": "org.jfree.chart.plot.CategoryPlot",
+        "target_method": "getDomainAxisIndex",
+        "class_name": "testGetDomainAxisIndexWithNullAxis",
+        "status": "VALID_BUG_REVEALING",
+        "candidate_pass": true,
+        "log": ".\nTime: 0.048\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testGetRangeAxisIndexWithNullAxis",
+        "target_class": "org.jfree.chart.plot.CategoryPlot",
+        "target_method": "getRangeAxisIndex",
+        "class_name": "testGetRangeAxisIndexWithNullAxis",
+        "status": "VALID_BUG_REVEALING",
+        "candidate_pass": true,
+        "log": ".\nTime: 0.06\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testGetDomainAxisIndexWithValidAxis",
+        "target_class": "org.jfree.chart.plot.CategoryPlot",
+        "target_method": "getDomainAxisIndex",
+        "class_name": "testGetDomainAxisIndexWithValidAxis",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.086\n\nOK (1 test)\n\n"
+      }
+    ],
+    "s_cex": 1.0,
+    "n_valid": 2,
+    "n_passed": 2
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Ddifferent__ACS__Chart__patch1-Chart-19-ACS",
+    "true_project": "Chart",
+    "true_bug_number": "19",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 616,
+    "output_tokens": 28,
+    "project": "Chart",
+    "bug_number": 5,
+    "recalled_label": "OVERFITTING",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Ddifferent__ACS__Chart__patch1-Chart-19-ACS",
+    "bug_id": "Chart-19",
+    "s_edit_ast": 0.21138211382113822,
+    "s_edit_ast_actions": 26,
+    "s_edit_ast_nodes": 123,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/jfree/chart/plot/CategoryPlot"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 16,
+      "cfg_edges": 16,
+      "branch_points": 2,
+      "cyclomatic_complexity": 4,
+      "def_count": 12,
+      "use_count": 31,
+      "defuse_pairs": 12,
+      "per_method": [
+        {
+          "class": "org.jfree.chart.plot.CategoryPlot",
+          "method": "getDomainAxisIndex",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 5,
+          "cfg_edges": 4,
+          "branch_points": 0,
+          "cyclomatic_complexity": 1,
+          "def_count": 4,
+          "use_count": 8,
+          "defuse_pairs": 4,
+          "error": null
+        },
+        {
+          "class": "org.jfree.chart.plot.CategoryPlot",
+          "method": "getRangeAxisIndex",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 11,
+          "cfg_edges": 12,
+          "branch_points": 2,
+          "cyclomatic_complexity": 3,
+          "def_count": 8,
+          "use_count": 23,
+          "defuse_pairs": 8,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 28,
+      "cfg_edges": 28,
+      "branch_points": 4,
+      "cyclomatic_complexity": 4,
+      "def_count": 18,
+      "use_count": 53,
+      "defuse_pairs": 18,
+      "per_method": [
+        {
+          "class": "org.jfree.chart.plot.CategoryPlot",
+          "method": "getDomainAxisIndex",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 11,
+          "cfg_edges": 10,
+          "branch_points": 1,
+          "cyclomatic_complexity": 1,
+          "def_count": 7,
+          "use_count": 19,
+          "defuse_pairs": 7,
+          "error": null
+        },
+        {
+          "class": "org.jfree.chart.plot.CategoryPlot",
+          "method": "getRangeAxisIndex",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 17,
+          "cfg_edges": 18,
+          "branch_points": 3,
+          "cyclomatic_complexity": 3,
+          "def_count": 11,
+          "use_count": 34,
+          "defuse_pairs": 11,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": 12,
+    "d_branch_points": 2,
+    "d_cfg_edges": 12,
+    "d_defuse_pairs": 6,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 11,
+      "n_candidate_warnings": 11,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Ddifferent__ACS__Chart__patch1-Chart-19-ACS",
+    "bug_id": "Chart-19",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

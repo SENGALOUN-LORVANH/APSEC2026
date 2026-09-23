@@ -1,0 +1,4 @@
+patch_id,bug_id,complete,terminal_failure,t_apply_patch,ok_apply_patch,t_fingerprint,ok_fingerprint,t_semantic,ok_semantic,t_counterexample,ok_counterexample,t_memorization,ok_memorization,t_stage2b,ok_stage2b
+Patches_ICSE__Ddifferent__ACS__Chart__patch1-Chart-19-ACS,Chart-19,True,,11.579,True,0.467,True,12.21,True,34.034,True,1.554,True,41.473,True
+Patches_ICSE__Ddifferent__ACS__Lang__patch1-Lang-24-ACS,Lang-24,True,,12.076,True,0.471,True,12.017,True,28.458,True,1.208,True,48.823,True
+Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-3-ACS,Math-3,True,,41.644,True,0.71,True,10.0,True,35.362,True,1.096,True,62.758,True

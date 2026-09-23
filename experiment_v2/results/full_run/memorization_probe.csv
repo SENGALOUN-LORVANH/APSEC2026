@@ -1,0 +1,4 @@
+patch_id,true_project,true_bug_number,model,project,bug_number,recalled_label,recognized,error
+Patches_ICSE__Ddifferent__ACS__Chart__patch1-Chart-19-ACS,Chart,19,claude-haiku-4-5,Chart,5,OVERFITTING,False,
+Patches_ICSE__Ddifferent__ACS__Lang__patch1-Lang-24-ACS,Lang,24,claude-haiku-4-5,Lang,32,OVERFITTING,False,
+Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-3-ACS,Math,3,claude-haiku-4-5,Math,51,OVERFITTING,False,

@@ -1,0 +1,4 @@
+patch_id,bug_id,s_edit_ast,s_edit_ast_actions,s_edit_ast_nodes,s_vuln_changed,s_vuln_new_warning_count,analysis_level,d_cyclomatic,d_stmts,d_branch_points,d_cfg_edges,d_defuse_pairs,s_edit_error,s_vuln_buggy_error,s_vuln_candidate_error
+Patches_ICSE__Ddifferent__ACS__Chart__patch1-Chart-19-ACS,Chart-19,0.21138211382113822,26,123,0,0,DATAFLOW,0,12,2,12,6,,,
+Patches_ICSE__Ddifferent__ACS__Lang__patch1-Lang-24-ACS,Lang-24,0.029288702928870293,14,478,0,0,DATAFLOW,0,2,1,2,0,,,
+Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-3-ACS,Math-3,0.05263157894736842,21,399,0,0,DATAFLOW,0,7,1,7,5,,,

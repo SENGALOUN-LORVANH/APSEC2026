@@ -1,0 +1,256 @@
+{
+  "patch_id": "Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-3-ACS",
+  "bug_id": "Math-3",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 41.644
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.71
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 10.0
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 35.362
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.096
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 62.758
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-3-ACS",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.0532829160000006,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3134,
+        "output_tokens": 175,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.3,
+          "readability": 0.2,
+          "security_robustness": 0.9,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch only handles the specific case of single-element arrays by adding an early return, but does not address the underlying algorithmic issue that causes the ArrayIndexOutOfBoundsException when accessing prodHigh[1]. The code is poorly formatted and the fix is a band-aid rather than a proper solution to the general problem of handling edge cases in the linearCombination algorithm."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 2.8819973009999558,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3134,
+        "output_tokens": 182,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.3,
+          "readability": 0.2,
+          "security_robustness": 0.9,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch only handles the specific case of single-element arrays by adding an early return, but does not address the underlying algorithmic issue that causes the ArrayIndexOutOfBoundsException when accessing prodHigh[1]. The code quality is poor with improper formatting and a floating-point comparison (len==1.0) instead of integer comparison. A proper fix would restructure the algorithm to handle arrays of any length correctly."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.0511785070000315,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3134,
+        "output_tokens": 178,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.3,
+          "readability": 0.2,
+          "security_robustness": 0.9,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch only handles the single-element array case (len==1) as a special case, fixing the specific test but not addressing the general algorithmic issue. The code quality is poor with improper formatting and a floating-point comparison (len==1.0) instead of integer comparison. While it passes the test, it's a band-aid fix that doesn't generalize to the underlying problem."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-3-ACS",
+    "bug_id": "Math-3",
+    "model": "claude-haiku-4-5",
+    "latency_s": 7.256995206999989,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 3004,
+    "output_tokens": 991,
+    "tests": [
+      {
+        "name": "testLinearCombinationTwoElements",
+        "target_class": "org.apache.commons.math3.util.MathArrays",
+        "target_method": "linearCombination",
+        "class_name": "MathArraysTest",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": "JUnit version 4.11\n.\nTime: 0.004\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testLinearCombinationThreeElements",
+        "target_class": "org.apache.commons.math3.util.MathArrays",
+        "target_method": "linearCombination",
+        "class_name": "MathArraysTest",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": "JUnit version 4.11\n.\nTime: 0.005\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testLinearCombinationSingleElementWithZero",
+        "target_class": "org.apache.commons.math3.util.MathArrays",
+        "target_method": "linearCombination",
+        "class_name": "MathArraysTest",
+        "status": "VALID_BUG_REVEALING",
+        "candidate_pass": true,
+        "log": "JUnit version 4.11\n.\nTime: 0.005\n\nOK (1 test)\n\n"
+      }
+    ],
+    "s_cex": 1.0,
+    "n_valid": 1,
+    "n_passed": 1
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-3-ACS",
+    "true_project": "Math",
+    "true_bug_number": "3",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 612,
+    "output_tokens": 28,
+    "project": "Math",
+    "bug_number": 51,
+    "recalled_label": "OVERFITTING",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-3-ACS",
+    "bug_id": "Math-3",
+    "s_edit_ast": 0.05263157894736842,
+    "s_edit_ast_actions": 21,
+    "s_edit_ast_nodes": 399,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math3/util/MathArrays"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 322,
+      "cfg_edges": 325,
+      "branch_points": 8,
+      "cyclomatic_complexity": 11,
+      "def_count": 305,
+      "use_count": 884,
+      "defuse_pairs": 305,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math3.util.MathArrays",
+          "method": "linearCombination",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 4,
+          "stmts": 322,
+          "cfg_edges": 325,
+          "branch_points": 8,
+          "cyclomatic_complexity": 11,
+          "def_count": 305,
+          "use_count": 884,
+          "defuse_pairs": 305,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 329,
+      "cfg_edges": 332,
+      "branch_points": 9,
+      "cyclomatic_complexity": 11,
+      "def_count": 310,
+      "use_count": 902,
+      "defuse_pairs": 310,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math3.util.MathArrays",
+          "method": "linearCombination",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 4,
+          "stmts": 329,
+          "cfg_edges": 332,
+          "branch_points": 9,
+          "cyclomatic_complexity": 11,
+          "def_count": 310,
+          "use_count": 902,
+          "defuse_pairs": 310,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": 7,
+    "d_branch_points": 1,
+    "d_cfg_edges": 7,
+    "d_defuse_pairs": 5,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 688,
+      "n_candidate_warnings": 688,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 6,
+      "n_changed_class_files_candidate": 6,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-3-ACS",
+    "bug_id": "Math-3",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

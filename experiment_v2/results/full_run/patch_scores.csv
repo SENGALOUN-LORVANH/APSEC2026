@@ -1,0 +1,4 @@
+patch_id,S_sem,S_cex,S_edit,S_vuln,alpha,beta,gamma,delta,PVS,PVS_strategy,PVS_paper_formula_complete_only,missing_component_flags,ground_truth_label
+Patches_ICSE__Ddifferent__ACS__Chart__patch1-Chart-19-ACS,0.050000000000000044,1.0,0.21138211382113822,0,0.25,0.25,0.25,0.25,0.7096544715447155,shifted_renormalized,0.20965447154471545,,correct
+Patches_ICSE__Ddifferent__ACS__Lang__patch1-Lang-24-ACS,0.050000000000000044,1.0,0.029288702928870293,0,0.25,0.25,0.25,0.25,0.7551778242677825,shifted_renormalized,0.25517782426778246,,correct
+Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-3-ACS,0.050000000000000044,1.0,0.05263157894736842,0,0.25,0.25,0.25,0.25,0.7493421052631579,shifted_renormalized,0.24934210526315792,,correct

@@ -1,0 +1,4 @@
+patch_id,bug_id,project,ground_truth_label,included_primary,duplicate_group_id,s_sem_final,semantic_decision,n_parsed,n_runs,s_cex,cex_n_valid,cex_n_passed,s_edit_ast,s_vuln_changed,analysis_level,d_cyclomatic,d_stmts,d_branch_points,d_cfg_edges,d_defuse_pairs,memorization_recognized,complete,terminal_failure
+Patches_ICSE__Ddifferent__ACS__Chart__patch1-Chart-19-ACS,Chart-19,Chart,correct,True,,0.050000000000000044,OVERFITTING,3,3,1.0,2,2,0.21138211382113822,0,DATAFLOW,0,12,2,12,6,False,True,
+Patches_ICSE__Ddifferent__ACS__Lang__patch1-Lang-24-ACS,Lang-24,Lang,correct,True,,0.050000000000000044,OVERFITTING,3,3,1.0,1,1,0.029288702928870293,0,DATAFLOW,0,2,1,2,0,False,True,
+Patches_ICSE__Ddifferent__ACS__Math__patch1-Math-3-ACS,Math-3,Math,correct,True,,0.050000000000000044,OVERFITTING,3,3,1.0,1,1,0.05263157894736842,0,DATAFLOW,0,7,1,7,5,False,True,
