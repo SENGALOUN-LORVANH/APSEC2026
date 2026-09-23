@@ -1,0 +1,256 @@
+{
+  "patch_id": "Patches_others__Doverfitting__Jaid__Math__patch1-Math-82-Jaid-plausible",
+  "bug_id": "Math-82",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 8.481
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.84
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 9.269
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 28.473
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.585
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 76.022
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_others__Doverfitting__Jaid__Math__patch1-Math-82-Jaid-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.0205129549999583,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2227,
+        "output_tokens": 184,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.6,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch introduces convoluted logic that appears to special-case the first iteration by comparing rhs to minRatio (which is MAX_VALUE initially), causing incorrect behavior. The condition `(rhs > minRatio) == false` is logically equivalent to `rhs <= minRatio`, which contradicts the intended minimum ratio test algorithm and would only pass this specific test case by accident rather than fixing the underlying bug."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 2.996691506999923,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2227,
+        "output_tokens": 184,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.6,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch introduces convoluted logic that appears to special-case the first iteration by comparing rhs to minRatio (which is MAX_VALUE initially), causing incorrect behavior. The condition `(rhs > minRatio) == false` is logically equivalent to `rhs <= minRatio`, which contradicts the intended minimum ratio test algorithm and would only pass this specific test case by accident rather than fixing the underlying bug."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 2.9051289349999934,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2227,
+        "output_tokens": 184,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.6,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch introduces convoluted logic that appears to special-case the first iteration by comparing rhs to minRatio (which is MAX_VALUE initially), causing incorrect behavior. The condition `(rhs > minRatio) == false` is logically equivalent to `rhs <= minRatio`, which contradicts the intended minimum ratio test algorithm and would only pass this specific test case by accident rather than fixing the underlying bug."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_others__Doverfitting__Jaid__Math__patch1-Math-82-Jaid-plausible",
+    "bug_id": "Math-82",
+    "model": "claude-haiku-4-5",
+    "latency_s": 15.41767489699987,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 2098,
+    "output_tokens": 1666,
+    "tests": [
+      {
+        "name": "testPivotRowWithNegativeRHS",
+        "target_class": "org.apache.commons.math.optimization.linear.SimplexSolver",
+        "target_method": "getPivotRow",
+        "class_name": "SimplexSolverTest1",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": " constraints, GoalType.MAXIMIZE, false);\n    [javac]                                                                       ^\n    [javac]   symbol:   variable GoalType\n    [javac]   location: class SimplexSolverTest1\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Double.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Double.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Number.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Number.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 1 error\n    [javac] 34 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_others__Doverfitting__Jaid__Math__patch1-Math-82-Jaid-plausible/SimplexSolverTest1/fixed/build.xml:168: Compile failed; see the compiler error output for details.\n\nTotal time: 0 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testPivotRowBoundaryRatios",
+        "target_class": "org.apache.commons.math.optimization.linear.SimplexSolver",
+        "target_method": "getPivotRow",
+        "class_name": "SimplexSolverTest2",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "t.jar/java/util/AbstractCollection.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Iterable.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Iterable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] /data/qc_workspaces/gen_tests/Patches_others__Doverfitting__Jaid__Math__patch1-Math-82-Jaid-plausible/SimplexSolverTest2/fixed/src/test/java/org/apache/commons/math/optimization/linear/SimplexSolverTest2.java:20: error: cannot find symbol\n    [javac]         RealPointValuePair solution = solver.optimize(f, constraints, GoalType.MAXIMIZE, false);\n    [javac]                                                                       ^\n    [javac]   symbol:   variable GoalType\n    [javac]   location: class SimplexSolverTest2\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 1 error\n    [javac] 30 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_others__Doverfitting__Jaid__Math__patch1-Math-82-Jaid-plausible/SimplexSolverTest2/fixed/build.xml:168: Compile failed; see the compiler error output for details.\n\nTotal time: 1 second\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testPivotRowMultipleConstraints",
+        "target_class": "org.apache.commons.math.optimization.linear.SimplexSolver",
+        "target_method": "getPivotRow",
+        "class_name": "SimplexSolverTest3",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "t.jar/java/util/AbstractCollection.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Iterable.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Iterable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] /data/qc_workspaces/gen_tests/Patches_others__Doverfitting__Jaid__Math__patch1-Math-82-Jaid-plausible/SimplexSolverTest3/fixed/src/test/java/org/apache/commons/math/optimization/linear/SimplexSolverTest3.java:20: error: cannot find symbol\n    [javac]         RealPointValuePair solution = solver.optimize(f, constraints, GoalType.MAXIMIZE, false);\n    [javac]                                                                       ^\n    [javac]   symbol:   variable GoalType\n    [javac]   location: class SimplexSolverTest3\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 1 error\n    [javac] 30 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_others__Doverfitting__Jaid__Math__patch1-Math-82-Jaid-plausible/SimplexSolverTest3/fixed/build.xml:168: Compile failed; see the compiler error output for details.\n\nTotal time: 1 second\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_others__Doverfitting__Jaid__Math__patch1-Math-82-Jaid-plausible",
+    "true_project": "Math",
+    "true_bug_number": "82",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 595,
+    "output_tokens": 25,
+    "project": "Math",
+    "bug_number": null,
+    "recalled_label": "UNKNOWN",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_others__Doverfitting__Jaid__Math__patch1-Math-82-Jaid-plausible",
+    "bug_id": "Math-82",
+    "s_edit_ast": 0.13533834586466165,
+    "s_edit_ast_actions": 18,
+    "s_edit_ast_nodes": 133,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math/optimization/linear/SimplexSolver"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 23,
+      "cfg_edges": 25,
+      "branch_points": 3,
+      "cyclomatic_complexity": 4,
+      "def_count": 18,
+      "use_count": 50,
+      "defuse_pairs": 18,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.optimization.linear.SimplexSolver",
+          "method": "getPivotRow",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 23,
+          "cfg_edges": 25,
+          "branch_points": 3,
+          "cyclomatic_complexity": 4,
+          "def_count": 18,
+          "use_count": 50,
+          "defuse_pairs": 18,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 31,
+      "cfg_edges": 35,
+      "branch_points": 5,
+      "cyclomatic_complexity": 6,
+      "def_count": 22,
+      "use_count": 62,
+      "defuse_pairs": 22,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.optimization.linear.SimplexSolver",
+          "method": "getPivotRow",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 31,
+          "cfg_edges": 35,
+          "branch_points": 5,
+          "cyclomatic_complexity": 6,
+          "def_count": 22,
+          "use_count": 62,
+          "defuse_pairs": 22,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 2,
+    "d_stmts": 8,
+    "d_branch_points": 2,
+    "d_cfg_edges": 10,
+    "d_defuse_pairs": 4,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 312,
+      "n_candidate_warnings": 312,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_others__Doverfitting__Jaid__Math__patch1-Math-82-Jaid-plausible",
+    "bug_id": "Math-82",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

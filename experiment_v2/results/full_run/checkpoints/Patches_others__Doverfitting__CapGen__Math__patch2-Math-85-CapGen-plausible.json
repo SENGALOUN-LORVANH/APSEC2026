@@ -1,0 +1,256 @@
+{
+  "patch_id": "Patches_others__Doverfitting__CapGen__Math__patch2-Math-85-CapGen-plausible",
+  "bug_id": "Math-85",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 12.901
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.995
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 9.998
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 45.038
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.024
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 50.618
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_others__Doverfitting__CapGen__Math__patch2-Math-85-CapGen-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.2822707099999207,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3111,
+        "output_tokens": 185,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.1,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch changes `fa * fb >= 0.0` to `fa * b >= 0.0`, which is semantically incorrect and breaks the algorithm's logic. This appears to be a typo fix that happens to make the test pass by accident, but it fundamentally corrupts the bracketing condition by comparing a function value with a bound value instead of two function values. The patch introduces a logical error rather than fixing the underlying bug."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.156807817000299,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3111,
+        "output_tokens": 185,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.1,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch changes `fa * fb >= 0.0` to `fa * b >= 0.0`, which is semantically incorrect and breaks the algorithm's logic. This appears to be a typo fix that happens to make the test pass by accident, but it fundamentally corrupts the bracketing condition by comparing a function value with a bound value instead of two function values. The patch introduces a logical error rather than fixing the underlying bug."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.194020346999878,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3111,
+        "output_tokens": 185,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.1,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch changes `fa * fb >= 0.0` to `fa * b >= 0.0`, which is semantically incorrect and breaks the algorithm's logic. This appears to be a typo fix that happens to make the test pass by accident, but it fundamentally corrupts the bracketing condition by comparing a function value with a bound value instead of two function values. The patch introduces a logical error rather than fixing the underlying bug."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_others__Doverfitting__CapGen__Math__patch2-Math-85-CapGen-plausible",
+    "bug_id": "Math-85",
+    "model": "claude-haiku-4-5",
+    "latency_s": 13.560166216000198,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 2980,
+    "output_tokens": 2356,
+    "tests": [
+      {
+        "name": "testBracketWithSignChangeAtBoundary",
+        "target_class": "org.apache.commons.math.analysis.solvers.UnivariateRealSolverUtils",
+        "target_method": "bracket",
+        "class_name": "BracketingTest",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": "JUnit version 4.11\n...\nTime: 0.016\n\nOK (3 tests)\n\n"
+      },
+      {
+        "name": "testBracketWithZeroAtInitial",
+        "target_class": "org.apache.commons.math.analysis.solvers.UnivariateRealSolverUtils",
+        "target_method": "bracket",
+        "class_name": "BracketingZeroTest",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": "JUnit version 4.11\n.\nTime: 0.005\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testBracketConditionCorrectness",
+        "target_class": "org.apache.commons.math.analysis.solvers.UnivariateRealSolverUtils",
+        "target_method": "bracket",
+        "class_name": "BracketingConditionTest",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": "JUnit version 4.11\n.\nTime: 0.004\n\nOK (1 test)\n\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_others__Doverfitting__CapGen__Math__patch2-Math-85-CapGen-plausible",
+    "true_project": "Math",
+    "true_bug_number": "85",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 637,
+    "output_tokens": 28,
+    "project": "Math",
+    "bug_number": 32,
+    "recalled_label": "OVERFITTING",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_others__Doverfitting__CapGen__Math__patch2-Math-85-CapGen-plausible",
+    "bug_id": "Math-85",
+    "s_edit_ast": 0.003663003663003663,
+    "s_edit_ast_actions": 1,
+    "s_edit_ast_nodes": 273,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math/analysis/solvers/UnivariateRealSolverUtils"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 88,
+      "cfg_edges": 92,
+      "branch_points": 10,
+      "cyclomatic_complexity": 8,
+      "def_count": 71,
+      "use_count": 207,
+      "defuse_pairs": 71,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.analysis.solvers.UnivariateRealSolverUtils",
+          "method": "bracket",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 88,
+          "cfg_edges": 92,
+          "branch_points": 10,
+          "cyclomatic_complexity": 8,
+          "def_count": 71,
+          "use_count": 207,
+          "defuse_pairs": 71,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 88,
+      "cfg_edges": 92,
+      "branch_points": 10,
+      "cyclomatic_complexity": 8,
+      "def_count": 71,
+      "use_count": 207,
+      "defuse_pairs": 71,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.analysis.solvers.UnivariateRealSolverUtils",
+          "method": "bracket",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 88,
+          "cfg_edges": 92,
+          "branch_points": 10,
+          "cyclomatic_complexity": 8,
+          "def_count": 71,
+          "use_count": 207,
+          "defuse_pairs": 71,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": 0,
+    "d_branch_points": 0,
+    "d_cfg_edges": 0,
+    "d_defuse_pairs": 0,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 314,
+      "n_candidate_warnings": 314,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 2,
+      "n_changed_class_files_candidate": 2,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_others__Doverfitting__CapGen__Math__patch2-Math-85-CapGen-plausible",
+    "bug_id": "Math-85",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

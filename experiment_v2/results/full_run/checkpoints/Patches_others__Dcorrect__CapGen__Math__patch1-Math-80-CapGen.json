@@ -1,0 +1,256 @@
+{
+  "patch_id": "Patches_others__Dcorrect__CapGen__Math__patch1-Math-80-CapGen",
+  "bug_id": "Math-80",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 8.292
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.744
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 8.965
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 127.674
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.069
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 74.711
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_others__Dcorrect__CapGen__Math__patch1-Math-80-CapGen",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.9499999999999998,
+    "decision": "CORRECT",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 2.7122564830001465,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2279,
+        "output_tokens": 164,
+        "parsed": {
+          "generalization": "general",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 1.0,
+          "readability": 1.0,
+          "security_robustness": 1.0,
+          "judgement": "CORRECT",
+          "confidence": 0.95,
+          "brief_reason": "The patch fixes an off-by-one error in the array flipping logic by changing the initial value of j from 4*n-1 to 4*(n-1), which correctly positions the starting index for the reverse iteration. This is a minimal, targeted fix that addresses the root cause of the incorrect eigenvalue computation without affecting other functionality."
+        },
+        "s_sem": 0.95,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 2.8831911180000134,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2279,
+        "output_tokens": 185,
+        "parsed": {
+          "generalization": "general",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 1.0,
+          "readability": 1.0,
+          "security_robustness": 1.0,
+          "judgement": "CORRECT",
+          "confidence": 0.95,
+          "brief_reason": "The patch fixes an off-by-one error in the array flipping logic. The original code initialized j to 4*n-1, which would access an out-of-bounds index when the loop condition i < j is evaluated. The corrected initialization to 4*(n-1) ensures proper array bounds and produces the expected eigenvalue computation result. This is a minimal, focused fix that addresses the root cause of the numerical discrepancy."
+        },
+        "s_sem": 0.95,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 2.7823947529996076,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2279,
+        "output_tokens": 161,
+        "parsed": {
+          "generalization": "general",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 1.0,
+          "readability": 1.0,
+          "security_robustness": 1.0,
+          "judgement": "CORRECT",
+          "confidence": 0.95,
+          "brief_reason": "The patch fixes an off-by-one error in the array flipping logic by changing the initial value of j from 4*n-1 to 4*(n-1), which correctly positions the starting index for the reverse iteration. This is a minimal, targeted fix that addresses the root cause of the incorrect eigenvalue computation without affecting other functionality."
+        },
+        "s_sem": 0.95,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_others__Dcorrect__CapGen__Math__patch1-Math-80-CapGen",
+    "bug_id": "Math-80",
+    "model": "claude-haiku-4-5",
+    "latency_s": 13.196219596999981,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 2172,
+    "output_tokens": 2180,
+    "tests": [
+      {
+        "name": "testFlipIfWarrantedBoundaryCondition",
+        "target_class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+        "target_method": "flipIfWarranted",
+        "class_name": "TestFlipIfWarrantedBoundary",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.016\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testFlipIfWarrantedArrayIndexing",
+        "target_class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+        "target_method": "flipIfWarranted",
+        "class_name": "TestFlipIfWarrantedIndexing",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.011\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testFlipIfWarrantedLoopTermination",
+        "target_class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+        "target_method": "flipIfWarranted",
+        "class_name": "TestFlipIfWarrantedLoopTermination",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.012\n\nOK (1 test)\n\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_others__Dcorrect__CapGen__Math__patch1-Math-80-CapGen",
+    "true_project": "Math",
+    "true_bug_number": "80",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 643,
+    "output_tokens": 26,
+    "project": "Math",
+    "bug_number": 369,
+    "recalled_label": "CORRECT",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_others__Dcorrect__CapGen__Math__patch1-Math-80-CapGen",
+    "bug_id": "Math-80",
+    "s_edit_ast": 0.1044776119402985,
+    "s_edit_ast_actions": 14,
+    "s_edit_ast_nodes": 134,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math/linear/EigenDecompositionImpl"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 40,
+      "cfg_edges": 41,
+      "branch_points": 3,
+      "cyclomatic_complexity": 3,
+      "def_count": 33,
+      "use_count": 92,
+      "defuse_pairs": 33,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+          "method": "flipIfWarranted",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 40,
+          "cfg_edges": 41,
+          "branch_points": 3,
+          "cyclomatic_complexity": 3,
+          "def_count": 33,
+          "use_count": 92,
+          "defuse_pairs": 33,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 40,
+      "cfg_edges": 41,
+      "branch_points": 3,
+      "cyclomatic_complexity": 3,
+      "def_count": 33,
+      "use_count": 92,
+      "defuse_pairs": 33,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+          "method": "flipIfWarranted",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 40,
+          "cfg_edges": 41,
+          "branch_points": 3,
+          "cyclomatic_complexity": 3,
+          "def_count": 33,
+          "use_count": 92,
+          "defuse_pairs": 33,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": 0,
+    "d_branch_points": 0,
+    "d_cfg_edges": 0,
+    "d_defuse_pairs": 0,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 317,
+      "n_candidate_warnings": 317,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 3,
+      "n_changed_class_files_candidate": 3,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_others__Dcorrect__CapGen__Math__patch1-Math-80-CapGen",
+    "bug_id": "Math-80",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

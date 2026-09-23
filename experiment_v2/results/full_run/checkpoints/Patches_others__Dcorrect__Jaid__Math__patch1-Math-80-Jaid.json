@@ -1,0 +1,256 @@
+{
+  "patch_id": "Patches_others__Dcorrect__Jaid__Math__patch1-Math-80-Jaid",
+  "bug_id": "Math-80",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 11.162
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 1.309
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 10.487
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 40.517
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.638
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 51.82
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_others__Dcorrect__Jaid__Math__patch1-Math-80-Jaid",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 2.894021950000024,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2267,
+        "output_tokens": 194,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.2,
+          "readability": 0.3,
+          "security_robustness": 0.7,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch adds a nonsensical condition that changes j from 4*n-1 to 4*(n-1), which fundamentally alters the loop bounds and array access pattern in a way that appears to be overfitting to the specific test case rather than fixing the underlying algorithmic bug. The condition `(j == 4 * (n - 1)) == false` is logically flawed and the modification weakens the original algorithm's correctness."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.5240922120001414,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2267,
+        "output_tokens": 202,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.2,
+          "readability": 0.3,
+          "security_robustness": 0.7,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch adds a nonsensical condition that changes j from 4*n-1 to 4*(n-1), which fundamentally alters the loop bounds and array access pattern in a way that appears to be overfitting to the specific test case rather than fixing the underlying algorithmic bug. The condition `(j == 4 * (n - 1)) == false` is logically flawed and the modification weakens the original algorithm's correctness by changing the iteration range without justification."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 2.9099798269999155,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2267,
+        "output_tokens": 179,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.2,
+          "readability": 0.3,
+          "security_robustness": 0.7,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch adds a nonsensical condition that checks if j equals 4*(n-1) and then sets j to that same value, which has no effect on the algorithm's logic. This appears to be a random modification that happens to make the test pass by accident rather than fixing the underlying bug in the eigendecomposition algorithm. The patch weakens the loop's intended behavior without addressing the actual numerical computation issue."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_others__Dcorrect__Jaid__Math__patch1-Math-80-Jaid",
+    "bug_id": "Math-80",
+    "model": "claude-haiku-4-5",
+    "latency_s": 16.988783845999933,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 2160,
+    "output_tokens": 1804,
+    "tests": [
+      {
+        "name": "testFlipIfWarrantedBoundaryCondition",
+        "target_class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+        "target_method": "flipIfWarranted",
+        "class_name": "TestFlipIfWarrantedBoundary",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.01\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testFlipIfWarrantedLargerMatrix",
+        "target_class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+        "target_method": "flipIfWarranted",
+        "class_name": "TestFlipIfWarrantedLargerMatrix",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.012\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testFlipIfWarrantedConsistency",
+        "target_class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+        "target_method": "flipIfWarranted",
+        "class_name": "TestFlipIfWarrantedConsistency",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "njdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Object.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation': class file for jdk.Profile+Annotation not found\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/AutoCloseable.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/AutoCloseable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] /data/qc_workspaces/gen_tests/Patches_others__Dcorrect__Jaid__Math__patch1-Math-80-Jaid/TestFlipIfWarrantedConsistency/fixed/src/test/java/org/apache/commons/math/linear/TestFlipIfWarrantedConsistency.java:20: error: cannot find symbol\n    [javac]         RealMatrix Vinv = MatrixUtils.inverse(V);\n    [javac]                                      ^\n    [javac]   symbol:   method inverse(RealMatrix)\n    [javac]   location: class MatrixUtils\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 1 error\n    [javac] 6 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_others__Dcorrect__Jaid__Math__patch1-Math-80-Jaid/TestFlipIfWarrantedConsistency/fixed/build.xml:168: Compile failed; see the compiler error output for details.\n\nTotal time: 0 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_others__Dcorrect__Jaid__Math__patch1-Math-80-Jaid",
+    "true_project": "Math",
+    "true_bug_number": "80",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 631,
+    "output_tokens": 28,
+    "project": "Math",
+    "bug_number": 41,
+    "recalled_label": "OVERFITTING",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_others__Dcorrect__Jaid__Math__patch1-Math-80-Jaid",
+    "bug_id": "Math-80",
+    "s_edit_ast": 0.26119402985074625,
+    "s_edit_ast_actions": 35,
+    "s_edit_ast_nodes": 134,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math/linear/EigenDecompositionImpl"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 40,
+      "cfg_edges": 41,
+      "branch_points": 3,
+      "cyclomatic_complexity": 3,
+      "def_count": 33,
+      "use_count": 92,
+      "defuse_pairs": 33,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+          "method": "flipIfWarranted",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 40,
+          "cfg_edges": 41,
+          "branch_points": 3,
+          "cyclomatic_complexity": 3,
+          "def_count": 33,
+          "use_count": 92,
+          "defuse_pairs": 33,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 49,
+      "cfg_edges": 52,
+      "branch_points": 5,
+      "cyclomatic_complexity": 5,
+      "def_count": 39,
+      "use_count": 112,
+      "defuse_pairs": 39,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+          "method": "flipIfWarranted",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 49,
+          "cfg_edges": 52,
+          "branch_points": 5,
+          "cyclomatic_complexity": 5,
+          "def_count": 39,
+          "use_count": 112,
+          "defuse_pairs": 39,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 2,
+    "d_stmts": 9,
+    "d_branch_points": 2,
+    "d_cfg_edges": 11,
+    "d_defuse_pairs": 6,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 317,
+      "n_candidate_warnings": 317,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 3,
+      "n_changed_class_files_candidate": 3,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_others__Dcorrect__Jaid__Math__patch1-Math-80-Jaid",
+    "bug_id": "Math-80",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

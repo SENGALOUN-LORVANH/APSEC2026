@@ -1,0 +1,238 @@
+{
+  "patch_id": "Patches_others__Doverfitting__CapGen__Math__patch1-Math-85-CapGen-plausible",
+  "bug_id": "Math-85",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 9.904
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.896
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 11.072
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 26.56
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.497
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 68.433
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_others__Doverfitting__CapGen__Math__patch1-Math-85-CapGen-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.526517709000018,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3113,
+        "output_tokens": 172,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.1,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch replaces `fb` with `upperBound` in the convergence check, which is semantically incorrect and changes the logic entirely. While it may pass the specific test by accident, it breaks the intended functionality of checking if f(a) and f(b) have opposite signs, and introduces a nonsensical comparison between a function value and a bound value."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.635984370999722,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3113,
+        "output_tokens": 172,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.1,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch replaces `fb` with `upperBound` in the convergence check, which is semantically incorrect and changes the logic entirely. While it may pass the specific test by accident, it breaks the intended functionality of checking if f(a) and f(b) have opposite signs, and introduces a nonsensical comparison between a function value and a bound value."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.497533921000013,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3113,
+        "output_tokens": 172,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.1,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch replaces `fb` with `upperBound` in the convergence check, which is semantically incorrect and changes the logic entirely. While it may pass the specific test by accident, it breaks the intended functionality of checking if f(a) and f(b) have opposite signs, and introduces a nonsensical comparison between a function value and a bound value."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_others__Doverfitting__CapGen__Math__patch1-Math-85-CapGen-plausible",
+    "bug_id": "Math-85",
+    "model": "claude-haiku-4-5",
+    "latency_s": 12.371652604000246,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 2982,
+    "output_tokens": 1340,
+    "tests": [
+      {
+        "name": "testBracketWithSignChangeAtBoundary",
+        "target_class": "org.apache.commons.math.analysis.solvers.UnivariateRealSolverUtils",
+        "target_method": "bracket",
+        "class_name": "BracketBoundaryTest",
+        "status": "VALID_BUG_REVEALING",
+        "candidate_pass": false,
+        "log": "tingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.lang.reflect.Method.invoke(Method.java:498)\n\tat org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)\n\tat org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)\n\tat org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)\n\tat org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)\n\tat org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:271)\n\tat org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:70)\n\tat org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)\n\tat org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)\n\tat org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:309)\n\tat org.junit.runners.Suite.runChild(Suite.java:127)\n\tat org.junit.runners.Suite.runChild(Suite.java:26)\n\tat org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)\n\tat org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:309)\n\tat org.junit.runner.JUnitCore.run(JUnitCore.java:160)\n\tat org.junit.runner.JUnitCore.run(JUnitCore.java:138)\n\tat org.junit.runner.JUnitCore.run(JUnitCore.java:117)\n\tat org.junit.runner.JUnitCore.runMain(JUnitCore.java:96)\n\tat org.junit.runner.JUnitCore.runMainAndExit(JUnitCore.java:47)\n\tat org.junit.runner.JUnitCore.main(JUnitCore.java:40)\n\nFAILURES!!!\nTests run: 3,  Failures: 1\n\n"
+      }
+    ],
+    "s_cex": 0.0,
+    "n_valid": 1,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_others__Doverfitting__CapGen__Math__patch1-Math-85-CapGen-plausible",
+    "true_project": "Math",
+    "true_bug_number": "85",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 639,
+    "output_tokens": 28,
+    "project": "Math",
+    "bug_number": 32,
+    "recalled_label": "OVERFITTING",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_others__Doverfitting__CapGen__Math__patch1-Math-85-CapGen-plausible",
+    "bug_id": "Math-85",
+    "s_edit_ast": 0.003663003663003663,
+    "s_edit_ast_actions": 1,
+    "s_edit_ast_nodes": 273,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math/analysis/solvers/UnivariateRealSolverUtils"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 88,
+      "cfg_edges": 92,
+      "branch_points": 10,
+      "cyclomatic_complexity": 8,
+      "def_count": 71,
+      "use_count": 207,
+      "defuse_pairs": 71,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.analysis.solvers.UnivariateRealSolverUtils",
+          "method": "bracket",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 88,
+          "cfg_edges": 92,
+          "branch_points": 10,
+          "cyclomatic_complexity": 8,
+          "def_count": 71,
+          "use_count": 207,
+          "defuse_pairs": 71,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 88,
+      "cfg_edges": 92,
+      "branch_points": 10,
+      "cyclomatic_complexity": 8,
+      "def_count": 71,
+      "use_count": 207,
+      "defuse_pairs": 71,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.analysis.solvers.UnivariateRealSolverUtils",
+          "method": "bracket",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 88,
+          "cfg_edges": 92,
+          "branch_points": 10,
+          "cyclomatic_complexity": 8,
+          "def_count": 71,
+          "use_count": 207,
+          "defuse_pairs": 71,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": 0,
+    "d_branch_points": 0,
+    "d_cfg_edges": 0,
+    "d_defuse_pairs": 0,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 314,
+      "n_candidate_warnings": 314,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 2,
+      "n_changed_class_files_candidate": 2,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_others__Doverfitting__CapGen__Math__patch1-Math-85-CapGen-plausible",
+    "bug_id": "Math-85",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

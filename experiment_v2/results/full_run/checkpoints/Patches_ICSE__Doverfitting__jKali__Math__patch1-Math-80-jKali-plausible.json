@@ -1,0 +1,238 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__jKali__Math__patch1-Math-80-jKali-plausible",
+  "bug_id": "Math-80",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 11.487
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 1.106
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 10.73
+    },
+    "counterexample": {
+      "ok": false,
+      "seconds": 72.8,
+      "error": "JSONDecodeError: Unterminated string starting at: line 1 column 48246 (char 48245)",
+      "traceback": "Traceback (most recent call last):\n  File \"/work/experiment_v2/src/run_full.py\", line 146, in _stage\n    result = fn(*args)\n  File \"/work/experiment_v2/src/oracle_runner.py\", line 230, in run_counterexamples\n    generated = json.loads(llm_client.response_text(resp))[\"tests\"]\n  File \"/usr/lib/python3.10/json/__init__.py\", line 346, in loads\n    return _default_decoder.decode(s)\n  File \"/usr/lib/python3.10/json/decoder.py\", line 337, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n  File \"/usr/lib/python3.10/json/decoder.py\", line 353, in raw_decode\n    obj, end = self.scan_once(s, idx)\njson.decoder.JSONDecodeError: Unterminated string starting at: line 1 column 48246 (char 48245)\n"
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.629
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 59.705
+    }
+  },
+  "complete": false,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__jKali__Math__patch1-Math-80-jKali-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.259048670000084,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2288,
+        "output_tokens": 169,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.0,
+          "readability": 0.8,
+          "security_robustness": 0.9,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch removes the actual array-flipping logic while keeping only the condition check and return statement. This deletes core functionality\u2014the method is supposed to flip the work array when warranted, but now it only returns true without performing the flip. The patch passes the test by accident (likely due to test design or tolerance), not by correctly fixing the underlying bug."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.251237403999994,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2288,
+        "output_tokens": 169,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.0,
+          "readability": 0.8,
+          "security_robustness": 0.9,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch removes the actual array-flipping logic while keeping only the condition check and return statement. This deletes core functionality\u2014the method is supposed to flip the work array when warranted, but now it only returns true without performing the flip. The patch passes the test by accident (likely due to test design or tolerance), not by correctly fixing the underlying bug."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.214813804000187,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2288,
+        "output_tokens": 169,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.0,
+          "readability": 0.8,
+          "security_robustness": 0.9,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch removes the actual array-flipping logic while keeping only the condition check and return statement. This deletes core functionality\u2014the method is supposed to flip the work array when warranted, but now it only returns true without performing the flip. The patch passes the test by accident (likely due to test design or tolerance), not by correctly fixing the underlying bug."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": null,
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__jKali__Math__patch1-Math-80-jKali-plausible",
+    "true_project": "Math",
+    "true_bug_number": "80",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 652,
+    "output_tokens": 28,
+    "project": "Math",
+    "bug_number": 98,
+    "recalled_label": "OVERFITTING",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__jKali__Math__patch1-Math-80-jKali-plausible",
+    "bug_id": "Math-80",
+    "s_edit_ast": 0.5746268656716418,
+    "s_edit_ast_actions": 77,
+    "s_edit_ast_nodes": 134,
+    "s_edit_error": null,
+    "s_vuln_changed": 1.0,
+    "s_vuln_new_warning_count": 2,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math/linear/EigenDecompositionImpl"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 40,
+      "cfg_edges": 41,
+      "branch_points": 3,
+      "cyclomatic_complexity": 3,
+      "def_count": 33,
+      "use_count": 92,
+      "defuse_pairs": 33,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+          "method": "flipIfWarranted",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 40,
+          "cfg_edges": 41,
+          "branch_points": 3,
+          "cyclomatic_complexity": 3,
+          "def_count": 33,
+          "use_count": 92,
+          "defuse_pairs": 33,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 19,
+      "cfg_edges": 18,
+      "branch_points": 1,
+      "cyclomatic_complexity": 1,
+      "def_count": 16,
+      "use_count": 43,
+      "defuse_pairs": 16,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+          "method": "flipIfWarranted",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 19,
+          "cfg_edges": 18,
+          "branch_points": 1,
+          "cyclomatic_complexity": 1,
+          "def_count": 16,
+          "use_count": 43,
+          "defuse_pairs": 16,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": -2,
+    "d_stmts": -21,
+    "d_branch_points": -2,
+    "d_cfg_edges": -23,
+    "d_defuse_pairs": -17,
+    "vuln_detail": {
+      "s_vuln": 1.0,
+      "new_warnings": [
+        {
+          "bug_type": "DLS",
+          "category": "D",
+          "priority": "M",
+          "severity": "MEDIUM",
+          "class": "EigenDecompositionImpl",
+          "method": "flipIfWarranted",
+          "location": "EigenDecompositionImpl.java:line 1135",
+          "description": "Dead store to j in org.apache.commons.math.linear.EigenDecompositionImpl.flipIfWarranted(int, int)"
+        },
+        {
+          "bug_type": "RV",
+          "category": "D",
+          "priority": "M",
+          "severity": "MEDIUM",
+          "class": "EigenDecompositionImpl",
+          "method": "",
+          "location": "EigenDecompositionImpl.java:line 840",
+          "description": "Return value of flipIfWarranted(int, int) ignored, but method has no side effect"
+        }
+      ],
+      "n_buggy_warnings": 317,
+      "n_candidate_warnings": 319,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 3,
+      "n_changed_class_files_candidate": 3,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__jKali__Math__patch1-Math-80-jKali-plausible",
+    "bug_id": "Math-80",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}
