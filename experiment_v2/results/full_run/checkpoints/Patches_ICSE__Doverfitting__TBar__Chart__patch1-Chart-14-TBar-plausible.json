@@ -1,0 +1,187 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__TBar__Chart__patch1-Chart-14-TBar-plausible",
+  "bug_id": "Chart-14",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 29.061
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 1.385
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 4.133
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 4.03
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 0.379
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 49.493
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__TBar__Chart__patch1-Chart-14-TBar-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 0,
+    "s_sem_final": null,
+    "decision": null,
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 0.5114462960009405,
+        "attempts": 1,
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLfcN8LXCk1U2FhPyP3Y'}"
+      },
+      {
+        "run": 1,
+        "latency_s": 0.37467359700167435,
+        "attempts": 1,
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLfcPvEXz5iUThcee2L3'}"
+      },
+      {
+        "run": 2,
+        "latency_s": 0.363979396999639,
+        "attempts": 1,
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLfcRXiwPfRZxFVbPrAF'}"
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__TBar__Chart__patch1-Chart-14-TBar-plausible",
+    "bug_id": "Chart-14",
+    "model": "claude-haiku-4-5",
+    "latency_s": 0.4114546960008738,
+    "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLfcimZWktVwHq7MizTn'}",
+    "context_errors": [],
+    "input_tokens": null,
+    "output_tokens": null,
+    "tests": []
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__TBar__Chart__patch1-Chart-14-TBar-plausible",
+    "true_project": "Chart",
+    "true_bug_number": "14",
+    "model": "claude-haiku-4-5",
+    "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLfckWEfXhxy4LLzU1J9'}",
+    "input_tokens": null,
+    "output_tokens": null
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__TBar__Chart__patch1-Chart-14-TBar-plausible",
+    "bug_id": "Chart-14",
+    "s_edit_ast": 0.08035714285714286,
+    "s_edit_ast_actions": 9,
+    "s_edit_ast_nodes": 112,
+    "s_edit_error": null,
+    "s_vuln_changed": 0.5,
+    "s_vuln_new_warning_count": 1,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/jfree/chart/plot/XYPlot"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 39,
+      "cfg_edges": 38,
+      "branch_points": 3,
+      "cyclomatic_complexity": 7,
+      "def_count": 28,
+      "use_count": 71,
+      "defuse_pairs": 28,
+      "per_method": [
+        {
+          "class": "org.jfree.chart.plot.XYPlot",
+          "method": "removeDomainMarker",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 4,
+          "stmts": 39,
+          "cfg_edges": 38,
+          "branch_points": 3,
+          "cyclomatic_complexity": 7,
+          "def_count": 28,
+          "use_count": 71,
+          "defuse_pairs": 28,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 40,
+      "cfg_edges": 39,
+      "branch_points": 3,
+      "cyclomatic_complexity": 7,
+      "def_count": 29,
+      "use_count": 73,
+      "defuse_pairs": 29,
+      "per_method": [
+        {
+          "class": "org.jfree.chart.plot.XYPlot",
+          "method": "removeDomainMarker",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 4,
+          "stmts": 40,
+          "cfg_edges": 39,
+          "branch_points": 3,
+          "cyclomatic_complexity": 7,
+          "def_count": 29,
+          "use_count": 73,
+          "defuse_pairs": 29,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": 1,
+    "d_branch_points": 0,
+    "d_cfg_edges": 1,
+    "d_defuse_pairs": 1,
+    "vuln_detail": {
+      "s_vuln": 0.5,
+      "new_warnings": [
+        {
+          "bug_type": "DLS",
+          "category": "D",
+          "priority": "M",
+          "severity": "MEDIUM",
+          "class": "XYPlot",
+          "method": "removeDomainMarker",
+          "location": "XYPlot.java:line 2290",
+          "description": "Dead store to markers in org.jfree.chart.plot.XYPlot.removeDomainMarker(int, Marker, Layer, boolean)"
+        }
+      ],
+      "n_buggy_warnings": 10,
+      "n_candidate_warnings": 11,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__TBar__Chart__patch1-Chart-14-TBar-plausible",
+    "bug_id": "Chart-14",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": false,
+    "error": ""
+  }
+}
