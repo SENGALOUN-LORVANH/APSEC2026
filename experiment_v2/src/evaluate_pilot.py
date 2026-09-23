@@ -114,14 +114,16 @@ def load_scored_frame():
 
 
 # ---------------------------------------------------------------- detection per method
-def _lopo_lr(df, cols):
-    """Out-of-fold LOPO logistic-regression predictions. Missing features are mean-imputed within the
+def _lopo_lr(df, cols, split_fn=None):
+    """Out-of-fold cross-validated logistic-regression predictions. Missing features are mean-imputed within the
     training fold and flagged with a missingness indicator (protocol: missingness-indicator logistic model).
-    Standardized within the training fold, C=1.0, threshold 0.5, no tuning."""
+    Standardized within the training fold, C=1.0, threshold 0.5, no tuning. `split_fn(df)` yields (key, tr, te);
+    default is leave-one-project-out (the primary). Passing metrics.groupkfold_splits gives the by-bug secondary."""
+    split_fn = split_fn or metrics.lopo_splits
     y = df["y"].values
     pred = np.full(len(df), np.nan)
     score = np.full(len(df), np.nan)
-    for _proj, tr, te in metrics.lopo_splits(df):
+    for _key, tr, te in split_fn(df):
         Xtr = df.iloc[tr][cols].astype(float).copy()
         Xte = df.iloc[te][cols].astype(float).copy()
         means = Xtr.mean()
@@ -142,20 +144,22 @@ def _lopo_lr(df, cols):
     return pred.astype(int), score
 
 
-def _baseline_majority(df):
+def _baseline_majority(df, split_fn=None):
+    split_fn = split_fn or metrics.lopo_splits
     y = df["y"].values
     pred = np.full(len(df), np.nan)
-    for _proj, tr, te in metrics.lopo_splits(df):
+    for _key, tr, te in split_fn(df):
         maj = int(round(y[tr].mean()))
         pred[te] = maj
     return pred.astype(int), None
 
 
-def _baseline_random(df, seed=2026):
+def _baseline_random(df, seed=2026, split_fn=None):
+    split_fn = split_fn or metrics.lopo_splits
     y = df["y"].values
     rng = np.random.default_rng(seed)
     pred = np.full(len(df), np.nan)
-    for _proj, tr, te in metrics.lopo_splits(df):
+    for _key, tr, te in split_fn(df):
         rate = y[tr].mean()
         pred[te] = (rng.random(len(te)) < rate).astype(int)
     return pred.astype(int), None
@@ -167,45 +171,46 @@ def _with_ci(df, y, pred, metric="mcc"):
     return metrics.ci95(samples)
 
 
-def detection_section(df):
+def detection_section(df, split_fn=None, split_name="lopo_per_project"):
+    split_fn = split_fn or metrics.lopo_splits
     y = df["y"].values
     out = {"positive_class": "overfitting", "n": int(len(df)),
            "base_rate_overfitting": float(y.mean()) if len(df) else None,
-           "note": "PRELIMINARY ENGINEERING PILOT -- n is small and LOPO folds are tiny; not a paper result. "
-                   "Detection is per-method per protocol.yaml, replacing the earlier placeholder PVS*<0.5.",
+           "cv_scheme": split_name,
+           "note": "Detection is per-method per protocol.yaml, replacing the earlier placeholder PVS*<0.5.",
            "methods": {}}
 
     def record(name, pred, score, extra=None):
         m = metrics.detection_metrics(y, pred, score=score)
         m["mcc_ci95_cluster_bootstrap"] = _with_ci(df, y, pred, "mcc")
         m["f1_ci95_cluster_bootstrap"] = _with_ci(df, y, pred, "f1")
-        # per-project LOPO test folds
-        per_project = {}
-        for proj, _tr, te in metrics.lopo_splits(df):
+        # per-fold test metrics (held-out project for LOPO; held-out bug-group fold for GroupKFold)
+        per_fold = {}
+        for key, _tr, te in split_fn(df):
             yt = y[te]
             if len(np.unique(yt)) < 2:
-                per_project[proj] = {"note": "single class in held-out project", "n": int(len(te))}
+                per_fold[key] = {"note": "single class in held-out fold", "n": int(len(te))}
             else:
-                per_project[proj] = metrics.detection_metrics(yt, np.asarray(pred)[te],
-                                                              score=None if score is None else np.asarray(score)[te])
-        m["lopo_per_project"] = per_project
+                per_fold[key] = metrics.detection_metrics(yt, np.asarray(pred)[te],
+                                                          score=None if score is None else np.asarray(score)[te])
+        m[split_name] = per_fold
         if extra:
             m.update(extra)
         out["methods"][name] = m
         return pred
 
     # M0 / M1 baselines
-    p0, _ = _baseline_majority(df); record("M0_majority", p0, None)
-    p1, _ = _baseline_random(df); record("M1_random_stratified", p1, None)
+    p0, _ = _baseline_majority(df, split_fn=split_fn); record("M0_majority", p0, None)
+    p1, _ = _baseline_random(df, split_fn=split_fn); record("M1_random_stratified", p1, None)
     # M2 diff-feature LR (v1 handcrafted features); M2b keeps the narrower S_edit-only reference
     if df.attrs.get("has_diff_features"):
-        p2, s2 = _lopo_lr(df, DIFF_FEATURES)
+        p2, s2 = _lopo_lr(df, DIFF_FEATURES, split_fn=split_fn)
         record("M2_diff_feature", p2, s2, {"features": DIFF_FEATURES,
                                            "note": "v1 handcrafted diff features -- not static analysis"})
     else:
         out["methods"]["M2_diff_feature"] = {"status": "PENDING", "reason": "diff_features_baseline.csv missing"}
         p2 = None
-    p2b, s2b_score = _lopo_lr(df, ["S_edit"]); record("M2b_s_edit_only", p2b, s2b_score)
+    p2b, s2b_score = _lopo_lr(df, ["S_edit"], split_fn=split_fn); record("M2b_s_edit_only", p2b, s2b_score)
     # M3 semantic frozen rule (no training)
     p3 = (df["S_sem"] < 0.5).astype(int).values
     s3 = (1.0 - df["S_sem"]).values
@@ -214,17 +219,17 @@ def detection_section(df):
     # M4 counterexample: threshold-free on available S_cex + declared binary rule
     out["methods"]["M4_counterexample"] = _m4_counterexample(df)
     # M6 sem+cex LR
-    p6, s6 = _lopo_lr(df, ["S_sem", "S_cex"]); record("M6_sem_cex", p6, s6)
+    p6, s6 = _lopo_lr(df, ["S_sem", "S_cex"], split_fn=split_fn); record("M6_sem_cex", p6, s6)
 
     # static-analysis methods (Stage 2B). Computed only when Stage 2B features are present.
     has_static = bool(df.attrs.get("has_stage2b")) and bool(df[STATIC_FEATURES].notna().any().any())
     p9 = p7 = None
     if has_static:
-        p5, s5 = _lopo_lr(df, STATIC_FEATURES); record("M5_static", p5, s5,
+        p5, s5 = _lopo_lr(df, STATIC_FEATURES, split_fn=split_fn); record("M5_static", p5, s5,
                                                        {"features": STATIC_FEATURES})
-        p7, s7 = _lopo_lr(df, ["S_sem"] + STATIC_FEATURES); record("M7_sem_static", p7, s7)
-        p8, s8 = _lopo_lr(df, ["S_cex"] + STATIC_FEATURES); record("M8_cex_static", p8, s8)
-        p9, s9 = _lopo_lr(df, ["S_sem", "S_cex"] + STATIC_FEATURES); record("M9_sem_cex_static", p9, s9)
+        p7, s7 = _lopo_lr(df, ["S_sem"] + STATIC_FEATURES, split_fn=split_fn); record("M7_sem_static", p7, s7)
+        p8, s8 = _lopo_lr(df, ["S_cex"] + STATIC_FEATURES, split_fn=split_fn); record("M8_cex_static", p8, s8)
+        p9, s9 = _lopo_lr(df, ["S_sem", "S_cex"] + STATIC_FEATURES, split_fn=split_fn); record("M9_sem_cex_static", p9, s9)
     else:
         for name in ("M5_static", "M7_sem_static", "M8_cex_static", "M9_sem_cex_static"):
             out["methods"][name] = {"status": "PENDING", "reason": "Stage 2B features not present yet"}
