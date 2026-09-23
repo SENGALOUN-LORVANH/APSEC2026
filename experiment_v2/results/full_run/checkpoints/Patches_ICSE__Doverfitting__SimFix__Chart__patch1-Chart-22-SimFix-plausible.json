@@ -1,0 +1,176 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__SimFix__Chart__patch1-Chart-22-SimFix-plausible",
+  "bug_id": "Chart-22",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 18.623
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.837
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 1.874
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 1.721
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 0.74
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 50.268
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__SimFix__Chart__patch1-Chart-22-SimFix-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 0,
+    "s_sem_final": null,
+    "decision": null,
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 0.39286834900121903,
+        "attempts": 1,
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfM35VvbHYABtNSF56ve8'}"
+      },
+      {
+        "run": 1,
+        "latency_s": 0.3321454410033766,
+        "attempts": 1,
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfM35XTcZq57V2f2cQ7j9'}"
+      },
+      {
+        "run": 2,
+        "latency_s": 0.326006139999663,
+        "attempts": 1,
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfM35YqTcjxAbGnnnNQpJ'}"
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__SimFix__Chart__patch1-Chart-22-SimFix-plausible",
+    "bug_id": "Chart-22",
+    "model": "claude-haiku-4-5",
+    "latency_s": 0.36398554500192404,
+    "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfM35gCyCJWMGUPhdmYUb'}",
+    "context_errors": [],
+    "input_tokens": null,
+    "output_tokens": null,
+    "tests": []
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__SimFix__Chart__patch1-Chart-22-SimFix-plausible",
+    "true_project": "Chart",
+    "true_bug_number": "22",
+    "model": "claude-haiku-4-5",
+    "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfM35hpCznp8sT6eiHvoM'}",
+    "input_tokens": null,
+    "output_tokens": null
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__SimFix__Chart__patch1-Chart-22-SimFix-plausible",
+    "bug_id": "Chart-22",
+    "s_edit_ast": 0.6216216216216216,
+    "s_edit_ast_actions": 23,
+    "s_edit_ast_nodes": 37,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/jfree/data/KeyedObjects2D"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 12,
+      "cfg_edges": 10,
+      "branch_points": 0,
+      "cyclomatic_complexity": 2,
+      "def_count": 7,
+      "use_count": 20,
+      "defuse_pairs": 7,
+      "per_method": [
+        {
+          "class": "org.jfree.data.KeyedObjects2D",
+          "method": "removeRow",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 12,
+          "cfg_edges": 10,
+          "branch_points": 0,
+          "cyclomatic_complexity": 2,
+          "def_count": 7,
+          "use_count": 20,
+          "defuse_pairs": 7,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 24,
+      "cfg_edges": 22,
+      "branch_points": 1,
+      "cyclomatic_complexity": 2,
+      "def_count": 15,
+      "use_count": 45,
+      "defuse_pairs": 15,
+      "per_method": [
+        {
+          "class": "org.jfree.data.KeyedObjects2D",
+          "method": "removeRow",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 24,
+          "cfg_edges": 22,
+          "branch_points": 1,
+          "cyclomatic_complexity": 2,
+          "def_count": 15,
+          "use_count": 45,
+          "defuse_pairs": 15,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": 12,
+    "d_branch_points": 1,
+    "d_cfg_edges": 12,
+    "d_defuse_pairs": 8,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 7,
+      "n_candidate_warnings": 7,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__SimFix__Chart__patch1-Chart-22-SimFix-plausible",
+    "bug_id": "Chart-22",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": false,
+    "error": ""
+  }
+}
