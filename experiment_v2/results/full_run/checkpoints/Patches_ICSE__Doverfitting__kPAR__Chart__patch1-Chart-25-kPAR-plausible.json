@@ -1,0 +1,265 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__kPAR__Chart__patch1-Chart-25-kPAR-plausible",
+  "bug_id": "Chart-25",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 13.816
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.6
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 10.697
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 36.835
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.561
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 25.984
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__kPAR__Chart__patch1-Chart-25-kPAR-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.515372148000097,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 4327,
+        "output_tokens": 164,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.3,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch replaces the row parameter with a cast of minimumRangeValue, which is semantically incorrect and breaks the intended functionality of accessing data by row index. This appears to be a nonsensical fix that only passes tests by accident, likely due to specific test data characteristics, rather than addressing the actual bug in null handling."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.2654827860005753,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 4327,
+        "output_tokens": 164,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.3,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch replaces the row parameter with a cast of minimumRangeValue, which is semantically incorrect and breaks the intended functionality of accessing data by row index. This appears to be a nonsensical fix that only passes tests by accident, likely due to specific test data characteristics, rather than addressing the actual bug in null handling."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.407010672999604,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 4327,
+        "output_tokens": 164,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.3,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch replaces the row parameter with a cast of minimumRangeValue, which is semantically incorrect and breaks the intended functionality of accessing data by row index. This appears to be a nonsensical fix that only passes tests by accident, likely due to specific test data characteristics, rather than addressing the actual bug in null handling."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__kPAR__Chart__patch1-Chart-25-kPAR-plausible",
+    "bug_id": "Chart-25",
+    "model": "claude-haiku-4-5",
+    "latency_s": 12.039376388000164,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 4224,
+    "output_tokens": 2289,
+    "tests": [
+      {
+        "name": "testGetMeanValueWithDifferentRows",
+        "target_class": "org.jfree.data.statistics.DefaultStatisticalCategoryDataset",
+        "target_method": "getMeanValue",
+        "class_name": "TestGetMeanValueWithDifferentRows",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.005\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testGetMeanValueMultipleColumns",
+        "target_class": "org.jfree.data.statistics.DefaultStatisticalCategoryDataset",
+        "target_method": "getMeanValue",
+        "class_name": "TestGetMeanValueMultipleColumns",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.007\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testGetMeanValueOutOfBoundsRow",
+        "target_class": "org.jfree.data.statistics.DefaultStatisticalCategoryDataset",
+        "target_method": "getMeanValue",
+        "class_name": "TestGetMeanValueOutOfBoundsRow",
+        "status": "INVALID_ORACLE",
+        "candidate_pass": null,
+        "log": ".E\nTime: 0.006\nThere was 1 error:\n1) testGetMeanValueOutOfBoundsRow(org.jfree.chart.renderer.category.junit.TestGetMeanValueOutOfBoundsRow)java.lang.IndexOutOfBoundsException: Index: 2, Size: 2\n\tat java.util.ArrayList.rangeCheck(ArrayList.java:659)\n\tat java.util.ArrayList.get(ArrayList.java:435)\n\tat org.jfree.data.KeyedObjects2D.getObject(KeyedObjects2D.java:109)\n\tat org.jfree.data.statistics.DefaultStatisticalCategoryDataset.getMeanValue(DefaultStatisticalCategoryDataset.java:108)\n\tat org.jfree.chart.renderer.category.junit.TestGetMeanValueOutOfBoundsRow.testGetMeanValueOutOfBoundsRow(TestGetMeanValueOutOfBoundsRow.java:17)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\nFAILURES!!!\nTests run: 1,  Failures: 0,  Errors: 1\n\n"
+      },
+      {
+        "name": "testGetMeanValueConsistency",
+        "target_class": "org.jfree.data.statistics.DefaultStatisticalCategoryDataset",
+        "target_method": "getMeanValue",
+        "class_name": "TestGetMeanValueConsistency",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.006\n\nOK (1 test)\n\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__kPAR__Chart__patch1-Chart-25-kPAR-plausible",
+    "true_project": "Chart",
+    "true_bug_number": "25",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 591,
+    "output_tokens": 28,
+    "project": "Chart",
+    "bug_number": 5,
+    "recalled_label": "OVERFITTING",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__kPAR__Chart__patch1-Chart-25-kPAR-plausible",
+    "bug_id": "Chart-25",
+    "s_edit_ast": 0.1935483870967742,
+    "s_edit_ast_actions": 12,
+    "s_edit_ast_nodes": 62,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/jfree/data/statistics/DefaultStatisticalCategoryDataset"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 20,
+      "cfg_edges": 20,
+      "branch_points": 2,
+      "cyclomatic_complexity": 4,
+      "def_count": 16,
+      "use_count": 36,
+      "defuse_pairs": 16,
+      "per_method": [
+        {
+          "class": "org.jfree.data.statistics.DefaultStatisticalCategoryDataset",
+          "method": "getMeanValue",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 20,
+          "cfg_edges": 20,
+          "branch_points": 2,
+          "cyclomatic_complexity": 4,
+          "def_count": 16,
+          "use_count": 36,
+          "defuse_pairs": 16,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 22,
+      "cfg_edges": 22,
+      "branch_points": 2,
+      "cyclomatic_complexity": 4,
+      "def_count": 18,
+      "use_count": 40,
+      "defuse_pairs": 18,
+      "per_method": [
+        {
+          "class": "org.jfree.data.statistics.DefaultStatisticalCategoryDataset",
+          "method": "getMeanValue",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 22,
+          "cfg_edges": 22,
+          "branch_points": 2,
+          "cyclomatic_complexity": 4,
+          "def_count": 18,
+          "use_count": 40,
+          "defuse_pairs": 18,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": 2,
+    "d_branch_points": 0,
+    "d_cfg_edges": 2,
+    "d_defuse_pairs": 2,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 7,
+      "n_candidate_warnings": 7,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__kPAR__Chart__patch1-Chart-25-kPAR-plausible",
+    "bug_id": "Chart-25",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": false,
+    "error": ""
+  }
+}

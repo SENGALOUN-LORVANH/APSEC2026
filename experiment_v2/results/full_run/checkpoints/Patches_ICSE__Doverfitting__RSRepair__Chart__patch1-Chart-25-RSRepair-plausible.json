@@ -1,0 +1,305 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__RSRepair__Chart__patch1-Chart-25-RSRepair-plausible",
+  "bug_id": "Chart-25",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 11.621
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.512
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 10.45
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 32.48
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.319
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 34.943
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__RSRepair__Chart__patch1-Chart-25-RSRepair-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.443306782000036,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 6362,
+        "output_tokens": 170,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.0,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch removes the null check in getMeanValue(), causing it to return null instead of safely handling null MeanAndStandardDeviation objects, which will cause NullPointerException when doubleValue() is called. The second change adds an unused variable that has no effect. These changes do not fix the underlying bug but merely suppress test assertions through broken behavior."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.1281175189997157,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 6362,
+        "output_tokens": 170,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.0,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch removes the null check in getMeanValue(), causing it to return null instead of safely handling null MeanAndStandardDeviation objects, which will cause NullPointerException when doubleValue() is called. The second change adds an unused variable that has no effect. These changes do not fix the underlying bug but merely suppress test assertions through broken behavior."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 2.853800130000309,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 6362,
+        "output_tokens": 161,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.0,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch removes the null check in getMeanValue() causing it to return null instead of safely handling null MeanAndStandardDeviation objects, and adds an unused variable in drawHorizontalItem(). These changes don't fix the underlying bug but merely mask test failures by allowing null propagation and introducing dead code."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__RSRepair__Chart__patch1-Chart-25-RSRepair-plausible",
+    "bug_id": "Chart-25",
+    "model": "claude-haiku-4-5",
+    "latency_s": 12.116416761999972,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 6259,
+    "output_tokens": 2157,
+    "tests": [
+      {
+        "name": "testGetMeanValueReturnsNullWhenDataIsNull",
+        "target_class": "org.jfree.data.statistics.DefaultStatisticalCategoryDataset",
+        "target_method": "getMeanValue",
+        "class_name": "TestGetMeanValueReturnsNullWhenDataIsNull",
+        "status": "INVALID_ORACLE",
+        "candidate_pass": null,
+        "log": ".E\nTime: 0.005\nThere was 1 error:\n1) testGetMeanValueReturnsNullWhenDataIsNull(org.jfree.chart.renderer.category.junit.TestGetMeanValueReturnsNullWhenDataIsNull)java.lang.IndexOutOfBoundsException: Index: 0, Size: 0\n\tat java.util.ArrayList.rangeCheck(ArrayList.java:659)\n\tat java.util.ArrayList.get(ArrayList.java:435)\n\tat org.jfree.data.KeyedObjects2D.getObject(KeyedObjects2D.java:109)\n\tat org.jfree.data.statistics.DefaultStatisticalCategoryDataset.getMeanValue(DefaultStatisticalCategoryDataset.java:108)\n\tat org.jfree.chart.renderer.category.junit.TestGetMeanValueReturnsNullWhenDataIsNull.testGetMeanValueReturnsNullWhenDataIsNull(TestGetMeanValueReturnsNullWhenDataIsNull.java:9)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\nFAILURES!!!\nTests run: 1,  Failures: 0,  Errors: 1\n\n"
+      },
+      {
+        "name": "testGetMeanValueReturnsActualMeanWhenDataExists",
+        "target_class": "org.jfree.data.statistics.DefaultStatisticalCategoryDataset",
+        "target_method": "getMeanValue",
+        "class_name": "TestGetMeanValueReturnsActualMeanWhenDataExists",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.006\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testDrawHorizontalItemWithNullMeanValue",
+        "target_class": "org.jfree.chart.renderer.category.StatisticalBarRenderer",
+        "target_method": "drawHorizontalItem",
+        "class_name": "TestDrawHorizontalItemWithNullMeanValue",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "orted by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/RuntimeException.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Exception.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Exception.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Throwable.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Throwable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/awt/Graphics.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/awt/Graphics.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 1 error\n    [javac] 36 warnings\n\nBUILD FAILED\n/opt/defects4j-2.0.1/framework/projects/Chart/Chart.build.xml:123: Compile failed; see the compiler error output for details.\n\nTotal time: 0 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testDrawVerticalItemWithNullMeanValue",
+        "target_class": "org.jfree.chart.renderer.category.StatisticalBarRenderer",
+        "target_method": "drawVerticalItem",
+        "class_name": "TestDrawVerticalItemWithNullMeanValue",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "orted by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/RuntimeException.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Exception.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Exception.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Throwable.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Throwable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/awt/Graphics.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/awt/Graphics.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 1 error\n    [javac] 36 warnings\n\nBUILD FAILED\n/opt/defects4j-2.0.1/framework/projects/Chart/Chart.build.xml:123: Compile failed; see the compiler error output for details.\n\nTotal time: 0 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__RSRepair__Chart__patch1-Chart-25-RSRepair-plausible",
+    "true_project": "Chart",
+    "true_bug_number": "25",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 692,
+    "output_tokens": 28,
+    "project": "Chart",
+    "bug_number": 5,
+    "recalled_label": "OVERFITTING",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__RSRepair__Chart__patch1-Chart-25-RSRepair-plausible",
+    "bug_id": "Chart-25",
+    "s_edit_ast": 0.04617414248021108,
+    "s_edit_ast_actions": 35,
+    "s_edit_ast_nodes": 758,
+    "s_edit_error": null,
+    "s_vuln_changed": 0.5,
+    "s_vuln_new_warning_count": 1,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/jfree/data/statistics/DefaultStatisticalCategoryDataset",
+      "org/jfree/chart/renderer/category/StatisticalBarRenderer"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 180,
+      "cfg_edges": 194,
+      "branch_points": 19,
+      "cyclomatic_complexity": 20,
+      "def_count": 131,
+      "use_count": 440,
+      "defuse_pairs": 131,
+      "per_method": [
+        {
+          "class": "org.jfree.data.statistics.DefaultStatisticalCategoryDataset",
+          "method": "getMeanValue",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 20,
+          "cfg_edges": 20,
+          "branch_points": 2,
+          "cyclomatic_complexity": 4,
+          "def_count": 16,
+          "use_count": 36,
+          "defuse_pairs": 16,
+          "error": null
+        },
+        {
+          "class": "org.jfree.chart.renderer.category.StatisticalBarRenderer",
+          "method": "drawHorizontalItem",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 160,
+          "cfg_edges": 174,
+          "branch_points": 17,
+          "cyclomatic_complexity": 16,
+          "def_count": 115,
+          "use_count": 404,
+          "defuse_pairs": 115,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 179,
+      "cfg_edges": 192,
+      "branch_points": 18,
+      "cyclomatic_complexity": 19,
+      "def_count": 131,
+      "use_count": 437,
+      "defuse_pairs": 131,
+      "per_method": [
+        {
+          "class": "org.jfree.data.statistics.DefaultStatisticalCategoryDataset",
+          "method": "getMeanValue",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 18,
+          "cfg_edges": 17,
+          "branch_points": 1,
+          "cyclomatic_complexity": 3,
+          "def_count": 15,
+          "use_count": 31,
+          "defuse_pairs": 15,
+          "error": null
+        },
+        {
+          "class": "org.jfree.chart.renderer.category.StatisticalBarRenderer",
+          "method": "drawHorizontalItem",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 161,
+          "cfg_edges": 175,
+          "branch_points": 17,
+          "cyclomatic_complexity": 16,
+          "def_count": 116,
+          "use_count": 406,
+          "defuse_pairs": 116,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": -1,
+    "d_stmts": -1,
+    "d_branch_points": -1,
+    "d_cfg_edges": -2,
+    "d_defuse_pairs": 0,
+    "vuln_detail": {
+      "s_vuln": 0.5,
+      "new_warnings": [
+        {
+          "bug_type": "DLS",
+          "category": "D",
+          "priority": "M",
+          "severity": "MEDIUM",
+          "class": "DefaultStatisticalCategoryDataset",
+          "method": "getMeanValue",
+          "location": "DefaultStatisticalCategoryDataset.java:line 108",
+          "description": "Dead store to masd in org.jfree.data.statistics.DefaultStatisticalCategoryDataset.getMeanValue(int, int)"
+        }
+      ],
+      "n_buggy_warnings": 8,
+      "n_candidate_warnings": 9,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 2,
+      "n_changed_class_files_candidate": 2,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__RSRepair__Chart__patch1-Chart-25-RSRepair-plausible",
+    "bug_id": "Chart-25",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

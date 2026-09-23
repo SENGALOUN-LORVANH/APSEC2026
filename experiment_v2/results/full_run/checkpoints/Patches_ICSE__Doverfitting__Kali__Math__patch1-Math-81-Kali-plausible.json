@@ -1,0 +1,236 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__Kali__Math__patch1-Math-81-Kali-plausible",
+  "bug_id": "Math-81",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 10.181
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.844
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 11.256
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 146.894
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 0.984
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 49.22
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__Kali__Math__patch1-Math-81-Kali-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.677634173000115,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 5086,
+        "output_tokens": 169,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.0,
+          "security_robustness": 0.2,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch replaces a meaningful boundary condition check with `if (true)` that unconditionally returns, effectively disabling case 5 logic. This is a crude workaround that passes the test by avoiding the array access that caused the exception, but it removes essential functionality and introduces a logic error that will cause incorrect eigenvalue computations in general cases."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.430646956999226,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 5086,
+        "output_tokens": 169,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.0,
+          "security_robustness": 0.2,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch replaces a meaningful boundary condition check with `if (true)` that unconditionally returns, effectively disabling case 5 logic. This is a crude workaround that passes the test by avoiding the array access that caused the exception, but it removes essential functionality and introduces a logic error that will cause incorrect eigenvalue computations in general cases."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.4462543189993085,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 5086,
+        "output_tokens": 169,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.0,
+          "security_robustness": 0.2,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch replaces a meaningful boundary condition check with `if (true)` that unconditionally returns, effectively disabling case 5 logic. This is a crude workaround that passes the test by avoiding the array access that caused the exception, but it removes essential functionality and introduces a logic error that will cause incorrect eigenvalue computations in general cases."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__Kali__Math__patch1-Math-81-Kali-plausible",
+    "bug_id": "Math-81",
+    "model": "claude-haiku-4-5",
+    "latency_s": null,
+    "error": "gave up after 6 attempts: InternalServerError: Error code: 500 - {'type': 'error', 'error': {'type': 'api_error', 'message': 'Internal server error'}, 'request_id': 'req_011CfLSihHuxMWwQJJfsSQbF'}",
+    "context_errors": [],
+    "input_tokens": null,
+    "output_tokens": null,
+    "tests": []
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__Kali__Math__patch1-Math-81-Kali-plausible",
+    "true_project": "Math",
+    "true_bug_number": "81",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 609,
+    "output_tokens": 25,
+    "project": "Math",
+    "bug_number": null,
+    "recalled_label": "UNKNOWN",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__Kali__Math__patch1-Math-81-Kali-plausible",
+    "bug_id": "Math-81",
+    "s_edit_ast": 0.025519287833827894,
+    "s_edit_ast_actions": 43,
+    "s_edit_ast_nodes": 1685,
+    "s_edit_error": null,
+    "s_vuln_changed": 0.5,
+    "s_vuln_new_warning_count": 1,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math/linear/EigenDecompositionImpl"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 560,
+      "cfg_edges": 603,
+      "branch_points": 53,
+      "cyclomatic_complexity": 45,
+      "def_count": 469,
+      "use_count": 1378,
+      "defuse_pairs": 469,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+          "method": "computeShiftIncrement",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 560,
+          "cfg_edges": 603,
+          "branch_points": 53,
+          "cyclomatic_complexity": 45,
+          "def_count": 469,
+          "use_count": 1378,
+          "defuse_pairs": 469,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 483,
+      "cfg_edges": 518,
+      "branch_points": 44,
+      "cyclomatic_complexity": 37,
+      "def_count": 407,
+      "use_count": 1181,
+      "defuse_pairs": 407,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+          "method": "computeShiftIncrement",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 483,
+          "cfg_edges": 518,
+          "branch_points": 44,
+          "cyclomatic_complexity": 37,
+          "def_count": 407,
+          "use_count": 1181,
+          "defuse_pairs": 407,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": -8,
+    "d_stmts": -77,
+    "d_branch_points": -9,
+    "d_cfg_edges": -85,
+    "d_defuse_pairs": -62,
+    "vuln_detail": {
+      "s_vuln": 0.5,
+      "new_warnings": [
+        {
+          "bug_type": "DLS",
+          "category": "D",
+          "priority": "M",
+          "severity": "MEDIUM",
+          "class": "EigenDecompositionImpl",
+          "method": "computeShiftIncrement",
+          "location": "EigenDecompositionImpl.java:line 1534",
+          "description": "Dead store to b1 in org.apache.commons.math.linear.EigenDecompositionImpl.computeShiftIncrement(int, int, int)"
+        }
+      ],
+      "n_buggy_warnings": 317,
+      "n_candidate_warnings": 319,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 3,
+      "n_changed_class_files_candidate": 3,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__Kali__Math__patch1-Math-81-Kali-plausible",
+    "bug_id": "Math-81",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

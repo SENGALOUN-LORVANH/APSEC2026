@@ -1,0 +1,256 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__RSRepair__Math__patch1-Math-81-RSRepair-plausible",
+  "bug_id": "Math-81",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 10.493
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.816
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 10.984
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 47.516
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.619
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 83.28
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__RSRepair__Math__patch1-Math-81-RSRepair-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.15000000000000002,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.5295831009998437,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 5077,
+        "output_tokens": 178,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.3,
+          "readability": 0.4,
+          "security_robustness": 0.6,
+          "judgement": "OVERFITTING",
+          "confidence": 0.85,
+          "brief_reason": "The patch adds a line that reassigns b2 immediately after initialization, overwriting the intended value and introducing inconsistent logic with case 7 (which uses the same calculation). This appears to be a band-aid fix for the specific test case rather than addressing the root cause of the array index bounds issue. The change contradicts the algorithm's structure and likely masks a deeper problem in the index calculations."
+        },
+        "s_sem": 0.15000000000000002,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 2.9725609950000944,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 5077,
+        "output_tokens": 172,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.3,
+          "readability": 0.4,
+          "security_robustness": 0.6,
+          "judgement": "OVERFITTING",
+          "confidence": 0.85,
+          "brief_reason": "The patch adds a line that overwrites the `b2` variable immediately after initialization, which appears to be a copy-paste error from case 7 rather than a proper fix for the array bounds issue. While it may pass the specific test, it introduces unrelated behavior changes and doesn't address the root cause of the negative index in `computeShiftIncrement`."
+        },
+        "s_sem": 0.15000000000000002,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.755426174000604,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 5077,
+        "output_tokens": 213,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.3,
+          "readability": 0.4,
+          "security_robustness": 0.6,
+          "judgement": "OVERFITTING",
+          "confidence": 0.85,
+          "brief_reason": "The patch adds a line that reassigns b2 to a different value, which fixes the immediate ArrayIndexOutOfBoundsException by avoiding a negative array index. However, this appears to be a band-aid fix that changes the algorithm's logic without addressing the root cause. The reassignment overwrites the previously computed b2 value and introduces inconsistent behavior compared to similar code patterns in the method (case 7 and case 10 use different initialization logic), suggesting the patch is overfitting to the specific test case rather than correctly implementing the intended algorithm."
+        },
+        "s_sem": 0.15000000000000002,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__RSRepair__Math__patch1-Math-81-RSRepair-plausible",
+    "bug_id": "Math-81",
+    "model": "claude-haiku-4-5",
+    "latency_s": 12.217310585000632,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 4970,
+    "output_tokens": 2025,
+    "tests": [
+      {
+        "name": "testComputeShiftIncrementCase5WithDifferentMatrices",
+        "target_class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+        "target_method": "computeShiftIncrement",
+        "class_name": "TestComputeShiftIncrementCase5",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.008\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testComputeShiftIncrementBoundaryConditions",
+        "target_class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+        "target_method": "computeShiftIncrement",
+        "class_name": "TestComputeShiftIncrementBoundary",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.012\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testComputeShiftIncrementNumericalStability",
+        "target_class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+        "target_method": "computeShiftIncrement",
+        "class_name": "TestComputeShiftIncrementNumericalStability",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.011\n\nOK (1 test)\n\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__RSRepair__Math__patch1-Math-81-RSRepair-plausible",
+    "true_project": "Math",
+    "true_bug_number": "81",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 600,
+    "output_tokens": 28,
+    "project": "Math",
+    "bug_number": 41,
+    "recalled_label": "OVERFITTING",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__RSRepair__Math__patch1-Math-81-RSRepair-plausible",
+    "bug_id": "Math-81",
+    "s_edit_ast": 0.02373887240356083,
+    "s_edit_ast_actions": 40,
+    "s_edit_ast_nodes": 1685,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math/linear/EigenDecompositionImpl"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 560,
+      "cfg_edges": 603,
+      "branch_points": 53,
+      "cyclomatic_complexity": 45,
+      "def_count": 469,
+      "use_count": 1378,
+      "defuse_pairs": 469,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+          "method": "computeShiftIncrement",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 560,
+          "cfg_edges": 603,
+          "branch_points": 53,
+          "cyclomatic_complexity": 45,
+          "def_count": 469,
+          "use_count": 1378,
+          "defuse_pairs": 469,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 567,
+      "cfg_edges": 610,
+      "branch_points": 53,
+      "cyclomatic_complexity": 45,
+      "def_count": 476,
+      "use_count": 1397,
+      "defuse_pairs": 476,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+          "method": "computeShiftIncrement",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 567,
+          "cfg_edges": 610,
+          "branch_points": 53,
+          "cyclomatic_complexity": 45,
+          "def_count": 476,
+          "use_count": 1397,
+          "defuse_pairs": 476,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": 7,
+    "d_branch_points": 0,
+    "d_cfg_edges": 7,
+    "d_defuse_pairs": 7,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 317,
+      "n_candidate_warnings": 317,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 3,
+      "n_changed_class_files_candidate": 3,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__RSRepair__Math__patch1-Math-81-RSRepair-plausible",
+    "bug_id": "Math-81",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

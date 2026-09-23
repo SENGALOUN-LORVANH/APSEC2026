@@ -1,0 +1,256 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__SimFix__Chart__patch1-Chart-25-SimFix-plausible",
+  "bug_id": "Chart-25",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 11.664
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.445
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 9.276
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 37.14
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.458
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 22.929
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__SimFix__Chart__patch1-Chart-25-SimFix-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.014725854000062,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 4918,
+        "output_tokens": 176,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.5,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch changes 'else if (orientation == PlotOrientation.VERTICAL)' to 'if (orientation == PlotOrientation.HORIZONTAL)', which inverts the logic and causes drawVerticalItem to be called for horizontal plots instead of vertical ones. This is semantically incorrect and breaks the intended behavior, merely making the tests pass by accident rather than fixing the underlying bug."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 2.9851825770001597,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 4918,
+        "output_tokens": 176,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.5,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch changes 'else if (orientation == PlotOrientation.VERTICAL)' to 'if (orientation == PlotOrientation.HORIZONTAL)', which inverts the logic and causes drawVerticalItem to be called for horizontal plots instead of vertical ones. This is semantically incorrect and breaks the intended behavior, merely making the tests pass by accident rather than fixing the underlying bug."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 2.8955299679992095,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 4918,
+        "output_tokens": 176,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.5,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch changes 'else if (orientation == PlotOrientation.VERTICAL)' to 'if (orientation == PlotOrientation.HORIZONTAL)', which inverts the logic and causes drawVerticalItem to be called for horizontal plots instead of vertical ones. This is semantically incorrect and breaks the intended behavior, merely making the tests pass by accident rather than fixing the underlying bug."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__SimFix__Chart__patch1-Chart-25-SimFix-plausible",
+    "bug_id": "Chart-25",
+    "model": "claude-haiku-4-5",
+    "latency_s": 19.779955971000163,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 4815,
+    "output_tokens": 2364,
+    "tests": [
+      {
+        "name": "testDrawItemWithVerticalOrientation",
+        "target_class": "org.jfree.chart.renderer.category.StatisticalBarRenderer",
+        "target_method": "drawItem",
+        "class_name": "TestDrawItemVerticalOrientation",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.078\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testDrawItemWithHorizontalOrientation",
+        "target_class": "org.jfree.chart.renderer.category.StatisticalBarRenderer",
+        "target_method": "drawItem",
+        "class_name": "TestDrawItemHorizontalOrientation",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.081\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testDrawItemBothOrientationsHandled",
+        "target_class": "org.jfree.chart.renderer.category.StatisticalBarRenderer",
+        "target_method": "drawItem",
+        "class_name": "TestDrawItemBothOrientations",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.08\n\nOK (1 test)\n\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__SimFix__Chart__patch1-Chart-25-SimFix-plausible",
+    "true_project": "Chart",
+    "true_bug_number": "25",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 587,
+    "output_tokens": 26,
+    "project": "Chart",
+    "bug_number": 1,
+    "recalled_label": "CORRECT",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__SimFix__Chart__patch1-Chart-25-SimFix-plausible",
+    "bug_id": "Chart-25",
+    "s_edit_ast": 0.1095890410958904,
+    "s_edit_ast_actions": 16,
+    "s_edit_ast_nodes": 146,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/jfree/chart/renderer/category/StatisticalBarRenderer"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 28,
+      "cfg_edges": 29,
+      "branch_points": 3,
+      "cyclomatic_complexity": 3,
+      "def_count": 19,
+      "use_count": 59,
+      "defuse_pairs": 19,
+      "per_method": [
+        {
+          "class": "org.jfree.chart.renderer.category.StatisticalBarRenderer",
+          "method": "drawItem",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 28,
+          "cfg_edges": 29,
+          "branch_points": 3,
+          "cyclomatic_complexity": 3,
+          "def_count": 19,
+          "use_count": 59,
+          "defuse_pairs": 19,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 27,
+      "cfg_edges": 28,
+      "branch_points": 3,
+      "cyclomatic_complexity": 3,
+      "def_count": 19,
+      "use_count": 59,
+      "defuse_pairs": 19,
+      "per_method": [
+        {
+          "class": "org.jfree.chart.renderer.category.StatisticalBarRenderer",
+          "method": "drawItem",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 27,
+          "cfg_edges": 28,
+          "branch_points": 3,
+          "cyclomatic_complexity": 3,
+          "def_count": 19,
+          "use_count": 59,
+          "defuse_pairs": 19,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": -1,
+    "d_branch_points": 0,
+    "d_cfg_edges": -1,
+    "d_defuse_pairs": 0,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 7,
+      "n_candidate_warnings": 7,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__SimFix__Chart__patch1-Chart-25-SimFix-plausible",
+    "bug_id": "Chart-25",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": false,
+    "error": ""
+  }
+}

@@ -1,0 +1,256 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__TBar__Chart__patch1-Chart-25-TBar-plausible",
+  "bug_id": "Chart-25",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 10.697
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.491
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 10.387
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 32.273
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.04
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 22.859
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__TBar__Chart__patch1-Chart-25-TBar-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.373344139999972,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 5505,
+        "output_tokens": 175,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.0,
+          "readability": 0.0,
+          "security_robustness": 0.0,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch completely deletes the drawItem method, which is a core public API method of the StatisticalBarRenderer class. This removes essential functionality rather than fixing the bug\u2014the tests likely pass because they now skip the broken code path entirely, but this breaks the renderer's ability to draw items. A correct fix would address null handling in the drawing methods, not delete the dispatcher method."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.382154539000112,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 5505,
+        "output_tokens": 175,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.0,
+          "readability": 0.0,
+          "security_robustness": 0.0,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch completely deletes the drawItem method, which is a core public API method of the StatisticalBarRenderer class. This removes essential functionality rather than fixing the bug\u2014the tests likely pass because they now skip the broken code path entirely, but this breaks the renderer's ability to draw items. A correct fix would address null handling in the drawing methods, not delete the dispatcher method."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.0683417359996383,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 5505,
+        "output_tokens": 174,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.0,
+          "readability": 0.0,
+          "security_robustness": 0.5,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch completely deletes the drawItem method, which is a core public API method of the StatisticalBarRenderer class. While this may make the tests pass (likely by causing the parent class method to be used instead), it removes essential functionality and violates the principle of minimal repair. This is a destructive change that weakens the class's contract rather than fixing the underlying bug."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__TBar__Chart__patch1-Chart-25-TBar-plausible",
+    "bug_id": "Chart-25",
+    "model": "claude-haiku-4-5",
+    "latency_s": 17.75371128000006,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 5402,
+    "output_tokens": 2059,
+    "tests": [
+      {
+        "name": "testDrawItemWithNullDataset",
+        "target_class": "org.jfree.chart.renderer.category.StatisticalBarRenderer",
+        "target_method": "drawItem",
+        "class_name": "TestDrawItemWithNullDataset",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.078\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testDrawItemVerticalOrientation",
+        "target_class": "org.jfree.chart.renderer.category.StatisticalBarRenderer",
+        "target_method": "drawItem",
+        "class_name": "TestDrawItemVerticalOrientation",
+        "status": "INVALID_ORACLE",
+        "candidate_pass": null,
+        "log": ".F\nTime: 0.084\nThere was 1 failure:\n1) testDrawItemWithVerticalOrientation(org.jfree.chart.renderer.category.junit.TestDrawItemVerticalOrientation)junit.framework.AssertionFailedError: Should not throw exception: null\n\tat org.jfree.chart.renderer.category.junit.TestDrawItemVerticalOrientation.testDrawItemWithVerticalOrientation(TestDrawItemVerticalOrientation.java:37)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\nFAILURES!!!\nTests run: 1,  Failures: 1,  Errors: 0\n\n"
+      },
+      {
+        "name": "testDrawItemHorizontalOrientation",
+        "target_class": "org.jfree.chart.renderer.category.StatisticalBarRenderer",
+        "target_method": "drawItem",
+        "class_name": "TestDrawItemHorizontalOrientation",
+        "status": "INVALID_ORACLE",
+        "candidate_pass": null,
+        "log": ".F\nTime: 0.086\nThere was 1 failure:\n1) testDrawItemWithHorizontalOrientation(org.jfree.chart.renderer.category.junit.TestDrawItemHorizontalOrientation)junit.framework.AssertionFailedError: Should not throw exception: null\n\tat org.jfree.chart.renderer.category.junit.TestDrawItemHorizontalOrientation.testDrawItemWithHorizontalOrientation(TestDrawItemHorizontalOrientation.java:37)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\nFAILURES!!!\nTests run: 1,  Failures: 1,  Errors: 0\n\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__TBar__Chart__patch1-Chart-25-TBar-plausible",
+    "true_project": "Chart",
+    "true_bug_number": "25",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 997,
+    "output_tokens": 26,
+    "project": "Chart",
+    "bug_number": 1,
+    "recalled_label": "UNKNOWN",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__TBar__Chart__patch1-Chart-25-TBar-plausible",
+    "bug_id": "Chart-25",
+    "s_edit_ast": 1.0,
+    "s_edit_ast_actions": 152,
+    "s_edit_ast_nodes": 146,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/jfree/chart/renderer/category/StatisticalBarRenderer"
+    ],
+    "analysis_level": "FAILED",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 28,
+      "cfg_edges": 29,
+      "branch_points": 3,
+      "cyclomatic_complexity": 3,
+      "def_count": 19,
+      "use_count": 59,
+      "defuse_pairs": 19,
+      "per_method": [
+        {
+          "class": "org.jfree.chart.renderer.category.StatisticalBarRenderer",
+          "method": "drawItem",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 28,
+          "cfg_edges": 29,
+          "branch_points": 3,
+          "cyclomatic_complexity": 3,
+          "def_count": 19,
+          "use_count": 59,
+          "defuse_pairs": 19,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "FAILED",
+      "stmts": 0,
+      "cfg_edges": 0,
+      "branch_points": 0,
+      "cyclomatic_complexity": 0,
+      "def_count": 0,
+      "use_count": 0,
+      "defuse_pairs": 0,
+      "per_method": [
+        {
+          "class": "org.jfree.chart.renderer.category.StatisticalBarRenderer",
+          "method": "drawItem",
+          "analysis_level": "FAILED",
+          "n_methods": 0,
+          "stmts": 0,
+          "cfg_edges": 0,
+          "branch_points": 0,
+          "cyclomatic_complexity": 0,
+          "def_count": 0,
+          "use_count": 0,
+          "defuse_pairs": 0,
+          "error": "no method with body named drawItem"
+        }
+      ]
+    },
+    "d_cyclomatic": null,
+    "d_stmts": null,
+    "d_branch_points": null,
+    "d_cfg_edges": null,
+    "d_defuse_pairs": null,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 7,
+      "n_candidate_warnings": 7,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__TBar__Chart__patch1-Chart-25-TBar-plausible",
+    "bug_id": "Chart-25",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

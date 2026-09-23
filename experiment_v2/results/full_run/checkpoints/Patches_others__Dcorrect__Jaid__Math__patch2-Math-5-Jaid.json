@@ -1,0 +1,256 @@
+{
+  "patch_id": "Patches_others__Dcorrect__Jaid__Math__patch2-Math-5-Jaid",
+  "bug_id": "Math-5",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 63.641
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.946
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 10.069
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 32.995
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.058
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 86.814
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_others__Dcorrect__Jaid__Math__patch2-Math-5-Jaid",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.4643365000001722,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2164,
+        "output_tokens": 170,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.7,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch adds a redundant nested condition that returns `this.INF` before the intended `NaN` return, making the second return unreachable. This is overfitting to the specific test case rather than fixing the underlying logic. The patch introduces dead code and doesn't address why the reciprocal of zero should return NaN instead of Infinity."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.2751347309995253,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2164,
+        "output_tokens": 170,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.7,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch adds a redundant nested condition that returns `this.INF` before the intended `NaN` return, making the second return unreachable. This is overfitting to the specific test case rather than fixing the underlying logic. The patch introduces dead code and doesn't address why the reciprocal of zero should return NaN instead of Infinity."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 2.801998388999891,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2164,
+        "output_tokens": 170,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.7,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch adds a redundant nested condition that returns `this.INF` before the intended `NaN` return, making the second return unreachable. This is overfitting to the specific test case rather than fixing the underlying logic. The patch introduces dead code and doesn't address why the reciprocal of zero should return NaN instead of Infinity."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_others__Dcorrect__Jaid__Math__patch2-Math-5-Jaid",
+    "bug_id": "Math-5",
+    "model": "claude-haiku-4-5",
+    "latency_s": 6.650833609000074,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 2034,
+    "output_tokens": 959,
+    "tests": [
+      {
+        "name": "testReciprocalNonZeroReal",
+        "target_class": "org.apache.commons.math3.complex.Complex",
+        "target_method": "reciprocal",
+        "class_name": "TestReciprocalNonZeroReal",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": "JUnit version 4.11\n.\nTime: 0.006\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testReciprocalNonZeroImaginary",
+        "target_class": "org.apache.commons.math3.complex.Complex",
+        "target_method": "reciprocal",
+        "class_name": "TestReciprocalNonZeroImaginary",
+        "status": "INVALID_ORACLE",
+        "candidate_pass": null,
+        "log": "tingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.lang.reflect.Method.invoke(Method.java:498)\n\tat org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)\n\tat org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)\n\tat org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)\n\tat org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)\n\tat org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:271)\n\tat org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:70)\n\tat org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)\n\tat org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)\n\tat org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:309)\n\tat org.junit.runners.Suite.runChild(Suite.java:127)\n\tat org.junit.runners.Suite.runChild(Suite.java:26)\n\tat org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)\n\tat org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:309)\n\tat org.junit.runner.JUnitCore.run(JUnitCore.java:160)\n\tat org.junit.runner.JUnitCore.run(JUnitCore.java:138)\n\tat org.junit.runner.JUnitCore.run(JUnitCore.java:117)\n\tat org.junit.runner.JUnitCore.runMain(JUnitCore.java:96)\n\tat org.junit.runner.JUnitCore.runMainAndExit(JUnitCore.java:47)\n\tat org.junit.runner.JUnitCore.main(JUnitCore.java:40)\n\nFAILURES!!!\nTests run: 1,  Failures: 1\n\n"
+      },
+      {
+        "name": "testReciprocalSmallNonZeroValues",
+        "target_class": "org.apache.commons.math3.complex.Complex",
+        "target_method": "reciprocal",
+        "class_name": "TestReciprocalSmallNonZeroValues",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": "JUnit version 4.11\n.\nTime: 0.008\n\nOK (1 test)\n\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_others__Dcorrect__Jaid__Math__patch2-Math-5-Jaid",
+    "true_project": "Math",
+    "true_bug_number": "5",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 550,
+    "output_tokens": 25,
+    "project": "Math",
+    "bug_number": null,
+    "recalled_label": "UNKNOWN",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_others__Dcorrect__Jaid__Math__patch2-Math-5-Jaid",
+    "bug_id": "Math-5",
+    "s_edit_ast": 0.2184873949579832,
+    "s_edit_ast_actions": 26,
+    "s_edit_ast_nodes": 119,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math3/complex/Complex"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 50,
+      "cfg_edges": 49,
+      "branch_points": 5,
+      "cyclomatic_complexity": 3,
+      "def_count": 39,
+      "use_count": 111,
+      "defuse_pairs": 39,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math3.complex.Complex",
+          "method": "reciprocal",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 50,
+          "cfg_edges": 49,
+          "branch_points": 5,
+          "cyclomatic_complexity": 3,
+          "def_count": 39,
+          "use_count": 111,
+          "defuse_pairs": 39,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 63,
+      "cfg_edges": 64,
+      "branch_points": 8,
+      "cyclomatic_complexity": 5,
+      "def_count": 47,
+      "use_count": 135,
+      "defuse_pairs": 47,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math3.complex.Complex",
+          "method": "reciprocal",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 63,
+          "cfg_edges": 64,
+          "branch_points": 8,
+          "cyclomatic_complexity": 5,
+          "def_count": 47,
+          "use_count": 135,
+          "defuse_pairs": 47,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 2,
+    "d_stmts": 13,
+    "d_branch_points": 3,
+    "d_cfg_edges": 15,
+    "d_defuse_pairs": 8,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 663,
+      "n_candidate_warnings": 663,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_others__Dcorrect__Jaid__Math__patch2-Math-5-Jaid",
+    "bug_id": "Math-5",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}
