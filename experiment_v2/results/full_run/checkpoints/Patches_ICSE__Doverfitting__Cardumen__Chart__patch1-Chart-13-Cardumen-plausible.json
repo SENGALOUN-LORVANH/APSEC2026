@@ -1,0 +1,265 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__Cardumen__Chart__patch1-Chart-13-Cardumen-plausible",
+  "bug_id": "Chart-13",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 10.475
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.462
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 9.701
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 35.793
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.702
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 44.04
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__Cardumen__Chart__patch1-Chart-13-Cardumen-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.1408221479996428,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2597,
+        "output_tokens": 172,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.3,
+          "readability": 0.6,
+          "security_robustness": 0.7,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch bypasses the arrangeFF method entirely, replacing it with a trivial Size2D construction that ignores the actual layout logic needed for arranging child blocks. This only fixes the specific test case by avoiding the exception, but removes the core functionality of arranging blocks with fixed width and height constraints, which would break other use cases where proper block arrangement is required."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.0780442760005826,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2597,
+        "output_tokens": 169,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.3,
+          "readability": 0.6,
+          "security_robustness": 0.7,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch bypasses the arrangeFF method entirely, replacing it with a trivial Size2D construction that ignores the actual layout logic needed for arranging child blocks. This only fixes the specific test case by avoiding the Range validation error, but removes essential functionality for properly sizing and positioning blocks within the container. The patch is a workaround rather than a genuine bug fix."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.059958177000226,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2597,
+        "output_tokens": 171,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.3,
+          "readability": 0.6,
+          "security_robustness": 0.7,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch bypasses the arrangeFF method entirely, replacing it with a trivial Size2D construction that ignores the actual layout logic needed for arranging child blocks. This only fixes the specific test case by avoiding the exception, but removes the core functionality of arranging blocks with fixed width and height constraints, which would break other use cases where proper block arrangement is required."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__Cardumen__Chart__patch1-Chart-13-Cardumen-plausible",
+    "bug_id": "Chart-13",
+    "model": "claude-haiku-4-5",
+    "latency_s": 18.033693828998366,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 2492,
+    "output_tokens": 2053,
+    "tests": [
+      {
+        "name": "testArrangeFFWithValidConstraint",
+        "target_class": "org.jfree.chart.block.BorderArrangement",
+        "target_method": "arrange",
+        "class_name": "testArrangeFFWithValidConstraint",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "ib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/awt/Image.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__Cardumen__Chart__patch1-Chart-13-Cardumen-plausible/testArrangeFFWithValidConstraint/fixed/tests/org/jfree/chart/block/junit/testArrangeFFWithValidConstraint.java:22: error: cannot find symbol\n    [javac]         RectangleConstraint constraint = new RectangleConstraint(100.0, 50.0);\n    [javac]         ^\n    [javac]   symbol:   class RectangleConstraint\n    [javac]   location: class testArrangeFFWithValidConstraint\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__Cardumen__Chart__patch1-Chart-13-Cardumen-plausible/testArrangeFFWithValidConstraint/fixed/tests/org/jfree/chart/block/junit/testArrangeFFWithValidConstraint.java:22: error: cannot find symbol\n    [javac]         RectangleConstraint constraint = new RectangleConstraint(100.0, 50.0);\n    [javac]                                              ^\n    [javac]   symbol:   class RectangleConstraint\n    [javac]   location: class testArrangeFFWithValidConstraint\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/awt/Graphics.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/awt/Graphics.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 3 errors\n    [javac] 17 warnings\n\nBUILD FAILED\n/opt/defects4j-2.0.1/framework/projects/Chart/Chart.build.xml:123: Compile failed; see the compiler error output for details.\n\nTotal time: 1 second\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testArrangeFFWithSmallConstraint",
+        "target_class": "org.jfree.chart.block.BorderArrangement",
+        "target_method": "arrange",
+        "class_name": "testArrangeFFWithSmallConstraint",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/awt/Image.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__Cardumen__Chart__patch1-Chart-13-Cardumen-plausible/testArrangeFFWithSmallConstraint/fixed/tests/org/jfree/chart/block/junit/testArrangeFFWithSmallConstraint.java:23: error: cannot find symbol\n    [javac]         RectangleConstraint constraint = new RectangleConstraint(1.0, 1.0);\n    [javac]         ^\n    [javac]   symbol:   class RectangleConstraint\n    [javac]   location: class testArrangeFFWithSmallConstraint\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__Cardumen__Chart__patch1-Chart-13-Cardumen-plausible/testArrangeFFWithSmallConstraint/fixed/tests/org/jfree/chart/block/junit/testArrangeFFWithSmallConstraint.java:23: error: cannot find symbol\n    [javac]         RectangleConstraint constraint = new RectangleConstraint(1.0, 1.0);\n    [javac]                                              ^\n    [javac]   symbol:   class RectangleConstraint\n    [javac]   location: class testArrangeFFWithSmallConstraint\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/awt/Graphics.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/awt/Graphics.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 3 errors\n    [javac] 17 warnings\n\nBUILD FAILED\n/opt/defects4j-2.0.1/framework/projects/Chart/Chart.build.xml:123: Compile failed; see the compiler error output for details.\n\nTotal time: 0 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testArrangeFFConsistency",
+        "target_class": "org.jfree.chart.block.BorderArrangement",
+        "target_method": "arrange",
+        "class_name": "testArrangeFFConsistency",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "find symbol\n    [javac]         RectangleConstraint constraint = new RectangleConstraint(150.0, 75.0);\n    [javac]         ^\n    [javac]   symbol:   class RectangleConstraint\n    [javac]   location: class testArrangeFFConsistency\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__Cardumen__Chart__patch1-Chart-13-Cardumen-plausible/testArrangeFFConsistency/fixed/tests/org/jfree/chart/block/junit/testArrangeFFConsistency.java:22: error: cannot find symbol\n    [javac]         RectangleConstraint constraint = new RectangleConstraint(150.0, 75.0);\n    [javac]                                              ^\n    [javac]   symbol:   class RectangleConstraint\n    [javac]   location: class testArrangeFFConsistency\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/awt/Graphics.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/awt/Graphics.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 3 errors\n    [javac] 19 warnings\n\nBUILD FAILED\n/opt/defects4j-2.0.1/framework/projects/Chart/Chart.build.xml:123: Compile failed; see the compiler error output for details.\n\nTotal time: 1 second\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testArrangeFFWithLargeConstraint",
+        "target_class": "org.jfree.chart.block.BorderArrangement",
+        "target_method": "arrange",
+        "class_name": "testArrangeFFWithLargeConstraint",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "m/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/awt/Image.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__Cardumen__Chart__patch1-Chart-13-Cardumen-plausible/testArrangeFFWithLargeConstraint/fixed/tests/org/jfree/chart/block/junit/testArrangeFFWithLargeConstraint.java:23: error: cannot find symbol\n    [javac]         RectangleConstraint constraint = new RectangleConstraint(1000.0, 500.0);\n    [javac]         ^\n    [javac]   symbol:   class RectangleConstraint\n    [javac]   location: class testArrangeFFWithLargeConstraint\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__Cardumen__Chart__patch1-Chart-13-Cardumen-plausible/testArrangeFFWithLargeConstraint/fixed/tests/org/jfree/chart/block/junit/testArrangeFFWithLargeConstraint.java:23: error: cannot find symbol\n    [javac]         RectangleConstraint constraint = new RectangleConstraint(1000.0, 500.0);\n    [javac]                                              ^\n    [javac]   symbol:   class RectangleConstraint\n    [javac]   location: class testArrangeFFWithLargeConstraint\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/awt/Graphics.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/awt/Graphics.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 3 errors\n    [javac] 17 warnings\n\nBUILD FAILED\n/opt/defects4j-2.0.1/framework/projects/Chart/Chart.build.xml:123: Compile failed; see the compiler error output for details.\n\nTotal time: 0 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__Cardumen__Chart__patch1-Chart-13-Cardumen-plausible",
+    "true_project": "Chart",
+    "true_bug_number": "13",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 586,
+    "output_tokens": 28,
+    "project": "Chart",
+    "bug_number": 3,
+    "recalled_label": "OVERFITTING",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__Cardumen__Chart__patch1-Chart-13-Cardumen-plausible",
+    "bug_id": "Chart-13",
+    "s_edit_ast": 0.0912863070539419,
+    "s_edit_ast_actions": 22,
+    "s_edit_ast_nodes": 241,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/jfree/chart/block/BorderArrangement"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 71,
+      "cfg_edges": 78,
+      "branch_points": 12,
+      "cyclomatic_complexity": 9,
+      "def_count": 45,
+      "use_count": 143,
+      "defuse_pairs": 45,
+      "per_method": [
+        {
+          "class": "org.jfree.chart.block.BorderArrangement",
+          "method": "arrange",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 71,
+          "cfg_edges": 78,
+          "branch_points": 12,
+          "cyclomatic_complexity": 9,
+          "def_count": 45,
+          "use_count": 143,
+          "defuse_pairs": 45,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 75,
+      "cfg_edges": 82,
+      "branch_points": 12,
+      "cyclomatic_complexity": 9,
+      "def_count": 48,
+      "use_count": 148,
+      "defuse_pairs": 48,
+      "per_method": [
+        {
+          "class": "org.jfree.chart.block.BorderArrangement",
+          "method": "arrange",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 75,
+          "cfg_edges": 82,
+          "branch_points": 12,
+          "cyclomatic_complexity": 9,
+          "def_count": 48,
+          "use_count": 148,
+          "defuse_pairs": 48,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": 4,
+    "d_branch_points": 0,
+    "d_cfg_edges": 4,
+    "d_defuse_pairs": 3,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 7,
+      "n_candidate_warnings": 7,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__Cardumen__Chart__patch1-Chart-13-Cardumen-plausible",
+    "bug_id": "Chart-13",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

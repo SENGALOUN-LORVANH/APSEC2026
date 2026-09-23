@@ -1,0 +1,256 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__SimFix__Closure__patch1-Closure-126-SimFix-plausible",
+  "bug_id": "Closure-126",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 98.716
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.595
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 10.007
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 32.99
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.084
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 49.239
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__SimFix__Closure__patch1-Closure-126-SimFix-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.3166666666666667,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 2.9391050639997047,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3857,
+        "output_tokens": 185,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.2,
+          "readability": 0.3,
+          "security_robustness": 0.4,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch incorrectly changes how the finally block is retrieved in a try-catch-finally structure. Using `n.getFirstChild().getLastChild()` instead of `n.getLastChild()` breaks the logic for try-catch-finally nodes where the finally block is actually the last child. This is a structural misunderstanding that happens to pass these specific tests but would fail on standard try-catch-finally patterns."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.3021790840002723,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3857,
+        "output_tokens": 185,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.2,
+          "readability": 0.3,
+          "security_robustness": 0.4,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch changes how the finally block is retrieved in a try-catch-finally structure, but this breaks the general case. The fix only works for the specific test cases where the finally block happens to be at a particular position, but the original code using n.getLastChild() is correct for the general try-catch-finally structure where finally is always the last child. The patch introduces incorrect behavior for standard try-catch-finally patterns."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.2617994860011095,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3857,
+        "output_tokens": 186,
+        "parsed": {
+          "generalization": "general",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.95,
+          "readability": 0.7,
+          "security_robustness": 0.9,
+          "judgement": "CORRECT",
+          "confidence": 0.85,
+          "brief_reason": "The patch fixes a bug where the finally block was incorrectly identified as the last child of a try-catch-finally statement. In a try-catch-finally structure, the finally block is actually the last child of the try node (first child of the parent), not the last child of the parent node. The fix correctly retrieves the finally block and allows exit point minimization to work properly in finally blocks, as demonstrated by the two failing tests now passing."
+        },
+        "s_sem": 0.85,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__SimFix__Closure__patch1-Closure-126-SimFix-plausible",
+    "bug_id": "Closure-126",
+    "model": "claude-haiku-4-5",
+    "latency_s": 13.483108420999997,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 3726,
+    "output_tokens": 2184,
+    "tests": [
+      {
+        "name": "testFinallyBlockPreservesBreakInLabel",
+        "target_class": "com.google.javascript.jscomp.MinimizeExitPoints",
+        "target_method": "tryMinimizeExits",
+        "class_name": "MinimizeExitPointsTest",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "uitable method found for init(Node[],Node[],CompilerOptions)\n    [javac]     compiler.init(new Node[0], new Node[0], options);\n    [javac]             ^\n    [javac]     method Compiler.init(JSSourceFile[],JSModule[],CompilerOptions) is not applicable\n    [javac]       (actual argument Node[] cannot be converted to JSSourceFile[] by method invocation conversion)\n    [javac]     method Compiler.<T1,T2>init(List<T1>,List<T2>,CompilerOptions) is not applicable\n    [javac]       (no instance(s) of type variable(s) T1,T2 exist so that argument type Node[] conforms to formal parameter type List<T1>)\n    [javac]     method Compiler.init(JSSourceFile[],JSSourceFile[],CompilerOptions) is not applicable\n    [javac]       (actual argument Node[] cannot be converted to JSSourceFile[] by method invocation conversion)\n    [javac]   where T1,T2 are type-variables:\n    [javac]     T1 extends SourceFile declared in method <T1,T2>init(List<T1>,List<T2>,CompilerOptions)\n    [javac]     T2 extends SourceFile declared in method <T1,T2>init(List<T1>,List<T2>,CompilerOptions)\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__SimFix__Closure__patch1-Closure-126-SimFix-plausible/MinimizeExitPointsTest/fixed/test/com/google/javascript/jscomp/MinimizeExitPointsTest.java:39: error: cannot find symbol\n    [javac]     compiler.getPass(new MinimizeExitPoints(compiler)).run();\n    [javac]             ^\n    [javac]   symbol:   method getPass(MinimizeExitPoints)\n    [javac]   location: variable compiler of type Compiler\n    [javac] 6 errors\n    [javac] 25 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__SimFix__Closure__patch1-Closure-126-SimFix-plausible/MinimizeExitPointsTest/fixed/build.xml:335: Compile failed; see the compiler error output for details.\n\nTotal time: 2 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testFinallyBlockWithoutCatchBlock",
+        "target_class": "com.google.javascript.jscomp.MinimizeExitPoints",
+        "target_method": "tryMinimizeExits",
+        "class_name": "MinimizeExitPointsTestBoundary",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": " init(Node[],Node[],CompilerOptions)\n    [javac]     compiler.init(new Node[0], new Node[0], options);\n    [javac]             ^\n    [javac]     method Compiler.init(JSSourceFile[],JSModule[],CompilerOptions) is not applicable\n    [javac]       (actual argument Node[] cannot be converted to JSSourceFile[] by method invocation conversion)\n    [javac]     method Compiler.<T1,T2>init(List<T1>,List<T2>,CompilerOptions) is not applicable\n    [javac]       (no instance(s) of type variable(s) T1,T2 exist so that argument type Node[] conforms to formal parameter type List<T1>)\n    [javac]     method Compiler.init(JSSourceFile[],JSSourceFile[],CompilerOptions) is not applicable\n    [javac]       (actual argument Node[] cannot be converted to JSSourceFile[] by method invocation conversion)\n    [javac]   where T1,T2 are type-variables:\n    [javac]     T1 extends SourceFile declared in method <T1,T2>init(List<T1>,List<T2>,CompilerOptions)\n    [javac]     T2 extends SourceFile declared in method <T1,T2>init(List<T1>,List<T2>,CompilerOptions)\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__SimFix__Closure__patch1-Closure-126-SimFix-plausible/MinimizeExitPointsTestBoundary/fixed/test/com/google/javascript/jscomp/MinimizeExitPointsTestBoundary.java:39: error: cannot find symbol\n    [javac]     compiler.getPass(new MinimizeExitPoints(compiler)).run();\n    [javac]             ^\n    [javac]   symbol:   method getPass(MinimizeExitPoints)\n    [javac]   location: variable compiler of type Compiler\n    [javac] 6 errors\n    [javac] 25 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__SimFix__Closure__patch1-Closure-126-SimFix-plausible/MinimizeExitPointsTestBoundary/fixed/build.xml:335: Compile failed; see the compiler error output for details.\n\nTotal time: 2 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testFinallyBlockLastChildRetrieval",
+        "target_class": "com.google.javascript.jscomp.MinimizeExitPoints",
+        "target_method": "tryMinimizeExits",
+        "class_name": "MinimizeExitPointsStructureTest",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "it(Node[],Node[],CompilerOptions)\n    [javac]     compiler.init(new Node[0], new Node[0], options);\n    [javac]             ^\n    [javac]     method Compiler.init(JSSourceFile[],JSModule[],CompilerOptions) is not applicable\n    [javac]       (actual argument Node[] cannot be converted to JSSourceFile[] by method invocation conversion)\n    [javac]     method Compiler.<T1,T2>init(List<T1>,List<T2>,CompilerOptions) is not applicable\n    [javac]       (no instance(s) of type variable(s) T1,T2 exist so that argument type Node[] conforms to formal parameter type List<T1>)\n    [javac]     method Compiler.init(JSSourceFile[],JSSourceFile[],CompilerOptions) is not applicable\n    [javac]       (actual argument Node[] cannot be converted to JSSourceFile[] by method invocation conversion)\n    [javac]   where T1,T2 are type-variables:\n    [javac]     T1 extends SourceFile declared in method <T1,T2>init(List<T1>,List<T2>,CompilerOptions)\n    [javac]     T2 extends SourceFile declared in method <T1,T2>init(List<T1>,List<T2>,CompilerOptions)\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__SimFix__Closure__patch1-Closure-126-SimFix-plausible/MinimizeExitPointsStructureTest/fixed/test/com/google/javascript/jscomp/MinimizeExitPointsStructureTest.java:39: error: cannot find symbol\n    [javac]     compiler.getPass(new MinimizeExitPoints(compiler)).run();\n    [javac]             ^\n    [javac]   symbol:   method getPass(MinimizeExitPoints)\n    [javac]   location: variable compiler of type Compiler\n    [javac] 6 errors\n    [javac] 25 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__SimFix__Closure__patch1-Closure-126-SimFix-plausible/MinimizeExitPointsStructureTest/fixed/build.xml:335: Compile failed; see the compiler error output for details.\n\nTotal time: 2 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__SimFix__Closure__patch1-Closure-126-SimFix-plausible",
+    "true_project": "Closure",
+    "true_bug_number": "126",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 571,
+    "output_tokens": 26,
+    "project": "Closure",
+    "bug_number": null,
+    "recalled_label": "UNKNOWN",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__SimFix__Closure__patch1-Closure-126-SimFix-plausible",
+    "bug_id": "Closure-126",
+    "s_edit_ast": 0.012531328320802004,
+    "s_edit_ast_actions": 5,
+    "s_edit_ast_nodes": 399,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "com/google/javascript/jscomp/MinimizeExitPoints"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 76,
+      "cfg_edges": 87,
+      "branch_points": 15,
+      "cyclomatic_complexity": 13,
+      "def_count": 41,
+      "use_count": 180,
+      "defuse_pairs": 41,
+      "per_method": [
+        {
+          "class": "com.google.javascript.jscomp.MinimizeExitPoints",
+          "method": "tryMinimizeExits",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 76,
+          "cfg_edges": 87,
+          "branch_points": 15,
+          "cyclomatic_complexity": 13,
+          "def_count": 41,
+          "use_count": 180,
+          "defuse_pairs": 41,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 77,
+      "cfg_edges": 88,
+      "branch_points": 15,
+      "cyclomatic_complexity": 13,
+      "def_count": 42,
+      "use_count": 182,
+      "defuse_pairs": 42,
+      "per_method": [
+        {
+          "class": "com.google.javascript.jscomp.MinimizeExitPoints",
+          "method": "tryMinimizeExits",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 77,
+          "cfg_edges": 88,
+          "branch_points": 15,
+          "cyclomatic_complexity": 13,
+          "def_count": 42,
+          "use_count": 182,
+          "defuse_pairs": 42,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": 1,
+    "d_branch_points": 0,
+    "d_cfg_edges": 1,
+    "d_defuse_pairs": 1,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 8,
+      "n_candidate_warnings": 8,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__SimFix__Closure__patch1-Closure-126-SimFix-plausible",
+    "bug_id": "Closure-126",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": false,
+    "error": ""
+  }
+}

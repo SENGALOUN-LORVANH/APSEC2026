@@ -1,0 +1,256 @@
+{
+  "patch_id": "Patches_others__Dcorrect__CapGen__Math__patch1-Math-63-CapGen",
+  "bug_id": "Math-63",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 48.273
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 1.522
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 11.053
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 43.118
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.604
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 73.754
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_others__Dcorrect__CapGen__Math__patch1-Math-63-CapGen",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.85,
+    "decision": "CORRECT",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.2284933479995743,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2077,
+        "output_tokens": 155,
+        "parsed": {
+          "generalization": "general",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.95,
+          "readability": 0.7,
+          "security_robustness": 1.0,
+          "judgement": "CORRECT",
+          "confidence": 0.85,
+          "brief_reason": "The patch delegates the two-argument equals method to the three-argument equals(x, y, 1) method, which is the documented behavior according to the javadoc. This fixes the general bug where the original implementation was incomplete or incorrect. The change is minimal and maintains all existing functionality while properly implementing the intended contract."
+        },
+        "s_sem": 0.85,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.166728086999683,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2077,
+        "output_tokens": 155,
+        "parsed": {
+          "generalization": "general",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.95,
+          "readability": 0.7,
+          "security_robustness": 1.0,
+          "judgement": "CORRECT",
+          "confidence": 0.85,
+          "brief_reason": "The patch delegates the two-argument equals method to the three-argument equals(x, y, 1) method, which is the documented behavior according to the javadoc. This fixes the general bug where the original implementation was incomplete or incorrect. The change is minimal and maintains all existing functionality while properly implementing the intended contract."
+        },
+        "s_sem": 0.85,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.207367986999998,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2077,
+        "output_tokens": 155,
+        "parsed": {
+          "generalization": "general",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.95,
+          "readability": 0.7,
+          "security_robustness": 1.0,
+          "judgement": "CORRECT",
+          "confidence": 0.85,
+          "brief_reason": "The patch delegates the two-argument equals method to the three-argument equals(x, y, 1) method, which is the documented behavior according to the javadoc. This fixes the general bug where the original implementation was incomplete or incorrect. The change is minimal and maintains all existing functionality while properly implementing the intended contract."
+        },
+        "s_sem": 0.85,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_others__Dcorrect__CapGen__Math__patch1-Math-63-CapGen",
+    "bug_id": "Math-63",
+    "model": "claude-haiku-4-5",
+    "latency_s": 5.876688289999947,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 1970,
+    "output_tokens": 784,
+    "tests": [
+      {
+        "name": "testEqualsWithSmallDifference",
+        "target_class": "org.apache.commons.math.util.MathUtils",
+        "target_method": "equals(double, double)",
+        "class_name": "TestEqualsSmallDifference",
+        "status": "VALID_BUG_REVEALING",
+        "candidate_pass": true,
+        "log": ".\nTime: 0.181\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testEqualsWithLargeDifference",
+        "target_class": "org.apache.commons.math.util.MathUtils",
+        "target_method": "equals(double, double)",
+        "class_name": "TestEqualsLargeDifference",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.003\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testEqualsWithNaN",
+        "target_class": "org.apache.commons.math.util.MathUtils",
+        "target_method": "equals(double, double)",
+        "class_name": "TestEqualsWithNaN",
+        "status": "INVALID_ORACLE",
+        "candidate_pass": null,
+        "log": ".F\nTime: 0.169\nThere was 1 failure:\n1) testEqualsWithNaN(org.apache.commons.math.util.TestEqualsWithNaN)junit.framework.AssertionFailedError: Two NaN values should be equal\n\tat org.apache.commons.math.util.TestEqualsWithNaN.testEqualsWithNaN(TestEqualsWithNaN.java:7)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\nFAILURES!!!\nTests run: 1,  Failures: 1,  Errors: 0\n\n"
+      }
+    ],
+    "s_cex": 1.0,
+    "n_valid": 1,
+    "n_passed": 1
+  },
+  "memorization": {
+    "patch_id": "Patches_others__Dcorrect__CapGen__Math__patch1-Math-63-CapGen",
+    "true_project": "Math",
+    "true_bug_number": "63",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 576,
+    "output_tokens": 28,
+    "project": "Math",
+    "bug_number": 41,
+    "recalled_label": "OVERFITTING",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_others__Dcorrect__CapGen__Math__patch1-Math-63-CapGen",
+    "bug_id": "Math-63",
+    "s_edit_ast": 0.4915254237288136,
+    "s_edit_ast_actions": 29,
+    "s_edit_ast_nodes": 59,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math/util/MathUtils"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 95,
+      "cfg_edges": 109,
+      "branch_points": 22,
+      "cyclomatic_complexity": 22,
+      "def_count": 56,
+      "use_count": 175,
+      "defuse_pairs": 56,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.util.MathUtils",
+          "method": "equals",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 4,
+          "stmts": 95,
+          "cfg_edges": 109,
+          "branch_points": 22,
+          "cyclomatic_complexity": 22,
+          "def_count": 56,
+          "use_count": 175,
+          "defuse_pairs": 56,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 87,
+      "cfg_edges": 98,
+      "branch_points": 19,
+      "cyclomatic_complexity": 19,
+      "def_count": 52,
+      "use_count": 161,
+      "defuse_pairs": 52,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.util.MathUtils",
+          "method": "equals",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 4,
+          "stmts": 87,
+          "cfg_edges": 98,
+          "branch_points": 19,
+          "cyclomatic_complexity": 19,
+          "def_count": 52,
+          "use_count": 161,
+          "defuse_pairs": 52,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": -3,
+    "d_stmts": -8,
+    "d_branch_points": -3,
+    "d_cfg_edges": -11,
+    "d_defuse_pairs": -4,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 349,
+      "n_candidate_warnings": 349,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 3,
+      "n_changed_class_files_candidate": 3,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_others__Dcorrect__CapGen__Math__patch1-Math-63-CapGen",
+    "bug_id": "Math-63",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

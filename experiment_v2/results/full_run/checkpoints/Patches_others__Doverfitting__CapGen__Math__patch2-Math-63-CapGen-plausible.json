@@ -1,0 +1,267 @@
+{
+  "patch_id": "Patches_others__Doverfitting__CapGen__Math__patch2-Math-63-CapGen-plausible",
+  "bug_id": "Math-63",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 47.447
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 1.124
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 11.436
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 28.105
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.589
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 81.309
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_others__Doverfitting__CapGen__Math__patch2-Math-63-CapGen-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.5799750620008126,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2062,
+        "output_tokens": 166,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.1,
+          "readability": 0.0,
+          "security_robustness": 1.0,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch replaces the entire logic with a tautological expression 'x == y || x == y' that only checks exact equality, completely removing NaN handling. This breaks the documented behavior that NaN values should be considered equal to each other, and the redundant OR clause suggests the patch is nonsensical rather than a genuine fix."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.559937367999737,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2062,
+        "output_tokens": 166,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.1,
+          "readability": 0.0,
+          "security_robustness": 1.0,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch replaces the entire logic with a tautological expression 'x == y || x == y' that only checks exact equality, completely removing NaN handling. This breaks the documented behavior that NaN values should be considered equal to each other, and the redundant OR clause suggests the patch is nonsensical rather than a genuine fix."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.4511721750004654,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2062,
+        "output_tokens": 166,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.1,
+          "readability": 0.0,
+          "security_robustness": 1.0,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch replaces the entire logic with a tautological expression 'x == y || x == y' that only checks exact equality, completely removing NaN handling. This breaks the documented behavior that NaN values should be considered equal to each other, and the redundant OR clause suggests the patch is nonsensical rather than a genuine fix."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_others__Doverfitting__CapGen__Math__patch2-Math-63-CapGen-plausible",
+    "bug_id": "Math-63",
+    "model": "claude-haiku-4-5",
+    "latency_s": 7.238478621999093,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 1955,
+    "output_tokens": 855,
+    "tests": [
+      {
+        "name": "testEqualsWithNaN",
+        "target_class": "org.apache.commons.math.util.MathUtils",
+        "target_method": "equals",
+        "class_name": "TestEqualsNaN",
+        "status": "INVALID_ORACLE",
+        "candidate_pass": null,
+        "log": ".F\nTime: 0.153\nThere was 1 failure:\n1) testEqualsWithNaN(org.apache.commons.math.util.TestEqualsNaN)junit.framework.AssertionFailedError: Both NaN should be equal\n\tat org.apache.commons.math.util.TestEqualsNaN.testEqualsWithNaN(TestEqualsNaN.java:8)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\nFAILURES!!!\nTests run: 1,  Failures: 1,  Errors: 0\n\n"
+      },
+      {
+        "name": "testEqualsWithOneNaN",
+        "target_class": "org.apache.commons.math.util.MathUtils",
+        "target_method": "equals",
+        "class_name": "TestEqualsOneNaN",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.003\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testEqualsWithRegularValues",
+        "target_class": "org.apache.commons.math.util.MathUtils",
+        "target_method": "equals",
+        "class_name": "TestEqualsRegularValues",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.003\n\nOK (1 test)\n\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_others__Doverfitting__CapGen__Math__patch2-Math-63-CapGen-plausible",
+    "true_project": "Math",
+    "true_bug_number": "63",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 561,
+    "output_tokens": 25,
+    "project": "Math",
+    "bug_number": null,
+    "recalled_label": "UNKNOWN",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_others__Doverfitting__CapGen__Math__patch2-Math-63-CapGen-plausible",
+    "bug_id": "Math-63",
+    "s_edit_ast": 0.3898305084745763,
+    "s_edit_ast_actions": 23,
+    "s_edit_ast_nodes": 59,
+    "s_edit_error": null,
+    "s_vuln_changed": 1.0,
+    "s_vuln_new_warning_count": 1,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math/util/MathUtils"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 95,
+      "cfg_edges": 109,
+      "branch_points": 22,
+      "cyclomatic_complexity": 22,
+      "def_count": 56,
+      "use_count": 175,
+      "defuse_pairs": 56,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.util.MathUtils",
+          "method": "equals",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 4,
+          "stmts": 95,
+          "cfg_edges": 109,
+          "branch_points": 22,
+          "cyclomatic_complexity": 22,
+          "def_count": 56,
+          "use_count": 175,
+          "defuse_pairs": 56,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 93,
+      "cfg_edges": 106,
+      "branch_points": 21,
+      "cyclomatic_complexity": 21,
+      "def_count": 55,
+      "use_count": 171,
+      "defuse_pairs": 55,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.util.MathUtils",
+          "method": "equals",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 4,
+          "stmts": 93,
+          "cfg_edges": 106,
+          "branch_points": 21,
+          "cyclomatic_complexity": 21,
+          "def_count": 55,
+          "use_count": 171,
+          "defuse_pairs": 55,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": -1,
+    "d_stmts": -2,
+    "d_branch_points": -1,
+    "d_cfg_edges": -3,
+    "d_defuse_pairs": -1,
+    "vuln_detail": {
+      "s_vuln": 1.0,
+      "new_warnings": [
+        {
+          "bug_type": "RpC",
+          "category": "C",
+          "priority": "H",
+          "severity": "HIGH",
+          "class": "MathUtils",
+          "method": "equals",
+          "location": "MathUtils.java:line 417",
+          "description": "Repeated conditional test in org.apache.commons.math.util.MathUtils.equals(double, double)"
+        }
+      ],
+      "n_buggy_warnings": 349,
+      "n_candidate_warnings": 350,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 3,
+      "n_changed_class_files_candidate": 3,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_others__Doverfitting__CapGen__Math__patch2-Math-63-CapGen-plausible",
+    "bug_id": "Math-63",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

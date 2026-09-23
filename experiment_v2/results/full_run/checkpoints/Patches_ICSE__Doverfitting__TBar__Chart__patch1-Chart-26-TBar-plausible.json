@@ -1,0 +1,9 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__TBar__Chart__patch1-Chart-26-TBar-plausible",
+  "bug_id": "Chart-26",
+  "model": "claude-haiku-4-5",
+  "stages": {},
+  "complete": false,
+  "terminal_failure": "checkout_bug",
+  "checkout_error": "buggy checkout failed: .. OK\nTag post-fix revision...................................................... OK\nExcluding broken/flaky tests............................................... OK\nExcluding broken/flaky tests............................................... OK\nCannot open file for appending /opt/defects4j-2.0.1/framework/projects/Chart/dir-layout.csv: Permission denied at /opt/defects4j-2.0.1/framework/core/Utils.pm line 152.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+}

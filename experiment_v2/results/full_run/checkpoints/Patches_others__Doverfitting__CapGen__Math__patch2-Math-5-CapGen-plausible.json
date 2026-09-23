@@ -1,0 +1,256 @@
+{
+  "patch_id": "Patches_others__Doverfitting__CapGen__Math__patch2-Math-5-CapGen-plausible",
+  "bug_id": "Math-5",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 65.25
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.871
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 10.913
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 43.559
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.035
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 87.717
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_others__Doverfitting__CapGen__Math__patch2-Math-5-CapGen-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.5467424399994343,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2293,
+        "output_tokens": 157,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.7,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch replaces a simple NaN check with a nonsensical computation (adding Complex.I) that happens to make the test pass but fundamentally breaks the equals() method's contract. It changes unrelated behavior by corrupting equality semantics and is not a genuine fix to the reciprocal zero bug."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.439109868999367,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2293,
+        "output_tokens": 157,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.7,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch replaces a simple NaN check with a nonsensical computation (adding Complex.I) that happens to make the test pass but fundamentally breaks the equals() method's contract. It changes unrelated behavior by corrupting equality semantics and is not a genuine fix to the reciprocal zero bug."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.44191051100006,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2293,
+        "output_tokens": 157,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.7,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch replaces a simple NaN check with a nonsensical computation (adding Complex.I) that happens to make the test pass but fundamentally breaks the equals() method's contract. It changes unrelated behavior by corrupting equality semantics and is not a genuine fix to the reciprocal zero bug."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_others__Doverfitting__CapGen__Math__patch2-Math-5-CapGen-plausible",
+    "bug_id": "Math-5",
+    "model": "claude-haiku-4-5",
+    "latency_s": 7.435442189999776,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 2163,
+    "output_tokens": 1022,
+    "tests": [
+      {
+        "name": "testEqualsWithNaNComplex",
+        "target_class": "org.apache.commons.math3.complex.Complex",
+        "target_method": "equals",
+        "class_name": "ComplexEqualsNaNTest",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": "JUnit version 4.11\n.\nTime: 0.006\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testEqualsWithPartialNaN",
+        "target_class": "org.apache.commons.math3.complex.Complex",
+        "target_method": "equals",
+        "class_name": "ComplexEqualsPartialNaNTest",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": "JUnit version 4.11\n.\nTime: 0.005\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testEqualsNormalComplexNumbers",
+        "target_class": "org.apache.commons.math3.complex.Complex",
+        "target_method": "equals",
+        "class_name": "ComplexEqualsNormalTest",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": "JUnit version 4.11\n.\nTime: 0.006\n\nOK (1 test)\n\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_others__Doverfitting__CapGen__Math__patch2-Math-5-CapGen-plausible",
+    "true_project": "Math",
+    "true_bug_number": "5",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 584,
+    "output_tokens": 28,
+    "project": "Math",
+    "bug_number": 105,
+    "recalled_label": "OVERFITTING",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_others__Doverfitting__CapGen__Math__patch2-Math-5-CapGen-plausible",
+    "bug_id": "Math-5",
+    "s_edit_ast": 0.17647058823529413,
+    "s_edit_ast_actions": 15,
+    "s_edit_ast_nodes": 85,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math3/complex/Complex"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 24,
+      "cfg_edges": 25,
+      "branch_points": 5,
+      "cyclomatic_complexity": 3,
+      "def_count": 14,
+      "use_count": 45,
+      "defuse_pairs": 14,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math3.complex.Complex",
+          "method": "equals",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 24,
+          "cfg_edges": 25,
+          "branch_points": 5,
+          "cyclomatic_complexity": 3,
+          "def_count": 14,
+          "use_count": 45,
+          "defuse_pairs": 14,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 26,
+      "cfg_edges": 27,
+      "branch_points": 5,
+      "cyclomatic_complexity": 3,
+      "def_count": 16,
+      "use_count": 49,
+      "defuse_pairs": 16,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math3.complex.Complex",
+          "method": "equals",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 26,
+          "cfg_edges": 27,
+          "branch_points": 5,
+          "cyclomatic_complexity": 3,
+          "def_count": 16,
+          "use_count": 49,
+          "defuse_pairs": 16,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": 2,
+    "d_branch_points": 0,
+    "d_cfg_edges": 2,
+    "d_defuse_pairs": 2,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 663,
+      "n_candidate_warnings": 663,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_others__Doverfitting__CapGen__Math__patch2-Math-5-CapGen-plausible",
+    "bug_id": "Math-5",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

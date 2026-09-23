@@ -1,0 +1,256 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__Arja__Chart__patch1-Chart-13-Arja-plusible",
+  "bug_id": "Chart-13",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 16.613
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.775
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 11.297
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 23.993
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.245
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 29.282
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__Arja__Chart__patch1-Chart-13-Arja-plusible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.5864016819996323,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2754,
+        "output_tokens": 183,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.3,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch sets rightBlock to null after arrangement, which is a destructive side effect that weakens functionality by permanently removing the right block from the container. This only masks the symptom (preventing the right block from being used in subsequent operations) rather than fixing the root cause of the invalid Range construction. The real issue is that the Range bounds calculation can produce invalid ranges when width constraints are tight, which should be fixed with proper bounds checking instead."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.303592184000081,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2754,
+        "output_tokens": 178,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.3,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch sets rightBlock to null after arrangement, which is a destructive side effect that weakens functionality by permanently removing the right block from the container. This is a band-aid fix for the specific test case rather than addressing the root cause of the invalid Range construction with lower > upper bounds. The patch introduces unrelated behavior changes that would break legitimate uses of the BorderArrangement with right blocks."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.4559082989999297,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2754,
+        "output_tokens": 178,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.3,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch sets rightBlock to null after arrangement, which is a destructive side effect that weakens functionality by permanently removing the right block from the container. This only masks the symptom (preventing the right block from being used in subsequent calculations) rather than fixing the root cause of invalid Range construction with negative width values. The fix is overfitted to pass this specific test while introducing serious bugs in normal usage."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__Arja__Chart__patch1-Chart-13-Arja-plusible",
+    "bug_id": "Chart-13",
+    "model": "claude-haiku-4-5",
+    "latency_s": 15.49032384900056,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 2649,
+    "output_tokens": 1709,
+    "tests": [
+      {
+        "name": "testArrangeFNWithoutRightBlock",
+        "target_class": "org.jfree.chart.block.BorderArrangement",
+        "target_method": "arrangeFN",
+        "class_name": "testArrangeFNWithoutRightBlock",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "estArrangeFNWithoutRightBlock.java:21: error: arrangeFN(BlockContainer,Graphics2D,double) has protected access in BorderArrangement\n    [javac]         arrangement.arrangeFN(container, g2, 100.0);\n    [javac]                    ^\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__Arja__Chart__patch1-Chart-13-Arja-plusible/testArrangeFNWithoutRightBlock/fixed/tests/org/jfree/chart/block/junit/testArrangeFNWithoutRightBlock.java:26: error: cannot find symbol\n    [javac]                       arrangement.getBlock(RectangleEdge.RIGHT));\n    [javac]                                  ^\n    [javac]   symbol:   method getBlock(RectangleEdge)\n    [javac]   location: variable arrangement of type BorderArrangement\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/awt/Graphics.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/awt/Graphics.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 3 errors\n    [javac] 15 warnings\n\nBUILD FAILED\n/opt/defects4j-2.0.1/framework/projects/Chart/Chart.build.xml:123: Compile failed; see the compiler error output for details.\n\nTotal time: 0 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testArrangeFNMultipleCallsConsistency",
+        "target_class": "org.jfree.chart.block.BorderArrangement",
+        "target_method": "arrangeFN",
+        "class_name": "testArrangeFNMultipleCallsConsistency",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "junit/testArrangeFNMultipleCallsConsistency.java:24: error: arrangeFN(BlockContainer,Graphics2D,double) has protected access in BorderArrangement\n    [javac]         Size2D size1 = arrangement.arrangeFN(container, g2, 80.0);\n    [javac]                                   ^\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__Arja__Chart__patch1-Chart-13-Arja-plusible/testArrangeFNMultipleCallsConsistency/fixed/tests/org/jfree/chart/block/junit/testArrangeFNMultipleCallsConsistency.java:25: error: arrangeFN(BlockContainer,Graphics2D,double) has protected access in BorderArrangement\n    [javac]         Size2D size2 = arrangement.arrangeFN(container, g2, 80.0);\n    [javac]                                   ^\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/awt/Graphics.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/awt/Graphics.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 4 errors\n    [javac] 17 warnings\n\nBUILD FAILED\n/opt/defects4j-2.0.1/framework/projects/Chart/Chart.build.xml:123: Compile failed; see the compiler error output for details.\n\nTotal time: 0 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testArrangeFNRightBlockConstraintCalculation",
+        "target_class": "org.jfree.chart.block.BorderArrangement",
+        "target_method": "arrangeFN",
+        "class_name": "testArrangeFNRightBlockConstraintCalculation",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/awt/Image.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__Arja__Chart__patch1-Chart-13-Arja-plusible/testArrangeFNRightBlockConstraintCalculation/fixed/tests/org/jfree/chart/block/junit/testArrangeFNRightBlockConstraintCalculation.java:31: error: arrangeFN(BlockContainer,Graphics2D,double) has protected access in BorderArrangement\n    [javac]         Size2D result = arrangement.arrangeFN(container, g2, 100.0);\n    [javac]                                    ^\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/awt/Graphics.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/awt/Graphics.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 4 errors\n    [javac] 17 warnings\n\nBUILD FAILED\n/opt/defects4j-2.0.1/framework/projects/Chart/Chart.build.xml:123: Compile failed; see the compiler error output for details.\n\nTotal time: 0 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__Arja__Chart__patch1-Chart-13-Arja-plusible",
+    "true_project": "Chart",
+    "true_bug_number": "13",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 565,
+    "output_tokens": 26,
+    "project": "Chart",
+    "bug_number": 2,
+    "recalled_label": "CORRECT",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__Arja__Chart__patch1-Chart-13-Arja-plusible",
+    "bug_id": "Chart-13",
+    "s_edit_ast": 0.032663316582914576,
+    "s_edit_ast_actions": 13,
+    "s_edit_ast_nodes": 398,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/jfree/chart/block/BorderArrangement"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 98,
+      "cfg_edges": 102,
+      "branch_points": 5,
+      "cyclomatic_complexity": 6,
+      "def_count": 85,
+      "use_count": 254,
+      "defuse_pairs": 85,
+      "per_method": [
+        {
+          "class": "org.jfree.chart.block.BorderArrangement",
+          "method": "arrangeFN",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 98,
+          "cfg_edges": 102,
+          "branch_points": 5,
+          "cyclomatic_complexity": 6,
+          "def_count": 85,
+          "use_count": 254,
+          "defuse_pairs": 85,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 99,
+      "cfg_edges": 103,
+      "branch_points": 5,
+      "cyclomatic_complexity": 6,
+      "def_count": 86,
+      "use_count": 256,
+      "defuse_pairs": 86,
+      "per_method": [
+        {
+          "class": "org.jfree.chart.block.BorderArrangement",
+          "method": "arrangeFN",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 99,
+          "cfg_edges": 103,
+          "branch_points": 5,
+          "cyclomatic_complexity": 6,
+          "def_count": 86,
+          "use_count": 256,
+          "defuse_pairs": 86,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": 1,
+    "d_branch_points": 0,
+    "d_cfg_edges": 1,
+    "d_defuse_pairs": 1,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 7,
+      "n_candidate_warnings": 7,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__Arja__Chart__patch1-Chart-13-Arja-plusible",
+    "bug_id": "Chart-13",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

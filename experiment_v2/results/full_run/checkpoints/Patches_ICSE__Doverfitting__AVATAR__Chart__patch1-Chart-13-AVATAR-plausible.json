@@ -1,0 +1,256 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Chart__patch1-Chart-13-AVATAR-plausible",
+  "bug_id": "Chart-13",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 13.215
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.502
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 8.997
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 38.683
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 0.925
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 52.364
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Chart__patch1-Chart-13-AVATAR-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.010000000000000009,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 2.896840784000233,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 1994,
+        "output_tokens": 181,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.0,
+          "judgement": "OVERFITTING",
+          "confidence": 0.99,
+          "brief_reason": "The patch removes the validation check that prevents invalid Range objects (where lower > upper) from being created, merely silencing the error rather than fixing the root cause. This fundamentally weakens the Range class's contract and introduces a security/robustness risk by allowing invalid state. The patch only makes the specific test pass by eliminating the exception, not by addressing why invalid ranges are being created in BorderArrangement."
+        },
+        "s_sem": 0.010000000000000009,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 2.7229509850003524,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 1994,
+        "output_tokens": 156,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.0,
+          "judgement": "OVERFITTING",
+          "confidence": 0.99,
+          "brief_reason": "The patch removes the validation check that prevents invalid Range objects (where lower > upper) from being created, allowing the test to pass by silently accepting invalid state. This deletes critical functionality rather than fixing the underlying bug, which likely stems from incorrect calculations in BorderArrangement that produce negative ranges."
+        },
+        "s_sem": 0.010000000000000009,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.023748194000291,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 1994,
+        "output_tokens": 181,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.0,
+          "judgement": "OVERFITTING",
+          "confidence": 0.99,
+          "brief_reason": "The patch removes the validation check that prevents invalid Range objects (where lower > upper) from being created, merely silencing the error rather than fixing the root cause. This fundamentally weakens the Range class's contract and introduces a security/robustness risk by allowing invalid state. The patch only makes the specific test pass by eliminating the exception, not by addressing why invalid ranges are being created in BorderArrangement."
+        },
+        "s_sem": 0.010000000000000009,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Chart__patch1-Chart-13-AVATAR-plausible",
+    "bug_id": "Chart-13",
+    "model": "claude-haiku-4-5",
+    "latency_s": 7.206120077000378,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 1889,
+    "output_tokens": 831,
+    "tests": [
+      {
+        "name": "testRangeWithLowerGreaterThanUpper",
+        "target_class": "org.jfree.data.Range",
+        "target_method": "Range(double, double)",
+        "class_name": "TestRangeValidation",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.002\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testRangeWithNegativeLowerGreaterThanNegativeUpper",
+        "target_class": "org.jfree.data.Range",
+        "target_method": "Range(double, double)",
+        "class_name": "TestRangeNegativeBoundary",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.003\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testRangeWithValidBounds",
+        "target_class": "org.jfree.data.Range",
+        "target_method": "Range(double, double)",
+        "class_name": "TestRangeValidBounds",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.003\n\nOK (1 test)\n\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Chart__patch1-Chart-13-AVATAR-plausible",
+    "true_project": "Chart",
+    "true_bug_number": "13",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 552,
+    "output_tokens": 28,
+    "project": "Chart",
+    "bug_number": 1,
+    "recalled_label": "OVERFITTING",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Chart__patch1-Chart-13-AVATAR-plausible",
+    "bug_id": "Chart-13",
+    "s_edit_ast": 0.30357142857142855,
+    "s_edit_ast_actions": 17,
+    "s_edit_ast_nodes": 56,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/jfree/data/Range"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 22,
+      "cfg_edges": 21,
+      "branch_points": 1,
+      "cyclomatic_complexity": 1,
+      "def_count": 16,
+      "use_count": 44,
+      "defuse_pairs": 16,
+      "per_method": [
+        {
+          "class": "org.jfree.data.Range",
+          "method": "Range",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 22,
+          "cfg_edges": 21,
+          "branch_points": 1,
+          "cyclomatic_complexity": 1,
+          "def_count": 16,
+          "use_count": 44,
+          "defuse_pairs": 16,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 9,
+      "cfg_edges": 9,
+      "branch_points": 1,
+      "cyclomatic_complexity": 2,
+      "def_count": 6,
+      "use_count": 15,
+      "defuse_pairs": 6,
+      "per_method": [
+        {
+          "class": "org.jfree.data.Range",
+          "method": "Range",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 9,
+          "cfg_edges": 9,
+          "branch_points": 1,
+          "cyclomatic_complexity": 2,
+          "def_count": 6,
+          "use_count": 15,
+          "defuse_pairs": 6,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 1,
+    "d_stmts": -13,
+    "d_branch_points": 0,
+    "d_cfg_edges": -12,
+    "d_defuse_pairs": -10,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 7,
+      "n_candidate_warnings": 6,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Chart__patch1-Chart-13-AVATAR-plausible",
+    "bug_id": "Chart-13",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}
