@@ -1,0 +1,265 @@
+{
+  "patch_id": "Patches_others__Doverfitting__Jaid__Math__patch1-Math-80-Jaid-plausible",
+  "bug_id": "Math-80",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 12.381
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 1.208
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 10.822
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 53.021
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.08
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 81.519
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_others__Doverfitting__Jaid__Math__patch1-Math-80-Jaid-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.166004773000168,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2260,
+        "output_tokens": 180,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.6,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch adds a nonsensical early return condition that doesn't logically relate to the eigendecomposition algorithm. The condition `(step > 4 * (n - 1)) == false` is redundant and the early return bypasses the actual array flipping logic, weakening functionality. This appears to be a random fix that happens to pass the test by accident rather than addressing the root cause."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.3112838320002993,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2260,
+        "output_tokens": 180,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.5,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch adds a nonsensical early return condition that doesn't logically relate to the eigendecomposition algorithm. The condition `(step > 4 * (n - 1)) == false` is redundant and the early return bypasses the actual array flipping logic, weakening functionality. This appears to be a random fix that happens to pass the test by accident rather than addressing the root cause."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.241381528999227,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2260,
+        "output_tokens": 191,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.6,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch adds a nonsensical early return condition that doesn't logically address the eigenvalue computation bug. The condition `(step > 4 * (n - 1)) == false` is confusing and appears to be a random fix that happens to make the test pass by returning early, rather than fixing the actual algorithmic issue in the array flipping logic. This is a classic overfitting pattern that masks the real problem without addressing the underlying cause."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_others__Doverfitting__Jaid__Math__patch1-Math-80-Jaid-plausible",
+    "bug_id": "Math-80",
+    "model": "claude-haiku-4-5",
+    "latency_s": 15.161972559000787,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 2153,
+    "output_tokens": 2561,
+    "tests": [
+      {
+        "name": "testFlipIfWarrantedWithLargeStep",
+        "target_class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+        "target_method": "flipIfWarranted",
+        "class_name": "TestFlipIfWarrantedWithLargeStep",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.011\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testFlipIfWarrantedActuallyFlips",
+        "target_class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+        "target_method": "flipIfWarranted",
+        "class_name": "TestFlipIfWarrantedActuallyFlips",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.015\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testFlipIfWarrantedBoundaryCondition",
+        "target_class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+        "target_method": "flipIfWarranted",
+        "class_name": "TestFlipIfWarrantedBoundaryCondition",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.018\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testEigenDecompositionMathpbx02Variant",
+        "target_class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+        "target_method": "flipIfWarranted",
+        "class_name": "TestEigenDecompositionMathpbx02Variant",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.012\n\nOK (1 test)\n\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_others__Doverfitting__Jaid__Math__patch1-Math-80-Jaid-plausible",
+    "true_project": "Math",
+    "true_bug_number": "80",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 624,
+    "output_tokens": 25,
+    "project": "Math",
+    "bug_number": null,
+    "recalled_label": "UNKNOWN",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_others__Doverfitting__Jaid__Math__patch1-Math-80-Jaid-plausible",
+    "bug_id": "Math-80",
+    "s_edit_ast": 0.1865671641791045,
+    "s_edit_ast_actions": 25,
+    "s_edit_ast_nodes": 134,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math/linear/EigenDecompositionImpl"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 40,
+      "cfg_edges": 41,
+      "branch_points": 3,
+      "cyclomatic_complexity": 3,
+      "def_count": 33,
+      "use_count": 92,
+      "defuse_pairs": 33,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+          "method": "flipIfWarranted",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 40,
+          "cfg_edges": 41,
+          "branch_points": 3,
+          "cyclomatic_complexity": 3,
+          "def_count": 33,
+          "use_count": 92,
+          "defuse_pairs": 33,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 48,
+      "cfg_edges": 50,
+      "branch_points": 5,
+      "cyclomatic_complexity": 4,
+      "def_count": 37,
+      "use_count": 107,
+      "defuse_pairs": 37,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+          "method": "flipIfWarranted",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 48,
+          "cfg_edges": 50,
+          "branch_points": 5,
+          "cyclomatic_complexity": 4,
+          "def_count": 37,
+          "use_count": 107,
+          "defuse_pairs": 37,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 1,
+    "d_stmts": 8,
+    "d_branch_points": 2,
+    "d_cfg_edges": 9,
+    "d_defuse_pairs": 4,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 317,
+      "n_candidate_warnings": 317,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 3,
+      "n_changed_class_files_candidate": 3,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_others__Doverfitting__Jaid__Math__patch1-Math-80-Jaid-plausible",
+    "bug_id": "Math-80",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

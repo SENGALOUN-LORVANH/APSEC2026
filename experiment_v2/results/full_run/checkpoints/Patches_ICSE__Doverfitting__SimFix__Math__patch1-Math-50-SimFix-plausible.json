@@ -1,0 +1,221 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__SimFix__Math__patch1-Math-50-SimFix-plausible",
+  "bug_id": "Math-50",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 62.826
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.83
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 10.338
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 12.119
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 0.368
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 121.592
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__SimFix__Math__patch1-Math-50-SimFix-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.15000000000000002,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.4604089829999793,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3166,
+        "output_tokens": 193,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.95,
+          "readability": 0.7,
+          "security_robustness": 0.9,
+          "judgement": "OVERFITTING",
+          "confidence": 0.85,
+          "brief_reason": "The patch changes the condition from `x == x1` to `x == x0` in the REGULA_FALSI case, which appears to be a logic fix for a specific convergence issue. However, this changes the semantic meaning of the condition in a way that may only address the particular test case rather than the underlying algorithmic problem. The fix lacks justification for why this specific condition change is correct for the general REGULA_FALSI algorithm."
+        },
+        "s_sem": 0.15000000000000002,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.252170038999793,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3166,
+        "output_tokens": 207,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.9,
+          "readability": 0.7,
+          "security_robustness": 0.9,
+          "judgement": "OVERFITTING",
+          "confidence": 0.85,
+          "brief_reason": "The patch changes the condition from `x == x1` to `x == x0` in the REGULA_FALSI case, which appears to be a logic fix for detecting stagnation. However, this is a very specific fix that only addresses the particular test case without addressing the underlying algorithmic issue of infinite loops in the REGULA_FALSI method. The change also introduces a stylistic inconsistency (removing spaces around operators) and may not generalize to other scenarios where the solver could fail to converge."
+        },
+        "s_sem": 0.15000000000000002,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.192668435000087,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3166,
+        "output_tokens": 194,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.9,
+          "readability": 0.7,
+          "security_robustness": 0.9,
+          "judgement": "OVERFITTING",
+          "confidence": 0.85,
+          "brief_reason": "The patch changes the condition from `x == x1` to `x == x0` in the REGULA_FALSI case, which appears to be a logic fix for detecting stagnation. However, this is a very specific fix that only addresses the particular test case without addressing the underlying issue of why the TooManyEvaluationsException wasn't being thrown. The change lacks a clear mechanism to ensure the exception is properly raised when evaluation limits are exceeded."
+        },
+        "s_sem": 0.15000000000000002,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__SimFix__Math__patch1-Math-50-SimFix-plausible",
+    "bug_id": "Math-50",
+    "model": "claude-haiku-4-5",
+    "latency_s": 10.484810621999713,
+    "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLPXKPdUEJQEQmVJCinm'}",
+    "context_errors": [],
+    "input_tokens": null,
+    "output_tokens": null,
+    "tests": []
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__SimFix__Math__patch1-Math-50-SimFix-plausible",
+    "true_project": "Math",
+    "true_bug_number": "50",
+    "model": "claude-haiku-4-5",
+    "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLPY6H84Hdj7skvM1HR3'}",
+    "input_tokens": null,
+    "output_tokens": null
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__SimFix__Math__patch1-Math-50-SimFix-plausible",
+    "bug_id": "Math-50",
+    "s_edit_ast": 0.0026246719160104987,
+    "s_edit_ast_actions": 1,
+    "s_edit_ast_nodes": 381,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math/analysis/solvers/BaseSecantSolver"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 128,
+      "cfg_edges": 141,
+      "branch_points": 19,
+      "cyclomatic_complexity": 15,
+      "def_count": 79,
+      "use_count": 249,
+      "defuse_pairs": 79,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.analysis.solvers.BaseSecantSolver",
+          "method": "doSolve",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 128,
+          "cfg_edges": 141,
+          "branch_points": 19,
+          "cyclomatic_complexity": 15,
+          "def_count": 79,
+          "use_count": 249,
+          "defuse_pairs": 79,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 128,
+      "cfg_edges": 141,
+      "branch_points": 19,
+      "cyclomatic_complexity": 15,
+      "def_count": 79,
+      "use_count": 249,
+      "defuse_pairs": 79,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.analysis.solvers.BaseSecantSolver",
+          "method": "doSolve",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 128,
+          "cfg_edges": 141,
+          "branch_points": 19,
+          "cyclomatic_complexity": 15,
+          "def_count": 79,
+          "use_count": 249,
+          "defuse_pairs": 79,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": 0,
+    "d_branch_points": 0,
+    "d_cfg_edges": 0,
+    "d_defuse_pairs": 0,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 460,
+      "n_candidate_warnings": 460,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 3,
+      "n_changed_class_files_candidate": 3,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__SimFix__Math__patch1-Math-50-SimFix-plausible",
+    "bug_id": "Math-50",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}
