@@ -1,0 +1,225 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__DynaMoth__Chart__patch1-Chart-13-DynaMoth-plausible",
+  "bug_id": "Chart-13",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 13.226
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.462
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 11.418
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 15.946
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 0.982
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 38.37
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__DynaMoth__Chart__patch1-Chart-13-DynaMoth-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.68628818200159,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3170,
+        "output_tokens": 168,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.5,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch wraps the leftBlock arrangement logic in an `if (false)` condition, effectively disabling it entirely rather than fixing the underlying bug. This removes functionality (left block arrangement) instead of repairing the Range validation error, and the dead code is unmaintainable. A proper fix would validate or constrain the Range parameters before construction."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.7003617390000727,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3170,
+        "output_tokens": 168,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.5,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch wraps the leftBlock arrangement logic in an `if (false)` condition, effectively disabling it entirely rather than fixing the underlying bug. This removes functionality (left block arrangement) instead of repairing the Range validation error, and the dead code is unmaintainable. A proper fix would validate or constrain the Range parameters before construction."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.516014210001231,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3170,
+        "output_tokens": 168,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.5,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch wraps the leftBlock arrangement logic in an `if (false)` condition, effectively disabling it entirely rather than fixing the underlying bug. This removes functionality (left block arrangement) instead of repairing the Range validation error, and the dead code is unmaintainable. A proper fix would validate or constrain the Range parameters before construction."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__DynaMoth__Chart__patch1-Chart-13-DynaMoth-plausible",
+    "bug_id": "Chart-13",
+    "model": "claude-haiku-4-5",
+    "latency_s": 14.973484049000035,
+    "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Invalid request data'}, 'request_id': 'req_011CfLUqgRzh1YgEcdmNv1wc'}",
+    "context_errors": [],
+    "input_tokens": null,
+    "output_tokens": null,
+    "tests": []
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__DynaMoth__Chart__patch1-Chart-13-DynaMoth-plausible",
+    "true_project": "Chart",
+    "true_bug_number": "13",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 745,
+    "output_tokens": 28,
+    "project": "Chart",
+    "bug_number": 3,
+    "recalled_label": "OVERFITTING",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__DynaMoth__Chart__patch1-Chart-13-DynaMoth-plausible",
+    "bug_id": "Chart-13",
+    "s_edit_ast": 0.018315018315018316,
+    "s_edit_ast_actions": 10,
+    "s_edit_ast_nodes": 546,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/jfree/chart/block/BorderArrangement"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 164,
+      "cfg_edges": 173,
+      "branch_points": 10,
+      "cyclomatic_complexity": 11,
+      "def_count": 132,
+      "use_count": 427,
+      "defuse_pairs": 132,
+      "per_method": [
+        {
+          "class": "org.jfree.chart.block.BorderArrangement",
+          "method": "arrangeFF",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 164,
+          "cfg_edges": 173,
+          "branch_points": 10,
+          "cyclomatic_complexity": 11,
+          "def_count": 132,
+          "use_count": 427,
+          "defuse_pairs": 132,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 149,
+      "cfg_edges": 157,
+      "branch_points": 9,
+      "cyclomatic_complexity": 10,
+      "def_count": 120,
+      "use_count": 389,
+      "defuse_pairs": 120,
+      "per_method": [
+        {
+          "class": "org.jfree.chart.block.BorderArrangement",
+          "method": "arrangeFF",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 149,
+          "cfg_edges": 157,
+          "branch_points": 9,
+          "cyclomatic_complexity": 10,
+          "def_count": 120,
+          "use_count": 389,
+          "defuse_pairs": 120,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": -1,
+    "d_stmts": -15,
+    "d_branch_points": -1,
+    "d_cfg_edges": -16,
+    "d_defuse_pairs": -12,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 7,
+      "n_candidate_warnings": 7,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__DynaMoth__Chart__patch1-Chart-13-DynaMoth-plausible",
+    "bug_id": "Chart-13",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

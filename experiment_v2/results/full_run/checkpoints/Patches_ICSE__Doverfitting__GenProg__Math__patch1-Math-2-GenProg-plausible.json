@@ -1,0 +1,276 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__GenProg__Math__patch1-Math-2-GenProg-plausible",
+  "bug_id": "Math-2",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 50.809
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 1.451
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 10.562
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 34.164
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.082
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 90.725
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__GenProg__Math__patch1-Math-2-GenProg-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.138560597000833,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3512,
+        "output_tokens": 174,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.3,
+          "security_robustness": 0.5,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch makes two unrelated changes: removing a critical line from the inverse CDF calculation (which weakens functionality) and adding an unused variable declaration. The first change appears to be a hack that breaks the algorithm's correctness by removing necessary bracket adjustment logic, while the second change is completely unrelated to the failing test. This is classic overfitting to pass a specific test case."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 2.9964076950000162,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3512,
+        "output_tokens": 174,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.3,
+          "security_robustness": 0.5,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch makes two unrelated changes: removing a critical line from the inverse CDF calculation (which weakens functionality) and adding an unused variable declaration. The first change deletes functional code that narrows the search bracket, and the second change is completely unrelated to the failing test. This is a clear case of overfitting to pass a specific test rather than fixing the underlying bug."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.0462794750001194,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3512,
+        "output_tokens": 178,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.3,
+          "security_robustness": 0.5,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch makes two unrelated changes: removing a critical line from the inverse CDF calculation (which weakens functionality) and adding an unused variable declaration. The first change appears to be a hack that breaks the algorithm's correctness by removing necessary bracket adjustment logic, while the second change is completely unrelated to the failing test. This is classic overfitting to pass a specific test without understanding the underlying bug."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__GenProg__Math__patch1-Math-2-GenProg-plausible",
+    "bug_id": "Math-2",
+    "model": "claude-haiku-4-5",
+    "latency_s": 13.113416107000376,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 3382,
+    "output_tokens": 1886,
+    "tests": [
+      {
+        "name": "testInverseCumulativeProbabilityUpperBoundAdjustment",
+        "target_class": "org.apache.commons.math3.distribution.AbstractIntegerDistribution",
+        "target_method": "inverseCumulativeProbability",
+        "class_name": "HypergeometricDistributionTest",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": "JUnit version 4.11\n...\nTime: 0.015\n\nOK (3 tests)\n\n"
+      },
+      {
+        "name": "testFuzzyKMeansClustererInitialization",
+        "target_class": "org.apache.commons.math3.ml.clustering.FuzzyKMeansClusterer",
+        "target_method": "FuzzyKMeansClusterer",
+        "class_name": "FuzzyKMeansClustererTest",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": "JUnit version 4.11\n...\nTime: 0.007\n\nOK (3 tests)\n\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__GenProg__Math__patch1-Math-2-GenProg-plausible",
+    "true_project": "Math",
+    "true_bug_number": "2",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 666,
+    "output_tokens": 25,
+    "project": "Math",
+    "bug_number": null,
+    "recalled_label": "UNKNOWN",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__GenProg__Math__patch1-Math-2-GenProg-plausible",
+    "bug_id": "Math-2",
+    "s_edit_ast": 0.06666666666666667,
+    "s_edit_ast_actions": 27,
+    "s_edit_ast_nodes": 405,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math3/distribution/AbstractIntegerDistribution",
+      "org/apache/commons/math3/ml/clustering/FuzzyKMeansClusterer"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 115,
+      "cfg_edges": 121,
+      "branch_points": 15,
+      "cyclomatic_complexity": 14,
+      "def_count": 83,
+      "use_count": 248,
+      "defuse_pairs": 83,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math3.distribution.AbstractIntegerDistribution",
+          "method": "inverseCumulativeProbability",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 70,
+          "cfg_edges": 79,
+          "branch_points": 14,
+          "cyclomatic_complexity": 11,
+          "def_count": 49,
+          "use_count": 167,
+          "defuse_pairs": 49,
+          "error": null
+        },
+        {
+          "class": "org.apache.commons.math3.ml.clustering.FuzzyKMeansClusterer",
+          "method": "FuzzyKMeansClusterer",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 3,
+          "stmts": 45,
+          "cfg_edges": 42,
+          "branch_points": 1,
+          "cyclomatic_complexity": 3,
+          "def_count": 34,
+          "use_count": 81,
+          "defuse_pairs": 34,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 113,
+      "cfg_edges": 119,
+      "branch_points": 15,
+      "cyclomatic_complexity": 14,
+      "def_count": 81,
+      "use_count": 242,
+      "defuse_pairs": 81,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math3.distribution.AbstractIntegerDistribution",
+          "method": "inverseCumulativeProbability",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 67,
+          "cfg_edges": 76,
+          "branch_points": 14,
+          "cyclomatic_complexity": 11,
+          "def_count": 46,
+          "use_count": 160,
+          "defuse_pairs": 46,
+          "error": null
+        },
+        {
+          "class": "org.apache.commons.math3.ml.clustering.FuzzyKMeansClusterer",
+          "method": "FuzzyKMeansClusterer",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 3,
+          "stmts": 46,
+          "cfg_edges": 43,
+          "branch_points": 1,
+          "cyclomatic_complexity": 3,
+          "def_count": 35,
+          "use_count": 82,
+          "defuse_pairs": 35,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": -2,
+    "d_branch_points": 0,
+    "d_cfg_edges": -2,
+    "d_defuse_pairs": -2,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 686,
+      "n_candidate_warnings": 686,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 2,
+      "n_changed_class_files_candidate": 2,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__GenProg__Math__patch1-Math-2-GenProg-plausible",
+    "bug_id": "Math-2",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

@@ -1,0 +1,283 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__TBar__Closure__patch1-Closure-126-TBar-plausible",
+  "bug_id": "Closure-126",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 100.773
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.73
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 11.313
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 192.648
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.025
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 51.215
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__TBar__Closure__patch1-Closure-126-TBar-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.7926116790004016,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3834,
+        "output_tokens": 171,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.1,
+          "readability": 0.3,
+          "security_robustness": 0.8,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch replaces a recursive call to tryMinimizeExits with a mere check (matchingExitNode) that doesn't actually process the finally block. This removes the optimization logic for finally blocks entirely, only passing the specific test cases by accident. The patch weakens functionality by preventing exit point minimization in finally blocks, which contradicts the method's purpose."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.512467677001041,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3834,
+        "output_tokens": 171,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.1,
+          "readability": 0.3,
+          "security_robustness": 0.8,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch replaces a recursive call to tryMinimizeExits with a mere check (matchingExitNode) that doesn't actually process the finally block. This removes the optimization logic for finally blocks entirely, only passing the specific test cases by accident. The patch weakens functionality by preventing exit point minimization in finally blocks, which contradicts the method's purpose."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.4651034630005597,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3834,
+        "output_tokens": 171,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.1,
+          "readability": 0.3,
+          "security_robustness": 0.8,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch replaces a recursive call to tryMinimizeExits with a mere check (matchingExitNode) that doesn't actually process the finally block. This removes the optimization logic for finally blocks entirely, only passing the specific test cases by accident. The patch weakens functionality by preventing exit point minimization in finally blocks, which contradicts the method's purpose."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__TBar__Closure__patch1-Closure-126-TBar-plausible",
+    "bug_id": "Closure-126",
+    "model": "claude-haiku-4-5",
+    "latency_s": 22.063951812000596,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 3703,
+    "output_tokens": 4424,
+    "tests": [
+      {
+        "name": "testFinallyBlockWithBreakStatement",
+        "target_class": "com.google.javascript.jscomp.MinimizeExitPoints",
+        "target_method": "tryMinimizeExits",
+        "class_name": "MinimizeExitPointsTest",
+        "status": "VALID_BUG_REVEALING",
+        "candidate_pass": true,
+        "log": "JUnit version 4.10\n...\nTime: 0.173\n\nOK (3 tests)\n\n"
+      },
+      {
+        "name": "testFinallyBlockProcessingRecursive",
+        "target_class": "com.google.javascript.jscomp.MinimizeExitPoints",
+        "target_method": "tryMinimizeExits",
+        "class_name": "MinimizeExitPointsNestedTest",
+        "status": "VALID_BUG_REVEALING",
+        "candidate_pass": true,
+        "log": "JUnit version 4.10\n...\nTime: 0.21\n\nOK (3 tests)\n\n"
+      },
+      {
+        "name": "testFinallyBlockNotTreatedAsSimpleExit",
+        "target_class": "com.google.javascript.jscomp.MinimizeExitPoints",
+        "target_method": "tryMinimizeExits",
+        "class_name": "MinimizeExitPointsFinallyTest",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": "JUnit version 4.10\n...\nTime: 0.138\n\nOK (3 tests)\n\n"
+      },
+      {
+        "name": "testFinallyBlockReturnOptimization",
+        "target_class": "com.google.javascript.jscomp.MinimizeExitPoints",
+        "target_method": "tryMinimizeExits",
+        "class_name": "MinimizeExitPointsReturnTest",
+        "status": "VALID_BUG_REVEALING",
+        "candidate_pass": true,
+        "log": "JUnit version 4.10\n...\nTime: 0.128\n\nOK (3 tests)\n\n"
+      },
+      {
+        "name": "testFinallyBlockBreakPreserved",
+        "target_class": "com.google.javascript.jscomp.MinimizeExitPoints",
+        "target_method": "tryMinimizeExits",
+        "class_name": "MinimizeExitPointsBreakTest",
+        "status": "VALID_BUG_REVEALING",
+        "candidate_pass": true,
+        "log": "JUnit version 4.10\n...\nTime: 0.367\n\nOK (3 tests)\n\n"
+      },
+      {
+        "name": "testFinallyBlockContinuePreserved",
+        "target_class": "com.google.javascript.jscomp.MinimizeExitPoints",
+        "target_method": "tryMinimizeExits",
+        "class_name": "MinimizeExitPointsContinueTest",
+        "status": "VALID_BUG_REVEALING",
+        "candidate_pass": true,
+        "log": "JUnit version 4.10\n...\nTime: 0.136\n\nOK (3 tests)\n\n"
+      }
+    ],
+    "s_cex": 1.0,
+    "n_valid": 5,
+    "n_passed": 5
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__TBar__Closure__patch1-Closure-126-TBar-plausible",
+    "true_project": "Closure",
+    "true_bug_number": "126",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 548,
+    "output_tokens": 26,
+    "project": "Closure",
+    "bug_number": null,
+    "recalled_label": "UNKNOWN",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__TBar__Closure__patch1-Closure-126-TBar-plausible",
+    "bug_id": "Closure-126",
+    "s_edit_ast": 0.002506265664160401,
+    "s_edit_ast_actions": 1,
+    "s_edit_ast_nodes": 399,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "com/google/javascript/jscomp/MinimizeExitPoints"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 76,
+      "cfg_edges": 87,
+      "branch_points": 15,
+      "cyclomatic_complexity": 13,
+      "def_count": 41,
+      "use_count": 180,
+      "defuse_pairs": 41,
+      "per_method": [
+        {
+          "class": "com.google.javascript.jscomp.MinimizeExitPoints",
+          "method": "tryMinimizeExits",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 76,
+          "cfg_edges": 87,
+          "branch_points": 15,
+          "cyclomatic_complexity": 13,
+          "def_count": 41,
+          "use_count": 180,
+          "defuse_pairs": 41,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 76,
+      "cfg_edges": 87,
+      "branch_points": 15,
+      "cyclomatic_complexity": 13,
+      "def_count": 41,
+      "use_count": 179,
+      "defuse_pairs": 41,
+      "per_method": [
+        {
+          "class": "com.google.javascript.jscomp.MinimizeExitPoints",
+          "method": "tryMinimizeExits",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 76,
+          "cfg_edges": 87,
+          "branch_points": 15,
+          "cyclomatic_complexity": 13,
+          "def_count": 41,
+          "use_count": 179,
+          "defuse_pairs": 41,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": 0,
+    "d_branch_points": 0,
+    "d_cfg_edges": 0,
+    "d_defuse_pairs": 0,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 8,
+      "n_candidate_warnings": 8,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__TBar__Closure__patch1-Closure-126-TBar-plausible",
+    "bug_id": "Closure-126",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

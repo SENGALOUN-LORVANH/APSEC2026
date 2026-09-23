@@ -1,0 +1,295 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__GenProg__Chart__patch1-Chart-13-GenProg-plausible",
+  "bug_id": "Chart-13",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 14.987
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.523
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 9.609
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 28.97
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.096
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 25.714
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__GenProg__Chart__patch1-Chart-13-GenProg-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.228103915000247,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 4046,
+        "output_tokens": 161,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.3,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch introduces destructive side effects (setting topBlock and rightBlock to null) that corrupt the object state and weaken functionality rather than fixing the underlying bug. It makes unrelated behavior changes that would break other use cases, and the changes are far larger and more invasive than necessary to address the Range validation error."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 2.923574065000139,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 4046,
+        "output_tokens": 161,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.3,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch introduces destructive side effects (setting topBlock and rightBlock to null) that corrupt the object state and weaken functionality rather than fixing the underlying bug. It makes unrelated behavior changes that would break other use cases, and the changes are far larger and more invasive than necessary to address the Range validation error."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 2.8703556999989814,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 4046,
+        "output_tokens": 159,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.3,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch introduces destructive side effects (setting topBlock and rightBlock to null) that corrupt object state and weaken functionality rather than fixing the underlying bug. It makes unrelated behavior changes that would break other test cases and violate the class invariants, representing a clear overfitting to the specific failing test."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__GenProg__Chart__patch1-Chart-13-GenProg-plausible",
+    "bug_id": "Chart-13",
+    "model": "claude-haiku-4-5",
+    "latency_s": 21.085852629999863,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 3941,
+    "output_tokens": 2382,
+    "tests": [
+      {
+        "name": "testArrangeFNWithNegativeRemainingWidth",
+        "target_class": "org.jfree.chart.block.BorderArrangement",
+        "target_method": "arrangeFN",
+        "class_name": "TestArrangeFNWithNegativeRemainingWidth",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/awt/Image.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__GenProg__Chart__patch1-Chart-13-GenProg-plausible/TestArrangeFNWithNegativeRemainingWidth/fixed/tests/org/jfree/chart/block/junit/TestArrangeFNWithNegativeRemainingWidth.java:34: error: arrangeFN(BlockContainer,Graphics2D,double) has protected access in BorderArrangement\n    [javac]             Size2D result = arrangement.arrangeFN(container, g2, 100.0);\n    [javac]                                        ^\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/awt/Graphics.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/awt/Graphics.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 5 errors\n    [javac] 17 warnings\n\nBUILD FAILED\n/opt/defects4j-2.0.1/framework/projects/Chart/Chart.build.xml:123: Compile failed; see the compiler error output for details.\n\nTotal time: 0 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testArrangeFFWithConstrainedHeight",
+        "target_class": "org.jfree.chart.block.BorderArrangement",
+        "target_method": "arrangeFF",
+        "class_name": "TestArrangeFFWithConstrainedHeight",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "int(100.0, 150.0);\n    [javac]                                                  ^\n    [javac]   symbol:   class RectangleConstraint\n    [javac]   location: class TestArrangeFFWithConstrainedHeight\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__GenProg__Chart__patch1-Chart-13-GenProg-plausible/TestArrangeFFWithConstrainedHeight/fixed/tests/org/jfree/chart/block/junit/TestArrangeFFWithConstrainedHeight.java:42: error: cannot find symbol\n    [javac]             arrangement.setBlock(new EmptyBlock(20.0, 50.0), RectangleEdge.RIGHT);\n    [javac]                        ^\n    [javac]   symbol:   method setBlock(EmptyBlock,RectangleEdge)\n    [javac]   location: variable arrangement of type BorderArrangement\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/awt/Graphics.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/awt/Graphics.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 7 errors\n    [javac] 17 warnings\n\nBUILD FAILED\n/opt/defects4j-2.0.1/framework/projects/Chart/Chart.build.xml:123: Compile failed; see the compiler error output for details.\n\nTotal time: 0 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testArrangeFNPreservesBlocks",
+        "target_class": "org.jfree.chart.block.BorderArrangement",
+        "target_method": "arrangeFN",
+        "class_name": "TestArrangeFNPreservesBlocks",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "t/TestArrangeFNPreservesBlocks.java:36: error: arrangeFN(BlockContainer,Graphics2D,double) has protected access in BorderArrangement\n    [javac]             Size2D result = arrangement.arrangeFN(container, g2, 120.0);\n    [javac]                                        ^\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__GenProg__Chart__patch1-Chart-13-GenProg-plausible/TestArrangeFNPreservesBlocks/fixed/tests/org/jfree/chart/block/junit/TestArrangeFNPreservesBlocks.java:41: error: arrangeFN(BlockContainer,Graphics2D,double) has protected access in BorderArrangement\n    [javac]             Size2D result2 = arrangement.arrangeFN(container, g2, 120.0);\n    [javac]                                         ^\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/awt/Graphics.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/awt/Graphics.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 7 errors\n    [javac] 19 warnings\n\nBUILD FAILED\n/opt/defects4j-2.0.1/framework/projects/Chart/Chart.build.xml:123: Compile failed; see the compiler error output for details.\n\nTotal time: 0 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__GenProg__Chart__patch1-Chart-13-GenProg-plausible",
+    "true_project": "Chart",
+    "true_bug_number": "13",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 802,
+    "output_tokens": 25,
+    "project": "Chart",
+    "bug_number": null,
+    "recalled_label": "UNKNOWN",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__GenProg__Chart__patch1-Chart-13-GenProg-plausible",
+    "bug_id": "Chart-13",
+    "s_edit_ast": 0.07097457627118645,
+    "s_edit_ast_actions": 67,
+    "s_edit_ast_nodes": 944,
+    "s_edit_error": null,
+    "s_vuln_changed": 0.5,
+    "s_vuln_new_warning_count": 1,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/jfree/chart/block/BorderArrangement"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 262,
+      "cfg_edges": 275,
+      "branch_points": 15,
+      "cyclomatic_complexity": 17,
+      "def_count": 217,
+      "use_count": 681,
+      "defuse_pairs": 217,
+      "per_method": [
+        {
+          "class": "org.jfree.chart.block.BorderArrangement",
+          "method": "arrangeFN",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 98,
+          "cfg_edges": 102,
+          "branch_points": 5,
+          "cyclomatic_complexity": 6,
+          "def_count": 85,
+          "use_count": 254,
+          "defuse_pairs": 85,
+          "error": null
+        },
+        {
+          "class": "org.jfree.chart.block.BorderArrangement",
+          "method": "arrangeFF",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 164,
+          "cfg_edges": 173,
+          "branch_points": 10,
+          "cyclomatic_complexity": 11,
+          "def_count": 132,
+          "use_count": 427,
+          "defuse_pairs": 132,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 248,
+      "cfg_edges": 260,
+      "branch_points": 14,
+      "cyclomatic_complexity": 16,
+      "def_count": 206,
+      "use_count": 645,
+      "defuse_pairs": 206,
+      "per_method": [
+        {
+          "class": "org.jfree.chart.block.BorderArrangement",
+          "method": "arrangeFN",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 99,
+          "cfg_edges": 103,
+          "branch_points": 5,
+          "cyclomatic_complexity": 6,
+          "def_count": 86,
+          "use_count": 256,
+          "defuse_pairs": 86,
+          "error": null
+        },
+        {
+          "class": "org.jfree.chart.block.BorderArrangement",
+          "method": "arrangeFF",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 149,
+          "cfg_edges": 157,
+          "branch_points": 9,
+          "cyclomatic_complexity": 10,
+          "def_count": 120,
+          "use_count": 389,
+          "defuse_pairs": 120,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": -1,
+    "d_stmts": -14,
+    "d_branch_points": -1,
+    "d_cfg_edges": -15,
+    "d_defuse_pairs": -11,
+    "vuln_detail": {
+      "s_vuln": 0.5,
+      "new_warnings": [
+        {
+          "bug_type": "DLS",
+          "category": "D",
+          "priority": "M",
+          "severity": "MEDIUM",
+          "class": "BorderArrangement",
+          "method": "arrangeFF",
+          "location": "BorderArrangement.java:line 437",
+          "description": "Dead store to s1 in org.jfree.chart.block.BorderArrangement.arrangeFF(BlockContainer, Graphics2D, RectangleConstraint)"
+        }
+      ],
+      "n_buggy_warnings": 7,
+      "n_candidate_warnings": 8,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__GenProg__Chart__patch1-Chart-13-GenProg-plausible",
+    "bug_id": "Chart-13",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

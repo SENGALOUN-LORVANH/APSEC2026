@@ -1,0 +1,296 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__RSRepair__Chart__patch1-Chart-13-RSRepair-plausible",
+  "bug_id": "Chart-13",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 16.035
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.75
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 10.607
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 28.417
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.032
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 30.456
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__RSRepair__Chart__patch1-Chart-13-RSRepair-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.291160115000821,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3040,
+        "output_tokens": 157,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.0,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch suppresses the Range validation exception by replacing it with a dead assignment, and removes width assignment in BorderArrangement. This masks the underlying bug rather than fixing it\u2014the Range constructor should never receive invalid bounds. The patch breaks exception handling semantics and introduces silent failures that could cause downstream errors."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 2.971673861000454,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3040,
+        "output_tokens": 158,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.0,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch suppresses the Range validation exception by replacing it with a dead assignment, and removes width assignment in BorderArrangement, both of which mask the underlying bug rather than fixing it. This breaks the Range contract and introduces silent failures where invalid ranges are created, severely compromising data integrity and robustness."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.452349345001494,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3040,
+        "output_tokens": 186,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.0,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch suppresses the Range validation exception by replacing it with a dead assignment, and removes width assignment in BorderArrangement, but these are band-aids that mask the root cause rather than fixing it. The Range constructor validation is correct behavior; the real bug is that BorderArrangement passes invalid range parameters (lower > upper) due to negative width calculations. This patch introduces serious security and correctness risks by silently allowing invalid Range objects."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__RSRepair__Chart__patch1-Chart-13-RSRepair-plausible",
+    "bug_id": "Chart-13",
+    "model": "claude-haiku-4-5",
+    "latency_s": 9.585552185999404,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 2935,
+    "output_tokens": 1349,
+    "tests": [
+      {
+        "name": "testArrangeFNWithNegativeRightBlockWidth",
+        "target_class": "org.jfree.chart.block.BorderArrangement",
+        "target_method": "arrangeFN",
+        "class_name": "TestArrangeFNWithNegativeRightBlockWidth",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "ror: cannot find symbol\n    [javac]         arrangement.setCenterBlock(centerBlock);\n    [javac]                    ^\n    [javac]   symbol:   method setCenterBlock(EmptyBlock)\n    [javac]   location: variable arrangement of type BorderArrangement\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__RSRepair__Chart__patch1-Chart-13-RSRepair-plausible/TestArrangeFNWithNegativeRightBlockWidth/fixed/tests/org/jfree/chart/block/junit/TestArrangeFNWithNegativeRightBlockWidth.java:33: error: arrangeFN(BlockContainer,Graphics2D,double) has protected access in BorderArrangement\n    [javac]             Size2D result = arrangement.arrangeFN(container, g2, 150.0);\n    [javac]                                        ^\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/awt/Graphics.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/awt/Graphics.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 4 errors\n    [javac] 15 warnings\n\nBUILD FAILED\n/opt/defects4j-2.0.1/framework/projects/Chart/Chart.build.xml:123: Compile failed; see the compiler error output for details.\n\nTotal time: 0 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testRangeConstructorWithEqualBounds",
+        "target_class": "org.jfree.data.Range",
+        "target_method": "Range",
+        "class_name": "TestRangeConstructorWithEqualBounds",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.002\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testRangeConstructorWithInvalidBounds",
+        "target_class": "org.jfree.data.Range",
+        "target_method": "Range",
+        "class_name": "TestRangeConstructorWithInvalidBounds",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.003\n\nOK (1 test)\n\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__RSRepair__Chart__patch1-Chart-13-RSRepair-plausible",
+    "true_project": "Chart",
+    "true_bug_number": "13",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 679,
+    "output_tokens": 25,
+    "project": "Chart",
+    "bug_number": null,
+    "recalled_label": "UNKNOWN",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__RSRepair__Chart__patch1-Chart-13-RSRepair-plausible",
+    "bug_id": "Chart-13",
+    "s_edit_ast": 0.048458149779735685,
+    "s_edit_ast_actions": 22,
+    "s_edit_ast_nodes": 454,
+    "s_edit_error": null,
+    "s_vuln_changed": 0.5,
+    "s_vuln_new_warning_count": 1,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/jfree/chart/block/BorderArrangement",
+      "org/jfree/data/Range"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 120,
+      "cfg_edges": 123,
+      "branch_points": 6,
+      "cyclomatic_complexity": 7,
+      "def_count": 101,
+      "use_count": 298,
+      "defuse_pairs": 101,
+      "per_method": [
+        {
+          "class": "org.jfree.chart.block.BorderArrangement",
+          "method": "arrangeFN",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 98,
+          "cfg_edges": 102,
+          "branch_points": 5,
+          "cyclomatic_complexity": 6,
+          "def_count": 85,
+          "use_count": 254,
+          "defuse_pairs": 85,
+          "error": null
+        },
+        {
+          "class": "org.jfree.data.Range",
+          "method": "Range",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 22,
+          "cfg_edges": 21,
+          "branch_points": 1,
+          "cyclomatic_complexity": 1,
+          "def_count": 16,
+          "use_count": 44,
+          "defuse_pairs": 16,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 114,
+      "cfg_edges": 118,
+      "branch_points": 6,
+      "cyclomatic_complexity": 8,
+      "def_count": 97,
+      "use_count": 285,
+      "defuse_pairs": 97,
+      "per_method": [
+        {
+          "class": "org.jfree.chart.block.BorderArrangement",
+          "method": "arrangeFN",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 96,
+          "cfg_edges": 100,
+          "branch_points": 5,
+          "cyclomatic_complexity": 6,
+          "def_count": 83,
+          "use_count": 249,
+          "defuse_pairs": 83,
+          "error": null
+        },
+        {
+          "class": "org.jfree.data.Range",
+          "method": "Range",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 18,
+          "cfg_edges": 18,
+          "branch_points": 1,
+          "cyclomatic_complexity": 2,
+          "def_count": 14,
+          "use_count": 36,
+          "defuse_pairs": 14,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 1,
+    "d_stmts": -6,
+    "d_branch_points": 0,
+    "d_cfg_edges": -5,
+    "d_defuse_pairs": -4,
+    "vuln_detail": {
+      "s_vuln": 0.5,
+      "new_warnings": [
+        {
+          "bug_type": "DLS",
+          "category": "D",
+          "priority": "M",
+          "severity": "MEDIUM",
+          "class": "Range",
+          "method": "Range",
+          "location": "Range.java:line 85",
+          "description": "Dead store to msg in new org.jfree.data.Range(double, double)"
+        }
+      ],
+      "n_buggy_warnings": 8,
+      "n_candidate_warnings": 8,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 2,
+      "n_changed_class_files_candidate": 2,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__RSRepair__Chart__patch1-Chart-13-RSRepair-plausible",
+    "bug_id": "Chart-13",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

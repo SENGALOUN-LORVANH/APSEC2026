@@ -1,0 +1,274 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__Nopol__Chart__patch1-Chart-13-Nopol-plausible",
+  "bug_id": "Chart-13",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 10.996
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.47
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 10.219
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 32.67
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.089
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 60.367
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__Nopol__Chart__patch1-Chart-13-Nopol-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.2374237259991787,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3172,
+        "output_tokens": 166,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.3,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch wraps the leftBlock processing in a nonsensical `if (null!=null)` condition that is always false, effectively disabling the leftBlock arrangement logic. This is not a genuine fix but rather a workaround that passes the test by avoiding the problematic code path, while breaking the intended functionality of arranging left blocks."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.4598185699996975,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3172,
+        "output_tokens": 186,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.3,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch adds a nonsensical condition `if (null!=null)` that is always false, effectively disabling the leftBlock arrangement logic entirely. This is not a genuine fix but rather a workaround that masks the underlying bug by preventing the problematic code path from executing. The real issue is that w[4] can become negative, causing an invalid Range, which should be fixed by proper constraint validation or calculation, not by disabling functionality."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.0516686709997884,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3172,
+        "output_tokens": 166,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.3,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch wraps the leftBlock processing in a dead condition `if (null!=null)` that is always false, effectively disabling the leftBlock arrangement logic. This is not a genuine fix but rather a workaround that passes the test by preventing the problematic code path from executing, while breaking the intended functionality of arranging left blocks."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__Nopol__Chart__patch1-Chart-13-Nopol-plausible",
+    "bug_id": "Chart-13",
+    "model": "claude-haiku-4-5",
+    "latency_s": 18.016840607999256,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 3067,
+    "output_tokens": 3772,
+    "tests": [
+      {
+        "name": "testArrangeFFWithoutLeftBlock",
+        "target_class": "org.jfree.chart.block.BorderArrangement",
+        "target_method": "arrangeFF",
+        "class_name": "TestArrangeFFWithLeftBlock",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": " supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/awt/geom/RectangularShape.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/awt/Shape.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/awt/Shape.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Cloneable.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Cloneable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/awt/Graphics.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/awt/Graphics.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 7 errors\n    [javac] 25 warnings\n\nBUILD FAILED\n/opt/defects4j-2.0.1/framework/projects/Chart/Chart.build.xml:123: Compile failed; see the compiler error output for details.\n\nTotal time: 0 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testArrangeFFWithRightBlock",
+        "target_class": "org.jfree.chart.block.BorderArrangement",
+        "target_method": "arrangeFF",
+        "class_name": "TestArrangeFFWithRightBlock",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": " supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/awt/geom/RectangularShape.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/awt/Shape.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/awt/Shape.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Cloneable.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Cloneable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/awt/Graphics.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/awt/Graphics.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 8 errors\n    [javac] 23 warnings\n\nBUILD FAILED\n/opt/defects4j-2.0.1/framework/projects/Chart/Chart.build.xml:123: Compile failed; see the compiler error output for details.\n\nTotal time: 0 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testArrangeFFCenterBlockWidth",
+        "target_class": "org.jfree.chart.block.BorderArrangement",
+        "target_method": "arrangeFF",
+        "class_name": "TestArrangeFFCenterBlockWidth",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": " supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/awt/geom/RectangularShape.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/awt/Shape.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/awt/Shape.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Cloneable.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Cloneable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/awt/Graphics.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/awt/Graphics.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 8 errors\n    [javac] 23 warnings\n\nBUILD FAILED\n/opt/defects4j-2.0.1/framework/projects/Chart/Chart.build.xml:123: Compile failed; see the compiler error output for details.\n\nTotal time: 0 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testArrangeFFLeftBlockBounds",
+        "target_class": "org.jfree.chart.block.BorderArrangement",
+        "target_method": "arrangeFF",
+        "class_name": "TestArrangeFFLeftBlockBounds",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "ajor version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/awt/Shape.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Cloneable.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Cloneable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/awt/Graphics.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/awt/Graphics.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 6 errors\n    [javac] 23 warnings\n\nBUILD FAILED\n/opt/defects4j-2.0.1/framework/projects/Chart/Chart.build.xml:123: Compile failed; see the compiler error output for details.\n\nTotal time: 0 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testArrangeFFNullLeftBlock",
+        "target_class": "org.jfree.chart.block.BorderArrangement",
+        "target_method": "arrangeFF",
+        "class_name": "TestArrangeFFNullLeftBlock",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": " supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/awt/geom/RectangularShape.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/awt/Shape.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/awt/Shape.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Cloneable.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Cloneable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/awt/Graphics.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/awt/Graphics.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 7 errors\n    [javac] 23 warnings\n\nBUILD FAILED\n/opt/defects4j-2.0.1/framework/projects/Chart/Chart.build.xml:123: Compile failed; see the compiler error output for details.\n\nTotal time: 0 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__Nopol__Chart__patch1-Chart-13-Nopol-plausible",
+    "true_project": "Chart",
+    "true_bug_number": "13",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 747,
+    "output_tokens": 28,
+    "project": "Chart",
+    "bug_number": 1,
+    "recalled_label": "OVERFITTING",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__Nopol__Chart__patch1-Chart-13-Nopol-plausible",
+    "bug_id": "Chart-13",
+    "s_edit_ast": 0.023809523809523808,
+    "s_edit_ast_actions": 13,
+    "s_edit_ast_nodes": 546,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/jfree/chart/block/BorderArrangement"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 164,
+      "cfg_edges": 173,
+      "branch_points": 10,
+      "cyclomatic_complexity": 11,
+      "def_count": 132,
+      "use_count": 427,
+      "defuse_pairs": 132,
+      "per_method": [
+        {
+          "class": "org.jfree.chart.block.BorderArrangement",
+          "method": "arrangeFF",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 164,
+          "cfg_edges": 173,
+          "branch_points": 10,
+          "cyclomatic_complexity": 11,
+          "def_count": 132,
+          "use_count": 427,
+          "defuse_pairs": 132,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 165,
+      "cfg_edges": 175,
+      "branch_points": 11,
+      "cyclomatic_complexity": 12,
+      "def_count": 132,
+      "use_count": 430,
+      "defuse_pairs": 132,
+      "per_method": [
+        {
+          "class": "org.jfree.chart.block.BorderArrangement",
+          "method": "arrangeFF",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 165,
+          "cfg_edges": 175,
+          "branch_points": 11,
+          "cyclomatic_complexity": 12,
+          "def_count": 132,
+          "use_count": 430,
+          "defuse_pairs": 132,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 1,
+    "d_stmts": 1,
+    "d_branch_points": 1,
+    "d_cfg_edges": 2,
+    "d_defuse_pairs": 0,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 7,
+      "n_candidate_warnings": 7,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__Nopol__Chart__patch1-Chart-13-Nopol-plausible",
+    "bug_id": "Chart-13",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

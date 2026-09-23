@@ -1,0 +1,267 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__Arja__Math__patch1-Math-2-Arja-plausible",
+  "bug_id": "Math-2",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 53.008
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.825
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 10.282
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 38.739
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 0.986
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 124.488
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__Arja__Math__patch1-Math-2-Arja-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.15000000000000002,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.50962511599937,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2674,
+        "output_tokens": 174,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.3,
+          "readability": 0.6,
+          "security_robustness": 0.7,
+          "judgement": "OVERFITTING",
+          "confidence": 0.85,
+          "brief_reason": "The patch removes the upper bound narrowing logic from the Chebyshev inequality optimization, which fixes the specific failing test but deletes legitimate functionality. This is a band-aid fix that weakens the algorithm's efficiency by removing a valid optimization, rather than addressing the root cause of why the upper bound calculation was producing incorrect results in the HypergeometricDistribution case."
+        },
+        "s_sem": 0.15000000000000002,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.472571557000265,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2674,
+        "output_tokens": 174,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.3,
+          "readability": 0.6,
+          "security_robustness": 0.7,
+          "judgement": "OVERFITTING",
+          "confidence": 0.85,
+          "brief_reason": "The patch removes the upper bound narrowing logic from the Chebyshev inequality optimization, which fixes the specific failing test but deletes legitimate functionality. This is a band-aid fix that weakens the algorithm's efficiency by removing a valid optimization, rather than addressing the root cause of why the upper bound calculation was producing incorrect results in the HypergeometricDistribution case."
+        },
+        "s_sem": 0.15000000000000002,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 2.916414821998842,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2674,
+        "output_tokens": 174,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.3,
+          "readability": 0.6,
+          "security_robustness": 0.7,
+          "judgement": "OVERFITTING",
+          "confidence": 0.85,
+          "brief_reason": "The patch removes the upper bound narrowing logic from the Chebyshev inequality optimization, which fixes the specific failing test but deletes legitimate functionality. This is a band-aid fix that weakens the algorithm's efficiency by removing a valid optimization, rather than addressing the root cause of why the upper bound calculation was producing incorrect results in the HypergeometricDistribution case."
+        },
+        "s_sem": 0.15000000000000002,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__Arja__Math__patch1-Math-2-Arja-plausible",
+    "bug_id": "Math-2",
+    "model": "claude-haiku-4-5",
+    "latency_s": 11.467863104999196,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 2544,
+    "output_tokens": 1740,
+    "tests": [
+      {
+        "name": "testInverseCumulativeProbabilityUpperBoundNotAdjusted",
+        "target_class": "org.apache.commons.math3.distribution.AbstractIntegerDistribution",
+        "target_method": "inverseCumulativeProbability",
+        "class_name": "TestInverseCumulativeProbabilityUpperBound",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": "JUnit version 4.11\n.\nTime: 0.015\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testInverseCumulativeProbabilityWithHighProbability",
+        "target_class": "org.apache.commons.math3.distribution.AbstractIntegerDistribution",
+        "target_method": "inverseCumulativeProbability",
+        "class_name": "TestInverseCumulativeProbabilityHighP",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": "JUnit version 4.11\n.\nTime: 0.015\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testInverseCumulativeProbabilityMultipleValues",
+        "target_class": "org.apache.commons.math3.distribution.AbstractIntegerDistribution",
+        "target_method": "inverseCumulativeProbability",
+        "class_name": "TestInverseCumulativeProbabilityMultiple",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": "JUnit version 4.11\n.\nTime: 0.016\n\nOK (1 test)\n\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__Arja__Math__patch1-Math-2-Arja-plausible",
+    "true_project": "Math",
+    "true_bug_number": "2",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 563,
+    "output_tokens": 26,
+    "project": "Math",
+    "bug_number": 1,
+    "recalled_label": "UNKNOWN",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__Arja__Math__patch1-Math-2-Arja-plausible",
+    "bug_id": "Math-2",
+    "s_edit_ast": 0.08,
+    "s_edit_ast_actions": 22,
+    "s_edit_ast_nodes": 275,
+    "s_edit_error": null,
+    "s_vuln_changed": 0.5,
+    "s_vuln_new_warning_count": 1,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math3/distribution/AbstractIntegerDistribution"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 70,
+      "cfg_edges": 79,
+      "branch_points": 14,
+      "cyclomatic_complexity": 11,
+      "def_count": 49,
+      "use_count": 167,
+      "defuse_pairs": 49,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math3.distribution.AbstractIntegerDistribution",
+          "method": "inverseCumulativeProbability",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 70,
+          "cfg_edges": 79,
+          "branch_points": 14,
+          "cyclomatic_complexity": 11,
+          "def_count": 49,
+          "use_count": 167,
+          "defuse_pairs": 49,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 64,
+      "cfg_edges": 72,
+      "branch_points": 13,
+      "cyclomatic_complexity": 10,
+      "def_count": 44,
+      "use_count": 152,
+      "defuse_pairs": 44,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math3.distribution.AbstractIntegerDistribution",
+          "method": "inverseCumulativeProbability",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 64,
+          "cfg_edges": 72,
+          "branch_points": 13,
+          "cyclomatic_complexity": 10,
+          "def_count": 44,
+          "use_count": 152,
+          "defuse_pairs": 44,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": -1,
+    "d_stmts": -6,
+    "d_branch_points": -1,
+    "d_cfg_edges": -7,
+    "d_defuse_pairs": -5,
+    "vuln_detail": {
+      "s_vuln": 0.5,
+      "new_warnings": [
+        {
+          "bug_type": "DLS",
+          "category": "D",
+          "priority": "M",
+          "severity": "MEDIUM",
+          "class": "AbstractIntegerDistribution",
+          "method": "inverseCumulativeProbability",
+          "location": "AbstractIntegerDistribution.java:line 136",
+          "description": "Dead store to tmp in org.apache.commons.math3.distribution.AbstractIntegerDistribution.inverseCumulativeProbability(double)"
+        }
+      ],
+      "n_buggy_warnings": 686,
+      "n_candidate_warnings": 687,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__Arja__Math__patch1-Math-2-Arja-plausible",
+    "bug_id": "Math-2",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

@@ -1,0 +1,217 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__jMutRepair__Closure__patch1-Closure-126-jMutRepair-plausible",
+  "bug_id": "Closure-126",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 91.515
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.852
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 9.366
+    },
+    "counterexample": {
+      "ok": false,
+      "seconds": 72.535,
+      "error": "JSONDecodeError: Unterminated string starting at: line 1 column 54598 (char 54597)",
+      "traceback": "Traceback (most recent call last):\n  File \"/work/experiment_v2/src/run_full.py\", line 146, in _stage\n    result = fn(*args)\n  File \"/work/experiment_v2/src/oracle_runner.py\", line 230, in run_counterexamples\n    generated = json.loads(llm_client.response_text(resp))[\"tests\"]\n  File \"/usr/lib/python3.10/json/__init__.py\", line 346, in loads\n    return _default_decoder.decode(s)\n  File \"/usr/lib/python3.10/json/decoder.py\", line 337, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n  File \"/usr/lib/python3.10/json/decoder.py\", line 353, in raw_decode\n    obj, end = self.scan_once(s, idx)\njson.decoder.JSONDecodeError: Unterminated string starting at: line 1 column 54598 (char 54597)\n"
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.106
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 61.612
+    }
+  },
+  "complete": false,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__jMutRepair__Closure__patch1-Closure-126-jMutRepair-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 2.8989901450004254,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3866,
+        "output_tokens": 185,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.1,
+          "readability": 0.9,
+          "security_robustness": 0.8,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch inverts the condition from `if (NodeUtil.hasFinally(n))` to `if (!NodeUtil.hasFinally(n))`, which causes the code to process finally blocks only when they DON'T exist. This is logically backwards and removes the intended functionality of minimizing exits in finally blocks. The patch passes tests only because it prevents the problematic optimization, not because it fixes the underlying issue."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 2.8663540279994777,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3866,
+        "output_tokens": 185,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.1,
+          "readability": 0.9,
+          "security_robustness": 0.8,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch inverts the condition from `if (NodeUtil.hasFinally(n))` to `if (!NodeUtil.hasFinally(n))`, which causes the code to process finally blocks only when they DON'T exist. This is logically backwards and removes the intended functionality of minimizing exits in finally blocks. The patch passes tests only because it prevents the problematic optimization, not because it fixes the underlying issue."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 2.8596489939991443,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3866,
+        "output_tokens": 185,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.1,
+          "readability": 0.9,
+          "security_robustness": 0.8,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch inverts the condition from `if (NodeUtil.hasFinally(n))` to `if (!NodeUtil.hasFinally(n))`, which causes the code to process finally blocks only when they DON'T exist. This is logically backwards and removes the intended functionality of minimizing exits in finally blocks. The patch passes tests only because it prevents the problematic optimization, not because it fixes the underlying issue."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": null,
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__jMutRepair__Closure__patch1-Closure-126-jMutRepair-plausible",
+    "true_project": "Closure",
+    "true_bug_number": "126",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 580,
+    "output_tokens": 26,
+    "project": "Closure",
+    "bug_number": null,
+    "recalled_label": "UNKNOWN",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__jMutRepair__Closure__patch1-Closure-126-jMutRepair-plausible",
+    "bug_id": "Closure-126",
+    "s_edit_ast": 0.007518796992481203,
+    "s_edit_ast_actions": 3,
+    "s_edit_ast_nodes": 399,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "com/google/javascript/jscomp/MinimizeExitPoints"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 76,
+      "cfg_edges": 87,
+      "branch_points": 15,
+      "cyclomatic_complexity": 13,
+      "def_count": 41,
+      "use_count": 180,
+      "defuse_pairs": 41,
+      "per_method": [
+        {
+          "class": "com.google.javascript.jscomp.MinimizeExitPoints",
+          "method": "tryMinimizeExits",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 76,
+          "cfg_edges": 87,
+          "branch_points": 15,
+          "cyclomatic_complexity": 13,
+          "def_count": 41,
+          "use_count": 180,
+          "defuse_pairs": 41,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 76,
+      "cfg_edges": 87,
+      "branch_points": 15,
+      "cyclomatic_complexity": 13,
+      "def_count": 41,
+      "use_count": 180,
+      "defuse_pairs": 41,
+      "per_method": [
+        {
+          "class": "com.google.javascript.jscomp.MinimizeExitPoints",
+          "method": "tryMinimizeExits",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 76,
+          "cfg_edges": 87,
+          "branch_points": 15,
+          "cyclomatic_complexity": 13,
+          "def_count": 41,
+          "use_count": 180,
+          "defuse_pairs": 41,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": 0,
+    "d_branch_points": 0,
+    "d_cfg_edges": 0,
+    "d_defuse_pairs": 0,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 8,
+      "n_candidate_warnings": 8,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__jMutRepair__Closure__patch1-Closure-126-jMutRepair-plausible",
+    "bug_id": "Closure-126",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

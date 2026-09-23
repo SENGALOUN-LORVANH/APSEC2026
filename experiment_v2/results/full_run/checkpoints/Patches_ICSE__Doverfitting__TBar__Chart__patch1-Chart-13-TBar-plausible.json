@@ -1,0 +1,267 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__TBar__Chart__patch1-Chart-13-TBar-plausible",
+  "bug_id": "Chart-13",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 9.963
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.454
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 9.379
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 34.346
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.075
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 34.787
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__TBar__Chart__patch1-Chart-13-TBar-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.010000000000000009,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.2023898369989183,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 1978,
+        "output_tokens": 179,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.1,
+          "readability": 0.0,
+          "security_robustness": 0.0,
+          "judgement": "OVERFITTING",
+          "confidence": 0.99,
+          "brief_reason": "The patch removes the exception throw entirely, allowing invalid Range objects with lower > upper to be created silently. This weakens the Range class's invariant checking and only masks the symptom in the specific test case rather than fixing the root cause in BorderArrangement. The real bug is in BorderArrangement.arrangeFF() which should prevent creating invalid ranges, not in Range's validation logic."
+        },
+        "s_sem": 0.010000000000000009,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 2.8524321080003574,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 1978,
+        "output_tokens": 156,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.95,
+          "readability": 0.1,
+          "security_robustness": 0.0,
+          "judgement": "OVERFITTING",
+          "confidence": 0.99,
+          "brief_reason": "The patch removes the exception throw that validates Range invariants, allowing invalid ranges (lower > upper) to be created silently. This passes the test by suppressing the error rather than fixing the root cause in BorderArrangement, fundamentally weakening the Range class's contract and robustness."
+        },
+        "s_sem": 0.010000000000000009,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 2.9332104360000812,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 1978,
+        "output_tokens": 150,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.95,
+          "readability": 0.2,
+          "security_robustness": 0.0,
+          "judgement": "OVERFITTING",
+          "confidence": 0.99,
+          "brief_reason": "The patch removes the exception throw that validates Range invariants, allowing invalid ranges (lower > upper) to be created silently. This masks the underlying bug in BorderArrangement rather than fixing it, and severely weakens the Range class's contract and robustness."
+        },
+        "s_sem": 0.010000000000000009,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__TBar__Chart__patch1-Chart-13-TBar-plausible",
+    "bug_id": "Chart-13",
+    "model": "claude-haiku-4-5",
+    "latency_s": 6.973432136999691,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 1873,
+    "output_tokens": 824,
+    "tests": [
+      {
+        "name": "testRangeConstructorWithValidBounds",
+        "target_class": "org.jfree.data.Range",
+        "target_method": "Range(double, double)",
+        "class_name": "RangeConstructorValidationTest",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.003\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testRangeConstructorWithEqualBounds",
+        "target_class": "org.jfree.data.Range",
+        "target_method": "Range(double, double)",
+        "class_name": "RangeConstructorEqualBoundsTest",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.002\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testRangeConstructorWithNegativeInvalidBounds",
+        "target_class": "org.jfree.data.Range",
+        "target_method": "Range(double, double)",
+        "class_name": "RangeConstructorNegativeBoundsTest",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.006\n\nOK (1 test)\n\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__TBar__Chart__patch1-Chart-13-TBar-plausible",
+    "true_project": "Chart",
+    "true_bug_number": "13",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 536,
+    "output_tokens": 25,
+    "project": "Chart",
+    "bug_number": null,
+    "recalled_label": "UNKNOWN",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__TBar__Chart__patch1-Chart-13-TBar-plausible",
+    "bug_id": "Chart-13",
+    "s_edit_ast": 0.08928571428571429,
+    "s_edit_ast_actions": 5,
+    "s_edit_ast_nodes": 56,
+    "s_edit_error": null,
+    "s_vuln_changed": 0.5,
+    "s_vuln_new_warning_count": 1,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/jfree/data/Range"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 22,
+      "cfg_edges": 21,
+      "branch_points": 1,
+      "cyclomatic_complexity": 1,
+      "def_count": 16,
+      "use_count": 44,
+      "defuse_pairs": 16,
+      "per_method": [
+        {
+          "class": "org.jfree.data.Range",
+          "method": "Range",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 22,
+          "cfg_edges": 21,
+          "branch_points": 1,
+          "cyclomatic_complexity": 1,
+          "def_count": 16,
+          "use_count": 44,
+          "defuse_pairs": 16,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 17,
+      "cfg_edges": 17,
+      "branch_points": 1,
+      "cyclomatic_complexity": 2,
+      "def_count": 13,
+      "use_count": 35,
+      "defuse_pairs": 13,
+      "per_method": [
+        {
+          "class": "org.jfree.data.Range",
+          "method": "Range",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 17,
+          "cfg_edges": 17,
+          "branch_points": 1,
+          "cyclomatic_complexity": 2,
+          "def_count": 13,
+          "use_count": 35,
+          "defuse_pairs": 13,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 1,
+    "d_stmts": -5,
+    "d_branch_points": 0,
+    "d_cfg_edges": -4,
+    "d_defuse_pairs": -3,
+    "vuln_detail": {
+      "s_vuln": 0.5,
+      "new_warnings": [
+        {
+          "bug_type": "DLS",
+          "category": "D",
+          "priority": "M",
+          "severity": "MEDIUM",
+          "class": "Range",
+          "method": "Range",
+          "location": "Range.java:line 85",
+          "description": "Dead store to msg in new org.jfree.data.Range(double, double)"
+        }
+      ],
+      "n_buggy_warnings": 7,
+      "n_candidate_warnings": 7,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__TBar__Chart__patch1-Chart-13-TBar-plausible",
+    "bug_id": "Chart-13",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}
