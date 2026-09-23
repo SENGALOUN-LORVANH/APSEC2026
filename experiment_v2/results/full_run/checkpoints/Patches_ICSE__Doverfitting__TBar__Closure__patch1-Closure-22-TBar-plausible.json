@@ -1,0 +1,267 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__TBar__Closure__patch1-Closure-22-TBar-plausible",
+  "bug_id": "Closure-22",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 87.19
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.529
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 9.755
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 30.287
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.642
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 49.212
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__TBar__Closure__patch1-Closure-22-TBar-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.1537542160003795,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2824,
+        "output_tokens": 176,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.3,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch changes `==` to `>=` for a token type comparison, which is semantically incorrect and overfits to the specific test case. This comparison should check for equality with Token.COMMA, not whether the ancestor type is greater than or equal to it. The patch weakens the logic by allowing unintended token types to pass the check, introducing a latent bug."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.1703353169996262,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2824,
+        "output_tokens": 176,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.3,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch changes `==` to `>=` for a token type comparison, which is semantically incorrect and overfits to the specific test case. This comparison should check for equality with Token.COMMA, not whether the ancestor type is greater than or equal to it. The patch weakens the logic by allowing unintended token types to pass the check, introducing a latent bug."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.0351450189991738,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2824,
+        "output_tokens": 176,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.3,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch changes `==` to `>=` for a token type comparison, which is semantically incorrect and overfits to the specific test case. This comparison should check for equality with Token.COMMA, not whether the ancestor type is greater than or equal to it. The patch weakens the logic by allowing unintended token types to pass the check, introducing a latent bug."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__TBar__Closure__patch1-Closure-22-TBar-plausible",
+    "bug_id": "Closure-22",
+    "model": "claude-haiku-4-5",
+    "latency_s": 10.010945146999802,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 2693,
+    "output_tokens": 1238,
+    "tests": [
+      {
+        "name": "testCommaOperatorWithNonEvalCall",
+        "target_class": "com.google.javascript.jscomp.CheckSideEffects",
+        "target_method": "visit",
+        "class_name": "CheckSideEffectsTest",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "actual argument String cannot be converted to String[] by method invocation conversion)\n    [javac]     method CompilerTestCase.test(String[],String[]) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]     method CompilerTestCase.test(List<SourceFile>,String,String,DiagnosticType,DiagnosticType,String) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]     method CompilerTestCase.test(String,String,String,DiagnosticType,DiagnosticType,String) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]     method CompilerTestCase.test(String,String,String,DiagnosticType,DiagnosticType) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]     method CompilerTestCase.test(String,String,DiagnosticType,DiagnosticType) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]     method CompilerTestCase.test(String,String,DiagnosticType,DiagnosticType,String) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]     method CompilerTestCase.test(String,String,DiagnosticType) is not applicable\n    [javac]       (actual argument String[] cannot be converted to DiagnosticType by method invocation conversion)\n    [javac]     method CompilerTestCase.test(String,String) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac] 2 errors\n    [javac] 21 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__TBar__Closure__patch1-Closure-22-TBar-plausible/CheckSideEffectsTest/fixed/build.xml:331: Compile failed; see the compiler error output for details.\n\nTotal time: 2 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testSimpleOperatorNoSideEffects",
+        "target_class": "com.google.javascript.jscomp.CheckSideEffects",
+        "target_method": "visit",
+        "class_name": "CheckSideEffectsTest2",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "ctual argument String cannot be converted to String[] by method invocation conversion)\n    [javac]     method CompilerTestCase.test(String[],String[]) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]     method CompilerTestCase.test(List<SourceFile>,String,String,DiagnosticType,DiagnosticType,String) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]     method CompilerTestCase.test(String,String,String,DiagnosticType,DiagnosticType,String) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]     method CompilerTestCase.test(String,String,String,DiagnosticType,DiagnosticType) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]     method CompilerTestCase.test(String,String,DiagnosticType,DiagnosticType) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]     method CompilerTestCase.test(String,String,DiagnosticType,DiagnosticType,String) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]     method CompilerTestCase.test(String,String,DiagnosticType) is not applicable\n    [javac]       (actual argument String[] cannot be converted to DiagnosticType by method invocation conversion)\n    [javac]     method CompilerTestCase.test(String,String) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac] 2 errors\n    [javac] 21 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__TBar__Closure__patch1-Closure-22-TBar-plausible/CheckSideEffectsTest2/fixed/build.xml:331: Compile failed; see the compiler error output for details.\n\nTotal time: 2 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testQualifiedNameWithoutJSDoc",
+        "target_class": "com.google.javascript.jscomp.CheckSideEffects",
+        "target_method": "visit",
+        "class_name": "CheckSideEffectsTest3",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "ctual argument String cannot be converted to String[] by method invocation conversion)\n    [javac]     method CompilerTestCase.test(String[],String[]) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]     method CompilerTestCase.test(List<SourceFile>,String,String,DiagnosticType,DiagnosticType,String) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]     method CompilerTestCase.test(String,String,String,DiagnosticType,DiagnosticType,String) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]     method CompilerTestCase.test(String,String,String,DiagnosticType,DiagnosticType) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]     method CompilerTestCase.test(String,String,DiagnosticType,DiagnosticType) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]     method CompilerTestCase.test(String,String,DiagnosticType,DiagnosticType,String) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]     method CompilerTestCase.test(String,String,DiagnosticType) is not applicable\n    [javac]       (actual argument String[] cannot be converted to DiagnosticType by method invocation conversion)\n    [javac]     method CompilerTestCase.test(String,String) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac] 2 errors\n    [javac] 21 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Doverfitting__TBar__Closure__patch1-Closure-22-TBar-plausible/CheckSideEffectsTest3/fixed/build.xml:331: Compile failed; see the compiler error output for details.\n\nTotal time: 2 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__TBar__Closure__patch1-Closure-22-TBar-plausible",
+    "true_project": "Closure",
+    "true_bug_number": "22",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 573,
+    "output_tokens": 26,
+    "project": "Closure",
+    "bug_number": null,
+    "recalled_label": "UNKNOWN",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__TBar__Closure__patch1-Closure-22-TBar-plausible",
+    "bug_id": "Closure-22",
+    "s_edit_ast": 0.0027247956403269754,
+    "s_edit_ast_actions": 1,
+    "s_edit_ast_nodes": 367,
+    "s_edit_error": null,
+    "s_vuln_changed": 0.5,
+    "s_vuln_new_warning_count": 1,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "com/google/javascript/jscomp/CheckSideEffects"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 105,
+      "cfg_edges": 127,
+      "branch_points": 30,
+      "cyclomatic_complexity": 24,
+      "def_count": 60,
+      "use_count": 219,
+      "defuse_pairs": 60,
+      "per_method": [
+        {
+          "class": "com.google.javascript.jscomp.CheckSideEffects",
+          "method": "visit",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 105,
+          "cfg_edges": 127,
+          "branch_points": 30,
+          "cyclomatic_complexity": 24,
+          "def_count": 60,
+          "use_count": 219,
+          "defuse_pairs": 60,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 105,
+      "cfg_edges": 127,
+      "branch_points": 30,
+      "cyclomatic_complexity": 24,
+      "def_count": 60,
+      "use_count": 219,
+      "defuse_pairs": 60,
+      "per_method": [
+        {
+          "class": "com.google.javascript.jscomp.CheckSideEffects",
+          "method": "visit",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 105,
+          "cfg_edges": 127,
+          "branch_points": 30,
+          "cyclomatic_complexity": 24,
+          "def_count": 60,
+          "use_count": 219,
+          "defuse_pairs": 60,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": 0,
+    "d_branch_points": 0,
+    "d_cfg_edges": 0,
+    "d_defuse_pairs": 0,
+    "vuln_detail": {
+      "s_vuln": 0.5,
+      "new_warnings": [
+        {
+          "bug_type": "UC",
+          "category": "D",
+          "priority": "M",
+          "severity": "MEDIUM",
+          "class": "CheckSideEffects",
+          "method": "",
+          "location": "CheckSideEffects.java:line 116",
+          "description": "Useless condition: it's known that ancestorType != 125 ('}') at this point"
+        }
+      ],
+      "n_buggy_warnings": 6,
+      "n_candidate_warnings": 8,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 2,
+      "n_changed_class_files_candidate": 2,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__TBar__Closure__patch1-Closure-22-TBar-plausible",
+    "bug_id": "Closure-22",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

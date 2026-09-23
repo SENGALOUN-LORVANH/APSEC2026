@@ -1,0 +1,9 @@
+{
+  "patch_id": "Patches_ICSE__Dsame__AVATAR__Closure__patch1-Closure-63-AVATAR",
+  "bug_id": "Closure-63",
+  "model": "claude-haiku-4-5",
+  "stages": {},
+  "complete": false,
+  "terminal_failure": "checkout_bug",
+  "checkout_error": "buggy checkout failed: ecated bug\n at /opt/defects4j-2.0.1/framework/core/Utils.pm line 481.\n\tUtils::ensure_valid_bid(\"Closure\", 63) called at /opt/defects4j-2.0.1/framework/core/Utils.pm line 502\n\tUtils::ensure_valid_vid(\"Closure\", \"63b\") called at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-checkout line 87\n\trequire /opt/defects4j-2.0.1/framework/bin/d4j/d4j-checkout called at /opt/defects4j-2.0.1/framework/bin/defects4j line 195\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+}

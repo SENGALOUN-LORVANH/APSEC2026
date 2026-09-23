@@ -1,0 +1,256 @@
+{
+  "patch_id": "Patches_others__Dcorrect__SketchFix__Chart__patch1-Chart-11-SketchFix",
+  "bug_id": "Chart-11",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 10.331
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.476
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 8.53
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 47.274
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.467
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 32.276
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_others__Dcorrect__SketchFix__Chart__patch1-Chart-11-SketchFix",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.9899999999999999,
+    "decision": "CORRECT",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 2.787679135999497,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2452,
+        "output_tokens": 160,
+        "parsed": {
+          "generalization": "general",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 1.0,
+          "readability": 1.0,
+          "security_robustness": 1.0,
+          "judgement": "CORRECT",
+          "confidence": 0.99,
+          "brief_reason": "The patch fixes a clear copy-paste bug where iterator2 was incorrectly initialized from p1 instead of p2, causing the method to compare p1 with itself rather than comparing p1 and p2. This is a minimal, one-line fix that corrects the general logic error without affecting any other behavior."
+        },
+        "s_sem": 0.99,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 2.6597060869989946,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2452,
+        "output_tokens": 160,
+        "parsed": {
+          "generalization": "general",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 1.0,
+          "readability": 1.0,
+          "security_robustness": 1.0,
+          "judgement": "CORRECT",
+          "confidence": 0.99,
+          "brief_reason": "The patch fixes a clear copy-paste bug where iterator2 was incorrectly initialized from p1 instead of p2, causing the method to compare p1 with itself rather than comparing p1 and p2. This is a minimal, one-line fix that corrects the general logic error without affecting any other behavior."
+        },
+        "s_sem": 0.99,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 2.668592105999778,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2452,
+        "output_tokens": 160,
+        "parsed": {
+          "generalization": "general",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 1.0,
+          "readability": 1.0,
+          "security_robustness": 1.0,
+          "judgement": "CORRECT",
+          "confidence": 0.99,
+          "brief_reason": "The patch fixes a clear copy-paste bug where iterator2 was incorrectly initialized from p1 instead of p2, causing the method to compare p1 with itself rather than comparing p1 and p2. This is a minimal, one-line fix that corrects the general logic error without affecting any other behavior."
+        },
+        "s_sem": 0.99,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_others__Dcorrect__SketchFix__Chart__patch1-Chart-11-SketchFix",
+    "bug_id": "Chart-11",
+    "model": "claude-haiku-4-5",
+    "latency_s": 11.036568991999957,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 2347,
+    "output_tokens": 1162,
+    "tests": [
+      {
+        "name": "testEqualGeneralPathsWithDifferentSegments",
+        "target_class": "org.jfree.chart.util.ShapeUtilities",
+        "target_method": "equal",
+        "class_name": "testEqualGeneralPathsWithDifferentSegments",
+        "status": "VALID_BUG_REVEALING",
+        "candidate_pass": true,
+        "log": ".\nTime: 0.006\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testEqualGeneralPathsWithDifferentLengths",
+        "target_class": "org.jfree.chart.util.ShapeUtilities",
+        "target_method": "equal",
+        "class_name": "testEqualGeneralPathsWithDifferentLengths",
+        "status": "VALID_BUG_REVEALING",
+        "candidate_pass": true,
+        "log": ".\nTime: 0.002\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testEqualGeneralPathsIdentical",
+        "target_class": "org.jfree.chart.util.ShapeUtilities",
+        "target_method": "equal",
+        "class_name": "testEqualGeneralPathsIdentical",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.002\n\nOK (1 test)\n\n"
+      }
+    ],
+    "s_cex": 1.0,
+    "n_valid": 2,
+    "n_passed": 2
+  },
+  "memorization": {
+    "patch_id": "Patches_others__Dcorrect__SketchFix__Chart__patch1-Chart-11-SketchFix",
+    "true_project": "Chart",
+    "true_bug_number": "11",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 580,
+    "output_tokens": 26,
+    "project": "Chart",
+    "bug_number": 1,
+    "recalled_label": "CORRECT",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_others__Dcorrect__SketchFix__Chart__patch1-Chart-11-SketchFix",
+    "bug_id": "Chart-11",
+    "s_edit_ast": 0.03431372549019608,
+    "s_edit_ast_actions": 7,
+    "s_edit_ast_nodes": 204,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/jfree/chart/util/ShapeUtilities"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 184,
+      "cfg_edges": 193,
+      "branch_points": 44,
+      "cyclomatic_complexity": 21,
+      "def_count": 95,
+      "use_count": 354,
+      "defuse_pairs": 95,
+      "per_method": [
+        {
+          "class": "org.jfree.chart.util.ShapeUtilities",
+          "method": "equal",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 6,
+          "stmts": 184,
+          "cfg_edges": 193,
+          "branch_points": 44,
+          "cyclomatic_complexity": 21,
+          "def_count": 95,
+          "use_count": 354,
+          "defuse_pairs": 95,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 184,
+      "cfg_edges": 193,
+      "branch_points": 44,
+      "cyclomatic_complexity": 21,
+      "def_count": 95,
+      "use_count": 354,
+      "defuse_pairs": 95,
+      "per_method": [
+        {
+          "class": "org.jfree.chart.util.ShapeUtilities",
+          "method": "equal",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 6,
+          "stmts": 184,
+          "cfg_edges": 193,
+          "branch_points": 44,
+          "cyclomatic_complexity": 21,
+          "def_count": 95,
+          "use_count": 354,
+          "defuse_pairs": 95,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": 0,
+    "d_branch_points": 0,
+    "d_cfg_edges": 0,
+    "d_defuse_pairs": 0,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 6,
+      "n_candidate_warnings": 6,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_others__Dcorrect__SketchFix__Chart__patch1-Chart-11-SketchFix",
+    "bug_id": "Chart-11",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

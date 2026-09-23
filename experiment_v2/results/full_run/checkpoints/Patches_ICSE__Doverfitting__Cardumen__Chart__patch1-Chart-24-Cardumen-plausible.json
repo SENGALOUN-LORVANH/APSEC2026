@@ -1,0 +1,225 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__Cardumen__Chart__patch1-Chart-24-Cardumen-plausible",
+  "bug_id": "Chart-24",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 13.483
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.659
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 10.892
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 15.647
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.565
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 35.307
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__Cardumen__Chart__patch1-Chart-24-Cardumen-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.286318627999208,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2114,
+        "output_tokens": 195,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.2,
+          "readability": 0.3,
+          "security_robustness": 0.4,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch fixes the immediate test failure by clamping the numerator to the upper bound, but this is a band-aid fix that doesn't address the root cause: the original code uses unclamped 'value' instead of clamped 'v' in the calculation. The patch introduces unnecessary complexity (redundant Math.min call), changes unrelated behavior, and doesn't properly fix the underlying logic error where 'v' should be used instead of 'value'."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.3510078020008223,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2114,
+        "output_tokens": 195,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.2,
+          "readability": 0.3,
+          "security_robustness": 0.4,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch fixes the immediate test failure by clamping the numerator to the upper bound, but this is a band-aid fix that doesn't address the root cause: the original code uses unclamped 'value' instead of clamped 'v' in the calculation. The patch introduces unnecessary complexity (redundant Math.min call), changes unrelated behavior, and doesn't properly fix the underlying logic error where 'v' should be used instead of 'value'."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.795877245000156,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2114,
+        "output_tokens": 200,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.2,
+          "readability": 0.3,
+          "security_robustness": 0.4,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch fixes the immediate test failure by clamping the numerator to the upper bound, but this is a band-aid fix that doesn't address the root cause: the original code uses 'value' instead of the clamped 'v' in the calculation. The patch introduces unnecessary complexity (redundant Math.min call), changes unrelated behavior, and doesn't properly fix the logic error. A correct fix would simply use 'v' instead of 'value' in the numerator."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__Cardumen__Chart__patch1-Chart-24-Cardumen-plausible",
+    "bug_id": "Chart-24",
+    "model": "claude-haiku-4-5",
+    "latency_s": 12.937457859999995,
+    "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Invalid request data'}, 'request_id': 'req_011CfLZzFqyRd7JhJHxWozLr'}",
+    "context_errors": [],
+    "input_tokens": null,
+    "output_tokens": null,
+    "tests": []
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__Cardumen__Chart__patch1-Chart-24-Cardumen-plausible",
+    "true_project": "Chart",
+    "true_bug_number": "24",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 607,
+    "output_tokens": 28,
+    "project": "Chart",
+    "bug_number": 3,
+    "recalled_label": "OVERFITTING",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__Cardumen__Chart__patch1-Chart-24-Cardumen-plausible",
+    "bug_id": "Chart-24",
+    "s_edit_ast": 0.16455696202531644,
+    "s_edit_ast_actions": 13,
+    "s_edit_ast_nodes": 79,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/jfree/chart/renderer/GrayPaintScale"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 19,
+      "cfg_edges": 18,
+      "branch_points": 0,
+      "cyclomatic_complexity": 1,
+      "def_count": 17,
+      "use_count": 43,
+      "defuse_pairs": 17,
+      "per_method": [
+        {
+          "class": "org.jfree.chart.renderer.GrayPaintScale",
+          "method": "getPaint",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 19,
+          "cfg_edges": 18,
+          "branch_points": 0,
+          "cyclomatic_complexity": 1,
+          "def_count": 17,
+          "use_count": 43,
+          "defuse_pairs": 17,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 19,
+      "cfg_edges": 18,
+      "branch_points": 0,
+      "cyclomatic_complexity": 1,
+      "def_count": 17,
+      "use_count": 43,
+      "defuse_pairs": 17,
+      "per_method": [
+        {
+          "class": "org.jfree.chart.renderer.GrayPaintScale",
+          "method": "getPaint",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 19,
+          "cfg_edges": 18,
+          "branch_points": 0,
+          "cyclomatic_complexity": 1,
+          "def_count": 17,
+          "use_count": 43,
+          "defuse_pairs": 17,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": 0,
+    "d_branch_points": 0,
+    "d_cfg_edges": 0,
+    "d_defuse_pairs": 0,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 11,
+      "n_candidate_warnings": 10,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__Cardumen__Chart__patch1-Chart-24-Cardumen-plausible",
+    "bug_id": "Chart-24",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

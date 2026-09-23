@@ -1,0 +1,256 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__jMutRepair__Math__patch1-Math-84-jMutRepair-plausible",
+  "bug_id": "Math-84",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 11.538
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.79
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 9.519
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 40.254
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.095
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 65.25
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__jMutRepair__Math__patch1-Math-84-jMutRepair-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.099604208000528,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3065,
+        "output_tokens": 174,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.3,
+          "security_robustness": 0.8,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch changes a less-than comparison to an equality comparison, which is a semantic inversion that weakens the contraction acceptance logic. This appears to be a band-aid fix for the specific test cases rather than addressing the root cause of the algorithm's convergence issue. The change fundamentally alters the algorithm's behavior in a way that contradicts the intended simplex optimization logic."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.0680863489997137,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3065,
+        "output_tokens": 172,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.3,
+          "security_robustness": 0.8,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch changes a less-than comparison to an equality comparison, which is a semantic inversion that weakens the contraction acceptance logic. This appears to be a band-aid fix for the specific test cases rather than addressing the underlying algorithmic issue (infinite loop or premature termination). The change fundamentally alters the optimization algorithm's behavior in an unintended way."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 2.9908027309993486,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3065,
+        "output_tokens": 166,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.3,
+          "security_robustness": 0.8,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch changes a less-than comparison to an equality comparison, which is a semantic inversion that weakens the contraction acceptance logic. This appears to be a band-aid fix for the specific test cases rather than addressing the underlying algorithmic issue causing excessive iterations. The change fundamentally alters the convergence behavior in an unintended way."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__jMutRepair__Math__patch1-Math-84-jMutRepair-plausible",
+    "bug_id": "Math-84",
+    "model": "claude-haiku-4-5",
+    "latency_s": 12.257815208000466,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 2936,
+    "output_tokens": 1942,
+    "tests": [
+      {
+        "name": "testContractedSimplexAcceptanceWithStrictImprovement",
+        "target_class": "org.apache.commons.math.optimization.direct.MultiDirectional",
+        "target_method": "iterateSimplex",
+        "class_name": "TestContractedSimplexAcceptance",
+        "status": "VALID_BUG_REVEALING",
+        "candidate_pass": true,
+        "log": "JUnit version 4.11\n.\nTime: 0.01\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testReflectedSimplexAcceptanceCondition",
+        "target_class": "org.apache.commons.math.optimization.direct.MultiDirectional",
+        "target_method": "iterateSimplex",
+        "class_name": "TestReflectionAndContractionLogic",
+        "status": "INVALID_ORACLE",
+        "candidate_pass": null,
+        "log": " org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)\n\tat org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)\n\tat org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)\n\tat org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)\n\tat org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:271)\n\tat org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:70)\n\tat org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)\n\tat org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)\n\tat org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:309)\n\tat org.junit.runners.Suite.runChild(Suite.java:127)\n\tat org.junit.runners.Suite.runChild(Suite.java:26)\n\tat org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)\n\tat org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:309)\n\tat org.junit.runner.JUnitCore.run(JUnitCore.java:160)\n\tat org.junit.runner.JUnitCore.run(JUnitCore.java:138)\n\tat org.junit.runner.JUnitCore.run(JUnitCore.java:117)\n\tat org.junit.runner.JUnitCore.runMain(JUnitCore.java:96)\n\tat org.junit.runner.JUnitCore.runMainAndExit(JUnitCore.java:47)\n\tat org.junit.runner.JUnitCore.main(JUnitCore.java:40)\nCaused by: org.apache.commons.math.MaxIterationsExceededException: Maximal number of iterations (500) exceeded\n\t... 35 more\n\nFAILURES!!!\nTests run: 1,  Failures: 1\n\n"
+      },
+      {
+        "name": "testContractedSimplexEqualityDoesNotTerminate",
+        "target_class": "org.apache.commons.math.optimization.direct.MultiDirectional",
+        "target_method": "iterateSimplex",
+        "class_name": "TestContractedSimplexEquality",
+        "status": "INVALID_ORACLE",
+        "candidate_pass": null,
+        "log": " org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)\n\tat org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)\n\tat org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)\n\tat org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)\n\tat org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:271)\n\tat org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:70)\n\tat org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)\n\tat org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)\n\tat org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:309)\n\tat org.junit.runners.Suite.runChild(Suite.java:127)\n\tat org.junit.runners.Suite.runChild(Suite.java:26)\n\tat org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)\n\tat org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:309)\n\tat org.junit.runner.JUnitCore.run(JUnitCore.java:160)\n\tat org.junit.runner.JUnitCore.run(JUnitCore.java:138)\n\tat org.junit.runner.JUnitCore.run(JUnitCore.java:117)\n\tat org.junit.runner.JUnitCore.runMain(JUnitCore.java:96)\n\tat org.junit.runner.JUnitCore.runMainAndExit(JUnitCore.java:47)\n\tat org.junit.runner.JUnitCore.main(JUnitCore.java:40)\nCaused by: org.apache.commons.math.MaxIterationsExceededException: Maximal number of iterations (300) exceeded\n\t... 35 more\n\nFAILURES!!!\nTests run: 1,  Failures: 1\n\n"
+      }
+    ],
+    "s_cex": 1.0,
+    "n_valid": 1,
+    "n_passed": 1
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__jMutRepair__Math__patch1-Math-84-jMutRepair-plausible",
+    "true_project": "Math",
+    "true_bug_number": "84",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 569,
+    "output_tokens": 28,
+    "project": "Math",
+    "bug_number": 32,
+    "recalled_label": "OVERFITTING",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__jMutRepair__Math__patch1-Math-84-jMutRepair-plausible",
+    "bug_id": "Math-84",
+    "s_edit_ast": 0.0072992700729927005,
+    "s_edit_ast_actions": 1,
+    "s_edit_ast_nodes": 137,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math/optimization/direct/MultiDirectional"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 21,
+      "cfg_edges": 22,
+      "branch_points": 3,
+      "cyclomatic_complexity": 3,
+      "def_count": 14,
+      "use_count": 53,
+      "defuse_pairs": 14,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.optimization.direct.MultiDirectional",
+          "method": "iterateSimplex",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 21,
+          "cfg_edges": 22,
+          "branch_points": 3,
+          "cyclomatic_complexity": 3,
+          "def_count": 14,
+          "use_count": 53,
+          "defuse_pairs": 14,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 21,
+      "cfg_edges": 22,
+      "branch_points": 3,
+      "cyclomatic_complexity": 3,
+      "def_count": 14,
+      "use_count": 53,
+      "defuse_pairs": 14,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.optimization.direct.MultiDirectional",
+          "method": "iterateSimplex",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 21,
+          "cfg_edges": 22,
+          "branch_points": 3,
+          "cyclomatic_complexity": 3,
+          "def_count": 14,
+          "use_count": 53,
+          "defuse_pairs": 14,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": 0,
+    "d_branch_points": 0,
+    "d_cfg_edges": 0,
+    "d_defuse_pairs": 0,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 312,
+      "n_candidate_warnings": 312,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__jMutRepair__Math__patch1-Math-84-jMutRepair-plausible",
+    "bug_id": "Math-84",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

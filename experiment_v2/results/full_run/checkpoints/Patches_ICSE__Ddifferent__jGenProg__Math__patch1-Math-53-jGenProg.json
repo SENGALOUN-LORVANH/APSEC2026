@@ -1,0 +1,312 @@
+{
+  "patch_id": "Patches_ICSE__Ddifferent__jGenProg__Math__patch1-Math-53-jGenProg",
+  "bug_id": "Math-53",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 67.913
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 1.638
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 9.008
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 39.825
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.117
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 93.215
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Ddifferent__jGenProg__Math__patch1-Math-53-jGenProg",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.15000000000000002,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 2.8600320299992745,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3485,
+        "output_tokens": 150,
+        "parsed": {
+          "generalization": "general",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.3,
+          "readability": 0.4,
+          "security_robustness": 1.0,
+          "judgement": "OVERFITTING",
+          "confidence": 0.85,
+          "brief_reason": "The patch correctly adds NaN checks to the add() method to fix the failing test, but introduces unnecessary parentheses throughout the code that harm readability without improving functionality. The changes to conjugate() and divide() are purely cosmetic and unrelated to the bug being fixed."
+        },
+        "s_sem": 0.15000000000000002,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 2.677524534999975,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3485,
+        "output_tokens": 149,
+        "parsed": {
+          "generalization": "general",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.3,
+          "readability": 0.4,
+          "security_robustness": 1.0,
+          "judgement": "OVERFITTING",
+          "confidence": 0.85,
+          "brief_reason": "The patch correctly adds NaN checks to the add() method to fix the failing test, but introduces unnecessary parentheses throughout the code that harm readability without improving functionality. The changes to conjugate() and divide() are cosmetic and unrelated to the bug being fixed."
+        },
+        "s_sem": 0.15000000000000002,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 2.6994649579992256,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3485,
+        "output_tokens": 149,
+        "parsed": {
+          "generalization": "general",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.3,
+          "readability": 0.4,
+          "security_robustness": 1.0,
+          "judgement": "OVERFITTING",
+          "confidence": 0.85,
+          "brief_reason": "The patch correctly adds NaN checks to the add() method to fix the failing test, but introduces unnecessary parentheses throughout the code that harm readability without improving functionality. The changes to conjugate() and divide() are cosmetic and unrelated to the bug being fixed."
+        },
+        "s_sem": 0.15000000000000002,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Ddifferent__jGenProg__Math__patch1-Math-53-jGenProg",
+    "bug_id": "Math-53",
+    "model": "claude-haiku-4-5",
+    "latency_s": 7.4723126139997476,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 3354,
+    "output_tokens": 881,
+    "tests": [
+      {
+        "name": "testAddWithNaNRealPart",
+        "target_class": "org.apache.commons.math.complex.Complex",
+        "target_method": "add",
+        "class_name": "ComplexAddNaNRealTest",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": "JUnit version 4.11\n.\nTime: 0.01\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testAddWithNaNImaginaryPart",
+        "target_class": "org.apache.commons.math.complex.Complex",
+        "target_method": "add",
+        "class_name": "ComplexAddNaNImaginaryTest",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": "JUnit version 4.11\n.\nTime: 0.011\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testAddNormalValuesNoNaN",
+        "target_class": "org.apache.commons.math.complex.Complex",
+        "target_method": "add",
+        "class_name": "ComplexAddNormalTest",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": "JUnit version 4.11\n.\nTime: 0.006\n\nOK (1 test)\n\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Ddifferent__jGenProg__Math__patch1-Math-53-jGenProg",
+    "true_project": "Math",
+    "true_bug_number": "53",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 766,
+    "output_tokens": 25,
+    "project": "Math",
+    "bug_number": null,
+    "recalled_label": "UNKNOWN",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Ddifferent__jGenProg__Math__patch1-Math-53-jGenProg",
+    "bug_id": "Math-53",
+    "s_edit_ast": 0.0955223880597015,
+    "s_edit_ast_actions": 32,
+    "s_edit_ast_nodes": 335,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math/complex/Complex"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 88,
+      "cfg_edges": 86,
+      "branch_points": 8,
+      "cyclomatic_complexity": 8,
+      "def_count": 68,
+      "use_count": 194,
+      "defuse_pairs": 68,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.complex.Complex",
+          "method": "add",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 16,
+          "cfg_edges": 14,
+          "branch_points": 0,
+          "cyclomatic_complexity": 2,
+          "def_count": 13,
+          "use_count": 31,
+          "defuse_pairs": 13,
+          "error": null
+        },
+        {
+          "class": "org.apache.commons.math.complex.Complex",
+          "method": "conjugate",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 10,
+          "cfg_edges": 9,
+          "branch_points": 1,
+          "cyclomatic_complexity": 1,
+          "def_count": 7,
+          "use_count": 19,
+          "defuse_pairs": 7,
+          "error": null
+        },
+        {
+          "class": "org.apache.commons.math.complex.Complex",
+          "method": "divide",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 62,
+          "cfg_edges": 63,
+          "branch_points": 7,
+          "cyclomatic_complexity": 5,
+          "def_count": 48,
+          "use_count": 144,
+          "defuse_pairs": 48,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 94,
+      "cfg_edges": 93,
+      "branch_points": 10,
+      "cyclomatic_complexity": 9,
+      "def_count": 71,
+      "use_count": 206,
+      "defuse_pairs": 71,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.complex.Complex",
+          "method": "add",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 22,
+          "cfg_edges": 21,
+          "branch_points": 2,
+          "cyclomatic_complexity": 3,
+          "def_count": 16,
+          "use_count": 43,
+          "defuse_pairs": 16,
+          "error": null
+        },
+        {
+          "class": "org.apache.commons.math.complex.Complex",
+          "method": "conjugate",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 10,
+          "cfg_edges": 9,
+          "branch_points": 1,
+          "cyclomatic_complexity": 1,
+          "def_count": 7,
+          "use_count": 19,
+          "defuse_pairs": 7,
+          "error": null
+        },
+        {
+          "class": "org.apache.commons.math.complex.Complex",
+          "method": "divide",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 62,
+          "cfg_edges": 63,
+          "branch_points": 7,
+          "cyclomatic_complexity": 5,
+          "def_count": 48,
+          "use_count": 144,
+          "defuse_pairs": 48,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 1,
+    "d_stmts": 6,
+    "d_branch_points": 2,
+    "d_cfg_edges": 7,
+    "d_defuse_pairs": 3,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 445,
+      "n_candidate_warnings": 445,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Ddifferent__jGenProg__Math__patch1-Math-53-jGenProg",
+    "bug_id": "Math-53",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}
