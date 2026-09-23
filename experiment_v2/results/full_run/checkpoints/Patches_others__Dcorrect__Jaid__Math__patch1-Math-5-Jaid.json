@@ -1,0 +1,225 @@
+{
+  "patch_id": "Patches_others__Dcorrect__Jaid__Math__patch1-Math-5-Jaid",
+  "bug_id": "Math-5",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 69.071
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.85
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 9.551
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 147.62
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.123
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 92.572
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_others__Dcorrect__Jaid__Math__patch1-Math-5-Jaid",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 2.989060781000262,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2176,
+        "output_tokens": 166,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.7,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch adds a redundant check that returns INF instead of NaN for zero complex numbers, then leaves the original NaN-returning code intact. This creates dead code, contradicts the test expectation (which expects NaN), and doesn't actually fix the underlying issue\u2014it merely masks it with unreachable code that would never execute."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.0649650049999764,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2176,
+        "output_tokens": 166,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.7,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch adds a redundant check that returns INF instead of NaN for zero complex numbers, then leaves the original NaN-returning code intact. This creates dead code, contradicts the test expectation (which expects NaN), and doesn't actually fix the underlying issue\u2014it merely masks it with unreachable code that would never execute."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.075967216999743,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2176,
+        "output_tokens": 166,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.7,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch adds a redundant check that returns INF instead of NaN for zero complex numbers, then leaves the original NaN-returning code intact. This creates dead code, contradicts the test expectation (which expects NaN), and doesn't actually fix the underlying issue\u2014it merely masks it with unreachable code that would never execute."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_others__Dcorrect__Jaid__Math__patch1-Math-5-Jaid",
+    "bug_id": "Math-5",
+    "model": "claude-haiku-4-5",
+    "latency_s": null,
+    "error": "gave up after 6 attempts: InternalServerError: Error code: 500 - {'type': 'error', 'error': {'type': 'api_error', 'message': 'Internal server error'}, 'request_id': 'req_011CfLS7EPvh8Q8CVx2i29wz'}",
+    "context_errors": [],
+    "input_tokens": null,
+    "output_tokens": null,
+    "tests": []
+  },
+  "memorization": {
+    "patch_id": "Patches_others__Dcorrect__Jaid__Math__patch1-Math-5-Jaid",
+    "true_project": "Math",
+    "true_bug_number": "5",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 562,
+    "output_tokens": 28,
+    "project": "Math",
+    "bug_number": 30,
+    "recalled_label": "OVERFITTING",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_others__Dcorrect__Jaid__Math__patch1-Math-5-Jaid",
+    "bug_id": "Math-5",
+    "s_edit_ast": 0.2184873949579832,
+    "s_edit_ast_actions": 26,
+    "s_edit_ast_nodes": 119,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math3/complex/Complex"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 50,
+      "cfg_edges": 49,
+      "branch_points": 5,
+      "cyclomatic_complexity": 3,
+      "def_count": 39,
+      "use_count": 111,
+      "defuse_pairs": 39,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math3.complex.Complex",
+          "method": "reciprocal",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 50,
+          "cfg_edges": 49,
+          "branch_points": 5,
+          "cyclomatic_complexity": 3,
+          "def_count": 39,
+          "use_count": 111,
+          "defuse_pairs": 39,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 63,
+      "cfg_edges": 64,
+      "branch_points": 8,
+      "cyclomatic_complexity": 5,
+      "def_count": 47,
+      "use_count": 135,
+      "defuse_pairs": 47,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math3.complex.Complex",
+          "method": "reciprocal",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 63,
+          "cfg_edges": 64,
+          "branch_points": 8,
+          "cyclomatic_complexity": 5,
+          "def_count": 47,
+          "use_count": 135,
+          "defuse_pairs": 47,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 2,
+    "d_stmts": 13,
+    "d_branch_points": 3,
+    "d_cfg_edges": 15,
+    "d_defuse_pairs": 8,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 663,
+      "n_candidate_warnings": 663,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_others__Dcorrect__Jaid__Math__patch1-Math-5-Jaid",
+    "bug_id": "Math-5",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

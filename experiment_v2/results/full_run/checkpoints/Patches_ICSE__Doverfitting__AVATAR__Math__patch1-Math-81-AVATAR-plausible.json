@@ -1,0 +1,256 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Math__patch1-Math-81-AVATAR-plausible",
+  "bug_id": "Math-81",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 10.02
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 1.117
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 12.111
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 51.827
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.24
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 51.801
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Math__patch1-Math-81-AVATAR-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.25,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 4.025482356999419,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 5069,
+        "output_tokens": 188,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.9,
+          "readability": 0.8,
+          "security_robustness": 0.6,
+          "judgement": "OVERFITTING",
+          "confidence": 0.75,
+          "brief_reason": "The patch changes `nn - 2 * pingPong` to `nn - 2 * start` in case 5, which fixes the ArrayIndexOutOfBoundsException for the specific test case but appears to be an incorrect algorithmic fix. The change substitutes a loop-control variable (pingPong) with a parameter (start), which alters the intended computation logic rather than fixing the root cause of the bounds violation."
+        },
+        "s_sem": 0.25,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.6500557589997698,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 5069,
+        "output_tokens": 188,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.9,
+          "readability": 0.8,
+          "security_robustness": 0.6,
+          "judgement": "OVERFITTING",
+          "confidence": 0.75,
+          "brief_reason": "The patch changes `nn - 2 * pingPong` to `nn - 2 * start` in case 5, which fixes the ArrayIndexOutOfBoundsException for the specific test case but appears to be an incorrect algorithmic fix. The change substitutes a loop-control variable (pingPong) with a parameter (start), which alters the intended computation logic rather than fixing the root cause of the bounds violation."
+        },
+        "s_sem": 0.25,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.5887188980004794,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 5069,
+        "output_tokens": 188,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.9,
+          "readability": 0.8,
+          "security_robustness": 0.6,
+          "judgement": "OVERFITTING",
+          "confidence": 0.75,
+          "brief_reason": "The patch changes `nn - 2 * pingPong` to `nn - 2 * start` in case 5, which fixes the ArrayIndexOutOfBoundsException for the specific test case but appears to be an incorrect algorithmic fix. The change substitutes a loop-control variable (pingPong) with a parameter (start), which alters the intended computation logic rather than fixing the root cause of the bounds violation."
+        },
+        "s_sem": 0.25,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Math__patch1-Math-81-AVATAR-plausible",
+    "bug_id": "Math-81",
+    "model": "claude-haiku-4-5",
+    "latency_s": 17.691297891999966,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 4962,
+    "output_tokens": 1897,
+    "tests": [
+      {
+        "name": "testComputeShiftIncrementBoundaryCase5WithDifferentStart",
+        "target_class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+        "target_method": "computeShiftIncrement",
+        "class_name": "TestComputeShiftIncrementBoundaryCase5",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.019\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testComputeShiftIncrementLargerMatrix",
+        "target_class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+        "target_method": "computeShiftIncrement",
+        "class_name": "TestComputeShiftIncrementLargerMatrix",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.008\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testComputeShiftIncrementNegativeDMin",
+        "target_class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+        "target_method": "computeShiftIncrement",
+        "class_name": "TestComputeShiftIncrementNegativeDMin",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.007\n\nOK (1 test)\n\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Math__patch1-Math-81-AVATAR-plausible",
+    "true_project": "Math",
+    "true_bug_number": "81",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 592,
+    "output_tokens": 26,
+    "project": "Math",
+    "bug_number": 5,
+    "recalled_label": "CORRECT",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Math__patch1-Math-81-AVATAR-plausible",
+    "bug_id": "Math-81",
+    "s_edit_ast": 0.013649851632047478,
+    "s_edit_ast_actions": 23,
+    "s_edit_ast_nodes": 1685,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math/linear/EigenDecompositionImpl"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 560,
+      "cfg_edges": 603,
+      "branch_points": 53,
+      "cyclomatic_complexity": 45,
+      "def_count": 469,
+      "use_count": 1378,
+      "defuse_pairs": 469,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+          "method": "computeShiftIncrement",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 560,
+          "cfg_edges": 603,
+          "branch_points": 53,
+          "cyclomatic_complexity": 45,
+          "def_count": 469,
+          "use_count": 1378,
+          "defuse_pairs": 469,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 559,
+      "cfg_edges": 602,
+      "branch_points": 53,
+      "cyclomatic_complexity": 45,
+      "def_count": 468,
+      "use_count": 1376,
+      "defuse_pairs": 468,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+          "method": "computeShiftIncrement",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 559,
+          "cfg_edges": 602,
+          "branch_points": 53,
+          "cyclomatic_complexity": 45,
+          "def_count": 468,
+          "use_count": 1376,
+          "defuse_pairs": 468,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": -1,
+    "d_branch_points": 0,
+    "d_cfg_edges": -1,
+    "d_defuse_pairs": -1,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 317,
+      "n_candidate_warnings": 317,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 3,
+      "n_changed_class_files_candidate": 3,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Math__patch1-Math-81-AVATAR-plausible",
+    "bug_id": "Math-81",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

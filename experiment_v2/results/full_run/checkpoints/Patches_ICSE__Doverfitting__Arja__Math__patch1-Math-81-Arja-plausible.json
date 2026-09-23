@@ -1,0 +1,256 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__Arja__Math__patch1-Math-81-Arja-plausible",
+  "bug_id": "Math-81",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 9.487
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.838
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 10.103
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 39.203
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.526
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 52.94
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__Arja__Math__patch1-Math-81-Arja-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.111950213000455,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 5173,
+        "output_tokens": 197,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.3,
+          "security_robustness": 0.2,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch removes critical lines including the assignment `b2 = work[nn - 13] / work[nn - 15]` and the `tType = -5` assignment, which are essential for the algorithm's correctness. While this prevents the ArrayIndexOutOfBoundsException by avoiding the problematic array access, it does so by deleting necessary computation rather than fixing the root cause, leaving the algorithm in an incorrect state with uninitialized or stale values."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.0219781759997204,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 5173,
+        "output_tokens": 189,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.3,
+          "security_robustness": 0.2,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch removes critical lines including the assignment `b2 = work[nn - 13] / work[nn - 15]` and the `tType = -5` assignment, which are essential for the algorithm's correctness. While this prevents the ArrayIndexOutOfBoundsException by avoiding the problematic array access, it does so by deleting necessary computation rather than fixing the root cause, leaving the algorithm incomplete and semantically incorrect."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.1551381760000368,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 5173,
+        "output_tokens": 188,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.3,
+          "security_robustness": 0.2,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch removes critical initialization statements (tType = -5 and b2 = work[nn - 13] / work[nn - 15]) that are essential for the algorithm's correctness. While it passes the specific test by avoiding the array index error, it breaks the algorithm's logic by leaving tType uninitialized in case 5 and b2 undefined for the subsequent loop, weakening functionality rather than fixing the root cause."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__Arja__Math__patch1-Math-81-Arja-plausible",
+    "bug_id": "Math-81",
+    "model": "claude-haiku-4-5",
+    "latency_s": 16.348530909000146,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 5066,
+    "output_tokens": 1715,
+    "tests": [
+      {
+        "name": "testComputeShiftIncrementCase5WithSmallMatrix",
+        "target_class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+        "target_method": "computeShiftIncrement",
+        "class_name": "TestComputeShiftIncrementSmallMatrix",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.006\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testComputeShiftIncrementCase5BoundaryCondition",
+        "target_class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+        "target_method": "computeShiftIncrement",
+        "class_name": "TestComputeShiftIncrementCase5Boundary",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.006\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testComputeShiftIncrementCase5LargeMatrix",
+        "target_class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+        "target_method": "computeShiftIncrement",
+        "class_name": "TestComputeShiftIncrementCase5Large",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.009\n\nOK (1 test)\n\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__Arja__Math__patch1-Math-81-Arja-plausible",
+    "true_project": "Math",
+    "true_bug_number": "81",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 696,
+    "output_tokens": 28,
+    "project": "Math",
+    "bug_number": 280,
+    "recalled_label": "OVERFITTING",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__Arja__Math__patch1-Math-81-Arja-plausible",
+    "bug_id": "Math-81",
+    "s_edit_ast": 0.027893175074183978,
+    "s_edit_ast_actions": 47,
+    "s_edit_ast_nodes": 1685,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math/linear/EigenDecompositionImpl"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 560,
+      "cfg_edges": 603,
+      "branch_points": 53,
+      "cyclomatic_complexity": 45,
+      "def_count": 469,
+      "use_count": 1378,
+      "defuse_pairs": 469,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+          "method": "computeShiftIncrement",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 560,
+          "cfg_edges": 603,
+          "branch_points": 53,
+          "cyclomatic_complexity": 45,
+          "def_count": 469,
+          "use_count": 1378,
+          "defuse_pairs": 469,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 552,
+      "cfg_edges": 595,
+      "branch_points": 53,
+      "cyclomatic_complexity": 45,
+      "def_count": 461,
+      "use_count": 1357,
+      "defuse_pairs": 461,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+          "method": "computeShiftIncrement",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 552,
+          "cfg_edges": 595,
+          "branch_points": 53,
+          "cyclomatic_complexity": 45,
+          "def_count": 461,
+          "use_count": 1357,
+          "defuse_pairs": 461,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": -8,
+    "d_branch_points": 0,
+    "d_cfg_edges": -8,
+    "d_defuse_pairs": -8,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 317,
+      "n_candidate_warnings": 317,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 3,
+      "n_changed_class_files_candidate": 3,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__Arja__Math__patch1-Math-81-Arja-plausible",
+    "bug_id": "Math-81",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

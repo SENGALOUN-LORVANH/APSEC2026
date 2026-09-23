@@ -1,0 +1,265 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__ACS__Math__patch1-Math-81-ACS-plausible",
+  "bug_id": "Math-81",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 8.433
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.733
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 9.912
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 53.849
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.163
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 54.775
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__ACS__Math__patch1-Math-81-ACS-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.100893928000005,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 5167,
+        "output_tokens": 175,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.3,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch adds a nonsensical condition `!(end - start>=(double)0.0)` that is always false, effectively disabling the entire block. This masks the real bug (array index out of bounds at work[nn-13] or work[nn-15]) rather than fixing it, and introduces unreadable, unmaintainable code that weakens functionality."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.103516017000402,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 5167,
+        "output_tokens": 194,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.3,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch adds a nonsensical condition `!(end - start>=(double)0.0)` that is always false, effectively disabling the entire block. This masks the real bug (array index out of bounds at work[nn-13] or work[nn-15]) rather than fixing it, and introduces unrelated behavior changes that weaken functionality. The patch is unreadable and does not address the root cause of the ArrayIndexOutOfBoundsException."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.0365052820006895,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 5167,
+        "output_tokens": 175,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.3,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch adds a nonsensical condition `!(end - start>=(double)0.0)` that is always false, effectively disabling the entire block. This masks the real bug (array index out of bounds at work[nn-13] or work[nn-15]) rather than fixing it, and introduces unreadable, unmaintainable code that weakens functionality."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__ACS__Math__patch1-Math-81-ACS-plausible",
+    "bug_id": "Math-81",
+    "model": "claude-haiku-4-5",
+    "latency_s": 15.551887012000407,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 5060,
+    "output_tokens": 2785,
+    "tests": [
+      {
+        "name": "testComputeShiftIncrementBoundaryCase5WithLargeRange",
+        "target_class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+        "target_method": "computeShiftIncrement",
+        "class_name": "testComputeShiftIncrementBoundaryCase5WithLargeRange",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.011\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testComputeShiftIncrementCase5EdgeCase",
+        "target_class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+        "target_method": "computeShiftIncrement",
+        "class_name": "testComputeShiftIncrementCase5EdgeCase",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.012\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testComputeShiftIncrementMultipleDeflations",
+        "target_class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+        "target_method": "computeShiftIncrement",
+        "class_name": "testComputeShiftIncrementMultipleDeflations",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.01\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testMath308OriginalCase",
+        "target_class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+        "target_method": "computeShiftIncrement",
+        "class_name": "testMath308OriginalCase",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.01\n\nOK (1 test)\n\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__ACS__Math__patch1-Math-81-ACS-plausible",
+    "true_project": "Math",
+    "true_bug_number": "81",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 690,
+    "output_tokens": 25,
+    "project": "Math",
+    "bug_number": null,
+    "recalled_label": "UNKNOWN",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__ACS__Math__patch1-Math-81-ACS-plausible",
+    "bug_id": "Math-81",
+    "s_edit_ast": 0.02195845697329377,
+    "s_edit_ast_actions": 37,
+    "s_edit_ast_nodes": 1685,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math/linear/EigenDecompositionImpl"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 560,
+      "cfg_edges": 603,
+      "branch_points": 53,
+      "cyclomatic_complexity": 45,
+      "def_count": 469,
+      "use_count": 1378,
+      "defuse_pairs": 469,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+          "method": "computeShiftIncrement",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 560,
+          "cfg_edges": 603,
+          "branch_points": 53,
+          "cyclomatic_complexity": 45,
+          "def_count": 469,
+          "use_count": 1378,
+          "defuse_pairs": 469,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 564,
+      "cfg_edges": 608,
+      "branch_points": 54,
+      "cyclomatic_complexity": 46,
+      "def_count": 472,
+      "use_count": 1389,
+      "defuse_pairs": 472,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+          "method": "computeShiftIncrement",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 564,
+          "cfg_edges": 608,
+          "branch_points": 54,
+          "cyclomatic_complexity": 46,
+          "def_count": 472,
+          "use_count": 1389,
+          "defuse_pairs": 472,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 1,
+    "d_stmts": 4,
+    "d_branch_points": 1,
+    "d_cfg_edges": 5,
+    "d_defuse_pairs": 3,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 317,
+      "n_candidate_warnings": 317,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 3,
+      "n_changed_class_files_candidate": 3,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__ACS__Math__patch1-Math-81-ACS-plausible",
+    "bug_id": "Math-81",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

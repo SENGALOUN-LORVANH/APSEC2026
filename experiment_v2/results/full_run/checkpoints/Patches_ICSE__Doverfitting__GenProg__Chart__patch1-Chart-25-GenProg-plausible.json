@@ -1,0 +1,267 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__GenProg__Chart__patch1-Chart-25-GenProg-plausible",
+  "bug_id": "Chart-25",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 9.077
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.45
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 9.923
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 36.788
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.501
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 31.358
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__GenProg__Chart__patch1-Chart-25-GenProg-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.571269553000093,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 4289,
+        "output_tokens": 157,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 1.0,
+          "readability": 0.2,
+          "security_robustness": 0.0,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch removes the null check and assignment logic, causing getMeanValue() to always return null regardless of input. This passes tests that expect null returns for null data, but breaks the core functionality of retrieving mean values when data exists. The patch is minimal but fundamentally breaks the method's intended behavior."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.017631765999795,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 4289,
+        "output_tokens": 157,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 1.0,
+          "readability": 0.2,
+          "security_robustness": 0.0,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch removes the null check and assignment logic, causing getMeanValue() to always return null regardless of input. This passes tests that expect null returns for null data, but breaks the core functionality of retrieving mean values when data exists. The patch is minimal but fundamentally breaks the method's intended behavior."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 2.994361311999455,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 4289,
+        "output_tokens": 155,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 1.0,
+          "readability": 0.2,
+          "security_robustness": 0.0,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch removes the null check and assignment logic, causing getMeanValue() to always return null regardless of input. This passes tests that expect null returns for null data, but breaks the core functionality of retrieving mean values when data exists. The patch deletes essential behavior rather than fixing a bug."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__GenProg__Chart__patch1-Chart-25-GenProg-plausible",
+    "bug_id": "Chart-25",
+    "model": "claude-haiku-4-5",
+    "latency_s": 7.655427170000621,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 4186,
+    "output_tokens": 1216,
+    "tests": [
+      {
+        "name": "testGetMeanValueWithValidData",
+        "target_class": "org.jfree.data.statistics.DefaultStatisticalCategoryDataset",
+        "target_method": "getMeanValue",
+        "class_name": "TestGetMeanValueWithValidData",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.011\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testGetMeanValueMultipleRows",
+        "target_class": "org.jfree.data.statistics.DefaultStatisticalCategoryDataset",
+        "target_method": "getMeanValue",
+        "class_name": "TestGetMeanValueMultipleRows",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.01\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testGetMeanValueNullWhenNoData",
+        "target_class": "org.jfree.data.statistics.DefaultStatisticalCategoryDataset",
+        "target_method": "getMeanValue",
+        "class_name": "TestGetMeanValueNullWhenNoData",
+        "status": "INVALID_ORACLE",
+        "candidate_pass": null,
+        "log": ".E\nTime: 0.007\nThere was 1 error:\n1) testGetMeanValueNullWhenNoData(org.jfree.chart.renderer.category.junit.TestGetMeanValueNullWhenNoData)java.lang.IndexOutOfBoundsException: Index: 1, Size: 1\n\tat java.util.ArrayList.rangeCheck(ArrayList.java:659)\n\tat java.util.ArrayList.get(ArrayList.java:435)\n\tat org.jfree.data.KeyedObjects2D.getObject(KeyedObjects2D.java:111)\n\tat org.jfree.data.statistics.DefaultStatisticalCategoryDataset.getMeanValue(DefaultStatisticalCategoryDataset.java:108)\n\tat org.jfree.chart.renderer.category.junit.TestGetMeanValueNullWhenNoData.testGetMeanValueNullWhenNoData(TestGetMeanValueNullWhenNoData.java:12)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\nFAILURES!!!\nTests run: 1,  Failures: 0,  Errors: 1\n\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__GenProg__Chart__patch1-Chart-25-GenProg-plausible",
+    "true_project": "Chart",
+    "true_bug_number": "25",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 553,
+    "output_tokens": 25,
+    "project": "Chart",
+    "bug_number": null,
+    "recalled_label": "UNKNOWN",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__GenProg__Chart__patch1-Chart-25-GenProg-plausible",
+    "bug_id": "Chart-25",
+    "s_edit_ast": 0.3225806451612903,
+    "s_edit_ast_actions": 20,
+    "s_edit_ast_nodes": 62,
+    "s_edit_error": null,
+    "s_vuln_changed": 0.5,
+    "s_vuln_new_warning_count": 1,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/jfree/data/statistics/DefaultStatisticalCategoryDataset"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 20,
+      "cfg_edges": 20,
+      "branch_points": 2,
+      "cyclomatic_complexity": 4,
+      "def_count": 16,
+      "use_count": 36,
+      "defuse_pairs": 16,
+      "per_method": [
+        {
+          "class": "org.jfree.data.statistics.DefaultStatisticalCategoryDataset",
+          "method": "getMeanValue",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 20,
+          "cfg_edges": 20,
+          "branch_points": 2,
+          "cyclomatic_complexity": 4,
+          "def_count": 16,
+          "use_count": 36,
+          "defuse_pairs": 16,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 18,
+      "cfg_edges": 17,
+      "branch_points": 1,
+      "cyclomatic_complexity": 3,
+      "def_count": 15,
+      "use_count": 31,
+      "defuse_pairs": 15,
+      "per_method": [
+        {
+          "class": "org.jfree.data.statistics.DefaultStatisticalCategoryDataset",
+          "method": "getMeanValue",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 18,
+          "cfg_edges": 17,
+          "branch_points": 1,
+          "cyclomatic_complexity": 3,
+          "def_count": 15,
+          "use_count": 31,
+          "defuse_pairs": 15,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": -1,
+    "d_stmts": -2,
+    "d_branch_points": -1,
+    "d_cfg_edges": -3,
+    "d_defuse_pairs": -1,
+    "vuln_detail": {
+      "s_vuln": 0.5,
+      "new_warnings": [
+        {
+          "bug_type": "DLS",
+          "category": "D",
+          "priority": "M",
+          "severity": "MEDIUM",
+          "class": "DefaultStatisticalCategoryDataset",
+          "method": "getMeanValue",
+          "location": "DefaultStatisticalCategoryDataset.java:line 108",
+          "description": "Dead store to masd in org.jfree.data.statistics.DefaultStatisticalCategoryDataset.getMeanValue(int, int)"
+        }
+      ],
+      "n_buggy_warnings": 7,
+      "n_candidate_warnings": 8,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__GenProg__Chart__patch1-Chart-25-GenProg-plausible",
+    "bug_id": "Chart-25",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

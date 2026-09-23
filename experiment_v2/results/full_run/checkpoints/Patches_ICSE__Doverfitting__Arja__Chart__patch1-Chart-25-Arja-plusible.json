@@ -1,0 +1,324 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__Arja__Chart__patch1-Chart-25-Arja-plusible",
+  "bug_id": "Chart-25",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 10.696
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.523
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 10.057
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 26.606
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.197
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 27.846
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__Arja__Chart__patch1-Chart-25-Arja-plusible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.110318156000176,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 7070,
+        "output_tokens": 159,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.0,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch introduces critical null pointer dereference bugs by removing null checks in getMeanValue() and getStdDevValue(), and adds unrelated code at the start of drawHorizontalItem(). These changes weaken functionality and introduce security risks rather than fixing the underlying issue of handling null values gracefully."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.0552457570001934,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 7070,
+        "output_tokens": 159,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.0,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch introduces critical null pointer dereference bugs by removing null checks in getMeanValue() and getStdDevValue(), and adds unrelated code at the start of drawHorizontalItem(). These changes weaken functionality and introduce security risks rather than fixing the underlying issue of handling null statistical values properly."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.110358933000498,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 7070,
+        "output_tokens": 159,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.0,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch introduces critical null pointer dereference bugs by removing null checks in getMeanValue() and getStdDevValue(), and adds unrelated code at the start of drawHorizontalItem(). These changes weaken functionality and introduce security risks rather than fixing the underlying issue of handling null statistical values properly."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__Arja__Chart__patch1-Chart-25-Arja-plusible",
+    "bug_id": "Chart-25",
+    "model": "claude-haiku-4-5",
+    "latency_s": 10.726659810000456,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 6967,
+    "output_tokens": 1394,
+    "tests": [
+      {
+        "name": "testDrawWithNullMeanVertical",
+        "target_class": "org.jfree.chart.renderer.category.StatisticalBarRenderer",
+        "target_method": "drawVerticalItem",
+        "class_name": "TestDrawWithValidMeanVertical",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "orted by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/RuntimeException.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Exception.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Exception.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Throwable.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Throwable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/awt/Graphics.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/awt/Graphics.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 1 error\n    [javac] 36 warnings\n\nBUILD FAILED\n/opt/defects4j-2.0.1/framework/projects/Chart/Chart.build.xml:123: Compile failed; see the compiler error output for details.\n\nTotal time: 0 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testGetMeanValueReturnsNullWhenDataIsNull",
+        "target_class": "org.jfree.data.statistics.DefaultStatisticalCategoryDataset",
+        "target_method": "getMeanValue",
+        "class_name": "TestGetMeanValueNull",
+        "status": "INVALID_ORACLE",
+        "candidate_pass": null,
+        "log": ".E\nTime: 0.005\nThere was 1 error:\n1) testGetMeanValueReturnsNullWhenNoData(org.jfree.chart.renderer.category.junit.TestGetMeanValueNull)java.lang.IndexOutOfBoundsException: Index: 0, Size: 0\n\tat java.util.ArrayList.rangeCheck(ArrayList.java:659)\n\tat java.util.ArrayList.get(ArrayList.java:435)\n\tat org.jfree.data.KeyedObjects2D.getObject(KeyedObjects2D.java:109)\n\tat org.jfree.data.statistics.DefaultStatisticalCategoryDataset.getMeanValue(DefaultStatisticalCategoryDataset.java:108)\n\tat org.jfree.chart.renderer.category.junit.TestGetMeanValueNull.testGetMeanValueReturnsNullWhenNoData(TestGetMeanValueNull.java:12)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\nFAILURES!!!\nTests run: 1,  Failures: 0,  Errors: 1\n\n"
+      },
+      {
+        "name": "testGetStdDevValueWithValidData",
+        "target_class": "org.jfree.data.statistics.DefaultStatisticalCategoryDataset",
+        "target_method": "getStdDevValue",
+        "class_name": "TestGetStdDevValueWithData",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.006\n\nOK (1 test)\n\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__Arja__Chart__patch1-Chart-25-Arja-plusible",
+    "true_project": "Chart",
+    "true_bug_number": "25",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 1197,
+    "output_tokens": 26,
+    "project": "Chart",
+    "bug_number": 1,
+    "recalled_label": "UNKNOWN",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__Arja__Chart__patch1-Chart-25-Arja-plusible",
+    "bug_id": "Chart-25",
+    "s_edit_ast": 0.08780487804878048,
+    "s_edit_ast_actions": 72,
+    "s_edit_ast_nodes": 820,
+    "s_edit_error": null,
+    "s_vuln_changed": 0.5,
+    "s_vuln_new_warning_count": 1,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/jfree/chart/renderer/category/StatisticalBarRenderer",
+      "org/jfree/data/statistics/DefaultStatisticalCategoryDataset"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 200,
+      "cfg_edges": 214,
+      "branch_points": 21,
+      "cyclomatic_complexity": 24,
+      "def_count": 147,
+      "use_count": 476,
+      "defuse_pairs": 147,
+      "per_method": [
+        {
+          "class": "org.jfree.chart.renderer.category.StatisticalBarRenderer",
+          "method": "drawHorizontalItem",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 160,
+          "cfg_edges": 174,
+          "branch_points": 17,
+          "cyclomatic_complexity": 16,
+          "def_count": 115,
+          "use_count": 404,
+          "defuse_pairs": 115,
+          "error": null
+        },
+        {
+          "class": "org.jfree.data.statistics.DefaultStatisticalCategoryDataset",
+          "method": "getMeanValue",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 20,
+          "cfg_edges": 20,
+          "branch_points": 2,
+          "cyclomatic_complexity": 4,
+          "def_count": 16,
+          "use_count": 36,
+          "defuse_pairs": 16,
+          "error": null
+        },
+        {
+          "class": "org.jfree.data.statistics.DefaultStatisticalCategoryDataset",
+          "method": "getStdDevValue",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 20,
+          "cfg_edges": 20,
+          "branch_points": 2,
+          "cyclomatic_complexity": 4,
+          "def_count": 16,
+          "use_count": 36,
+          "defuse_pairs": 16,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 209,
+      "cfg_edges": 223,
+      "branch_points": 21,
+      "cyclomatic_complexity": 24,
+      "def_count": 153,
+      "use_count": 498,
+      "defuse_pairs": 153,
+      "per_method": [
+        {
+          "class": "org.jfree.chart.renderer.category.StatisticalBarRenderer",
+          "method": "drawHorizontalItem",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 171,
+          "cfg_edges": 186,
+          "branch_points": 18,
+          "cyclomatic_complexity": 17,
+          "def_count": 122,
+          "use_count": 431,
+          "defuse_pairs": 122,
+          "error": null
+        },
+        {
+          "class": "org.jfree.data.statistics.DefaultStatisticalCategoryDataset",
+          "method": "getMeanValue",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 19,
+          "cfg_edges": 19,
+          "branch_points": 2,
+          "cyclomatic_complexity": 4,
+          "def_count": 15,
+          "use_count": 34,
+          "defuse_pairs": 15,
+          "error": null
+        },
+        {
+          "class": "org.jfree.data.statistics.DefaultStatisticalCategoryDataset",
+          "method": "getStdDevValue",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 19,
+          "cfg_edges": 18,
+          "branch_points": 1,
+          "cyclomatic_complexity": 3,
+          "def_count": 16,
+          "use_count": 33,
+          "defuse_pairs": 16,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": 9,
+    "d_branch_points": 0,
+    "d_cfg_edges": 9,
+    "d_defuse_pairs": 6,
+    "vuln_detail": {
+      "s_vuln": 0.5,
+      "new_warnings": [
+        {
+          "bug_type": "UCF",
+          "category": "D",
+          "priority": "M",
+          "severity": "MEDIUM",
+          "class": "DefaultStatisticalCategoryDataset",
+          "method": "getMeanValue",
+          "location": "DefaultStatisticalCategoryDataset.java:line 110",
+          "description": "Useless control flow in org.jfree.data.statistics.DefaultStatisticalCategoryDataset.getMeanValue(int, int)"
+        }
+      ],
+      "n_buggy_warnings": 8,
+      "n_candidate_warnings": 9,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 2,
+      "n_changed_class_files_candidate": 2,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__Arja__Chart__patch1-Chart-25-Arja-plusible",
+    "bug_id": "Chart-25",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

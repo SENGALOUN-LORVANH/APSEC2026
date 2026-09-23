@@ -1,0 +1,276 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__Nopol__Chart__patch1-Chart-25-Nopol-plausible",
+  "bug_id": "Chart-25",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 10.156
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.536
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 9.417
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 33.918
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.097
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 30.05
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__Nopol__Chart__patch1-Chart-25-Nopol-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.010000000000000009,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.0372862140002326,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 5066,
+        "output_tokens": 168,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.0,
+          "readability": 0.1,
+          "security_robustness": 0.0,
+          "judgement": "OVERFITTING",
+          "confidence": 0.99,
+          "brief_reason": "The patch wraps the entire drawing logic in a condition `if (3 == 0)` which is always false, effectively disabling all rendering. This makes the tests pass by preventing any assertions from being reached, but completely removes the intended functionality. The patch is not a genuine bug fix but rather a hack that breaks the core behavior of the renderer."
+        },
+        "s_sem": 0.010000000000000009,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 2.989437614000053,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 5066,
+        "output_tokens": 163,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.0,
+          "readability": 0.0,
+          "security_robustness": 0.5,
+          "judgement": "OVERFITTING",
+          "confidence": 0.99,
+          "brief_reason": "The patch wraps the entire drawing logic in a condition `if (3 == 0)` which is always false, effectively disabling all rendering. This makes the tests pass by preventing any assertions from being reached, but completely removes the intended functionality. This is a clear case of overfitting that masks the underlying bug rather than fixing it."
+        },
+        "s_sem": 0.010000000000000009,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 2.8935411860002205,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 5066,
+        "output_tokens": 170,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.0,
+          "readability": 0.0,
+          "security_robustness": 0.5,
+          "judgement": "OVERFITTING",
+          "confidence": 0.99,
+          "brief_reason": "The patch wraps the entire drawing logic in a condition `if (3 == 0)` which is always false, effectively disabling all rendering. This makes the tests pass by preventing any assertions from being reached, but it completely removes the intended functionality rather than fixing the underlying bug. The patch is a clear case of overfitting that masks the problem instead of solving it."
+        },
+        "s_sem": 0.010000000000000009,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__Nopol__Chart__patch1-Chart-25-Nopol-plausible",
+    "bug_id": "Chart-25",
+    "model": "claude-haiku-4-5",
+    "latency_s": 13.531394294000165,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 4963,
+    "output_tokens": 2708,
+    "tests": [
+      {
+        "name": "testDrawItemWithVerticalOrientation",
+        "target_class": "org.jfree.chart.renderer.category.StatisticalBarRenderer",
+        "target_method": "drawItem",
+        "class_name": "TestDrawItemVerticalOrientation",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.14\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testDrawItemWithHorizontalOrientation",
+        "target_class": "org.jfree.chart.renderer.category.StatisticalBarRenderer",
+        "target_method": "drawItem",
+        "class_name": "TestDrawItemHorizontalOrientation",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.154\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testDrawItemWithNullMeanAndValidDeviation",
+        "target_class": "org.jfree.chart.renderer.category.StatisticalBarRenderer",
+        "target_method": "drawItem",
+        "class_name": "TestDrawItemNullMeanValidDeviation",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/io/ObjectInputValidation.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/io/ObjectInputValidation.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/awt/Image.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/awt/Image.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/awt/geom/Rectangle2D$Double.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/awt/Graphics.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/awt/Graphics.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 1 error\n    [javac] 28 warnings\n\nBUILD FAILED\n/opt/defects4j-2.0.1/framework/projects/Chart/Chart.build.xml:123: Compile failed; see the compiler error output for details.\n\nTotal time: 0 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testDrawItemWithValidMeanAndNullDeviation",
+        "target_class": "org.jfree.chart.renderer.category.StatisticalBarRenderer",
+        "target_method": "drawItem",
+        "class_name": "TestDrawItemValidMeanNullDeviation",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/io/ObjectInputValidation.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/io/ObjectInputValidation.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/awt/Image.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/awt/Image.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/awt/geom/Rectangle2D$Double.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/awt/Graphics.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/awt/Graphics.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 1 error\n    [javac] 28 warnings\n\nBUILD FAILED\n/opt/defects4j-2.0.1/framework/projects/Chart/Chart.build.xml:123: Compile failed; see the compiler error output for details.\n\nTotal time: 0 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__Nopol__Chart__patch1-Chart-25-Nopol-plausible",
+    "true_project": "Chart",
+    "true_bug_number": "25",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 735,
+    "output_tokens": 25,
+    "project": "Chart",
+    "bug_number": null,
+    "recalled_label": "UNKNOWN",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__Nopol__Chart__patch1-Chart-25-Nopol-plausible",
+    "bug_id": "Chart-25",
+    "s_edit_ast": 0.08904109589041095,
+    "s_edit_ast_actions": 13,
+    "s_edit_ast_nodes": 146,
+    "s_edit_error": null,
+    "s_vuln_changed": 0.5,
+    "s_vuln_new_warning_count": 1,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/jfree/chart/renderer/category/StatisticalBarRenderer"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 28,
+      "cfg_edges": 29,
+      "branch_points": 3,
+      "cyclomatic_complexity": 3,
+      "def_count": 19,
+      "use_count": 59,
+      "defuse_pairs": 19,
+      "per_method": [
+        {
+          "class": "org.jfree.chart.renderer.category.StatisticalBarRenderer",
+          "method": "drawItem",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 28,
+          "cfg_edges": 29,
+          "branch_points": 3,
+          "cyclomatic_complexity": 3,
+          "def_count": 19,
+          "use_count": 59,
+          "defuse_pairs": 19,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 21,
+      "cfg_edges": 20,
+      "branch_points": 1,
+      "cyclomatic_complexity": 1,
+      "def_count": 17,
+      "use_count": 29,
+      "defuse_pairs": 17,
+      "per_method": [
+        {
+          "class": "org.jfree.chart.renderer.category.StatisticalBarRenderer",
+          "method": "drawItem",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 21,
+          "cfg_edges": 20,
+          "branch_points": 1,
+          "cyclomatic_complexity": 1,
+          "def_count": 17,
+          "use_count": 29,
+          "defuse_pairs": 17,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": -2,
+    "d_stmts": -7,
+    "d_branch_points": -2,
+    "d_cfg_edges": -9,
+    "d_defuse_pairs": -2,
+    "vuln_detail": {
+      "s_vuln": 0.5,
+      "new_warnings": [
+        {
+          "bug_type": "DLS",
+          "category": "D",
+          "priority": "M",
+          "severity": "MEDIUM",
+          "class": "StatisticalBarRenderer",
+          "method": "drawItem",
+          "location": "StatisticalBarRenderer.java:line 206",
+          "description": "Dead store to orientation in org.jfree.chart.renderer.category.StatisticalBarRenderer.drawItem(Graphics2D, CategoryItemRendererState, Rectangle2D, CategoryPlot, CategoryAxis, ValueAxis, CategoryDataset, int, int, int)"
+        }
+      ],
+      "n_buggy_warnings": 7,
+      "n_candidate_warnings": 9,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__Nopol__Chart__patch1-Chart-25-Nopol-plausible",
+    "bug_id": "Chart-25",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}
