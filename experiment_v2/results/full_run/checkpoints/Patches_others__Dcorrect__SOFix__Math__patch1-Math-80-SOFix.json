@@ -1,0 +1,256 @@
+{
+  "patch_id": "Patches_others__Dcorrect__SOFix__Math__patch1-Math-80-SOFix",
+  "bug_id": "Math-80",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 8.273
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.72
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 8.455
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 74.518
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.03
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 55.321
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_others__Dcorrect__SOFix__Math__patch1-Math-80-SOFix",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.9499999999999998,
+    "decision": "CORRECT",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 2.74522865300014,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2279,
+        "output_tokens": 174,
+        "parsed": {
+          "generalization": "general",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 1.0,
+          "readability": 1.0,
+          "security_robustness": 1.0,
+          "judgement": "CORRECT",
+          "confidence": 0.95,
+          "brief_reason": "The patch fixes an off-by-one error in the array flipping logic by changing the initial value of j from 4*n-1 to 4*(n-1), which correctly positions the end index for the flip operation. This is a minimal, targeted fix that addresses the root cause of the incorrect eigenvalue computation shown in the test failure, and the change maintains code clarity and safety."
+        },
+        "s_sem": 0.95,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 2.5169299930003035,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2279,
+        "output_tokens": 161,
+        "parsed": {
+          "generalization": "general",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 1.0,
+          "readability": 1.0,
+          "security_robustness": 1.0,
+          "judgement": "CORRECT",
+          "confidence": 0.95,
+          "brief_reason": "The patch fixes an off-by-one error in the array flipping logic by changing the initial value of j from 4*n-1 to 4*(n-1), which correctly positions the starting index for the reverse iteration. This is a minimal, targeted fix that addresses the root cause of the incorrect eigenvalue computation without affecting other functionality."
+        },
+        "s_sem": 0.95,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 2.524418337000043,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2279,
+        "output_tokens": 164,
+        "parsed": {
+          "generalization": "general",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 1.0,
+          "readability": 1.0,
+          "security_robustness": 1.0,
+          "judgement": "CORRECT",
+          "confidence": 0.95,
+          "brief_reason": "The patch fixes an off-by-one error in the array flipping logic by changing the initial value of j from 4*n-1 to 4*(n-1), which correctly positions the starting index for the reverse iteration. This is a minimal, targeted fix that addresses the root cause of the incorrect eigenvalue computation without affecting other functionality."
+        },
+        "s_sem": 0.95,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_others__Dcorrect__SOFix__Math__patch1-Math-80-SOFix",
+    "bug_id": "Math-80",
+    "model": "claude-haiku-4-5",
+    "latency_s": 10.603244500000073,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 2172,
+    "output_tokens": 1592,
+    "tests": [
+      {
+        "name": "testFlipIfWarrantedBoundaryCondition",
+        "target_class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+        "target_method": "flipIfWarranted",
+        "class_name": "TestFlipIfWarrantedBoundary",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.01\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testFlipIfWarrantedSmallMatrix",
+        "target_class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+        "target_method": "flipIfWarranted",
+        "class_name": "TestFlipIfWarrantedSmallMatrix",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.018\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testFlipIfWarrantedLargerMatrix",
+        "target_class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+        "target_method": "flipIfWarranted",
+        "class_name": "TestFlipIfWarrantedLargerMatrix",
+        "status": "INVALID_ORACLE",
+        "candidate_pass": null,
+        "log": ".F\nTime: 0.012\nThere was 1 failure:\n1) testFlipIfWarrantedLargerMatrix(org.apache.commons.math.linear.TestFlipIfWarrantedLargerMatrix)junit.framework.AssertionFailedError: Eigenvalue should be <= 10.0\n\tat org.apache.commons.math.linear.TestFlipIfWarrantedLargerMatrix.testFlipIfWarrantedLargerMatrix(TestFlipIfWarrantedLargerMatrix.java:27)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\nFAILURES!!!\nTests run: 1,  Failures: 1,  Errors: 0\n\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_others__Dcorrect__SOFix__Math__patch1-Math-80-SOFix",
+    "true_project": "Math",
+    "true_bug_number": "80",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 643,
+    "output_tokens": 26,
+    "project": "Math",
+    "bug_number": 369,
+    "recalled_label": "CORRECT",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_others__Dcorrect__SOFix__Math__patch1-Math-80-SOFix",
+    "bug_id": "Math-80",
+    "s_edit_ast": 0.1044776119402985,
+    "s_edit_ast_actions": 14,
+    "s_edit_ast_nodes": 134,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math/linear/EigenDecompositionImpl"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 40,
+      "cfg_edges": 41,
+      "branch_points": 3,
+      "cyclomatic_complexity": 3,
+      "def_count": 33,
+      "use_count": 92,
+      "defuse_pairs": 33,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+          "method": "flipIfWarranted",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 40,
+          "cfg_edges": 41,
+          "branch_points": 3,
+          "cyclomatic_complexity": 3,
+          "def_count": 33,
+          "use_count": 92,
+          "defuse_pairs": 33,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 40,
+      "cfg_edges": 41,
+      "branch_points": 3,
+      "cyclomatic_complexity": 3,
+      "def_count": 33,
+      "use_count": 92,
+      "defuse_pairs": 33,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+          "method": "flipIfWarranted",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 40,
+          "cfg_edges": 41,
+          "branch_points": 3,
+          "cyclomatic_complexity": 3,
+          "def_count": 33,
+          "use_count": 92,
+          "defuse_pairs": 33,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": 0,
+    "d_branch_points": 0,
+    "d_cfg_edges": 0,
+    "d_defuse_pairs": 0,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 317,
+      "n_candidate_warnings": 317,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 3,
+      "n_changed_class_files_candidate": 3,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_others__Dcorrect__SOFix__Math__patch1-Math-80-SOFix",
+    "bug_id": "Math-80",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

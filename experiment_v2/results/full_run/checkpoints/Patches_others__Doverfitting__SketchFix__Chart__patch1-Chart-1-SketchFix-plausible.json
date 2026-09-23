@@ -1,0 +1,256 @@
+{
+  "patch_id": "Patches_others__Doverfitting__SketchFix__Chart__patch1-Chart-1-SketchFix-plausible",
+  "bug_id": "Chart-1",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 13.224
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.478
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 10.91
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 53.104
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.071
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 39.252
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_others__Doverfitting__SketchFix__Chart__patch1-Chart-1-SketchFix-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.524244488000022,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3139,
+        "output_tokens": 169,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.3,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch adds an unrelated condition comparing baseToolTipGenerator and legendItemToolTipGenerator to fix a logic error where 'if (dataset != null)' should be 'if (dataset == null)'. This is overfitting that masks the real bug and introduces nonsensical behavior checks that have nothing to do with the legend items functionality."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.3657741009997153,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3139,
+        "output_tokens": 169,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.3,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch adds an unrelated condition comparing baseToolTipGenerator and legendItemToolTipGenerator to fix a logic error where 'if (dataset != null)' should be 'if (dataset == null)'. This is overfitting that masks the real bug and introduces nonsensical behavior checks that have nothing to do with the legend items functionality."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.409197474999928,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3139,
+        "output_tokens": 169,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.3,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch adds an unrelated condition comparing baseToolTipGenerator and legendItemToolTipGenerator to fix a logic error where 'if (dataset != null)' should be 'if (dataset == null)'. This is overfitting that masks the real bug and introduces nonsensical behavior checks that have nothing to do with the legend items functionality."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_others__Doverfitting__SketchFix__Chart__patch1-Chart-1-SketchFix-plausible",
+    "bug_id": "Chart-1",
+    "model": "claude-haiku-4-5",
+    "latency_s": 12.155155809000007,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 3036,
+    "output_tokens": 1234,
+    "tests": [
+      {
+        "name": "testGetLegendItemsWithValidDataset",
+        "target_class": "org.jfree.chart.renderer.category.AbstractCategoryItemRenderer",
+        "target_method": "getLegendItems",
+        "class_name": "testGetLegendItemsWithValidDataset",
+        "status": "VALID_BUG_REVEALING",
+        "candidate_pass": true,
+        "log": ".\nTime: 0.092\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testGetLegendItemsWithNullDataset",
+        "target_class": "org.jfree.chart.renderer.category.AbstractCategoryItemRenderer",
+        "target_method": "getLegendItems",
+        "class_name": "testGetLegendItemsWithNullDataset",
+        "status": "VALID_BUG_REVEALING",
+        "candidate_pass": false,
+        "log": ".E\nTime: 0.142\nThere was 1 error:\n1) testGetLegendItemsWithNullDataset(org.jfree.chart.renderer.category.junit.testGetLegendItemsWithNullDataset)java.lang.NullPointerException\n\tat org.jfree.chart.renderer.category.AbstractCategoryItemRenderer.getLegendItems(AbstractCategoryItemRenderer.java:1800)\n\tat org.jfree.chart.renderer.category.junit.testGetLegendItemsWithNullDataset.testGetLegendItemsWithNullDataset(testGetLegendItemsWithNullDataset.java:14)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\nFAILURES!!!\nTests run: 1,  Failures: 0,  Errors: 1\n\n"
+      },
+      {
+        "name": "testGetLegendItemsWithNullPlot",
+        "target_class": "org.jfree.chart.renderer.category.AbstractCategoryItemRenderer",
+        "target_method": "getLegendItems",
+        "class_name": "testGetLegendItemsWithNullPlot",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.058\n\nOK (1 test)\n\n"
+      }
+    ],
+    "s_cex": 0.5,
+    "n_valid": 2,
+    "n_passed": 1
+  },
+  "memorization": {
+    "patch_id": "Patches_others__Doverfitting__SketchFix__Chart__patch1-Chart-1-SketchFix-plausible",
+    "true_project": "Chart",
+    "true_bug_number": "1",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 567,
+    "output_tokens": 28,
+    "project": "Chart",
+    "bug_number": 5,
+    "recalled_label": "OVERFITTING",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_others__Doverfitting__SketchFix__Chart__patch1-Chart-1-SketchFix-plausible",
+    "bug_id": "Chart-1",
+    "s_edit_ast": 0.08287292817679558,
+    "s_edit_ast_actions": 15,
+    "s_edit_ast_nodes": 181,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/jfree/chart/renderer/category/AbstractCategoryItemRenderer"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 39,
+      "cfg_edges": 45,
+      "branch_points": 9,
+      "cyclomatic_complexity": 8,
+      "def_count": 21,
+      "use_count": 87,
+      "defuse_pairs": 21,
+      "per_method": [
+        {
+          "class": "org.jfree.chart.renderer.category.AbstractCategoryItemRenderer",
+          "method": "getLegendItems",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 39,
+          "cfg_edges": 45,
+          "branch_points": 9,
+          "cyclomatic_complexity": 8,
+          "def_count": 21,
+          "use_count": 87,
+          "defuse_pairs": 21,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 42,
+      "cfg_edges": 49,
+      "branch_points": 10,
+      "cyclomatic_complexity": 9,
+      "def_count": 23,
+      "use_count": 94,
+      "defuse_pairs": 23,
+      "per_method": [
+        {
+          "class": "org.jfree.chart.renderer.category.AbstractCategoryItemRenderer",
+          "method": "getLegendItems",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 42,
+          "cfg_edges": 49,
+          "branch_points": 10,
+          "cyclomatic_complexity": 9,
+          "def_count": 23,
+          "use_count": 94,
+          "defuse_pairs": 23,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 1,
+    "d_stmts": 3,
+    "d_branch_points": 1,
+    "d_cfg_edges": 4,
+    "d_defuse_pairs": 2,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 7,
+      "n_candidate_warnings": 6,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_others__Doverfitting__SketchFix__Chart__patch1-Chart-1-SketchFix-plausible",
+    "bug_id": "Chart-1",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

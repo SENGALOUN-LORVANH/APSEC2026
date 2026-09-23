@@ -1,0 +1,265 @@
+{
+  "patch_id": "Patches_others__Doverfitting__Jaid__Math__patch3-Math-85-Jaid-plausible",
+  "bug_id": "Math-85",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 11.035
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.847
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 9.348
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 26.601
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.255
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 76.276
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_others__Doverfitting__Jaid__Math__patch3-Math-85-Jaid-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.100472156000251,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3116,
+        "output_tokens": 198,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.0,
+          "security_robustness": 0.3,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch adds a convoluted condition `(fa * fb >= 0.0 == initial > upperBound) != false && fa * fb >= 0.0` that appears to be a nonsensical logical expression designed to pass the specific test case rather than fix the underlying bug. The condition is unreadable, introduces unclear semantics, and does not address the root cause of the convergence failure. A proper fix would address the bracketing algorithm's logic, not add arbitrary boolean expressions."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 2.916856125999857,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3116,
+        "output_tokens": 187,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.0,
+          "security_robustness": 0.3,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch adds a convoluted condition `(fa * fb >= 0.0 == initial > upperBound) != false && fa * fb >= 0.0` that appears to be a nonsensical logical expression designed to pass the specific test case rather than fix the underlying bug. The condition is unreadable, introduces unclear semantics, and likely masks the real issue without properly addressing the bracketing algorithm's convergence problem."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 2.9226959440002247,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3116,
+        "output_tokens": 185,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.0,
+          "security_robustness": 0.3,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch adds a convoluted condition `(fa * fb >= 0.0 == initial > upperBound) != false && fa * fb >= 0.0` that appears to be a nonsensical logical expression designed to pass the specific test case rather than fix the underlying bug. The condition is unreadable, introduces unclear semantics, and likely masks the real issue without properly addressing the bracketing algorithm's convergence problem."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_others__Doverfitting__Jaid__Math__patch3-Math-85-Jaid-plausible",
+    "bug_id": "Math-85",
+    "model": "claude-haiku-4-5",
+    "latency_s": 12.972687726999993,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 2985,
+    "output_tokens": 2116,
+    "tests": [
+      {
+        "name": "testBracketWithValueAboveUpperBound",
+        "target_class": "org.apache.commons.math.analysis.solvers.UnivariateRealSolverUtils",
+        "target_method": "bracket",
+        "class_name": "BracketingTest",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "ed that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Throwable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Error.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Error.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/RuntimeException.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/RuntimeException.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] /data/qc_workspaces/gen_tests/Patches_others__Doverfitting__Jaid__Math__patch3-Math-85-Jaid-plausible/BracketingTest/fixed/src/test/org/apache/commons/math/distribution/BracketingTest.java:21: error: unreported exception ConvergenceException; must be caught or declared to be thrown\n    [javac]         UnivariateRealSolverUtils.bracket(f, 8.0, 0.0, 10.0, 100);\n    [javac]                                          ^\n    [javac] 1 error\n    [javac] 24 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_others__Doverfitting__Jaid__Math__patch3-Math-85-Jaid-plausible/BracketingTest/fixed/build.xml:165: Compile failed; see the compiler error output for details.\n\nTotal time: 1 second\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testBracketSuccessfullyFindsBracketWithInitialNearBounds",
+        "target_class": "org.apache.commons.math.analysis.solvers.UnivariateRealSolverUtils",
+        "target_method": "bracket",
+        "class_name": "BracketingSuccessTest",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "m/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Error.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Error.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/RuntimeException.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/RuntimeException.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] /data/qc_workspaces/gen_tests/Patches_others__Doverfitting__Jaid__Math__patch3-Math-85-Jaid-plausible/BracketingSuccessTest/fixed/src/test/org/apache/commons/math/distribution/BracketingSuccessTest.java:19: error: unreported exception ConvergenceException; must be caught or declared to be thrown\n    [javac]         double[] bracket = UnivariateRealSolverUtils.bracket(f, 4.5, 0.0, 10.0, 100);\n    [javac]                                                             ^\n    [javac] 1 error\n    [javac] 24 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_others__Doverfitting__Jaid__Math__patch3-Math-85-Jaid-plausible/BracketingSuccessTest/fixed/build.xml:165: Compile failed; see the compiler error output for details.\n\nTotal time: 0 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testBracketWithInitialAtLowerBound",
+        "target_class": "org.apache.commons.math.analysis.solvers.UnivariateRealSolverUtils",
+        "target_method": "bracket",
+        "class_name": "BracketingBoundaryTest",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "ava-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/String.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Error.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Error.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/RuntimeException.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/RuntimeException.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] /data/qc_workspaces/gen_tests/Patches_others__Doverfitting__Jaid__Math__patch3-Math-85-Jaid-plausible/BracketingBoundaryTest/fixed/src/test/org/apache/commons/math/distribution/BracketingBoundaryTest.java:19: error: unreported exception ConvergenceException; must be caught or declared to be thrown\n    [javac]         double[] bracket = UnivariateRealSolverUtils.bracket(f, 0.0, 0.0, 10.0, 100);\n    [javac]                                                             ^\n    [javac] 1 error\n    [javac] 24 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_others__Doverfitting__Jaid__Math__patch3-Math-85-Jaid-plausible/BracketingBoundaryTest/fixed/build.xml:165: Compile failed; see the compiler error output for details.\n\nTotal time: 0 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testBracketFailsWhenNoValidBracketExists",
+        "target_class": "org.apache.commons.math.analysis.solvers.UnivariateRealSolverUtils",
+        "target_method": "bracket",
+        "class_name": "BracketingFailureTest",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "ler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Math.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Error.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Error.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/RuntimeException.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/RuntimeException.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] /data/qc_workspaces/gen_tests/Patches_others__Doverfitting__Jaid__Math__patch3-Math-85-Jaid-plausible/BracketingFailureTest/fixed/src/test/org/apache/commons/math/distribution/BracketingFailureTest.java:21: error: unreported exception ConvergenceException; must be caught or declared to be thrown\n    [javac]         UnivariateRealSolverUtils.bracket(f, 5.0, 0.0, 10.0, 100);\n    [javac]                                          ^\n    [javac] 1 error\n    [javac] 26 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_others__Doverfitting__Jaid__Math__patch3-Math-85-Jaid-plausible/BracketingFailureTest/fixed/build.xml:165: Compile failed; see the compiler error output for details.\n\nTotal time: 0 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_others__Doverfitting__Jaid__Math__patch3-Math-85-Jaid-plausible",
+    "true_project": "Math",
+    "true_bug_number": "85",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 642,
+    "output_tokens": 28,
+    "project": "Math",
+    "bug_number": 28,
+    "recalled_label": "OVERFITTING",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_others__Doverfitting__Jaid__Math__patch3-Math-85-Jaid-plausible",
+    "bug_id": "Math-85",
+    "s_edit_ast": 0.07326007326007326,
+    "s_edit_ast_actions": 20,
+    "s_edit_ast_nodes": 273,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math/analysis/solvers/UnivariateRealSolverUtils"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 88,
+      "cfg_edges": 92,
+      "branch_points": 10,
+      "cyclomatic_complexity": 8,
+      "def_count": 71,
+      "use_count": 207,
+      "defuse_pairs": 71,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.analysis.solvers.UnivariateRealSolverUtils",
+          "method": "bracket",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 88,
+          "cfg_edges": 92,
+          "branch_points": 10,
+          "cyclomatic_complexity": 8,
+          "def_count": 71,
+          "use_count": 207,
+          "defuse_pairs": 71,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 104,
+      "cfg_edges": 112,
+      "branch_points": 14,
+      "cyclomatic_complexity": 12,
+      "def_count": 80,
+      "use_count": 234,
+      "defuse_pairs": 80,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.analysis.solvers.UnivariateRealSolverUtils",
+          "method": "bracket",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 104,
+          "cfg_edges": 112,
+          "branch_points": 14,
+          "cyclomatic_complexity": 12,
+          "def_count": 80,
+          "use_count": 234,
+          "defuse_pairs": 80,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 4,
+    "d_stmts": 16,
+    "d_branch_points": 4,
+    "d_cfg_edges": 20,
+    "d_defuse_pairs": 9,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 314,
+      "n_candidate_warnings": 314,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 2,
+      "n_changed_class_files_candidate": 2,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_others__Doverfitting__Jaid__Math__patch3-Math-85-Jaid-plausible",
+    "bug_id": "Math-85",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

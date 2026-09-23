@@ -1,0 +1,256 @@
+{
+  "patch_id": "Patches_others__Dcorrect__Jaid__Math__patch2-Math-80-Jaid",
+  "bug_id": "Math-80",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 10.618
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.766
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 10.045
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 45.492
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.6
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 81.496
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_others__Dcorrect__Jaid__Math__patch2-Math-80-Jaid",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.15000000000000002,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.0261057090001486,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2241,
+        "output_tokens": 185,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.9,
+          "readability": 0.6,
+          "security_robustness": 0.9,
+          "judgement": "OVERFITTING",
+          "confidence": 0.85,
+          "brief_reason": "The patch changes the initialization of variable j from '4 * n - 1' to '4 * (n - 1)', which alters the loop bounds in the array-flipping logic. While this fixes the specific test case, it appears to be a targeted fix for that particular input rather than addressing the underlying algorithmic issue. The modification changes the loop iteration pattern without clear justification for why the original logic was incorrect."
+        },
+        "s_sem": 0.15000000000000002,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.150700897000206,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2241,
+        "output_tokens": 179,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.9,
+          "readability": 0.6,
+          "security_robustness": 1.0,
+          "judgement": "OVERFITTING",
+          "confidence": 0.85,
+          "brief_reason": "The patch changes the initialization of variable j from '4 * n - 1' to '4 * (n - 1)', which fixes the specific test case but appears to be an overfitting fix that corrects only the observed failing case rather than addressing the underlying algorithmic issue. The modification lacks proper justification and the readability is reduced due to the redundant reassignment immediately after initialization."
+        },
+        "s_sem": 0.15000000000000002,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.1664140970001426,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2241,
+        "output_tokens": 198,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.9,
+          "readability": 0.6,
+          "security_robustness": 0.9,
+          "judgement": "OVERFITTING",
+          "confidence": 0.85,
+          "brief_reason": "The patch changes the initialization of variable j from '4 * n - 1' to '4 * (n - 1)', which alters the loop bounds and array access pattern in the flip operation. While this fixes the specific failing test, it appears to be a targeted fix for that particular test case rather than addressing the underlying algorithmic issue. The modification changes the semantics of the flipping logic in a way that suggests overfitting to the test rather than correcting a general bug."
+        },
+        "s_sem": 0.15000000000000002,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_others__Dcorrect__Jaid__Math__patch2-Math-80-Jaid",
+    "bug_id": "Math-80",
+    "model": "claude-haiku-4-5",
+    "latency_s": 18.116532871000345,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 2134,
+    "output_tokens": 1965,
+    "tests": [
+      {
+        "name": "testFlipIfWarrantedBoundaryCondition",
+        "target_class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+        "target_method": "flipIfWarranted",
+        "class_name": "TestFlipIfWarrantedBoundary",
+        "status": "INVALID_ORACLE",
+        "candidate_pass": null,
+        "log": ".F\nTime: 0.011\nThere was 1 failure:\n1) testFlipIfWarrantedBoundaryCondition(org.apache.commons.math.linear.TestFlipIfWarrantedBoundary)junit.framework.AssertionFailedError: Eigenvalue product should equal determinant expected:<1.25> but was:<1.75>\n\tat org.apache.commons.math.linear.TestFlipIfWarrantedBoundary.testFlipIfWarrantedBoundaryCondition(TestFlipIfWarrantedBoundary.java:27)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\nFAILURES!!!\nTests run: 1,  Failures: 1,  Errors: 0\n\n"
+      },
+      {
+        "name": "testFlipIfWarrantedLargeMatrix",
+        "target_class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+        "target_method": "flipIfWarranted",
+        "class_name": "TestFlipIfWarrantedLargeMatrix",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.014\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testFlipIfWarrantedStepParameter",
+        "target_class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+        "target_method": "flipIfWarranted",
+        "class_name": "TestFlipIfWarrantedStepParameter",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.016\n\nOK (1 test)\n\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_others__Dcorrect__Jaid__Math__patch2-Math-80-Jaid",
+    "true_project": "Math",
+    "true_bug_number": "80",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 605,
+    "output_tokens": 28,
+    "project": "Math",
+    "bug_number": 31,
+    "recalled_label": "OVERFITTING",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_others__Dcorrect__Jaid__Math__patch2-Math-80-Jaid",
+    "bug_id": "Math-80",
+    "s_edit_ast": 0.13432835820895522,
+    "s_edit_ast_actions": 18,
+    "s_edit_ast_nodes": 134,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math/linear/EigenDecompositionImpl"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 40,
+      "cfg_edges": 41,
+      "branch_points": 3,
+      "cyclomatic_complexity": 3,
+      "def_count": 33,
+      "use_count": 92,
+      "defuse_pairs": 33,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+          "method": "flipIfWarranted",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 40,
+          "cfg_edges": 41,
+          "branch_points": 3,
+          "cyclomatic_complexity": 3,
+          "def_count": 33,
+          "use_count": 92,
+          "defuse_pairs": 33,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 42,
+      "cfg_edges": 43,
+      "branch_points": 3,
+      "cyclomatic_complexity": 3,
+      "def_count": 35,
+      "use_count": 98,
+      "defuse_pairs": 35,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.linear.EigenDecompositionImpl",
+          "method": "flipIfWarranted",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 42,
+          "cfg_edges": 43,
+          "branch_points": 3,
+          "cyclomatic_complexity": 3,
+          "def_count": 35,
+          "use_count": 98,
+          "defuse_pairs": 35,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": 2,
+    "d_branch_points": 0,
+    "d_cfg_edges": 2,
+    "d_defuse_pairs": 2,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 317,
+      "n_candidate_warnings": 317,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 3,
+      "n_changed_class_files_candidate": 3,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_others__Dcorrect__Jaid__Math__patch2-Math-80-Jaid",
+    "bug_id": "Math-80",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

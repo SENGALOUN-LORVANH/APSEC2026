@@ -1,0 +1,274 @@
+{
+  "patch_id": "Patches_others__Doverfitting__CapGen__Math__patch3-Math-85-CapGen-plausible",
+  "bug_id": "Math-85",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 11.908
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.983
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 10.342
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 62.561
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 0.951
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 71.368
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_others__Doverfitting__CapGen__Math__patch3-Math-85-CapGen-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.3637595620002685,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3124,
+        "output_tokens": 227,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.3,
+          "readability": 0.4,
+          "security_robustness": 0.6,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch changes the convergence check from `fa * fb >= 0.0` to `((fa * fb) > 0.0) && (numIterations < maximumIterations)`, which only throws an exception when both conditions hold. This weakens error detection by allowing cases where `fa * fb == 0.0` (a root is found) or `numIterations >= maximumIterations` (max iterations exceeded) to silently return without proper error handling. The patch appears to fix the specific test case but violates the documented contract that should throw ConvergenceException when maximum iterations are exceeded."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.2874915660004262,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3124,
+        "output_tokens": 213,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.3,
+          "readability": 0.4,
+          "security_robustness": 0.5,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch changes the convergence check from `fa * fb >= 0.0` to `((fa * fb) > 0.0) && (numIterations < maximumIterations)`, which only throws an exception when both conditions hold. This weakens the error detection by allowing cases where `fa * fb == 0.0` (a root is found) to pass silently, and prevents exceptions when maximum iterations are exceeded with a bracketing failure. The fix is overfitted to the specific test case rather than addressing the underlying algorithmic issue."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.2350443579998682,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3124,
+        "output_tokens": 193,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.3,
+          "readability": 0.4,
+          "security_robustness": 0.5,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch changes the convergence check from `fa * fb >= 0.0` to `((fa * fb) > 0.0) && (numIterations < maximumIterations)`, which weakens the error condition and prevents throwing exceptions when the algorithm legitimately fails to bracket a root (when `fa * fb == 0.0` or iterations are exhausted). This masks the underlying bug rather than fixing it, and removes important error reporting functionality."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_others__Doverfitting__CapGen__Math__patch3-Math-85-CapGen-plausible",
+    "bug_id": "Math-85",
+    "model": "claude-haiku-4-5",
+    "latency_s": 17.383678470000177,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 2993,
+    "output_tokens": 2446,
+    "tests": [
+      {
+        "name": "testBracketWithExactBoundaryMatch",
+        "target_class": "org.apache.commons.math.analysis.solvers.UnivariateRealSolverUtils",
+        "target_method": "bracket",
+        "class_name": "BracketBoundaryTest",
+        "status": "VALID_BUG_REVEALING",
+        "candidate_pass": true,
+        "log": "JUnit version 4.11\n.\nTime: 0.003\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testBracketMaxIterationsReachedWithSignChange",
+        "target_class": "org.apache.commons.math.analysis.solvers.UnivariateRealSolverUtils",
+        "target_method": "bracket",
+        "class_name": "BracketMaxIterationsTest",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": "JUnit version 4.11\n.\nTime: 0.003\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testBracketMaxIterationsExceededNoSignChange",
+        "target_class": "org.apache.commons.math.analysis.solvers.UnivariateRealSolverUtils",
+        "target_method": "bracket",
+        "class_name": "BracketIterationLimitTest",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": "JUnit version 4.11\n.\nTime: 0.012\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testBracketBoundaryReachedWithoutSignChange",
+        "target_class": "org.apache.commons.math.analysis.solvers.UnivariateRealSolverUtils",
+        "target_method": "bracket",
+        "class_name": "BracketBoundaryReachedTest",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": "JUnit version 4.11\n.\nTime: 0.017\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testBracketSuccessWithSignChange",
+        "target_class": "org.apache.commons.math.analysis.solvers.UnivariateRealSolverUtils",
+        "target_method": "bracket",
+        "class_name": "BracketSuccessTest",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": "JUnit version 4.11\n.\nTime: 0.002\n\nOK (1 test)\n\n"
+      }
+    ],
+    "s_cex": 1.0,
+    "n_valid": 1,
+    "n_passed": 1
+  },
+  "memorization": {
+    "patch_id": "Patches_others__Doverfitting__CapGen__Math__patch3-Math-85-CapGen-plausible",
+    "true_project": "Math",
+    "true_bug_number": "85",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 650,
+    "output_tokens": 26,
+    "project": "Math",
+    "bug_number": 32,
+    "recalled_label": "CORRECT",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_others__Doverfitting__CapGen__Math__patch3-Math-85-CapGen-plausible",
+    "bug_id": "Math-85",
+    "s_edit_ast": 0.04395604395604396,
+    "s_edit_ast_actions": 12,
+    "s_edit_ast_nodes": 273,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math/analysis/solvers/UnivariateRealSolverUtils"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 88,
+      "cfg_edges": 92,
+      "branch_points": 10,
+      "cyclomatic_complexity": 8,
+      "def_count": 71,
+      "use_count": 207,
+      "defuse_pairs": 71,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.analysis.solvers.UnivariateRealSolverUtils",
+          "method": "bracket",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 88,
+          "cfg_edges": 92,
+          "branch_points": 10,
+          "cyclomatic_complexity": 8,
+          "def_count": 71,
+          "use_count": 207,
+          "defuse_pairs": 71,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 89,
+      "cfg_edges": 94,
+      "branch_points": 11,
+      "cyclomatic_complexity": 9,
+      "def_count": 71,
+      "use_count": 210,
+      "defuse_pairs": 71,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.analysis.solvers.UnivariateRealSolverUtils",
+          "method": "bracket",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 89,
+          "cfg_edges": 94,
+          "branch_points": 11,
+          "cyclomatic_complexity": 9,
+          "def_count": 71,
+          "use_count": 210,
+          "defuse_pairs": 71,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 1,
+    "d_stmts": 1,
+    "d_branch_points": 1,
+    "d_cfg_edges": 2,
+    "d_defuse_pairs": 0,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 314,
+      "n_candidate_warnings": 314,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 2,
+      "n_changed_class_files_candidate": 2,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_others__Doverfitting__CapGen__Math__patch3-Math-85-CapGen-plausible",
+    "bug_id": "Math-85",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

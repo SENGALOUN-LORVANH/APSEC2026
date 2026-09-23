@@ -1,0 +1,236 @@
+{
+  "patch_id": "Patches_others__Doverfitting__Jaid__Math__patch2-Math-82-Jaid-plausible",
+  "bug_id": "Math-82",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 11.043
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 1.268
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 10.745
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 147.453
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.471
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 83.263
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_others__Doverfitting__Jaid__Math__patch2-Math-82-Jaid-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.419452421999722,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2199,
+        "output_tokens": 170,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.7,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch adds a nonsensical condition that overwrites minRatio with rhs when they differ, which corrupts the minimum ratio test logic. This appears to be a random fix that happens to pass the specific test case but breaks the algorithm's correctness by replacing the actual minimum ratio with an arbitrary value, making it overfitting rather than a genuine bug fix."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.3358247249998385,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2199,
+        "output_tokens": 170,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.7,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch adds a nonsensical condition that overwrites minRatio with rhs when they differ, which corrupts the minimum ratio test logic. This appears to be a random fix that happens to pass the specific test case but breaks the algorithm's correctness by replacing the actual minimum ratio with an arbitrary value, making it overfitting rather than a genuine bug fix."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.3430527010000333,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2199,
+        "output_tokens": 170,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.2,
+          "security_robustness": 0.7,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch adds a nonsensical condition that overwrites minRatio with rhs when they differ, which corrupts the minimum ratio test logic. This appears to be a random fix that happens to pass the specific test case but breaks the algorithm's correctness by replacing the actual minimum ratio with an arbitrary value, making it overfitting rather than a genuine bug fix."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_others__Doverfitting__Jaid__Math__patch2-Math-82-Jaid-plausible",
+    "bug_id": "Math-82",
+    "model": "claude-haiku-4-5",
+    "latency_s": null,
+    "error": "gave up after 6 attempts: InternalServerError: Error code: 500 - {'type': 'error', 'error': {'type': 'api_error', 'message': 'Internal server error'}, 'request_id': 'req_011CfLMA3a4PBWBvzANvFKet'}",
+    "context_errors": [],
+    "input_tokens": null,
+    "output_tokens": null,
+    "tests": []
+  },
+  "memorization": {
+    "patch_id": "Patches_others__Doverfitting__Jaid__Math__patch2-Math-82-Jaid-plausible",
+    "true_project": "Math",
+    "true_bug_number": "82",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 567,
+    "output_tokens": 28,
+    "project": "Math",
+    "bug_number": 13,
+    "recalled_label": "OVERFITTING",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_others__Doverfitting__Jaid__Math__patch2-Math-82-Jaid-plausible",
+    "bug_id": "Math-82",
+    "s_edit_ast": 0.11278195488721804,
+    "s_edit_ast_actions": 15,
+    "s_edit_ast_nodes": 133,
+    "s_edit_error": null,
+    "s_vuln_changed": 1.0,
+    "s_vuln_new_warning_count": 1,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math/optimization/linear/SimplexSolver"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 23,
+      "cfg_edges": 25,
+      "branch_points": 3,
+      "cyclomatic_complexity": 4,
+      "def_count": 18,
+      "use_count": 50,
+      "defuse_pairs": 18,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.optimization.linear.SimplexSolver",
+          "method": "getPivotRow",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 23,
+          "cfg_edges": 25,
+          "branch_points": 3,
+          "cyclomatic_complexity": 4,
+          "def_count": 18,
+          "use_count": 50,
+          "defuse_pairs": 18,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 30,
+      "cfg_edges": 34,
+      "branch_points": 5,
+      "cyclomatic_complexity": 6,
+      "def_count": 22,
+      "use_count": 62,
+      "defuse_pairs": 22,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.optimization.linear.SimplexSolver",
+          "method": "getPivotRow",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 30,
+          "cfg_edges": 34,
+          "branch_points": 5,
+          "cyclomatic_complexity": 6,
+          "def_count": 22,
+          "use_count": 62,
+          "defuse_pairs": 22,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 2,
+    "d_stmts": 7,
+    "d_branch_points": 2,
+    "d_cfg_edges": 9,
+    "d_defuse_pairs": 4,
+    "vuln_detail": {
+      "s_vuln": 1.0,
+      "new_warnings": [
+        {
+          "bug_type": "FE",
+          "category": "D",
+          "priority": "H",
+          "severity": "HIGH",
+          "class": "SimplexSolver",
+          "method": "getPivotRow",
+          "location": "SimplexSolver.java:line 86",
+          "description": "Test for floating point equality in org.apache.commons.math.optimization.linear.SimplexSolver.getPivotRow(int, SimplexTableau)"
+        }
+      ],
+      "n_buggy_warnings": 312,
+      "n_candidate_warnings": 313,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_others__Doverfitting__Jaid__Math__patch2-Math-82-Jaid-plausible",
+    "bug_id": "Math-82",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}
