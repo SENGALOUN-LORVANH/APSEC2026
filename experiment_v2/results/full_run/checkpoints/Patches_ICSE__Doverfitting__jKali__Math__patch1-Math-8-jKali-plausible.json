@@ -1,0 +1,25 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__jKali__Math__patch1-Math-8-jKali-plausible",
+  "bug_id": "Math-8",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 1.593
+    }
+  },
+  "complete": false,
+  "terminal_failure": "apply_patch",
+  "semantic": null,
+  "counterexample": null,
+  "memorization": null,
+  "stage2b": null,
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__jKali__Math__patch1-Math-8-jKali-plausible",
+    "bug_id": "Math-8",
+    "patch_applies": false,
+    "patch_compiles": "NA",
+    "original_tests_pass": "NA",
+    "error": "dry-run failed: checking file src/main/java/org/apache/commons/math3/distribution/DiscreteDistribution.java\nHunk #1 FAILED at 186.\n1 out of 1 hunk FAILED\n"
+  }
+}
