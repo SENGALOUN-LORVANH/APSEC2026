@@ -1,0 +1,256 @@
+{
+  "patch_id": "Patches_others__Doverfitting__Jaid__Chart__patch3-Chart-9-Jaid-plausible",
+  "bug_id": "Chart-9",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 10.211
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.604
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 8.948
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 29.686
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.214
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 41.353
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_others__Doverfitting__Jaid__Chart__patch3-Chart-9-Jaid-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.08333333333333337,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 2.848663291999401,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2555,
+        "output_tokens": 164,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.3,
+          "readability": 0.4,
+          "security_robustness": 0.7,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch silently swaps startIndex and endIndex when endIndex <= startIndex, masking the underlying bug rather than fixing it. This weakens functionality by allowing invalid ranges to be processed silently instead of raising an error, and only fixes the specific test case without addressing the root cause of why endIndex becomes less than startIndex."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 2.8188506080005027,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2555,
+        "output_tokens": 164,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.3,
+          "readability": 0.4,
+          "security_robustness": 0.7,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch silently swaps startIndex and endIndex when endIndex <= startIndex, masking the underlying bug rather than fixing it. This weakens functionality by allowing invalid ranges to be processed silently instead of raising an error, and only fixes the specific test case without addressing the root cause of why endIndex becomes less than startIndex."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 2.7480815119997715,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2555,
+        "output_tokens": 163,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.3,
+          "readability": 0.4,
+          "security_robustness": 0.7,
+          "judgement": "OVERFITTING",
+          "confidence": 0.85,
+          "brief_reason": "The patch silently swaps startIndex and endIndex when endIndex <= startIndex, masking the underlying logic error rather than fixing it. This weakens functionality by allowing invalid ranges to be processed silently instead of being properly handled, and the fix is overly specific to the test case rather than addressing the root cause of incorrect index calculations."
+        },
+        "s_sem": 0.15000000000000002,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_others__Doverfitting__Jaid__Chart__patch3-Chart-9-Jaid-plausible",
+    "bug_id": "Chart-9",
+    "model": "claude-haiku-4-5",
+    "latency_s": 14.154777839999952,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 2450,
+    "output_tokens": 1428,
+    "tests": [
+      {
+        "name": "testCreateCopyWithStartAfterEnd",
+        "target_class": "org.jfree.data.time.TimeSeries",
+        "target_method": "createCopy",
+        "class_name": "testCreateCopyWithStartAfterEnd",
+        "status": "INVALID_ORACLE",
+        "candidate_pass": null,
+        "log": ".E\nTime: 0.023\nThere was 1 error:\n1) testCreateCopyWithStartAfterEnd(org.jfree.data.time.junit.testCreateCopyWithStartAfterEnd)org.jfree.data.general.SeriesException: You are trying to add data where the time period class is org.jfree.data.time.Year, but the TimeSeries is expecting an instance of org.jfree.data.time.Day.\n\tat org.jfree.data.time.TimeSeries.add(TimeSeries.java:502)\n\tat org.jfree.data.time.TimeSeries.add(TimeSeries.java:575)\n\tat org.jfree.data.time.TimeSeries.add(TimeSeries.java:561)\n\tat org.jfree.data.time.junit.testCreateCopyWithStartAfterEnd.testCreateCopyWithStartAfterEnd(testCreateCopyWithStartAfterEnd.java:10)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\nFAILURES!!!\nTests run: 1,  Failures: 0,  Errors: 1\n\n"
+      },
+      {
+        "name": "testCreateCopyBoundaryStartEqualsEnd",
+        "target_class": "org.jfree.data.time.TimeSeries",
+        "target_method": "createCopy",
+        "class_name": "testCreateCopyBoundaryStartEqualsEnd",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "     method TestCase.assertEquals(long,long) is not applicable\n    [javac]       (actual argument double cannot be converted to long by method invocation conversion)\n    [javac]     method TestCase.assertEquals(String,long,long) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]     method TestCase.assertEquals(float,float,float) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]     method TestCase.assertEquals(String,float,float,float) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]     method TestCase.assertEquals(double,double,double) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]     method TestCase.assertEquals(String,double,double,double) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]     method TestCase.assertEquals(String,String) is not applicable\n    [javac]       (actual argument double cannot be converted to String by method invocation conversion)\n    [javac]     method TestCase.assertEquals(String,String,String) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac]     method TestCase.assertEquals(Object,Object) is not applicable\n    [javac]       (actual argument double cannot be converted to Object by method invocation conversion)\n    [javac]     method TestCase.assertEquals(String,Object,Object) is not applicable\n    [javac]       (actual and formal argument lists differ in length)\n    [javac] 1 error\n    [javac] 21 warnings\n\nBUILD FAILED\n/opt/defects4j-2.0.1/framework/projects/Chart/Chart.build.xml:123: Compile failed; see the compiler error output for details.\n\nTotal time: 1 second\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testCreateCopyEmptyRangeNotMasked",
+        "target_class": "org.jfree.data.time.TimeSeries",
+        "target_method": "createCopy",
+        "class_name": "testCreateCopyEmptyRangeNotMasked",
+        "status": "INVALID_ORACLE",
+        "candidate_pass": null,
+        "log": ".E\nTime: 0.026\nThere was 1 error:\n1) testCreateCopyEmptyRangeNotMasked(org.jfree.data.time.junit.testCreateCopyEmptyRangeNotMasked)org.jfree.data.general.SeriesException: You are trying to add data where the time period class is org.jfree.data.time.Year, but the TimeSeries is expecting an instance of org.jfree.data.time.Day.\n\tat org.jfree.data.time.TimeSeries.add(TimeSeries.java:502)\n\tat org.jfree.data.time.TimeSeries.add(TimeSeries.java:575)\n\tat org.jfree.data.time.TimeSeries.add(TimeSeries.java:561)\n\tat org.jfree.data.time.junit.testCreateCopyEmptyRangeNotMasked.testCreateCopyEmptyRangeNotMasked(testCreateCopyEmptyRangeNotMasked.java:10)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\nFAILURES!!!\nTests run: 1,  Failures: 0,  Errors: 1\n\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_others__Doverfitting__Jaid__Chart__patch3-Chart-9-Jaid-plausible",
+    "true_project": "Chart",
+    "true_bug_number": "9",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 557,
+    "output_tokens": 28,
+    "project": "Time",
+    "bug_number": 2,
+    "recalled_label": "OVERFITTING",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_others__Doverfitting__Jaid__Chart__patch3-Chart-9-Jaid-plausible",
+    "bug_id": "Chart-9",
+    "s_edit_ast": 0.1099476439790576,
+    "s_edit_ast_actions": 21,
+    "s_edit_ast_nodes": 191,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/jfree/data/time/TimeSeries"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 87,
+      "cfg_edges": 91,
+      "branch_points": 12,
+      "cyclomatic_complexity": 8,
+      "def_count": 56,
+      "use_count": 173,
+      "defuse_pairs": 56,
+      "per_method": [
+        {
+          "class": "org.jfree.data.time.TimeSeries",
+          "method": "createCopy",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 87,
+          "cfg_edges": 91,
+          "branch_points": 12,
+          "cyclomatic_complexity": 8,
+          "def_count": 56,
+          "use_count": 173,
+          "defuse_pairs": 56,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 93,
+      "cfg_edges": 99,
+      "branch_points": 14,
+      "cyclomatic_complexity": 10,
+      "def_count": 59,
+      "use_count": 182,
+      "defuse_pairs": 59,
+      "per_method": [
+        {
+          "class": "org.jfree.data.time.TimeSeries",
+          "method": "createCopy",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 93,
+          "cfg_edges": 99,
+          "branch_points": 14,
+          "cyclomatic_complexity": 10,
+          "def_count": 59,
+          "use_count": 182,
+          "defuse_pairs": 59,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 2,
+    "d_stmts": 6,
+    "d_branch_points": 2,
+    "d_cfg_edges": 8,
+    "d_defuse_pairs": 3,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 6,
+      "n_candidate_warnings": 6,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_others__Doverfitting__Jaid__Chart__patch3-Chart-9-Jaid-plausible",
+    "bug_id": "Chart-9",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

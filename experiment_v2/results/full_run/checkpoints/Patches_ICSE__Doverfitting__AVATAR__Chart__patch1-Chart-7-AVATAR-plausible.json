@@ -1,0 +1,252 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Chart__patch1-Chart-7-AVATAR-plausible",
+  "bug_id": "Chart-7",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 16.796
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.504
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 11.159
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 42.15
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 0.436
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 44.266
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Chart__patch1-Chart-7-AVATAR-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.5706901470002776,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 1956,
+        "output_tokens": 178,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.9,
+          "security_robustness": 0.9,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch changes getMaxMiddleIndex() to return maxStartIndex instead of maxMiddleIndex, which is semantically incorrect and breaks the method's contract. This appears to be a quick fix for the specific test case rather than addressing the root cause\u2014the bug likely lies in how maxMiddleIndex is calculated or maintained, not in what this getter returns. The patch trades correctness for test passage."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.5423308569988876,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 1956,
+        "output_tokens": 178,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.9,
+          "security_robustness": 0.9,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch changes getMaxMiddleIndex() to return maxStartIndex instead of maxMiddleIndex, which is semantically incorrect and breaks the method's contract. This appears to be a quick fix for the specific test case rather than addressing the root cause\u2014the bug likely lies in how maxMiddleIndex is calculated or maintained, not in what this getter returns. The patch trades correctness for test passage."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.463899536000099,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 1956,
+        "output_tokens": 178,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "true",
+          "minimality": 0.1,
+          "readability": 0.9,
+          "security_robustness": 0.9,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch changes getMaxMiddleIndex() to return maxStartIndex instead of maxMiddleIndex, which is semantically incorrect and breaks the method's contract. This appears to be a quick fix for the specific test case rather than addressing the root cause\u2014the bug likely lies in how maxMiddleIndex is calculated or maintained, not in what this getter returns. The patch trades correctness for test passage."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Chart__patch1-Chart-7-AVATAR-plausible",
+    "bug_id": "Chart-7",
+    "model": "claude-haiku-4-5",
+    "latency_s": 14.512908046999655,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 1851,
+    "output_tokens": 1425,
+    "tests": [
+      {
+        "name": "testGetMaxMiddleIndexWithMultipleValues",
+        "target_class": "org.jfree.data.time.TimePeriodValues",
+        "target_method": "getMaxMiddleIndex",
+        "class_name": "testGetMaxMiddleIndexWithMultipleValues",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.013\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testGetMaxMiddleIndexSingleValue",
+        "target_class": "org.jfree.data.time.TimePeriodValues",
+        "target_method": "getMaxMiddleIndex",
+        "class_name": "testGetMaxMiddleIndexSingleValue",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.029\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testGetMaxMiddleIndexEarlyYearHasHigherStart",
+        "target_class": "org.jfree.data.time.TimePeriodValues",
+        "target_method": "getMaxMiddleIndex",
+        "class_name": "testGetMaxMiddleIndexEarlyYearHasHigherStart",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": ".\nTime: 0.014\n\nOK (1 test)\n\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Chart__patch1-Chart-7-AVATAR-plausible",
+    "true_project": "Chart",
+    "true_bug_number": "7",
+    "model": "claude-haiku-4-5",
+    "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLbU8LvfopLFBnNeKDy9'}",
+    "input_tokens": null,
+    "output_tokens": null
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Chart__patch1-Chart-7-AVATAR-plausible",
+    "bug_id": "Chart-7",
+    "s_edit_ast": 1.0,
+    "s_edit_ast_actions": 25,
+    "s_edit_ast_nodes": 15,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/jfree/data/time/TimePeriodValues"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 3,
+      "cfg_edges": 2,
+      "branch_points": 0,
+      "cyclomatic_complexity": 1,
+      "def_count": 2,
+      "use_count": 4,
+      "defuse_pairs": 2,
+      "per_method": [
+        {
+          "class": "org.jfree.data.time.TimePeriodValues",
+          "method": "getMaxMiddleIndex",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 3,
+          "cfg_edges": 2,
+          "branch_points": 0,
+          "cyclomatic_complexity": 1,
+          "def_count": 2,
+          "use_count": 4,
+          "defuse_pairs": 2,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 3,
+      "cfg_edges": 2,
+      "branch_points": 0,
+      "cyclomatic_complexity": 1,
+      "def_count": 2,
+      "use_count": 4,
+      "defuse_pairs": 2,
+      "per_method": [
+        {
+          "class": "org.jfree.data.time.TimePeriodValues",
+          "method": "getMaxMiddleIndex",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 3,
+          "cfg_edges": 2,
+          "branch_points": 0,
+          "cyclomatic_complexity": 1,
+          "def_count": 2,
+          "use_count": 4,
+          "defuse_pairs": 2,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": 0,
+    "d_branch_points": 0,
+    "d_cfg_edges": 0,
+    "d_defuse_pairs": 0,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 7,
+      "n_candidate_warnings": 7,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Chart__patch1-Chart-7-AVATAR-plausible",
+    "bug_id": "Chart-7",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "patch_id": "Patches_others__Doverfitting__SequenceR__Closure__patch10-Closure-93-SequenceR",
+  "bug_id": "Closure-93",
+  "model": "claude-haiku-4-5",
+  "stages": {},
+  "complete": false,
+  "terminal_failure": "checkout_bug",
+  "checkout_error": "buggy checkout failed: ecated bug\n at /opt/defects4j-2.0.1/framework/core/Utils.pm line 481.\n\tUtils::ensure_valid_bid(\"Closure\", 93) called at /opt/defects4j-2.0.1/framework/core/Utils.pm line 502\n\tUtils::ensure_valid_vid(\"Closure\", \"93b\") called at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-checkout line 87\n\trequire /opt/defects4j-2.0.1/framework/bin/d4j/d4j-checkout called at /opt/defects4j-2.0.1/framework/bin/defects4j line 195\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+}

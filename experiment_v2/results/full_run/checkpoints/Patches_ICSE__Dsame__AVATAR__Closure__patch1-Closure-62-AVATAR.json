@@ -1,0 +1,256 @@
+{
+  "patch_id": "Patches_ICSE__Dsame__AVATAR__Closure__patch1-Closure-62-AVATAR",
+  "bug_id": "Closure-62",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 79.683
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.563
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 13.99
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 28.373
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.593
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 49.331
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Dsame__AVATAR__Closure__patch1-Closure-62-AVATAR",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.92,
+    "decision": "CORRECT",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 4.5921310459998494,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3195,
+        "output_tokens": 268,
+        "parsed": {
+          "generalization": "general",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 1.0,
+          "readability": 1.0,
+          "security_robustness": 0.9,
+          "judgement": "CORRECT",
+          "confidence": 0.92,
+          "brief_reason": "The patch correctly fixes the off-by-one error in the boundary condition. The original code used `charno < sourceExcerpt.length()` which excluded the case where an error occurs at the end of a line (charno equals length), but the tests expect the caret to be displayed in that case. Changing to `charno <= sourceExcerpt.length()` is minimal, general, and aligns with the comment indicating that charno == sourceExcerpt.length() is a valid scenario. The only minor concern is that the loop `for (int i = 0; i < charno; i++)` will access `sourceExcerpt.charAt(i)` up to index charno-1, which is safe when charno equals length, but the logic relies on this boundary behavior being intentional."
+        },
+        "s_sem": 0.92,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 4.514785764000408,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3195,
+        "output_tokens": 268,
+        "parsed": {
+          "generalization": "general",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 1.0,
+          "readability": 1.0,
+          "security_robustness": 0.9,
+          "judgement": "CORRECT",
+          "confidence": 0.92,
+          "brief_reason": "The patch correctly fixes the off-by-one error in the boundary condition. The original code used `charno < sourceExcerpt.length()` which excluded the case where an error occurs at the end of a line (charno equals length), but the tests expect the caret to be displayed in that case. Changing to `charno <= sourceExcerpt.length()` is minimal, general, and aligns with the comment indicating that charno == sourceExcerpt.length() is a valid scenario. The only minor concern is that the loop `for (int i = 0; i < charno; i++)` will access `sourceExcerpt.charAt(i)` up to index charno-1, which is safe when charno equals length, but the logic relies on this boundary behavior being intentional."
+        },
+        "s_sem": 0.92,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 4.47560031499961,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 3195,
+        "output_tokens": 268,
+        "parsed": {
+          "generalization": "general",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 1.0,
+          "readability": 1.0,
+          "security_robustness": 0.9,
+          "judgement": "CORRECT",
+          "confidence": 0.92,
+          "brief_reason": "The patch correctly fixes the off-by-one error in the boundary condition. The original code used `charno < sourceExcerpt.length()` which excluded the case where an error occurs at the end of a line (charno equals length), but the tests expect the caret to be displayed in that case. Changing to `charno <= sourceExcerpt.length()` is minimal, general, and aligns with the comment indicating that charno == sourceExcerpt.length() is a valid scenario. The only minor concern is that the loop `for (int i = 0; i < charno; i++)` will access `sourceExcerpt.charAt(i)` up to index charno-1, which is safe when charno equals length, but the logic relies on this boundary behavior being intentional."
+        },
+        "s_sem": 0.92,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Dsame__AVATAR__Closure__patch1-Closure-62-AVATAR",
+    "bug_id": "Closure-62",
+    "model": "claude-haiku-4-5",
+    "latency_s": 10.107411717001014,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 3088,
+    "output_tokens": 999,
+    "tests": [
+      {
+        "name": "testFormatErrorCharnoAtEndOfLine",
+        "target_class": "com.google.javascript.jscomp.LightweightMessageFormatter",
+        "target_method": "format",
+        "class_name": "LightweightMessageFormatterTest",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "r: format(JSError,boolean) has private access in LightweightMessageFormatter\n    [javac]     String result = formatter.format(error, false);\n    [javac]                              ^\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/CharSequence.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/CharSequence.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/io/Serializable.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/io/Serializable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Comparable.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Comparable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 3 errors\n    [javac] 19 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Dsame__AVATAR__Closure__patch1-Closure-62-AVATAR/LightweightMessageFormatterTest/fixed/build.xml:294: Compile failed; see the compiler error output for details.\n\nTotal time: 1 second\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testFormatErrorCharnoBeforeEndOfLine",
+        "target_class": "com.google.javascript.jscomp.LightweightMessageFormatter",
+        "target_method": "format",
+        "class_name": "LightweightMessageFormatterTest2",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": ": format(JSError,boolean) has private access in LightweightMessageFormatter\n    [javac]     String result = formatter.format(error, false);\n    [javac]                              ^\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/CharSequence.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/CharSequence.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/io/Serializable.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/io/Serializable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Comparable.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Comparable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 3 errors\n    [javac] 19 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Dsame__AVATAR__Closure__patch1-Closure-62-AVATAR/LightweightMessageFormatterTest2/fixed/build.xml:294: Compile failed; see the compiler error output for details.\n\nTotal time: 1 second\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testFormatErrorCharnoNegativeOrBeyondEnd",
+        "target_class": "com.google.javascript.jscomp.LightweightMessageFormatter",
+        "target_method": "format",
+        "class_name": "LightweightMessageFormatterTest3",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": " format(JSError,boolean) has private access in LightweightMessageFormatter\n    [javac]     String result = formatter.format(error, false);\n    [javac]                              ^\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/CharSequence.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/CharSequence.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/io/Serializable.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/io/Serializable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Comparable.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Comparable.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] 3 errors\n    [javac] 19 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Dsame__AVATAR__Closure__patch1-Closure-62-AVATAR/LightweightMessageFormatterTest3/fixed/build.xml:294: Compile failed; see the compiler error output for details.\n\nTotal time: 2 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Dsame__AVATAR__Closure__patch1-Closure-62-AVATAR",
+    "true_project": "Closure",
+    "true_bug_number": "62",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 601,
+    "output_tokens": 27,
+    "project": "Closure",
+    "bug_number": 1,
+    "recalled_label": "UNKNOWN",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Dsame__AVATAR__Closure__patch1-Closure-62-AVATAR",
+    "bug_id": "Closure-62",
+    "s_edit_ast": 0.004310344827586207,
+    "s_edit_ast_actions": 1,
+    "s_edit_ast_nodes": 232,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "com/google/javascript/jscomp/LightweightMessageFormatter"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 59,
+      "cfg_edges": 68,
+      "branch_points": 10,
+      "cyclomatic_complexity": 11,
+      "def_count": 30,
+      "use_count": 129,
+      "defuse_pairs": 30,
+      "per_method": [
+        {
+          "class": "com.google.javascript.jscomp.LightweightMessageFormatter",
+          "method": "format",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 59,
+          "cfg_edges": 68,
+          "branch_points": 10,
+          "cyclomatic_complexity": 11,
+          "def_count": 30,
+          "use_count": 129,
+          "defuse_pairs": 30,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 59,
+      "cfg_edges": 68,
+      "branch_points": 10,
+      "cyclomatic_complexity": 11,
+      "def_count": 30,
+      "use_count": 129,
+      "defuse_pairs": 30,
+      "per_method": [
+        {
+          "class": "com.google.javascript.jscomp.LightweightMessageFormatter",
+          "method": "format",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 59,
+          "cfg_edges": 68,
+          "branch_points": 10,
+          "cyclomatic_complexity": 11,
+          "def_count": 30,
+          "use_count": 129,
+          "defuse_pairs": 30,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 0,
+    "d_stmts": 0,
+    "d_branch_points": 0,
+    "d_cfg_edges": 0,
+    "d_defuse_pairs": 0,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 6,
+      "n_candidate_warnings": 6,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 2,
+      "n_changed_class_files_candidate": 2,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Dsame__AVATAR__Closure__patch1-Closure-62-AVATAR",
+    "bug_id": "Closure-62",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

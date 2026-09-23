@@ -1,0 +1,256 @@
+{
+  "patch_id": "Patches_others__Dcorrect__Jaid__Math__patch1-Math-53-Jaid",
+  "bug_id": "Math-53",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 53.259
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 1.287
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 11.748
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 56.404
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.851
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 74.505
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_others__Dcorrect__Jaid__Math__patch1-Math-53-Jaid",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.85,
+    "decision": "CORRECT",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.6646588340008748,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2247,
+        "output_tokens": 172,
+        "parsed": {
+          "generalization": "general",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.7,
+          "readability": 0.6,
+          "security_robustness": 0.9,
+          "judgement": "CORRECT",
+          "confidence": 0.85,
+          "brief_reason": "The patch correctly addresses the bug by explicitly checking for NaN values before performing addition, which aligns with the documented behavior that NaN in either operand should return NaN. The fix is general and handles the root cause. Minor issues: the condition `== true` is redundant, and the code could be more idiomatic, but these are style concerns that don't affect correctness."
+        },
+        "s_sem": 0.85,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.0726411460000236,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2247,
+        "output_tokens": 172,
+        "parsed": {
+          "generalization": "general",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.7,
+          "readability": 0.6,
+          "security_robustness": 0.9,
+          "judgement": "CORRECT",
+          "confidence": 0.85,
+          "brief_reason": "The patch correctly addresses the bug by explicitly checking for NaN values before performing addition, which aligns with the documented behavior that NaN in either operand should return NaN. The fix is general and handles the root cause. Minor issues: the condition `== true` is redundant, and the code could be more idiomatic, but these are style concerns that don't affect correctness."
+        },
+        "s_sem": 0.85,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.9816078889998607,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 2247,
+        "output_tokens": 172,
+        "parsed": {
+          "generalization": "general",
+          "deletes_or_weakens_functionality": "false",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.7,
+          "readability": 0.6,
+          "security_robustness": 0.9,
+          "judgement": "CORRECT",
+          "confidence": 0.85,
+          "brief_reason": "The patch correctly addresses the bug by explicitly checking for NaN values before performing addition, which aligns with the documented behavior that NaN in either operand should return NaN. The fix is general and handles the root cause. Minor issues: the condition `== true` is redundant, and the code could be more idiomatic, but these are style concerns that don't affect correctness."
+        },
+        "s_sem": 0.85,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_others__Dcorrect__Jaid__Math__patch1-Math-53-Jaid",
+    "bug_id": "Math-53",
+    "model": "claude-haiku-4-5",
+    "latency_s": 6.01274731400008,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 2116,
+    "output_tokens": 861,
+    "tests": [
+      {
+        "name": "testAddNaNWithNormalComplex",
+        "target_class": "org.apache.commons.math.complex.Complex",
+        "target_method": "add",
+        "class_name": "ComplexAddNormalTest",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": "JUnit version 4.11\n.\nTime: 0.011\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testAddWithInfinityNotNaN",
+        "target_class": "org.apache.commons.math.complex.Complex",
+        "target_method": "add",
+        "class_name": "ComplexAddInfinityTest",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": "JUnit version 4.11\n.\nTime: 0.012\n\nOK (1 test)\n\n"
+      },
+      {
+        "name": "testAddBothOperandsNaN",
+        "target_class": "org.apache.commons.math.complex.Complex",
+        "target_method": "add",
+        "class_name": "ComplexAddBothNaNTest",
+        "status": "VALID_NON_DISCRIMINATING",
+        "candidate_pass": null,
+        "log": "JUnit version 4.11\n.\nTime: 0.008\n\nOK (1 test)\n\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_others__Dcorrect__Jaid__Math__patch1-Math-53-Jaid",
+    "true_project": "Math",
+    "true_bug_number": "53",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 579,
+    "output_tokens": 28,
+    "project": "Math",
+    "bug_number": 13,
+    "recalled_label": "OVERFITTING",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_others__Dcorrect__Jaid__Math__patch1-Math-53-Jaid",
+    "bug_id": "Math-53",
+    "s_edit_ast": 0.3492063492063492,
+    "s_edit_ast_actions": 22,
+    "s_edit_ast_nodes": 63,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math/complex/Complex"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 16,
+      "cfg_edges": 14,
+      "branch_points": 0,
+      "cyclomatic_complexity": 2,
+      "def_count": 13,
+      "use_count": 31,
+      "defuse_pairs": 13,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.complex.Complex",
+          "method": "add",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 16,
+          "cfg_edges": 14,
+          "branch_points": 0,
+          "cyclomatic_complexity": 2,
+          "def_count": 13,
+          "use_count": 31,
+          "defuse_pairs": 13,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 26,
+      "cfg_edges": 26,
+      "branch_points": 3,
+      "cyclomatic_complexity": 4,
+      "def_count": 18,
+      "use_count": 48,
+      "defuse_pairs": 18,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math.complex.Complex",
+          "method": "add",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 2,
+          "stmts": 26,
+          "cfg_edges": 26,
+          "branch_points": 3,
+          "cyclomatic_complexity": 4,
+          "def_count": 18,
+          "use_count": 48,
+          "defuse_pairs": 18,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 2,
+    "d_stmts": 10,
+    "d_branch_points": 3,
+    "d_cfg_edges": 12,
+    "d_defuse_pairs": 5,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 445,
+      "n_candidate_warnings": 445,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 1,
+      "n_changed_class_files_candidate": 1,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_others__Dcorrect__Jaid__Math__patch1-Math-53-Jaid",
+    "bug_id": "Math-53",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}

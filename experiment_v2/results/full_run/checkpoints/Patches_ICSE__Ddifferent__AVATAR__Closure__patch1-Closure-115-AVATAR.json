@@ -1,0 +1,267 @@
+{
+  "patch_id": "Patches_ICSE__Ddifferent__AVATAR__Closure__patch1-Closure-115-AVATAR",
+  "bug_id": "Closure-115",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 123.177
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.55
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 11.477
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 35.287
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 1.626
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 43.126
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Ddifferent__AVATAR__Closure__patch1-Closure-115-AVATAR",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 3,
+    "s_sem_final": 0.050000000000000044,
+    "decision": "OVERFITTING",
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 3.7062604510010715,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 5049,
+        "output_tokens": 182,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.95,
+          "readability": 0.85,
+          "security_robustness": 0.3,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch removes a safety check that prevents inlining when a function has side effects and the argument can be side-effected. While it makes the failing tests pass, it deletes important validation logic that protects against incorrect inlining, weakening the function's correctness guarantees. The tests appear to expect more aggressive inlining, but removing this check introduces a correctness risk rather than fixing the underlying bug."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 1,
+        "latency_s": 3.7365613209985895,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 5049,
+        "output_tokens": 182,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.95,
+          "readability": 0.85,
+          "security_robustness": 0.3,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch removes a safety check that prevents inlining when a function has side effects and the argument can be side-effected. While it makes the failing tests pass, it deletes important validation logic that protects against incorrect inlining, weakening the function's correctness guarantees. The tests appear to expect more aggressive inlining, but removing this check introduces a correctness risk rather than fixing the underlying bug."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      },
+      {
+        "run": 2,
+        "latency_s": 3.595275120000224,
+        "attempts": 1,
+        "error": null,
+        "input_tokens": 5049,
+        "output_tokens": 182,
+        "parsed": {
+          "generalization": "specific_only",
+          "deletes_or_weakens_functionality": "true",
+          "unrelated_behavior_change": "false",
+          "minimality": 0.95,
+          "readability": 0.85,
+          "security_robustness": 0.3,
+          "judgement": "OVERFITTING",
+          "confidence": 0.95,
+          "brief_reason": "The patch removes a safety check that prevents inlining when a function has side effects and the argument can be side-effected. While it makes the failing tests pass, it deletes important validation logic that protects against incorrect inlining, weakening the function's correctness guarantees. The tests appear to expect more aggressive inlining, but removing this check introduces a correctness risk rather than fixing the underlying bug."
+        },
+        "s_sem": 0.050000000000000044,
+        "confidence_clipped": false
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Ddifferent__AVATAR__Closure__patch1-Closure-115-AVATAR",
+    "bug_id": "Closure-115",
+    "model": "claude-haiku-4-5",
+    "latency_s": 14.852593735999108,
+    "error": null,
+    "context_errors": [],
+    "input_tokens": 4918,
+    "output_tokens": 2789,
+    "tests": [
+      {
+        "name": "testInlineWithSideEffectsInReturnAndMutableArgument",
+        "target_class": "com.google.javascript.jscomp.FunctionInjector",
+        "target_method": "canInlineReferenceDirectly",
+        "class_name": "InlineFunctionsTest",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": " [javac]     FunctionInjector.CanInlineResult result = injector.canInlineReferenceDirectly(callNode, fnNode);\n    [javac]                                                       ^\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Enum.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Enum.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Ddifferent__AVATAR__Closure__patch1-Closure-115-AVATAR/InlineFunctionsTest/fixed/test/com/google/javascript/jscomp/InlineFunctionsTest.java:49: error: canInlineReferenceDirectly(Node,Node) has private access in FunctionInjector\n    [javac]     FunctionInjector.CanInlineResult result = injector.canInlineReferenceDirectly(callNode, fnNode);\n    [javac]                                                       ^\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Ddifferent__AVATAR__Closure__patch1-Closure-115-AVATAR/InlineFunctionsTest/fixed/test/com/google/javascript/jscomp/InlineFunctionsTest.java:66: error: canInlineReferenceDirectly(Node,Node) has private access in FunctionInjector\n    [javac]     FunctionInjector.CanInlineResult result = injector.canInlineReferenceDirectly(callNode, fnNode);\n    [javac]                                                       ^\n    [javac] 4 errors\n    [javac] 19 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Ddifferent__AVATAR__Closure__patch1-Closure-115-AVATAR/InlineFunctionsTest/fixed/build.xml:339: Compile failed; see the compiler error output for details.\n\nTotal time: 1 second\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testInlineWithArrayElementArgument",
+        "target_class": "com.google.javascript.jscomp.FunctionInjector",
+        "target_method": "canInlineReferenceDirectly",
+        "class_name": "InlineFunctionsArrayElementTest",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "NF/sym/rt.jar/java/lang/String.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Ddifferent__AVATAR__Closure__patch1-Closure-115-AVATAR/InlineFunctionsArrayElementTest/fixed/test/com/google/javascript/jscomp/InlineFunctionsArrayElementTest.java:30: error: canInlineReferenceDirectly(Node,Node) has private access in FunctionInjector\n    [javac]     FunctionInjector.CanInlineResult result = injector.canInlineReferenceDirectly(callNode, fnNode);\n    [javac]                                                       ^\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Enum.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Enum.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Ddifferent__AVATAR__Closure__patch1-Closure-115-AVATAR/InlineFunctionsArrayElementTest/fixed/test/com/google/javascript/jscomp/InlineFunctionsArrayElementTest.java:47: error: canInlineReferenceDirectly(Node,Node) has private access in FunctionInjector\n    [javac]     FunctionInjector.CanInlineResult result = injector.canInlineReferenceDirectly(callNode, fnNode);\n    [javac]                                                       ^\n    [javac] 3 errors\n    [javac] 19 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Ddifferent__AVATAR__Closure__patch1-Closure-115-AVATAR/InlineFunctionsArrayElementTest/fixed/build.xml:339: Compile failed; see the compiler error output for details.\n\nTotal time: 2 seconds\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      },
+      {
+        "name": "testInlineWithoutSideEffectsAllowsInlining",
+        "target_class": "com.google.javascript.jscomp.FunctionInjector",
+        "target_method": "canInlineReferenceDirectly",
+        "class_name": "InlineFunctionsNoSideEffectsTest",
+        "status": "INVALID_COMPILE",
+        "candidate_pass": null,
+        "log": "anInlineReferenceDirectly(callNode, fnNode);\n    [javac]                                                       ^\n    [javac] warning: /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Enum.class): major version 52 is newer than 51, the highest major version supported by this compiler.\n    [javac]   It is recommended that the compiler be upgraded.\n    [javac] /usr/lib/jvm/java-8-openjdk-amd64/lib/ct.sym(META-INF/sym/rt.jar/java/lang/Enum.class): warning: Cannot find annotation method 'value()' in type 'Profile+Annotation'\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Ddifferent__AVATAR__Closure__patch1-Closure-115-AVATAR/InlineFunctionsNoSideEffectsTest/fixed/test/com/google/javascript/jscomp/InlineFunctionsNoSideEffectsTest.java:47: error: canInlineReferenceDirectly(Node,Node) has private access in FunctionInjector\n    [javac]     FunctionInjector.CanInlineResult result = injector.canInlineReferenceDirectly(callNode, fnNode);\n    [javac]                                                       ^\n    [javac] /data/qc_workspaces/gen_tests/Patches_ICSE__Ddifferent__AVATAR__Closure__patch1-Closure-115-AVATAR/InlineFunctionsNoSideEffectsTest/fixed/test/com/google/javascript/jscomp/InlineFunctionsNoSideEffectsTest.java:64: error: canInlineReferenceDirectly(Node,Node) has private access in FunctionInjector\n    [javac]     FunctionInjector.CanInlineResult result = injector.canInlineReferenceDirectly(callNode, fnNode);\n    [javac]                                                       ^\n    [javac] 4 errors\n    [javac] 19 warnings\n\nBUILD FAILED\n/data/qc_workspaces/gen_tests/Patches_ICSE__Ddifferent__AVATAR__Closure__patch1-Closure-115-AVATAR/InlineFunctionsNoSideEffectsTest/fixed/build.xml:339: Compile failed; see the compiler error output for details.\n\nTotal time: 1 second\nCannot compile tests! at /opt/defects4j-2.0.1/framework/bin/d4j/d4j-compile line 83.\nCompilation failed in require at /opt/defects4j-2.0.1/framework/bin/defects4j line 195.\n"
+      }
+    ],
+    "s_cex": null,
+    "n_valid": 0,
+    "n_passed": 0
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Ddifferent__AVATAR__Closure__patch1-Closure-115-AVATAR",
+    "true_project": "Closure",
+    "true_bug_number": "115",
+    "model": "claude-haiku-4-5",
+    "error": null,
+    "input_tokens": 597,
+    "output_tokens": 26,
+    "project": "Closure",
+    "bug_number": null,
+    "recalled_label": "UNKNOWN",
+    "recognized": false
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Ddifferent__AVATAR__Closure__patch1-Closure-115-AVATAR",
+    "bug_id": "Closure-115",
+    "s_edit_ast": 0.061371841155234655,
+    "s_edit_ast_actions": 17,
+    "s_edit_ast_nodes": 277,
+    "s_edit_error": null,
+    "s_vuln_changed": 0.5,
+    "s_vuln_new_warning_count": 1,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "com/google/javascript/jscomp/FunctionInjector"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 69,
+      "cfg_edges": 81,
+      "branch_points": 18,
+      "cyclomatic_complexity": 14,
+      "def_count": 40,
+      "use_count": 137,
+      "defuse_pairs": 40,
+      "per_method": [
+        {
+          "class": "com.google.javascript.jscomp.FunctionInjector",
+          "method": "canInlineReferenceDirectly",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 69,
+          "cfg_edges": 81,
+          "branch_points": 18,
+          "cyclomatic_complexity": 14,
+          "def_count": 40,
+          "use_count": 137,
+          "defuse_pairs": 40,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 64,
+      "cfg_edges": 75,
+      "branch_points": 16,
+      "cyclomatic_complexity": 13,
+      "def_count": 38,
+      "use_count": 127,
+      "defuse_pairs": 38,
+      "per_method": [
+        {
+          "class": "com.google.javascript.jscomp.FunctionInjector",
+          "method": "canInlineReferenceDirectly",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 64,
+          "cfg_edges": 75,
+          "branch_points": 16,
+          "cyclomatic_complexity": 13,
+          "def_count": 38,
+          "use_count": 127,
+          "defuse_pairs": 38,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": -1,
+    "d_stmts": -5,
+    "d_branch_points": -2,
+    "d_cfg_edges": -6,
+    "d_defuse_pairs": -2,
+    "vuln_detail": {
+      "s_vuln": 0.5,
+      "new_warnings": [
+        {
+          "bug_type": "DLS",
+          "category": "D",
+          "priority": "M",
+          "severity": "MEDIUM",
+          "class": "FunctionInjector",
+          "method": "canInlineReferenceDirectly",
+          "location": "FunctionInjector.java:line 702",
+          "description": "Dead store to hasSideEffects in com.google.javascript.jscomp.FunctionInjector.canInlineReferenceDirectly(Node, Node)"
+        }
+      ],
+      "n_buggy_warnings": 6,
+      "n_candidate_warnings": 7,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 14,
+      "n_changed_class_files_candidate": 14,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Ddifferent__AVATAR__Closure__patch1-Closure-115-AVATAR",
+    "bug_id": "Closure-115",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}
