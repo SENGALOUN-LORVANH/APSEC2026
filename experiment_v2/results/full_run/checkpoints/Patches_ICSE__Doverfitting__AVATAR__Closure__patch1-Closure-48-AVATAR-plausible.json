@@ -1,0 +1,176 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Closure__patch1-Closure-48-AVATAR-plausible",
+  "bug_id": "Closure-48",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 77.716
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.798
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 2.21
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 1.69
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 0.362
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 44.381
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Closure__patch1-Closure-48-AVATAR-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 0,
+    "s_sem_final": null,
+    "decision": null,
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 0.54538046900052,
+        "attempts": 1,
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLzn95FuEYMfsRdDG4sW'}"
+      },
+      {
+        "run": 1,
+        "latency_s": 0.33841731900247396,
+        "attempts": 1,
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLznAzr4bXyFVxfrSZKq'}"
+      },
+      {
+        "run": 2,
+        "latency_s": 0.3921385060020839,
+        "attempts": 1,
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLznChYKVGN89XwWrCS6'}"
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Closure__patch1-Closure-48-AVATAR-plausible",
+    "bug_id": "Closure-48",
+    "model": "claude-haiku-4-5",
+    "latency_s": 0.3959860140021192,
+    "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLznKovh1kTG1sMV3T2h'}",
+    "context_errors": [],
+    "input_tokens": null,
+    "output_tokens": null,
+    "tests": []
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Closure__patch1-Closure-48-AVATAR-plausible",
+    "true_project": "Closure",
+    "true_bug_number": "48",
+    "model": "claude-haiku-4-5",
+    "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLznMTPzQwKeiP3mwqjN'}",
+    "input_tokens": null,
+    "output_tokens": null
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Closure__patch1-Closure-48-AVATAR-plausible",
+    "bug_id": "Closure-48",
+    "s_edit_ast": 0.02697841726618705,
+    "s_edit_ast_actions": 15,
+    "s_edit_ast_nodes": 556,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "com/google/javascript/jscomp/TypedScopeCreator"
+    ],
+    "analysis_level": "FAILED",
+    "cfg_buggy": {
+      "analysis_level": "FAILED",
+      "stmts": 0,
+      "cfg_edges": 0,
+      "branch_points": 0,
+      "cyclomatic_complexity": 0,
+      "def_count": 0,
+      "use_count": 0,
+      "defuse_pairs": 0,
+      "per_method": [
+        {
+          "class": "com.google.javascript.jscomp.TypedScopeCreator",
+          "method": "maybeDeclareQualifiedName",
+          "analysis_level": "FAILED",
+          "n_methods": 0,
+          "stmts": 0,
+          "cfg_edges": 0,
+          "branch_points": 0,
+          "cyclomatic_complexity": 0,
+          "def_count": 0,
+          "use_count": 0,
+          "defuse_pairs": 0,
+          "error": "no method with body named maybeDeclareQualifiedName"
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "FAILED",
+      "stmts": 0,
+      "cfg_edges": 0,
+      "branch_points": 0,
+      "cyclomatic_complexity": 0,
+      "def_count": 0,
+      "use_count": 0,
+      "defuse_pairs": 0,
+      "per_method": [
+        {
+          "class": "com.google.javascript.jscomp.TypedScopeCreator",
+          "method": "maybeDeclareQualifiedName",
+          "analysis_level": "FAILED",
+          "n_methods": 0,
+          "stmts": 0,
+          "cfg_edges": 0,
+          "branch_points": 0,
+          "cyclomatic_complexity": 0,
+          "def_count": 0,
+          "use_count": 0,
+          "defuse_pairs": 0,
+          "error": "no method with body named maybeDeclareQualifiedName"
+        }
+      ]
+    },
+    "d_cyclomatic": null,
+    "d_stmts": null,
+    "d_branch_points": null,
+    "d_cfg_edges": null,
+    "d_defuse_pairs": null,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 14,
+      "n_candidate_warnings": 14,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 10,
+      "n_changed_class_files_candidate": 10,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Closure__patch1-Closure-48-AVATAR-plausible",
+    "bug_id": "Closure-48",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}
