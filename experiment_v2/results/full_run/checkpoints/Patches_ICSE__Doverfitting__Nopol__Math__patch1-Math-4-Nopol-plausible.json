@@ -1,0 +1,197 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__Nopol__Math__patch1-Math-4-Nopol-plausible",
+  "bug_id": "Math-4",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 68.979
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 1.181
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 2.03
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 1.586
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 0.688
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 128.416
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__Nopol__Math__patch1-Math-4-Nopol-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 0,
+    "s_sem_final": null,
+    "decision": null,
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 0.3604041620019416,
+        "attempts": 1,
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLrB4fSiuZ8p54gems3M'}"
+      },
+      {
+        "run": 1,
+        "latency_s": 0.3196309660015686,
+        "attempts": 1,
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLrB6438oV6MxEuTbm1k'}"
+      },
+      {
+        "run": 2,
+        "latency_s": 0.33026966499892296,
+        "attempts": 1,
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLrB7Sd6DtTgB3m1S1jC'}"
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__Nopol__Math__patch1-Math-4-Nopol-plausible",
+    "bug_id": "Math-4",
+    "model": "claude-haiku-4-5",
+    "latency_s": 0.3640287609996449,
+    "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLrBECBELcsnzigAUrmJ'}",
+    "context_errors": [],
+    "input_tokens": null,
+    "output_tokens": null,
+    "tests": []
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__Nopol__Math__patch1-Math-4-Nopol-plausible",
+    "true_project": "Math",
+    "true_bug_number": "4",
+    "model": "claude-haiku-4-5",
+    "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLrBFmvxJb73qiLUoPzj'}",
+    "input_tokens": null,
+    "output_tokens": null
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__Nopol__Math__patch1-Math-4-Nopol-plausible",
+    "bug_id": "Math-4",
+    "s_edit_ast": 0.425,
+    "s_edit_ast_actions": 34,
+    "s_edit_ast_nodes": 80,
+    "s_edit_error": null,
+    "s_vuln_changed": 1.0,
+    "s_vuln_new_warning_count": 2,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "org/apache/commons/math3/geometry/euclidean/twod/Line"
+    ],
+    "analysis_level": "DATAFLOW",
+    "cfg_buggy": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 32,
+      "cfg_edges": 31,
+      "branch_points": 1,
+      "cyclomatic_complexity": 1,
+      "def_count": 28,
+      "use_count": 74,
+      "defuse_pairs": 28,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math3.geometry.euclidean.twod.Line",
+          "method": "intersection",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 32,
+          "cfg_edges": 31,
+          "branch_points": 1,
+          "cyclomatic_complexity": 1,
+          "def_count": 28,
+          "use_count": 74,
+          "defuse_pairs": 28,
+          "error": null
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "DATAFLOW",
+      "stmts": 41,
+      "cfg_edges": 43,
+      "branch_points": 4,
+      "cyclomatic_complexity": 4,
+      "def_count": 34,
+      "use_count": 98,
+      "defuse_pairs": 34,
+      "per_method": [
+        {
+          "class": "org.apache.commons.math3.geometry.euclidean.twod.Line",
+          "method": "intersection",
+          "analysis_level": "DATAFLOW",
+          "n_methods": 1,
+          "stmts": 41,
+          "cfg_edges": 43,
+          "branch_points": 4,
+          "cyclomatic_complexity": 4,
+          "def_count": 34,
+          "use_count": 98,
+          "defuse_pairs": 34,
+          "error": null
+        }
+      ]
+    },
+    "d_cyclomatic": 3,
+    "d_stmts": 9,
+    "d_branch_points": 3,
+    "d_cfg_edges": 12,
+    "d_defuse_pairs": 6,
+    "vuln_detail": {
+      "s_vuln": 1.0,
+      "new_warnings": [
+        {
+          "bug_type": "RpC",
+          "category": "C",
+          "priority": "H",
+          "severity": "HIGH",
+          "class": "Line",
+          "method": "intersection",
+          "location": "Line.java:line 200",
+          "description": "Repeated conditional test in org.apache.commons.math3.geometry.euclidean.twod.Line.intersection(Line)"
+        },
+        {
+          "bug_type": "FE",
+          "category": "D",
+          "priority": "H",
+          "severity": "HIGH",
+          "class": "Line",
+          "method": "intersection",
+          "location": "Line.java:line 200",
+          "description": "Test for floating point equality in org.apache.commons.math3.geometry.euclidean.twod.Line.intersection(Line)"
+        }
+      ],
+      "n_buggy_warnings": 684,
+      "n_candidate_warnings": 686,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 3,
+      "n_changed_class_files_candidate": 3,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__Nopol__Math__patch1-Math-4-Nopol-plausible",
+    "bug_id": "Math-4",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": false,
+    "error": ""
+  }
+}

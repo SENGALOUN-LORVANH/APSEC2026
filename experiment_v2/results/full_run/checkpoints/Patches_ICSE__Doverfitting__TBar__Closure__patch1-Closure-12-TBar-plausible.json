@@ -1,0 +1,176 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__TBar__Closure__patch1-Closure-12-TBar-plausible",
+  "bug_id": "Closure-12",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 81.81
+    },
+    "fingerprint": {
+      "ok": true,
+      "seconds": 0.865
+    },
+    "semantic": {
+      "ok": true,
+      "seconds": 1.694
+    },
+    "counterexample": {
+      "ok": true,
+      "seconds": 1.349
+    },
+    "memorization": {
+      "ok": true,
+      "seconds": 0.388
+    },
+    "stage2b": {
+      "ok": true,
+      "seconds": 47.269
+    }
+  },
+  "complete": true,
+  "terminal_failure": null,
+  "semantic": {
+    "patch_id": "Patches_ICSE__Doverfitting__TBar__Closure__patch1-Closure-12-TBar-plausible",
+    "condition": "C",
+    "model": "claude-haiku-4-5",
+    "n_runs": 3,
+    "n_parsed": 0,
+    "s_sem_final": null,
+    "decision": null,
+    "ground_truth_label": null,
+    "context_errors": [],
+    "runs": [
+      {
+        "run": 0,
+        "latency_s": 0.35323342199990293,
+        "attempts": 1,
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLrruJF2pFapSz3wG6Bt'}"
+      },
+      {
+        "run": 1,
+        "latency_s": 0.3320023199994466,
+        "attempts": 1,
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLrrvhaTmJ4papxo65zg'}"
+      },
+      {
+        "run": 2,
+        "latency_s": 0.34605952100173454,
+        "attempts": 1,
+        "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLrrx9tjUWH76sRHMuAX'}"
+      }
+    ]
+  },
+  "counterexample": {
+    "patch_id": "Patches_ICSE__Doverfitting__TBar__Closure__patch1-Closure-12-TBar-plausible",
+    "bug_id": "Closure-12",
+    "model": "claude-haiku-4-5",
+    "latency_s": 0.3208897190015705,
+    "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLrs45LPXQt3ntvdf7t5'}",
+    "context_errors": [],
+    "input_tokens": null,
+    "output_tokens": null,
+    "tests": []
+  },
+  "memorization": {
+    "patch_id": "Patches_ICSE__Doverfitting__TBar__Closure__patch1-Closure-12-TBar-plausible",
+    "true_project": "Closure",
+    "true_bug_number": "12",
+    "model": "claude-haiku-4-5",
+    "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CfLrs5cMiX4xpjsZ5DSEZ'}",
+    "input_tokens": null,
+    "output_tokens": null
+  },
+  "stage2b": {
+    "patch_id": "Patches_ICSE__Doverfitting__TBar__Closure__patch1-Closure-12-TBar-plausible",
+    "bug_id": "Closure-12",
+    "s_edit_ast": 0.1485148514851485,
+    "s_edit_ast_actions": 15,
+    "s_edit_ast_nodes": 101,
+    "s_edit_error": null,
+    "s_vuln_changed": 0,
+    "s_vuln_new_warning_count": 0,
+    "s_vuln_buggy_error": null,
+    "s_vuln_candidate_error": null,
+    "changed_classes": [
+      "com/google/javascript/jscomp/FlowSensitiveInlineVariables"
+    ],
+    "analysis_level": "FAILED",
+    "cfg_buggy": {
+      "analysis_level": "FAILED",
+      "stmts": 0,
+      "cfg_edges": 0,
+      "branch_points": 0,
+      "cyclomatic_complexity": 0,
+      "def_count": 0,
+      "use_count": 0,
+      "defuse_pairs": 0,
+      "per_method": [
+        {
+          "class": "com.google.javascript.jscomp.FlowSensitiveInlineVariables",
+          "method": "apply",
+          "analysis_level": "FAILED",
+          "n_methods": 0,
+          "stmts": 0,
+          "cfg_edges": 0,
+          "branch_points": 0,
+          "cyclomatic_complexity": 0,
+          "def_count": 0,
+          "use_count": 0,
+          "defuse_pairs": 0,
+          "error": "no method with body named apply"
+        }
+      ]
+    },
+    "cfg_candidate": {
+      "analysis_level": "FAILED",
+      "stmts": 0,
+      "cfg_edges": 0,
+      "branch_points": 0,
+      "cyclomatic_complexity": 0,
+      "def_count": 0,
+      "use_count": 0,
+      "defuse_pairs": 0,
+      "per_method": [
+        {
+          "class": "com.google.javascript.jscomp.FlowSensitiveInlineVariables",
+          "method": "apply",
+          "analysis_level": "FAILED",
+          "n_methods": 0,
+          "stmts": 0,
+          "cfg_edges": 0,
+          "branch_points": 0,
+          "cyclomatic_complexity": 0,
+          "def_count": 0,
+          "use_count": 0,
+          "defuse_pairs": 0,
+          "error": "no method with body named apply"
+        }
+      ]
+    },
+    "d_cyclomatic": null,
+    "d_stmts": null,
+    "d_branch_points": null,
+    "d_cfg_edges": null,
+    "d_defuse_pairs": null,
+    "vuln_detail": {
+      "s_vuln": 0,
+      "new_warnings": [],
+      "n_buggy_warnings": 7,
+      "n_candidate_warnings": 7,
+      "scope": "changed_classes",
+      "n_changed_class_files_buggy": 9,
+      "n_changed_class_files_candidate": 9,
+      "buggy_error": null,
+      "candidate_error": null
+    }
+  },
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__TBar__Closure__patch1-Closure-12-TBar-plausible",
+    "bug_id": "Closure-12",
+    "patch_applies": true,
+    "patch_compiles": true,
+    "original_tests_pass": true,
+    "error": ""
+  }
+}
