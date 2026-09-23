@@ -1,0 +1,25 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__Nopol__Lang__patch1-Lang-51-Nopol-plausible",
+  "bug_id": "Lang-51",
+  "model": "claude-haiku-4-5",
+  "stages": {
+    "apply_patch": {
+      "ok": true,
+      "seconds": 1.153
+    }
+  },
+  "complete": false,
+  "terminal_failure": "apply_patch",
+  "semantic": null,
+  "counterexample": null,
+  "memorization": null,
+  "stage2b": null,
+  "patch_status": {
+    "patch_id": "Patches_ICSE__Doverfitting__Nopol__Lang__patch1-Lang-51-Nopol-plausible",
+    "bug_id": "Lang-51",
+    "patch_applies": false,
+    "patch_compiles": "NA",
+    "original_tests_pass": "NA",
+    "error": "dry-run failed: checking file src/java/org/apache/commons/lang/BooleanUtils.java\nHunk #1 FAILED at 671.\n1 out of 1 hunk FAILED\n"
+  }
+}
