@@ -15,3 +15,6 @@ results/full_run/semantic_runs/
 results/full_run/counterexample_runs/
 results/full_run/stage2b/
 results/full_run/*.tmp.*
+# stray Java user-prefs cache created by a subprocess whose user.home was unresolved ("?")
+/?/
+.java/
