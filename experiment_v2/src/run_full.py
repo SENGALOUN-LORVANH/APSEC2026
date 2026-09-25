@@ -58,6 +58,26 @@ STATUS_LOCK = threading.Lock()   # serialize read-modify-write of the two shared
 PROGRESS_LOCK = threading.Lock()
 _progress = {"done": 0, "failed": 0, "total": 0}
 
+# FAIL-FAST on credit/billing exhaustion. The first run silently wrote 580 empty checkpoints because a
+# per-run billing error was swallowed into a null-score semantic result and the stage still looked "ok".
+# Now: any billing/credit error anywhere raises BillingAbort, which stops the whole run immediately and
+# writes NO checkpoint for the aborted patch (so it is redone after a top-up). See DEVIATIONS #15.
+BILLING_ABORT = threading.Event()
+
+
+class BillingAbort(Exception):
+    pass
+
+
+def _is_billing_error(s):
+    e = str(s or "").lower()
+    return ("credit balance" in e or "billing" in e
+            or ("insufficient" in e and "credit" in e))
+
+
+def _sem_has_billing(sem):
+    return bool(sem) and any(_is_billing_error(r.get("error")) for r in sem.get("runs", []))
+
 
 # ----------------------------------------------------------------- helpers
 def _truthy(v):
@@ -73,6 +93,22 @@ def ckpt_path(patch_id):
     return CKPT_DIR / f"{patch_id}.json"
 
 
+def _checkpoint_is_done(d):
+    """A patch is done only if it terminally failed to apply, OR every LLM arm produced a real result:
+    semantic has a non-null s_sem_final with no billing error, counterexample ran without an API error, and
+    memorization ran without an API error, and no stage raised. This is re-derived from the sub-results (not
+    the stored `complete` flag) so the 580 credit-corrupted checkpoints from the first run -- which were
+    wrongly written complete=True with a null semantic score -- are correctly re-run on resume."""
+    if d.get("terminal_failure") is not None:
+        return True
+    sem, cex, memo = d.get("semantic"), d.get("counterexample"), d.get("memorization")
+    sem_ok = bool(sem) and sem.get("s_sem_final") is not None and not _sem_has_billing(sem)
+    cex_ok = bool(cex) and not cex.get("error")
+    memo_ok = bool(memo) and not memo.get("error")
+    stages_ok = bool(d.get("stages")) and all(v.get("ok") for v in d["stages"].values())
+    return sem_ok and cex_ok and memo_ok and stages_ok
+
+
 def is_done(patch_id):
     p = ckpt_path(patch_id)
     if not p.exists():
@@ -81,7 +117,7 @@ def is_done(patch_id):
         d = json.loads(p.read_text())
     except Exception:
         return False  # corrupt/partial checkpoint -> redo
-    return bool(d.get("complete")) or d.get("terminal_failure") is not None
+    return _checkpoint_is_done(d)
 
 
 def _atomic_write_json(path, obj):
@@ -173,29 +209,42 @@ def run_one_patch(bug_id, patch_id):
     if sem is not None:
         log["semantic"] = sem
         _atomic_write_json(SEM_DIR / f"{patch_id}.json", sem)
+        if _sem_has_billing(sem):
+            raise BillingAbort(f"semantic billing error on {patch_id}")
 
     cex = _stage(log, "counterexample", oracle_runner.run_counterexamples, patch_id, MODEL)
     if cex is not None:
         log["counterexample"] = cex
         _atomic_write_json(CEX_DIR / f"{patch_id}.json", cex)
+        if _is_billing_error(cex.get("error")):
+            raise BillingAbort(f"counterexample billing error on {patch_id}")
 
     probe = _stage(log, "memorization", memorization.run_probe, patch_id, MODEL)
     if probe is not None:
         log["memorization"] = probe
+        if _is_billing_error(probe.get("error")):
+            raise BillingAbort(f"memorization billing error on {patch_id}")
 
     s2b = _stage(log, "stage2b", stage2b.run_one, patch_id, bug_id)
     if s2b is not None:
         log["stage2b"] = s2b
         _atomic_write_json(S2B_DIR / f"{patch_id}.json", s2b)
 
-    # "complete" == every stage ran to a value. A stage that errored (e.g. transient API) leaves complete False
-    # so a rerun with --retry-errors can redo it; a hard apply failure is terminal above.
-    log["complete"] = all(v.get("ok") for v in log["stages"].values())
+    # complete == every stage raised no exception AND every LLM arm produced a real result (semantic has a
+    # non-null score, counterexample and memorization carry no API error). A null/errored arm leaves complete
+    # False so is_done() re-runs the patch; a hard apply failure is terminal above.
+    stages_ok = all(v.get("ok") for v in log["stages"].values())
+    sem_ok = bool(sem) and sem.get("s_sem_final") is not None
+    cex_ok = bool(cex) and not cex.get("error")
+    memo_ok = bool(probe) and not probe.get("error")
+    log["complete"] = bool(stages_ok and sem_ok and cex_ok and memo_ok)
     return log
 
 
 def process_bug_group(bug_id, patches, retry_errors):
     """Checkout once, then run each not-yet-done patch of the bug sequentially."""
+    if BILLING_ABORT.is_set():
+        return
     to_do = [p for p in patches if not is_done(p) or (retry_errors and _has_stage_error(p))]
     if not to_do:
         return
@@ -210,8 +259,17 @@ def process_bug_group(bug_id, patches, retry_errors):
             print(f"[FAIL checkout] {bug_id} :: {patch_id}", flush=True)
         return
     for patch_id in to_do:
+        if BILLING_ABORT.is_set():
+            return
         t0 = time.perf_counter()
-        log = run_one_patch(bug_id, patch_id)
+        try:
+            log = run_one_patch(bug_id, patch_id)
+        except BillingAbort as e:
+            # Do NOT write a checkpoint: a billing failure is not a result. Signal every worker to stop so no
+            # further empty checkpoints are produced; the patch is redone after the credit top-up.
+            BILLING_ABORT.set()
+            print(f"[BILLING-ABORT] {patch_id}: {e} -- stopping the whole run (no checkpoint written)", flush=True)
+            return
         _atomic_write_json(ckpt_path(patch_id), log)
         if log["complete"]:
             _bump("done")
@@ -251,7 +309,31 @@ def _maybe_progress_summary():
 
 
 # ----------------------------------------------------------------- drivers
-def run(workers, only, retry_errors):
+def preflight_balance_check():
+    """One cheap GUARDED call (request_builders -> leakage_guard -> llm_client) before any work, so a run
+    started with an empty balance aborts immediately instead of writing hundreds of empty checkpoints.
+    Returns True if the API answered; False (with a printed reason) on a billing/credit error."""
+    import anthropic
+    client = anthropic.Anthropic()
+    probe_patch = "Patches_ICSE__Ddifferent__ACS__Chart__patch1-Chart-19-ACS"
+    try:
+        req, _ = semantic.build_request(probe_patch, "C")
+    except Exception as e:  # noqa: BLE001 - a build failure shouldn't gate the run
+        print(f"preflight: could not build probe request ({e}); skipping balance check", flush=True)
+        return True
+    import llm_client
+    resp, _lat, attempts, _s, err = llm_client.send(client, req, MODEL, max_retries=2)
+    if _is_billing_error(err) or (err and resp is None):
+        print(f"PREFLIGHT BALANCE CHECK FAILED (attempts={attempts}): {err}\n"
+              f"Refusing to start -- top up credit, then resume with the same command.", flush=True)
+        return False
+    print(f"preflight balance check OK (attempts={attempts})", flush=True)
+    return True
+
+
+def run(workers, only, retry_errors, skip_preflight=False):
+    if not skip_preflight and not preflight_balance_check():
+        raise SystemExit(2)
     for d in (CKPT_DIR, SEM_DIR, CEX_DIR, S2B_DIR):
         d.mkdir(parents=True, exist_ok=True)
     patches = load_primary_patches()
@@ -283,32 +365,62 @@ def run(workers, only, retry_errors):
                 print(f"[BUG-ERROR] {bug_id}: {type(e).__name__}: {e}", flush=True)
                 traceback.print_exc()
     with PROGRESS_LOCK:
+        tail = " (STOPPED EARLY ON BILLING ABORT -- top up credit and resume)" if BILLING_ABORT.is_set() else ""
         print(f"\nFULL RUN PASS COMPLETE: done={_progress['done']} failed/incomplete={_progress['failed']} "
-              f"of {total}", flush=True)
+              f"of {total}{tail}", flush=True)
+    if BILLING_ABORT.is_set():
+        raise SystemExit(3)
 
 
 def status():
+    """Re-derived status (does not trust the stored `complete` flag): counts patches that are genuinely done
+    vs the ones a resume will redo, broken down by reason so the technical-exclusion table is auditable."""
     patches = load_primary_patches()
-    done = complete = incomplete = terminal = 0
+    n_ckpt = done = terminal = 0
+    to_redo = {"null_semantic": 0, "semantic_billing": 0, "cex_error": 0, "cex_billing": 0,
+               "cex_invalid_request": 0, "memo_error": 0, "stage_exception": 0, "no_checkpoint": 0}
+    redo_patches = []
     for r in patches:
         p = ckpt_path(r["patch_id"])
         if not p.exists():
+            to_redo["no_checkpoint"] += 1
+            redo_patches.append(r["patch_id"])
             continue
-        done += 1
+        n_ckpt += 1
         try:
             d = json.loads(p.read_text())
         except Exception:
-            incomplete += 1
+            to_redo["stage_exception"] += 1
+            redo_patches.append(r["patch_id"])
             continue
-        if d.get("complete"):
-            complete += 1
-        elif d.get("terminal_failure"):
+        if d.get("terminal_failure") is not None:
             terminal += 1
+            continue
+        if _checkpoint_is_done(d):
+            done += 1
+            continue
+        redo_patches.append(r["patch_id"])
+        sem, cex, memo = d.get("semantic"), d.get("counterexample"), d.get("memorization")
+        if _sem_has_billing(sem):
+            to_redo["semantic_billing"] += 1
+        elif not sem or sem.get("s_sem_final") is None:
+            to_redo["null_semantic"] += 1
+        elif cex and _is_billing_error(cex.get("error")):
+            to_redo["cex_billing"] += 1
+        elif cex and "invalid request" in str(cex.get("error") or "").lower():
+            to_redo["cex_invalid_request"] += 1
+        elif cex and cex.get("error"):
+            to_redo["cex_error"] += 1
+        elif memo and memo.get("error"):
+            to_redo["memo_error"] += 1
         else:
-            incomplete += 1
-    print(json.dumps({"total_primary": len(patches), "checkpoints": done, "complete": complete,
-                      "terminal_failure": terminal, "incomplete_stage_error": incomplete,
-                      "remaining": len(patches) - done}, indent=2))
+            to_redo["stage_exception"] += 1
+    out = {"total_primary": len(patches), "checkpoints": n_ckpt, "done_valid": done,
+           "terminal_failure_apply": terminal, "to_redo_total": len(redo_patches),
+           "to_redo_breakdown": to_redo}
+    print(json.dumps(out, indent=2))
+    (FULL_DIR / "redo_patch_ids.txt").write_text("\n".join(redo_patches))
+    print(f"(wrote {len(redo_patches)} patch ids to {FULL_DIR / 'redo_patch_ids.txt'})")
 
 
 def main():
@@ -318,6 +430,7 @@ def main():
     ap.add_argument("--retry-errors", action="store_true", help="also redo checkpoints that have a stage error")
     ap.add_argument("--consolidate", action="store_true")
     ap.add_argument("--status", action="store_true")
+    ap.add_argument("--skip-preflight", action="store_true", help="skip the pre-run balance check (tests)")
     args = ap.parse_args()
 
     if args.status:
@@ -328,7 +441,7 @@ def main():
         consolidate_full.consolidate()
         return
     only = [s for s in args.only.split(",") if s.strip()] if args.only else None
-    run(args.workers, only, args.retry_errors)
+    run(args.workers, only, args.retry_errors, skip_preflight=args.skip_preflight)
 
 
 if __name__ == "__main__":
