@@ -5,7 +5,8 @@
     "positive_class": "overfitting",
     "n": 48,
     "base_rate_overfitting": 0.5,
-    "note": "PRELIMINARY ENGINEERING PILOT -- n is small and LOPO folds are tiny; not a paper result. Detection is per-method per protocol.yaml, replacing the earlier placeholder PVS*<0.5.",
+    "cv_scheme": "lopo_per_project",
+    "note": "Detection is per-method per protocol.yaml, replacing the earlier placeholder PVS*<0.5.",
     "methods": {
       "M0_majority": {
         "precision": 0.42105263157894735,
