@@ -1,0 +1,11 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__RSRepair__Chart__patch1-Chart-25-RSRepair-plausible",
+  "bug_id": "Chart-25",
+  "error": "",
+  "hashes": [
+    "1a101bc9b5b4d0eb263dc4a4f98a88ac9ba585d5a9e537d027988c44768961e2",
+    "1ca47985cedc860791b6e32b32bc57976174f0e05251ab5f0ac0aa2f42b4b34c",
+    "9539e5a6e03b52087db038585e734deceaf3439463e53425e0f0c18dbc61ed84",
+    "9e314cfee1660b9c520c56715ad6326de6d4880c0bba14e8c1d7b5197a174466"
+  ]
+}

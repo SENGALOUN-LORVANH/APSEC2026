@@ -1,0 +1,14 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__Kali__Closure__patch1-Closure-127-Kali-plausible",
+  "bug_id": "Closure-127",
+  "error": "",
+  "hashes": [
+    "1004a4206b940ba3e7f9fee5e6c08fb95da24cfeb26b8ca08a838d08077df326",
+    "10e0fa08a73f0cd151617165a96e7df8c8d14ecfc63d6f1f343559f16198939f",
+    "837d18ca1b8513f006092899dda4351250192ac8fbc70f6386794e542b34b32c",
+    "98995efa6289021ea602552c79d97a4f0423311a5b68cc63e24fa22b7ffc7c8c",
+    "c4f59c72dfe33c846010ae0e494230a70b107c499d427e93d90964c2c38679cd",
+    "dabbdf16b8204c2b7217958e893ae2d600d2f01a226e3e0d8e7d1ef950819832",
+    "e941227899523b69fc1f5ec0c373b1a5f291efe96e0b577c069e1def1aee364c"
+  ]
+}

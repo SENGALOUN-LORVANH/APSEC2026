@@ -1,0 +1,11 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__jMutRepair__Lang__patch1-Lang-22-jMutRepair-plausible",
+  "bug_id": "Lang-22",
+  "error": "",
+  "hashes": [
+    "2be5099711e171cb19f5ee78f75d9b42bb55bc7e70a2db993e7e1c90bf4968e7",
+    "84cfe6f78ac8c968937ec43b7eb83c996a6845d784da8f7ce02225163f4c66df",
+    "8e65718af436996cc942f579a062a030ba4d99cb439f628a1bcfb7e62ce87ad9",
+    "c94da2216f72e54323520e03416c0e286d852433d8549764d813b728d52c4bf4"
+  ]
+}

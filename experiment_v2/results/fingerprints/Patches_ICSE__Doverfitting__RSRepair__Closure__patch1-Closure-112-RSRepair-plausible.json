@@ -1,0 +1,12 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__RSRepair__Closure__patch1-Closure-112-RSRepair-plausible",
+  "bug_id": "Closure-112",
+  "error": "",
+  "hashes": [
+    "269e17c81e9575700d2c6f32ef73ffcd7beda9beed14f8c07cb48be42ab84f78",
+    "2deb241ddf1018809b122ead3bc669af5a7c50440dc2409acb65588da7cac48c",
+    "4b4056e0d3f718a8aa129ee268a26adff325ff3c852b74f150bb8f80dff972d7",
+    "4eb7abdeb65ba2660eb75f95123e6a00909e4398be9b2975e6241bb10f91a42f",
+    "d43b17361950f400e7b19f39b875844ecf8d579b1c3df2bf4af155ea2a672489"
+  ]
+}

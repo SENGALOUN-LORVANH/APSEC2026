@@ -1,0 +1,10 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__jMutRepair__Math__patch1-Math-52-jMutRepair-plausible",
+  "bug_id": "Math-52",
+  "error": "",
+  "hashes": [
+    "86d0968ee116e15f8b1564ea13d64d535de37d126ef9698edb50f1096e8e8596",
+    "d283444a869865d65fe4b13f0643b6d52f09601a79f377154bbd7b47f72ee29b",
+    "effe4bac5036d9d435998b83f3427237a8af4949d2a0a27a1cd6db99ea315af9"
+  ]
+}

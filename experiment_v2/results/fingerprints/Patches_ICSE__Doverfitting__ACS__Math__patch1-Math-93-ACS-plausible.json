@@ -1,0 +1,11 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__ACS__Math__patch1-Math-93-ACS-plausible",
+  "bug_id": "Math-93",
+  "error": "",
+  "hashes": [
+    "301e14090b6b39000ebecfc34437c5557446fdf024c592f14f3f2944f14a8575",
+    "8064e6b90595141a53a35c53924bd01869e3f5d2243fe36552bc5d1bac860d9d",
+    "92c642b6bfb9a828831b00e727919ddb8abf279eacc39f8886511d7f25b8eb38",
+    "f7d70849bd7120bfc5f6d840ac03aeeca29e6b67fe2ff0f623d5b6b33f19a37a"
+  ]
+}

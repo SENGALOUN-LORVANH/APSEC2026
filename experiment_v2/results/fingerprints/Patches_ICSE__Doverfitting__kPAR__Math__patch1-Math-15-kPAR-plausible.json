@@ -1,0 +1,9 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__kPAR__Math__patch1-Math-15-kPAR-plausible",
+  "bug_id": "Math-15",
+  "error": "",
+  "hashes": [
+    "d39067b94bb68428822f692ed68142404d477c13333222a9975687bf24096d58",
+    "d755b57b3136e3b9824b04c8ae9a3e227c980656852675cdee94f1ccecf6c3f5"
+  ]
+}

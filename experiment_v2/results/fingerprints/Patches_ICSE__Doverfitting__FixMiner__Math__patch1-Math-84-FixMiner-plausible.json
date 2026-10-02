@@ -1,0 +1,13 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__FixMiner__Math__patch1-Math-84-FixMiner-plausible",
+  "bug_id": "Math-84",
+  "error": "",
+  "hashes": [
+    "1a9a2c356d09fa4a581754d7c79500b0ba85e07d16f8c918c03fa51746a952c2",
+    "359e587aca32564f59d2714c9d472cabad2e3fdcbd96d2bb02f661179a49d314",
+    "79f99e1129239a576e8ab25b51f05be638cb18ddf7c9ed39c7831f1d5a764bce",
+    "ccfb200eac1eddd463b19387ac0c4951bb3050996e8338931aa7a23a8bebb40a",
+    "cfb78ea62d0c029dbee31f34d8fb1386ed396c9b7842e0ccbff16be8e8bfada3",
+    "e8510bb14fcc61bf9d6cd4918946236c7a6a5faa58759a9ee71062b1e7adfbc8"
+  ]
+}

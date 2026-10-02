@@ -1,0 +1,9 @@
+{
+  "patch_id": "Patches_others__Dcorrect__CapGen__Math__patch1-Math-65-CapGen",
+  "bug_id": "Math-65",
+  "error": "",
+  "hashes": [
+    "b8b33d2ec877ce2e1ec622d381f62c43aa561fc1f0e450ce531bd89d1ed13922",
+    "ef766259b7b97d04e1e3e46db1373fbfaa4ebf5491e7d690a743f1ec3fa44147"
+  ]
+}

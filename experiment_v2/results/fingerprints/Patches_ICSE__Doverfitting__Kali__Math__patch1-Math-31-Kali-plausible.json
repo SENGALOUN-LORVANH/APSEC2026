@@ -1,0 +1,14 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__Kali__Math__patch1-Math-31-Kali-plausible",
+  "bug_id": "Math-31",
+  "error": "",
+  "hashes": [
+    "1fa3dace761e84a4d848c6c57f4b58689e0f69d7022e7c2a8d3b6f3e6a5d03fd",
+    "7d7317e204cf9db59387e42fc8cf701c4178480a5f207aa050a4988ce6e5dbab",
+    "8f4b63136d4bf05e79eb1083d90b257c1e28da3087bc84383f9d08d56fd3d827",
+    "ad34490ac4735d10533b155aafb9830ee9e805a69fb443de52da32d1fca41476",
+    "b5d4f0ef4debc8215a49dc7a2a04b3902f15c287f7b5921da5ce16d473c2a09f",
+    "ba346e54a44b4614636c2ab57d90e565c04c46d19d46f40cee5cdd5fa08dc91f",
+    "e302d3f6e149d378fb9d085de66d69a2dc501d4fc3fcc750272d0e6d92c911eb"
+  ]
+}

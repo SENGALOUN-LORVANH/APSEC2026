@@ -1,0 +1,9 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__kPAR__Math__patch1-Math-8-kPAR-plausible",
+  "bug_id": "Math-8",
+  "error": "",
+  "hashes": [
+    "43ddb38fc37807345bc46410185c5affe94ba349b7f23450d99731457a4e8778",
+    "c5c1499e652772aafc3517f4690ad2edac98120f880c92b13bd890216899e3c2"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__TBar__Math__patch1-Math-62-TBar-plausible",
+  "bug_id": "Math-62",
+  "error": "",
+  "hashes": [
+    "4227cdda30e282aa9e1aab9cb10b4c921e9715bee8176438256c44976431b93b",
+    "4aa7fb3793726f026d7852ec730cca5cf4e89eb25cc6769d5030cc026eb357f9",
+    "c45a1b4b61f5e9ad88fa4103c95f1c3318638691f245860ed70735cb3a618607"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__kPAR__Math__patch1-Math-81-kPAR-plausible",
+  "bug_id": "Math-81",
+  "error": "",
+  "hashes": [
+    "0bfb800f5161cb6bd95f2bc3126e599f1a88f5ef05561b5fbadb8bad256d6337",
+    "73e075cbdeb2f62d895a4a261b656ce60dda9051eb524a68b3be5eb0026f48f1",
+    "af90940f027b26b55df3e573a5a357aec91d80dfc879012dcb9b1d4237471564"
+  ]
+}

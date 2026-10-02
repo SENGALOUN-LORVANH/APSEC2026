@@ -1,0 +1,11 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Closure__patch1-Closure-108-AVATAR-plausible",
+  "bug_id": "Closure-108",
+  "error": "",
+  "hashes": [
+    "06159af9adafc633ea9338c9ad97c37cd457f0581ad677234c974d52cb536629",
+    "25f73adc20fb082410d5cdeb378737fc48ddd00d05058ed34ff30baf9be8d47a",
+    "865cf9cacea42ce0eaa8533532951a288a96175e0acd39488419f2fb32a7fa72",
+    "c509595bc83523e6d6575c041b4453442ba9d73b52a9dcc101b4c095a3f2c694"
+  ]
+}

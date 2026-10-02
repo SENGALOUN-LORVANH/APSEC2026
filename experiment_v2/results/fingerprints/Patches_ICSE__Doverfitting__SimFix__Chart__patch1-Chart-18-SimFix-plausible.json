@@ -1,0 +1,9 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__SimFix__Chart__patch1-Chart-18-SimFix-plausible",
+  "bug_id": "Chart-18",
+  "error": "",
+  "hashes": [
+    "06109efc159547bb32ca4261de955be5731bbd5d04740d7022a782d48282634e",
+    "6799d15c9cf5fa79451b9185ebac0736355d36438d603da23acc07ee1c52fd82"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__AVATAR__Math__patch1-Math-95-AVATAR-plausible",
+  "bug_id": "Math-95",
+  "error": "",
+  "hashes": [
+    "997f44cbc5a1a0990a64ee5c31ffb3c0eeeb2e388f8d6fd0d440a6123d28a8da",
+    "a9cc6d3977d4950fcc03b394c9b7be5b8eaaf9ce63f15a19213fa8604236c11d"
+  ]
+}

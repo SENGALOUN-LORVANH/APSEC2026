@@ -1,0 +1,9 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__DynaMoth__Math__patch1-Math-20-DynaMoth-plausible",
+  "bug_id": "Math-20",
+  "error": "",
+  "hashes": [
+    "09df5d6e88a5ee9fe68f02c95c746c18553df2b4c25b7c1c9645713650ae95be",
+    "32eeae940e7233ee1dde5cd0d3476e8f68ceb2fd2c58cd7e49aa56652a49a1a4"
+  ]
+}

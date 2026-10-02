@@ -1,0 +1,9 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__Nopol__Math__patch1-Math-87-Nopol-plausible",
+  "bug_id": "Math-87",
+  "error": "",
+  "hashes": [
+    "4d2537b073a5f3d213d773827f7e62b0ed1e61a6531043c171fb5da8196c55df",
+    "f5c74cef122d8dda3923264092306464db96e8b36cef73df1dd0c74ee23e6c6d"
+  ]
+}

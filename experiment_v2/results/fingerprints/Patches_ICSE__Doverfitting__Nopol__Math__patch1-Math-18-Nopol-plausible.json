@@ -1,0 +1,13 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__Nopol__Math__patch1-Math-18-Nopol-plausible",
+  "bug_id": "Math-18",
+  "error": "",
+  "hashes": [
+    "2f820aa661d3fecea470ce3a6c98f46daa16e97d0e313e968b21c32b7c052de1",
+    "9c997b7ca516285b97b604903dade3f58d61b59e693909aaa8d24d529a66eb75",
+    "bc2acc9613e71152535b1c5c7069a5670fc453ccdbf56a0c7ce8e0cbefa01879",
+    "c35523caa901881edcddd928dc089b0fc98388d3204e38a5a50c71b2727f3ef0",
+    "eac0f59b493fc885c3d03acda345fb5a28d30dec1b6e1f5464f52cdf4b1fc386",
+    "f9b174fbd0be32da66f085e0757aafcc254f885e3f0bd6d31a96507dcd9076c9"
+  ]
+}

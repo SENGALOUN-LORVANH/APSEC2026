@@ -1,0 +1,13 @@
+{
+  "patch_id": "Patches_ICSE__Doverfitting__SimFix__Lang__patch1-Lang-1-SimFix-plausible",
+  "bug_id": "Lang-1",
+  "error": "",
+  "hashes": [
+    "0cd4be131d9d0da67919492445e5dc13ba1a3dc045226c06d0596392b79d1497",
+    "1de66e27d969dfa5b3f67654fed3f56afe40dd9951db9ef963d3c549e3e85164",
+    "7946ad9bae8dc62fc7f59badc5dbdfa7fb8612875e94d4de3f75f264f59df213",
+    "958ff1d31a67bd9abe578c8c67b42818a5e0759746858bb9bf1029e48e4f648e",
+    "967dee26e7c86bb13cfd79bc8ceee13e7ab270dc023012f1c521a4a128de0944",
+    "eb25542c8705157a1bedfa580f85f9ae93bcd05b1bdd3a39c360fcc5432d5abc"
+  ]
+}
